@@ -46,7 +46,7 @@ if options.cluster == 'kisti':
 Executable = reduce.sh
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
-Transfer_Input_Files = reduce.sh, /tmp/x509up_u556950957
+Transfer_Input_Files = reduce.sh, /tmp/x509up_u556951020
 Output = $ENV(FOLDER)/reduce_condor/out/$ENV(SAMPLE)_$ENV(VARIABLE)_$(Cluster)_$(Process).stdout
 Error = $ENV(FOLDER)/reduce_condor/err/$ENV(SAMPLE)_$ENV(VARIABLE)_$(Cluster)_$(Process).stderr
 Log = $ENV(FOLDER)/reduce_condor/log/$ENV(SAMPLE)_$ENV(VARIABLE)_$(Cluster)_$(Process).log
