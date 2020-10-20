@@ -43,7 +43,7 @@ if options.cluster == 'kisti':
 Executable = merge.sh
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
-Transfer_Input_Files = merge.sh, /tmp/x509up_u556950957
+Transfer_Input_Files = merge.sh, /tmp/x509up_u556951020
 Output = $ENV(FOLDER)/merge_condor/out/$ENV(VARIABLE)_$(Cluster)_$(Process).stdout
 Error = $ENV(FOLDER)/merge_condor/err/$ENV(VARIABLE)_$(Cluster)_$(Process).stderr
 Log = $ENV(FOLDER)/merge_condor/log/$ENV(VARIABLE)_$(Cluster)_$(Process).log
