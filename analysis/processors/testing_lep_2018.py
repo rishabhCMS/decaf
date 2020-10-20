@@ -596,5 +596,5 @@ if __name__ == '__main__':
 #                                         ids=ids,
 #                                         common=common)
 
-    save(processor_instance, 'data/lep_lowWpT_test'+options.year+'.processor')
-    print("processor have been cretaed inside folder data, the name of the processor is lep_lowWpT_test{}.processor".format(options.year))
+    save(processor_instance, 'data/lep_lowWpT'+options.year+'.processor')
+    print("processor have been cretaed inside folder data, the name of the processor is lep_lowWpT{}.processor".format(options.year))
