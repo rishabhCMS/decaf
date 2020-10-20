@@ -112,9 +112,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         dataset_name = events.metadata['dataset'].split('_')[0]
         dataset = events.metadata['dataset']
-        isData = True
+        isData = False
         if 'genWeight' not in events.columns:
-          isData = False
+          isData = True
 
         if not isData:
           gen = events.GenPart
