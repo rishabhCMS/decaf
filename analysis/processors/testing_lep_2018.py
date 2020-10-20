@@ -15,12 +15,12 @@ np.seterr(divide='ignore', invalid='ignore', over='ignore')
 
 
 class AnalysisProcessor(processor.ProcessorABC):
-    lumis = { #Values from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable                                                      
+    lumis = {  # Values from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
         '2016': 35.92,
         '2017': 41.53,
         '2018': 59.74
     }
-    
+
     def __init__(self, year, xsec, corrections):
         self._year = year
         self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
@@ -80,7 +80,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi', '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5),
+                hist.Bin(
+                    'dphi', '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5),
                 hist.Cat('syst', 'Systematic')),
 
             'cutflow': processor.defaultdict_accumulator(int)
@@ -104,9 +105,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         return self._accumulator
 
     def process(self, events):
-        #nlo corrections
+        # nlo corrections
 
-        get_nlo_qcd_weight      = self._corrections['get_nlo_qcd_weight'][self._year]
+        get_nlo_qcd_weight = self._corrections['get_nlo_qcd_weight'][self._year]
         # This gets us the accumulator dictionary we defined in init
         output = self.accumulator.identity()
 
@@ -114,36 +115,35 @@ class AnalysisProcessor(processor.ProcessorABC):
         dataset = events.metadata['dataset']
         isData = True
         if 'genWeight' not in events.columns:
-          isData = False
+            isData = False
 
         gen = events.GenPart
-        gen['isW'] = (abs(gen.pdgId)==24)&gen.hasFlags(['fromHardProcess', 'isLastCopy'])
+        gen['isW'] = (abs(gen.pdgId) == 24) & gen.hasFlags(
+            ['fromHardProcess', 'isLastCopy'])
         genWs = gen[gen.isW]
 
-
-
-        gen['isZ'] = (abs(gen.pdgId)==23)&gen.hasFlags(['fromHardProcess', 'isLastCopy'])
+        gen['isZ'] = (abs(gen.pdgId) == 23) & gen.hasFlags(
+            ['fromHardProcess', 'isLastCopy'])
         genZs = gen[gen.isZ]
 
-        genDYs = gen[gen.isZ&(gen.mass>30)]
+        genDYs = gen[gen.isZ & (gen.mass > 30)]
 
         nlo_qcd = np.ones(events.size)
         nlo_ewk = np.ones(events.size)
         if 'Gjets' in dataset:
-          pass
+            pass
 
-        elif('WJets' in dataset): 
-          nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
-          nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
+        elif('WJets' in dataset):
+            nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
+            nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
 
         elif('DY' in dataset):
-          nlo_qcd = get_nlo_qcd_weight['dy'](genDYs.pt.max())
-          nlo_ewk = get_nlo_ewk_weight['dy'](genDYs.pt.max())
+            nlo_qcd = get_nlo_qcd_weight['dy'](genDYs.pt.max())
+            nlo_ewk = get_nlo_ewk_weight['dy'](genDYs.pt.max())
 
         elif('ZJets' in dataset):
-          nlo_qcd = get_nlo_qcd_weight['z'](genZs.pt.max())
-          nlo_ewk = get_nlo_ewk_weight['z'](genZs.pt.max())
-
+            nlo_qcd = get_nlo_qcd_weight['z'](genZs.pt.max())
+            nlo_ewk = get_nlo_ewk_weight['z'](genZs.pt.max())
 
 
 #                 print("a JetHT dataset was found and the processor has excluded events with W_pT <100 GeV because we are trying to inspect the W+Jets Low pT sample")
@@ -373,7 +373,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         '''
 
         # predeclration just in cas I don't want the filter
-        selection.add("exclude_low_WpT_JetHT", np.full(events.size, True, dtype=np.bool))
+        selection.add("exclude_low_WpT_JetHT", np.full(
+            events.size, True, dtype=np.bool))
         if dataset_name == 'WJetsToLNu':
             if events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT':
                 GenPart = events.GenPart
@@ -392,15 +393,15 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         selection.add('DeltaR_LJ_mask',
                       (DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
-#***************adding weights kfactors in this case *******************
+# ***************adding weights kfactors in this case *******************
 
         weights = processor.Weights(len(events))
-        if 'L1PreFiringWeight' in events.columns: weights.add('prefiring',events.L1PreFiringWeight.Nom)
-        weights.add('nlo_qcd',nlo_qcd)
-        weights.add('nlo_ewk',nlo_ewk)
-        weights.add('genw',events.genWeight)
-        
-        
+        if 'L1PreFiringWeight' in events.columns:
+            weights.add('prefiring', events.L1PreFiringWeight.Nom)
+        weights.add('nlo_qcd', nlo_qcd)
+        weights.add('nlo_ewk', nlo_ewk)
+        weights.add('genw', events.genWeight)
+
         region = {
             'wecr': (selection.all(*('ele_triggers',
                                      'TightMet',
@@ -510,62 +511,64 @@ class AnalysisProcessor(processor.ProcessorABC):
             *('all_true', 'exactly_1_medium_btag'))].size
         output['cutflow']['DeltaR_LJ_Ele'] += events[selection.all(
             *('all_true', 'DeltaR_LJ_Ele'))].size
-        
 
         systList = ['nlo_qcd', 'nlo_ewk', 'genw', 'noweight', 'nominal']
         if isData:
-          systList = ['noweight']
+            systList = ['noweight']
 
         for syst in systList:
-          weightSyst = syst
-          if syst in ['nominal','JERUp','JERDown','JESUp','JESDown']:
-            weightSyst=None
+            weightSyst = syst
+            if syst in ['nominal', 'JERUp', 'JERDown', 'JESUp', 'JESDown']:
+                weightSyst = None
 
-          if syst=='noweight':
-            evtWeight = np.ones(df.size)
-          else:
-            evtWeight = weights.weight(weightSyst) 
+            if syst == 'noweight':
+                evtWeight = np.ones(df.size)
+            else:
+                evtWeight = weights.weight(weightSyst)
 
-          for reg, sel_mt in region.items():
-              output['mT'].fill(dataset=dataset,
-                                region=reg,
-                                mT=sel_mt[1][sel_mt[0]].flatten(),
-                                syst=syst,
-                                weight=evtWeight[sel_mt[0]].flatten())
-              output['eT_miss'].fill(dataset=dataset,
+            for reg, sel_mt in region.items():
+                output['mT'].fill(dataset=dataset,
+                                  region=reg,
+                                  mT=sel_mt[1][sel_mt[0]].flatten(),
+                                  syst=syst,
+                                  weight=evtWeight[sel_mt[0]].flatten())
+                output['eT_miss'].fill(dataset=dataset,
+                                       region=reg,
+                                       eT=Met[sel_mt[0]].pt.flatten(),
+                                       syst=syst,
+                                       weight=evtWeight[sel_mt[0]].flatten())
+                output['ele_pT'].fill(dataset=dataset,
+                                      region=reg,
+                                      pT=TightElectron[sel_mt[0]].pt.flatten(),
+                                      syst=syst,
+                                      weight=evtWeight[sel_mt[0]].flatten())
+                output['mu_pT'].fill(dataset=dataset,
                                      region=reg,
-                                     eT=Met[sel_mt[0]].pt.flatten(),
+                                     pT=TightMuon[sel_mt[0]].pt.flatten(),
                                      syst=syst,
-                                     weight=evtWeight[sel_mt[0]].flatten())
-              output['ele_pT'].fill(dataset=dataset,
-                                    region=reg,
-                                    pT=TightElectron[sel_mt[0]].pt.flatten(),
-                                    syst=syst,
-                                    weight=evtWeight[sel_mt[0]].flatten())
-              output['mu_pT'].fill(dataset=dataset,
-                                   region=reg,
-                                   pT=TightMuon[sel_mt[0]].pt.flatten(),
-                                   syst=syst,
-                                   weight=evtWeight[sel_mt[0]].flatten()),
-              # data condition
-  #             if 'genWeight' not in events.columns:
-              output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
+                                     weight=evtWeight[sel_mt[0]].flatten()),
+                # data condition
+    #             if 'genWeight' not in events.columns:
+                output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
 
         return output
 
-    
     def postprocess(self, accumulator):
         scale = {}
         for d in accumulator['sumw'].identifiers('dataset'):
-            print('Scaling:',d.name)
+            print('Scaling:', d.name)
             dataset = d.name
-            if '--' in dataset: dataset = dataset.split('--')[1]
-            print('Cross section:',self._xsec[dataset])
-            if self._xsec[dataset]!= -1: scale[d.name] = self._lumi*self._xsec[dataset]
-        else: scale[d.name] = 1
+            if '--' in dataset:
+                dataset = dataset.split('--')[1]
+            print('Cross section:', self._xsec[dataset])
+            if self._xsec[dataset] != -1:
+                scale[d.name] = self._lumi*self._xsec[dataset]
+        else:
+            scale[d.name] = 1
 
         for histname, h in accumulator.items():
-            if histname == 'sumw': continue
+            if histname == 'sumw':
+                continue
             if isinstance(h, hist.Hist):
                 h.scale(scale, axis='dataset')
 
@@ -585,7 +588,8 @@ if __name__ == '__main__':
 #    ids         = load('data/ids.coffea')
 #    common      = load('data/common.coffea')
 
-    processor_instance = AnalysisProcessor(year=options.year, xsec=xsec, corrections=corrections)
+    processor_instance = AnalysisProcessor(
+        year=options.year, xsec=xsec, corrections=corrections)
 #    processor_instance=AnalysisProcessor(year=options.year,
 #                                         xsec=xsec,
 #                                         corrections=corrections,
