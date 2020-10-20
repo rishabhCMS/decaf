@@ -21,7 +21,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         '2018': 59.74
     }
     
-    def __init__(self, year, xsec, corrections):
+    def __init__(self, year, xsec):
         self._year = year
         self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
         self._xsec = xsec
@@ -481,20 +481,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         return output
 
+    
     def postprocess(self, accumulator):
-                scale = {}
-                for d in accumulator['sumw'].identifiers('dataset'):
-                    print('Scaling:',d.name)
-                    dataset = d.name
-                    if '--' in dataset: dataset = dataset.split('--')[1]
-                    print('Cross section:',self._xsec[dataset])
-                    if self._xsec[dataset]!= -1: scale[d.name] = self._lumi*self._xsec[dataset]
-                    else: scale[d.name] = 1
+        scale = {}
+        for d in accumulator['sumw'].identifiers('dataset'):
+            print('Scaling:',d.name)
+            dataset = d.name
+            if '--' in dataset: dataset = dataset.split('--')[1]
+            print('Cross section:',self._xsec[dataset])
+            if self._xsec[dataset]!= -1: scale[d.name] = self._lumi*self._xsec[dataset]
+        else: scale[d.name] = 1
 
-                for histname, h in accumulator.items():
-                    if histname == 'sumw': continue
-                    if isinstance(h, hist.Hist):
-                        h.scale(scale, axis='dataset')
+        for histname, h in accumulator.items():
+            if histname == 'sumw': continue
+            if isinstance(h, hist.Hist):
+                h.scale(scale, axis='dataset')
 
         return accumulator
 
@@ -520,3 +521,4 @@ if __name__ == '__main__':
 #                                         common=common)
 
     save(processor_instance, 'data/lep_lowWpT'+options.year+'.processor')
+    print("processor have been cretaed inside folder data, the name of the processor is lep_lowWpT{}.processor".format(options.year))
