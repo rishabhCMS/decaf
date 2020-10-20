@@ -343,8 +343,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         #
         region = {
-            'wecr': (selection.all(*('met_triggers',
-                                     'ele_triggers',
+            'wecr': (selection.all(*('ele_triggers',
                                      'TightMet',
                                      'one_electron',
                                      'zero_loose_muon',
@@ -357,8 +356,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                      np.sqrt(2*LeadingEle.pt.sum()*Met.pt *
                              (1-np.cos(Met.T.delta_phi(LeadingEle.T.sum()))))
                      ),
-            'wmucr': (selection.all(*('met_triggers',
-                                      'mu_triggers',
+            'wmucr': (selection.all(*('mu_triggers',
                                       'TightMet',
                                       'one_muon',
                                       'zero_loose_electron',
@@ -371,8 +369,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       np.sqrt(2*LeadingMu.pt.sum()*Met.pt *
                               (1-np.cos(Met.T.delta_phi(LeadingMu.T.sum()))))
                       ),
-            'tecr': (selection.all(*('met_triggers',
-                                     'ele_triggers',
+            'tecr': (selection.all(*('ele_triggers',
                                      'TightMet',
                                      'one_electron',
                                      'zero_loose_muon',
@@ -385,8 +382,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                      np.sqrt(2*LeadingEle.pt.sum()*Met.pt *
                              (1-np.cos(Met.T.delta_phi(LeadingEle.T.sum()))))
                      ),
-            'tmucr': (selection.all(*('met_triggers',
-                                      'mu_triggers',
+            'tmucr': (selection.all(*('mu_triggers',
                                       'TightMet',
                                       'one_muon',
                                       'zero_loose_electron',
@@ -399,8 +395,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       np.sqrt(2*LeadingMu.pt.sum()*Met.pt *
                               (1-np.cos(Met.T.delta_phi(LeadingMu.T.sum()))))
                       ),
-            'secr': (selection.all(*('met_triggers',
-                                     'ele_triggers',
+            'secr': (selection.all(*('ele_triggers',
                                      'TightMet',
                                      'one_electron',
                                      'zero_loose_muon',
@@ -413,8 +408,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                      np.sqrt(2*LeadingEle.pt.sum()*Met.pt *
                              (1-np.cos(Met.T.delta_phi(LeadingEle.T.sum()))))
                      ),
-            'smucr': (selection.all(*('met_triggers',
-                                      'mu_triggers',
+            'smucr': (selection.all(*('mu_triggers',
                                       'TightMet',
                                       'one_muon',
                                       'zero_loose_electron',
