@@ -525,7 +525,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             weightSyst=None
 
           if syst=='noweight':
-            evtWeight = np.ones(df.size)
+            evtWeight = np.ones(events.size)
           else:
             evtWeight = weights.weight(weightSyst) 
 
