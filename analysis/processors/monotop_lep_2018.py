@@ -15,7 +15,16 @@ np.seterr(divide='ignore', invalid='ignore', over='ignore')
 
 
 class AnalysisProcessor(processor.ProcessorABC):
-    def __init__(self, year):
+    lumis = { #Values from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable                                                      
+        '2016': 35.92,
+        '2017': 41.53,
+        '2018': 59.74
+    }
+    
+    def __init__(self, year, xsec, corrections):
+        self._year = year
+        self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
+        self._xsec = xsec
 
         self._accumulator = processor.dict_accumulator({
 
@@ -91,7 +100,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         # This gets us the accumulator dictionary we defined in init
         output = self.accumulator.identity()
 
-        dataset = events.metadata['dataset'].split('_')[0]
+        dataset_name = events.metadata['dataset'].split('_')[0]
+        dataset = events.metadata['dataset']
 
 
 #                 print("a JetHT dataset was found and the processor has excluded events with W_pT <100 GeV because we are trying to inspect the W+Jets Low pT sample")
@@ -322,7 +332,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
         selection.add("exclude_low_WpT_JetHT", np.full(events.size, True, dtype=np.bool))
-        if dataset == 'WJetsToLNu':
+        if dataset_name == 'WJetsToLNu':
             if events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT':
                 GenPart = events.GenPart
                 remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
@@ -472,19 +482,19 @@ class AnalysisProcessor(processor.ProcessorABC):
         return output
 
     def postprocess(self, accumulator):
-        #         scale = {}
-        #         for d in accumulator['sumw'].identifiers('dataset'):
-        #             print('Scaling:',d.name)
-        #             dataset = d.name
-        #             if '--' in dataset: dataset = dataset.split('--')[1]
-        #             print('Cross section:',self._xsec[dataset])
-        #             if self._xsec[dataset]!= -1: scale[d.name] = self._lumi*self._xsec[dataset]
-        #             else: scale[d.name] = 1
+                scale = {}
+                for d in accumulator['sumw'].identifiers('dataset'):
+                    print('Scaling:',d.name)
+                    dataset = d.name
+                    if '--' in dataset: dataset = dataset.split('--')[1]
+                    print('Cross section:',self._xsec[dataset])
+                    if self._xsec[dataset]!= -1: scale[d.name] = self._lumi*self._xsec[dataset]
+                    else: scale[d.name] = 1
 
-        #         for histname, h in accumulator.items():
-        #             if histname == 'sumw': continue
-        #             if isinstance(h, hist.Hist):
-        #                 h.scale(scale, axis='dataset')
+                for histname, h in accumulator.items():
+                    if histname == 'sumw': continue
+                    if isinstance(h, hist.Hist):
+                        h.scale(scale, axis='dataset')
 
         return accumulator
 
@@ -502,7 +512,7 @@ if __name__ == '__main__':
 #    ids         = load('data/ids.coffea')
 #    common      = load('data/common.coffea')
 
-    processor_instance = AnalysisProcessor(year=options.year)
+    processor_instance = AnalysisProcessor(year=options.year, xsec=xsec)
 #    processor_instance=AnalysisProcessor(year=options.year,
 #                                         xsec=xsec,
 #                                         corrections=corrections,
