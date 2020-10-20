@@ -22,6 +22,9 @@ processes =    {
     'WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8':('WJets_nlo','MC',61527.),
     'WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8':('WJets_lo_incl','MC',50400.),
     'WJetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8':('WJets_lo_incl_CP5','MC',50400.),
+    
+    # NLO W->lnurishabh                                                                                                                                                                                    
+    ('WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt0to50','MC', 62470),
 
     # LO Z->nunu
     #2018
