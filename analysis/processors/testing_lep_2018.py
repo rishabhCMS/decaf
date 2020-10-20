@@ -397,11 +397,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 #***************adding weights kfactors in this case *******************
 
         weights = processor.Weights(len(events))
-        if 'L1PreFiringWeight' in events.columns: weights.add('prefiring',events.L1PreFiringWeight.Nom)
-        weights.add('nlo_qcd',nlo_qcd)
-        weights.add('nlo_ewk',nlo_ewk)
-        weights.add('genw',events.genWeight)
-        
+        # if 'L1PreFiringWeight' in events.columns: weights.add('prefiring',events.L1PreFiringWeight.Nom)
+        if not isData:  
+          weights.add('nlo_qcd',nlo_qcd)
+          weights.add('nlo_ewk',nlo_ewk)
+          weights.add('genw',events.genWeight)
+        else:pass
         
         region = {
             'wecr': (selection.all(*('ele_triggers',
