@@ -280,7 +280,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('met_triggers', triggers)
-        selection.add('TightMet', (Met.pt >= 100))
+        selection.add('Met100', (Met.pt >= 100))
 
         triggers = np.zeros(events.size, dtype=np.bool)
         for path in EleTrigger:
@@ -326,7 +326,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         figures out if the genlevel process is hardprocess and firstcopy and there are genlevel particle with 
         abs(pdgID)= 24
 
-        ad selects only those events for the pT of W was > 100 GeV
+        and selects only those events for the pT of W was > 50 GeV
 
         '''
 
@@ -354,7 +354,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         #
         region = {
             'wecr': (selection.all(*('ele_triggers',
-                                     'TightMet',
+                                     'Met100',
                                      'one_electron',
                                      'zero_loose_muon',
                                      'zero_loose_photon',
@@ -367,7 +367,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                              (1-np.cos(Met.T.delta_phi(LeadingEle.T.sum()))))
                      ),
             'wmucr': (selection.all(*('mu_triggers',
-                                      'TightMet',
+                                      'Met100',
                                       'one_muon',
                                       'zero_loose_electron',
                                       'zero_loose_photon',
@@ -380,7 +380,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                               (1-np.cos(Met.T.delta_phi(LeadingMu.T.sum()))))
                       ),
             'tecr': (selection.all(*('ele_triggers',
-                                     'TightMet',
+                                     'Met100',
                                      'one_electron',
                                      'zero_loose_muon',
                                      'zero_loose_photon',
@@ -393,7 +393,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                              (1-np.cos(Met.T.delta_phi(LeadingEle.T.sum()))))
                      ),
             'tmucr': (selection.all(*('mu_triggers',
-                                      'TightMet',
+                                      'Met100',
                                       'one_muon',
                                       'zero_loose_electron',
                                       'zero_loose_photon',
@@ -406,7 +406,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                               (1-np.cos(Met.T.delta_phi(LeadingMu.T.sum()))))
                       ),
             'secr': (selection.all(*('ele_triggers',
-                                     'TightMet',
+                                     'Met100',
                                      'one_electron',
                                      'zero_loose_muon',
                                      'zero_loose_photon',
@@ -419,7 +419,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                              (1-np.cos(Met.T.delta_phi(LeadingEle.T.sum()))))
                      ),
             'smucr': (selection.all(*('mu_triggers',
-                                      'TightMet',
+                                      'Met100',
                                       'one_muon',
                                       'zero_loose_electron',
                                       'zero_loose_photon',
@@ -437,30 +437,30 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 # ******************* CUTFLOW **************************
 
-        all_true = np.full(events.size, True, dtype=np.bool)
-        selection.add('all_true', all_true)
+#         all_true = np.full(events.size, True, dtype=np.bool)
+#         selection.add('all_true', all_true)
 
-        output['cutflow']['all events'] += events.size
-        output['cutflow']['tight_e'] += TightEleSel.any().sum()
-        output['cutflow']['tight_mu'] += TightMuSel.any().sum()
-        output['cutflow']['loose_e'] += LooseEleSel.any().sum()
-        output['cutflow']['loose_mu'] += LooseMuonSel.any().sum()
-        output['cutflow']['met>100'] += TightMet.any().sum()
+#         output['cutflow']['all events'] += events.size
+#         output['cutflow']['tight_e'] += TightEleSel.any().sum()
+#         output['cutflow']['tight_mu'] += TightMuSel.any().sum()
+#         output['cutflow']['loose_e'] += LooseEleSel.any().sum()
+#         output['cutflow']['loose_mu'] += LooseMuonSel.any().sum()
+#         output['cutflow']['met>100'] += TightMet.any().sum()
 
-        output['cutflow']['met_triggers'] += events[selection.all(
-            *('all_true', 'met_triggers'))].size
-        output['cutflow']['ele_triggers'] += events[selection.all(
-            *('all_true', 'ele_triggers'))].size
-        output['cutflow']['mu_triggers'] += events[selection.all(
-            *('all_true', 'mu_triggers'))].size
-        output['cutflow']['Delta_Phi_Met_LJ'] += events[selection.all(
-            *('all_true', 'Delta_Phi_Met_LJ'))].size
-        output['cutflow']['DeltaR_LJ_Mu'] += events[selection.all(
-            *('all_true', 'DeltaR_LJ_Mu'))].size
-        output['cutflow']['exactly_1_medium_btag'] += events[selection.all(
-            *('all_true', 'exactly_1_medium_btag'))].size
-        output['cutflow']['DeltaR_LJ_Ele'] += events[selection.all(
-            *('all_true', 'DeltaR_LJ_Ele'))].size
+#         output['cutflow']['met_triggers'] += events[selection.all(
+#             *('all_true', 'met_triggers'))].size
+#         output['cutflow']['ele_triggers'] += events[selection.all(
+#             *('all_true', 'ele_triggers'))].size
+#         output['cutflow']['mu_triggers'] += events[selection.all(
+#             *('all_true', 'mu_triggers'))].size
+#         output['cutflow']['Delta_Phi_Met_LJ'] += events[selection.all(
+#             *('all_true', 'Delta_Phi_Met_LJ'))].size
+#         output['cutflow']['DeltaR_LJ_Mu'] += events[selection.all(
+#             *('all_true', 'DeltaR_LJ_Mu'))].size
+#         output['cutflow']['exactly_1_medium_btag'] += events[selection.all(
+#             *('all_true', 'exactly_1_medium_btag'))].size
+#         output['cutflow']['DeltaR_LJ_Ele'] += events[selection.all(
+#             *('all_true', 'DeltaR_LJ_Ele'))].size
 
         for reg, sel_mt in region.items():
             output['mT'].fill(dataset=dataset,
@@ -476,8 +476,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                                  region=reg,
                                  pT=TightMuon[sel_mt[0]].pt.flatten()),
             # data condition
-#             if 'genWeight' not in events.columns:
-            output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
+            if 'genWeight' in events.columns:
+              output['sumw'].fill(dataset=dataset, sumw=1, weight=events.genWeight.sum())
+
+            else:
+              output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
 
         return output
 
