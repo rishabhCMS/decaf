@@ -62,7 +62,10 @@ def scale(hists):
             if 'MET' in d.name or 'SingleElectron' in d.name or 'SinglePhoton' in d.name or 'EGamma' in d.name: continue
             hists[key].scale({d:1/scale[d]},axis='dataset')
     print('Histograms scaled')
-
+    
+    # printing the lumi DF
+    for k,v in scale.items():
+        print('dataset:{} sumgenweights:{}'.format(k,v))
 
     ###
     # Defining 'process', to aggregate different samples into a single process

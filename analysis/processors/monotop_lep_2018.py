@@ -487,7 +487,7 @@ class AnalysisProcessor(processor.ProcessorABC):
     
     def postprocess(self, accumulator):
         scale = {}
-        for d in accumulator['sumw'].identifiers('dataset'):
+v        for d in accumulator['sumw'].identifiers('dataset'):
             print('Scaling:',d.name)
             dataset = d.name
             if '--' in dataset: dataset = dataset.split('--')[1]
