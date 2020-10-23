@@ -508,7 +508,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             if histname == 'sumw': continue
             if isinstance(h, hist.Hist):
                 h.scale(scale, axis='dataset')
-
+        print(scale)
         return accumulator
 
 
