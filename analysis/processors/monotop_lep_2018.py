@@ -517,7 +517,7 @@ if __name__ == '__main__':
     parser.add_option('-y', '--year', help='year', dest='year')
     (options, args) = parser.parse_args()
 
-    with open('metadata/'+options.year+'_test.json') as fin:
+    with open('metadata/'+options.year+'.json') as fin:
         samplefiles = json.load(fin)
         xsec = {k: v['xs'] for k, v in samplefiles.items()}
 
@@ -532,5 +532,5 @@ if __name__ == '__main__':
 #                                         ids=ids,
 #                                         common=common)
 
-    save(processor_instance, 'data/lep_lowWpT_test'+options.year+'.processor')
-    print("processor have been cretaed inside folder data, the name of the processor is lep_lowWpT_test{}.processor".format(options.year))
+    save(processor_instance, 'data/lep_lowWpT'+options.year+'.processor')
+    print("processor have been cretaed inside folder data, the name of the processor is lep_lowWpT{}.processor".format(options.year))
