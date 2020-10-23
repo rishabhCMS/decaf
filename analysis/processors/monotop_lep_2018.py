@@ -102,7 +102,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         dataset_name = events.metadata['dataset'].split('_')[0]
         dataset = events.metadata['dataset']
-
+        isFilled=False
 
 #                 print("a JetHT dataset was found and the processor has excluded events with W_pT <100 GeV because we are trying to inspect the W+Jets Low pT sample")
         Electron = events.Electron
@@ -477,10 +477,19 @@ class AnalysisProcessor(processor.ProcessorABC):
                                  pT=TightMuon[sel_mt[0]].pt.flatten()),
             # data condition
             if 'genWeight' in events.columns:
-              output['sumw'].fill(dataset=dataset, sumw=1, weight=events.genWeight.sum())
+              if not isFilled:
+                output['sumw'].fill(dataset=dataset, sumw=1, weight=events.genWeight.sum())
+                isFilled=True
+    #               print(reg,'->events.genWeight.sum()->',events.genWeight.sum())
+    #               print(reg,'->events.size->',events.size,'\n')
 
+    #               print("lumi:", self._lumi,
+    #                    "sxec:", self._xsec[dataset],
+    #                    "lumi*xs", )
             else:
-              output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
+              if not isFilled:
+                output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
+                isFilled=True
 
         return output
 
