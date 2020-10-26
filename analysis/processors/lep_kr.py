@@ -467,10 +467,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         mu=events.Muon
-        mu['isloose']= isLooseMuon(
-            mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
-        mu['istight']= isTightMuon(
-            mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
+        mu['isloose']= isLooseMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
+        mu['istight']= isTightMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
         mu['T']=    TVector2Array.from_polar(mu.pt, mu.phi)
         mu_loose=   mu[mu.isloose.astype(np.bool)]
         mu_tight=   mu[mu.istight.astype(np.bool)]
@@ -482,10 +480,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         e=events.Electron
         e['isclean']= ~match(e, mu_loose, 0.3)
-        e['isloose']= isLooseElectron(
-            e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
-        e['istight']= isTightElectron(
-            e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
+        e['isloose']= isLooseElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
+        e['istight']= isTightElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['T']=TVector2Array.from_polar(e.pt, e.phi)
         e_clean=   e[e.isclean.astype(np.bool)]
         e_loose=   e_clean[e_clean.isloose.astype(np.bool)]
