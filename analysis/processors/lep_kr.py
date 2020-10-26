@@ -144,8 +144,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbarm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
             'wjete': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron),
             'wjetm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
-            'dilepe': 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_electron),
-            'dilepm': 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_muon)
+            'dilepe': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_electron),
+            'dilepm': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_muon)
 
         }
 
