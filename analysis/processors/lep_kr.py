@@ -420,7 +420,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         get_ecal_bad_calib=self._corrections['get_ecal_bad_calib']
         get_deepflav_weight=self._corrections['get_btag_weight']['deepflav'][self._year]
         Jetevaluator=self._corrections['Jetevaluator']
-
+        
+        isLooseElectron = self._ids['isLooseElectron']
         isTightElectron=self._ids['isTightElectron']
         isLooseMuon=self._ids['isLooseMuon']
         isTightMuon=self._ids['isTightMuon']
