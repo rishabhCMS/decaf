@@ -923,7 +923,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
-        selection.add('single_mu_triggers', triggers)
+        selection.add('single_muon_triggers', triggers)
 
         noHEMj = np.ones(events.size, dtype=np.bool)
         if self._year == '2018':
@@ -1013,15 +1013,15 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
-            'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu'},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                        'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
-            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                        'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu'},
             'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
-            'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
@@ -1032,7 +1032,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
 
         isFilled = False
-
+        print("mu_ntight->", mu_ntight.sum(),
+              '\n', 'e_ntight->', e_ntight.sum())
         for region in selected_regions:
             #             print('Considering region:', region)
 
@@ -1046,13 +1047,13 @@ class AnalysisProcessor(processor.ProcessorABC):
             #             print('Selection:',regions[region])
             variables = {
 
-                ''
+                'mu_pT':              mu_tight.pt,
                 # 'recoil':                 u[region].mag,
                 # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
                 'eT_miss':              met.pt,
                 'ele_pT':              e_tight.pt,
-                'mu_pT':              mu_tight.pt
+                'jet_pT':              leading_j.pt
                 # 'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
                 # 'j1pt':                   leading_j.pt,
