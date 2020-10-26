@@ -467,35 +467,35 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         mu=events.Muon
-        mu['isloose']=isLooseMuon(
+        mu['isloose']= isLooseMuon(
             mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
-        mu['istight']=isTightMuon(
+        mu['istight']= isTightMuon(
             mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
-        mu['T']=TVector2Array.from_polar(mu.pt, mu.phi)
-        mu_loose=mu[mu.isloose.astype(np.bool)]
-        mu_tight=mu[mu.istight.astype(np.bool)]
-        mu_ntot=mu.counts
-        mu_nloose=mu_loose.counts
-        mu_ntight=mu_tight.counts
-        leading_mu=mu[mu.pt.argmax()]
-        leading_mu=leading_mu[leading_mu.istight.astype(np.bool)]
+        mu['T']=    TVector2Array.from_polar(mu.pt, mu.phi)
+        mu_loose=   mu[mu.isloose.astype(np.bool)]
+        mu_tight=   mu[mu.istight.astype(np.bool)]
+        mu_ntot=    mu.counts
+        mu_nloose=  mu_loose.counts
+        mu_ntight=  mu_tight.counts
+        leading_mu= mu[mu.pt.argmax()]
+        leading_mu= leading_mu[leading_mu.istight.astype(np.bool)]
 
         e=events.Electron
-        e['isclean']=~match(e, mu_loose, 0.3)
-        e['isloose']=isLooseElectron(
+        e['isclean']= ~match(e, mu_loose, 0.3)
+        e['isloose']= isLooseElectron(
             e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
-        e['istight']=isTightElectron(
+        e['istight']= isTightElectron(
             e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['T']=TVector2Array.from_polar(e.pt, e.phi)
-        e_clean=e[e.isclean.astype(np.bool)]
-        e_loose=e_clean[e_clean.isloose.astype(np.bool)]
-        e_tight=e_clean[e_clean.istight.astype(np.bool)]
-        e_ntot=e.counts
-        e_nloose=e_loose.counts
-        e_ntight=e_tight.counts
-        leading_e=e[e.pt.argmax()]
-        leading_e=leading_e[leading_e.isclean.astype(np.bool)]
-        leading_e=leading_e[leading_e.istight.astype(np.bool)]
+        e_clean=   e[e.isclean.astype(np.bool)]
+        e_loose=   e_clean[e_clean.isloose.astype(np.bool)]
+        e_tight=   e_clean[e_clean.istight.astype(np.bool)]
+        e_ntot=    e.counts
+        e_nloose=  e_loose.counts
+        e_ntight=  e_tight.counts
+        leading_e= e[e.pt.argmax()]
+        leading_e= leading_e[leading_e.isclean.astype(np.bool)]
+        leading_e= leading_e[leading_e.istight.astype(np.bool)]
 
         tau=events.Tau
         tau['isclean']=~match(tau, mu_loose, 0.4) & ~match(tau, e_loose, 0.4)
