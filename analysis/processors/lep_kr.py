@@ -128,13 +128,13 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
 
         self._xsec = xsec
-        if self.year == '2016':
+        if self._year == '2016':
             data_electron = 'SingleElectron'
             data_muon = 'SingleMuon'
-        elif self.year == '2017':
+        elif self._year == '2017':
             data_electron = 'SingleElectron'
             data_muon = 'SingleMuon'
-        elif self.year == '2018':
+        elif self._year == '2018':
             data_electron = 'EGamma'
             data_muon = 'MET'
         self._samples = {
