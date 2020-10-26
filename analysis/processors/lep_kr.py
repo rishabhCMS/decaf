@@ -1231,3 +1231,6 @@ if __name__ == '__main__':
                                          common=common)
     
     save(processor_instance, 'data/lep_monotop'+options.year+'.processor')
+    print("Processor name: {}, location:{}".format('lep_monotop'+options.year+'.processor, 'data/lep_monotop'+options.year+'.processor'))
+        
+        
