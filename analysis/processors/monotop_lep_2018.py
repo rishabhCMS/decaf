@@ -475,21 +475,21 @@ class AnalysisProcessor(processor.ProcessorABC):
             output['mu_pT'].fill(dataset=dataset,
                                  region=reg,
                                  pT=TightMuon[sel_mt[0]].pt.flatten()),
-            # data condition
-            if 'genWeight' in events.columns:
-              if not isFilled:
-                output['sumw'].fill(dataset=dataset, sumw=1, weight=events.genWeight.sum())
-                isFilled=True
-    #               print(reg,'->events.genWeight.sum()->',events.genWeight.sum())
-    #               print(reg,'->events.size->',events.size,'\n')
+        # data condition
+        if 'genWeight' in events.columns:
+          if not isFilled:
+            output['sumw'].fill(dataset=dataset, sumw=1, weight=events.genWeight.sum())
+            isFilled=True
+#               print(reg,'->events.genWeight.sum()->',events.genWeight.sum())
+#               print(reg,'->events.size->',events.size,'\n')
 
-    #               print("lumi:", self._lumi,
-    #                    "sxec:", self._xsec[dataset],
-    #                    "lumi*xs", )
-            else:
-              if not isFilled:
-                output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
-                isFilled=True
+#               print("lumi:", self._lumi,
+#                    "sxec:", self._xsec[dataset],
+#                    "lumi*xs", )
+        else:
+          if not isFilled:
+            output['sumw'].fill(dataset=dataset, sumw=1, weight=1)
+            isFilled=True
 
         return output
 
