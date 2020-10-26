@@ -527,7 +527,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['isHEM']=isHEMJet(j.pt, j.eta, j.phi)
         j['isclean']=~match(j, e_loose, 0.4) & ~match(
             j, mu_loose, 0.4) & ~match(j, pho_loose, 0.4)
-        # j['isiso'] = ~match(j,fj_clean[fj_clean.pt.argmax()],1.5)
+        j['isiso'] = ~match(j,fj_clean[fj_clean.pt.argmax()],1.5)
         j['isdcsvL']=(j.btagDeepB > deepcsvWPs['loose'])
         j['isdflvL']=(j.btagDeepFlavB > deepflavWPs['loose'])
         j['T']=TVector2Array.from_polar(j.pt, j.phi)
@@ -537,8 +537,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['rho']=j.pt.ones_like()*events.fixedGridRhoFastjetAll.array
         j_good=j[j.isgood.astype(np.bool)]
         j_clean=j_good[j_good.isclean.astype(np.bool)]
-        # j_iso = j_clean[j_clean.isiso.astype(np.bool)]
-        j_iso=j_clean[j_clean.astype(np.bool)]  # Sunil changed
+        j_iso = j_clean[j_clean.isiso.astype(np.bool)]
+        #j_iso=j_clean[j_clean.astype(np.bool)]  # Sunil changed
         j_dcsvL=j_iso[j_iso.isdcsvL.astype(np.bool)]
         j_dflvL=j_iso[j_iso.isdflvL.astype(np.bool)]
         j_HEM=j[j.isHEM.astype(np.bool)]
