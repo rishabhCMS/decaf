@@ -328,8 +328,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('recoil', 'Hadronic Recoil', [
-                         250, 310, 370, 470, 590, 840, 1020, 1250, 3000]),
             ),
             'mT': hist.Hist(
                 'Events',
@@ -340,36 +338,37 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('eT', '$E^T_{miss}$[GeV]', 20, 0, 600)),
+                hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)),
 
             'ele_pT': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('pT', 'Tight electron $p_{T}$ [GeV]', 10, 0, 200)),
+                hist.Bin('ele_pT', 'Tight electron $p_{T}$ [GeV]', 10, 0, 200)),
 
             'mu_pT': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
+                hist.Bin('mu_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
 
             'jet_pT': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
+                hist.Bin('jet_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
                          [30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])),
             'dphi_e_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi', '$\Delta\phi (e, E^T_{miss} )$', 30, 0, 3.5)),
+                hist.Bin('dphi_e_etmiss', '$\Delta\phi (e, E^T_{miss} )$', 30, 0, 3.5)),
             'dphi_mu_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi', '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)
+                hist.Bin('dphi_mu_etmiss',
+                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)
             ),
         })
 
@@ -1051,9 +1050,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'recoil':                 u[region].mag,
                 # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
-                'met':                      met.pt,
-                'tight_ele_pt':              e_tight.pt,
-                'tight_mu_pt':              mu_tight.pt
+                'eT_miss':              met.pt,
+                'ele_pT':              e_tight.pt,
+                'mu_pT':              mu_tight.pt
                 # 'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
                 # 'j1pt':                   leading_j.pt,
@@ -1100,6 +1099,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     elif histname == 'template':
                         continue
                     else:
+                        print(histname)
                         flat_variable = {histname: flat_variables[histname]}
                         h.fill(dataset=dataset,
                                region=region,
@@ -1114,7 +1114,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hout['template'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
-                                      recoil=u[region].mag,
                                       weight=np.ones(events.size)*cut)
                 fill(dataset, np.ones(events.size), cut)
             else:
@@ -1203,14 +1202,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
-                                              systematic=sname,
-                                              recoil=u[region].mag,
-                                              weight=weights.weight(modifier=systematic)*whf*cut)
+                                              systematic=sname,)
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
-                                              systematic=sname,
-                                              recoil=u[region].mag,
-                                              weight=weights.weight(modifier=systematic)*wlf*cut)
+                                              systematic=sname,)
                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('LF--'+dataset, weights.weight()*wlf, cut)
                 else:
@@ -1219,13 +1214,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-                    for systematic in [None, 'btagUp', 'btagDown']:
-                        sname = 'nominal' if systematic is None else systematic
-                        hout['template'].fill(dataset=dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              recoil=u[region].mag,
-                                              weight=weights.weight(modifier=systematic)*cut)
+
                     fill(dataset, weights.weight(), cut)
 
         return hout
