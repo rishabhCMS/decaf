@@ -134,7 +134,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         elif self.year == '2017':
             data_electron = 'SingleElectron'
             data_muon = 'SingleMuon'
-        elif: self.year == '2018':
+        elif self.year == '2018':
             data_electron = 'EGamma'
             data_muon = 'MET'
         self._samples = {
