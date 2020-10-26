@@ -399,43 +399,43 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Getting corrections, ids from .coffea files
         ###
 
-        get_msd_weight=self._corrections['get_msd_weight']
-        get_ttbar_weight=self._corrections['get_ttbar_weight']
-        get_nnlo_nlo_weight=self._corrections['get_nnlo_nlo_weight'][self._year]
-        get_pu_weight=self._corrections['get_pu_weight'][self._year]
-        get_met_trig_weight=self._corrections['get_met_trig_weight'][self._year]
-        get_met_zmm_trig_weight=self._corrections['get_met_zmm_trig_weight'][self._year]
-        get_ele_trig_weight=self._corrections['get_ele_trig_weight'][self._year]
-        get_pho_trig_weight=self._corrections['get_pho_trig_weight'][self._year]
-        get_ele_loose_id_sf=self._corrections['get_ele_loose_id_sf'][self._year]
-        get_ele_tight_id_sf=self._corrections['get_ele_tight_id_sf'][self._year]
-        get_pho_tight_id_sf=self._corrections['get_pho_tight_id_sf'][self._year]
-        get_pho_csev_sf=self._corrections['get_pho_csev_sf'][self._year]
-        get_mu_tight_id_sf=self._corrections['get_mu_tight_id_sf'][self._year]
-        get_mu_loose_id_sf=self._corrections['get_mu_loose_id_sf'][self._year]
-        get_ele_reco_sf=self._corrections['get_ele_reco_sf'][self._year]
-        get_ele_reco_lowet_sf=self._corrections['get_ele_reco_lowet_sf']
-        get_mu_tight_iso_sf=self._corrections['get_mu_tight_iso_sf'][self._year]
-        get_mu_loose_iso_sf=self._corrections['get_mu_loose_iso_sf'][self._year]
-        get_ecal_bad_calib=self._corrections['get_ecal_bad_calib']
-        get_deepflav_weight=self._corrections['get_btag_weight']['deepflav'][self._year]
-        Jetevaluator=self._corrections['Jetevaluator']
+        get_msd_weight          =   self._corrections['get_msd_weight']
+        get_ttbar_weight        =   self._corrections['get_ttbar_weight']
+        get_nnlo_nlo_weight     =   self._corrections['get_nnlo_nlo_weight'][self._year]
+        get_pu_weight           =   self._corrections['get_pu_weight'][self._year]
+        get_met_trig_weight     =   self._corrections['get_met_trig_weight'][self._year]
+        get_met_zmm_trig_weight =   self._corrections['get_met_zmm_trig_weight'][self._year]
+        get_ele_trig_weight     =   self._corrections['get_ele_trig_weight'][self._year]
+        get_pho_trig_weight     =   self._corrections['get_pho_trig_weight'][self._year]
+        get_ele_loose_id_sf     =   self._corrections['get_ele_loose_id_sf'][self._year]
+        get_ele_tight_id_sf     =   self._corrections['get_ele_tight_id_sf'][self._year]
+        get_pho_tight_id_sf     =   self._corrections['get_pho_tight_id_sf'][self._year]
+        get_pho_csev_sf         =   self._corrections['get_pho_csev_sf'][self._year]
+        get_mu_tight_id_sf      =   self._corrections['get_mu_tight_id_sf'][self._year]
+        get_mu_loose_id_sf      =   self._corrections['get_mu_loose_id_sf'][self._year]
+        get_ele_reco_sf         =   self._corrections['get_ele_reco_sf'][self._year]
+        get_ele_reco_lowet_sf   =   self._corrections['get_ele_reco_lowet_sf']
+        get_mu_tight_iso_sf     =   self._corrections['get_mu_tight_iso_sf'][self._year]
+        get_mu_loose_iso_sf     =   self._corrections['get_mu_loose_iso_sf'][self._year]
+        get_ecal_bad_calib      =   self._corrections['get_ecal_bad_calib']
+        get_deepflav_weight     =   self._corrections['get_btag_weight']['deepflav'][self._year]
+        Jetevaluator            =   self._corrections['Jetevaluator']
         
-        isLooseElectron = self._ids['isLooseElectron']
-        isTightElectron=self._ids['isTightElectron']
-        isLooseMuon=self._ids['isLooseMuon']
-        isTightMuon=self._ids['isTightMuon']
-        isLooseTau=self._ids['isLooseTau']
-        isLoosePhoton=self._ids['isLoosePhoton']
-        isTightPhoton=self._ids['isTightPhoton']
-        isGoodJet=self._ids['isGoodJet']
-        isHEMJet=self._ids['isHEMJet']
+        isLooseElectron         =   self._ids['isLooseElectron']
+        isTightElectron         =   self._ids['isTightElectron']
+        isLooseMuon             =   self._ids['isLooseMuon']
+        isTightMuon             =   self._ids['isTightMuon']
+        isLooseTau              =   self._ids['isLooseTau']
+        isLoosePhoton           =   self._ids['isLoosePhoton']
+        isTightPhoton           =   self._ids['isTightPhoton']
+        isGoodJet               =   self._ids['isGoodJet']
+        isHEMJet                =   self._ids['isHEMJet']
 
-        match=self._common['match']
+        match                   =   self._common['match']
         # to calculate photon trigger efficiency
-        sigmoid=self._common['sigmoid']
-        deepflavWPs=self._common['btagWPs']['deepflav'][self._year]
-        deepcsvWPs=self._common['btagWPs']['deepcsv'][self._year]
+        sigmoid                 =   self._common['sigmoid']
+        deepflavWPs             =   self._common['btagWPs']['deepflav'][self._year]
+        deepcsvWPs              =   self._common['btagWPs']['deepcsv'][self._year]
 
         ###
         # Derive jet corrector for JEC/JER
@@ -456,11 +456,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Initialize global quantities (MET ecc.)
         ###
 
-        met=events.MET
+        met     =       events.MET
         if self._year == '2017': events.METFixEE2017  # Recommended for 2017
         met['T']=TVector2Array.from_polar(met.pt, met.phi)
-        calomet=events.CaloMET
-        puppimet=events.PuppiMET
+        calomet =       events.CaloMET
+        puppimet=       events.PuppiMET
 
         ###
         # Initialize physics objects
