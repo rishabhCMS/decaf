@@ -723,29 +723,41 @@ class AnalysisProcessor(processor.ProcessorABC):
                 isIsoA = isIsoA & isolation(gen.R_0_dyn*i/iterations)
             gen['isIsoA'] = isIsoA
 
-            genWs = gen[gen.isW & (gen.pt > 100)]
-            genZs = gen[gen.isZ & (gen.pt > 100)]
-            # Based on photon weight distribution
-            genIsoAs = gen[gen.isIsoA & (gen.pt > 100)]
+            #genWs = gen[gen.isW&(gen.pt>=100)]
+            genWs = gen[gen.isW] 
+            genZs = gen[gen.isZ]
+            genDYs = gen[gen.isZ&(gen.mass>30)]
+            genIsoAs = gen[gen.isIsoA] 
 
             nnlo_nlo = {}
-            if('GJets' in dataset):
+            nlo_qcd = np.ones(events.size)
+            nlo_ewk = np.ones(events.size)
+            if('GJets' in dataset): 
+                if self._year=='2016':
+                    nlo_qcd = get_nlo_qcd_weight['a'](genIsoAs.pt.max())
+                    nlo_ewk = get_nlo_ewk_weight['a'](genIsoAs.pt.max())
                 for systematic in get_nnlo_nlo_weight['a']:
-                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max(
-                    ))*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
-            elif('WJets' in dataset):
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max())*((genIsoAs.counts>0)&(genIsoAs.pt.max()>=290)) + \
+                                           get_nnlo_nlo_weight['a'][systematic](290)*((genIsoAs.counts>0)&~(genIsoAs.pt.max()>=290)&(genIsoAs.pt.max()>=100)) + \
+                                           (~((genIsoAs.counts>0)&(genIsoAs.pt.max()>=100))).astype(np.int)
+            elif('WJets' in dataset): 
+                nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
+                nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
                 for systematic in get_nnlo_nlo_weight['w']:
-                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['w'][systematic](genWs.pt.max(
-                    ))*(genWs.counts > 0).astype(np.int) + (~(genWs.counts > 0)).astype(np.int)
-            elif('DY' in dataset):
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['w'][systematic](genWs.pt.max())*((genWs.counts>0)&(genWs.pt.max()>=100)) + \
+                                           (~((genWs.counts>0)&(genWs.pt.max()>=100))).astype(np.int)
+            elif('DY' in dataset): 
+                nlo_qcd = get_nlo_qcd_weight['dy'](genDYs.pt.max())
+                nlo_ewk = get_nlo_ewk_weight['dy'](genDYs.pt.max())
                 for systematic in get_nnlo_nlo_weight['dy']:
-                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['dy'][systematic](genZs.pt.max(
-                    ))*(genZs.counts > 0).astype(np.int) + (~(genZs.counts > 0)).astype(np.int)
-            elif('ZJets' in dataset):
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['dy'][systematic](genDYs.pt.max())*((genDYs.counts>0)&(genDYs.pt.max()>=100)) + \
+                                           (~((genDYs.counts>0)&(genDYs.pt.max()>=100))).astype(np.int)
+            elif('ZJets' in dataset): 
+                nlo_qcd = get_nlo_qcd_weight['z'](genZs.pt.max())
+                nlo_ewk = get_nlo_ewk_weight['z'](genZs.pt.max())
                 for systematic in get_nnlo_nlo_weight['z']:
-                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['z'][systematic](genZs.pt.max(
-                    ))*(genZs.counts > 0).astype(np.int) + (~(genZs.counts > 0)).astype(np.int)
-
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['z'][systematic](genZs.pt.max())*((genZs.counts>0)&(genZs.pt.max()>=100)) + \
+                                           (~((genZs.counts>0)&(genZs.pt.max()>=100))).astype(np.int)
             ###
             # Calculate PU weight and systematic variations
             ###
