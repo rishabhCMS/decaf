@@ -413,6 +413,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         get_msd_weight = self._corrections['get_msd_weight']
         get_ttbar_weight = self._corrections['get_ttbar_weight']
         get_nnlo_nlo_weight = self._corrections['get_nnlo_nlo_weight'][self._year]
+        get_nlo_qcd_weight      = self._corrections['get_nlo_qcd_weight'][self._year]
         get_pu_weight = self._corrections['get_pu_weight'][self._year]
         get_met_trig_weight = self._corrections['get_met_trig_weight'][self._year]
         get_met_zmm_trig_weight = self._corrections['get_met_zmm_trig_weight'][self._year]
