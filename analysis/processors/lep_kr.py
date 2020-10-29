@@ -1013,12 +1013,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('DeltaR_LJ_mask',
 #                     (DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
 
-        selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
-                      & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('isoneM', (e_nloose == 0) & (
-            mu_ntight == 1) & (pho_nloose == 0))
-        selection.add('isoneE', (e_ntight == 1) & (mu_nloose == 0)
-                      & (tau_nloose == 0) & (pho_nloose == 0))
+        selection.add('iszeroL', (e_nloose==0)&(mu_nloose==0)&(tau_nloose==0)&(pho_nloose==0))
+        selection.add('isoneM', (e_nloose==0)&(mu_ntight==1)&(mu_nloose==1)&(tau_nloose==0)&(pho_nloose==0))
+        selection.add('isoneE', (e_ntight==1)&(e_nloose==1)&(mu_nloose==0)&(tau_nloose==0)&(pho_nloose==0))
         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
