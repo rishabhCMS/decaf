@@ -631,10 +631,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         u = {
             'sre': met.T+leading_e.T.sum(),
             'srm': met.T+leading_mu.T.sum(),
-            'ttbare': met.T+leading_e.T.sum(),
-            'ttbarm': met.T+leading_mu.T.sum(),
-            'wjete': met.T+leading_e.T.sum(),
-            'wjetm': met.T+leading_mu.T.sum(),
+            'tecr': met.T+leading_e.T.sum(),
+            'tmcr': met.T+leading_mu.T.sum(),
+            'wecr': met.T+leading_e.T.sum(),
+            'wmcr': met.T+leading_mu.T.sum(),
             #             'dilepe': met.T+leading_diele.T.sum(),
             #             'dilepm': met.T+leading_dimu.T.sum(),
             # 'gcr'   : met.T+leading_pho.T.sum()
@@ -643,10 +643,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         mT = {
             'sre': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
             'srm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'ttbare': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'ttbarm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'wjete': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
+            'tecr': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
+            'tmcr': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
+            'wecr': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
+            'wmcr': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
         }
 
         LTe = leading_e.pt.sum() + met.pt
@@ -654,10 +654,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         mT_misET = {
             'sre': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
             'srm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'ttbare': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'ttbarm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'wjete': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
+            'tecr': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
+            'tmcr': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
+            'wecr': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
+            'wmcr': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
         }
 
 
@@ -798,10 +798,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             trig = {
                 'sre': get_met_trig_weight(leading_e.eta.sum(), leading_e.pt.sum()),
                 'srm': get_met_trig_weight(leading_mu.eta.sum(), leading_mu.pt.sum()),
-                'ttbare': get_met_trig_weight(leading_e.eta.sum(), leading_e.pt.sum()),
-                'ttbarm': get_met_trig_weight(leading_mu.eta.sum(), leading_mu.pt.sum()),
-                'wjete': get_met_trig_weight(leading_e.eta.sum(), leading_e.pt.sum()),
-                'wjetm': get_met_trig_weight(leading_mu.eta.sum(), leading_mu.pt.sum()),
+                'tecr': get_met_trig_weight(leading_e.eta.sum(), leading_e.pt.sum()),
+                'tmcr': get_met_trig_weight(leading_mu.eta.sum(), leading_mu.pt.sum()),
+                'wecr': get_met_trig_weight(leading_e.eta.sum(), leading_e.pt.sum()),
+                'wmcr': get_met_trig_weight(leading_mu.eta.sum(), leading_mu.pt.sum()),
                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
@@ -826,10 +826,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             ids = {
                 'sre': get_ele_tight_id_sf(leading_e.eta.sum(), leading_e.pt.sum()),
                 'srm': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
-                'ttbare': get_ele_tight_id_sf(leading_e.eta.sum(), leading_e.pt.sum()),
-                'ttbarm': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
-                'wjete': get_ele_tight_id_sf(leading_e.eta.sum(), leading_e.pt.sum()),
-                'wjetm': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
+                'tecr': get_ele_tight_id_sf(leading_e.eta.sum(), leading_e.pt.sum()),
+                'tmcr': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
+                'wecr': get_ele_tight_id_sf(leading_e.eta.sum(), leading_e.pt.sum()),
+                'wmcr': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
                 #                 'dilepe': get_ele_loose_id_sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * get_ele_loose_id_sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
                 #                 'dilepm': get_mu_loose_id_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_id_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
             }
@@ -850,10 +850,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             reco = {
                 'sre': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
                 'srm': np.ones(events.size),
-                'ttbare': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'ttbarm': np.ones(events.size),
-                'wjete': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'wjetm': np.ones(events.size),
+                'tecr': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'tmcr': np.ones(events.size),
+                'wecr': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'wmcr': np.ones(events.size),
                 #                 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
                 #                 'dilepm': np.ones(events.size)
             }
@@ -865,10 +865,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             isolation = {
                 'sre': np.ones(events.size),
                 'srm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
-                'ttbare': np.ones(events.size),
-                'ttbarm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
-                'wjete': np.ones(events.size),
-                'wjetm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
+                'tecr': np.ones(events.size),
+                'tmcr': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
+                'wecr': np.ones(events.size),
+                'wmcr': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
                 #                 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
                 #                 'dilepe': np.ones(events.size),
             }
@@ -892,10 +892,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             csev = {
                 'sre': np.ones(events.size),
                 'srm': np.ones(events.size),
-                'ttbare': np.ones(events.size),
-                'ttbarm': np.ones(events.size),
-                'wjete': np.ones(events.size),
-                'wjetm': np.ones(events.size),
+                'tecr': np.ones(events.size),
+                'tmcr': np.ones(events.size),
+                'wecr': np.ones(events.size),
+                'wmcr': np.ones(events.size),
                 #                 'dilepe': np.ones(events.size),
                 #                 'dilepm': np.ones(events.size),
                 #                 'gcr':  csev_weight
@@ -912,11 +912,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
             btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepcsv_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepcsv_weight['medium'](
+            btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepcsv_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepcsv_weight['medium'](
+            btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepcsv_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepcsv_weight['medium'](
+            btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepcsv_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepcsv_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
@@ -1063,22 +1063,22 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'Delta_Phi_Met_LJ',
                     'DeltaR_LJ_Mu'
                     },
-            'ttbare': {'isoneE', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ',
-                       'DeltaR_LJ_Ele'
-                       },
-            'ttbarm': {'isoneM', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ',
-                       'DeltaR_LJ_Mu'
-                       },
-            'wjete': {'isoneE', 'noextrab_medium', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ',
-                      'DeltaR_LJ_Ele'
-                      },
-            'wjetm': {'isoneM', 'noextrab_medium', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ',
-                      'DeltaR_LJ_Mu'
-                      },
+            'tecr': {'isoneE', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+                     'Delta_Phi_Met_LJ',
+                     'DeltaR_LJ_Ele'
+                     },
+            'tmcr': {'isoneM', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+                     'Delta_Phi_Met_LJ',
+                     'DeltaR_LJ_Mu'
+                     },
+            'wecr': {'isoneE', 'noextrab_medium', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+                     'Delta_Phi_Met_LJ',
+                     'DeltaR_LJ_Ele'
+                     },
+            'wmcr': {'isoneM', 'noextrab_medium', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+                     'Delta_Phi_Met_LJ',
+                     'DeltaR_LJ_Mu'
+                     },
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
@@ -1092,8 +1092,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 #           test_mu_sel = selection.all(sel)
 #           print('len(mu[{}]):'.format(sel),len(mu[test_mu_sel]))
         isFilled = False
-        print("mu_ntight->", mu_ntight.sum(),
-              '\n', 'e_ntight->', e_ntight.sum())
+        # print("mu_ntight->", mu_ntight.sum(),
+        #       '\n', 'e_ntight->', e_ntight.sum())
         for region in selected_regions:
             #             print('Considering region:', region)
 
