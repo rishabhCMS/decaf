@@ -918,7 +918,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
             btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepcsv_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepcsv_weight['medium'](
+            btag['wmcr'], btagUp['wmcr'], btagDown['wmcr'] = get_deepcsv_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
 #             btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
