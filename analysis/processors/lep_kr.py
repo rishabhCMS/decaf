@@ -908,17 +908,17 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag = {}
             btagUp = {}
             btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepcsv_weight['medium'](
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepcsv_weight['medium'](
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepcsv_weight['medium'](
+            btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepcsv_weight['medium'](
+            btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepcsv_weight['medium'](
+            btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wmcr'], btagUp['wmcr'], btagDown['wmcr'] = get_deepcsv_weight['medium'](
+            btag['wmcr'], btagUp['wmcr'], btagDown['wmcr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
 #             btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
