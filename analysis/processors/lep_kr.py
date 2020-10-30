@@ -351,24 +351,67 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)),
 
-            'ele_pT': hist.Hist(
+            'ele_tight_pT': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ele_pT', 'Tight electron $p_{T}$ [GeV]', 10, 0, 200)),
+                hist.Bin('ele_tight_pT', 'Tight electron $p_{T}$ [GeV]', 10, 0, 200)),
 
-            'mu_pT': hist.Hist(
+            'ele_leading_pT': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('mu_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
+                hist.Bin('ele_leading_pT', 'leading electron $p_{T}$ [GeV]', 10, 0, 200)),
 
-            'jet_pT': hist.Hist(
+            'ele_tight_eta': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('jet_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
+                hist.Bin('ele_tight_eta', 'Tight electron $\eta$ [GeV]', 48, -2.4, 2.4)),
+
+            'ele_leading_eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('ele_leading_eta', 'Leading electron $\eta$ [GeV]', 48, -2.4, 2.4)),
+
+            'mu_tight_pT': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('mu_tight_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
+
+            'mu_leading_pT': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('mu_leading_pT', 'Leading Muon $p_{T}$ [GeV]', 10, 0, 200)),
+
+            'mu_tight_eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('mu_tight_eta', 'Tight mu $\eta$ [GeV]', 48, -2.4, 2.4)),
+
+            'mu_leading_eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('mu_leading_eta', 'Leading mu $\eta$ [GeV]', 48, -2.4, 2.4)),
+
+            'jet_leading_pT': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('jet_leading_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
                          [30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])),
+
+            'jet_leading_eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('jet_leading_eta', 'AK4 Leading Jet Eta', 35, -3.5, 3.5)),
+
             'dphi_e_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
@@ -379,8 +422,23 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('dphi_mu_etmiss',
-                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)
-            ),
+                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
+            'ndflvL': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('ndflvL', 'AK4 Number of deepFlavor Loose Jets', 6, -0.5, 5.5)),
+            'njets': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('njets', 'AK4 Number of Jets', 6, -0.5, 5.5)),
+
+            'ndcsvM': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('ndcsvM', 'AK4 Number of deepCSV Medium Jets', 6, -0.5, 5.5))
         })
 
     @property
@@ -596,12 +654,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # ************ calculate delta phi( leading ak4jet, met) > 1.5***********
 
-        j['T'] = TVector2Array.from_polar(j.pt, j.phi)
-        j['p4'] = TLorentzVectorArray.from_ptetaphim(
-            j.pt, j.eta, j.phi, j.mass)
-
-        Delta_Phi_Met_LJ = (
-            abs(met['T'].delta_phi(leading_j['T']).sum()) > 1.5)
+        Delta_Phi_Met_LJ = (met['T'].delta_phi(leading_j['T']).sum()) > 1.5
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_tight['p4'])
@@ -915,17 +968,17 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag = {}
             btagUp = {}
             btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['loose'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['loose'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepflav_weight['medium'](
+            btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepflav_weight['loose'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepflav_weight['medium'](
+            btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepflav_weight['loose'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepflav_weight['medium'](
+            btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepflav_weight['loose'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wmcr'], btagUp['wmcr'], btagDown['wmcr'] = get_deepflav_weight['medium'](
+            btag['wmcr'], btagUp['wmcr'], btagDown['wmcr'] = get_deepflav_weight['loose'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
 #             btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
@@ -1000,7 +1053,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         '''
 
         # predeclration just in cas I don't want the filter
-        selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
+#         selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
         if 'WJetsToLNu' in dataset:
             if events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT':
                 GenPart = events.GenPart
@@ -1043,19 +1096,24 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMmet', noHEMmet)
         selection.add('met80', (met.pt < 80))
         selection.add('met100', (met.pt > 100))
-        selection.add(
-            'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
+#         selection.add(
+#             'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
 #         selection.add('zero_medium_btags',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
         selection.add('Delta_Phi_Met_LJ', (Delta_Phi_Met_LJ))
         selection.add('DeltaR_LJ_Ele', (DeltaR_LJ_Ele_mask))
 
-        selection.add('one_muon', (mu_tight.counts == 1))
-        selection.add('zero_loose_electron', (e_loose.counts == 0))
         selection.add('DeltaR_LJ_Mu', (DeltaR_LJ_Mu_mask))
-        selection.add('noextrab_medium', (j_ndflvM == 0))
+        selection.add('noextrab', (j_ndflvM == 0))
         selection.add('extrab_atleast_2', (j_ndflvM >= 2))
         selection.add('extrab_exactly_1', (j_ndflvM == 1))
+
+
+#         for region, mt in mT.items():
+#             _name = region+'mt>250'
+#             selection.add(_name, mt > 40)
+
+
 #         selection.add('atleast_2_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
 
@@ -1064,27 +1122,27 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': {'isoneE', 'extrab_exactly_1', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ',
-                    'DeltaR_LJ_Ele'
+                    'DeltaR_LJ_Ele',
                     },
             'srm': {'isoneM', 'extrab_exactly_1', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ',
-                    'DeltaR_LJ_Mu'
+                    'DeltaR_LJ_Mu',
                     },
             'tecr': {'isoneE', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
-                     'DeltaR_LJ_Ele'
+                     'DeltaR_LJ_Ele',
                      },
             'tmcr': {'isoneM', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
-                     'DeltaR_LJ_Mu'
+                     'DeltaR_LJ_Mu',
                      },
-            'wecr': {'isoneE', 'noextrab_medium', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wecr': {'isoneE', 'noextrab', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
-                     'DeltaR_LJ_Ele'
+                     'DeltaR_LJ_Ele',
                      },
-            'wmcr': {'isoneM', 'noextrab_medium', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wmcr': {'isoneM', 'noextrab', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
-                     'DeltaR_LJ_Mu'
+                     'DeltaR_LJ_Mu',
                      },
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
@@ -1095,9 +1153,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
 
 # ***** small test loop for seeing if the selelction is good********
-#         for sel in regions['wjetm']:
-#           test_mu_sel = selection.all(sel)
-#           print('len(mu[{}]):'.format(sel),len(mu[test_mu_sel]))
+#         for sel in regions['wecr']:
+#         test_e_sel = selection.all('exclude_low_WpT_JetHT')
+#         print("events['exclude_low_WpT_JetHT']",len(events[test_e_sel]))
         isFilled = False
         # print("mu_ntight->", mu_ntight.sum(),
         #       '\n', 'e_ntight->', e_ntight.sum())
@@ -1115,29 +1173,29 @@ class AnalysisProcessor(processor.ProcessorABC):
             variables = {
                 'dphi_e_etmiss':          abs(met['T'].delta_phi(leading_e['T'].sum())),
                 'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
-                'mu_pT':                  mu_tight.pt,
+                'mu_tight_pT':                  mu_tight.pt, 'mu_leading_pT': leading_mu.pt,
                 'recoil':                 u[region].mag,
                 # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
                 'eT_miss':                met.pt,
-                'ele_pT':                 e_tight.pt,
-                'jet_pT':                 leading_j.pt
+                'ele_tight_pT':                 e_tight.pt, 'ele_leading_pT': leading_e.pt,
+                'jet_pT':                 leading_j.pt,
                 # 'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
                 # 'j1pt':                   leading_j.pt,
-                # 'j1eta':                  leading_j.eta,
+                'jet_leading_eta':                  leading_j.eta,
                 # 'j1phi':                  leading_j.phi,
-                # 'njets':                  j_nclean,
-                # 'ndflvL':                 j_ndflvL,
-                # 'ndcsvL':     j_ndcsvL,
+                'njets':                  j_nclean,
+                'ndflvL':                 j_ndflvL,
+                'ndcsvM':     j_ndcsvM,
                 # 'e1pt'      : leading_e.pt,
                 # 'e1phi'     : leading_e.phi,
-                # 'e1eta'     : leading_e.eta,
+                'ele_tight_eta': e_tight.eta, 'ele_leading_eta': leading_e.eta,
                 # 'dielemass' : leading_diele.mass,
                 # 'dielept'   : leading_diele.pt,
                 # 'mu1pt' : leading_mu.pt,
                 # 'mu1phi' : leading_mu.phi,
-                # 'mu1eta' : leading_mu.eta,
+                'mu_tight_eta': mu_tight.eta, 'mu_leading_eta': leading_mu.eta
                 # 'dimumass' : leading_dimu.mass,
                 # 'dimupt' : leading_dimu.pt
             }
