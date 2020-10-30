@@ -904,14 +904,21 @@ class AnalysisProcessor(processor.ProcessorABC):
             ###
             # AK4 b-tagging weights
             ###
+            '''
+            if in a region you are asking for 0 btags, you have to apply the 0-btag weight
+            if in a region you are asking for at least 1 btag, you need to apply the -1-btag weight
 
+            it’s “-1” because we want to reserve “1" to name the weight that should be applied when you ask for exactly 1 b-tag
+
+            that is different from the weight you apply when you ask for at least 1 b-tag
+            '''
             btag = {}
             btagUp = {}
             btagDown = {}
             btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
             btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
             btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
             btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepflav_weight['medium'](
