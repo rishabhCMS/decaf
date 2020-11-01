@@ -1048,7 +1048,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         figures out if the genlevel process is hardprocess and firstcopy and there are genlevel particle with
         abs(pdgID)= 24
 
-        ad selects only those events for the pT of W was > 100 GeV
+        ad selects only those events for the pT of W was > 50 GeV
 
         '''
 
