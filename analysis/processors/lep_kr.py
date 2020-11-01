@@ -968,17 +968,17 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag = {}
             btagUp = {}
             btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['loose'](
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['loose'](
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepflav_weight['loose'](
+            btag['tecr'], btagUp['tecr'], btagDown['tecr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepflav_weight['loose'](
+            btag['tmcr'], btagUp['tmcr'], btagDown['tmcr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepflav_weight['loose'](
+            btag['wecr'], btagUp['wecr'], btagDown['wecr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wmcr'], btagUp['wmcr'], btagDown['wmcr'] = get_deepflav_weight['loose'](
+            btag['wmcr'], btagUp['wmcr'], btagDown['wmcr'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
 #             btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
@@ -1120,27 +1120,27 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('exactly_1_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
         regions = {
-            'sre': {'isoneE', 'extrab_exactly_1', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'sre': {'isoneE', 'extrab_exactly_1', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ',
                     'DeltaR_LJ_Ele',
                     },
-            'srm': {'isoneM', 'extrab_exactly_1', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'srm': {'isoneM', 'extrab_exactly_1',  'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ',
                     'DeltaR_LJ_Mu',
                     },
-            'tecr': {'isoneE', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'tecr': {'isoneE', 'extrab_atleast_2',  'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Ele',
                      },
-            'tmcr': {'isoneM', 'extrab_atleast_2', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'tmcr': {'isoneM', 'extrab_atleast_2',  'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Mu',
                      },
-            'wecr': {'isoneE', 'noextrab', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wecr': {'isoneE', 'noextrab',  'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Ele',
                      },
-            'wmcr': {'isoneM', 'noextrab', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wmcr': {'isoneM', 'noextrab',  'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Mu',
                      },
@@ -1173,12 +1173,14 @@ class AnalysisProcessor(processor.ProcessorABC):
             variables = {
                 'dphi_e_etmiss':          abs(met['T'].delta_phi(leading_e['T'].sum())),
                 'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
-                'mu_tight_pT':                  mu_tight.pt, 'mu_leading_pT': leading_mu.pt,
+                'mu_tight_pT':                  mu_tight.pt, 
+                'mu_leading_pT': leading_mu.pt,
                 'recoil':                 u[region].mag,
                 # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
                 'eT_miss':                met.pt,
-                'ele_tight_pT':                 e_tight.pt, 'ele_leading_pT': leading_e.pt,
+                'ele_tight_pT':                 e_tight.pt, 
+                'ele_leading_pT': leading_e.pt,
                 'jet_pT':                 leading_j.pt,
                 # 'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
@@ -1190,12 +1192,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ndcsvM':     j_ndcsvM,
                 # 'e1pt'      : leading_e.pt,
                 # 'e1phi'     : leading_e.phi,
-                'ele_tight_eta': e_tight.eta, 'ele_leading_eta': leading_e.eta,
+                'ele_tight_eta': e_tight.eta,
+                'ele_leading_eta': leading_e.eta,
                 # 'dielemass' : leading_diele.mass,
                 # 'dielept'   : leading_diele.pt,
                 # 'mu1pt' : leading_mu.pt,
                 # 'mu1phi' : leading_mu.phi,
-                'mu_tight_eta': mu_tight.eta, 'mu_leading_eta': leading_mu.eta
+                'mu_tight_eta': mu_tight.eta, 
+                'mu_leading_eta': leading_mu.eta
                 # 'dimumass' : leading_dimu.mass,
                 # 'dimupt' : leading_dimu.pt
             }
