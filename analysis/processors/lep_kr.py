@@ -322,7 +322,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'sumw',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Bin('sumw', 'Weight value', [0.])),
-           
+
             'template': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -330,7 +330,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('recoil', 'Hadronic Recoil', [
                          250, 310, 370, 470, 590, 840, 1020, 1250, 3000])),
-        
+
             'recoil': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -344,7 +344,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
-            
+
             'eT_miss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -414,7 +414,22 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ndcsvM', 'AK4 Number of deepCSV Medium Jets', 6, -0.5, 5.5))
+                hist.Bin('ndcsvM', 'AK4 Number of deepCSV Medium Jets', 6, -0.5, 5.5)),
+            'dphi_Met_LJ': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading_jet)$', 30, 0, 3.5)),
+            'dr_e_lj': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('dr_e_lj', '$\Delta r (e, leading_jet)$', 30, 0, 5.0)),
+            'dr_mu_lj': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('dr_mu_lj', '$\Delta r (\mu, leading_jet)$', 30, 0, 5.0)),
         })
 
     @property
@@ -1112,7 +1127,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Mu',
                      },
-            'wecr': {'isoneE', 'noextrab',  'noHEMj','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wecr': {'isoneE', 'noextrab',  'noHEMj', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Ele',
                      },
@@ -1154,7 +1169,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
                 'eT_miss':                met.pt,
-                'ele_tight_pT':                 e_tight.pt, 
+                'ele_tight_pT':                 e_tight.pt,
                 'ele_leading_pT': leading_e.pt,
                 'jet_pT':                 leading_j.pt,
                 # 'metphi':                 met.phi,
@@ -1172,7 +1187,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'dielept'   : leading_diele.pt,
                 # 'mu1pt' : leading_mu.pt,
                 # 'mu1phi' : leading_mu.phi,
-                'mu_tight_eta': mu_tight.eta, 
+                'mu_tight_eta': mu_tight.eta,
+                'dphi_Met_LJ': met['T'].delta_phi(leading_j['T']).sum(),
+                'dr_e_lj': DeltaR_LJ_Ele,
+                'dr_mu_lj': DeltaR_LJ_Mu
                 # 'dimumass' : leading_dimu.mass,
                 # 'dimupt' : leading_dimu.pt
             }
