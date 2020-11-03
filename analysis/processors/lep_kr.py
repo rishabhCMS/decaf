@@ -1045,11 +1045,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
 #         selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
-        if 'WJetsToLNu' in dataset:
-            if events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT':
-                GenPart = events.GenPart
-                remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) &
-                                          ((abs(GenPart.pdgId) == 24))].pt > 50).all()
+         if 'WJetsToLNu' in dataset:
+             if events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT':
+                 GenPart = events.GenPart
+                 remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) &
+                                           ((abs(GenPart.pdgId) == 24))].pt > 50).all()
                 selection.add("exclude_low_WpT_JetHT", remove_overlap)
 
         else:
@@ -1111,27 +1111,27 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('exactly_1_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
         regions = {
-            'sre': {'isoneE', 'extrab_exactly_1', 'noHEMj', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'sre': {'isoneE', 'extrab_exactly_1', 'noHEMj', 'single_electron_triggers', 'met100',
                     'Delta_Phi_Met_LJ',
                     'DeltaR_LJ_Ele',
                     },
-            'srm': {'isoneM', 'extrab_exactly_1', 'noHEMj', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'srm': {'isoneM', 'extrab_exactly_1', 'noHEMj', 'single_muon_triggers', 'met100',
                     'Delta_Phi_Met_LJ',
                     'DeltaR_LJ_Mu',
                     },
-            'tecr': {'isoneE', 'extrab_atleast_2', 'noHEMj', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'tecr': {'isoneE', 'extrab_atleast_2', 'noHEMj', 'single_electron_triggers', 'met100',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Ele',
                      },
-            'tmcr': {'isoneM', 'extrab_atleast_2', 'noHEMj', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'tmcr': {'isoneM', 'extrab_atleast_2', 'noHEMj', 'single_muon_triggers', 'met100',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Mu',
                      },
-            'wecr': {'isoneE', 'noextrab',  'noHEMj', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wecr': {'isoneE', 'noextrab',  'noHEMj', 'single_electron_triggers', 'met100',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Ele',
                      },
-            'wmcr': {'isoneM', 'noextrab', 'noHEMj', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wmcr': {'isoneM', 'noextrab', 'noHEMj', 'single_muon_triggers', 'met100',
                      'Delta_Phi_Met_LJ',
                      'DeltaR_LJ_Mu',
                      },
