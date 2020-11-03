@@ -1045,11 +1045,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
 #         selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
-         if 'WJetsToLNu' in dataset:
-             if events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT':
-                 GenPart = events.GenPart
-                 remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) &
-                                           ((abs(GenPart.pdgId) == 24))].pt > 50).all()
+        if 'WJetsToLNu' in dataset:
+            if events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT':
+                GenPart = events.GenPart
+                remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) &
+                                          ((abs(GenPart.pdgId) == 24))].pt > 50).all()
                 selection.add("exclude_low_WpT_JetHT", remove_overlap)
 
         else:
