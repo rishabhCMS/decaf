@@ -10,4 +10,3 @@ docker_stderror
 *.futures
 *.reduced
 *.merged
-*.scaled
