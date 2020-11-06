@@ -368,8 +368,38 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('dphi_mu_etmiss',
-                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)
-            ),
+                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
+            'ndflvL': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('ndflvL', 'AK4 Number of deepFlavor Loose Jets', 6, -0.5, 5.5)),
+            'njets': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('njets', 'AK4 Number of Jets', 6, -0.5, 5.5)),
+
+            'ndcsvM': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('ndcsvM', 'AK4 Number of deepCSV Medium Jets', 6, -0.5, 5.5)),
+            'dphi_Met_LJ': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading_jet)$', 30, 0, 3.5)),
+            'dr_e_lj': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('dr_e_lj', '$\Delta r (e, leading_jet)$', 30, 0, 5.0)),
+            'dr_mu_lj': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('dr_mu_lj', '$\Delta r (\mu, leading_jet)$', 30, 0, 5.0)),
         })
 
     @property
@@ -421,6 +451,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf'][self._year]
         get_ecal_bad_calib = self._corrections['get_ecal_bad_calib']
         get_deepflav_weight = self._corrections['get_btag_weight']['deepflav'][self._year]
+        get_deepcsv_weight = self._corrections['get_btag_weight']['deepcsv'][self._year]
         Jetevaluator = self._corrections['Jetevaluator']
 
         isLooseElectron = self._ids['isLooseElectron']
@@ -543,6 +574,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j['isiso'] = ~match(j,j[j.pt.argmax()],0.4)
         j['isdcsvL'] = (j.btagDeepB > deepcsvWPs['loose'])
         j['isdflvL'] = (j.btagDeepFlavB > deepflavWPs['loose'])
+        j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium'])
         j['T'] = TVector2Array.from_polar(j.pt, j.phi)
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
@@ -554,15 +586,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         print(j_c)
 #         j_iso = j_clean[j_clean.isiso.astype(np.bool)]
 #         j_iso=j_clean[j_clean.astype(np.bool)]  # Sunil changed
-#         j_dcsvL=j_iso[j_iso.isdcsvL.astype(np.bool)]
-#         j_dflvL=j_iso[j_iso.isdflvL.astype(np.bool)]
+        j_dcsvL=j_clean[j_clean.isdcsvL.astype(np.bool)]
+        j_dflvL=j_clean[j_clean.isdflvL.astype(np.bool)]
+        j_dcsvM=j_clean[j_clean.isdcsvM.astype(np.bool)]
         j_HEM = j[j.isHEM.astype(np.bool)]
         j_ntot = j.counts
         j_ngood = j_good.counts
         j_nclean = j_clean.counts
 #         j_niso=j_iso.counts
-#         j_ndcsvL=j_dcsvL.counts
-#         j_ndflvL=j_dflvL.counts
+        j_ndcsvL=j_dcsvL.counts
+        j_ndflvL=j_dflvL.counts
+        j_ndcsvM=j_dcsvM.counts
         j_nHEM = j_HEM.counts
         leading_j = j[j.pt.argmax()]
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
@@ -775,16 +809,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                     sigmoid(leading_pho.pt.sum(), 0.301, 212.83, 0.062, 1.000)
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
 
-            # trig = {
-            #     'sre' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
-            #     'srm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-            #     'ttbare' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
-            #     'ttbarm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-            #     'wjete' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
-            #     'wjetm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-            #     'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
-            #     'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-            # }
+            trig = {
+                'sre' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+                'srm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+                'ttbare' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+                'ttbarm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+                'wjete' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+                'wjetm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+                'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+                'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+            }
 
             ###
             # Calculating electron and muon ID weights
@@ -884,17 +918,29 @@ class AnalysisProcessor(processor.ProcessorABC):
             ###
             # AK4 b-tagging weights
             ###
+            '''
+            if in a region you are asking for 0 btags, you have to apply the 0-btag weight
+            if in a region you are asking for at least 1 btag, you need to apply the -1-btag weight
 
-#             btag={}
-#             btagUp={}
-#             btagDown={}
-#             btag['sre'],   btagUp['sre'],   btagDown['sre']=get_deepflav_weight['loose'](j_iso.pt, j_iso.eta, j_iso.hadronFlavour, '0')
-#             btag['srm'],   btagUp['srm'],   btagDown['srm']=get_deepflav_weight['loose'](j_iso.pt, j_iso.eta, j_iso.hadronFlavour, '0')
-#             btag['ttbare'], btagUp['ttbare'], btagDown['ttbare']=get_deepflav_weight['loose'](j_iso.pt, j_iso.eta, j_iso.hadronFlavour, '0')
-#             btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm']=get_deepflav_weight['loose'](j_iso.pt, j_iso.eta, j_iso.hadronFlavour, '-1')
-#             btag['wjete'], btagUp['wjete'], btagDown['wjete']=get_deepflav_weight['loose'](j_iso.pt, j_iso.eta, j_iso.hadronFlavour, '0')
-#             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm']=get_deepflav_weight['loose'](j_iso.pt, j_iso.eta, j_iso.hadronFlavour, '-1')
-#             btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
+            it’s “-1” because we want to reserve “1" to name the weight that should be applied when you ask for exactly 1 b-tag
+
+            that is different from the weight you apply when you ask for at least 1 b-tag
+            '''
+            btag = {}
+            btagUp = {}
+            btagDown = {}
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepcsv_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepcsv_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
+            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepcsv_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepcsv_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepcsv_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
+            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepcsv_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')#             btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
 #             btag['dilepm'], btagUp['dilepm'], btagDown['dilepm']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
@@ -1072,7 +1118,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
                 'eT_miss':              met.pt,
                 'ele_pT':              e_tight.pt,
-                'jet_pT':              leading_j.pt
+                'jet_pT':              leading_j.pt,
                 # 'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
                 # 'j1pt':                   leading_j.pt,
@@ -1090,7 +1136,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'mu1phi' : leading_mu.phi,
                 # 'mu1eta' : leading_mu.eta,
                 # 'dimumass' : leading_dimu.mass,
-                # 'dimupt' : leading_dimu.pt
+                'dphi_e_etmiss':          abs(met['T'].delta_phi(leading_e['T'].sum())),
+              'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
+                'dr_e_lj': DeltaR_LJ_Ele,
+                'dr_mu_lj': DeltaR_LJ_Mu,
+                'njets':                  j_nclean,
+                'ndflvL':                 j_ndflvL,
+                'ndcsvM':     j_ndcsvM,
             }
             if region in mT:
                 variables['mT'] = mT[region]
@@ -1173,12 +1225,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                     weights.add('muR', np.ones(
                         events.size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu)
-#                 weights.add('trig', trig[region])
+                weights.add('trig', trig[region])
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
                 weights.add('csev', csev[region])
-#                 weights.add('btag',btag[region], btagUp[region], btagDown[region])
+                weights.add('btag',btag[region], btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1192,8 +1244,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-                                   #                                    'btagUp',
-                                   #                                    'btagDown',
+                                  'btagUp',
+                                  'btagDown',
                                    'qcd1Up',
                                    'qcd1Down',
                                    'qcd2Up',
@@ -1236,7 +1288,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-
+                    for systematic in [None, 'btagUp', 'btagDown']:
+                        sname = 'nominal' if systematic is None else systematic
+                        hout['template'].fill(dataset=dataset,
+                                              region=region,
+                                              systematic=sname,
+                                              recoil=u[region].mag,
+                                              weight=weights.weight(modifier=systematic)*cut)
                     fill(dataset, weights.weight(), cut)
 
         return hout
@@ -1261,8 +1319,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 h.scale(scale, axis='dataset')
 
         return accumulator
-
-
+        
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-y', '--year', help='year', dest='year')
