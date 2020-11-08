@@ -1229,7 +1229,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
-                weights.add('csev', csev[region])
+#                 weights.add('csev', csev[region])
                 weights.add('btag',btag[region], btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
