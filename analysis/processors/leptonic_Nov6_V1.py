@@ -810,11 +810,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
 
             trig = {
-                'sre' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+                'sre' : get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
                 'srm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-                'ttbare' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+                'ttbare' : get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
                 'ttbarm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-                'wjete' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+                'wjete' : get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
                 'wjetm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
