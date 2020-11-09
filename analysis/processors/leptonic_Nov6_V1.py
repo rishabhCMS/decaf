@@ -228,16 +228,16 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2017':
                 [
                 'IsoMu27',
-                'Mu50',
-                'OldMu100',
-                'TkMu100'
+#                 'Mu50',
+#                 'OldMu100',
+#                 'TkMu100'
             ],
             '2018':
                 [
                 'IsoMu24',
-                'Mu50',
-                'OldMu100',
-                'TkMu100'
+#                 'Mu50',
+#                 'OldMu100',
+#                 'TkMu100'
             ]
         }
 
@@ -438,6 +438,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         get_met_trig_weight = self._corrections['get_met_trig_weight'][self._year]
         get_met_zmm_trig_weight = self._corrections['get_met_zmm_trig_weight'][self._year]
         get_ele_trig_weight = self._corrections['get_ele_trig_weight'][self._year]
+        get_mu_trig_weight = self._corrections['get_mu_trig_weight'][self._year]
         get_pho_trig_weight = self._corrections['get_pho_trig_weight'][self._year]
         get_ele_loose_id_sf = self._corrections['get_ele_loose_id_sf'][self._year]
         get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf'][self._year]
@@ -811,11 +812,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             trig = {
                 'sre' : get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'srm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+                'srm' : get_mu_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
                 'ttbare' : get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'ttbarm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+                'ttbarm' : get_mu_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
                 'wjete' : get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'wjetm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+                'wjetm' : get_mu_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
