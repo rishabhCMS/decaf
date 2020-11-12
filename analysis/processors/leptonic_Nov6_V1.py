@@ -378,7 +378,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ndflvM', 'AK4 Number of deepFlavor Loose Jets', 6, -0.5, 5.5)),
+                hist.Bin('ndflvM', 'AK4 Number of deepFlavor Medium Jets', 6, -0.5, 5.5)),
             'njets': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -399,12 +399,18 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dr_e_lj', '$\Delta r (e, leading_jet)$', 30, 0, 5.0)),
+                hist.Bin('dr_e_lj', '$\Delta r (loose e, leading_jet)$', 30, 0, 5.0)),
             'dr_mu_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dr_mu_lj', '$\Delta r (\mu, leading_jet)$', 30, 0, 5.0)),
+                hist.Bin('dr_mu_lj', '$\Delta r (loose \mu, leading_jet)$', 30, 0, 5.0)),
+            'scale_factors': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                #                 hist.Cat('weight_name', 'Name of the weight'),
+                hist.Bin('scale_factors', 'SF combined', 70, -1.0, 6.0)),
         })
 
     @property
@@ -628,11 +634,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         Delta_Phi_Met_LJ = (met['T'].delta_phi(leading_j['T'].sum()) > 1.5)
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
-        LJ_Ele = leading_j['p4'].cross(e_tight['p4'])
+        LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
         DeltaR_LJ_Ele_mask = (DeltaR_LJ_Ele < 3.4).any()
 
-        LJ_Mu = leading_j['p4'].cross(mu_tight['p4'])
+        LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
         DeltaR_LJ_Mu_mask = (DeltaR_LJ_Mu < 3.4).any()
 
@@ -1045,20 +1051,20 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (
-            mu_nloose == 1) & (tau_nloose == 0) & (pho_nloose == 0))
+            mu_nloose == 1) & (pho_nloose == 0))
         selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (
-            mu_nloose == 0) & (tau_nloose == 0) & (pho_nloose == 0))
+            mu_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (
             tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
-        selection.add('leading_e_pt', (e_loose.pt.max() > 40))
-        selection.add('dimu_mass', (leading_dimu.mass.sum() > 60)
-                      & (leading_dimu.mass.sum() < 120))
-        selection.add('diele_mass', (leading_diele.mass.sum() > 60)
-                      & (leading_diele.mass.sum() < 120))
+#         selection.add('leading_e_pt', (e_loose.pt.max() > 40))
+#         selection.add('dimu_mass', (leading_dimu.mass.sum() > 60)
+#                       & (leading_dimu.mass.sum() < 120))
+#         selection.add('diele_mass', (leading_diele.mass.sum() > 60)
+#                       & (leading_diele.mass.sum() < 120))
 
         selection.add('exactly_1_medium_btag', (j_ndflvM == 1))
         selection.add('atleast_2_medium_btag', (j_ndflvM >= 2))
@@ -1067,7 +1073,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
         selection.add('met80', (met.pt < 80))
-        selection.add('met100', (met.pt > 100))
+        selection.add('met100', (met.pt >= 100))
         selection.add(
             'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
 #         selection.add('zero_medium_btags',
@@ -1088,19 +1094,25 @@ class AnalysisProcessor(processor.ProcessorABC):
             sel_name = 'mt'+'_'+region+'>40'
             select = mT[region] > 40
             selection.add(sel_name, select)
+
+#           adding mT range cut to see some effects
+#         for region in mT.keys():
+#             sel_name = 'mt'+'_100<'+region+'>310'
+#             select = mT[region] > 310 & mT[region] <
+#             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_sre>40'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_sre>40', 'noHEMmet'},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_srm>40'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_srm>40', 'noHEMmet'},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_ttbare>40'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_ttbare>40', 'noHEMmet'},
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_ttbarm>40'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_ttbarm>40', 'noHEMmet'},
             'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_wjete>40'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_wjete>40', 'noHEMmet'},
             'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_wjetm>40'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_wjetm>40', 'noHEMmet'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
@@ -1109,8 +1121,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             # 'gcr': {'isoneA','fatjet','noHEMj','met_filters','singlephoton_triggers'}
         }
         isFilled = False
-        print("mu_ntight->", mu_ntight.sum(),
-              '\n', 'e_ntight->', e_ntight.sum())
+#         print("mu_ntight->", mu_ntight.sum(),
+#               '\n', 'e_ntight->', e_ntight.sum())
         for region in selected_regions:
             #             print('Considering region:', region)
 
@@ -1155,6 +1167,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
                 'ndcsvM':     j_ndcsvM,
+                'scale_factors': np.ones(events.size, dtype=np.bool)
             }
             if region in mT:
                 variables['mT'] = mT[region]
@@ -1164,7 +1177,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     pass
 #                     WRF = leading_mu.T.sum()-met.T
 #                 variables['recoilphiWRF'] = abs(u[region].delta_phi(WRF))
-            print('Variables:', variables.keys())
+#             print('Variables:', variables.keys())
 
             def fill(dataset, weight, cut):
 
@@ -1182,9 +1195,15 @@ class AnalysisProcessor(processor.ProcessorABC):
                         continue
                     elif histname == 'template':
                         continue
+                    elif histname == 'scale_factors':
+                        flat_variable = {histname: flat_weight[histname]}
+                        h.fill(dataset=dataset,
+                               region=region,
+                               **flat_variable)
+
                     else:
-                        print(histname)
                         flat_variable = {histname: flat_variables[histname]}
+#                         print(flat_variable)
                         h.fill(dataset=dataset,
                                region=region,
                                **flat_variable,
@@ -1241,7 +1260,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
-                weights.add('csev', csev[region])
+#                 weights.add('csev', csev[region])
                 weights.add('btag', btag[region],
                             btagUp[region], btagDown[region])
 
