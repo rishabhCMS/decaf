@@ -51,7 +51,7 @@ TransferOutputRemaps = "$ENV(VARIABLE).merged=$ENV(PWD)/$ENV(FOLDER)/$ENV(VARIAB
 Arguments = $ENV(FOLDER) $ENV(VARIABLE) $ENV(CLUSTER) $ENV(USER)
 JobBatchName = $ENV(VARIABLE)
 accounting_group=group_cms
-request_cpus = 16
+request_cpus = 1
 Queue 1"""
 
 if options.cluster == 'lpc':
