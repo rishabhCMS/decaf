@@ -42,7 +42,7 @@ if options.cluster == 'kisti':
 Executable = run.sh
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
-Transfer_Input_Files = run.sh, /tmp/x509up_u556950957
+Transfer_Input_Files = run.sh, /tmp/x509up_u556951020
 Output = hists/$ENV(PROCESSOR)/run_condor/out/$ENV(SAMPLE)_$(Cluster)_$(Process).stdout
 Error = hists/$ENV(PROCESSOR)/run_condor/err/$ENV(SAMPLE)_$(Cluster)_$(Process).stderr
 Log = hists/$ENV(PROCESSOR)/run_condor/log/$ENV(SAMPLE)_$(Cluster)_$(Process).log
@@ -50,7 +50,7 @@ TransferOutputRemaps = "$ENV(PROCESSOR)_$ENV(SAMPLE).futures=$ENV(PWD)/hists/$EN
 Arguments = $ENV(METADATA) $ENV(SAMPLE) $ENV(PROCESSOR) $ENV(CLUSTER) $ENV(USER)
 accounting_group=group_cms
 JobBatchName = $ENV(BTCN)
-request_cpus = 8
+request_cpus = 1
 request_memory = 7000
 Queue 1"""
 

@@ -62,7 +62,10 @@ def scale(hists):
             if 'MET' in d.name or 'SingleElectron' in d.name or 'SinglePhoton' in d.name or 'EGamma' in d.name: continue
             hists[key].scale({d:1/scale[d]},axis='dataset')
     print('Histograms scaled')
-
+    
+    # printing the lumi DF
+    for k,v in scale.items():
+        print('dataset:{} sumgenweights:{}'.format(k,v))
 
     ###
     # Defining 'process', to aggregate different samples into a single process
@@ -74,35 +77,43 @@ def scale(hists):
     bkg_map = OrderedDict()
     data_map = OrderedDict()
     bkg_map["Hbb"] = ("*HTo*")
+    bkg_map["DY"] = ("DYJets*",)
     bkg_map["DY+HF"] = ("HF--DYJets*",)
     bkg_map["DY+LF"] = ("LF--DYJets*",)
     bkg_map["DY+jetsLO"] = ("lo--DYJets*",)
     bkg_map["DY+jetsNNLO"] = ("nnlo--DYJets*",)
     #bkg_map["VV"] = (["WW*","WZ*","ZZ*"],)
+    
     bkg_map["WW"] = ("WW*", )
     bkg_map["WZ"] = ("WZ*", )
     bkg_map["ZZ"] = ("ZZ*", )
     bkg_map["ST"] = ("ST*",)
     bkg_map["TT"] = ("TT*",)
+    bkg_map["WJets"] = ("WJets*",)
     bkg_map["W+HF"] = ("HF--WJets*",)
     bkg_map["W+LF"] = ("LF--WJets*",)
     bkg_map["W+jetsLO"] = ("lo--WJets*",)
     bkg_map["W+jetsNNLO"] = ("nnlo--WJets*",)
+
+    bkg_map["ZJets"] = ("ZJets*",)
     bkg_map["Z+HF"] = ("HF--ZJetsToNuNu*",)
     bkg_map["Z+LF"] = ("LF--ZJetsToNuNu*",)
     bkg_map["Z+jetsLO"] = ("lo--ZJets*",)
     bkg_map["Z+jetsNNLO"] = ("nnlo--ZJets*",)
+    
+    bkg_map["GJets"] = ("GJets*",)
     bkg_map["G+HF"] = ("HF--GJets*",)
     bkg_map["G+LF"] = ("LF--GJets*",)
     bkg_map["G+jetsLO"] = ("lo--GJets*",)
     bkg_map["G+jetsNNLO"] = ("nnlo--GJets*",)
+    
     bkg_map["QCD"] = ("*QCD*",)
-    sig_map["Mhs_50"] = ("*Mhs_50*",)  ## signals
-    sig_map["Mhs_70"] = ("*Mhs_70*",)
-    sig_map["Mhs_90"] = ("*Mhs_90*",)
-    sig_map["MonoJet"] = ("MonoJet*",)  ## signals
-    sig_map["MonoW"] = ("MonoW*",)    ## signals
-    sig_map["MonoZ"] = ("MonoZ*",)    ## signals
+#     sig_map["Mhs_50"] = ("*Mhs_50*",)  ## signals
+#     sig_map["Mhs_70"] = ("*Mhs_70*",)
+#     sig_map["Mhs_90"] = ("*Mhs_90*",)
+#     sig_map["MonoJet"] = ("MonoJet*",)  ## signals
+#     sig_map["MonoW"] = ("MonoW*",)    ## signals
+#     sig_map["MonoZ"] = ("MonoZ*",)    ## signals
     data_map["MET"] = ("MET*", )
     data_map["SingleElectron"] = ("SingleElectron*", )
     data_map["SinglePhoton"] = ("SinglePhoton*", )

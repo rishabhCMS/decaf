@@ -46,7 +46,7 @@ if options.cluster == 'kisti':
 Executable = reduce.sh
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
-Transfer_Input_Files = reduce.sh, /tmp/x509up_u556950957
+Transfer_Input_Files = reduce.sh, /tmp/x509up_u556951020
 Output = $ENV(FOLDER)/reduce_condor/out/$ENV(SAMPLE)_$ENV(VARIABLE)_$(Cluster)_$(Process).stdout
 Error = $ENV(FOLDER)/reduce_condor/err/$ENV(SAMPLE)_$ENV(VARIABLE)_$(Cluster)_$(Process).stderr
 Log = $ENV(FOLDER)/reduce_condor/log/$ENV(SAMPLE)_$ENV(VARIABLE)_$(Cluster)_$(Process).log
@@ -54,7 +54,7 @@ TransferOutputRemaps = "$ENV(VARIABLE)_$ENV(SAMPLE).reduced=$ENV(PWD)/$ENV(FOLDE
 Arguments = $ENV(FOLDER) $ENV(VARIABLE) $ENV(SAMPLE) $ENV(CLUSTER) $ENV(USER)
 JobBatchName = $ENV(VARIABLE)
 accounting_group=group_cms
-request_cpus = 16
+request_cpus = 1
 request_disk = 10G
 Queue 1"""
 
