@@ -26,7 +26,9 @@ fnaleos = "root://cmseos.fnal.gov/"
 beans={}
 beans['2016'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2016"]
 beans['2017'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017","/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017/Sandeep"]
-beans['2018'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2018", "/eos/uscms/store/user/runiyal/nano2018"]
+beans['2018'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2018", 
+                 "/eos/uscms/store/user/runiyal/nano2018", # for jetHT70to100
+                 "/eos/uscms/store/user/runiyal/nano_new_2018"] # for wpt50to100
                  
 
 def split(arr, size):
