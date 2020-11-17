@@ -22,7 +22,7 @@ parser.add_option('-s', '--special', help='special', dest='special')
 (options, args) = parser.parse_args()
 fnaleos = "root://cmseos.fnal.gov/"
 #fnaleos = "root://cmsxrootd.fnal.gov/"
-
+infneos = "root://xrootd-cms.infn.it/"
 beans={}
 beans['2016'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2016"]
 beans['2017'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017","/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017/Sandeep"]
@@ -102,7 +102,7 @@ for folder in beans[options.year]:
         if not exist:
              os.system("find "+filenames+" > metadata/"+dataset+".txt")
         with open("metadata/"+dataset+".txt") as flist:
-             new_content=flist.read().replace('/eos/uscms',fnaleos)
+             new_content=flist.read().replace('/eos/uscms',infneos)
         with open("metadata/"+dataset+".txt", 'w') as flist:
              flist.write(new_content)
         if options.keep and open("metadata/"+dataset+".txt").read(1): 
