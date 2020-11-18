@@ -59,7 +59,7 @@ def scale(hists):
     for key in hists.keys():
         if key=='sumw': continue
         for d in hists[key].identifiers('dataset'):
-            if 'MET' in d.name or 'SingleElectron' in d.name or 'SinglePhoton' in d.name or 'EGamma' in d.name: continue
+            if 'MET' in d.name or 'SingleElectron' in d.name or 'SinglePhoton' in d.name or 'EGamma' in d.name or 'SingleMuon' in d.name: continue
             hists[key].scale({d:1/scale[d]},axis='dataset')
     print('Histograms scaled')
     
