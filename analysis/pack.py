@@ -102,7 +102,7 @@ for folder in beans[options.year]:
         if not exist:
              os.system("find "+filenames+" > metadata/"+dataset+".txt")
         with open("metadata/"+dataset+".txt") as flist:
-             new_content=flist.read().replace('/eos/uscms',infneos)
+             new_content=flist.read().replace('/eos/uscms',fnaleos)
         with open("metadata/"+dataset+".txt", 'w') as flist:
              flist.write(new_content)
         if options.keep and open("metadata/"+dataset+".txt").read(1): 
