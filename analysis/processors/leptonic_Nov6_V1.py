@@ -778,7 +778,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max(
                     ))*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
 
-            elif('WJets' in dataset):
+            elif('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
                 nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
                 nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
                 for systematic in get_nnlo_nlo_weight['w']:
@@ -941,21 +941,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             that is different from the weight you apply when you ask for at least 1 b-tag
             '''
-            btag = {}
-            btagUp = {}
-            btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  # btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
+#             btag = {}
+#             btagUp = {}
+#             btagDown = {}
+#             btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
+#             btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
+#             btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+#             btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+#             btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
+#             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  # btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
 #             btag['dilepm'], btagUp['dilepm'], btagDown['dilepm']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
@@ -1262,8 +1262,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
-                weights.add('btag', btag[region],
-                            btagUp[region], btagDown[region])
+#                 weights.add('btag', btag[region],
+#                             btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1277,8 +1277,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-                                   'btagUp',
-                                   'btagDown',
+#                                    'btagUp',
+#                                    'btagDown',
                                    'qcd1Up',
                                    'qcd1Down',
                                    'qcd2Up',
