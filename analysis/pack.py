@@ -22,7 +22,7 @@ parser.add_option('-s', '--special', help='special', dest='special')
 (options, args) = parser.parse_args()
 fnaleos = "root://cmseos.fnal.gov/"
 #fnaleos = "root://cmsxrootd.fnal.gov/"
-infneos = "root://xrootd-cms.infn.it/"
+#infneos = "root://xrootd-cms.infn.it/"
 beans={}
 beans['2016'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2016"]
 beans['2017'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017","/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017/Sandeep"]
