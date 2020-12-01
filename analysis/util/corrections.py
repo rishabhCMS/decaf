@@ -408,9 +408,9 @@ class BTagCorrector:
         def onetag(eff):
             output = np.zeros(eff.shape[0], np.float64)
             for event_num in range(eff.shape[0]):
-                for i in range(len(eff[event_num]))):
+                for i in range(len(eff[event_num])):
                     p=1
-                    for j in range(len(eff[event_num]))):
+                    for j in range(len(eff[event_num])):
                         if i != j:
                             p *= (1.0 - eff[j])
                         else :
