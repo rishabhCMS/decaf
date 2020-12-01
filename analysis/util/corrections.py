@@ -445,7 +445,7 @@ class BTagCorrector:
                         if i != j:
                             p *= (1.0 - eff[j])
                         else:
-                        p *= eff[j]
+                            p *= eff[j]
                         output[event_num] += p
             return output
 
