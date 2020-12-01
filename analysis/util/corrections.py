@@ -64,19 +64,19 @@ for year in ['2016','2017','2018']:
     get_ele_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(ele_trig_hist.values, ele_trig_hist.edges)
 
 ###
-# Muon trigger efficiency SFs. depends on supercluster eta and pt:
+# Muon trigger efficiency SFs. 
 ###
 
 mu_trig_hists = {
-#     '2016': uproot.open("data/trigger_eff/eleTrig.root")['hEffEtaPt'],
-#     '2017': uproot.open("data/trigger_eff/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['IsoMu27_PtEtaBins']['pt_abseta_ratio'],
-    '2018': uproot.open("data/trigger_eff/EfficienciesAndSF_2018Data_AfterMuonHLTUpdate.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
+    '2016': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2016_RunBtoH.root")['abseta_pt_ratio'],
+    '2017': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['abseta_pt_ratio'],
+    '2018': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2018_RunAtoD.root")['abseta_pt_ratio']
 }
 get_mu_trig_weight = {}
-for year in ['2018']:
+for year in ['2016','2017','2018']:
     mu_trig_hist = mu_trig_hists[year]
     get_mu_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
-    
+
 ###
 # Photon trigger efficiency SFs. 2017/18 not actually used, sigmoid is used instead.
 ###
@@ -207,44 +207,6 @@ get_mu_loose_iso_sf = {}
 for year in ['2016','2017','2018']:
     get_mu_tight_iso_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist[year].values, mu_iso_tight_hist[year].edges)
     get_mu_loose_iso_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist[year].values, mu_iso_loose_hist[year].edges)
-###
-# V+jets NLO k-factors
-###
-
-nlo_qcd_hists = {
-    '2016':{
-        'dy': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_qcd"],
-        'w': uproot.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_qcd"],
-        'z': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_qcd"],
-        'a': uproot.open("data/vjets_SFs/merged_kfactors_gjets.root")["kfactor_monojet_qcd"]
-    },
-    '2017':{
-        'dy': uproot.open("data/vjets_SFs/SF_QCD_NLO_ZJetsToNuNu.root")["kfac_znn_filter"],
-        'w': uproot.open("data/vjets_SFs/SF_QCD_NLO_WJetsToLNu.root")["wjet_dress_monojet"],
-        'z': uproot.open("data/vjets_SFs/SF_QCD_NLO_DYJetsToLL.root")["kfac_dy_filter"],
-        'a': uproot.open("data/vjets_SFs/SF_QCD_NLO_GJets.root")["gjets_stat1_monojet"]
-    },
-    '2018':{
-        'dy': uproot.open("data/vjets_SFs/SF_QCD_NLO_ZJetsToNuNu.root")["kfac_znn_filter"],
-        'w': uproot.open("data/vjets_SFs/SF_QCD_NLO_WJetsToLNu.root")["wjet_dress_monojet"],
-        'z': uproot.open("data/vjets_SFs/SF_QCD_NLO_DYJetsToLL.root")["kfac_dy_filter"],
-        'a': uproot.open("data/vjets_SFs/SF_QCD_NLO_GJets.root")["gjets_stat1_monojet"]
-    }
-}
-nlo_ewk_hists = {
-    'dy': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
-    'w': uproot.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_ewk"],
-    'z': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
-    'a': uproot.open("data/vjets_SFs/merged_kfactors_gjets.root")["kfactor_monojet_ewk"]
-}    
-get_nlo_qcd_weight = {}
-get_nlo_ewk_weight = {}
-for year in ['2016','2017','2018']:
-    get_nlo_qcd_weight[year] = {}
-    get_nlo_ewk_weight[year] = {}
-    for p in ['dy','w','z','a']:
-        get_nlo_qcd_weight[year][p] = lookup_tools.dense_lookup.dense_lookup(nlo_qcd_hists[year][p].values, nlo_qcd_hists[year][p].edges)
-        get_nlo_ewk_weight[year][p] = lookup_tools.dense_lookup.dense_lookup(nlo_ewk_hists[p].values, nlo_ewk_hists[p].edges)
 
 ###
 # V+jets NNLO weights
@@ -442,10 +404,32 @@ class BTagCorrector:
         up = zerotag(eff_data_up)/zerotag(eff)
         down = zerotag(eff_data_down)/zerotag(eff)
 
+        # Modified b tag Nov 25
+        def onetag(eff):
+            output = np.zeros(eff.shape[0], np.float64)
+            for event_num in range(eff.shape[0]):
+                for i in range(len(eff[event_num]))):
+                    p=1
+                    for j in range(len(eff[event_num]))):
+                        if i != j:
+                            p *= (1.0 - eff[j])
+                        else :
+                        p*=eff[j]
+                        output[event_num] += p
+            return output
+
         if '-1' in tag: 
             nom = (1 - zerotag(eff_data_nom)) / (1 - zerotag(eff))
             up = (1 - zerotag(eff_data_up)) / (1 - zerotag(eff))
             down = (1 - zerotag(eff_data_down)) / (1 - zerotag(eff))
+        elif '2' in tag:
+            nom = (1- zerotag(eff_data_nom) - onetag(eff_data_nom))/(1- zerotag(eff) - onetag(eff))
+            up =(1- zerotag(eff_data_up) - onetag(eff_data_up))/(1- zerotag(eff) - onetag(eff))
+            down =(1- zerotag(eff_data_down) - onetag(eff_data_down))/(1- zerotag(eff) - onetag(eff))
+        elif '+1' in tag:
+            nom = onetag(eff_data_nom)/onetag(eff)
+            up= onetag(eff_data_up)/onetag(eff)
+            down = onetag(eff_data_down)/onetag(eff)
 
         return np.nan_to_num(nom), np.nan_to_num(up), np.nan_to_num(down)
 
@@ -505,13 +489,10 @@ corrections = {
     'get_msd_weight':           get_msd_weight,
     'get_ttbar_weight':         get_ttbar_weight,
     'get_nnlo_nlo_weight':      get_nnlo_nlo_weight,
-    'get_nlo_qcd_weight':       get_nlo_qcd_weight,
-    'get_nlo_ewk_weight':       get_nlo_ewk_weight,
     'get_pu_weight':            get_pu_weight,
     'get_met_trig_weight':      get_met_trig_weight,
     'get_met_zmm_trig_weight':  get_met_zmm_trig_weight,
     'get_ele_trig_weight':      get_ele_trig_weight,
-    'get_mu_trig_weight':      get_mu_trig_weight,    
     'get_pho_trig_weight':      get_pho_trig_weight,
     'get_ele_loose_id_sf':      get_ele_loose_id_sf,
     'get_ele_tight_id_sf':      get_ele_tight_id_sf,
