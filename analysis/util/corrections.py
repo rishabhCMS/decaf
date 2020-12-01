@@ -70,20 +70,15 @@ for year in ['2016', '2017', '2018']:
     get_ele_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(
         ele_trig_hist.values, ele_trig_hist.edges)
 
-###
-# Muon trigger efficiency SFs.
-###
-
 mu_trig_hists = {
-    '2016': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2016_RunBtoH.root")['abseta_pt_ratio'],
-    '2017': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['abseta_pt_ratio'],
-    '2018': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2018_RunAtoD.root")['abseta_pt_ratio']
+#     '2016': uproot.open("data/trigger_eff/eleTrig.root")['hEffEtaPt'],
+#     '2017': uproot.open("data/trigger_eff/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['IsoMu27_PtEtaBins']['pt_abseta_ratio'],
+    '2018': uproot.open("data/trigger_eff/EfficienciesAndSF_2018Data_AfterMuonHLTUpdate.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
 }
 get_mu_trig_weight = {}
-for year in ['2016', '2017', '2018']:
+for year in ['2018']:
     mu_trig_hist = mu_trig_hists[year]
-    get_mu_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(
-        mu_trig_hist.values, mu_trig_hist.edges)
+    get_mu_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
 
 ###
 # Photon trigger efficiency SFs. 2017/18 not actually used, sigmoid is used instead.
