@@ -25,7 +25,7 @@ processes =    {
     
     # NLO W->lnurishabh                                                                                                                                                                                    
     ('WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt0to50','MC', 62470),
-    ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3258),
+    ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3580),
 
 
     # LO Z->nunu
@@ -95,7 +95,7 @@ processes =    {
     
     # LO W->lnu
     #2018
-    ('WJetsToLNu_HT-70To100_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht70to100_CP5','MC', 1292),
+    ('WJetsToLNu_HT-70To100_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht70to100_CP5','MC', 1289),
     
     ('WJetsToLNu_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht100to200_CP5','MC',1392),
     #'WJetsToLNu_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8':('WJets_ht100to200_CP5','MC',1345),
