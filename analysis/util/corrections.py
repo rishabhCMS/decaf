@@ -448,14 +448,11 @@ class BTagCorrector:
         def onetag(eff):
             output = np.zeros(eff.shape[0], np.float64)
             for event_num in range(eff.shape[0]):
+                p = 0
                 for i in range(len(eff[event_num])):
-                    p=1
-                    for j in range(len(eff[event_num])):
-                        if i != j:
-                            p *= (1.0 - eff[j])
-                        else :
-                            p*=eff[j]
-                        output[event_num] += p
+                  p += eff[event_num][i] * (1 - np.delete(eff[event_num],i)).prod()
+        #           print(p)
+                output[event_num] = p
             return output
 
         if '-1' in tag: 
