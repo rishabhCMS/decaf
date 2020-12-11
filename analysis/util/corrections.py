@@ -2,7 +2,7 @@
 import uproot, uproot_methods
 import numpy as np
 import os
-import numba as nb
+# import numba as nb
 from coffea import hist, lookup_tools
 from coffea.lookup_tools import extractor, dense_lookup
 from coffea.util import save, load
@@ -444,7 +444,6 @@ class BTagCorrector:
         down = zerotag(eff_data_down)/zerotag(eff)
 
         # Modified b tag Nov 25
-#         @nb.njit(nopython=True)
         def onetag(eff):
             output = np.zeros(eff.shape[0], np.float64)
             for event_num in range(eff.shape[0]):
