@@ -429,21 +429,7 @@ class BTagCorrector:
         #https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods#1b_Event_reweighting_using_scale
         def zerotag(eff):
             return (1 - eff).prod()
-
-        eff = self.eff(flavor, pt, abseta)
-        sf_nom = self.sf.eval('central', flavor, abseta, pt)
-        sf_up = self.sf.eval('up', flavor, abseta, pt)
-        sf_down = self.sf.eval('down', flavor, abseta, pt)
-
-        eff_data_nom  = np.minimum(1., sf_nom*eff)
-        eff_data_up   = np.minimum(1., sf_up*eff)
-        eff_data_down = np.minimum(1., sf_down*eff)
-
-        nom = zerotag(eff_data_nom)/zerotag(eff)
-        up = zerotag(eff_data_up)/zerotag(eff)
-        down = zerotag(eff_data_down)/zerotag(eff)
-
-        # Modified b tag Nov 25
+        
         def onetag(eff):
             output = np.zeros(eff.shape[0], np.float64)
             for event_num in range(eff.shape[0]):
@@ -453,6 +439,16 @@ class BTagCorrector:
         #           print(p)
                 output[event_num] = p
             return output
+        
+        eff = self.eff(flavor, pt, abseta)
+        sf_nom = self.sf.eval('central', flavor, abseta, pt)
+        sf_up = self.sf.eval('up', flavor, abseta, pt)
+        sf_down = self.sf.eval('down', flavor, abseta, pt)
+
+        eff_data_nom  = np.minimum(1., sf_nom*eff)
+        eff_data_up   = np.minimum(1., sf_up*eff)
+        eff_data_down = np.minimum(1., sf_down*eff)
+
 
         if '-1' in tag: 
             nom = (1 - zerotag(eff_data_nom)) / (1 - zerotag(eff))
@@ -466,6 +462,10 @@ class BTagCorrector:
             nom = onetag(eff_data_nom)/onetag(eff)
             up= onetag(eff_data_up)/onetag(eff)
             down = onetag(eff_data_down)/onetag(eff)
+        else:
+            nom = zerotag(eff_data_nom)/zerotag(eff)
+            up = zerotag(eff_data_up)/zerotag(eff)
+            down = zerotag(eff_data_down)/zerotag(eff)
 
         return np.nan_to_num(nom), np.nan_to_num(up), np.nan_to_num(down)
 
