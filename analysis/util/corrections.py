@@ -2,7 +2,6 @@
 import uproot, uproot_methods
 import numpy as np
 import os
-# import numba as nb
 from coffea import hist, lookup_tools
 from coffea.lookup_tools import extractor, dense_lookup
 from coffea.util import save, load
@@ -531,7 +530,7 @@ corrections = {
     'get_met_trig_weight':      get_met_trig_weight,
     'get_met_zmm_trig_weight':  get_met_zmm_trig_weight,
     'get_ele_trig_weight':      get_ele_trig_weight,
-    'get_mu_trig_weight':      get_mu_trig_weight,     
+    'get_mu_trig_weight':      get_mu_trig_weight,    
     'get_pho_trig_weight':      get_pho_trig_weight,
     'get_ele_loose_id_sf':      get_ele_loose_id_sf,
     'get_ele_tight_id_sf':      get_ele_tight_id_sf,
