@@ -1189,7 +1189,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ndcsvM':     j_ndcsvM,
                 'ele_eta': leading_e.eta,
                 'mu_eta': leading_mu.eta,
-                'ele_phi': leading_ele.phi,
+                'ele_phi': leading_e.phi,
                 'mu_phi': leading_mu.phi
             }
             if region in mT:
