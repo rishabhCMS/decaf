@@ -384,7 +384,26 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('njets', 'AK4 Number of Jets', 6, -0.5, 5.5)),
-
+            'ele_eta': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'),
+                hist.Bin('ele_eta','Leading Electron Eta',48,-2.4,2.4)),
+            'mu_eta': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'),
+                hist.Bin('mu_eta','Leading Muon Eta',48,-2.4,2.4)),
+            'ele_phi': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'),
+                hist.Bin('ele_phi','Leading Electron Phi',64,-3.2,3.2)),
+            'mu_phi': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'), 
+                hist.Bin('mu_phi','Leading Muon Phi',64,-3.2,3.2)),                
             'ndcsvM': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -394,12 +413,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading_jet)$', 30, 0, 3.5)),
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading jet)$', 30, 0, 3.5)),
             'dr_e_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dr_e_lj', '$\Delta r (loose e, leading_jet)$', 30, 0, 5.0)),
+                hist.Bin('dr_e_lj', '$\Delta r (loose e, leading jet)$', 30, 0, 5.0)),
             'dr_mu_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1168,7 +1187,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
                 'ndcsvM':     j_ndcsvM,
-                'scale_factors': np.ones(events.size, dtype=np.bool)
+                'ele_eta': leading_e.eta,
+                'mu_eta': leading_mu.eta,
+                'ele_phi': leading_ele.phi,
+                'mu_phi': leading_mu.phi
             }
             if region in mT:
                 variables['mT'] = mT[region]
