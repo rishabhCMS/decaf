@@ -1024,10 +1024,15 @@ class AnalysisProcessor(processor.ProcessorABC):
         noHEMj = np.ones(events.size, dtype=np.bool)
         if self._year == '2018':
             noHEMj = (j_nHEM == 0)
-
+            if isData and "B" not in dataset:
+                noHEMj = np.ones(events.size, dtype=np.bool)
+                
         noHEMmet = np.ones(events.size, dtype=np.bool)
         if self._year == '2018':
             noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
+            if isData and "B" not in dataset:
+                noHEMmet = np.ones(events.size, dtype=np.bool)
+                
 
         '''
         what the next 6 lines of code do:
