@@ -38,6 +38,9 @@ for dataset, info in samplefiles.items():
     files = []
     for file in info['files'][fileslice]:
         files.append(file)
+        if 'EGamma' in file or 'SingleMuon' in file:
+            if 'Run2018B' in file:
+                dataset = dataset+'B'
     filelist[dataset] = files
 
     tstart = time.time()
