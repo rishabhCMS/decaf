@@ -1361,18 +1361,19 @@ class AnalysisProcessor(processor.ProcessorABC):
 
     def postprocess(self, accumulator):
         scale = {}
-        for d in accumulator['sumw'].identifiers('dataset'):
-            if 'B' in d:
-                d = d.partition('B')[0] 
+        for d in accumulator['sumw'].identifiers('dataset'): 
             print('Scaling:', d.name)
             dataset = d.name
+            if 'EGamma' in dataset or 'SingleMuon' in dataset:
+                if 'B' in dataset:
+                    dataset = dataset.partition('B')[0]
             if '--' in dataset:
                 dataset = dataset.split('--')[1]
             print('Cross section:', self._xsec[dataset])
             if self._xsec[dataset] != -1:
-                scale[d.name] = self._lumi*self._xsec[dataset]
+                scale[dataset] = self._lumi*self._xsec[dataset]
             else:
-                scale[d.name] = 1
+                scale[dataset] = 1
 
         for histname, h in accumulator.items():
             if histname == 'sumw':
