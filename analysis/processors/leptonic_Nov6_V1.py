@@ -1362,6 +1362,8 @@ class AnalysisProcessor(processor.ProcessorABC):
     def postprocess(self, accumulator):
         scale = {}
         for d in accumulator['sumw'].identifiers('dataset'):
+            if 'B' in d:
+                d = d.partition('B')[0] 
             print('Scaling:', d.name)
             dataset = d.name
             if '--' in dataset:
