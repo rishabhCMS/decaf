@@ -443,6 +443,7 @@ class AnalysisProcessor(processor.ProcessorABC):
     def process(self, events):
 
         dataset = events.metadata['dataset']
+        runB_dataset = dataset
         if 'EGamma' in dataset or 'SingleMuon' in dataset:
             if 'B' in dataset:
                 runB_dataset = dataset
