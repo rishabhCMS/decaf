@@ -442,12 +442,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 
     def process(self, events):
 
-        
+        dataset = events.metadata['dataset']
         if 'EGamma' in dataset or 'SingleMuon' in dataset:
             if 'B' in dataset:
                 runB_dataset = dataset
                 dataset = dataset.partition('B')[0]
-        dataset = events.metadata['dataset']
+        
 
         selected_regions = []
         for region, samples in self._samples.items():
