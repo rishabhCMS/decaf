@@ -442,6 +442,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
     def process(self, events):
 
+        
+        if 'EGamma' in dataset or 'SingleMuon' in dataset:
+            if 'B' in dataset:
+                runB_dataset = dataset
+                dataset = dataset.partition('B')[0]
         dataset = events.metadata['dataset']
 
         selected_regions = []
@@ -1024,13 +1029,13 @@ class AnalysisProcessor(processor.ProcessorABC):
         noHEMj = np.ones(events.size, dtype=np.bool)
         if self._year == '2018':
             noHEMj = (j_nHEM == 0)
-            if isData and "B" not in dataset:
+            if isData and "B" not in runB_dataset:
                 noHEMj = np.ones(events.size, dtype=np.bool)
                 
         noHEMmet = np.ones(events.size, dtype=np.bool)
         if self._year == '2018':
             noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
-            if isData and "B" not in dataset:
+            if isData and "B" not in runB_dataset:
                 noHEMmet = np.ones(events.size, dtype=np.bool)
                 
 
@@ -1364,9 +1369,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         for d in accumulator['sumw'].identifiers('dataset'): 
             print('Scaling:', d.name)
             dataset = d.name
-            if 'EGamma' in dataset or 'SingleMuon' in dataset:
-                if 'B' in dataset:
-                    dataset = dataset.partition('B')[0]
             if '--' in dataset:
                 dataset = dataset.split('--')[1]
             print('Cross section:', self._xsec[dataset])
