@@ -448,7 +448,10 @@ class BTagCorrector:
         eff_data_up   = np.minimum(1., sf_up*eff)
         eff_data_down = np.minimum(1., sf_down*eff)
 
-
+        nom = zerotag(eff_data_nom)/zerotag(eff)
+        up = zerotag(eff_data_up)/zerotag(eff)
+        down = zerotag(eff_data_down)/zerotag(eff)
+        
         if '-1' in tag: 
             nom = (1 - zerotag(eff_data_nom)) / (1 - zerotag(eff))
             up = (1 - zerotag(eff_data_up)) / (1 - zerotag(eff))
@@ -461,10 +464,7 @@ class BTagCorrector:
             nom = onetag(eff_data_nom)/onetag(eff)
             up= onetag(eff_data_up)/onetag(eff)
             down = onetag(eff_data_down)/onetag(eff)
-        else:
-            nom = zerotag(eff_data_nom)/zerotag(eff)
-            up = zerotag(eff_data_up)/zerotag(eff)
-            down = zerotag(eff_data_down)/zerotag(eff)
+
 
         return np.nan_to_num(nom), np.nan_to_num(up), np.nan_to_num(down)
 
