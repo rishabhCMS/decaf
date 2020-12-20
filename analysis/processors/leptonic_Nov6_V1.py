@@ -12,6 +12,7 @@ import pprint
 import numpy as np
 import math
 import awkward
+import time
 np.seterr(divide='ignore', invalid='ignore', over='ignore')
 
 
@@ -1362,7 +1363,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               weight=weights.weight(modifier=systematic)*cut)
                     fill(dataset, weights.weight(), cut)
-
+        time.sleep(0.5)
         return hout
 
     def postprocess(self, accumulator):
