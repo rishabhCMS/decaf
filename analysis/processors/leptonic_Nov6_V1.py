@@ -1030,15 +1030,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         noHEMj = np.ones(events.size, dtype=np.bool)
         if self._year == '2018':
-            noHEMj = (j_nHEM == 0)
-            if isData and "B" not in runB_dataset:
-                noHEMj = np.ones(events.size, dtype=np.bool)
+            if "B" in runB_dataset:
+                noHEMj = (j_nHEM == 0)
                 
         noHEMmet = np.ones(events.size, dtype=np.bool)
         if self._year == '2018':
-            noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
-            if isData and "B" not in runB_dataset:
-                noHEMmet = np.ones(events.size, dtype=np.bool)
+            if "B" in runB_dataset:
+                noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
                 
 
         '''
@@ -1375,9 +1373,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 dataset = dataset.split('--')[1]
             print('Cross section:', self._xsec[dataset])
             if self._xsec[dataset] != -1:
-                scale[dataset] = self._lumi*self._xsec[dataset]
+                scale[d.name] = self._lumi*self._xsec[dataset]
             else:
-                scale[dataset] = 1
+                scale[d.name] = 1
 
         for histname, h in accumulator.items():
             if histname == 'sumw':
