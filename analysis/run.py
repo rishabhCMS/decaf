@@ -36,13 +36,8 @@ for dataset, info in samplefiles.items():
     if options.dataset and options.dataset not in dataset: continue
     print('Processing:',dataset)
     files = []
-    i = 0 
     for file in info['files'][fileslice]:
         files.append(file)
-        if 'EGamma' in file or 'SingleMuon' in file:
-            if 'Run2018B' in file and i==0:
-                dataset = dataset+'B'
-                i += 1
     filelist[dataset] = files
 
     tstart = time.time()
