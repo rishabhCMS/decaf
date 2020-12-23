@@ -442,13 +442,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         return self._columns
 
     def process(self, events):
-
+        isHEM = False
         dataset = events.metadata['dataset']
-        runB_dataset = dataset
-        if 'EGamma' in dataset or 'SingleMuon' in dataset:
-            if 'B' in dataset:
-                runB_dataset = dataset
-                dataset = dataset.partition('B')[0]
         
 
         selected_regions = []
@@ -1029,13 +1024,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('single_muon_triggers', triggers)
 
         noHEMj = np.ones(events.size, dtype=np.bool)
-        if self._year == '2018':
-            if "B" in runB_dataset:
+        if self._year == '2018' and isHEM:
                 noHEMj = (j_nHEM == 0)
                 
         noHEMmet = np.ones(events.size, dtype=np.bool)
-        if self._year == '2018':
-            if "B" in runB_dataset:
+        if self._year == '2018' and isHEM:
                 noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
                 
 
