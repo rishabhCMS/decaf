@@ -1028,11 +1028,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('single_muon_triggers', triggers)
 
         noHEMj = np.ones(events.size, dtype=np.bool)
-        if self._year == '2018' and isHEM:
+        if self._year == '2018' and isHEMjet:
                 noHEMj = (j_nHEM == 0)
                 
         noHEMmet = np.ones(events.size, dtype=np.bool)
-        if self._year == '2018' and isHEM:
+        if self._year == '2018' and isHEMmet:
                 noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
                 
 
