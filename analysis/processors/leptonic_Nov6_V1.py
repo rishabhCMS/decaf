@@ -442,7 +442,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         return self._columns
 
     def process(self, events):
-        isHEM = False
+        
+        # initial filter to set the hem selection (True->apply hem sel & false-> donot apply hem sel)
+        isHEMjet = False
+        isHEMmet = False
+        
         dataset = events.metadata['dataset']
         
 
