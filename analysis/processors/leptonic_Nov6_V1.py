@@ -803,7 +803,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max(
                     ))*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
 
-            elif('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
+            elif('WJets' in dataset) & ('HT' in dataset):
                 nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
                 nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
                 for systematic in get_nnlo_nlo_weight['w']:
