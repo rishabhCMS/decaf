@@ -511,7 +511,7 @@ corrections = {
     'get_met_trig_weight':      get_met_trig_weight,
     'get_met_zmm_trig_weight':  get_met_zmm_trig_weight,
     'get_ele_trig_weight':      get_ele_trig_weight,
-    'get_mu_trig_weight':      get_mu_trig_weight,    
+#     'get_mu_trig_weight':      get_mu_trig_weight,    
     'get_pho_trig_weight':      get_pho_trig_weight,
     'get_ele_loose_id_sf':      get_ele_loose_id_sf,
     'get_ele_tight_id_sf':      get_ele_tight_id_sf,
