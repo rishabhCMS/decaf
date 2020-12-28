@@ -445,7 +445,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         # initial filter to set the hem selection (True->apply hem sel & false-> donot apply hem sel)
         isHEMjet = True
-        isHEMmet = True
+        isHEMmet = False
         
         dataset = events.metadata['dataset']
         
