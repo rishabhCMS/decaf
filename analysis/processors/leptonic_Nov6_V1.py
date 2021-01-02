@@ -778,7 +778,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max(
                     ))*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
 
-            elif('WJets' in dataset):
+            elif ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
                 nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
                 nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
                 for systematic in get_nnlo_nlo_weight['w']:
@@ -1033,7 +1033,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
-                                      ((abs(GenPart.pdgId) == 24))].pt > 50).all()
+                                      ((abs(GenPart.pdgId) == 24))].pt > 100).all()
             selection.add("exclude_low_WpT_JetHT", remove_overlap)
 
         else:
@@ -1101,17 +1101,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             select = mT[region] > 310 & mT[region] <
 #             selection.add(sel_name, select)
         regions = {
-            'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_sre>40', 'noHEMmet'},
-            'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_srm>40', 'noHEMmet'},
-            'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
                        'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_ttbare>40', 'noHEMmet'},
-            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
                        'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_ttbarm>40', 'noHEMmet'},
-            'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_wjete>40', 'noHEMmet'},
-            'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
+            'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_wjetm>40', 'noHEMmet'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
@@ -1167,7 +1167,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
                 'ndcsvM':     j_ndcsvM,
-                'scale_factors': np.ones(events.size, dtype=np.bool)
+#                 'scale_factors': np.ones(events.size, dtype=np.bool)
             }
             if region in mT:
                 variables['mT'] = mT[region]
