@@ -25,7 +25,7 @@ processes =    {
     
     # NLO W->lnurishabh                                                                                                                                                                                    
     ('WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt0to50','MC', 62470),
-    ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3580),
+    ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3258),
 
 
     # LO Z->nunu
@@ -95,7 +95,7 @@ processes =    {
     
     # LO W->lnu
     #2018
-    ('WJetsToLNu_HT-70To100_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht70to100_CP5','MC', 1289),
+    ('WJetsToLNu_HT-70To100_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht70to100_CP5','MC', 1292),
     
     ('WJetsToLNu_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht100to200_CP5','MC',1392),
     #'WJetsToLNu_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8':('WJets_ht100to200_CP5','MC',1345),
@@ -137,10 +137,10 @@ processes =    {
 
     # LO gamma
     #2018
-#     ('GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht100to200','MC',8604,2018),
-#     ('GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht200to400','MC',2194,2018),
-#     ('GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht400to600','MC',257.8,2018),
-#     ('GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht600toinf','MC',84.92,2018),
+    #('GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht100to200','MC',8604,2018),
+    #('GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht200to400','MC',2194,2018),
+    #('GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht400to600','MC',257.8,2018),
+    #('GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('GJets_ht600toinf','MC',84.92,2018),
 #     ('GJets_1j_Gpt-100To250_5f_NLO_Autumn18',2018):('GJets_pt100to250','MC',1183),
 #     ('GJets_1j_Gpt-250To400_5f_NLO_Autumn18',2018):('GJets_pt250to400','MC',25.83),
 #     ('GJets_1j_Gpt-400To650_5f_NLO_Autumn18',2018):('GJets_pt400to650','MC',3.149),
