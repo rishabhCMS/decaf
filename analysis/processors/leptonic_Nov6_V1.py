@@ -410,22 +410,22 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ele_eta','Leading Electron Eta',48,-2.4,2.4)),
+                hist.Bin('ele_eta', 'Leading Electron Eta', 48, -2.4, 2.4)),
             'mu_eta': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('mu_eta','Leading Muon Eta',48,-2.4,2.4)),
+                hist.Bin('mu_eta', 'Leading Muon Eta', 48, -2.4, 2.4)),
             'ele_phi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ele_phi','Leading Electron Phi',64,-3.2,3.2)),
+                hist.Bin('ele_phi', 'Leading Electron Phi', 64, -3.2, 3.2)),
             'mu_phi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('mu_phi','Leading Muon Phi',64,-3.2,3.2)),
+                hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
         })
 
     @property
@@ -646,7 +646,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(leading_j['T'].delta_phi(met['T']).sum()) > 1.5)
+        Delta_Phi_Met_LJ = (
+            abs(leading_j['T'].delta_phi(met['T']).sum()) > 1.5)
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
