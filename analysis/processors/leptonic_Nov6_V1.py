@@ -12,6 +12,7 @@ import pprint
 import numpy as np
 import math
 import awkward
+import time
 np.seterr(divide='ignore', invalid='ignore', over='ignore')
 
 
@@ -631,16 +632,15 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (met['T'].delta_phi(leading_j['T'].sum()) > 1.5)
-
+        Delta_Phi_Met_LJ = (abs(leading_j['T'].delta_phi(met['T']).sum()) > 1.5)
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
-        DeltaR_LJ_Ele_mask = (DeltaR_LJ_Ele < 3.4).any()
+        DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele) < 3.4).any()
 
         LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
-        DeltaR_LJ_Mu_mask = (DeltaR_LJ_Mu < 3.4).any()
+        DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu) < 3.4).any()
 
         ele_pairs = e_loose.distincts()
         diele = ele_pairs.i0+ele_pairs.i1
@@ -778,7 +778,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max(
                     ))*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
 
-            elif('WJets' in dataset):
+            elif('WJets' in dataset) and ('HT' in dataset):
                 nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
                 nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
                 for systematic in get_nnlo_nlo_weight['w']:
@@ -941,21 +941,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             that is different from the weight you apply when you ask for at least 1 b-tag
             '''
-            btag = {}
-            btagUp = {}
-            btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  # btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
+#            btag = {}
+#            btagUp = {}
+#            btagDown = {}
+#            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
+#                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
+#            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
+#                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '1')
+#            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
+#                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+#            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
+#                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '-1')
+#            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
+#                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
+#            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
+#                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  # btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
 #             btag['dilepm'], btagUp['dilepm'], btagDown['dilepm']=np.ones(
 #                 events.size), np.ones(events.size), np.ones(events.size)
@@ -1029,7 +1029,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
         # selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
-        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
+        if ('WJets' in dataset) and ("HT" in dataset):
 
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
@@ -1037,7 +1037,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             selection.add("exclude_low_WpT_JetHT", remove_overlap)
 
         else:
-            selection.add("exclude_low_WpT_JetHT", np.full(events.size, True))
+            selection.add("exclude_low_WpT_JetHT", np.ones(events.size, dtype=np.bool))
         # i dont think I need a photon trigger
         #         triggers = np.zeros(events.size, dtype=np.bool)
         #         for path in PhoTrigger:
@@ -1045,15 +1045,15 @@ class AnalysisProcessor(processor.ProcessorABC):
         #             triggers = triggers | events.HLT[path]
         #         selection.add('pho_triggers', triggers)
 
-        selection.add('DeltaR_LJ_mask',
-                      (DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
+        selection.add('DeltaR_LJ_Ele_mask',DeltaR_LJ_Ele_mask)
+        selection.add('DeltaR_LJ_Mu_mask',DeltaR_LJ_Mu_mask)
 
         selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (
-            mu_nloose == 1) & (pho_nloose == 0))
+            mu_nloose == 1) )
         selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (
-            mu_nloose == 0) & (pho_nloose == 0))
+            mu_nloose == 0) )
         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
@@ -1103,17 +1103,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_sre>40', 'noHEMmet'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40', 'noHEMmet'},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_srm>40', 'noHEMmet'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40', 'noHEMmet'},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_ttbare>40', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'noHEMmet'},
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_ttbarm>40', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40', 'noHEMmet'},
             'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_wjete>40', 'noHEMmet'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40', 'noHEMmet'},
             'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_wjetm>40', 'noHEMmet'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'noHEMmet'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
@@ -1262,8 +1262,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
-                weights.add('btag', btag[region],
-                            btagUp[region], btagDown[region])
+#                weights.add('btag', btag[region],
+#                         btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1277,8 +1277,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-                                   'btagUp',
-                                   'btagDown',
+#                                   'btagUp',
+#                                   'btagDown',
                                    'qcd1Up',
                                    'qcd1Down',
                                    'qcd2Up',
@@ -1321,8 +1321,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-#                                         for systematic in [None]:
-                    for systematic in [None, 'btagUp', 'btagDown']:
+                    for systematic in [None]:
+#                    for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
@@ -1350,7 +1350,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 continue
             if isinstance(h, hist.Hist):
                 h.scale(scale, axis='dataset')
-
+        time.sleep(.20)
         return accumulator
 
 

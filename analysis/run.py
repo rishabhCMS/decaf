@@ -45,7 +45,7 @@ for dataset, info in samplefiles.items():
                                       treename='Events',
                                       processor_instance=processor_instance,
                                       executor=processor.futures_executor,
-                                      executor_args={'nano': True, 'workers': options.workers},
+                                      executor_args={'nano': True, 'workers': options.workers, 'skipbadfiles':True},
                                       )
     
     #nbins = sum(sum(arr.size for arr in h._sumw.values()) for h in output.values() if isinstance(h, hist.Hist))
