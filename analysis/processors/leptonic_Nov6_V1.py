@@ -1276,8 +1276,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
                 #                 weights.add('csev', csev[region])
-                               weights.add('btag', btag[region],
-                                        btagUp[region], btagDown[region])
+                weights.add('btag', btag[region],
+                        btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
