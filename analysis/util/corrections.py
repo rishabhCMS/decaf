@@ -70,7 +70,7 @@ for year in ['2016','2017','2018']:
 mu_trig_hists = {
 #     '2016': uproot.open("data/trigger_eff/eleTrig.root")['hEffEtaPt'],
 #     '2017': uproot.open("data/trigger_eff/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['IsoMu27_PtEtaBins']['pt_abseta_ratio'],
-    '2018': uproot.open("data/trigger_eff/EfficienciesAndSF_2018Data_AfterMuonHLTUpdate.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
+    '2018': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2018_RunAtoD_kr.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
 }
 get_mu_trig_weight = {}
 for year in ['2018']:
@@ -428,7 +428,17 @@ class BTagCorrector:
         #https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods#1b_Event_reweighting_using_scale
         def zerotag(eff):
             return (1 - eff).prod()
-
+        
+        def onetag(eff):
+            output = np.zeros(eff.shape[0], np.float64)
+            for event_num in range(eff.shape[0]):
+                p = 0
+                for i in range(len(eff[event_num])):
+                  p += eff[event_num][i] * (1 - np.delete(eff[event_num],i)).prod()
+        #           print(p)
+                output[event_num] = p
+            return output
+        
         eff = self.eff(flavor, pt, abseta)
         sf_nom = self.sf.eval('central', flavor, abseta, pt)
         sf_up = self.sf.eval('up', flavor, abseta, pt)
@@ -446,6 +456,18 @@ class BTagCorrector:
             nom = (1 - zerotag(eff_data_nom)) / (1 - zerotag(eff))
             up = (1 - zerotag(eff_data_up)) / (1 - zerotag(eff))
             down = (1 - zerotag(eff_data_down)) / (1 - zerotag(eff))
+        elif '2' in tag:
+            nom = (1- zerotag(eff_data_nom) - onetag(eff_data_nom))/(1- zerotag(eff) - onetag(eff))
+            up =(1- zerotag(eff_data_up) - onetag(eff_data_up))/(1- zerotag(eff) - onetag(eff))
+            down =(1- zerotag(eff_data_down) - onetag(eff_data_down))/(1- zerotag(eff) - onetag(eff))
+        elif '+1' in tag:
+            nom = onetag(eff_data_nom)/onetag(eff)
+            up= onetag(eff_data_up)/onetag(eff)
+            down = onetag(eff_data_down)/onetag(eff)
+        else:
+            nom = zerotag(eff_data_nom)/zerotag(eff)
+            up = zerotag(eff_data_up)/zerotag(eff)
+            down = zerotag(eff_data_down)/zerotag(eff)
 
         return np.nan_to_num(nom), np.nan_to_num(up), np.nan_to_num(down)
 
