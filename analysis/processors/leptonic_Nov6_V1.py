@@ -656,7 +656,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
-        DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele) < 3.4).any()
+        DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele) < 1.85).any()
 
         LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
