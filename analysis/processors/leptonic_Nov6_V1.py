@@ -429,7 +429,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'met_phi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
-                hist.Cat('region', 'Region'),,
+                hist.Cat('region', 'Region'),
                 hist.Bin('met_phi','MET phi',35,-3.5,3.5)
         })
 
