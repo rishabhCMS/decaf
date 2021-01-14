@@ -1248,7 +1248,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('nlo_ewk', nlo_ewk)
                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
-                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
