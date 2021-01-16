@@ -426,11 +426,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
-            'met_phi': hist.Hist(
-                'Events',
-                hist.Cat('dataset', 'Dataset'),
-                hist.Cat('region', 'Region'),
-                hist.Bin('met_phi','MET phi',35,-3.5,3.5)),
         })
 
     @property
@@ -1164,7 +1159,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'eT_miss':              met.pt,
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
-                'met_phi':                 met.phi,
+                # 'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
                 # 'j1pt':                   leading_j.pt,
                 # 'j1eta':                  leading_j.eta,
@@ -1248,7 +1243,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('nlo_ewk', nlo_ewk)
                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
-#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
