@@ -1064,11 +1064,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('DeltaR_LJ_Mu_mask',DeltaR_LJ_Mu_mask)
 
         selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
-                      & (tau_nloose == 0) & (pho_nloose == 0))
+                      & (tau_nloose == 0))
         selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (
-                mu_nloose == 1))
+                mu_nloose == 1) & (pho_nloose == 0))
         selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (
-                mu_nloose == 0))
+                mu_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
@@ -1095,11 +1095,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         #         selection.add('zero_medium_btags',
         #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
         selection.add('Delta_Phi_Met_LJ', (Delta_Phi_Met_LJ))
-        selection.add('DeltaR_LJ_Ele', (DeltaR_LJ_Ele_mask))
 
         selection.add('one_muon', (mu_tight.counts == 1))
         selection.add('zero_loose_electron', (e_loose.counts == 0))
-        selection.add('DeltaR_LJ_Mu', (DeltaR_LJ_Mu_mask))
 
         #         selection.add('atleast_2_medium_btag',
         #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
@@ -1118,17 +1116,17 @@ class AnalysisProcessor(processor.ProcessorABC):
         #             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40', 'noHEMmet'},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40', 'noHEMmet'},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'noHEMmet'},
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40', 'noHEMmet'},
             'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40', 'noHEMmet'},
             'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'noHEMmet'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
@@ -1343,7 +1341,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               weight=weights.weight(modifier=systematic)*cut)
                     fill(dataset, weights.weight(), cut)
-        time.sleep(.20)
+        time.sleep(.10)
         return hout
 
     def postprocess(self, accumulator):
