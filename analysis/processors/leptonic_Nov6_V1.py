@@ -1364,7 +1364,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 continue
             if isinstance(h, hist.Hist):
                 h.scale(scale, axis='dataset')
-        time.sleep(.20)
         return accumulator
 
 
