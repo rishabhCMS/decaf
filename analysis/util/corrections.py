@@ -232,9 +232,9 @@ nlo_qcd_hists = {
     }
 }
 nlo_ewk_hists = {
-    'dy': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
-    'w': uproot.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_ewk"],
     'z': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
+    'w': uproot.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_ewk"],
+    'dy': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
     'a': uproot.open("data/vjets_SFs/merged_kfactors_gjets.root")["kfactor_monojet_ewk"]
 }    
 get_nlo_qcd_weight = {}
