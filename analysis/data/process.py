@@ -25,7 +25,7 @@ processes =    {
     
     # NLO W->lnurishabh                                                                                                                                                                                    
     ('WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt0to50','MC', 62470),
-    ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3258),
+    ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3580),
 
 
     # LO Z->nunu
