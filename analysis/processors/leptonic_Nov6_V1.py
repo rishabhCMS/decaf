@@ -647,7 +647,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             j.pt, j.eta, j.phi, j.mass)
 
         Delta_Phi_Met_LJ = (
-            abs(leading_j['T'].delta_phi(met['T']).sum()) > 1.5)
+            abs(met['T'].delta_phi(leading_j['T'].sum()) > 1.5)
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
