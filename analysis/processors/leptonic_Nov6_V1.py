@@ -1047,8 +1047,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('WJets' in dataset) and ("HT" in dataset):
 
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) and
-                                      ((abs(GenPart.pdgId) == 24))].pt > 100).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt > 100).all()
             selection.add("exclude_low_WpT_JetHT", remove_overlap)
 
         else:
