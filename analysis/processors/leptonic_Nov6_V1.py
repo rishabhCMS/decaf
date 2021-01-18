@@ -1047,7 +1047,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('WJets' in dataset) and ("HT" in dataset):
 
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) and
                                       ((abs(GenPart.pdgId) == 24))].pt > 100).all()
             selection.add("exclude_low_WpT_JetHT", remove_overlap)
 
@@ -1066,9 +1066,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
                       & (tau_nloose == 0))
         selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (
-                mu_nloose == 1) & (pho_nloose == 0))
+                mu_nloose == 1))
         selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (
-                mu_nloose == 0) & (pho_nloose == 0))
+                mu_nloose == 0))
         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
@@ -1116,17 +1116,17 @@ class AnalysisProcessor(processor.ProcessorABC):
         #             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40', 'noHEMmet'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40'},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40', 'noHEMmet'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40' },
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', },
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40', },
             'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40', 'noHEMmet'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40', },
             'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'met100', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'noHEMmet'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', },
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
@@ -1176,8 +1176,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'dimumass' : leading_dimu.mass,
                 'dphi_e_etmiss':          abs(met['T'].delta_phi(leading_e['T'].sum())),
                 'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
-                'dr_e_lj':  DeltaR_LJ_Ele_mask,
-                'dr_mu_lj': DeltaR_LJ_Mu_mask,
+                'dr_e_lj':  DeltaR_LJ_Ele,
+                'dr_mu_lj': DeltaR_LJ_Mu,
                 'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
                 'ndcsvM':     j_ndcsvM,
