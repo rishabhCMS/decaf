@@ -826,11 +826,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             trig = {
                 'sre': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'srm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'srm': get_mu_trig_weight(abs(leading_mu.eta.sum()),leading_mu.pt.sum()),
                 'ttbare': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'ttbarm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'ttbarm': get_mu_trig_weight(abs(leading_mu.eta.sum()),leading_mu.pt.sum()),
                 'wjete': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'wjetm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'wjetm':get_mu_trig_weight(abs(leading_mu.eta.sum()),leading_mu.pt.sum()),
                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
