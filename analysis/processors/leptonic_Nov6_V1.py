@@ -631,16 +631,16 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (met['T'].delta_phi(leading_j['T'].sum()) > 1.5)
+        Delta_Phi_Met_LJ = (abs(met['T'].delta_phi(leading_j['T'].sum())) > 1.5)
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
-        DeltaR_LJ_Ele_mask = (DeltaR_LJ_Ele < 3.4).any()
+        DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele) < 3.4).any()
 
         LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
-        DeltaR_LJ_Mu_mask = (DeltaR_LJ_Mu < 3.4).any()
+        DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu) < 3.4).any()
 
         ele_pairs = e_loose.distincts()
         diele = ele_pairs.i0+ele_pairs.i1
@@ -955,12 +955,13 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  # btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
-                events.size), np.ones(events.size), np.ones(events.size)
-            btag['dilepm'], btagUp['dilepm'], btagDown['dilepm']=np.ones(
-                events.size), np.ones(events.size), np.ones(events.size)
-            btag['gcr'],  btagUp['gcr'],  btagDown['gcr']=np.ones(
-                events.size), np.ones(events.size), np.ones(events.size)
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
+            # btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
+            #    events.size), np.ones(events.size), np.ones(events.size)
+            #btag['dilepm'], btagUp['dilepm'], btagDown['dilepm']=np.ones(
+            #    events.size), np.ones(events.size), np.ones(events.size)
+            #btag['gcr'],  btagUp['gcr'],  btagDown['gcr']=np.ones(
+            #    events.size), np.ones(events.size), np.ones(events.size)
 
         ###
         # Selections
@@ -1079,11 +1080,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('zero_medium_btags',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
         selection.add('Delta_Phi_Met_LJ', (Delta_Phi_Met_LJ))
-        selection.add('DeltaR_LJ_Ele', (DeltaR_LJ_Ele_mask))
+        selection.add('DeltaR_LJ_Ele_mask', (DeltaR_LJ_Ele_mask))
 
         selection.add('one_muon', (mu_tight.counts == 1))
         selection.add('zero_loose_electron', (e_loose.counts == 0))
-        selection.add('DeltaR_LJ_Mu', (DeltaR_LJ_Mu_mask))
+        selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
 
 #         selection.add('atleast_2_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
@@ -1102,17 +1103,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_sre>40','met100','noHEMmet'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet'},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_srm>40',  'met100', 'noHEMmet'},
+                    'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet'},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_ttbare>40', 'met100', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ_mask', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet'},
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_ttbarm>40' , 'met100', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100', 'noHEMmet'},
             'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele', 'mt_wjete>40' , 'met100', 'noHEMmet'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'noHEMmet'},
             'wjetm': {'isoneM', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu', 'mt_wjetm>40', 'met100', 'noHEMmet'},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100', 'noHEMmet'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
@@ -1171,7 +1172,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             }
             if region in mT:
                 variables['mT'] = mT[region]
-                if 'e' in region:
+                if 'e' in region[-1]:
                     WRF = leading_e.T.sum()-met.T
                 else:
                     pass
