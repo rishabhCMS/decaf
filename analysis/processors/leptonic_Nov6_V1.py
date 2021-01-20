@@ -956,12 +956,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
-            # btag['dilepe'], btagUp['dilepe'], btagDown['dilepe']=np.ones(
-            #    events.size), np.ones(events.size), np.ones(events.size)
-            #btag['dilepm'], btagUp['dilepm'], btagDown['dilepm']=np.ones(
-            #    events.size), np.ones(events.size), np.ones(events.size)
-            #btag['gcr'],  btagUp['gcr'],  btagDown['gcr']=np.ones(
-            #    events.size), np.ones(events.size), np.ones(events.size)
+
 
         ###
         # Selections
