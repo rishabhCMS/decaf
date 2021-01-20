@@ -399,12 +399,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dr_e_lj', '$\Delta r (loose e, leading_jet)$', 30, 0, 5.0)),
+                hist.Bin('dr_e_lj', '$\Delta r (Leading e, Leading Jet)$', 30, 0, 5.0)),
             'dr_mu_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dr_mu_lj', '$\Delta r (loose \mu, leading_jet)$', 30, 0, 5.0)),
+                hist.Bin('dr_mu_lj', '$\Delta r (Leading \mu, Leading Jet)$', 30, 0, 5.0)),
             'scale_factors': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -634,11 +634,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>1.5
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
-        LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
+        LJ_Ele = leading_j['p4'].cross(leading_e['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
         DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele).max() < 3.4)
 
-        LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
+        LJ_Mu = leading_j['p4'].cross(leading_mu['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
         DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 3.4)
 
