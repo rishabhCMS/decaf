@@ -631,7 +631,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(met['T'].delta_phi(leading_j['T'].sum())) > 1.5)
+        Delta_Phi_Met_LJ = (met['T'].delta_phi(leading_j['T'].sum()) > 1.5)
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
@@ -826,11 +826,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             trig = {
                 'sre': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'srm': np.ones(events.size),
+                'srm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
                 'ttbare': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'ttbarm': np.ones(events.size),
+                'ttbarm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
                 'wjete': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'wjetm':np.ones(events.size),
+                'wjetm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
