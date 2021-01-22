@@ -1109,7 +1109,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             sel_name = 'mt'+'_'+region+'>40'
             select = (mT[region] >= 40)
             selection.add(sel_name, select)
-        selection.add('leading_j>70',(leading_j.pt >70).sum()) # from the monotop paper
+        selection.add('leading_j>70',(leading_j.pt >70).flatten()) # from the monotop paper
 #           adding mT range cut to see some effects
 #         for region in mT.keys():
 #             sel_name = 'mt'+'_100<'+region+'>310'
