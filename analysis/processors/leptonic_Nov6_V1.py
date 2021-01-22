@@ -405,12 +405,31 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('dr_mu_lj', '$\Delta r (Leading \mu, Leading Jet)$', 30, 0, 5.0)),
-            'scale_factors': hist.Hist(
+            'ele_eta': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                #                 hist.Cat('weight_name', 'Name of the weight'),
-                hist.Bin('scale_factors', 'SF combined', 70, -1.0, 6.0)),
+                hist.Bin('ele_eta', 'Leading Electron Eta', 48, -2.4, 2.4)),
+            'mu_eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('mu_eta', 'Leading Muon Eta', 48, -2.4, 2.4)),
+            'ele_phi': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('ele_phi', 'Leading Electron Phi', 64, -3.2, 3.2)),
+            'metphi': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('metphi','MET phi',35,-3.5,3.5)),
+            'mu_phi': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
         })
 
     @property
@@ -1139,7 +1158,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'eT_miss':              met.pt,
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
-                # 'metphi':                 met.phi,
+                'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
                 # 'j1pt':                   leading_j.pt,
                 # 'j1eta':                  leading_j.eta,
@@ -1148,13 +1167,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'ndflvL':                 j_ndflvL,
                 # 'ndcsvL':     j_ndcsvL,
                 # 'e1pt'      : leading_e.pt,
-                # 'e1phi'     : leading_e.phi,
-                # 'e1eta'     : leading_e.eta,
+                'ele_phi'     : leading_e.phi,
+                'ele_eta'     : leading_e.eta,
                 # 'dielemass' : leading_diele.mass,
                 # 'dielept'   : leading_diele.pt,
                 # 'mu1pt' : leading_mu.pt,
-                # 'mu1phi' : leading_mu.phi,
-                # 'mu1eta' : leading_mu.eta,
+                'mu_phi' : leading_mu.phi,
+                'mu_eta' : leading_mu.eta,
                 # 'dimumass' : leading_dimu.mass,
                 'dphi_e_etmiss':          abs(met['T'].delta_phi(leading_e['T'].sum())),
                 'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
