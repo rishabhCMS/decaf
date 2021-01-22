@@ -1127,7 +1127,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'wjete': {'isoneE', 'zero_medium_btags', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
                       'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70'},
             'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70},
+                      'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
