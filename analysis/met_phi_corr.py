@@ -20,17 +20,17 @@ def METXYCorr_Met_MetPhi(events, isData, isUL=False, dataset=dataset):
     if isData:
         if "Run2018" in dataset:
             if "A" in dataset:
-                METxcorr = [-(0.362865*npv -1.94505)]*len(events)
-                METycorr = [-(0.0709085*npv -0.307365)]*len(events)
+                METxcorr = [-(0.362865*npvs -1.94505)]*len(events)
+                METycorr = [-(0.0709085*npvs -0.307365)]*len(events)
             elif "B" in dataset:
-                METxcorr = [-(0.492083*npv -2.93552)]*len(events)
-                METycorr = [-(0.17874*npv -0.786844)]*len(events)
+                METxcorr = [-(0.492083*npvs -2.93552)]*len(events)
+                METycorr = [-(0.17874*npvs -0.786844)]*len(events)
             elif "C" in dataset:
-                METxcorr = [-(0.521349*npv -1.44544)]*len(events)
-                METycorr = [-(0.118956*npv -1.96434)]*len(events)
+                METxcorr = [-(0.521349*npvs -1.44544)]*len(events)
+                METycorr = [-(0.118956*npvs -1.96434)]*len(events)
             elif "D" in dataset:
-                METxcorr = [-(0.531151*npv -1.37568)]*len(events)
-                METycorr = [-(0.0884639*npv -1.57089)]*len(events)
+                METxcorr = [-(0.531151*npvs -1.37568)]*len(events)
+                METycorr = [-(0.0884639*npvs -1.57089)]*len(events)
 
 
 
