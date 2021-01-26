@@ -399,12 +399,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dr_e_lj', '$\Delta r (Leading e, Leading Jet)$', 30, 0, 5.0)),
+                hist.Bin('dr_e_lj', '$\Delta r (Loose e, Leading Jet)$', 30, 0, 5.0)),
             'dr_mu_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dr_mu_lj', '$\Delta r (Leading \mu, Leading Jet)$', 30, 0, 5.0)),
+                hist.Bin('dr_mu_lj', '$\Delta r (Loose \mu, Leading Jet)$', 30, 0, 5.0)),
             'ele_eta': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
