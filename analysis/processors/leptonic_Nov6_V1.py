@@ -409,27 +409,27 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ele_eta', 'Leading Electron Eta', 24, -2.4, 2.4)),
+                hist.Bin('ele_eta', 'Leading Electron Eta', 15, -2.4, 2.4)),
             'mu_eta': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('mu_eta', 'Leading Muon Eta', 24, -2.4, 2.4)),
+                hist.Bin('mu_eta', 'Leading Muon Eta', 15, -2.4, 2.4)),
             'ele_phi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ele_phi', 'Leading Electron Phi', 32, -3.2, 3.2)),
+                hist.Bin('ele_phi', 'Leading Electron Phi', 15, -3.2, 3.2)),
             'metphi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('metphi','MET phi',18,-3.5,3.5)),
+                hist.Bin('metphi','MET phi',15,-3.5,3.5)),
             'mu_phi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('mu_phi', 'Leading Muon Phi', 32, -3.2, 3.2)),
+                hist.Bin('mu_phi', 'Leading Muon Phi', 15, -3.2, 3.2)),
         })
 
     @property
