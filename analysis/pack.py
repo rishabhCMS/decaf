@@ -29,7 +29,15 @@ beans['2017'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_20
 beans['2018'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2018", 
                  "/eos/uscms/store/user/runiyal/nano2018", # for jetHT70to100
                  "/eos/uscms/store/user/runiyal/nano_new_2018"] # for wpt50to100
-                 
+#signal sample Privately produced by jieun
+beans['signal2016'] = ["/eos/uscms/store/user/jhong/Monotop_NanoAOD/2016"]
+
+beans['signal2017'] = ["/eos/uscms/store/user/jhong/Monotop_NanoAOD/2017", 
+                        "/eos/uscms/store/user/jhong/moreNanoAOD/2017"]
+
+beans['signal2018'] = ["/eos/uscms/store/user/jhong/Monotop_NanoAOD/2018", 
+                        "/eos/uscms/store/user/jhong/moreNanoAOD/2018"]
+
 
 def split(arr, size):
      arrs = []
