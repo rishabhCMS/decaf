@@ -16,6 +16,12 @@ processes =    {
 #     'SinglePhoton':('SinglePhoton','Data',1),
     #'JetHT':('JetHT','Data',1),
     
+    # Private signal samples
+    ### 2018 monotop
+    ('Vector_MonoTop_NLO_Mphi-2000_Mchi-150_13TeV_TuneCP5_mcatnlo_pythia8', 2018):('Mphi2000_Mchi_150', 'MC',1.),
+    ('Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8', 2018):('Mphi2000_Mchi_500', 'MC',1.),
+    ('Vector_MonoTop_NLO_Mphi-1500_Mchi-750_13TeV_TuneCP5_mcatnlo_pythia8', 2018):('Mphi1500_Mchi_750', 'MC',1.),
+    
     # inclusive NLO V+jets 
     'DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8':('ZJets_nlo','MC',6025.2),
     'DYJetsToNuNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8':('ZtoNuNu_nlo','MC',11433.),
@@ -393,10 +399,5 @@ processes =    {
 #     'MonoZ_MZprime_500_Mchi_150_2018':('MonoZ_MZprime_500_Mchi_150','MC',0.01820),
 #     'DarkHiggs_MonoHs_LO_TuneCP5_13TeV-madgraph-pythia8':('DarkHiggs_MonoHs_LO_TuneCP5_13TeV-madgraph-pythia8','MC',1.),
 
-    # Private signal samples
-    ### 2016 monohs
-    
-    ('Mphi2000_Mchi_150', 2018):('Vector_MonoTop_NLO_Mphi-2000_Mchi-150_13TeV_TuneCP5_mcatnlo_pythia8', 'MC',1.),
-    ('Mphi2000_Mchi_500', 2018):('Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8', 'MC',1.),
-    ('Mphi1500_Mchi_750', 2018):('Vector_MonoTop_NLO_Mphi-1500_Mchi-750_13TeV_TuneCP5_mcatnlo_pythia8', 'MC',1.)
+
 }
