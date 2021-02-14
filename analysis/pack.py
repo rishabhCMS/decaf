@@ -106,6 +106,7 @@ for folder in beans[options.year]:
           filenames = folder+"/"+dataset+" -name \'nano_*.root\'"
         except:
           filenames = folder+"/"+dataset+" -name \'*_nano.root\'"
+          print(filenames)
         exist=False
         for filename in os.listdir('metadata'):
              if dataset+".txt" not in filename: continue
