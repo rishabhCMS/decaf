@@ -103,7 +103,7 @@ for folder in beans[options.year]:
         if options.dataset and options.dataset not in dataset: continue
         print("Looking into",folder+"/"+dataset)
 
-        filenames = folder+"/"+dataset+" -name \'*nano_.root\'"
+        filenames = folder+"/"+dataset+" -name \'nano_*.root\'"
         print(filenames)
         if "moreNanoAOD" in folder:
               filenames = folder+"/"+dataset+" -name \'*_nano.root\'"
