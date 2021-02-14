@@ -104,6 +104,7 @@ for folder in beans[options.year]:
         print("Looking into",folder+"/"+dataset)
 
         filenames = folder+"/"+dataset+" -name \'nano_*.root\'"
+        print(filenames)
         if not os.path.isfile(filenames):
               filenames = folder+"/"+dataset+" -name \'*_nano.root\'"
         
