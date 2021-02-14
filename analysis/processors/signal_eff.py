@@ -410,7 +410,7 @@ if __name__ == '__main__':
     (options, args) = parser.parse_args()
 
 
-    with open('metadata/'+options.metadata+'.json') as fin:
+    with open('metadata/signal'+options.metadata+'.json') as fin:
         samplefiles = json.load(fin)
         xsec = {k: v['xs'] for k,v in samplefiles.items()}
 
