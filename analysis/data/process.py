@@ -18,9 +18,9 @@ processes =    {
     
     # Private signal samples
     ### 2018 monotop
-    ('Vector_MonoTop_NLO_Mphi-2000_Mchi-150_13TeV_TuneCP5_mcatnlo_pythia8', 2018):('Mphi2000_Mchi_150', 'MC',1.),
+    ('Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8', 2018):('Mphi2000_Mchi_150', 'MC',1.),
     ('Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8', 2018):('Mphi2000_Mchi_500', 'MC',1.),
-    ('Vector_MonoTop_NLO_Mphi-1500_Mchi-750_13TeV_TuneCP5_mcatnlo_pythia8', 2018):('Mphi1500_Mchi_750', 'MC',1.),
+    ('Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8', 2018):('Mphi1495_Mchi_750', 'MC',1.),
     
     # inclusive NLO V+jets 
     'DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8':('ZJets_nlo','MC',6025.2),
