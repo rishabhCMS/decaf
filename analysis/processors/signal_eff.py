@@ -425,3 +425,4 @@ if __name__ == '__main__':
                                          common=common)
 
     save(processor_instance, 'data/signal_eff'+options.year+'.processor')
+    print("processor name: signal_eff{}".format(options.year))
