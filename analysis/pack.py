@@ -102,7 +102,10 @@ for folder in beans[options.year]:
     for dataset in xsections.keys():
         if options.dataset and options.dataset not in dataset: continue
         print("Looking into",folder+"/"+dataset)
-        filenames = folder+"/"+dataset+" -name \'nano_*.root\'"
+        try:
+          filenames = folder+"/"+dataset+" -name \'nano_*.root\'"
+        except:
+          filenames = folder+"/"+dataset+" -name \'*_nano.root\'"
         exist=False
         for filename in os.listdir('metadata'):
              if dataset+".txt" not in filename: continue
