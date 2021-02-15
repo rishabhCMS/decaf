@@ -33,7 +33,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._samples = {
             'srIsoMu': ("Mphi-2000_Mchi-500","Mphi-1495_Mchi-750","Mphi-2000_Mchi-150"),
             'srMu50': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
-
+            "srNoSel":("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500")
         }
 
 
@@ -248,6 +248,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         u = {
             'srIsoMu': met.T+leading_mu.T.sum(),
             'srMu50': met.T+leading_mu.T.sum(),
+            'srNoSel': met.T+leading_mu.T.sum()
 
         }
 
@@ -292,7 +293,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             'srIsoMu': {'single_muon_triggers_isomu'},
             'srMu50': {'single_muon_triggers_mu50'},
-
+            'srNoSel': {'no_trigger'}
 
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
