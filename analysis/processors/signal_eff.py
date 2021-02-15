@@ -283,7 +283,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             triggers = triggers | events.HLT[path]
             print(triggers)
         selection.add('single_muon_triggers_mu50', triggers)
-
+        
+        triggers = np.ones(events.size, dtype=np.bool)
+        selection.add('no_trigger', triggers)
 
 
 
