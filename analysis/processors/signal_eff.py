@@ -291,7 +291,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
-        selection.add('singlemuon_triggers_IsoMu24_or_Mu50, triggers)
+        selection.add('singlemuon_triggers_IsoMu24_or_Mu50', triggers)
         
         triggers = np.zeros(events.size, dtype=np.bool)
         for path in self._singlemuon_triggers_isomu[self._year]:
