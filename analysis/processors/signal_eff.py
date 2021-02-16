@@ -320,7 +320,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             'srIsoMu': {'single_muon_triggers_isomu'},
             'srMu50': {'single_muon_triggers_mu50'},
-            'srNoSel': {'selTWMu'}
+            'srNoSel': {'selTWMu'},
             'IsoMu|Mu50':{'singlemuon_triggers_IsoMu24_or_Mu50'}
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
