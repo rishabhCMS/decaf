@@ -33,7 +33,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._samples = {
             'srIsoMu': ("Mphi-2000_Mchi-500","Mphi-1495_Mchi-750","Mphi-2000_Mchi-150"),
             'srMu50': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
-            "srNoSel":("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500")
+            'srNoSel': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
+            'IsoMu|Mu50': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500")
         }
 
 
@@ -84,6 +85,29 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2018':
                 [
 #                 'IsoMu24',
+                                'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ]
+        }
+        self._singlemuon_triggers_IsoMu24_or_Mu50 = {
+            '2016': [
+#                 'IsoMu24',
+#                 'IsoTkMu24',
+                'Mu50',
+                'TkMu50'
+
+            ],
+            '2017':
+                [
+#                 'IsoMu27',
+                                'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ],
+            '2018':
+                [
+#                 IsoMu24,
                                 'Mu50',
                 #                 'OldMu100',
                 #                 'TkMu100'
@@ -248,8 +272,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         u = {
             'srIsoMu': met.T+leading_mu.T.sum(),
             'srMu50': met.T+leading_mu.T.sum(),
-            'srNoSel': met.T+leading_mu.T.sum()
-
+            'srNoSel': met.T+leading_mu.T.sum(),
+            'IsoMu|Mu50':met.T+leading_mu.T.sum()
         }
 
 
@@ -262,13 +286,13 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Selections
         ###
 
-
-
-
-
-
-
-
+        triggers = np.zeros(events.size, dtype=np.bool)
+        for path in self._singlemuon_triggers_IsoMu24_or_Mu50[self._year]:
+            if path not in events.HLT.columns:
+                continue
+            triggers = triggers | events.HLT[path]
+        selection.add('singlemuon_triggers_IsoMu24_or_Mu50, triggers)
+        
         triggers = np.zeros(events.size, dtype=np.bool)
         for path in self._singlemuon_triggers_isomu[self._year]:
             if path not in events.HLT.columns:
@@ -297,7 +321,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'srIsoMu': {'single_muon_triggers_isomu'},
             'srMu50': {'single_muon_triggers_mu50'},
             'srNoSel': {'selTWMu'}
-
+            'IsoMu|Mu50':{'singlemuon_triggers_IsoMu24_or_Mu50'}
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
