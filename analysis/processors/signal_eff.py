@@ -286,8 +286,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         triggers = np.ones(events.size, dtype=np.bool)
         selection.add('no_trigger', triggers)
-
-
+        
+        selTWMu = ((abs(muon.matched_gen.pdgId) == 13)& ((abs(muon.matched_gen.parent.pdgId) == 24) |(abs(muon.matched_gen.parent.parent.pdgId) == 6))).any()
+        selection.add('selTWMu', selTWMu)
 
 
 
@@ -295,7 +296,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             'srIsoMu': {'single_muon_triggers_isomu'},
             'srMu50': {'single_muon_triggers_mu50'},
-            'srNoSel': {'no_trigger'}
+            'srNoSel': {'selTWMu'}
 
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
