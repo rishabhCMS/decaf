@@ -314,8 +314,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         selTWMu = ((abs(mu.matched_gen.pdgId) == 13)& ((abs(mu.matched_gen.parent.pdgId) == 24) |(abs(mu.matched_gen.parent.parent.pdgId) == 6))).any()
         selection.add('selTWMu', selTWMu)
         
-        selection.add('mu_pt>20', mu.pt>20)
-        selection.add('mu_eta<2.4', abs(mu.eta)<2.4)
+        selection.add('mu_pt>20', (mu.pt>20).any())
+        selection.add('mu_eta<2.4', (abs(mu.eta)<2.4).any())
 
 
 
