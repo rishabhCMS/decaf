@@ -311,8 +311,12 @@ class AnalysisProcessor(processor.ProcessorABC):
         triggers = np.ones(events.size, dtype=np.bool)
         selection.add('no_trigger', triggers)
         
-        selTWMu = ((abs(muon.matched_gen.pdgId) == 13)& ((abs(muon.matched_gen.parent.pdgId) == 24) |(abs(muon.matched_gen.parent.parent.pdgId) == 6))).any()
+        selTWMu = ((abs(mu.matched_gen.pdgId) == 13)& ((abs(mu.matched_gen.parent.pdgId) == 24) |(abs(mu.matched_gen.parent.parent.pdgId) == 6))).any()
         selection.add('selTWMu', selTWMu)
+        
+        selection.add('mu_pt>20', mu.pt>20)
+        selection.add('mu_eta<2.4', abs(mu.eta)<2.4)
+
 
 
 
@@ -320,7 +324,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             'srIsoMu': {'single_muon_triggers_isomu'},
             'srMu50': {'single_muon_triggers_mu50'},
-            'srNoSel': {'selTWMu'},
+            'srNoSel': {'selTWMu', 'mu_pt>20', 'mu_eta<2.4' },
             'IsoMu|Mu50':{'singlemuon_triggers_IsoMu24_or_Mu50'}
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
