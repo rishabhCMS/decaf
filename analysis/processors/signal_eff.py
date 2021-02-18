@@ -322,10 +322,10 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         regions = {
 
-            'srIsoMu': {'single_muon_triggers_isomu', 'mu_pt>20', 'mu_eta<2.4'},
-            'srMu50': {'single_muon_triggers_mu50', 'mu_pt>20', 'mu_eta<2.4'},
+            'srIsoMu': {'selTWMu','single_muon_triggers_isomu', 'mu_pt>20', 'mu_eta<2.4'},
+            'srMu50': {'selTWMu','single_muon_triggers_mu50', 'mu_pt>20', 'mu_eta<2.4'},
             'srNoSel': {'selTWMu', 'mu_pt>20', 'mu_eta<2.4' },
-            'IsoMu|Mu50':{'singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>20', 'mu_eta<2.4'}
+            'IsoMu|Mu50':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>20', 'mu_eta<2.4'}
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
