@@ -43,7 +43,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
 
-        self._singlemuon_triggers_isomu = {
+        self._singlemuon_triggers = {
             '2016': [
                 'IsoMu24',
                 'IsoTkMu24',
@@ -61,59 +61,13 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2018':
                 [
                 'IsoMu24',
-                #                 'Mu50',
-                #                 'OldMu100',
-                #                 'TkMu100'
+                                'Mu50',
+                                'OldMu100',
+                                'TkMu100'
             ]
         }
 
-        self._singlemuon_triggers_mu50 = {
-            '2016': [
-#                 'IsoMu24',
-#                 'IsoTkMu24',
-                'Mu50',
-                'TkMu50'
-
-            ],
-            '2017':
-                [
-#                 'IsoMu27',
-                                'Mu50',
-                #                 'OldMu100',
-                #                 'TkMu100'
-            ],
-            '2018':
-                [
-#                 'IsoMu24',
-                                'Mu50',
-                #                 'OldMu100',
-                #                 'TkMu100'
-            ]
-        }
-        self._singlemuon_triggers_IsoMu24_or_Mu50 = {
-            '2016': [
-#                 'IsoMu24',
-#                 'IsoTkMu24',
-                'Mu50',
-                'TkMu50'
-
-            ],
-            '2017':
-                [
-#                 'IsoMu27',
-                                'Mu50',
-                #                 'OldMu100',
-                #                 'TkMu100'
-            ],
-            '2018':
-                [
-                'IsoMu24',
-                'Mu50',
-                #                 'OldMu100',
-                #                 'TkMu100'
-            ]
-        }
-
+        
 
 
 
@@ -287,25 +241,24 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers_IsoMu24_or_Mu50[self._year]:
-            if path not in events.HLT.columns:
+        for path in self._singlemuon_triggers[self._year]:
+            if (('IsoMu24' not in path) or ('Mu50' not in path) or ( path not in events.HLT.columns)):
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('singlemuon_triggers_IsoMu24_or_Mu50', triggers)
         
         triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers_isomu[self._year]:
-            if path not in events.HLT.columns:
+        for path in self._singlemuon_triggers[self._year]:
+            if ('IsoMu24' not in path) or ( path not in events.HLT.columns):
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_muon_triggers_isomu', triggers)
  
         triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers_mu50[self._year]:
-            if path not in events.HLT.columns:
+        for path in self._singlemuon_triggers[self._year]:
+            if ('Mu50' not in path) or ( path not in events.HLT.columns):
                 continue
             triggers = triggers | events.HLT[path]
-            print(triggers)
         selection.add('single_muon_triggers_mu50', triggers)
         
         triggers = np.ones(events.size, dtype=np.bool)
