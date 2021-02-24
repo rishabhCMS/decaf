@@ -35,8 +35,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             'srMu50': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
             'srNoSel': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
             'IsoMu|Mu50': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
-            'IsoMu|Mu50|OldMu100|TkMu100':("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
-            'Mu50|OldMu100|TkMu100':("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500")
+            'IsoMu|Mu50|TkMu100|OldMu100':("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
+            'Mu50|TkMu100|OldMu100':("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500")
         }
 
 
@@ -45,7 +45,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
 
-        self._singlemuon_triggers = {
+        self._singlemuon_triggers_isomu = {
             '2016': [
                 'IsoMu24',
                 'IsoTkMu24',
@@ -63,13 +63,104 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2018':
                 [
                 'IsoMu24',
+                #                 'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ]
+        }
+
+        self._singlemuon_triggers_mu50 = {
+            '2016': [
+#                 'IsoMu24',
+#                 'IsoTkMu24',
+                'Mu50',
+                'TkMu50'
+
+            ],
+            '2017':
+                [
+#                 'IsoMu27',
                                 'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ],
+            '2018':
+                [
+#                 'IsoMu24',
+                                'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ]
+        }
+        self._singlemuon_triggers_IsoMu24_or_Mu50 = {
+            '2016': [
+#                 'IsoMu24',
+#                 'IsoTkMu24',
+                'Mu50',
+                'TkMu50'
+
+            ],
+            '2017':
+                [
+#                 'IsoMu27',
+                                'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ],
+            '2018':
+                [
+                'IsoMu24',
+                'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ]
+        }
+        self._singlemuon_triggers_IsoMu24_or_Mu50_or_TkMu100_or_OldMu100 = {
+            '2016': [
+#                 'IsoMu24',
+#                 'IsoTkMu24',
+                'Mu50',
+                'TkMu50'
+
+            ],
+            '2017':
+                [
+#                 'IsoMu27',
+                                'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ],
+            '2018':
+                [
+                'IsoMu24',
+                'Mu50',
                                 'OldMu100',
                                 'TkMu100'
             ]
         }
+        self._singlemuon_triggers_Mu50_or_TkMu100_or_OldMu100 = {
+            '2016': [
+#                 'IsoMu24',
+#                 'IsoTkMu24',
+                'Mu50',
+                'TkMu50'
 
-        
+            ],
+            '2017':
+                [
+#                 'IsoMu27',
+                                'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
+            ],
+            '2018':
+                [
+#                 'IsoMu24',
+                'Mu50',
+                                'OldMu100',
+                                'TkMu100'
+            ]
+        }
 
 
 
@@ -230,8 +321,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             'srMu50': met.T+leading_mu.T.sum(),
             'srNoSel': met.T+leading_mu.T.sum(),
             'IsoMu|Mu50':met.T+leading_mu.T.sum(),
-            'IsoMu|Mu50|OldMu100|TkMu100':met.T+leading_mu.T.sum(),
-            'Mu50|OldMu100|TkMu100':met.T+leading_mu.T.sum()
+            'IsoMu|Mu50|TkMu100|OldMu100':met.T+leading_mu.T.sum(),
+            'Mu50|TkMu100|OldMu100':met.T+leading_mu.T.sum()
         }
 
 
@@ -243,58 +334,45 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         # Selections
         ###
-        #OldMu100_or_Mu50_or_TkMu100
         triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers[self._year]:
-#             print("path", path)
-#             print('events.HLT[path]', events.HLT[path])
-            if (('Mu50' not in events.HLT.columns) and ('OldMu100' not in events.HLT.columns) and ('TkMu100' not in events.HLT.columns)):
-                continue
-            elif (('OldMu100' in path) or ('Mu50' in path) or ('TkMu100' in path)):
-                triggers = triggers | events.HLT[path]
-        selection.add('singlemuon_triggers_OldMu100_or_Mu50_or_TkMu100', triggers)  
-        
-        #all_trigs or-d
-        triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers[self._year]:
-            if (path not in events.HLT.columns):
+        for path in self._singlemuon_triggers_Mu50_or_TkMu100_or_OldMu100[self._year]:
+            if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
-        selection.add('single_muon_triggers_all_trigs or-d', triggers)
-        
-        #IsoMu24_or_Mu50
+        selection.add('singlemuon_triggers_Mu50_or_TkMu100_or_OldMu100', triggers)
+
         triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers[self._year]:
-#             print("path", path)
-#             print('events.HLT[path]', events.HLT[path])
-            if ('IsoMu24' not in events.HLT.columns) and ('Mu50' not in events.HLT.columns):
+        for path in self._singlemuon_triggers_IsoMu24_or_Mu50_or_TkMu100_or_OldMu100[self._year]:
+            if path not in events.HLT.columns:
                 continue
-            elif (('IsoMu24' in path) or ('Mu50' in path)):
-                triggers = triggers | events.HLT[path]
-            
+            triggers = triggers | events.HLT[path]
+        selection.add('singlemuon_triggers_IsoMu24_or_Mu50_or_TkMu100_or_OldMu100', triggers)
+        
+        triggers = np.zeros(events.size, dtype=np.bool)
+        for path in self._singlemuon_triggers_IsoMu24_or_Mu50[self._year]:
+            if path not in events.HLT.columns:
+                continue
+            triggers = triggers | events.HLT[path]
         selection.add('singlemuon_triggers_IsoMu24_or_Mu50', triggers)
         
-        #isomu24
         triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers[self._year]:
-            if ('IsoMu24' not in path) or ( path not in events.HLT.columns):
+        for path in self._singlemuon_triggers_isomu[self._year]:
+            if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_muon_triggers_isomu', triggers)
  
-        #Mu50
         triggers = np.zeros(events.size, dtype=np.bool)
-        for path in self._singlemuon_triggers[self._year]:
-            if ('Mu50' not in path) or ( path not in events.HLT.columns):
+        for path in self._singlemuon_triggers_mu50[self._year]:
+            if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
+            print(triggers)
         selection.add('single_muon_triggers_mu50', triggers)
         
-        #no triggers
         triggers = np.ones(events.size, dtype=np.bool)
         selection.add('no_trigger', triggers)
         
-        # selecting muons coming from a top or W
         selTWMu = ((abs(mu.matched_gen.pdgId) == 13)& ((abs(mu.matched_gen.parent.pdgId) == 24) |(abs(mu.matched_gen.parent.parent.pdgId) == 6))).any()
         selection.add('selTWMu', selTWMu)
         
@@ -309,9 +387,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             'srIsoMu': {'selTWMu','single_muon_triggers_isomu', 'mu_pt>30', 'mu_eta<2.5'},
             'srMu50': {'selTWMu','single_muon_triggers_mu50', 'mu_pt>30', 'mu_eta<2.5'},
             'srNoSel': {'selTWMu', 'mu_pt>30', 'mu_eta<2.5' },
-            'IsoMu|Mu50':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>30', 'mu_eta<2.5'},
-            'IsoMu|Mu50|OldMu100|TkMu100':{'selTWMu','single_muon_triggers_all_trigs or-d', 'mu_pt>30', 'mu_eta<2.5'},
-            'Mu50|OldMu100|TkMu100':{'selTWMu','singlemuon_triggers_OldMu100_or_Mu50_or_TkMu100', 'mu_pt>30', 'mu_eta<2.5'}
+            'IsoMu|Mu50':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>30', 'mu_eta<2.5'}
+            'IsoMu|Mu50|TkMu100|OldMu100':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50_or_TkMu100_or_OldMu100', 'mu_pt>30', 'mu_eta<2.5'}
+            'Mu50|TkMu100|OldMu100':{'selTWMu','singlemuon_triggers_Mu50_or_TkMu100_or_OldMu100', 'mu_pt>30', 'mu_eta<2.5'}
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
