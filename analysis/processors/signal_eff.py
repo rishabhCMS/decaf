@@ -298,7 +298,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selTWMu = ((abs(mu.matched_gen.pdgId) == 13)& ((abs(mu.matched_gen.parent.pdgId) == 24) |(abs(mu.matched_gen.parent.parent.pdgId) == 6))).any()
         selection.add('selTWMu', selTWMu)
         
-        selection.add('mu_pt>30', (mu.pt>20).any())
+        selection.add('mu_pt>30', (mu.pt>30).any())
         selection.add('mu_eta<2.4', (abs(mu.eta)<2.4).any())
 
 
@@ -306,12 +306,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         regions = {
 
-            'srIsoMu': {'selTWMu','single_muon_triggers_isomu', 'mu_pt>20', 'mu_eta<2.4'},
-            'srMu50': {'selTWMu','single_muon_triggers_mu50', 'mu_pt>20', 'mu_eta<2.4'},
+            'srIsoMu': {'selTWMu','single_muon_triggers_isomu', 'mu_pt>30', 'mu_eta<2.4'},
+            'srMu50': {'selTWMu','single_muon_triggers_mu50', 'mu_pt>30', 'mu_eta<2.4'},
             'srNoSel': {'selTWMu', 'mu_pt>20', 'mu_eta<2.4' },
-            'IsoMu|Mu50':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>20', 'mu_eta<2.4'},
-            'IsoMu|Mu50|OldMu100|TkMu100':{'selTWMu','single_muon_triggers_all_trigs or-d', 'mu_pt>20', 'mu_eta<2.4'},
-            'Mu50|OldMu100|TkMu100':{'selTWMu','singlemuon_triggers_OldMu100_or_Mu50_or_TkMu100', 'mu_pt>20', 'mu_eta<2.4'}
+            'IsoMu|Mu50':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>30', 'mu_eta<2.4'},
+            'IsoMu|Mu50|OldMu100|TkMu100':{'selTWMu','single_muon_triggers_all_trigs or-d', 'mu_pt>30', 'mu_eta<2.4'},
+            'Mu50|OldMu100|TkMu100':{'selTWMu','singlemuon_triggers_OldMu100_or_Mu50_or_TkMu100', 'mu_pt>30', 'mu_eta<2.4'}
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
