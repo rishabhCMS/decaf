@@ -242,9 +242,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         triggers = np.zeros(events.size, dtype=np.bool)
         for path in self._singlemuon_triggers[self._year]:
-            if (('IsoMu24' not in path) or ('Mu50' not in path) or ( path not in events.HLT.columns)):
+#             print("path", path)
+#             print('events.HLT[path]', events.HLT[path])
+            if ('IsoMu24' not in events.HLT.columns) and ('Mu50' not in events.HLT.columns):
                 continue
-            triggers = triggers | events.HLT[path]
+            elif (('IsoMu24' in path) or ('Mu50' in path)):
+                triggers = triggers | events.HLT[path]
+            
         selection.add('singlemuon_triggers_IsoMu24_or_Mu50', triggers)
         
         triggers = np.zeros(events.size, dtype=np.bool)
