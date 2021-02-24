@@ -387,8 +387,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             'srIsoMu': {'selTWMu','single_muon_triggers_isomu', 'mu_pt>30', 'mu_eta<2.5'},
             'srMu50': {'selTWMu','single_muon_triggers_mu50', 'mu_pt>30', 'mu_eta<2.5'},
             'srNoSel': {'selTWMu', 'mu_pt>30', 'mu_eta<2.5' },
-            'IsoMu|Mu50':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>30', 'mu_eta<2.5'}
-            'IsoMu|Mu50|TkMu100|OldMu100':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50_or_TkMu100_or_OldMu100', 'mu_pt>30', 'mu_eta<2.5'}
+            'IsoMu|Mu50':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50', 'mu_pt>30', 'mu_eta<2.5'},
+            'IsoMu|Mu50|TkMu100|OldMu100':{'selTWMu','singlemuon_triggers_IsoMu24_or_Mu50_or_TkMu100_or_OldMu100', 'mu_pt>30', 'mu_eta<2.5'},
             'Mu50|TkMu100|OldMu100':{'selTWMu','singlemuon_triggers_Mu50_or_TkMu100_or_OldMu100', 'mu_pt>30', 'mu_eta<2.5'}
 
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
