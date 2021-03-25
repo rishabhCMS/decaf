@@ -190,7 +190,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
 #                 hist.Bin('gentype', 'Gen Type', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
-                hist.Bin('recoil','Hadronic Recoil',[250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0, 3000])),
+                hist.Bin('leptonic_recoil','Leptonic Recoil',[250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0, 3000])),
             
 #             'ele_pT': hist.Hist(
 #                 'Events',
@@ -245,6 +245,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         mu['isloose'] = isLooseMuon(mu.pt,mu.eta,mu.pfRelIso04_all,mu.looseId,self._year)
         mu['istight'] = isTightMuon(mu.pt,mu.eta,mu.pfRelIso04_all,mu.tightId,self._year)
         mu['T'] = TVector2Array.from_polar(mu.pt, mu.phi)
+        mu['p4'] = TLorentzVectorArray.from_ptetaphim(
+            mu.pt, mu.eta, mu.phi, mu.mass)
         mu_loose=mu[mu.isloose.astype(np.bool)]
         mu_tight=mu[mu.istight.astype(np.bool)]
         mu_ntot = mu.counts
@@ -252,15 +254,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         mu_ntight = mu_tight.counts
         leading_mu = mu[mu.pt.argmax()]
         leading_mu = leading_mu[leading_mu.istight.astype(np.bool)]
-        isLooseElectron = self._ids['isLooseElectron']
-        isTightElectron = self._ids['isTightElectron']
-        isLooseMuon = self._ids['isLooseMuon']
-        isTightMuon = self._ids['isTightMuon']
-        isLooseTau = self._ids['isLooseTau']
-        isLoosePhoton = self._ids['isLoosePhoton']
-        isTightPhoton = self._ids['isTightPhoton']
-        isGoodJet = self._ids['isGoodJet']
-        isHEMJet = self._ids['isHEMJet']
+
 
         match = self._common['match']
         # to calculate photon trigger efficiency
@@ -339,8 +333,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium'])
         j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium'])
         j['T'] = TVector2Array.from_polar(j.pt, j.phi)
-        j['p4'] = TLorentzVectorArray.from_ptetaphim(
-            j.pt, j.eta, j.phi, j.mass)
+        j['p4'] = TLorentzVectorArray.from_ptetaphim(j.pt, j.eta, j.phi, j.mass)
         j['ptRaw'] = j.pt * (1-j.rawFactor)
         j['massRaw'] = j.mass * (1-j.rawFactor)
         j['rho'] = j.pt.ones_like()*events.fixedGridRhoFastjetAll.array
@@ -368,7 +361,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
         leading_bjet_dflvM = j_dflvM[j_dflvM.pt.argmax()]
-
+        
 
 
         ###
@@ -378,12 +371,12 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         leptonic_recoil = {
-            'srIsoMu': (leading_bjet_dflvM.p4+leading_mu.p4),
-            'srMu50': (leading_bjet_dflvM.p4+leading_mu.p4),
-            'srNoSel': (leading_bjet_dflvM.p4+leading_mu.p4),
-            'IsoMu|Mu50':(leading_bjet_dflvM.p4+leading_mu.p4),
-            'IsoMu|Mu50|TkMu100|OldMu100':(leading_bjet_dflvM.p4+leading_mu.p4),
-            'Mu50|TkMu100|OldMu100':(leading_bjet_dflvM.p4+leading_mu.p4)
+            'srIsoMu': (leading_bjet_dflvM.p4.sum()+leading_mu.p4.sum()),
+            'srMu50': (leading_bjet_dflvM.p4.sum()+leading_mu.p4.sum()),
+            'srNoSel': (leading_bjet_dflvM.p4.sum()+leading_mu.p4.sum()),
+            'IsoMu|Mu50':(leading_bjet_dflvM.p4.sum()+leading_mu.p4.sum()),
+            'IsoMu|Mu50|TkMu100|OldMu100':(leading_bjet_dflvM.p4.sum()+leading_mu.p4.sum()),
+            'Mu50|TkMu100|OldMu100':(leading_bjet_dflvM.p4.sum()+leading_mu.p4.sum())
         }
 
 
@@ -554,12 +547,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         time.sleep(0.5)
         return hout
-    
     def postprocess(self, accumulator):
-
-
         return accumulator
-        
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-y', '--year', help='year', dest='year')
