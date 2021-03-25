@@ -306,6 +306,25 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_e = leading_e[leading_e.isclean.astype(np.bool)]
         leading_e = leading_e[leading_e.istight.astype(np.bool)]
 
+        pho = events.Photon
+        pho['isclean'] = ~match(pho, mu_loose, 0.5) & ~match(pho, e_loose, 0.5)
+        _id = 'cutBasedBitmap'
+        if self._year == '2016':
+            _id = 'cutBased'
+        pho['isloose'] = isLoosePhoton(pho.pt, pho.eta, pho[_id], self._year) & (
+            pho.electronVeto)  # added electron veto flag
+        pho['istight'] = isTightPhoton(pho.pt, pho[_id], self._year) & (
+            pho.isScEtaEB) & (pho.electronVeto)  # tight photons are barrel only
+        pho['T'] = TVector2Array.from_polar(pho.pt, pho.phi)
+        pho_clean = pho[pho.isclean.astype(np.bool)]
+        pho_loose = pho_clean[pho_clean.isloose.astype(np.bool)]
+        pho_tight = pho_clean[pho_clean.istight.astype(np.bool)]
+        pho_ntot = pho.counts
+        pho_nloose = pho_loose.counts
+        pho_ntight = pho_tight.counts
+        leading_pho = pho[pho.pt.argmax()]
+        leading_pho = leading_pho[leading_pho.isclean.astype(np.bool)]
+        leading_pho = leading_pho[leading_pho.istight.astype(np.bool)]
         
         j = events.Jet
         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
