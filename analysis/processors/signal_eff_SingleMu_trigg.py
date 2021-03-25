@@ -185,7 +185,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 hist.Cat('dataset', 'Dataset'),
 #                 hist.Cat('region', 'Region'),
 #                 hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
-            'recoil': hist.Hist(
+            'leptonic_recoil': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
@@ -307,22 +307,64 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_e = leading_e[leading_e.istight.astype(np.bool)]
 
         
+        j = events.Jet
+        j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
+        j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
+        j['isclean'] = ~match(j, e_loose, 0.4) & ~match(
+            j, mu_loose, 0.4) & ~match(j, pho_loose, 0.4)
+#         print(j.isclean)
 
-
+#         j['isiso'] = ~match(j,j[j.pt.argmax()],0.4)
+        j['isdcsvL'] = (j.btagDeepB > deepcsvWPs['loose'])
+        j['isdflvL'] = (j.btagDeepFlavB > deepflavWPs['loose'])
+        j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium'])
+        j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium'])
+        j['T'] = TVector2Array.from_polar(j.pt, j.phi)
+        j['p4'] = TLorentzVectorArray.from_ptetaphim(
+            j.pt, j.eta, j.phi, j.mass)
+        j['ptRaw'] = j.pt * (1-j.rawFactor)
+        j['massRaw'] = j.mass * (1-j.rawFactor)
+        j['rho'] = j.pt.ones_like()*events.fixedGridRhoFastjetAll.array
+        j_good = j[j.isgood.astype(np.bool)]
+        j_clean = j[j.isclean.astype(np.bool)]
+#         print(j_c)
+#         j_iso = j_clean[j_clean.isiso.astype(np.bool)]
+#         j_iso=j_clean[j_clean.astype(np.bool)]  # Sunil changed
+        j_dcsvL = j_clean[j_clean.isdcsvL.astype(np.bool)]
+        j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
+        j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)]
+        j_dcsvM = j_clean[j_clean.isdcsvM.astype(np.bool)]
+        j_HEM = j[j.isHEM.astype(np.bool)]
+        j_ntot = j.counts
+        j_ngood = j_good.counts
+        j_nclean = j_clean.counts
+#         j_niso=j_iso.counts
+        j_ndcsvL = j_dcsvL.counts
+        j_ndflvL = j_dflvL.counts
+        j_ndflvM = j_dflvM.counts
+        j_ndcsvM = j_dcsvM.counts
+        j_nHEM = j_HEM.counts
+        leading_j = j[j.pt.argmax()]
+        
+        leading_j = leading_j[leading_j.isgood.astype(np.bool)]
+        leading_j = leading_j[leading_j.isclean.astype(np.bool)]
+        leading_bjet_dflvM = j_dflvM[j_dflvM.pt.argmax()]
 
 
 
         ###
-        # Calculate recoil and transverse mass
+        # Calculate hadronic recoil equivalent in leptonic channel, I will call it leptonic recoil,
+        # The Idea is to find something highly correlated with top quark pT
+        # (bjet_p4 + leading_lepton_p4).pT()
         ###
 
-        u = {
-            'srIsoMu': met.T+leading_mu.T.sum(),
-            'srMu50': met.T+leading_mu.T.sum(),
-            'srNoSel': met.T+leading_mu.T.sum(),
-            'IsoMu|Mu50':met.T+leading_mu.T.sum(),
-            'IsoMu|Mu50|TkMu100|OldMu100':met.T+leading_mu.T.sum(),
-            'Mu50|TkMu100|OldMu100':met.T+leading_mu.T.sum()
+        leptonic_recoil = {
+            'srIsoMu': (leading_bjet_dflvM.p4+leading_mu.p4),
+            'srMu50': (leading_bjet_dflvM.p4+leading_mu.p4),
+            'srNoSel': (leading_bjet_dflvM.p4+leading_mu.p4),
+            'IsoMu|Mu50':(leading_bjet_dflvM.p4+leading_mu.p4),
+            'IsoMu|Mu50|TkMu100|OldMu100':(leading_bjet_dflvM.p4+leading_mu.p4),
+            'Mu50|TkMu100|OldMu100':(leading_bjet_dflvM.p4+leading_mu.p4)
         }
 
 
@@ -415,7 +457,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             variables = {
 
 #                 'mu_pT':              mu_tight.pt,
-                'recoil':                 u[region].mag,
+                'leptonic_recoil':     leptonic_recoil[region].pt,
                 # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
 #                 'eT_miss':              met.pt,
