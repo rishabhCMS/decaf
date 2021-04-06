@@ -371,7 +371,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         
         
-         triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(events.size, dtype=np.bool)
         for path in self._singleelectron_triggers_ele32_or_pho200_or_ele50[self._year]:
             if path not in events.HLT.columns:
                 continue
