@@ -36,10 +36,29 @@ class AnalysisProcessor(processor.ProcessorABC):
             'srNoSel': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
             'Ele32|Ele115': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
             'Ele32|Ele115|Pho200': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
-            'Ele32|Ele115|Pho200|Ele50PFj165': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500")
+            'Ele32|Ele115|Pho200|Ele50PFj165': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500"),
+            'Ele32|Pho200|Ele50PFj165': ("Mphi-1495_Mchi-750","Mphi-2000_Mchi-150","Mphi-2000_Mchi-500")
         }
 
-
+        self._singleelectron_triggers_ele32_or_pho200_or_ele50 = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
+            '2016': [
+                'Ele27_WPTight_Gsf',
+                'Ele105_CaloIdVT_GsfTrkIdT'
+            ],
+            '2017': [
+                'Ele35_WPTight_Gsf',
+                'Ele115_CaloIdVT_GsfTrkIdT',
+                'Photon200'
+            ],
+            '2018': [
+                'Ele32_WPTight_Gsf',
+                #'Ele115_CaloIdVT_GsfTrkIdT',
+                'Photon200',
+                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                
+            ]
+        }
+        
         self._singleelectron_triggers_ele32 = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
             '2016': [
                 'Ele27_WPTight_Gsf',
@@ -338,6 +357,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'Ele32|Ele115':(leading_bjet_dflvM.p4.sum()+leading_e.p4.sum()),
             'Ele32|Ele115|Pho200':(leading_bjet_dflvM.p4.sum()+leading_e.p4.sum()),
             'Ele32|Ele115|Pho200|Ele50PFj165': (leading_bjet_dflvM.p4.sum()+leading_e.p4.sum()),
+            'Ele32|Pho200|Ele50PFj165': (leading_bjet_dflvM.p4.sum()+leading_e.p4.sum())
         }
 
 
@@ -349,6 +369,15 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         # Selections
         ###
+        
+        
+         triggers = np.zeros(events.size, dtype=np.bool)
+        for path in self._singleelectron_triggers_ele32_or_pho200_or_ele50[self._year]:
+            if path not in events.HLT.columns:
+                continue
+            triggers = triggers | events.HLT[path]
+        selection.add('singleelectron_triggers_ele32_or_pho200_or_ele50', triggers)
+        
         triggers = np.zeros(events.size, dtype=np.bool)
         for path in self._singleelectron_triggers_ele115_or_ele32_or_pho200[self._year]:
             if path not in events.HLT.columns:
@@ -404,6 +433,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'Ele32|Ele115':{'selTWEle','singleelectron_triggers_ele115_or_ele32', 'e_pt>30', 'e_eta<2.5'},
             'Ele32|Ele115|Pho200':{'selTWEle','singleelectron_triggers_ele115_or_ele32_or_pho200', 'e_pt>30', 'e_eta<2.5'},
             'Ele32|Ele115|Pho200|Ele50PFj165': {'selTWEle','singleelectron_triggers_ele115_or_ele32_or_pho200_or_ele50pfjet165', 'e_pt>30', 'e_eta<2.5'},
+            'Ele32|Pho200|Ele50PFj165':{'singleelectron_triggers_ele32_or_pho200_or_ele50', 'e_pt>30', 'e_eta<2.5'}
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
