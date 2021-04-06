@@ -433,7 +433,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'Ele32|Ele115':{'selTWEle','singleelectron_triggers_ele115_or_ele32', 'e_pt>30', 'e_eta<2.5'},
             'Ele32|Ele115|Pho200':{'selTWEle','singleelectron_triggers_ele115_or_ele32_or_pho200', 'e_pt>30', 'e_eta<2.5'},
             'Ele32|Ele115|Pho200|Ele50PFj165': {'selTWEle','singleelectron_triggers_ele115_or_ele32_or_pho200_or_ele50pfjet165', 'e_pt>30', 'e_eta<2.5'},
-            'Ele32|Pho200|Ele50PFj165':{'singleelectron_triggers_ele32_or_pho200_or_ele50', 'e_pt>30', 'e_eta<2.5'}
+            'Ele32|Pho200|Ele50PFj165':{'selTWEle', 'singleelectron_triggers_ele32_or_pho200_or_ele50', 'e_pt>30', 'e_eta<2.5'}
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
