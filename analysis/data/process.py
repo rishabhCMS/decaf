@@ -12,8 +12,8 @@ processes =    {
     'SingleMuon':('SingleMuon','Data',1),
     #'DoubleMuon':('DoubleMuon','Data',1),
     #'DoubleEG':('DoubleEG','Data',1),
-#     'SingleElectron':('SingleElectron','Data',1),
-#     'SinglePhoton':('SinglePhoton','Data',1),
+    'SingleElectron':('SingleElectron','Data',1),
+    'SinglePhoton':('SinglePhoton','Data',1),
     #'JetHT':('JetHT','Data',1),
     
     # Private signal samples
