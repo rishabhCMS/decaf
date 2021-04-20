@@ -73,7 +73,7 @@ mu_trig_hists = {
     '2018': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2018_RunAtoD_kr.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
 }
 get_mu_trig_weight = {}
-for year in ['2018']:
+for year in ['2016','2017','2018']:
     mu_trig_hist = mu_trig_hists[year]
     get_mu_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
     
