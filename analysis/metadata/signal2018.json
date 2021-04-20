@@ -19,7 +19,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_23.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_24.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_25.root",
-            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_26.root",
+            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_26.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8____1_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_27.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_28.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_29.root",
@@ -32,18 +37,18 @@
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_35.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_36.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_37.root",
-            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_38.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8____1_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_38.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_39.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_4.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_40.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_41.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_42.root",
-            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_43.root",
+            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_43.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8____2_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_44.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_45.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_46.root",
@@ -62,19 +67,19 @@
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_58.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_59.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_6.root",
-            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_60.root",
+            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_60.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8____3_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_61.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_62.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_63.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_64.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_65.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_66.root",
-            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_67.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8____2_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_67.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_68.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_69.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_7.root",
@@ -86,7 +91,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_75.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_76.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_77.root",
-            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_78.root",
+            "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_78.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8____4_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_79.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_8.root",
             "root://cmseos.fnal.gov//store/user/jhong/Monotop_NanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-500_13TeV_TuneCP5_mcatnlo_pythia8/Monotop2018_2_RunIIAutumn18MiniAOD-102X_v15-v1/200720_074918/0000/nano_80.root",
@@ -117,7 +127,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13888846_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13920715_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13934513_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14424138_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14424138_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____1_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14695536_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15212720_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15397698_nano.root",
@@ -130,18 +145,18 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16350100_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16350705_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17567445_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17635953_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____1_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17635953_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17774217_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_1796721_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18265999_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18785978_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18918443_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18977316_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18977316_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____2_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_19119133_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_19447020_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_19653088_nano.root",
@@ -160,19 +175,19 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_21881909_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22246505_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_226863_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23194791_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23194791_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____3_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23536967_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23572506_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_2366612_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23706573_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_240036_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_24054114_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25055395_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____2_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25055395_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25128610_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25144356_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25270409_nano.root",
@@ -184,7 +199,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_27018900_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_27161641_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_27333474_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_27808302_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_27808302_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____4_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28734525_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28963914_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_29202840_nano.root",
@@ -203,13 +223,13 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32206972_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32342230_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32608602_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_3277236_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32943063_nano.root"
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_3277236_nano.root"
         ],
         "xs": 1.0
     },
-    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____3_": {
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____5_": {
         "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32943063_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33085150_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33110257_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33936762_nano.root",
@@ -227,7 +247,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35648383_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35717758_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35932394_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36150096_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36150096_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____6_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36606449_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36915272_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36976046_nano.root",
@@ -241,17 +266,17 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37651995_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38209066_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38788922_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38813587_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____4_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38813587_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38881607_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39129520_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39148303_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39617319_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39865248_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39865248_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____7_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39950348_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40192964_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40376271_nano.root",
@@ -270,7 +295,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_5952279_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6027985_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6028886_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6180701_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6180701_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____8_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_7362350_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_73872_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_7752847_nano.root",
@@ -278,12 +308,7 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8540382_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8577321_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_9011910_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_902814_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____5_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_902814_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-2000_Mchi-150_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_9529873_nano.root"
         ],
         "xs": 1.0
@@ -308,7 +333,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_11933336_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_12085817_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_12096529_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_12221599_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_12221599_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____1_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_12222379_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_12303497_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_12394651_nano.root",
@@ -321,18 +351,18 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13179046_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13251048_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13271106_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13286653_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____1_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13286653_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13315011_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13497665_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_13695488_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14085792_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14107898_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14177221_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14177221_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____2_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14202387_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14207849_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_14222746_nano.root",
@@ -351,19 +381,19 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15717689_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15775328_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15811987_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15841054_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15841054_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____3_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15864939_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15887460_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_15980892_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16084857_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16094977_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16211692_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16332250_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____2_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16332250_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16600547_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16680134_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_16707008_nano.root",
@@ -375,7 +405,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17195319_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_172379_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17262254_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17330523_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17330523_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____4_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17393293_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17398353_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_17411261_nano.root",
@@ -394,13 +429,13 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18342684_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18362117_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18648893_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18734875_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_1886092_nano.root"
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_18734875_nano.root"
         ],
         "xs": 1.0
     },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____3_": {
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____5_": {
         "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_1886092_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_19072655_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_19157877_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_19228625_nano.root",
@@ -418,7 +453,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_20653815_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_20750577_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_21050477_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_21137085_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_21137085_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____6_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_21396249_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_21441095_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_21567159_nano.root",
@@ -432,17 +472,17 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22132141_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22366748_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22417638_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22446219_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____4_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22446219_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22595340_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_22844842_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_2300206_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23104157_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23158947_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23158947_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____7_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23250064_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23328514_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_23492630_nano.root",
@@ -461,7 +501,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_24829396_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25017068_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25100331_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25208857_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25208857_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____8_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25323297_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25396380_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25447954_nano.root",
@@ -469,12 +514,7 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25674648_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25757740_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_25808197_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_2588332_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____5_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_2588332_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_2605861_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26076667_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26089045_nano.root",
@@ -485,7 +525,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26516280_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26533582_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26595488_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26615878_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26615878_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____9_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26627062_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26679271_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_26927804_nano.root",
@@ -504,14 +549,14 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28137366_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28164627_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28287713_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28408549_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28428140_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28496431_nano.root"
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28408549_nano.root"
         ],
         "xs": 1.0
     },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____6_": {
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____10_": {
         "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28428140_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28496431_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_2852912_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28609028_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_28617642_nano.root",
@@ -528,7 +573,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_29870875_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_29926261_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_29935646_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_29937876_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_29937876_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____11_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_2994801_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_29970267_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_30163397_nano.root",
@@ -543,16 +593,16 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31386385_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31459967_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31499394_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31501644_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____7_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31501644_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31553487_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31793233_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_31931281_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32002922_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32002922_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____12_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32071933_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_32216091_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_3227408_nano.root",
@@ -571,7 +621,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33416010_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33428313_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33628084_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33767231_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33767231_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____13_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_33840694_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_34073139_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_3416558_nano.root",
@@ -580,12 +635,7 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_34271920_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_34300523_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_34589145_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_348228_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____8_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_348228_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_34949217_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35015282_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35297346_nano.root",
@@ -595,7 +645,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35570525_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35595607_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_35858880_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36548322_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36548322_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____14_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_36787226_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37004350_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37007803_nano.root",
@@ -614,15 +669,15 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37773055_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37778779_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37782504_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37810323_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37831308_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37876340_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37878230_nano.root"
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37810323_nano.root"
         ],
         "xs": 1.0
     },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____9_": {
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____15_": {
         "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37831308_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37876340_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_37878230_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38099281_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38270373_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_38297216_nano.root",
@@ -638,7 +693,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39044_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39048406_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39068647_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39208619_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39208619_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____16_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39557707_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39717770_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_39738700_nano.root",
@@ -654,15 +714,15 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40448014_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40502042_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40641694_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40749673_nano.root"
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40749673_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40799715_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_41095470_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_41288150_nano.root"
         ],
         "xs": 1.0
     },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____10_": {
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____17_": {
         "files": [
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_40799715_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_41095470_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_41288150_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_41308430_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_41318308_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_41392759_nano.root",
@@ -681,7 +741,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_42568067_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_42701385_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_42783645_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_42810844_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_42810844_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____18_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_42929635_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_4319111_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_4342344_nano.root",
@@ -691,12 +756,7 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_516562_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_5476595_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_5925303_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_5935677_nano.root"
-        ],
-        "xs": 1.0
-    },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____11_": {
-        "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_5935677_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_5994197_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_600105_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_608591_nano.root",
@@ -705,7 +765,12 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6279768_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6323431_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_647844_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6569969_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6569969_nano.root"
+        ],
+        "xs": 1.0
+    },
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____19_": {
+        "files": [
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6809351_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6838513_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_6897334_nano.root",
@@ -724,18 +789,18 @@
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8463922_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8629550_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8637952_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_872256_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8758044_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8832000_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8834953_nano.root",
-            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8911678_nano.root"
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_872256_nano.root"
         ],
         "xs": 1.0
     },
-    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____12_": {
+    "Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8____20_": {
         "files": [
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8758044_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8832000_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8834953_nano.root",
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8911678_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8924690_nano.root",
-            
+            "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_8956276_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_9057186_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_9112832_nano.root",
             "root://cmseos.fnal.gov//store/user/jhong/moreNanoAOD/2018/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8/Vector_MonoTop_NLO_Mphi-1495_Mchi-750_gSM-0p25_gDM-1p0_13TeV-madgraph_slc7_amd64_gcc700_CMSSW_9_3_8_9124225_nano.root",
