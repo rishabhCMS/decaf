@@ -133,10 +133,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             data_muon = 'SingleMuon'
         elif self._year == '2017':
             data_electron = 'SingleElectron,SinglePhoton'
-            data_muon = 'SingleMuon'
+            data_muon = 'SingleMuon,'
         elif self._year == '2018':
-            data_electron = 'EGamma'
-            data_muon = 'SingleMuon'
+            data_electron = 'EGamma,'
+            data_muon = 'SingleMuon,'
         self._samples = {
             'sre': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron.split(',')[0], data_electron.split(',')[1]),
             'srm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
