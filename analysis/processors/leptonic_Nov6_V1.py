@@ -128,27 +128,25 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
 
         self._xsec = xsec
-        if self._year == '2016':
-            data_electron = 'SingleElectron,SinglePhoton'
-            data_muon = 'SingleMuon'
-        elif self._year == '2017':
-            data_electron = 'SingleElectron,SinglePhoton'
-            data_muon = 'SingleMuon,'
-        elif self._year == '2018':
-            data_electron = 'EGamma,'
-            data_muon = 'SingleMuon,'
-        self._samples = {
-            'sre': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron.split(',')[0], data_electron.split(',')[1]),
-            'srm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
-            'ttbare': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron.split(',')[0], data_electron.split(',')[1]),
-            'ttbarm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
-            'wjete': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron.split(',')[0], data_electron.split(',')[1]),
-            'wjetm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
-            #             'dilepe': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_electron),
-            #             'dilepm': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_muon)
-
-        }
-
+#         if self._year == '2016':
+#             data_electron = 'SingleElectron,SinglePhoton'
+#             data_muon = 'SingleMuon'
+#         elif self._year == '2017':
+#             data_electron = 'SingleElectron,SinglePhoton'
+#             data_muon = 'SingleMuon,'
+#         elif self._year == '2018':
+#             data_electron = 'EGamma,'
+#             data_muon = 'SingleMuon,'
+	        self._samples = {	
+	            'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton'),	
+	            'srm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),	
+	            'ttbare':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton'),	
+	            'ttbarm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),	
+	            'wjete':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','SinglePhoton'),	
+	            'wjetm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),	
+# 	            'dilepe':('DY','TT','ST','WW','WZ','ZZ','SingleElectron','SinglePhoton'),	
+# 	            'dilepm':('DY','TT','ST','WW','WZ','ZZ','SingleMuon')
+            }
         self._gentype_map = {
             'xbb':      1,
             'tbcq':     2,
