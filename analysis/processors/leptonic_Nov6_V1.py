@@ -137,7 +137,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         elif self._year == '2018':
 #             data_electron = 'EGamma,'
 #             data_muon = 'SingleMuon,'
-	        self._samples = {	
+        self._samples = {	
 	            'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton'),	
 	            'srm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),	
 	            'ttbare':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton'),	
