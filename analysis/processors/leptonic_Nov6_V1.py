@@ -202,9 +202,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
             '2016': [
                 'Ele27_WPTight_Gsf',
-                #'Ele105_CaloIdVT_GsfTrkIdT', https://twiki.cern.ch/twiki/bin/view/CMS/EgHLTRunIISummary
-                'Ele115_CaloIdVT_GsfTrkIdT'
-                'HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                'Ele105_CaloIdVT_GsfTrkIdT', #https://twiki.cern.ch/twiki/bin/view/CMS/EgHLTRunIISummary
+#                 'Ele115_CaloIdVT_GsfTrkIdT'
+#                 'HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
@@ -220,9 +220,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._singlemuon_triggers = {
             '2016': [
                 'IsoMu24',
-                'IsoTkMu24',
-                'Mu50',
-                'TkMu50'
+#                 'IsoTkMu24',
+#                 'Mu50',
+#                 'TkMu50'
 
             ],
             '2017':
