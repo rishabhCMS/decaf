@@ -35,12 +35,26 @@ if __name__ == "__main__":
     datasets_total = len(data.keys())
 
     
+    for k in data.keys():
+        print(f"processing {k}")
+        file_list = []
+#         2018 data/MC json
+        if ("SingleMuon" in k):
+            num_list= ['_103_','_126_', '_127_', '_157_', '_165_', '_172_', '_253_', '_267_', '_372_', '_374_','_385_', '_405_', '_446_', '_461_', '_57_']
+            for num in num_list:
+                if num in k:
+                    for file in data[k]['files']:
+                        isValid = validate(file)
+                        if isValid:
+                            file_list.append(file)
+                    data[k]['files'] = file_list
+
 #     for k in data.keys():
 #         print(f"processing {k}")
 #         file_list = []
-# #         2018 data/MC json
-#         if ("SingleMuon" in k):
-#             num_list= ['_103_','_126_', '_127_', '_157_', '_165_', '_172_', '_253_', '_267_', '_372_', '_374_','_385_', '_405_', '_446_', '_461_', '_57_']
+#         #2016 data/mc
+#         if ("QCD_HT200to300_TuneCUETP8M1_13TeV-madgraphMLM-pythia8" in k):
+#             num_list= ['_4_','_6_']
 #             for num in num_list:
 #                 if num in k:
 #                     for file in data[k]['files']:
@@ -48,30 +62,16 @@ if __name__ == "__main__":
 #                         if isValid:
 #                             file_list.append(file)
 #                     data[k]['files'] = file_list
-
-    for k in data.keys():
-        print(f"processing {k}")
-        file_list = []
-        #2016 data/mc
-        if ("QCD_HT200to300_TuneCUETP8M1_13TeV-madgraphMLM-pythia8" in k):
-            num_list= ['_4_','_6_']
-            for num in num_list:
-                if num in k:
-                    for file in data[k]['files']:
-                        isValid = validate(file)
-                        if isValid:
-                            file_list.append(file)
-                    data[k]['files'] = file_list
                     
-        elif ("SingleElectron" in k):
-            num_list= ['_125_','_138_']
-            for num in num_list:
-                if num in k:
-                    for file in data[k]['files']:
-                        isValid = validate(file)
-                        if isValid:
-                            file_list.append(file)
-                    data[k]['files'] = file_list
+#         elif ("SingleElectron" in k):
+#             num_list= ['_125_','_138_']
+#             for num in num_list:
+#                 if num in k:
+#                     for file in data[k]['files']:
+#                         isValid = validate(file)
+#                         if isValid:
+#                             file_list.append(file)
+#                     data[k]['files'] = file_list
                     
         else:continue
     folder = "metadata/"+"_"+options.filename
