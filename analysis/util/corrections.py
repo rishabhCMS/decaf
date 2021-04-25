@@ -68,7 +68,7 @@ for year in ['2016','2017','2018']:
 ###
 
 mu_trig_hists = {
-    '2016': uproot.open("data/trigger_eff/eleTrig.root")['hEffEtaPt'],
+    '2016': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2016_RunBtoH.root")['IsoMu24_OR_IsoTkMu24_PtEtaBins']['pt_abseta_ratio'],,
     '2017': uproot.open("data/trigger_eff/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['IsoMu27_PtEtaBins']['pt_abseta_ratio'],
     '2018': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2018_RunAtoD_kr.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
 }
