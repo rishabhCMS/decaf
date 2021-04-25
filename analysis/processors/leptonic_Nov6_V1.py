@@ -128,25 +128,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
 
         self._xsec = xsec
-        if self._year == '2016':
-            data_electron = 'SingleElectron'
-            data_muon = 'SingleMuon'
-        elif self._year == '2017':
-            data_electron = 'SingleElectron'
-            data_muon = 'SingleMuon'
-        elif self._year == '2018':
-            data_electron = 'EGamma'
-            data_muon = 'SingleMuon'
-        self._samples = {
-            'sre': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron),
-            'srm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
-            'ttbare': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron),
-            'ttbarm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
-            'wjete': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron),
-            'wjetm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
-            #             'dilepe': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_electron),
-            #             'dilepm': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_muon)
-
+        
         self._samples = {
             'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton','EGamma'),
             'srm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),
