@@ -128,25 +128,27 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
 
         self._xsec = xsec
-#         if self._year == '2016':
-#             data_electron = 'SingleElectron,SinglePhoton'
-#             data_muon = 'SingleMuon'
-#         elif self._year == '2017':
-#             data_electron = 'SingleElectron,SinglePhoton'
-#             data_muon = 'SingleMuon,'
-#         elif self._year == '2018':
-#             data_electron = 'EGamma,'
-#             data_muon = 'SingleMuon,'
-        self._samples = {	
-	            'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton'),	
-	            'srm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),	
-	            'ttbare':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton'),	
-	            'ttbarm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),	
-	            'wjete':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','SinglePhoton'),	
-	            'wjetm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),	
-# 	            'dilepe':('DY','TT','ST','WW','WZ','ZZ','SingleElectron','SinglePhoton'),	
-# 	            'dilepm':('DY','TT','ST','WW','WZ','ZZ','SingleMuon')
-            }
+        if self._year == '2016':
+            data_electron = 'SingleElectron'
+            data_muon = 'SingleMuon'
+        elif self._year == '2017':
+            data_electron = 'SingleElectron'
+            data_muon = 'SingleMuon'
+        elif self._year == '2018':
+            data_electron = 'EGamma'
+            data_muon = 'SingleMuon'
+        self._samples = {
+            'sre': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron),
+            'srm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
+            'ttbare': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron),
+            'ttbarm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
+            'wjete': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_electron),
+            'wjetm': ('WJets', 'DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', 'QCD', data_muon),
+            #             'dilepe': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_electron),
+            #             'dilepm': ('DY', 'TT', 'ST', 'WW', 'WZ', 'ZZ', data_muon)
+
+        }
+
         self._gentype_map = {
             'xbb':      1,
             'tbcq':     2,
@@ -202,9 +204,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
             '2016': [
                 'Ele27_WPTight_Gsf',
-                'Ele105_CaloIdVT_GsfTrkIdT', #https://twiki.cern.ch/twiki/bin/view/CMS/EgHLTRunIISummary
-#                 'Ele115_CaloIdVT_GsfTrkIdT'
-#                 'HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                'Ele105_CaloIdVT_GsfTrkIdT'
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
@@ -220,17 +220,17 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._singlemuon_triggers = {
             '2016': [
                 'IsoMu24',
-#                 'IsoTkMu24',
-#                 'Mu50',
-#                 'TkMu50'
+                'IsoTkMu24',
+                'Mu50',
+                'TkMu50'
 
             ],
             '2017':
                 [
                 'IsoMu27',
-                'Mu50',
-                'OldMu100',
-                'TkMu100'
+                #                 'Mu50',
+                #                 'OldMu100',
+                #                 'TkMu100'
             ],
             '2018':
                 [
@@ -656,7 +656,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
         DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele).max() < 3.4)
-
         LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
         DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 3.4)
@@ -1044,8 +1043,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
         # selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
-        # This cut is only for 2018 bc I haven't produced 0-50, 50-100 GeV Wjets samples
-        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT') & (self._year == '2018'):
+        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
 
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
