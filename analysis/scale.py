@@ -114,12 +114,12 @@ def scale(hists):
 #     sig_map["MonoJet"] = ("MonoJet*",)  ## signals
 #     sig_map["MonoW"] = ("MonoW*",)    ## signals
 #     sig_map["MonoZ"] = ("MonoZ*",)    ## signals
-#     data_map["MET"] = ("MET*", )
+    data_map["MET"] = ("MET*", )
+    data_map["SingleElectron"] = ("SingleElectron*", )
+    data_map["SinglePhoton"] = ("SinglePhoton*", )
     data_map["SingleMuon"] = ("SingleMuon*", )
-#     data_map["SingleElectron"] = ("SingleElectron*", )
-#     data_map["SinglePhoton"] = ("SinglePhoton*", )
     data_map["EGamma"] = ("EGamma*", )
-
+    data_map["Data"] = (["SingleElectron","SinglePhoton"], )
     print('Processes defined')
     
     ###
