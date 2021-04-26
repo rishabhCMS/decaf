@@ -221,16 +221,16 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2017':
                 [
                 'IsoMu27',
-                #                 'Mu50',
-                #                 'OldMu100',
-                #                 'TkMu100'
+                'Mu50',
+                'OldMu100',
+                'TkMu100'
             ],
             '2018':
                 [
                 'IsoMu24',
-                #                 'Mu50',
-                #                 'OldMu100',
-                #                 'TkMu100'
+                'Mu50',
+                'OldMu100',
+                'TkMu100'
             ]
         }
 
