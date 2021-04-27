@@ -835,17 +835,26 @@ class AnalysisProcessor(processor.ProcessorABC):
                     sigmoid(leading_pho.pt.sum(), 0.301, 212.83, 0.062, 1.000)
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
 
+#             trig = {
+#                 'sre': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+#                 'srm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+#                 'ttbare': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+#                 'ttbarm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+#                 'wjete': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+#                 'wjetm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+#                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+#                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+#             }
             trig = {
-                'sre': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'srm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
-                'ttbare': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'ttbarm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
-                'wjete': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'wjetm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'sre': np.ones(events.size),
+                'srm':np.ones(events.size),
+                'ttbare': np.ones(events.size),
+                'ttbarm': np.ones(events.size),
+                'wjete': np.ones(events.size),
+                'wjetm':np.ones(events.size),
                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
-
             ###
             # Calculating electron and muon ID weights
             ###
@@ -952,21 +961,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             that is different from the weight you apply when you ask for at least 1 b-tag
             '''
-            btag = {}
-            btagUp = {}
-            btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
-                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
+#             btag = {}
+#             btagUp = {}
+#             btagDown = {}
+#             btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
+#             btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
+#             btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
+#             btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
+#             btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
+#             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
+#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
 
 
         ###
@@ -1268,8 +1277,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
-                weights.add('btag', btag[region],
-                            btagUp[region], btagDown[region])
+#                 weights.add('btag', btag[region],
+#                             btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1283,8 +1292,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-                                   'btagUp',
-                                   'btagDown',
+#                                    'btagUp',
+#                                    'btagDown',
                                    'qcd1Up',
                                    'qcd1Down',
                                    'qcd2Up',
