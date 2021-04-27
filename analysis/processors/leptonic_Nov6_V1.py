@@ -197,7 +197,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Ele27_WPTight_Gsf',
 #                 'Ele105_CaloIdVT_GsfTrkIdT'
                 'Ele115_CaloIdVT_GsfTrkIdT'
-                'HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
