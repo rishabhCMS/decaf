@@ -429,6 +429,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
+            'j1eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('j1eta','AK4 Leading Jet Eta',35,-3.5,3.5),
+            'j1phi': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'), 
+                hist.Bin('j1phi','AK4 Leading Jet Phi',35,-3.5,3.5)
         })
 
     @property
@@ -1239,8 +1249,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'metphi':                 met.phi,
                 # 'mindphimet':             abs(met.T.delta_phi(j_clean.T)).min(),
                 # 'j1pt':                   leading_j.pt,
-                # 'j1eta':                  leading_j.eta,
-                # 'j1phi':                  leading_j.phi,
+                'j1eta':                  leading_j.eta,
+                'j1phi':                  leading_j.phi,
                 # 'njets':                  j_nclean,
                 # 'ndflvL':                 j_ndflvL,
                 # 'ndcsvL':     j_ndcsvL,
