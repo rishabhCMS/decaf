@@ -32,8 +32,8 @@ processes =    {
     # NLO W->lnurishabh                                                                                                                                                                                    
     ('WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt0to50','MC', 62470),
     ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3580),
-    ('WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2016):('WJets_pt0to50','MC', 53760)
-    ('WJetsToLNu_Wpt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2016):('WJets_pt50to100','MC', 2977)
+    ('WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2016):('WJets_pt0to50','MC', 53760),
+    ('WJetsToLNu_Wpt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2016):('WJets_pt50to100','MC', 2977),
 
     # LO Z->nunu
     #2018
