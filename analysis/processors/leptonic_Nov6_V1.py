@@ -961,21 +961,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             that is different from the weight you apply when you ask for at least 1 b-tag
             '''
-#             btag = {}
-#             btagUp = {}
-#             btagDown = {}
-#             btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-#             btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-#             btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-#             btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-#             btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-#             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
+            btag = {}
+            btagUp = {}
+            btagDown = {}
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
+            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
+            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
+            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
+            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
+                j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
 
 
         ###
@@ -1045,7 +1045,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
         # selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
-        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT') & (self._year=='2018'):
+        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
 
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
@@ -1277,8 +1277,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
-#                 weights.add('btag', btag[region],
-#                             btagUp[region], btagDown[region])
+                weights.add('btag', btag[region],
+                            btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1292,8 +1292,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-#                                    'btagUp',
-#                                    'btagDown',
+                                   'btagUp',
+                                   'btagDown',
                                    'qcd1Up',
                                    'qcd1Down',
                                    'qcd2Up',
@@ -1336,8 +1336,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-                    for systematic in [None]:
-#                     for systematic in [None, 'btagUp', 'btagDown']:
+#                     for systematic in [None]:
+                    for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
