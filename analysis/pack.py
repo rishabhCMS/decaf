@@ -24,7 +24,7 @@ fnaleos = "root://cmseos.fnal.gov/"
 #fnaleos = "root://cmsxrootd.fnal.gov/"
 #infneos = "root://xrootd-cms.infn.it/"
 beans={}
-beans['2016'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2016"]
+beans['2016'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2016", "/eos/uscms/store/user/runiyal/nano2016"]
 beans['2017'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017","/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017/Sandeep"]
 beans['2018'] = ["/eos/uscms/store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2018", 
                  "/eos/uscms/store/user/runiyal/nano2018", # for jetHT70to100
