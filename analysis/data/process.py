@@ -34,8 +34,8 @@ processes =    {
     ('WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8',2018):('WJets_pt50to100','MC', 3580),
     ('WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2016):('WJets_pt0to50','MC', 53760),
     ('WJetsToLNu_Wpt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2016):('WJets_pt50to100','MC', 2977),
-    ('WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2017):('WJets_pt0to50','MC', XS),
-    ('WJetsToLNu_Wpt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2017):('WJets_pt50to100','MC', XS),
+    ('WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2017):('WJets_pt0to50','MC', 62260),
+    ('WJetsToLNu_Wpt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8',2017):('WJets_pt50to100','MC', 3588),
 
     # LO Z->nunu
     #2018
@@ -105,7 +105,7 @@ processes =    {
     # LO W->lnu
     #2018
     ('WJetsToLNu_HT-70To100_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht70to100_CP5','MC', 1289),
-    ('WJetsToLNu_HT-70To100_TuneCP5_13TeV-madgraphMLM-pythia8',2017):('WJets_ht70to100_CP5','MC', XS),
+    ('WJetsToLNu_HT-70To100_TuneCP5_13TeV-madgraphMLM-pythia8',2017):('WJets_ht70to100_CP5','MC', 1294),
     
     ('WJetsToLNu_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8',2018):('WJets_ht100to200_CP5','MC',1392),
     #'WJetsToLNu_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8':('WJets_ht100to200_CP5','MC',1345),
