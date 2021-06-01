@@ -74,6 +74,32 @@ if __name__ == "__main__":
                         data[k]['files'] = file_list
 
             else:continue
+    if (options.filename == '2017.json'):
+        for k in data.keys():
+            print(f"processing {k}")
+            file_list = []
+            #2017 data/mc
+            if ("QCD_HT700to1000_TuneCP5_13TeV-madgraph-pythia8" in k):
+                num_list= ['_90_','_132_','_133_']
+                for num in num_list:
+                    if num in k:
+                        for file in data[k]['files']:
+                            isValid = validate(file)
+                            if isValid:
+                                file_list.append(file)
+                        data[k]['files'] = file_list
+
+            elif ("TTJets_TuneCP5_13TeV-amcatnloFXFX-pythia8" in k):
+                num_list= ['_462_','_511_']
+                for num in num_list:
+                    if num in k:
+                        for file in data[k]['files']:
+                            isValid = validate(file)
+                            if isValid:
+                                file_list.append(file)
+                        data[k]['files'] = file_list
+
+            else:continue
     folder = "metadata/"+"_"+options.filename
     with open(folder, "w") as fout:
         json.dump(data, fout, indent=4)
