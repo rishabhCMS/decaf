@@ -12,6 +12,8 @@ def validate(file):
     False is the file is corrupt
     :param file:
     :return: BOOL (True for valid root file and False for invalid file
+    
+    usage: python validate.py -f 2016
     '''
     try:
         fin = uproot.open(file)
