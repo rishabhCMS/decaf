@@ -376,7 +376,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('njets', 'AK4 Number of Jets', 6, -0.5, 5.5)),
+                hist.Bin('njets', 'AK4 Number of Jets', 7, -0.5, 5.5)),
 
             'ndcsvM': hist.Hist(
                 'Events',
