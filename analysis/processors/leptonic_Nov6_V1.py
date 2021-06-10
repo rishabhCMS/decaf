@@ -653,7 +653,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
         #DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 3.4)
-        DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 3.4)
+        DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 1.7)
 
         ele_pairs = e_loose.distincts()
         diele = ele_pairs.i0+ele_pairs.i1
