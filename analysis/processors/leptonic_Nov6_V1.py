@@ -376,7 +376,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('njets', 'AK4 Number of Jets', 7, -0.5, 5.5)),
+                hist.Bin('njets', 'AK4 Number of Jets', 7, -0.5, 6.5)),
 
             'ndcsvM': hist.Hist(
                 'Events',
@@ -402,17 +402,17 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ele_eta', 'Leading Electron Eta', 24, -2.4, 2.4)),
+                hist.Bin('ele_eta', 'Leading Electron Eta', 48, -2.4, 2.4)),
             'mu_eta': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('mu_eta', 'Leading Muon Eta', 24, -2.4, 2.4)),
+                hist.Bin('mu_eta', 'Leading Muon Eta', 48, -2.4, 2.4)),
             'ele_phi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('ele_phi', 'Leading Electron Phi', 32, -3.2, 3.2)),
+                hist.Bin('ele_phi', 'Leading Electron Phi', 64, -3.2, 3.2)),
             'metphi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -422,7 +422,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('mu_phi', 'Leading Muon Phi', 32, -3.2, 3.2)),
+                hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
         })
 
     @property
@@ -648,12 +648,12 @@ class AnalysisProcessor(processor.ProcessorABC):
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
-        #DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele).max() < 3.4)
-        DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele).max() < 1.7)
+        DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele).max() < 3.4)
+        #DeltaR_LJ_Ele_mask = (abs(DeltaR_LJ_Ele).max() < 1.7)
         LJ_Mu = leading_j['p4'].cross(mu_loose['p4'])
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
-        #DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 3.4)
-        DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 1.7)
+        DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 3.4)
+        #DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 1.7)
 
         ele_pairs = e_loose.distincts()
         diele = ele_pairs.i0+ele_pairs.i1
