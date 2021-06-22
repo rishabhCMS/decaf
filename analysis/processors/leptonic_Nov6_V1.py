@@ -643,7 +643,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>2.0
+        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>2.5
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
