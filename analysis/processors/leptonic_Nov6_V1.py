@@ -643,7 +643,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>2.5
+        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>1.5
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
@@ -1108,11 +1108,18 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         selection.add('exactly_1_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
+#         for region in mT.keys():
+#             sel_name = 'mt'+'_'+region+'>40'
+#             select = (mT[region] >= 40)
+#             selection.add(sel_name, select)
+#         selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
+
         for region in mT.keys():
-            sel_name = 'mt'+'_'+region+'>40'
-            select = (mT[region] >= 40)
+            sel_name = 'mt'+'_'+region+'[100-200]'
+            select = ((mT[region] >= 100) & (mT[region] <= 210))
             selection.add(sel_name, select)
-        selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
+            
+        selection.add('leading_j>70',(leading_j.pt.sum() >70))
 #           adding mT range cut to see some effects
 #         for region in mT.keys():
 #             sel_name = 'mt'+'_100<'+region+'>310'
@@ -1120,17 +1127,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet',},
+                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre[100-200]','met100','noHEMmet',},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj'},
+                    'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_srm[100-200]',  'met100', 'noHEMmet','noHEMj'},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_ttbare[100-200]', 'met100', 'noHEMmet'},
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                        'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj' },
+                        'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_ttbarm[100-200]' , 'met100','noHEMmet','noHEMj' },
             'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj'},
+                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_wjete[100-200]' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj'},
             'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj'},
+                       'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_wjetm[100-200]', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
