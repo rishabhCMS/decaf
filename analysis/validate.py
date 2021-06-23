@@ -13,7 +13,7 @@ def validate(file):
     :param file:
     :return: BOOL (True for valid root file and False for invalid file
     
-    usage: python validate.py -f 2016
+    usage: python validate.py -f 2016.json
     '''
     try:
         fin = uproot.open(file)
