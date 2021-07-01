@@ -966,17 +966,17 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag = {}
             btagUp = {}
             btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepcsv_weight['medium'](
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepcsv_weight['medium'](
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepcsv_weight['medium'](
+            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepcsv_weight['medium'](
+            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepcsv_weight['medium'](
+            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepcsv_weight['medium'](
+            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
 
 
@@ -1084,9 +1084,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('diele_mass', (leading_diele.mass.sum() > 60)
 #                       & (leading_diele.mass.sum() < 120))
 
-        selection.add('exactly_1_medium_btag', (j_ndcsvM == 1))
-        selection.add('atleast_2_medium_btag', (j_ndcsvM >= 2))
-        selection.add('zero_medium_btags', (j_ndcsvM == 0))
+        selection.add('exactly_1_medium_btag', (j_ndflvM == 1))
+        selection.add('atleast_2_medium_btag', (j_ndflvM >= 2))
+        selection.add('zero_medium_btags', (j_ndflvM == 0))
 
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
@@ -1102,7 +1102,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('one_muon', (mu_tight.counts == 1))
         selection.add('zero_loose_electron', (e_loose.counts == 0))
         selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
-
+        selection.add('metphi', (met.phi<0))
 #         selection.add('atleast_2_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
 
