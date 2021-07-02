@@ -1102,7 +1102,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('one_muon', (mu_tight.counts == 1))
         selection.add('zero_loose_electron', (e_loose.counts == 0))
         selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
-        selection.add('metphi', (met.phi<0))
+        selection.add('metphi', (met.phi <= 0))
 #         selection.add('atleast_2_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
 
@@ -1127,17 +1127,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet',},
+                     'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet', 'metphi'},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                    'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj'},
+                    'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj', 'metphi'},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet'},
+                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet', 'metphi'},
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                        'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj' },
+                        'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj', 'metphi' },
             'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj'},
+                       'Delta_Phi_Met_LJ','DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj', 'metphi'},
             'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'exclude_low_WpT_JetHT',
-                       'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj'},
+                       'Delta_Phi_Met_LJ','DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj', 'metphi'},
             # 'dilepe' : {'istwoE','onebjet','noHEMj','met_filters','single_electron_triggers', 'met100', 'exclude_low_WpT_JetHT',
             #             'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele'},
             # 'dilepm' : {'istwoM','onebjet','noHEMj','met_filters','single_mu_triggers', 'met100', 'exclude_low_WpT_JetHT',
