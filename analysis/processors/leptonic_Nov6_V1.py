@@ -1297,7 +1297,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('btag', btag[region],
                             btagUp[region], btagDown[region])
 
-                if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
+                if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT') or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
                         hout['sumw'].fill(
                             dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
@@ -1344,14 +1344,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
-#                                               weight=weights.weight(modifier=systematic)*whf*cut
+                                              weight=weights.weight(modifier=systematic)*whf*cut
                                              )
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
-#                                               weight=weights.weight(modifier=systematic)*wlf*cut
+                                              weight=weights.weight(modifier=systematic)*wlf*cut
                                              )
                 else:
                     if not isFilled:
