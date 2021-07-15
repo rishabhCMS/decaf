@@ -1344,13 +1344,15 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
-                                              weight=weights.weight(modifier=systematic)*whf*cut)
+#                                               weight=weights.weight(modifier=systematic)*whf*cut
+                                             )
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
-                                              weight=weights.weight(modifier=systematic)*wlf*cut)
+#                                               weight=weights.weight(modifier=systematic)*wlf*cut
+                                             )
                 else:
                     if not isFilled:
                         hout['sumw'].fill(
