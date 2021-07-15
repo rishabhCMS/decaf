@@ -1237,7 +1237,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                         flat_variable = {histname: flat_variables[histname]}
                         h.fill(dataset=dataset, 
                                region=region, 
-                               gentype=flat_gentype[histname], 
                                **flat_variable, 
                                weight=flat_weight[histname])
 
