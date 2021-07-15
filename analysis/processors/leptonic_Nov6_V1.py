@@ -1057,7 +1057,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
         # selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
-        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
+        if 'WJetsToLNu_HT' in dataset:
 
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
@@ -1297,7 +1297,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('btag', btag[region],
                             btagUp[region], btagDown[region])
 
-                if (('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT')) or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
+                if 'WJetsToLNu_HT' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
                         hout['sumw'].fill(
                             dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
