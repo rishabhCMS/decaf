@@ -417,14 +417,36 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
-            'template': hist.Hist(
+            'template_mt_dphi_met_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600),
-                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5)
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5),
+#                 hist.Bin('dphi_e_etmiss', '$\Delta\phi (e, E^T_{miss} )$', 30, 0, 3.5),
+#                 hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)
             ),
+            'template_mt_dphi_lep_etmiss': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+                hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600),
+#                 hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5),
+                hist.Bin('dphi_lep_etmiss', '$\Delta\phi (lepton, E^T_{miss} )$', 30, 0, 3.5),
+#                 hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)
+            ),
+            'template_etmiss_dphi_lep_etmiss': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+#                 hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600),
+#                 hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5),
+                hist.Bin('dphi_lep_etmiss', '$\Delta\phi (lepton, E^T_{miss} )$', 30, 0, 3.5),
+                hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)
+            )
         })
 
     @property
@@ -693,13 +715,14 @@ class AnalysisProcessor(processor.ProcessorABC):
             'wjete': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
             'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
         }
-        dphi_e_etmiss = {
+        
+        dphi_lep_etmiss = {
             'sre': abs(met['T'].delta_phi(leading_e['T'].sum())),
-            'srm': abs(met['T'].delta_phi(leading_e['T'].sum())),
+            'srm': abs(met['T'].delta_phi(leading_mu['T'].sum())),
             'ttbare': abs(met['T'].delta_phi(leading_e['T'].sum())),
-            'ttbarm': abs(met['T'].delta_phi(leading_e['T'].sum())),
+            'ttbarm': abs(met['T'].delta_phi(leading_mu['T'].sum())),
             'wjete': abs(met['T'].delta_phi(leading_e['T'].sum())),
-            'wjetm': abs(met['T'].delta_phi(leading_e['T'].sum()))
+            'wjetm': abs(met['T'].delta_phi(leading_mu['T'].sum()))
         }
 
         LTe = leading_e.pt.sum() + met.pt
@@ -1057,7 +1080,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # predeclration just in cas I don't want the filter
         # selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
-        if 'WJetsToLNu_HT' in dataset:
+        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
 
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) &
@@ -1211,6 +1234,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                     WRF = leading_e.T.sum()-met.T
                 else:
                     pass
+            if region in dphi_lep_etmiss:
+                variables['dphi_lep_etmiss'] = dphi_lep_etmiss[region]
+            
 #                     WRF = leading_mu.T.sum()-met.T
 #                 variables['recoilphiWRF'] = abs(u[region].delta_phi(WRF))
 #             print('Variables:', variables.keys())
@@ -1231,7 +1257,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         continue
                     elif histname == 'sumw':
                         continue
-                    elif histname == 'template':
+                    elif 'template' in histname:
                         continue
                     else:
                         flat_variable = {histname: flat_variables[histname]}
@@ -1245,11 +1271,23 @@ class AnalysisProcessor(processor.ProcessorABC):
                     hout['sumw'].fill(dataset=dataset, sumw=1, weight=1)
                     isFilled = True
                 cut = selection.all(*regions[region])
-                hout['template'].fill(dataset=dataset,
+                hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
                                       mT=mT[region],
                                       dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
+                                      weight=np.ones(events.size)*cut)
+                hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
+                                      region=region,
+                                      systematic='nominal',
+                                      mT=mT[region],
+                                      dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                      weight=np.ones(events.size)*cut)
+                hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
+                                      region=region,
+                                      systematic='nominal',
+                                      dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                      eT_miss=met.pt.flatten(),
                                       weight=np.ones(events.size)*cut)
                 fill(dataset, np.ones(events.size), cut)
             else:
@@ -1339,20 +1377,31 @@ class AnalysisProcessor(processor.ProcessorABC):
                                    'mixDown']
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
-                        hout['template'].fill(dataset='HF--'+dataset,
+                        hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
                                               region=region,
-                                              systematic=sname,
+                                              systematic='nominal',
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
                                               weight=weights.weight(modifier=systematic)*whf*cut
                                              )
-                        hout['template'].fill(dataset='LF--'+dataset,
+                        hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
                                               region=region,
-                                              systematic=sname,
+                                              systematic='nominal',
                                               mT=mT[region],
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
                                               weight=weights.weight(modifier=systematic)*wlf*cut
                                              )
+                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                              eT_miss=met.pt.flatten(),
+                                              weight=weights.weight(modifier=systematic)*wlf*cut
+                                            )
+                        
+                    fill('HF--'+dataset, weights.weight()*whf, cut)
+                    fill('LF--'+dataset, weights.weight()*wlf, cut)
+
                 else:
                     if not isFilled:
                         hout['sumw'].fill(
@@ -1362,14 +1411,28 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     for systematic in [None]:
                     for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
-                        hout['template'].fill(dataset=dataset,
+                        hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
                                               region=region,
-                                              systematic=sname,
+                                              systematic='nominal',
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
-                                              #TvsQCD=leading_fj.TvsQCD.sum(),
-                                              #XvsQCD=leading_fj.XvsQCD.sum(),
-                                              weight=weights.weight(modifier=systematic)*cut)
+                                              weight=weights.weight(modifier=systematic)*cut,
+                                             )
+                        hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              mT=mT[region],
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                              weight=weights.weight(modifier=systematic)*cut,
+                                             )
+                    
+                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                              eT_miss=met.pt.flatten(),
+                                              weight=weights.weight(modifier=systematic)*cut,
+                                              )
                     fill(dataset, weights.weight(), cut)
         time.sleep(0.5)
         return hout
@@ -1394,8 +1457,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 h.scale(scale, axis='dataset')
 
         return accumulator
-
-
 
 if __name__ == '__main__':
     parser = OptionParser()
