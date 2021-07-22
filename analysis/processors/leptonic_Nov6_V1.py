@@ -1377,28 +1377,55 @@ class AnalysisProcessor(processor.ProcessorABC):
                                    'mixDown']
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
-                        hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
+                        #HF for template_mt_dphi_met_lj
+                        hout['template_mt_dphi_met_lj'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
                                               weight=weights.weight(modifier=systematic)*whf*cut
                                              )
-                        hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
+                        #LF for template_mt_dphi_met_lj
+                        hout['template_mt_dphi_met_lj'].fill(dataset='LF--'+dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              mT=mT[region],
+                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
+                                              weight=weights.weight(modifier=systematic)*wlf*cut
+                                             )
+                        # HF for template_mt_dphi_lep_etmiss
+                        hout['template_mt_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              mT=mT[region],
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                              weight=weights.weight(modifier=systematic)*whf*cut
+                                             )
+                        # LF for template_mt_dphi_lep_etmiss
+                        hout['template_mt_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
                                               weight=weights.weight(modifier=systematic)*wlf*cut
-                                             )
-                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
+                                            )
+                        # HF for template_etmiss_dphi_lep_etmiss
+                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                              eT_miss=met.pt.flatten(),
+                                              weight=weights.weight(modifier=systematic)*whf*cut
+                                            )
+                        # HF for template_etmiss_dphi_lep_etmiss
+                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic='nominal',
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
                                               eT_miss=met.pt.flatten(),
                                               weight=weights.weight(modifier=systematic)*wlf*cut
                                             )
-                        
+
                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('LF--'+dataset, weights.weight()*wlf, cut)
 
