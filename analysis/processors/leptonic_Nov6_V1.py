@@ -1289,7 +1289,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       dphi_lep_etmiss=dphi_lep_etmiss[region],
                                       eT_miss=met.pt.flatten(),
                                       weight=np.ones(events.size)*cut)
-                fill(dataset, np.zeros(events.size, dtype=np.int), np.ones(events.size), cut)
+                fill(dataset, np.ones(events.size), cut)
             else:
                 weights = processor.Weights(len(events))
                 if 'L1PreFiringWeight' in events.columns:
