@@ -667,7 +667,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>1.5
+        Delta_Phi_Met_LJ = (abs(puppimet.T.delta_phi(leading_j.T)).min())>1.5
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
@@ -696,44 +696,44 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         u = {
-            'sre': met.T+leading_e.T.sum(),
-            'srm': met.T+leading_mu.T.sum(),
-            'ttbare': met.T+leading_e.T.sum(),
-            'ttbarm': met.T+leading_mu.T.sum(),
-            'wjete': met.T+leading_e.T.sum(),
-            'wjetm': met.T+leading_mu.T.sum(),
+            'sre': puppimet.T+leading_e.T.sum(),
+            'srm': puppimet.T+leading_mu.T.sum(),
+            'ttbare': puppimet.T+leading_e.T.sum(),
+            'ttbarm': puppimet.T+leading_mu.T.sum(),
+            'wjete': puppimet.T+leading_e.T.sum(),
+            'wjetm': puppimet.T+leading_mu.T.sum(),
             # 'dilepe': met.T+leading_diele.T.sum(),
             # 'dilepm': met.T+leading_dimu.T.sum(),
             # 'gcr'   : met.T+leading_pho.T.sum()
         }
 
         mT = {
-            'sre': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'srm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'ttbare': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'ttbarm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'wjete': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
+            'sre': np.sqrt(2*leading_e.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_e.T.sum())))),
+            'srm': np.sqrt(2*leading_mu.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_mu.T.sum())))),
+            'ttbare': np.sqrt(2*leading_e.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_e.T.sum())))),
+            'ttbarm': np.sqrt(2*leading_mu.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_mu.T.sum())))),
+            'wjete': np.sqrt(2*leading_e.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_e.T.sum())))),
+            'wjetm': np.sqrt(2*leading_mu.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_mu.T.sum()))))
         }
         
         dphi_lep_etmiss = {
-            'sre': abs(met['T'].delta_phi(leading_e['T'].sum())),
-            'srm': abs(met['T'].delta_phi(leading_mu['T'].sum())),
-            'ttbare': abs(met['T'].delta_phi(leading_e['T'].sum())),
-            'ttbarm': abs(met['T'].delta_phi(leading_mu['T'].sum())),
-            'wjete': abs(met['T'].delta_phi(leading_e['T'].sum())),
-            'wjetm': abs(met['T'].delta_phi(leading_mu['T'].sum()))
+            'sre': abs(puppimet['T'].delta_phi(leading_e['T'].sum())),
+            'srm': abs(puppimet['T'].delta_phi(leading_mu['T'].sum())),
+            'ttbare': abs(puppimet['T'].delta_phi(leading_e['T'].sum())),
+            'ttbarm': abs(puppimet['T'].delta_phi(leading_mu['T'].sum())),
+            'wjete': abs(puppimet['T'].delta_phi(leading_e['T'].sum())),
+            'wjetm': abs(puppimet['T'].delta_phi(leading_mu['T'].sum()))
         }
 
-        LTe = leading_e.pt.sum() + met.pt
-        LTm = leading_mu.pt.sum() + met.pt
+        LTe = leading_e.pt.sum() + puppimet.pt
+        LTm = leading_mu.pt.sum() + puppimet.pt
         mT_misET = {
-            'sre': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'srm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'ttbare': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'ttbarm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'wjete': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
+            'sre': np.sqrt(2*leading_e.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_e.T.sum())))),
+            'srm': np.sqrt(2*leading_mu.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_mu.T.sum())))),
+            'ttbare': np.sqrt(2*leading_e.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_e.T.sum())))),
+            'ttbarm': np.sqrt(2*leading_mu.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_mu.T.sum())))),
+            'wjete': np.sqrt(2*leading_e.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_e.T.sum())))),
+            'wjetm': np.sqrt(2*leading_mu.pt.sum()*puppimet.pt*(1-np.cos(puppimet.T.delta_phi(leading_mu.T.sum()))))
         }
 #         Lpe=leading_e.pt / u.mag * \
 #             cos(abs(u[region].delta_phi(leading_e.T)).min())
@@ -1198,11 +1198,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'recoil':                 u[region].mag,
                 # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
-                'eT_miss':              met.pt,
+                'eT_miss':              puppimet.pt,
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
-                'metphi':                 met.phi,
-                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).min(),
+                'metphi':                 puppimet.phi,
+                'dphi_Met_LJ':             abs(puppimet.T.delta_phi(leading_j.T)).min(),
                 # 'j1pt':                   leading_j.pt,
                 # 'j1eta':                  leading_j.eta,
                 # 'j1phi':                  leading_j.phi,
@@ -1218,8 +1218,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'mu_phi' : leading_mu.phi,
                 'mu_eta' : leading_mu.eta,
                 # 'dimumass' : leading_dimu.mass,
-                'dphi_e_etmiss':          abs(met['T'].delta_phi(leading_e['T'].sum())),
-                'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
+                'dphi_e_etmiss':          abs(puppimet['T'].delta_phi(leading_e['T'].sum())),
+                'dphi_mu_etmiss':         abs(puppimet['T'].delta_phi(leading_mu['T'].sum())),
                 'dr_e_lj': DeltaR_LJ_Ele,
                 'dr_mu_lj': DeltaR_LJ_Mu,
                 'njets':                  j_nclean,
@@ -1231,7 +1231,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             if region in mT:
                 variables['mT'] = mT[region]
                 if 'e' in region[-1]:
-                    WRF = leading_e.T.sum()-met.T
+                    WRF = leading_e.T.sum()-puppimet.T
                 else:
                     pass
             if region in dphi_lep_etmiss:
@@ -1275,7 +1275,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       region=region,
                                       systematic='nominal',
                                       mT=mT[region],
-                                      dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
+                                      dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
                                       dphi_lep_etmiss=dphi_lep_etmiss[region],
                                       eT_miss=met.pt.flatten(),               
                                       weight=np.ones(events.size)*cut)
@@ -1384,7 +1384,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
+                                              dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
                                               eT_miss=met.pt.flatten(),
                                               weight=weights.weight(modifier=systematic)*whf*cut
@@ -1394,7 +1394,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
+                                              dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
                                               eT_miss=met.pt.flatten(),
                                               weight=weights.weight(modifier=systematic)*wlf*cut
@@ -1448,9 +1448,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T)).min(),
+                                              dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
-                                              eT_miss=met.pt.flatten(),
+                                              eT_miss=puppimet.pt.flatten(),
                                               weight=weights.weight(modifier=systematic)*cut,
                                              )
 #                         hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
