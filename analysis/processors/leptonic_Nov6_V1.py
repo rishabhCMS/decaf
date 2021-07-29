@@ -424,7 +424,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600),
                 hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5),
-                hist.Bin('dphi_e_etmiss', '$\Delta\phi (e, E^T_{miss} )$', 30, 0, 3.5),
+                hist.Bin('dphi_lep_etmiss', '$\Delta\phi (lepton, E^T_{miss} )$', 30, 0, 3.5),
                 hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)
             ),
 #             'template_mt_dphi_lep_etmiss': hist.Hist(
