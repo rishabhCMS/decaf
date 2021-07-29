@@ -1380,7 +1380,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
                         #HF for template_mt_dphi_met_lj
-                        hout['template_mt_dphi_met_lj'].fill(dataset='HF--'+dataset,
+                        hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
@@ -1390,7 +1390,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               weight=weights.weight(modifier=systematic)*whf*cut
                                              )
                         #LF for template_mt_dphi_met_lj
-                        hout['template_mt_dphi_met_lj'].fill(dataset='LF--'+dataset,
+                        hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
@@ -1444,7 +1444,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     for systematic in [None]:
                     for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
-                        hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
+                        hout['template'].fill(dataset=dataset,
                                               region=region,
                                               systematic='nominal',
                                               mT=mT[region],
