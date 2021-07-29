@@ -543,6 +543,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         met['T'] = TVector2Array.from_polar(met.pt, met.phi)
         calomet = events.CaloMET
         puppimet = events.PuppiMET
+        puppimet['T'] = TVector2Array.from_polar(puppimet.pt, puppimet.phi)
 
         ###
         # Initialize physics objects
