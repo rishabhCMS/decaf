@@ -1257,7 +1257,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         continue
                     elif histname == 'sumw':
                         continue
-                    elif histname  == 'template:
+                    elif histname  == 'template':
                         continue
                     else:
                         flat_variable = {histname: flat_variables[histname]}
