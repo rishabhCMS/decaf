@@ -1125,9 +1125,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
         selection.add('met80', (met.pt < 80))
-        selection.add('met100', (met.pt > 100))
-        selection.add(
-            'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
+        selection.add('met100', (puppimet.pt > 100))
+        selection.add('mindphimet', (abs(puppimet.T.delta_phi(j_clean.T)).min()) > 0.7)
 #         selection.add('zero_medium_btags',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
         selection.add('Delta_Phi_Met_LJ', (Delta_Phi_Met_LJ))
@@ -1136,7 +1135,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('one_muon', (mu_tight.counts == 1))
         selection.add('zero_loose_electron', (e_loose.counts == 0))
         selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
-        selection.add('metphi', (met.phi <= 0))
+#         selection.add('metphi', (met.phi <= 0))
 #         selection.add('atleast_2_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
 
