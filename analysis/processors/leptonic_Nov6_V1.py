@@ -1382,7 +1382,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         #HF for template_mt_dphi_met_lj
                         hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
-                                              systematic='nominal',
+                                              systematic=sname,
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
@@ -1392,7 +1392,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         #LF for template_mt_dphi_met_lj
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
-                                              systematic='nominal',
+                                              systematic=sname,
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
@@ -1446,7 +1446,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
-                                              systematic='nominal',
+                                              systematic=sname,
                                               mT=mT[region],
                                               dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region],
