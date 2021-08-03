@@ -1387,7 +1387,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T))[cut].min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
                                               eT_miss=puppimet.pt[cut].flatten(),
-                                              weight=weights.weight(modifier=systematic)*whf*cut
+                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut])
                                              )
                         #LF for template_mt_dphi_met_lj
                         hout['template'].fill(dataset='LF--'+dataset,
@@ -1397,7 +1397,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T))[cut].min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
                                               eT_miss=puppimet.pt[cut].flatten(),
-                                              weight=weights.weight(modifier=systematic)*wlf*cut
+                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut])
                                              )
                         # HF for template_mt_dphi_lep_etmiss
 #                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
