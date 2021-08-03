@@ -1275,9 +1275,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       region=region,
                                       systematic='nominal',
                                       mT=mT[region][cut],
-                                      dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min()[cut],
+                                      dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T))[cut].min(),
                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
-                                      eT_miss=met.pt.flatten()[cut],               
+                                      eT_miss=met.pt[cut].flatten(),               
                                       weight=np.ones(events.size)*cut)
 #                 hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
 #                                       region=region,
@@ -1383,20 +1383,20 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT=mT[region],
-                                              dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
-                                              eT_miss=met.pt.flatten(),
+                                              mT=mT[region][cut],
+                                              dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T))[cut].min(),
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
+                                              eT_miss=met.pt[cut].flatten(),
                                               weight=weights.weight(modifier=systematic)*whf*cut
                                              )
                         #LF for template_mt_dphi_met_lj
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT=mT[region],
-                                              dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T)).min(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
-                                              eT_miss=met.pt.flatten(),
+                                              mT=mT[region][cut],
+                                              dphi_Met_LJ=abs(puppimet.T.delta_phi(leading_j.T))[cut].min(),
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
+                                              eT_miss=met.pt[cut].flatten(),
                                               weight=weights.weight(modifier=systematic)*wlf*cut
                                              )
                         # HF for template_mt_dphi_lep_etmiss
