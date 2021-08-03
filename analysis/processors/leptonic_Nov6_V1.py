@@ -1451,7 +1451,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=weights.weight(modifier=systematic)*cut,
+                                              weight=weights.weight(modifier=systematic)[cut],
                                              )
 #                         hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
 #                                               region=region,
