@@ -1289,7 +1289,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       region=region,
                                       systematic='nominal',
                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                      eT_miss=met.pt.flatten(),
+                                      eT_miss=met.pt[cut].flatten(),
                                       weight=np.ones(events.size)[cut].flatten())
                 
                 fill(dataset, np.ones(events.size), cut)
