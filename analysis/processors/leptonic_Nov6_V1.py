@@ -1271,7 +1271,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     hout['sumw'].fill(dataset=dataset, sumw=1, weight=1)
                     isFilled = True
                 cut = selection.all(*regions[region])
-                hout['template_mt_dhi_mt_lj'].fill(dataset=dataset,
+                hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
                                       mT=mT[region][cut].flatten(),
