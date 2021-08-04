@@ -1405,14 +1405,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,
                                               mT=mT[region][cut].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region],
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                              )
                         # LF for template_mt_dphi_lep_etmiss
                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT=mT[region].flatten(),
+                                              mT=mT[region][cut].flatten(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
                                             )
@@ -1420,16 +1420,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region].flatten(),
-                                              eT_miss=met.pt.flatten(),
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+                                              eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                             )
                         # LF for template_etmiss_dphi_lep_etmiss
                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region].flatten(),
-                                              eT_miss=met.pt.flatten(),
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+                                              eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
                                             )
 
@@ -1457,16 +1457,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT=mT[region].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region].flatten(),
+                                              mT=mT[region][cut].flatten(),
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut]).flatten(),
                                              )
                     
                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
                                               region=region,
                                               systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region].flatten(),
-                                              eT_miss=met.pt.flatten(),
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+                                              eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut]).flatten(),
                                               )
                     fill(dataset, weights.weight(), cut)
