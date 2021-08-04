@@ -1445,7 +1445,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     for systematic in [None]:
                     for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
-                        hout['template_mt_dphi_mt_lj'].fill(dataset=dataset,
+                        hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
                                               region=region,
                                               systematic=sname,
                                               mT=mT[region][cut].flatten(),
