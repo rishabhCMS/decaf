@@ -196,18 +196,20 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2016': [
                 'Ele27_WPTight_Gsf',
 #                 'Ele105_CaloIdVT_GsfTrkIdT'
-                'Ele115_CaloIdVT_GsfTrkIdT'
-#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                'Ele115_CaloIdVT_GsfTrkIdT',
+                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165',
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
                 'Ele115_CaloIdVT_GsfTrkIdT',
-                'Photon200'
+                'Photon200',
+                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165',
             ],
             '2018': [
                 'Ele32_WPTight_Gsf',
                 'Ele115_CaloIdVT_GsfTrkIdT',
-                'Photon200'
+                'Photon200',
+                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ]
         }
         self._singlemuon_triggers = {
