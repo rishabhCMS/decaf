@@ -32,6 +32,7 @@ if options.tar:
 
 if options.cluster == 'kisti':
     if options.copy:
+        os.system('xrdfs root://cms-xrdr.private.lo:2094/ locate -r /xrd/store/user/'+os.environ['USER']+'/decaf.tgz')
         os.system('xrdfs root://cms-xrdr.private.lo:2094/ rm /xrd/store/user/'+os.environ['USER']+'/decaf.tgz')
         print('decaf removed')
         os.system('xrdcp -f ../../decaf.tgz root://cms-xrdr.private.lo:2094//xrd/store/user/'+os.environ['USER']+'/decaf.tgz')
