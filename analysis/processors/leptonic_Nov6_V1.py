@@ -618,8 +618,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         j = events.Jet
         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
-        j['isclean'] = ~match(j, e_loose, 0.4) & ~match(
-            j, mu_loose, 0.4) & ~match(j, pho_loose, 0.4)
+        j['isclean'] = ~match(j, e_loose, 0.1) & ~match(
+            j, mu_loose, 0.1) & ~match(j, pho_loose, 0.1)
 #         print(j.isclean)
 
 #         j['isiso'] = ~match(j,j[j.pt.argmax()],0.4)
