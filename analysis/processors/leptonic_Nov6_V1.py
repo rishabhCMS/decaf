@@ -739,12 +739,12 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
         
         lep_eta = {
-            'sre': leading_e.eta,
-            'srm': leading_mu.eta,
-            'ttbare': leading_mu.eta,
-            'ttbarm':leading_mu.eta,
-            'wjete': leading_mu.eta,
-            'wjetm': leading_mu.eta
+            'sre': leading_e.eta.sum(),
+            'srm': leading_mu.eta.sum(),
+            'ttbare': leading_e.eta.sum(),
+            'ttbarm':leading_mu.eta.sum(),
+            'wjete': leading_e.eta.sum(),
+            'wjetm': leading_mu.eta.sum()
         }
 
         LTe = leading_e.pt.sum() + met.pt
