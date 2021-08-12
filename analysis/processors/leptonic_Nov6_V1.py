@@ -383,7 +383,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading_jet)$', 30, 0, 3.5)),
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, Leading Jet)$', 30, 0, 3.5)),
             'dr_e_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -448,6 +448,16 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5),
                 hist.Bin('dphi_lep_etmiss', '$\Delta\phi (lepton, E^T_{miss} )$', 30, 0, 3.5),
                 hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)
+            ),
+            'template_lep_eta_dphi_lep_etmiss': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+#                 hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600),
+#                 hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5),
+                hist.Bin('dphi_lep_etmiss', '$\Delta\phi (lepton, E^T_{miss} )$', 30, 0, 3.5),
+                hist.Bin('lep_eta', 'Leading Lepton Eta', 48, -2.4, 2.4)
             )
         })
 
@@ -726,6 +736,15 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbarm': abs(met['T'].delta_phi(leading_mu['T'].sum())),
             'wjete': abs(met['T'].delta_phi(leading_e['T'].sum())),
             'wjetm': abs(met['T'].delta_phi(leading_mu['T'].sum()))
+        }
+        
+        lep_eta = {
+            'sre': leading_e.eta,
+            'srm': leading_mu.eta,
+            'ttbare': leading_mu.eta,
+            'ttbarm':leading_mu.eta,
+            'wjete': leading_mu.eta,
+            'wjetm': leading_mu.eta
         }
 
         LTe = leading_e.pt.sum() + met.pt
@@ -1238,6 +1257,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                     pass
             if region in dphi_lep_etmiss:
                 variables['dphi_lep_etmiss'] = dphi_lep_etmiss[region]
+                
+            if region in lep_eta:
+                variables['lep_eta'] = lep_eta[region]
             
 #                     WRF = leading_mu.T.sum()-met.T
 #                 variables['recoilphiWRF'] = abs(u[region].delta_phi(WRF))
@@ -1292,6 +1314,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       systematic='nominal',
                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                       eT_miss=met.pt[cut].flatten(),
+                                      weight=np.ones(events.size)[cut].flatten())
+                hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+                                      region=region,
+                                      systematic='nominal',
+                                      dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+                                      lep_eta=lep_eta[region][cut].flatten(),
                                       weight=np.ones(events.size)[cut].flatten())
                 
                 fill(dataset, np.ones(events.size), cut)
@@ -1434,6 +1462,20 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
                                             )
+                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+                                              lep_eta=lep_eta[region][cut].flatten(),
+                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
+                                             )
+                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+                                              lep_eta=lep_eta[region][cut].flatten(),
+                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+                                             )
 
                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('LF--'+dataset, weights.weight()*wlf, cut)
@@ -1471,6 +1513,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut]).flatten(),
                                               )
+                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+                                              region=region,
+                                              systematic='nominal',
+                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+                                              lep_eta=lep_eta[region][cut].flatten(),
+                                              weight=(weights.weight(modifier=systematic)[cut]).flatten()
+                                             )                        
+
                     fill(dataset, weights.weight(), cut)
         time.sleep(0.5)
         return hout
