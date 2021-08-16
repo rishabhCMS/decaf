@@ -1515,7 +1515,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               )
                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
                                               region=region,
-                                              systematic='nominal',
+                                              systematic=sname,
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               lep_eta=lep_eta[region][cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut]).flatten()
