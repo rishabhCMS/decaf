@@ -1462,16 +1462,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
                                             )
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
                                               region=region,
-                                              systematic='nominal',
+                                              systematic=sname,
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               lep_eta=lep_eta[region][cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                              )
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
                                               region=region,
-                                              systematic='nominal',
+                                              systematic=sname,
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               lep_eta=lep_eta[region][cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
