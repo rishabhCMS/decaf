@@ -347,6 +347,18 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Bin('jet_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
                          [30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])),
+            'jet_eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('jet_eta','AK4 Leading Jet Eta',35,-3.5,3.5)
+            ),
+            'jet_phi': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'), 
+                hist.Bin('jet_eta','AK4 Leading Jet Phi',35,-3.5,3.5)
+            ),
             'dphi_e_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
@@ -1222,6 +1234,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'eT_miss':              met.pt,
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
+                'jet_eta':             leading_j.eta,
+                'jet_phi':             leading_j.phi,
                 'metphi':                 met.phi,
                 'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).min(),
                 # 'j1pt':                   leading_j.pt,
