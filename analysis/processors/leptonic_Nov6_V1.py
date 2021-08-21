@@ -357,7 +357,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events', 
                 hist.Cat('dataset', 'Dataset'), 
                 hist.Cat('region', 'Region'), 
-                hist.Bin('jet_eta','AK4 Leading Jet Phi',35,-3.5,3.5)
+                hist.Bin('jet_phi','AK4 Leading Jet Phi',35,-3.5,3.5)
             ),
             'dphi_e_etmiss': hist.Hist(
                 'Events',
