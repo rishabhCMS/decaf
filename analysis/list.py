@@ -11,9 +11,9 @@ globalredirect = "root://xrootd-cms.infn.it/"
 campaigns ={}
 campaigns['2016'] = 'RunIISummer16MiniAODv3'
 campaigns['2017'] = 'RunIIFall17MiniAODv2'
-campaigns['2018'] = 'RunIIAutumn18NanoAODv6'
+campaigns['2018'] = 'RunIISummer20UL18NanoAODv9'
 
-slist = ['DarkHiggs_MonoHs_LO_TuneCP5_13TeV-madgraph-pythia8']
+slist = ['DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8']
 datasets = []
 for sample in slist:
     query="dasgoclient --query=\"dataset dataset=/"+sample+"*/"+campaigns[options.year]+"*/NANOAODSIM\""
