@@ -51,4 +51,4 @@ for sample in slist:
             with open(fname) as infile:
                 for line in infile:
                     outfile.write(globalredirect+line)
-#             os.system('rm '+fname)
+            os.system('rm '+fname)
