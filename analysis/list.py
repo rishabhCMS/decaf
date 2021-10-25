@@ -14,9 +14,9 @@ campaigns['2017'] = 'RunIIFall17MiniAODv2'
 campaigns['2018'] = 'RunIISummer20UL18NanoAODv9'
 
 yml_file = {}
-yml_file['2016'] = '../UL_data_processing/dataset_yml_files/MonoTop_UL_2016.yml'
-yml_file['2017'] = '../UL_data_processing/dataset_yml_files/MonoTop_UL_2017.yml'
-yml_file['2018'] = '../UL_data_processing/dataset_yml_files/MonoTop_UL_2018.yml'
+yml_file['2016'] = '..UL_data_processing/dataset_yml_files/MonoTop_UL_2016.yml'
+yml_file['2017'] = '..UL_data_processing/dataset_yml_files/MonoTop_UL_2017.yml'
+yml_file['2018'] = '..UL_data_processing/dataset_yml_files/MonoTop_UL_2018.yml'
 with open(yml_file[options.year], 'r') as file:
     _data = yaml.safe_load(file)
     data = _data[options.year]
