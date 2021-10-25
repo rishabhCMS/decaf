@@ -35,6 +35,7 @@ for dname in datasets:
 for sample in slist:
     with open('metadata/'+sample+'.txt', 'w') as outfile:
         for fname in filenames:
+            print('fname',fname)
             with open(fname) as infile:
                 for line in infile:
                     outfile.write(globalredirect+line)
