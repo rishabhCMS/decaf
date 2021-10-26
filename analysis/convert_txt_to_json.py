@@ -27,8 +27,8 @@ yml_file['2016'] = 'UL_data_processing/dataset_yml_files/MonoTop_UL_2016.yml'
 yml_file['2017'] = 'UL_data_processing/dataset_yml_files/MonoTop_UL_2017.yml'
 yml_file['2018'] = 'UL_data_processing/dataset_yml_files/MonoTop_UL_2018.yml'
 with open(yml_file[options.year], 'r') as file:
-    _data = yaml.safe_load(file)
-lst = list(_data[options.year].keys())
+    data = yaml.safe_load(file)
+lst = list(data[options.year].keys())
 
 xs_reference = {}
 for dataset in lst:
