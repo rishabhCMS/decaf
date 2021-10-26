@@ -59,11 +59,8 @@ for txt_file in flist:
     output=[lstobj[i:i + n] for i in range(0, len(lstobj), n)] 
  
     for i, lst in enumerate(output):
-        key_name = txt_file.split('/')[1].split('.')[0] + '____'+str(i+1)+'_'
-        dataset_name = txt_file.split('/')[1].split('.')[0]
-        print(dataset_name, txt_file)
-        import sys
-        sys.exit(0)
+        key_name = txt_file.split('/')[2].split('.')[0] + '____'+str(i+1)+'_'
+        dataset_name = txt_file.split('/')[2].split('.')[0]
         datadict_obj[key_name] = {'files': lst, 'xs': xs_reference[dataset_name]}
         
 import json
