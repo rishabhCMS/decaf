@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+
+#usage: python convert_txt_to_json.py -y [enter the year you want to process] -p [enter the pack size]
 import uproot
 import json
 import pyxrootd.client
