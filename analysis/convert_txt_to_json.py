@@ -14,6 +14,7 @@ import os
 import difflib
 from optparse import OptionParser
 import glob
+import yaml
 
 parser = OptionParser()
 parser.add_option('-y', '--year', help='year', dest='year')
