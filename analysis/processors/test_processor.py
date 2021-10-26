@@ -48,7 +48,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-                 'ecalBadCalibFilterV2'
+#                  'ecalBadCalibFilterV2'
              ]
     }
 
@@ -590,7 +590,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         tau = events.Tau
         tau['isclean']=~match(tau,mu_loose,0.4)&~match(tau,e_loose,0.4)
-        tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayMode,tau.idMVAoldDM2017v2,self._year)
+        tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayModeOldDMs,tau.idDeepTau2017v2p1VSjet,self._year)
         tau_clean=tau[tau.isclean.astype(np.bool)]
         tau_loose=tau_clean[tau_clean.isloose.astype(np.bool)]
         tau_ntot=tau.counts
@@ -598,7 +598,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         pho = events.Photon
         pho['isclean']=~match(pho,mu_loose,0.5)&~match(pho,e_loose,0.5)
-        _id = 'cutBasedBitmap'
+        _id = 'cutBased'
         if self._year=='2016': 
             _id = 'cutBased'
         pho['isloose']=isLoosePhoton(pho.pt,pho.eta,pho[_id],self._year)&(pho.electronVeto) #added electron veto flag
@@ -811,11 +811,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 for systematic in get_nnlo_nlo_weight['a']:
                     nnlo_nlo[systematic]=get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max())*(genIsoAs.counts>0).astype(np.int) + (~(genIsoAs.counts>0)).astype(np.int)
             #elif('WJets' in dataset): 
-            elif('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT') : ## from Rishabh 
-                nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max()) ## Rishabh
-                nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max()) ## Rishabh
-                for systematic in get_nnlo_nlo_weight['w']:
-                    nnlo_nlo[systematic]= get_nnlo_nlo_weight['w'][systematic](genWs.pt.max())*(genWs.counts>0).astype(np.int) + (~(genWs.counts>0)).astype(np.int)
+#             elif('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT') : ## from Rishabh 
+#                 nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max()) ## Rishabh
+#                 nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max()) ## Rishabh
+#                 for systematic in get_nnlo_nlo_weight['w']:
+#                     nnlo_nlo[systematic]= get_nnlo_nlo_weight['w'][systematic](genWs.pt.max())*(genWs.counts>0).astype(np.int) + (~(genWs.counts>0)).astype(np.int)
             elif('DY' in dataset): 
                 nlo_qcd = get_nlo_qcd_weight['dy'](genDYs.pt.max()) ## from Rishabh
                 nlo_ewk = get_nlo_ewk_weight['dy'](genDYs.pt.max()) ## from Rishabh
@@ -1016,14 +1016,44 @@ class AnalysisProcessor(processor.ProcessorABC):
         if self._year=='2018': noHEMmet = (met.pt>470)|(met.phi>-0.62)|(met.phi<-1.62)
 
         ## from Rishabh, main object is to exclude events from JetHt sample with W_pT b/w 70-100 GeV
-        if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
+#         if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
+#             GenPart = events.GenPart
+#             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt > 100).all()
+#             selection.add("exclude_low_WpT_JetHT", remove_overlap)
+#         else:
+#             selection.add("exclude_low_WpT_JetHT", np.full(events.size, True))
+
+        # Stitching wjets pt binned with wjets jet binned samples
+        #WJetsToLNu_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT<200
+        #WJetsToLNu_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT>200
+        if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt > 100).all()
-            selection.add("exclude_low_WpT_JetHT", remove_overlap)
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
+            selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
-            selection.add("exclude_low_WpT_JetHT", np.full(events.size, True))
-
-
+            selection.add("exclude_wjets_greater_200", np.full(events.size, True))
+            
+        if ('WJetsToLNu' in dataset) & ('J' in dataset):
+            GenPart = events.GenPart
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
+            selection.add("exclude_wjets_less_200", remove_overlap)
+        else:
+            selection.add("exclude_wjets_less_200", np.full(events.size, True))
+            
+        if ('DYJetsToLL' in dataset) & ('J' in dataset):
+            GenPart = events.GenPart
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 400).all()
+            selection.add("exclude_dyjets_less_400", remove_overlap)
+        else:
+            selection.add("exclude_dyjets_less_400", np.full(events.size, True))
+            
+        if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
+            GenPart = events.GenPart
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 400).all()
+            selection.add("exclude_dyjets_greater_400", remove_overlap)
+        else:
+            selection.add("exclude_dyjets_greater_400", np.full(events.size, True))
+            
         selection.add('DeltaR_LJ_mask',(DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
         ## from Rishabh, remove photon&tau trigger zeroL oneM,E
         selection.add('iszeroL', (e_nloose==0)&(mu_nloose==0)&(tau_nloose==0)) 
@@ -1063,12 +1093,12 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
 
         regions = { ## from Rishabh, btag(L->M), wpT, Dphi, DR, met_sre, met cut
-            'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'singleelectron_triggers', 'exclude_low_WpT_JetHT', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet',},
-            'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'singlemuon_triggers', 'exclude_low_WpT_JetHT', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj'},
-            'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'singleelectron_triggers', 'exclude_low_WpT_JetHT', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet'},
-            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'singlemuon_triggers', 'exclude_low_WpT_JetHT', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj' },
-            'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'singleelectron_triggers', 'exclude_low_WpT_JetHT', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj'},
-            'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'singlemuon_triggers', 'exclude_low_WpT_JetHT', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj'},
+            'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'singleelectron_triggers','exclude_dyjets_less_400', 'exclude_wjets_less_200', 'exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet',},
+            'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'singlemuon_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj'},
+            'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'exclude_dyjets_less_400','singleelectron_triggers', 'exclude_wjets_less_200', 'exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet'},
+            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'singlemuon_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj' },
+            'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'singleelectron_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj'},
+            'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'singlemuon_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj'},
             'dilepe' : {'istwoE','exactly_1_medium_btag','noHEMj','met_filters','singleelectron_triggers'},
             'dilepm' : {'istwoM','exactly_1_medium_btag','noHEMj','met_filters','singlemuon_triggers'}
         }
@@ -1278,7 +1308,7 @@ if __name__ == '__main__':
     parser.add_option('-y', '--year', help='year', dest='year')
     (options, args) = parser.parse_args()
 
-    with open('metadata/'+options.year+'.json') as fin:
+    with open('metadata/UL_'+options.year+'.json') as fin:
         samplefiles = json.load(fin)
         xsec = {k: v['xs'] for k, v in samplefiles.items()}
 
