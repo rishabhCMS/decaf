@@ -56,9 +56,11 @@ for txt_file in flist:
             
     if not len(lstobj) == len(set(lstobj)):
         print("your dataset has duplicate root files")
-        
+    print(lstobj, type(lstobj))
+    import sys
+    sys.exit(0)
     output=[lstobj[i:i + n] for i in range(0, len(lstobj), n)] 
-
+ 
     for i, lst in enumerate(output):
         key_name = txt_file.split('/')[1].split('.')[0] + '____'+str(i+1)+'_'
         dataset_name = txt_file.split('/')[1].split('.')[0]
