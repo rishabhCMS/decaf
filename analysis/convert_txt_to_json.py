@@ -47,7 +47,7 @@ for txt_file in flist:
 #     print(txt_file)
     
     lstobj = []
-    n = options.pack
+    n = int(options.pack)
     with open(txt_file) as f:
         data = f.readlines()
         for filename in data:
@@ -56,9 +56,6 @@ for txt_file in flist:
             
     if not len(lstobj) == len(set(lstobj)):
         print("your dataset has duplicate root files")
-    print(lstobj, type(lstobj))
-    import sys
-    sys.exit(0)
     output=[lstobj[i:i + n] for i in range(0, len(lstobj), n)] 
  
     for i, lst in enumerate(output):
