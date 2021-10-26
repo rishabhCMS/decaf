@@ -29,11 +29,11 @@ yml_file['2018'] = 'UL_data_processing/dataset_yml_files/MonoTop_UL_2018.yml'
 with open(yml_file[options.year], 'r') as file:
     _data = yaml.safe_load(file)
     data = _data[options.year]
-lst = list(data['2018'].keys())
+lst = list(data[options.year].keys())
 
 xs_reference = {}
 for dataset in lst:
-    print(dataset,':',data['2018'][dataset]['xs'])
+#     print(dataset,':',data['2018'][dataset]['xs'])
     if 'EGamma' in dataset or 'SingleMuon' in dataset or 'MET' in dataset or 'SingleElectron' in dataset or 'SinglePhoton' in dataset:
         xs_reference[dataset] = -1
     else:    
