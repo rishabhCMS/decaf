@@ -43,7 +43,9 @@ for dname in datasets:
             os.system(query+" > "+dataset.split('/')[1]+"____"+dataset.split('/')[2]+".txt")
             filenames.append(dataset.split('/')[1]+"____"+dataset.split('/')[2]+".txt")
     os.system('rm '+dname)
-
+print("filenames:" filenames)
+import sys
+sys.exit(0)
 dir_ = 'metadata/'+'UL_'+options.year+'/'
 if not os.path.isdir(dir_):
     os.mkdir(dir_)
