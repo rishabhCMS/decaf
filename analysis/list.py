@@ -53,10 +53,10 @@ if not os.path.isdir(dir_):
 for sample in slist:
     with open(dir_+sample+'.txt', 'w') as outfile:
         for fname in filenames:
-            with open(fname) as infile:
-                for line in infile:
-                    if sample in line:
+            if sample in fname:
+                with open(fname) as infile:
+                    for line in infile:
                         outfile.write(globalredirect+line)
-                    else:continue
-for fname in filenames:
-    os.system('rm '+fname)
+            else:continue        
+# for fname in filenames:
+#     os.system('rm '+fname)
