@@ -57,8 +57,7 @@ for txt_file in flist:
             
     if not len(lstobj) == len(set(lstobj)):
         print("your dataset has duplicate root files")
-    else:
-        sys.exit(0)
+
     output=[lstobj[i:i + n] for i in range(0, len(lstobj), n)] 
  
     for i, lst in enumerate(output):
