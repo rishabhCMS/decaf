@@ -53,6 +53,8 @@ for sample in slist:
         for fname in filenames:
             with open(fname) as infile:
                 for line in infile:
-                    outfile.write(globalredirect+line)
+                    if sample in line:
+                        outfile.write(globalredirect+line)
+                    else:continue
 for fname in filenames:
     os.system('rm '+fname)
