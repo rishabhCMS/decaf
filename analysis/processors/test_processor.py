@@ -1594,5 +1594,5 @@ if __name__ == '__main__':
                                            ids=ids,
                                            common=common)
 
-    save(processor_instance, 'data/lep_monotop_v1_'+options.year+'.processor')
-    print("processor name: lep_monotop_v1_{}".format(options.year))
+    save(processor_instance, 'data/lep_monotop_v1_test_'+options.year+'.processor')
+    print("processor name: lep_monotop_v1_test_{}".format(options.year))
