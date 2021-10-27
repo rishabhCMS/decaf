@@ -1322,5 +1322,5 @@ if __name__ == '__main__':
                                            ids=ids,
                                            common=common)
 
-    save(processor_instance, 'data/UL_lep_monotop_v1_'+options.year+'.processor')
+    save(processor_instance, 'data/UL_lep_monotop_v1_test'+options.year+'.processor')
     print("processor name: UL_lep_monotop_v1_test_{}".format(options.year))
