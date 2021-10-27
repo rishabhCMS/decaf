@@ -32,8 +32,7 @@ for sample in slist:
     os.system(query+" >"+sample+".txt")
     datasets.append(sample+".txt")
 print("datasets:", datasets)
-import sys
-sys.exit(0)
+
 filenames = []
 for dname in datasets:                                                                                                                                                                 
     with open(dname) as infile:
