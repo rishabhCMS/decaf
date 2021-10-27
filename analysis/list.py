@@ -23,8 +23,7 @@ with open(yml_file[options.year], 'r') as file:
     
 slist = list(data.keys())
 print('slist:',slist)
-import sys
-sys.exit(0)
+
 # slist = ['DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8']
 datasets = []
 for sample in slist:
