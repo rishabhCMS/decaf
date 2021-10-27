@@ -375,6 +375,14 @@
         ],
         "xs": 35.85
     },
+    "DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
+        "files": [
+            "/store/mc/RunIISummer20UL18NanoAODv2/DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v15_L1v1-v1/230000/B5FA9FF0-FAE3-8543-9A2B-545CE7F40983.root",
+            "/store/mc/RunIISummer20UL18NanoAODv2/DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v15_L1v1-v1/230000/311C5BAF-95B3-C645-A597-1126BD6FDB49.root",
+            "/store/mc/RunIISummer20UL18NanoAODv2/DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v15_L1v1-v1/230000/A8D0EB07-E04E-114D-92A5-36DBC0252B99.root"
+        ],
+        "xs": 0.04689
+    },
     "WJetsToLNu_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
             "root://xrootd-cms.infn.it//store/mc/RunIISummer20UL18NanoAODv2/WJetsToLNu_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v15_L1v1-v1/230000/2B08E219-EB8F-D54C-8165-C5F26BD8D3B7.root",
