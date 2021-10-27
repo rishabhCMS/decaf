@@ -3233,9 +3233,245 @@
         ],
         "xs": 53300.0
     },
-    "SingleMuon": {
+    "SingleMuon____1_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/C9C5FC6F-C8D6-FE48-B06B-2FFAC1322796.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/D5841F31-1C3B-5245-859D-5E23369A58C5.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/2A561E4B-70D2-F343-A895-58E5B387E556.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/62382660-C188-C14B-B3A9-3763960A7ECD.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/77CBD794-9CD4-F74C-9D77-064E24B56702.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____2_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/CE31883F-2F1E-A44F-88B4-7FB2388560A8.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/6C8CE813-F78A-D440-862C-FF6D8C68160E.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/6637E1C3-038B-8F40-8E84-47D0C094925D.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/E315174D-5529-C54A-B0F2-2FAD5F468849.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/A8F56A62-C603-3E4E-B2D9-8811C2F20BDC.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____3_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/19D1198B-E5A2-D747-97DE-9888421C799E.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/7BD1B607-3F2B-8E44-85B4-D9798D057154.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/CF09539D-C667-714C-A76E-7704E7FB2B2A.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/294D96C6-063D-5748-8964-FB3E190F8DAB.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/D5AAF35D-4B4C-F04B-8723-EFA78AC3FB07.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____4_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/3C6D05CE-CF90-5A42-A72B-99A651765CEE.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/55527E2F-8233-A24A-AB43-AD3310E0ACAE.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/DAF878FF-C23F-444F-A84E-0FAF999B42AB.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/B4DAA1D5-302D-FC4B-A570-EA021E91223E.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/F7690D05-0130-434C-8DE8-E287BD7927CF.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____5_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/C55A6FA8-6732-0046-B89B-2FCB6E264FB2.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/63D0FF3C-CD45-3C4A-A75C-BEE9F190F60D.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/5BE70ADA-D7D8-A24D-8B34-C121278FAC84.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/E1D84EB7-76A1-C54B-98F8-01D2A1E5B379.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/96472864-19BE-094B-B0CF-7EB91907D982.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____6_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/EC17E238-8AED-E342-B564-DD139A73C543.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/413C9DF8-D32E-CF49-AC3C-930BC87DE564.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/3C567604-8841-A244-836B-D9011D87982E.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/61DFB82A-922C-E54F-8F80-842B592779BB.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/5793C4F8-4656-8245-81CA-6431C6839017.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____7_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/42AEF58C-858A-BB4E-B6FB-2F3539ADCD07.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/5381B84B-83A1-5540-AE89-A73049439453.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/259B21D3-C28E-9246-90B8-AB89A5554DC5.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/BE0A36EE-95C7-8C47-93B9-701BA3AC7398.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/4D74D47E-689E-EE47-95D4-0EBFB49D5AEC.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____8_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/FFDC2362-6DC4-CF46-9756-4EE889509C03.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/E1FD9DE2-176E-E14B-9689-8EDA393E9725.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/5B497A72-4B75-534B-9880-9308DCF64581.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/9116A3FD-D08A-DB40-9C49-9324794D3DC1.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/A0A4A0A2-D2D2-0D46-BEBB-C0C8CFE49D4F.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____9_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/DD2B200C-7137-4446-8A28-6E4D872C8A2C.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/FD41A779-5A34-4B42-9DEA-574E73E378FC.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/45C55C5C-DDCB-2147-839A-069400264991.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/6C826DB0-678F-4842-AC1B-115560A799EF.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/BD9D4BA2-92FF-9A45-AD3D-0362A5291D29.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____10_": {
+        "files": [
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/6145346D-C3E3-A040-BB2D-91428A60364C.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/82DA5FAD-4FD4-C04C-82D5-678B66D684EF.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/C6C90E8F-81F8-7142-82F0-ABF538884BB1.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/0DE5A14A-8D7A-674E-AB1D-8630CC3271FE.root",
+            "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/916E39DD-FE10-E848-B045-42CE8FBBCED4.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____11_": {
         "files": [
             "/store/data/Run2018B/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/250000/E7316692-89C9-284D-9665-F6B18DED9419.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____12_": {
+        "files": [
+            "/store/data/Run2018C/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v2/2430000/6476B810-7ED2-704C-B80D-6F956C63EEBD.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____13_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/6F71056D-4E81-A64A-A59B-02BE9B2A556B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/97964A2C-9B91-EB41-B07B-3F1A62B49CC9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/76EAEAED-F74C-AD43-9003-62273F684669.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/1C07D815-F24F-8043-8743-1AEE16FC9913.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/9199A733-45FD-7B44-91AF-DB0DF7C324E7.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____14_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/A8C90207-B514-CD42-BD94-C61D15D36B27.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/CF670510-D4C1-FA40-8B40-4A6A1546AC84.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/55EDBD64-DEB8-6849-891E-FCEF6AC01A99.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/A3B38E4E-803D-2141-A29E-B826C523E571.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/67E04DCC-5D4B-DA43-8697-F90B3C3F0B4A.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____15_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/970628BE-9E0E-164F-A030-EDC9C00A2681.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/1675C23F-8CA9-AB4A-B41F-D348B41AAB17.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/72741217-2458-2946-A141-9AFC03ACD301.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/BBB43E77-47CC-CD4B-945B-5F873AA27798.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/F9ACC1E2-866E-EB40-8762-F699B5678D29.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____16_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/4975597C-2CB8-E543-B401-DCBEFD4C9BE7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/29FF57EB-2F6D-144B-88CA-16EAE2084A05.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/4C31C59D-B4DB-7343-B293-7ED948ACBF1A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/B0EA4487-E489-CF40-9921-66ABFC8508F1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/CB50BD28-6960-C54F-9682-9F4F7F1AB9E8.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____17_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/BB915D3A-63CD-9344-B049-9BEFA471339C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/FFBC904B-DF67-F046-9087-DD09CE8DACE1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/EB75E90C-E560-A547-8B42-C3218E4FFF77.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/02C0A9BB-1DDD-C248-9B93-8E18C5176F93.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/44B64BE6-1265-3E47-A4A5-4833A952E692.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____18_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/B4255BE4-247B-0B4F-8BC2-3D04B4240D3B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/F18A2C54-A0D6-2E4A-AE01-EF44CB9C577B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/472383BD-B903-C649-99F7-4B3F63B90996.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/8EB431F1-90E8-E946-BCDC-C1CBD348A9F8.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/CE801BE9-BC23-BE42-A3DD-10557E3855CA.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____19_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/0D4EC334-DEE1-8945-BC4F-CF299F24ED48.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/F6143A01-7C6E-A24F-BAA6-A7B62A9AEBF6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/A652096D-D9FD-D745-B6BD-A97D2D5EC3F6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/748C29BA-CC1F-6B4A-9A24-3CF724C702C0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/8DB8F50A-32E4-0D44-8E30-10BB4F69548C.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____20_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/61113BA1-5222-544D-BEEB-0E0597102968.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/1732E984-D40E-7142-93BB-0C442C81ADB7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/BF583EB8-ACE7-6A49-BC54-3905EB8C3072.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/A8175E5D-7DF7-8A45-9567-C7C843E6F96D.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/15627634-9B57-E64B-A956-CD8F70F032ED.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____21_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4C0933DF-313A-7648-AB09-E441E48004FC.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B23DED03-486F-0146-8526-F718E4D576B0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/69D81D25-E6CF-9F46-991D-604FBDB54D2E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8E2AD06F-96C5-5041-96B8-FA542D80D704.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5F96DDDC-11FB-8648-BA50-83FC5CCAA282.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____22_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/209752A3-EA60-7140-8AED-A43666B09EDC.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5BFB369F-21BA-034F-B481-830D417363DB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/55E665F9-8326-5049-8031-43D11BB26090.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9FAE4132-47B8-BC43-888D-7F2A71090F60.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3B71F294-C9CE-6944-91F2-89B94628843D.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____23_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C2EE2704-C76D-8045-887E-115EB0E0931B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/83339451-86BD-4442-AB93-2EA561F4917F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B01CB8B5-E117-FE4B-9043-E898D6B6CF5F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2459B2C1-26EE-234D-939A-7048303883C5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E96D1278-8A37-E043-B809-9B2F990CA2C5.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____24_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/64A78F5F-080F-2849-8101-70036A7ACF20.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BEE81A4B-3CE3-C143-9374-0A8A56DBFFF0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/21B1068F-26A6-B74C-99DA-75CAB797F3E1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C9AB094B-206B-2F42-9993-DE6223EA0311.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1DC240C2-62B6-B94C-9220-32EFFE7F85AD.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____25_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5BC7E4AE-987C-0C41-AFF7-BE8A27417F8B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6D71861B-A1E5-ED4E-B9C4-666D0722EDD7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EB22414A-6DA8-6F4D-B688-AD4FD6EB8392.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8EE62A6F-4F8C-E44B-A730-C58752050C51.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9588014F-8A32-4441-8ECF-4F0B4463E8A1.root"
         ],
         "xs": -1
     },
@@ -4355,6 +4591,912 @@
         ],
         "xs": 358.3
     },
+    "SingleMuon____26_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/DEE1552E-E32B-8440-9F16-AC81DDE11BF2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AE9205BB-ED5E-0247-AEC9-EF1719155895.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C5DE3C8C-247E-B240-A1C4-A46D74B43558.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D0CF8568-AB76-BF42-9526-2185CCBAB8B3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D046D7D8-2BC8-5A43-9087-FCD88D1715C6.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____27_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8C6B1A19-2419-A54A-B40E-26F6F4770A60.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/277CBD0C-FF1F-5D41-8DC8-6EAB80FA1CC2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/19860960-9FD4-C74F-87C1-5D4E27688D9E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3F6C8845-A1A2-564A-8A2B-FE4A3AF0D43B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/148981A2-F276-0241-B542-EE0136114961.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____28_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AD4D62AB-3502-1348-9534-C297877C93F2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E53E8780-EE65-5E46-B101-6CC65D46BAD7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8A1F439B-443C-BF44-A1CA-72384FC27F50.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6EDA692A-2BFD-0C4E-88CE-956013AAEA17.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5BC19C53-E245-4E4E-90EF-321928C1F7D7.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____29_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4B87C1D6-1657-4F40-BBF0-A869A0F66162.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E4AFF6C2-4E50-8340-935A-DCF6A95F7AB2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/81C7624E-BC57-AA4C-A69C-29535C6D861A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EB03C608-7283-C84B-89E8-2235666E5747.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CCB91C7F-96B3-434F-8DD4-A3520CFF4BCB.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____30_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1CEA8959-4FDB-F14F-8388-35EEB826DA03.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CE8A965E-7BA3-5A44-A297-E409A9A8F3ED.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7DA81BAF-711A-474E-A0D4-FB0C184A3EB3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7766945D-8245-2C4D-A6F6-81B5A140FAB5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D04BBCDA-B7A6-3F40-AEAE-66D00CCB87FD.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____31_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AB18AD17-CA01-DA4E-A2BE-2498BF086C0F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3316BB6C-6C22-8C4C-B95A-CEDD9F27E114.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9FA38C40-19C3-3E45-B83E-CA13D26332F0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1256433D-6B23-4643-AED3-D64F08418080.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B4B460AB-9372-AF4C-B18B-EFF2646E426F.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____32_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/47CC4678-6415-1C4D-9418-1358F8689568.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/09389588-C390-5048-8045-8AA6D8AC8A9A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/16C00B51-5755-3847-B59C-046F20E42EF5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/54512DA4-9599-C444-8559-2F9E7A80658B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1E834718-1839-9741-B549-2CECBC25B051.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____33_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/211F6D46-5BB3-5F42-9352-BC5C7E6E371C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/70047C0A-C5D3-054E-BB4F-595B298B3E1E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/90CA31E5-47D7-FA49-B9C1-F82B69A3504B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8C42D00F-5B8F-F747-89BD-A80EF52C36C3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B1C52C3A-0334-7A4D-8454-8ADFF13F9AEF.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____34_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/43A7E9B9-A645-E14D-BD36-C21049F26EF9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BCE5D09A-2920-E747-A9B3-8C15BB70BAF9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/058EA20E-EAE8-8A47-9E49-F1C78E7CF693.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/44E023D0-2403-AA42-9184-C567B490AC40.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BC80AE45-1B67-F543-83CD-42C9F20FB021.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____35_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6035E06A-063D-ED4E-8C52-9572E644A4C8.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/134D9C07-B59E-8D4E-A20E-47077FC1ABD5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AE67178D-207B-AE41-B753-8E3EF099F8E0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B5A6ED84-C993-9F40-81BD-310C2BA76EF0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CFBE8264-8749-374C-AEDF-AB968C382159.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____36_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/88914E8D-5B56-2443-8969-DA2A5286B4CB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/89E8A11F-1545-814F-9795-86A4AA69E941.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AABC8577-ED42-C140-BED2-B37B4D4B9151.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/80BF922B-1913-6A44-8209-013380F69327.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6AE6C53E-7F2A-6A4E-87F9-DA521B911D68.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____37_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4BA02D1B-DA2B-3A45-A891-081AA59F37BB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/13B81245-ADBD-E14A-A809-6CAA96CAA821.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/778F00BC-AFE0-9643-A75D-48F7882BC822.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BAC58872-65C0-DE4A-8373-AE4ADE228625.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B5BDED31-CED2-3848-86A1-444A4A52DBF5.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____38_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1D1D0907-2B5F-924F-9D35-63E044E18C47.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CADFCE79-5E69-634A-B2C8-07A43C0DB31B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/54D2B357-A381-3346-8367-B725BEA6E653.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/91F0D51E-B036-924C-B670-39D52B13DC48.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5228B9F6-93BB-BD49-8DD0-F85B5CC16B51.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____39_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/DE300D35-4C36-614E-938A-4664A994CFB8.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D6F7F1B1-DC7D-7D45-A128-5232CA2B448B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/057A49D4-9304-BD46-BBE5-55B59DF18B4F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EA2D7979-25A6-3946-A196-E826C7D467B2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7112D33A-F05B-EE47-B8C1-89BB2977591C.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____40_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/212A8244-7FB8-1642-83BA-E1608268E7A3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6B38998F-7501-B04A-8754-0CBC7A59701F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/674DEC11-D194-934C-A649-61F4C4894354.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5F99A0A3-4428-DA4A-813F-4A968CA83426.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BB4993F7-FBA0-264E-8C7B-DC26C1D19B9D.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____41_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4DAD0F37-3ED7-A640-B8FA-693949B9D518.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7CE0E44E-A4BF-984A-8AEF-351A07EB1B6C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/338FEE30-5436-B645-AC91-5867D9E11699.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6045FA23-306D-AA42-81AE-EA939E70CF06.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B58E9C89-AEFD-0743-AB8C-43E48EAC0D13.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____42_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6FD68588-9412-0041-B438-24C52714C422.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/00A48EBB-7C14-3F46-AF67-688F115C74A7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4A43432D-99C1-7849-A4A3-C23E068CEBFA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7CCCA54D-6272-DA47-8E4A-B2DCCAD94CD7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F1775F6E-95BF-AC4A-A127-B09D6F150F76.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____43_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5DF213F9-933A-404D-8FFF-888219FCD4EB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/47A25DCF-C637-C84C-940A-16178784EE82.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/51AD0A2B-30BD-C849-8EA5-4195557C05EB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CAACCC62-E4D4-F747-8BE1-7AB479341E93.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C6FE86DB-E3C0-274E-AAAB-9F288475DFF4.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____44_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/77D361B1-9BC2-3646-997A-A7DFD787DADE.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6D539862-3E9B-5448-B688-5D94DD062654.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/07748AE2-C88B-A44D-8D25-EC0904B3E20A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4FAA8947-D4A9-024F-AD0F-8CCE782E19BA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/77397197-8C67-1442-AB98-9AA92AB077D6.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____45_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/02044FF2-89EB-544D-9509-C23D06F180EB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AB2833E1-23FE-F548-8777-68E0F83E7FEB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BF373B6B-ACE2-D246-A3BD-7B4F6B9E0470.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/02D73253-AC38-8D44-B3F5-F60CF5D2F2B9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9D5D86EC-2ACA-7746-B3B5-14528CB2106B.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____46_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/15C32CE6-562E-D041-A658-C37614A881A1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2A29FB3E-EC16-0D4E-BC23-325A17E4621A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/10AE9A12-D501-AB4A-830A-442837249BFD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/60CA1210-857F-544F-9CA0-3FC7B962B504.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6A690E74-50C3-CD41-BEA0-938AC00A5A92.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____47_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/008DC3A8-F42B-2B40-B2FD-08D9D143C7CC.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2D9DEBE2-A224-8F4B-BB3B-9EA88291F138.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/FE390AA2-B972-0E41-BE74-0D0A995B7D75.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/058B90FB-560D-5040-AA6F-6B663035DEB6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6A294104-EAF1-7141-9FEA-60C50FF84747.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____48_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/116BFBB6-0CAD-8544-A98C-E49ED2F0CA6C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8CDCE687-B8EE-3C45-8BB2-950CE61326A7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2851B032-9E5F-8741-9260-3FC8D0AF4AD2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C54FE5EB-8F7C-E344-94CD-2F461353689E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/0283334F-70CF-A742-849F-CA1E702F955C.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____49_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C2E3AF21-A6CD-2B43-BEBE-CDE82D45B311.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1216A192-A13A-074E-BF65-F4B7C53E21EF.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B6E57686-5141-024D-AD48-03983F1F1D6F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7CB1E356-6C06-B347-A483-82BA919EDAA6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1A5015FB-ED9E-244B-B23D-33D2EA91186B.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____50_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F7BA32CF-98A3-EA45-9C6D-A2FACB15D463.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E3030C65-5948-1847-98AE-5C757AE34C7A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/ABB08654-A17A-4E45-9B52-511FD7CAF905.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1F008435-FC97-954D-AF21-56C43196698E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F8DD0FF0-D070-7F4E-BEBF-3CC0FAAF0AB0.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____51_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BEAF1A8F-4F24-5A45-9744-0B830FB869D7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B2C99B39-BCA4-6A4F-9F0C-D0D7EC1CB93A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C6C57E12-1ECE-C34C-8671-77C483E5C969.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1706BFEE-FC2C-A445-B2B7-47747DF64F07.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/73A2666F-0815-5F49-ABA4-1C2164B62022.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____52_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/00B43708-18D3-EE4A-AE8C-49CEF7A592F6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2A366CFE-3196-EE4F-9E31-CC068CF103B6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/319F128E-D8BC-E246-BD1F-E8E9FD1FF1EE.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/74338247-E7A1-0943-8FA7-C5631860304F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8F34076E-A506-A848-AE09-E30B70B21C3B.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____53_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A89C45AF-45CF-A044-A88C-02803490C1B1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E7FFE73C-401A-B64B-881E-48A136A38469.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/52BA217B-EE3B-F248-9A40-682A7C25D10D.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8C8072F8-38C6-8748-B210-360BA9C3EE2B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/30996809-4D70-FA44-934C-6419756854C7.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____54_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/424E71FA-A6C4-7744-BEF9-9D398548C434.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B8AE5AC9-5F56-CD4A-94FC-4D0A8C5EA0CB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2622ED64-E447-A042-BCDC-75AF484CDE8E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7889950A-FF9C-1844-8AFB-BC08A0E286D5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EF009225-841A-7B42-B761-7B889C70D4C1.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____55_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/ABBC719E-5CF8-E441-A1CA-5AD25420FEC0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7701958D-27F4-E546-9E2E-E7E100DBA127.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D954C88F-0D43-7E41-962E-8BD91F13883E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/03DCD425-BC93-9648-859C-F5CF11C35BCD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8F2F6D80-3CE5-7B4E-B163-A61538AEDF03.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____56_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F8EBD996-6467-794E-9097-0E503BBB88B8.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A07A4D3D-C8E0-184A-B9C5-D3D16D1E577C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/548E9987-94D8-5A41-BFCC-CACD40B3AFB6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9C8248AB-0796-FB43-BFD1-ACF4CACE88D3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2B9F71F7-634E-CC46-808E-DDD8B8607F6D.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____57_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/19DB10D1-BB3A-3E46-9711-C16C1870CB09.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/FB6DB7A2-6956-7244-AB71-E5C41BA56D50.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8365B32F-A38A-594F-9123-52B5F4924A32.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AADE010D-5EC4-4F4C-8EBE-175EE26C9356.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/592F2E5B-BFC4-3A46-815D-625E840605C8.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____58_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9683B49F-8EE1-8E44-A5CF-C4CE4A948643.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9C30CDEC-1495-B54E-BC8B-E1247D217EF1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F2F5FA75-7A10-EF44-8013-25D7D89BD378.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/634E7156-52A8-2D4C-A5BE-72DB4E92D533.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9FBD1E08-B2ED-634D-BA82-4C570A1AA639.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____59_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B0EA61DD-9FE4-6F43-9D07-74A1EB7C7101.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/35E3AEFB-ADE1-2B49-ABF2-DAB066B7A19A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D6966CE7-B6A7-AA4C-AFA4-3769F93A477D.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B39C2608-DB91-A648-BF99-72ADB067C4C4.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/DF4515B6-4462-BE45-A6DF-FC91166A2D45.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____60_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/004B41B4-6A6B-964D-84EE-DF167DADB267.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B93DF33F-9393-1846-ADB9-8C712CD04D52.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/044E2035-69E9-DD4A-96C3-C0D04A29F77A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/34871152-274C-C445-A9F1-DEA0050622B9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BD8200E0-5E44-BF40-B460-460C629ACAC9.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____61_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AE163BAB-B08E-584E-B2B7-5592833870F6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A30804EA-DB0D-AB4D-90AE-FCAFC94C9D5B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/89FEA276-E35D-B242-9B98-F978C390231B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7E298E59-4F1D-5446-9908-510DA5E2A2F0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8B8E7297-51D1-064B-A956-AC4EFAB3C5F3.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____62_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/93245E75-4F04-0648-8041-A40E527C4A1A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AAC6652F-DC93-144F-9446-E129BC9510C4.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A165A575-936E-6549-9F3D-E2C991E6E515.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/FF644988-CE67-DC44-92D0-E55E086ABEFA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3EE2D35D-3E60-C94D-88EE-12D854E6CA9E.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____63_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2B719FD4-481D-CE45-815A-A3D24DB0B215.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C3060F9D-F0C6-7745-A7F7-6D0BF8CF0DFA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/16FFBBEF-A6AF-1D49-8D7C-1EFBAF1D05BC.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B29A97E0-A1EB-E144-8165-A9FABAF59AD2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1E3F9116-603C-0D4A-9CDC-E2CE869E48BD.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____64_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/55148575-CB15-C044-8E94-B4F94FF7B8BC.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/01695CE0-2CBB-FD4C-95EE-E64F592CF10E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/ACCF08CE-BC85-F64F-AFA5-B74C6804A8A6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C1245615-8F37-6E4E-A291-8222014669DE.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F1F78309-C515-7B48-843C-70E80EFFE5D4.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____65_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C857FF08-17E0-1C4B-85AC-5CE2BCE4EEBD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5E4C1E3D-D834-1146-910A-F0485BC8EDA0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EF4B7B46-4A30-514C-A4B7-A0E31764034D.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EBE0A70B-CF18-E640-9398-AA2430F14155.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/563CF560-4B75-DA47-B87A-A737D11306E4.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____66_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C65D25FB-4879-4844-A85A-BD014D3300F4.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/DFEF76EB-205B-1349-A365-E5D56EE98706.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/5A245C35-7E7F-2448-AB81-9E33E75FFCD2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/826D4A7E-A895-F94C-A2D1-0E767277264D.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/6D6AB3E4-51AC-404D-8020-63E240B6C9A7.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____67_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/C95B562D-F460-9847-863B-44A6EB10A4B6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/4266166E-79AD-A342-95A4-CC04D8EBF04B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/EE27860F-594E-894F-BDF9-AE7AEC2D0B83.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/C49BDFD6-59D0-334A-BDF0-774DD8C9A3E2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/63A9B621-49D1-A84E-B359-24C4ECF3BDCC.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____68_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/58E2F978-8A22-834E-AA92-AB6482F07824.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/36214A16-8DC4-D04C-95E9-1A6F5B4625D3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/85283EEC-C4B0-A649-A9F7-6C49E81CD91B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B8E0E451-2066-4D48-B522-A70D8F25F447.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4CBB5436-BB42-0940-8A0C-3E5F940717D1.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____69_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/426E3410-B890-F647-8970-9959052B0E2E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B4CD5D57-5981-7546-824E-56B944FD495E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A99E1E61-235F-7B4A-8082-5D69FF7BCB42.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B7134E9B-69AF-AF45-B1E0-231C60C0F395.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/799D119E-61D4-4F40-B9B0-3CCC66413314.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____70_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/DF424418-CD8D-D44B-86C5-138FBAF6C227.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C61089E4-E7C4-7D4E-87C5-27C78E1C1186.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7B072AA5-66DF-8B48-B5D2-9B4B0CC58F41.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8C87E09E-4242-D340-AC17-C6FE467FBF2D.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E9F8CE3D-7F90-F049-B281-207E052EC73D.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____71_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B2F388A0-8378-BB4D-AFD3-C6EEC2A82AB9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F56A37C1-B69F-5640-A88F-5F4E16F264C8.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B6919334-BAAA-5B44-8303-AF71E9FCDF07.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/FFE3BC08-93D0-3E47-B770-7881933FAA30.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CB9EAEBE-BD75-8D48-9CF9-C28903A8E090.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____72_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/727CAA3C-EAB7-6447-9DBA-A63579A355FE.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1A2A9034-C40A-5246-A742-D01FA64307D5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/81918306-0AFA-AF42-9188-93423ECEF202.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A4081AAB-26AA-FF4E-84E8-56B1A04FAAF6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E85CDA0C-F28D-914E-B785-DF2FBF8084CD.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____73_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AD6052D4-D609-AD47-9691-C3D7143165B2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/579CBDF4-F32E-874C-B7B2-B5ED576DE8A0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5515D90E-D66F-F74A-8135-F092E6A6158F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/17913769-29BA-BC4C-99F0-07414A25DD30.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AD416BE1-2343-F24E-B74D-742551E982BC.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____74_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/84E5DE82-83FB-6340-9B1F-2A43BE49F4C6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3F3EAF2D-005C-BE41-9712-E6D98055BAE4.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F3D05AE1-C08F-514E-BEC2-88ED60F4F308.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/ADF74270-C321-2F48-81C8-B8AE577B8A46.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3ECF3E0C-0AB6-9D4F-ADB6-1E378FD6B374.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____75_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1F9DBF04-D4D4-8449-A426-1C025D6371DA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/660F1B13-1A95-B34B-93A3-A310C8E470A1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/147923DC-570A-C644-9D48-5593DC929647.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F73998B8-57FD-C84A-9738-54344862BF84.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4E5F0CF5-CDF6-3E4A-9F3D-9FFC6F0AD78D.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____76_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/ED2D2C0C-F281-F549-B843-3DB01D0148BD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/FF03C4EE-21BF-444D-A36F-E1D626AAA204.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B392C994-4593-3B42-B94E-A4A5D653AE4A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8720D65F-7EA5-AD42-9EEC-6500F5AC143E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/35EE75E4-B288-1540-9F5A-F3BAB07FA527.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____77_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/693B0DBA-65B8-904E-8D16-CF34829C1768.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/221BE81B-33CA-924B-AD16-503917A8A250.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D9361011-5815-F845-B42E-0E72E11BD189.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/388C7713-BDEE-804B-91A7-80CA4E90CA99.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/00162452-C6ED-094A-AF85-F778303BCCB5.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____78_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6E894485-DD5F-F646-9C2F-EA1FDFD59596.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AE347BF4-4810-6F4C-9FF3-F0B93D871DD0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/05EDE6E0-8A7F-444A-BF8F-9FA1E4A1A431.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/33ED9F30-6098-4B45-8F95-7C8F1E25A1B1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AB7A77FC-B5C2-FF45-9405-D6EF0F10F28F.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____79_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/910A54DC-BA34-3A4D-BB37-792EE9F90C7B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/186F025B-0E22-1D40-948A-FB6A12ED6316.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D5A4DA05-004B-FD4C-A27D-B19AEB984D7F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/36671CB4-33A0-6245-BF24-CCEA9E21F726.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/59345A05-3A4C-2941-8B27-A719108766FB.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____80_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/000738CA-9A6E-404D-914F-2F52464C64B7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/E3F76EA2-A012-8748-AE30-8EBC6BE4AAB7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/A38C6D65-24AC-D047-A915-B8205195EA70.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/F7A94F0E-D774-7146-98A8-755C7222F69A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/221C7979-9702-8C4F-8851-6AFFF7BA3143.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____81_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/720A9B0E-55DB-7F44-A9DA-1B4B5FE7B44B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/51A3888A-8075-FD41-BF87-195A23C68559.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B55A5D65-FF76-A34F-820A-7EA3E9F1873C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/388BA161-242E-704C-8F81-84928A3697E2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/941709B8-4AC1-0D43-AEF4-A906AC01F4CE.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____82_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F543280E-4EAE-314E-9572-310D3A4D52DD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A0A53ABD-E430-294D-BD77-79DC4EEEA45F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/988F114A-763D-C54F-B30B-903400B308A2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7BAEB7F8-EC78-C84B-9B86-2B9470850C80.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/95E4EBDA-7A0D-D042-B5EC-FD1D7BF8695D.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____83_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1DD54E0E-6553-AE47-8F2D-EAB0947A02B1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/DC8D9AAE-7A20-E541-8973-8EFB78342554.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B02E45B4-607B-2249-BA8D-002E980AC864.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3D3B8809-EB07-9546-B025-E93C8287A2CA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BDBC42B4-DA21-A64E-BEA1-687E3F0F14A7.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____84_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/A4916D04-B939-4649-A8AC-8DF849DDA81A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/FAE0F5E1-F0EF-E340-951A-920823BE28CE.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/E07FE405-85D8-9A48-9EBF-87B570EEED48.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/2ECDFC9E-D59E-A844-A68C-EF809C57F0C4.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/9F5B52D7-EA8A-744A-AE16-74AC650D473A.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____85_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/1D89DB18-7A1E-AF46-95F0-6B6D3B1D7018.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/1E6F656D-E595-564B-AC14-5E1D199D0A7F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/1F2D8659-F76B-EB4A-B89D-DADCF02021D5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/70B8567C-D493-C545-B7CD-B2CEBF5B331F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B7768A4D-B8FF-A54E-ABE7-CE595D221876.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____86_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/24A4572B-076E-F849-B31B-1D13DC290415.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F7F34069-0216-8647-B3A4-599EDD115492.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5AE5B825-00CF-3B47-850B-D8EFABEA5A48.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F51C2ABF-E2CE-6D43-8888-140CFD534F6A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/968C57C0-C445-894E-A56A-9FD30109B6E5.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____87_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8FB5FA3A-C226-4545-A767-778D7D6621BA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/114A8DF0-81E5-FA41-AE7E-EBD1E858190C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B4D237FC-1AA6-AE43-A6FD-E3FDC607A654.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/81096CAB-92E8-E24A-8F75-941FFC67D8A6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/83ADD55E-D9EC-3742-9C82-573D92B047DC.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____88_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/56833E8B-C251-2148-8BD2-39E713CC5607.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/0378F7BD-C04C-A745-A59D-37F3484A5A23.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/57599D0C-CE21-9E46-8D0A-3CA9B4607F4F.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6AD90A26-2578-EF46-B5A6-2EF249E8C0C9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7F8EFD85-F4DD-9041-AFBC-83B937ACB3CE.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____89_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6E09A92D-492A-094C-890A-08932DB0D1FB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5A9B3C7E-54C9-2B4E-B58F-B9A55C69238B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1B78AD94-68E3-D74A-8037-26A979B36185.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C7FEC462-9FAD-F045-8008-89B479C96B38.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9367407D-F57C-2043-98BF-158927D49E3D.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____90_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/02B99EA5-95A4-304B-ADCD-0FC03323A07C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D528AA3F-350A-7341-90C7-B3508E9AD43D.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6D3848E7-FA62-4E42-88C4-0CEDAD653694.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6D2E4EEF-147D-2D4C-8E23-ED7AA6989E8E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/53FF581F-6E31-8642-825D-FF71B53A2A17.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____91_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C0CC1D78-01EF-6E4C-BB8F-2D48EAE3C8AA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/DC66851A-A7A2-8447-A444-8218EE561570.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/608B2091-63DC-634A-A63F-1D0526AA9AEB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/B7B0EE05-0811-2144-8AFB-D04F1690A789.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/FA31235A-8029-7A4C-A6D9-B77AE3B95C7C.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____92_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8322A77C-AC21-2740-B3A5-014CC695969E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C4DDC100-80D1-7F4A-BC4E-6F807D1FD7EB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/32B42B35-4CD8-F24A-8F20-17AC1FB48163.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E2DC4091-D914-7245-8428-42B6107854C1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/1FC88139-1398-8C4D-8528-D2F8543AEC8E.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____93_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F5A68922-1E8A-7D4C-9CA7-9917FECDF313.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7C77EC39-2D03-294B-A12C-17D9E8120D32.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/910F9EAA-6565-0242-AF1C-6EB695452077.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/85E4F35A-603A-EA44-B86B-E6E092190FEF.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3165DF31-ADFE-1040-8B72-E83158391FE5.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____94_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A4237617-05FD-8749-9CC4-87898DEB052C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EC25D576-BBF8-F14D-B8AF-CC7F3420E376.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9A7C94ED-674B-7E43-A08E-6CA5B6E927B1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/37897D7D-7DC3-A74B-B904-42DEC1E28246.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8EF13D05-7360-AC4A-A210-4594A7B5A9F7.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____95_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/82CB37D1-7E08-8F48-A876-165B2F8DD400.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/ECF6B414-5A06-0D41-B392-B6923D087236.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/69083934-81FC-5344-9DB9-1ADC0155EAED.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AFB46DD0-76DF-8448-9712-546D345E42CF.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/ED3313CB-23A9-9845-A9E7-A61878A0ABDA.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____96_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4B5E3E46-F42C-9B46-85D8-0A41EF1D6118.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5C74D75D-5D92-FB45-8160-0CEC1548BDFD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/26A5A4B4-1058-9A41-B1C9-DA4D9E87D6EB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/52342B33-8D9D-1644-987B-955E0E5DAC73.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/5D3CA487-5B9C-894A-8801-41D0CC2E992C.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____97_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CB046FCD-604F-E04E-B20C-373310961BB3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8C597ECF-DB31-6440-86D7-0E0D0CC5CC67.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/E8B3EF7B-1893-4749-99E9-779C7C006D62.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BFA1C271-9291-A542-B485-B0542AC6FE7A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/8B2E7F81-153F-8A4C-848D-73408E6C20EF.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____98_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F1EB7D17-3113-BB4D-9D52-453C15A186F6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CE2ED1E0-7456-9B4C-AC70-D3FEC26F6220.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/AB42463C-071E-B14B-A9AB-4DDF39A8E15A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/92E0B170-1879-CF4A-8DC2-7FAF4C4171D4.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/0F189FF1-84AA-BE46-9742-1C97C534D9C3.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____99_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/84DAB972-B602-094B-B509-A79E649DA5E5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/02844792-1C06-A946-9715-1386B07086E5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/12BA264B-EC28-1542-A56B-A6D35F0E0DCA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/84C6CB45-1571-F044-9FF1-27353FBFD546.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/0AB290E1-670D-D143-B5F9-24F1DB18850E.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____100_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/00719FDA-675F-8D44-B00F-9E9E4C2735CE.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/642257E7-0A80-A741-ACC8-66012815797C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/90E9A4A7-B60D-7E47-87C7-85F3DDD37FCD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D1BA84ED-844F-6346-9DBB-91F3DDC28407.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4CC2F131-60BC-5E4E-B37C-2B3B3425A729.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____101_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9F81DEA8-E199-6549-9EC4-F8E5FB5DA373.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/F3303165-5822-6D4B-9333-317F40659743.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/CB3C07A5-DFD1-C24C-9F4E-60D1F9CFB591.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/63E420E1-1329-A74E-A8C6-BE37AFBC5FB2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/23865603-7299-8249-95C5-DC9852671FBD.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____102_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/38D8453B-13BC-3C49-9F87-631F0E7DC602.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D7551547-0E4A-554E-AC0B-B37B568B3CAD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3C13DC39-088C-4E44-AB6C-AD9DC93A01F7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7FF47319-29D3-C44F-9F27-61B37C820C68.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/7A0862EC-716D-F143-BBC6-C0466A222E39.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____103_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/84001165-6EEC-C24A-8041-404CEE625A91.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/301024BF-EA5B-C44B-B0F1-CFD882481A0E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/46B02FB8-FEF7-BA48-950A-1EB93381667C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/0B71C2F8-1853-F740-BEC3-A5234CA1DAD3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9F19D33F-B296-3A46-AD6E-4D540BF79E0C.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____104_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/4EF09F67-C489-3041-AAA9-EBD863387421.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BFDB853A-3080-D046-B255-1B668BD5987C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/37551A69-4618-9440-B10B-5838BAB79DC8.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/429683FD-7FB6-CB48-81CE-E41E44009DAD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/A1CB1DD2-A46E-6740-90A9-521CA89492AD.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____105_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D4183C1C-17E1-FE4A-99FB-36B7B3F014F9.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/3B8935B6-CFB6-E04B-8212-99F73194290C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D445ECD7-8C0A-4049-9BC9-D2C82D3FE9F7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C784F53D-553E-404F-89FF-068082AC19D1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/31249886-CAD5-C14A-B83E-AB6BD0FDC4BE.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____106_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/50C61931-A12A-0E4F-A237-E6982CB53001.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/DC492C7D-22FB-3749-B488-2564443EA133.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/9E2AA1EB-3A4F-C241-BEEA-371B161039D0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/246B252C-B644-7B4A-8A67-2BE510552633.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/462D1D1C-1358-E047-88EC-981EFEA1F3F0.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____107_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/07C54C1A-0832-4345-BF9E-5F7AA839CC28.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/229FA738-C9DC-9C43-810D-5BAF7EAFD5F1.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/0395F838-DD86-D24C-9F1B-2EEF7E75A493.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EFF057BA-379A-3243-8653-5DF4398C3DA7.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BE2D917D-CA56-9A44-B43E-30029739027F.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____108_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/D87544CB-9A0B-4642-A687-314B1AE8F1B8.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/740E18B6-B6C8-9544-9519-0EE6BC49F07B.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BAB12775-8EE6-8C41-B03B-40AF1A101D5E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/7D4625F7-8ACB-4C48-9DB7-1FA33B38A1EF.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/34876D92-468A-1A47-88BB-783B4197F72A.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____109_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/DD7FE6B0-B7D4-C645-B3F2-853EB4DE23E0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/BABD0F65-9B1D-414A-A6D5-D561FC56370E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/C6556797-B0A4-E24C-9241-87A37BD28D15.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/EBC6BCCC-8C20-164B-A031-48C1AC996FD6.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/41ABEE60-9FF5-2045-A44B-C7B2281CE983.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____110_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/9B73ABD6-D87C-4B45-9384-45D5D387F601.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/6E238940-65C5-114A-A6CC-3D7CCD6466AA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/BAE5258C-60B1-A94E-9BD8-A5F607EDCBE0.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/40000/2AFC3C9E-F9AE-554A-A3B7-0EE526E5CFBA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/8594B56D-6A94-0344-B498-68C66D52BCE8.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____111_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/211E03C1-D3B6-F640-9116-69BB2864CDB5.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/F784850D-277B-2A42-818E-2D624542DE61.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/2F26BB09-D8A1-F146-81B2-88CF6B2C27DA.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/3DC34B7D-814E-0347-883A-0FD030491825.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/87570072-CA61-C346-88F0-B8C859F70C38.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____112_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/69EFD695-C215-B740-BFE4-8B1E974EAE4C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/184C081D-5E00-E840-9819-A33F9AF9BEF4.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/C0595B68-535E-BB4A-BB23-6A37D0F21C76.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/37A5BEB8-5ABD-784E-BBDC-6DF1EE678A7E.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/FB8B80F9-622C-834D-8318-536F7AB2F10A.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____113_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/05CAE23B-E8D4-E747-B356-C0BB1AFAD2FB.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/284D9D3E-F416-2948-BB14-BCA17B300A68.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/F317C18E-21D8-814B-91AA-4EE254B348FF.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/55D229B0-E643-C744-BCA4-858681A98E2C.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/0EE7BEBE-A1A4-4447-A383-DFA1B4063D13.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____114_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/95D6DBE8-25EF-964C-BCC3-3E22676FFEF3.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/A57503C3-782E-934A-8442-CF001859AC67.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/34AE6C8B-7A81-CE4C-A6C0-C21AB45735DD.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/4B0E07E8-B97E-2C40-82DD-B3F513575F77.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/5A3633FD-FC1E-684F-8F0B-409BA0171C6A.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____115_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/04EA9B41-6CF3-CE4C-BE4A-7D6E00BAA09A.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/39C357D5-6F33-8748-98D2-B6700722C972.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/9B5CC278-7983-F348-9D7D-36E99FB94CB2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/6B169B1B-46CC-2646-B3D4-7D61EC1ABBC2.root",
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/3451636E-F597-3945-AE2F-AB65E4AFCD86.root"
+        ],
+        "xs": -1
+    },
+    "SingleMuon____116_": {
+        "files": [
+            "/store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_JMENanoAODv9-v1/250000/98A5E7B5-8163-7C4F-838D-2E9C6794F5CB.root"
+        ],
+        "xs": -1
+    },
     "ZZ_TuneCP5_13TeV-pythia8____1_": {
         "files": [
             "root://xrootd-cms.infn.it//store/mc/RunIISummer20UL18NanoAODv2/ZZ_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v15_L1v1-v1/120000/9E699955-48E9-AD42-A12E-090F471B1BEE.root",
@@ -4645,12 +5787,462 @@
         ],
         "xs": 1246000000.0
     },
-    "EGamma": {
+    "EGamma____1_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/DC55E5D5-9687-5045-A59B-3E627C381E2E.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/98C0E27C-A080-DA46-A6AB-DA0DF1ABC23A.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/D73CCFB2-760A-054C-9EC8-8008588DAD8A.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/95028C9A-4303-8441-9602-E6C0596F6A32.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/5186FC6C-5B17-0848-B446-21801BA65545.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____2_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/E8C556AF-1FCA-4542-BAAF-1308B061E02A.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/EC9E6AF3-781A-A14D-A7B4-62E612CAB483.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/2344C690-8A0E-0549-996B-EF330B236AD8.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/1721AEC6-0906-BD45-A78C-67319CA38FA6.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/A4BF261C-D6C8-7D45-AD1C-E939CC581EC7.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____3_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/AC7828A3-D6C4-CC42-B128-5D1DD4C2B4C8.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/9B69EFCC-8CA2-344F-A241-2447D1B2BA32.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/27B55AD5-1C6F-1B47-9DD4-ACA48BD8B4A5.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/17618F6D-A245-7541-932D-653CA8D30A67.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/558AC951-0D2E-6D40-91FC-E0351D11A637.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____4_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/74361C2D-6193-6B49-9FA1-75F2A15D8E69.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/0EC0D684-70E5-DD4C-8B7D-788A671E7AF0.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/31E8AC3E-2211-A34A-9852-C58BD303AD07.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/459461DA-6E42-6741-A6FD-93E24FD8E905.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/59DB4DB4-2CE6-B441-92A9-060BB51D56F6.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____5_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/021C3956-CCCC-2A45-83DA-DFDAF5DC81B6.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/7AFE756E-2B36-5F40-8DCA-10633E330060.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/BC873B97-05EE-D747-9364-70E577B1120A.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/F47C8D36-8970-1A44-B7B7-A6205CDF99FE.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/563C141E-7F90-C54F-AFBC-BC7EC86BBFF1.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____6_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/4B5D121D-3A6A-834C-AC77-90E6129CE743.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/C6FBA519-DC2E-0F46-AB5D-3B7750F77A5F.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/54ECE406-EAF6-BE49-9C78-F007DDF55D25.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/91C63837-7D99-C640-BC59-AD30A3A9B62B.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/05A338D1-C60F-1B48-A9BE-F0C5F937F313.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____7_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/3431DB0F-B8B5-554A-A8A8-1129ACCE7648.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/48537023-EE4B-4C43-BE07-65D4606D21DB.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/AA5BDEB8-3BBF-F647-A7B6-6A95103DDDAA.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/6475D057-75E6-2C47-928C-CE823C1B03A5.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/8602DC65-18C3-6F4D-93A7-F9819BA2CF3B.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____8_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/A2ED41D8-6D3F-4343-90BD-D0193B81EE95.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/5B283F5F-79CC-5648-B32F-8ED1B0AA60AC.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/28FDF35C-0EEF-6742-BA75-A84A0ACF646F.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/C3CB3369-5FDF-8440-9AFB-B2367758FADF.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/01FE4A33-8591-B147-B9CE-FB53833D4609.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____9_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/2E2572AB-7FC6-CD4B-A17E-29CFC82532BA.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/460836E4-FEFD-0C49-A9D8-9473E99110C6.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/37E3BAF9-A00F-C145-A449-26C196B76285.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/51727236-60CD-7D46-84C3-CAF43B57E62C.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/E4D66FAA-EE18-5148-94DB-EC324C185E99.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____10_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/33BEFC7D-91D6-9E4D-892E-6F10926CB9B0.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/515A0EFC-8488-C74A-AF7B-4C89772B00AC.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/E515E8D5-D23B-424D-9F65-2322B27176C8.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/9283FD05-CCA6-AD44-86DA-002CF83B2967.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/0A021BC8-7D79-4044-9A4C-611BADEE7798.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____11_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/0802F3B1-E439-034E-BFE5-A19DE5F1A4F1.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/0297FAA9-1A0F-CB43-9CA3-1B0952B48F3B.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/2099DDC9-9D78-824C-844E-9244ABA50F18.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/C507C706-EEB1-EF45-BA01-72869C84F0AC.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/883833F2-EF4B-2844-8AA9-886F6871217C.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____12_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/C45E43E2-D23E-784D-8781-D7FA62D586BA.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/2C3EBCDC-C9CD-0C48-8C88-D150C2E389DC.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/B5AB4FEB-CA96-F04A-8B09-859386CB3B97.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/6362D3DA-92F2-D249-9702-D8C9D48F1716.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/2E8C7972-58C5-2843-A6A2-74039A149F1F.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____13_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/2A44F176-513C-4140-8F5F-AD3E78FAC18B.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/AA1C87FD-B26D-454A-B1BB-838BFA210249.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/0C84F06C-CF33-5249-A382-996E36D53B97.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/0F39CB65-39E3-624B-9315-6F087339BC57.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/466CB979-F92B-E047-9258-106E570F082A.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____14_": {
+        "files": [
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/F8D9B751-AB28-5048-B62C-75767A5797D2.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/84C844AE-BD10-F445-8AB6-2835E9673DE2.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/184A146D-100F-1D4F-AFF7-8D570599735A.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/16FC837C-8B5E-524B-9A76-7F4018144C20.root",
+            "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/4FA2516A-6687-3244-B5CA-1CADB6235D40.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____15_": {
         "files": [
             "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/A2C4A0E8-2F15-3149-9289-AFB168006449.root",
             "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/A0671090-6B3D-DE4D-93F6-AE2B8DFFFA1A.root",
             "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/58F60A7E-1A05-3347-96B8-C4A3F3024DC0.root",
             "/store/data/Run2018B/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/280000/708489B2-CAED-9C46-876E-D40F9A9E7775.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____16_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/063DBDD5-BEDF-F641-87E2-41BB5180F5CB.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/7457B65B-53A6-4144-B3BC-98751780F1BF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2495DD22-8569-BF4E-B9FC-CF9409F94991.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/B64D8B8B-F338-6B46-9261-ADE16C94EF4A.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/79FB8646-2EAA-514E-968D-4029022BF42A.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____17_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CB887635-C41C-404A-90DD-2EC63D4FBD94.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/F667EE96-ED78-4746-B993-F3D7A3F2A1B7.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/26990E8D-9770-6F4B-8394-375F8FD61D41.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CF1EA925-D966-B544-A69F-64AD4B69C8A5.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/333C9B17-E719-4F4F-A98C-945F9138BA13.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____18_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/893F8453-389A-4044-ACD4-86AF321A9681.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/4A04B7D3-2488-E24D-AB1B-9552B70ADC77.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/BBD6C829-8DF7-3C44-BFA7-866CAA6D069B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/B62CEC29-9C74-8F46-82BF-ABB8ED73D120.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/0C5A7CE9-17D7-EE4E-AE78-AAC0815978A7.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____19_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A77D110A-6AB3-6544-B2D8-95F27BC4E76E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/834152A7-5B1D-CD4E-8919-30513446FF77.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/C0F10690-E54D-7F42-89EF-D2167784BFD0.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A74CF47F-AEE1-3344-BECD-BA33FCE39324.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/DEB92011-962B-B044-9C82-219D748B87F1.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____20_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/49AA2B15-EC7F-334C-9B27-D636A8F1195D.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/C4493EDD-16D7-5F45-9750-5D34330F7C6B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/7D0C42BC-805A-C046-9505-949266E3AF1B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/49936E18-5C56-8B4C-A785-3887DF404E05.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/5785C97D-AA42-5644-873A-04B4449B7828.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____21_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/BB77D28B-A99D-074D-8B25-1B58C3BC0258.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/62396CB6-8F3A-FB4A-A901-FDC232D6DA1D.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/EFBDAEF9-10D1-2048-849F-284AA8267325.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2B5CA321-CBCD-E746-87FD-C2C13EC354EB.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/8519CD5E-39CB-5143-9EDC-1A33E9AB80F1.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____22_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/5D223F74-08E4-8C49-8D9A-39A821D95648.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/34DF7A39-DEDB-034F-A002-12257CE24C76.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/7032E3AD-E707-C94F-B3A1-A103F77BB264.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/3BB7CAD8-BB5E-B54B-B995-1AE8CDCC04B1.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/D5317002-19B8-C142-9941-21E8C5D0970F.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____23_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/3E10470D-1300-F24E-87DD-0AFA11111E14.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/41EEAC99-48D2-8B4C-A886-BDAB58660B80.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CA30A6F0-3FF9-4843-91FB-044E5E8A8CC5.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2A636269-982C-EF44-B56B-97E0420B3A8B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/EFCBFE1D-D272-8343-B07F-AC9C1EDF0211.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____24_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/0406AA8F-5275-6C49-8F2C-6DADD1A5D26F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/64CF22D1-FA3B-824B-9476-B62EB5DD9888.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/35308F9D-EF22-204E-AC45-9D756363B3B8.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/ACB0333A-83AA-1B40-B457-4012DBDE9ABE.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2DD86AED-5384-DA40-9DBC-05342BDB8F60.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____25_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/77960842-8D23-2344-B374-6B733F1B9213.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/3459C5CE-7426-6647-A866-F748381945D7.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/182F7C67-966D-3347-B856-918C0FD11014.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/D03703B1-A456-4D40-B562-F4B1D514FEFB.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/1DDDC254-5078-F44D-AB98-F669859E8A72.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____26_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/9BEFF051-5D78-CE43-8969-C0760E8FA1F4.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/F2D7AE29-D3E1-3848-AC89-F8438AE3E4FF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/F72F5C88-295C-5A49-B10B-ED3009D66B83.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/96C725C9-DF7B-1A41-BE82-324A8FA2D0BC.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/243D3EBD-0CA0-6241-9663-D388DE09537E.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____27_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/6EFE0875-294C-B440-860E-794F4D2220B0.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/B04BF616-CBC0-1547-BEEE-8D355E5F32AF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/39C4D76E-CE9C-6048-B9DB-B4C459889C90.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/DD85FF1C-6E99-604D-AB30-73360DACA8EE.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/D199D9EC-69EF-9F46-9C5A-45FDBD344137.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____28_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2A5D678F-B727-EC41-AFB1-A69A7C765105.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/33B8F1B8-9F89-7944-8055-9829B287DBDD.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/0D11E94C-652D-8C45-9F3D-FB59215DB178.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/B50DDD99-C910-D947-A516-51FDEA789773.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/3A579E65-9215-9842-99BB-656D289687DD.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____29_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/DAD1B4A8-BFC9-3045-80E0-9FA393EFCCB1.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/FA236D1E-D457-7E41-9D61-59C46E9E0A40.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/DDA68DFE-0B0C-9E49-B418-825278029B2F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/8F5CD8D9-1FA1-704B-A528-0CF359EE9B0E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/F1C0B3FC-8B54-FD46-BC74-66C099656233.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____30_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/8D58D8A8-04C1-3F43-BDFE-B875D0C3AC41.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/ECEE8BA9-C280-B24A-9ABB-914BA7975508.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/0C3147CA-BA45-7F4D-9921-77B3808B09D6.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/2CB5655D-3717-AC45-B86D-14DD0026F09C.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/23BD1E14-4594-854E-9996-5C32A6D56B57.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____31_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/994BF372-C36A-A74B-A074-FB0E5F8E2AF8.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/0751DE64-BA9F-0146-8D76-D0DCC28CC94E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/AE2C2142-45BA-4045-A3E4-9E76C47B5E82.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/64C74068-9DEA-6742-8368-3833D19279A6.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/2DCC5A0F-49DA-8845-B132-978FB87EFAE8.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____32_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/C8242DFE-369F-2A42-A7EB-8EA357F312AD.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/464CE6A1-7827-3E49-8B89-83244DF85A3B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/8313408D-8CBE-B64F-8ED3-562A5F165CDF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/B1DF6E79-404B-7C4F-9C6B-E25FECC97AF6.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/D3DDC237-F83D-F04F-B3ED-267586180662.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____33_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/F0811CCD-0959-3B4F-9090-AD3C6D4945AA.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/E6D2516A-FFC4-BC4C-9280-91B24EAACE9C.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/1D6228C6-1F10-4041-B5FB-8BC4740B7276.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/26636512-E8FC-6E4E-B1DC-E7CF726B671F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/6BF5DFDC-D705-364A-B6EE-DB20B06DCD31.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____34_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/939E8548-7FA3-9A42-901A-AF09343520FF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/C3762600-5DC0-2842-97A1-70208A4F7429.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/13392AE5-1C0C-4D4A-9A8F-56903AC6C805.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/33BDA815-021A-904E-9DEB-8C34A5EB34AD.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/0DB75873-E4C7-2447-A85F-37146CDB3A9C.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____35_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/1204218F-B8C3-F140-9149-D6716EF41713.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/DC6C47F4-0274-9A47-BA2C-897373DAD332.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/C171AE61-8203-4748-B0CC-B5873C070304.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/A16535B7-6144-404F-A125-01CE98C18B72.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/F52BDE33-59DB-514D-A184-BA8C5B97E2AD.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____36_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/5FA54574-820D-E846-9E21-5EC63EB69552.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/06E00E4F-571D-5146-9EC6-CFD0466AC74E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/E714D028-625B-7A4E-A3B1-4A53A605F5E7.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/2FF46281-1E27-0642-8873-F7FF4CD307BE.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/A3F149FF-2421-F142-AD6F-5BB510A9B54B.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____37_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/8C58D41B-53BF-FF4D-AC51-5E0189A40EE6.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/E20FE636-CEEE-1941-8150-B523D677E99C.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/3B9BF965-D567-9447-8A07-9D821B6246C4.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/F6D0EB08-FED3-FF49-B807-19F768EA54FA.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/039B002B-1892-CD49-80BB-B715F24FFDE5.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____38_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/4450393B-2037-1C4A-8892-AA350608051B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/8D576A4E-533B-BD49-8E8B-2D7F4121ECDB.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/C45E38B7-27DF-554B-B469-8EEDB498E2C5.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/3783DFA4-381C-8841-8657-B20162EB3647.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/9984C968-AFE9-934D-AE47-7B1B31FF6D7F.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____39_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/54EC67C0-899D-3247-81C6-298A4291E862.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/FDA0F2BD-3B3A-514E-8A0B-7A31DA65EDCF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/5DF4F15F-92B3-EC49-9097-176CEA5C6819.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/EAF20171-DA95-544E-8BFA-1D63F41BFC74.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/387F6DCE-5C23-AE4A-A017-0C6A41003B95.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____40_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/592FB8E2-73F0-DE47-BD53-4A5BA0F67C36.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/E6DF7396-AD24-F84C-941E-3ED8FA8E9FDF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/F9E05373-717A-3F4C-8D7C-0164B234FB09.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/3C3535CF-5A3E-2E4C-AFAE-1B3B7659269E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/11D565B5-3E9A-C24B-81F9-0C1B0503BD92.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____41_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/9A3AEA4E-CD89-DE41-8FCF-22EDBF696D88.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/25E7E533-956E-914D-8CFE-2CA1BF102A5F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/738B1372-E1CC-7348-A38B-A3246169B4E5.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/95D9D5AB-7EBC-A24B-84E3-1FA29D7B3157.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/8095C7A5-D54A-414A-AE1F-B07E3688C8BE.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____42_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/120000/76F04A6C-8901-DC42-8D8F-D5A0AB3AAD92.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/F82203C2-0D55-5944-9C8D-78C7A638D9A4.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/BFA5E667-5CCC-4A4D-B8E3-266C6ECB1024.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/2771A4C1-4D09-FA40-B70A-EFDCBA848C98.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/56D22721-42B1-4645-8004-F06382287142.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____43_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/E5A2D70B-4571-A342-86FE-9E44D7E66715.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/6E2DC684-5F4D-7746-A6C8-C012599F69EF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/4CB177BB-221C-CC4B-ABB4-89F3D602DF24.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/4176CCAD-B45A-734C-92F8-6B8DBA1FB5A9.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/8613344E-2231-0A44-9F74-951A12029F83.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____44_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/ACC4C68A-E45E-AC4D-90A7-369C14D160C6.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/884A5646-C491-314B-8383-EB0CEC5B17B0.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CBD405AA-F304-4045-9988-9F8C49AD1B63.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CDD383B4-ADDE-8848-B420-B1013B034389.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/582A81F2-5474-854F-B316-AB650DF3B319.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____45_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/39429251-6AC5-AB46-A52A-2ED3F31A535B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/27E35FEE-7AAE-5B44-A1F4-C12D4A47E4FE.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/80C862DD-22B7-E243-AEBE-13B7D67EF876.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/E71C1EEF-43A4-8D4D-B14E-6A8DBC87E45F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/ABEAC74C-B422-204E-A5FA-04D1C180E6F2.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____46_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/E5E80694-D883-CE4E-9FF4-5D710F6F4123.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/EFFA31DA-2748-3A49-B37C-CD6C244BAF04.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/90DF8EB1-AC67-7343-8DCC-1137282F38AB.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/F0AAA95D-74F8-2246-B853-52DDC4F0323A.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/AD5F3422-446B-9049-A491-77A0A26FF2AC.root"
         ],
         "xs": -1
     },
@@ -11716,6 +13308,213 @@
             "root://xrootd-cms.infn.it//store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8/NANOAODSIM/20UL18JMENano_106X_upgrade2018_realistic_v16_L1v1-v1/260000/9903C615-82BD-8545-A26D-725358AE548E.root"
         ],
         "xs": 0.005236
+    },
+    "EGamma____47_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/DEFBFAD1-F6B9-C14A-BE46-4820A0CC7F0C.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/FC587C9C-D36C-B54D-B9C0-E05292FD4C95.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/4A226452-487B-8D4A-9125-73E0B39A51E1.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CAB04427-D8BC-254D-BCD3-E919C9A14BB8.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2354CB44-59C5-ED45-B2A5-26FF79CE5B22.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____48_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/01CDF20F-203D-CA48-93EC-720A6541C416.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/995E6124-5B49-3743-86E2-6B783B2557C3.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/446F0872-D63E-C14D-B3B2-C21E18843E26.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/20187F87-B9F8-DB49-9E43-66D9E39FA9E9.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/9FF82B1D-9264-C844-B07D-9B237871661C.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____49_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/B3090528-3744-C449-93FF-613AF6E9C71C.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/12D7B805-1BAA-0249-9568-E9C3CE57CA37.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/6ADC790A-EB2A-3940-A1B3-2EA502543EDB.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/B7AA3573-53ED-534D-BD6F-A8C2543E6A06.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A2E190B0-C07D-2347-9D9E-195BDA4A2245.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____50_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/05897986-A891-6846-9990-B76C48A6C6BE.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A88A4863-65E8-5640-AE10-74476D183247.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/FC68AB25-5188-F547-A222-BC99D1FDCA1E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A797A6F5-B56A-6843-B690-7EB7E3745636.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/3F5AB091-A46B-944D-8065-849F4883FF11.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____51_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/D6366EB9-DE13-7045-B9E1-6FB6082C3454.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/1FBD8D77-64E2-9842-87C1-35157B43F6EF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/0A5AAA58-1CD3-424E-ACB5-1FE56EB10E33.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2C48AF33-958A-D04D-B25D-F43E3DD238B9.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/438D7D14-4C5D-9A40-93F1-6A0B8F2852F1.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____52_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/81CA791F-D63D-D34C-8755-ACF9BF50D094.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/FA73C43D-A835-2D4D-8587-1B4762A6F6C9.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A375BEE0-3FAF-8E4B-8762-929D4D0716CA.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/77ABF23D-1004-FE40-B868-40F3C5055C06.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/34F3E974-1759-3446-9B49-F3FEF185C65D.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____53_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CA5F96E0-4AF2-EF46-AB2C-1FBACA530998.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/9073672F-1E30-CD4A-B65F-EB0E38ABDD86.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/E4FF09B7-FBFC-5F4F-944F-E403D9E18691.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/7F2DC4A7-3CFB-2D43-A386-03136E8ADE0B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/2D613EFE-1562-C649-9453-8C2BC3CA318C.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____54_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/BBB38A04-0D13-634A-A38A-8E001946A998.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/79AC9EFF-421C-0F48-865F-E53B7149D14D.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/E4815B31-C698-D14F-A52A-E61D7AC3B2B3.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/78BFF5DC-2DE1-EA49-ACCC-76D9D739CC74.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/EDF4E54A-2167-6844-98E9-65C855EC1092.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____55_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/B6C241C7-937D-CA4F-B10A-108A0A87A606.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/63022E3B-B87C-4746-8E9F-AFB43FAAADB2.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/3028C951-1BFF-9445-BE7B-938EE236F61E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/7D44306E-58CE-7344-9DB5-A93F9F6AA90E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/D524509F-9147-834E-8DB6-BDA67829C889.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____56_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/CE5C9BE3-9C7D-F74E-8322-B92ECA1B24D5.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/5A24669D-EBEF-E144-9ADB-43EFA93CA155.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/C23696C3-223C-1F4F-AA2A-4F88F487B674.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/93333788-AB6E-C248-BB66-C3D51DC7496E.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/0F57CBA5-4760-6043-8915-10F7668AABFD.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____57_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/707C28B1-C545-2543-8776-F269F49D6B15.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/D75306FF-4EA4-F94A-B3A5-98B3E5B1C299.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/250E34CA-7B3B-6244-94F3-D1026CB1671B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/6EF3038D-EA37-8142-BFAA-400CF35CA02F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/7B0A049E-0CE5-5B42-902F-4056625E4F1C.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____58_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/6DF9376F-F7A2-6B4F-A1E8-E06098854217.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/9681886A-0B82-724F-B0F5-2FF6C0821692.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/01699263-7DD9-E149-8F70-EA7235AA19DA.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/FD7F12A2-70F6-4345-BBC1-9C95091A0621.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/0E9EEACE-0F85-E742-B413-198F59689A6F.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____59_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/2E369353-9EE5-8341-8753-13BC04CF4518.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/23515447-FF71-FF43-A8CA-0CA7ACC793E7.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/1B193532-C07A-374B-86B6-69B9E6E7A846.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/4DBB51EC-4847-F842-8048-938BC79753FE.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/95EAA667-579B-D14C-9649-149A5614BAC4.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____60_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/4EAA3224-3E3C-724C-A493-BD56830CFA4B.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/3398A94A-AE8E-234F-A7EE-B73A53FD6186.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/B3178AE3-0B7A-4148-A0C7-C8722FD1589A.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/4B648ABC-F2CE-FE49-81EF-601FA1CE2ADC.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/3CDCB3B1-9DD0-664C-BD6E-114AAF632B2B.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____61_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/9FF21E6C-2A90-D94A-B107-44CE39D3E65C.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/47368D04-5020-784A-87B2-02E180273FD0.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/F3CCFFF7-B254-7544-8932-1727185FA8CF.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/AAE84E75-612D-BC43-8131-FC886B5FD6D3.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/7B197701-726F-4D47-815C-D3B30E4F7E33.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____62_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/4A83FFA3-00D7-B64E-ADBD-61FEAEC3ABD6.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/0F80B6AA-F58B-684F-80C2-7564427058BA.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/DC2D70C6-4C2E-4A42-97B2-578749074EE9.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/ACAFD215-F4D5-4447-A193-FA808A314CB6.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A66D9545-0486-6949-84C5-E571A8FF8062.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____63_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/0986B643-76E8-0E4B-84FC-D7459C94E645.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/DE01450F-69FC-8745-8E68-BF0106D70BFC.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/01EC962B-93DD-044D-8025-E5B494AC7DCA.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/1FA92EE2-E4B9-1648-AE9B-73C3F5102AC1.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/EC2A9084-7B8B-F54B-BC8E-73972A7944A7.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____64_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/EB57254C-D9CD-AA44-A2F1-36F11D72E8AC.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/0D3BDFF3-FAE8-3741-B398-B66B5EDDC8D3.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/0AA51697-E212-D448-A56D-15C824325E0F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/9D96900A-FBD9-A245-A24D-FB06F1E2000A.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/907B429D-87EE-9340-BCF8-43BC73425500.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____65_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/7DF161D7-3694-6347-9007-3D11C0BA0872.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/6B5F5A83-4622-7C45-B638-72C1546FA860.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/CAFB166A-C447-DA44-A173-05EFEFBF375A.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/130000/A040EA5B-C98C-3842-87E8-6E546D9CEA94.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/68766C65-F063-5147-A7AE-CE5A15A15251.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____66_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/D09D034E-B57E-4740-93D6-F07812848F01.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/70000/97C0C3CE-56CA-7346-8173-A36316280F9F.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/260000/487D46B8-5E31-AB4D-B60B-8C0345050624.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/40000/F2F9DFC3-0756-1A48-81F6-C69C53D57795.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/40000/23935626-FB82-224F-8316-E5D0D8341FAD.root"
+        ],
+        "xs": -1
+    },
+    "EGamma____67_": {
+        "files": [
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/40000/B9941C24-6CD7-1340-8DDD-E743277A44CD.root",
+            "/store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv1_NanoAODv2-v2/40000/81A64DB7-1D04-EA45-B291-3F0DA3FCE4D5.root"
+        ],
+        "xs": -1
     },
     "WJetsToLNu_Pt-400To600_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
