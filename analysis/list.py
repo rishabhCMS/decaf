@@ -22,7 +22,7 @@ with open(yml_file[options.year], 'r') as file:
     data = _data[options.year]
     
 slist = list(data.keys())
-print(slist)
+print('slist:',slist)
 import sys
 sys.exit(0)
 # slist = ['DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8']
@@ -32,7 +32,9 @@ for sample in slist:
     print(query)
     os.system(query+" >"+sample+".txt")
     datasets.append(sample+".txt")
-
+print("datasets:", datasets)
+import sys
+sys.exit(0)
 filenames = []
 for dname in datasets:                                                                                                                                                                 
     with open(dname) as infile:
