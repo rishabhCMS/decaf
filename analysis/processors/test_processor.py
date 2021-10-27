@@ -1093,14 +1093,14 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
 
         regions = { ## from Rishabh, btag(L->M), wpT, Dphi, DR, met_sre, met cut
-            'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'singleelectron_triggers','exclude_dyjets_less_400', 'exclude_wjets_less_200', 'exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet',},
-            'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'singlemuon_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj'},
-            'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'exclude_dyjets_less_400','singleelectron_triggers', 'exclude_wjets_less_200', 'exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet'},
-            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'singlemuon_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj' },
-            'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'singleelectron_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj'},
-            'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'singlemuon_triggers', 'exclude_dyjets_less_400','exclude_wjets_less_200','exclude_wjets_greater_200', 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj'},
-            'dilepe' : {'istwoE','exactly_1_medium_btag','noHEMj','met_filters','singleelectron_triggers'},
-            'dilepm' : {'istwoM','exactly_1_medium_btag','noHEMj','met_filters','singlemuon_triggers'}
+            'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'singleelectron_triggers',"exclude_dyjets_less_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", "exclude_dyjets_greater_400",'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_sre>40','met100','noHEMmet',},
+            'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'singlemuon_triggers', "exclude_dyjets_less_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", "exclude_dyjets_greater_400", 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj'},
+            'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', "exclude_dyjets_less_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", "exclude_dyjets_greater_400", 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_ttbare>40', 'met100', 'noHEMmet'},
+            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'singlemuon_triggers', "exclude_dyjets_less_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", "exclude_dyjets_greater_400", 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj' },
+            'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'singleelectron_triggers', "exclude_dyjets_less_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", "exclude_dyjets_greater_400", 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Ele_mask', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj'},
+            'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'singlemuon_triggers', "exclude_dyjets_less_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", "exclude_dyjets_greater_400", 'Delta_Phi_Met_LJ', 'DeltaR_LJ_Mu_mask', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj'},
+#             'dilepe' : {'istwoE','exactly_1_medium_btag','noHEMj','met_filters','singleelectron_triggers'},
+#             'dilepm' : {'istwoM','exactly_1_medium_btag','noHEMj','met_filters','singlemuon_triggers'}
         }
 
         isFilled = False
