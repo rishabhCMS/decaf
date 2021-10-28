@@ -1412,8 +1412,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-                                   'btagUp',
-                                   'btagDown',
+#                                    'btagUp',
+#                                    'btagDown',
                                    'qcd1Up',
                                    'qcd1Down',
                                    'qcd2Up',
