@@ -136,6 +136,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbarm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),
             'wjete':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','SinglePhoton','EGamma'),
             'wjetm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),
+#             'dilepe':('DY','TT','ST','WW','WZ','ZZ','SingleElectron','SinglePhoton','EGamma'),
+#             'dilepm':('DY','TT','ST','WW','WZ','ZZ','SingleMuon')
         }
 
         self._gentype_map = {
@@ -482,7 +484,7 @@ class AnalysisProcessor(processor.ProcessorABC):
     def process(self, events):
 
         dataset = events.metadata['dataset']
-
+        print(dataset)
         selected_regions = []
         for region, samples in self._samples.items():
             for sample in samples:
@@ -725,6 +727,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbarm': met.T+leading_mu.T.sum(),
             'wjete': met.T+leading_e.T.sum(),
             'wjetm': met.T+leading_mu.T.sum(),
+#             'dilepe': met.T+leading_diele.T.sum(),
+#             'dilepm': met.T+leading_dimu.T.sum(),
+#             'gcr'   : met.T+leading_pho.T.sum()
         }
 
         mT = {
@@ -906,6 +911,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 'ttbarm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
 #                 'wjete': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
 #                 'wjetm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+#                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+#                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+#             }
             trig = {
                 'sre': np.ones(events.size),
                 'srm':np.ones(events.size),
@@ -913,6 +921,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': np.ones(events.size),
                 'wjete': np.ones(events.size),
                 'wjetm':np.ones(events.size),
+#                                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+#                                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
             ###
             # Calculating electron and muon ID weights
@@ -938,6 +948,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
                 'wjete': get_ele_tight_id_sf(leading_e.eta.sum(), leading_e.pt.sum()),
                 'wjetm': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
+#                 'dilepe': get_ele_loose_id_sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * get_ele_loose_id_sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
+#                 'dilepm': get_mu_loose_id_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_id_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
             }
 
             ###
@@ -960,6 +972,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': np.ones(events.size),
                 'wjete': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
                 'wjetm': np.ones(events.size),
+#                 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
+#                 'dilepm': np.ones(events.size)
             }
 
             ###
@@ -973,6 +987,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
                 'wjete': np.ones(events.size),
                 'wjetm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
+#                 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
+#                 'dilepe': np.ones(events.size),
             }
 
             ###
@@ -998,6 +1014,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': np.ones(events.size),
                 'wjete': np.ones(events.size),
                 'wjetm': np.ones(events.size),
+#                 'dilepe': np.ones(events.size),
+#                 'dilepm': np.ones(events.size),
+#                 'gcr':  csev_weight
             }
 
             ###
@@ -1093,8 +1112,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         '''
 
-#         predeclration just in cas I don't want the filter
-#         selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
+        # predeclration just in cas I don't want the filter
+        # selection.add("exclude_low_WpT_JetHT", np.full(len(events), True))
 #         if ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
 
 #             GenPart = events.GenPart
@@ -1104,9 +1123,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         else:
 #             selection.add("exclude_low_WpT_JetHT", np.full(events.size, True))
-#         Stitching wjets pt binned with wjets jet binned samples
-#         WJetsToLNu_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT<200
-#         WJetsToLNu_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT>200
+        # Stitching wjets pt binned with wjets jet binned samples
+        #WJetsToLNu_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT<200
+        #WJetsToLNu_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT>200
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
@@ -1151,7 +1170,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (
             tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
-
+#         selection.add('leading_e_pt', (e_loose.pt.max() > 40))
+#         selection.add('dimu_mass', (leading_dimu.mass.sum() > 60)
+#                       & (leading_dimu.mass.sum() < 120))
+#         selection.add('diele_mass', (leading_diele.mass.sum() > 60)
+#                       & (leading_diele.mass.sum() < 120))
 
         selection.add('exactly_1_medium_btag', (j_ndflvM == 1))
         selection.add('atleast_2_medium_btag', (j_ndflvM >= 2))
@@ -1389,8 +1412,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-#                                    'btagUp',
-#                                    'btagDown',
+                                   'btagUp',
+                                   'btagDown',
                                    'qcd1Up',
                                    'qcd1Down',
                                    'qcd2Up',
@@ -1429,7 +1452,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                               eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                              )
-#                         LF for template_mt_dphi_met_lj
+                        #LF for template_mt_dphi_met_lj
                         hout['template_mt_dphi_met_lj'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
@@ -1439,7 +1462,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                               eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
                                              )
-#                         HF for template_mt_dphi_lep_etmiss
+                        # HF for template_mt_dphi_lep_etmiss
                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic=sname,
@@ -1447,7 +1470,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                              )
-#                         LF for template_mt_dphi_lep_etmiss
+                        # LF for template_mt_dphi_lep_etmiss
                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
@@ -1455,7 +1478,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
                                             )
-#                         HF for template_etmiss_dphi_lep_etmiss
+                        # HF for template_etmiss_dphi_lep_etmiss
                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic=sname,
@@ -1463,7 +1486,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               eT_miss=met.pt[cut].flatten(),
                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                             )
-#                         LF for template_etmiss_dphi_lep_etmiss
+                        # LF for template_etmiss_dphi_lep_etmiss
                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
