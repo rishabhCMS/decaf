@@ -727,9 +727,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbarm': met.T+leading_mu.T.sum(),
             'wjete': met.T+leading_e.T.sum(),
             'wjetm': met.T+leading_mu.T.sum(),
-            # 'dilepe': met.T+leading_diele.T.sum(),
-            # 'dilepm': met.T+leading_dimu.T.sum(),
-            # 'gcr'   : met.T+leading_pho.T.sum()
+#             'dilepe': met.T+leading_diele.T.sum(),
+#             'dilepm': met.T+leading_dimu.T.sum(),
+#             'gcr'   : met.T+leading_pho.T.sum()
         }
 
         mT = {
@@ -775,7 +775,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             cos(abs(u[region].delta_phi(leading_mu.T)).min())
 
 #         dPhi=abs(dPhiLepW)  # nickname for absolute dPhiLepW
-    # MT = sqrt(2*metp4.Pt()*tightLeps[0].pt * (1-cos(dPhiLepW)))   # mT_{W}
+#     MT = sqrt(2*metp4.Pt()*tightLeps[0].pt * (1-cos(dPhiLepW)))   # mT_{W}
 
         ###
         # Calculating weights
@@ -921,8 +921,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': np.ones(events.size),
                 'wjete': np.ones(events.size),
                 'wjetm':np.ones(events.size),
-                #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
-                #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+#                                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+#                                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
             ###
             # Calculating electron and muon ID weights
@@ -948,8 +948,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
                 'wjete': get_ele_tight_id_sf(leading_e.eta.sum(), leading_e.pt.sum()),
                 'wjetm': get_mu_tight_id_sf(leading_mu.eta.sum(), leading_mu.pt.sum()),
-                # 'dilepe': get_ele_loose_id_sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * get_ele_loose_id_sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
-                # 'dilepm': get_mu_loose_id_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_id_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
+#                 'dilepe': get_ele_loose_id_sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * get_ele_loose_id_sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
+#                 'dilepm': get_mu_loose_id_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_id_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
             }
 
             ###
@@ -972,8 +972,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': np.ones(events.size),
                 'wjete': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
                 'wjetm': np.ones(events.size),
-                # 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
-                # 'dilepm': np.ones(events.size)
+#                 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
+#                 'dilepm': np.ones(events.size)
             }
 
             ###
@@ -987,8 +987,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
                 'wjete': np.ones(events.size),
                 'wjetm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
-                # 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
-                # 'dilepe': np.ones(events.size),
+#                 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
+#                 'dilepe': np.ones(events.size),
             }
 
             ###
@@ -1014,9 +1014,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': np.ones(events.size),
                 'wjete': np.ones(events.size),
                 'wjetm': np.ones(events.size),
-                # 'dilepe': np.ones(events.size),
-                # 'dilepm': np.ones(events.size),
-                # 'gcr':  csev_weight
+#                 'dilepe': np.ones(events.size),
+#                 'dilepm': np.ones(events.size),
+#                 'gcr':  csev_weight
             }
 
             ###
@@ -1246,9 +1246,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             variables = {
 
                 'mu_pT':              mu_tight.pt,
-                # 'recoil':                 u[region].mag,
-                # 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
-                # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
+#                 'recoil':                 u[region].mag,
+#                 'mindphirecoil':          abs(u[region].delta_phi(j_clean.T)).min(),
+#                 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
                 'eT_miss':              met.pt,
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
@@ -1256,21 +1256,21 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'jet_phi':             leading_j.phi,
                 'metphi':                 met.phi,
                 'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).min(),
-                # 'j1pt':                   leading_j.pt,
-                # 'j1eta':                  leading_j.eta,
-                # 'j1phi':                  leading_j.phi,
-                # 'njets':                  j_nclean,
-                # 'ndflvL':                 j_ndflvL,
-                # 'ndcsvL':     j_ndcsvL,
-                # 'e1pt'      : leading_e.pt,
+#                 'j1pt':                   leading_j.pt,
+#                 'j1eta':                  leading_j.eta,
+#                 'j1phi':                  leading_j.phi,
+#                 'njets':                  j_nclean,
+#                 'ndflvL':                 j_ndflvL,
+#                 'ndcsvL':     j_ndcsvL,
+#                 'e1pt'      : leading_e.pt,
                 'ele_phi'     : leading_e.phi,
                 'ele_eta'     : leading_e.eta,
-                # 'dielemass' : leading_diele.mass,
-                # 'dielept'   : leading_diele.pt,
-                # 'mu1pt' : leading_mu.pt,
+#                 'dielemass' : leading_diele.mass,
+#                 'dielept'   : leading_diele.pt,
+#                 'mu1pt' : leading_mu.pt,
                 'mu_phi' : leading_mu.phi,
                 'mu_eta' : leading_mu.eta,
-                # 'dimumass' : leading_dimu.mass,
+#                 'dimumass' : leading_dimu.mass,
                 'dphi_e_etmiss':          abs(met['T'].delta_phi(leading_e['T'].sum())),
                 'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
                 'dr_e_lj': DeltaR_LJ_Ele,
@@ -1364,7 +1364,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('nlo_ewk', nlo_ewk)
                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
-                    #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
+#                                         weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
