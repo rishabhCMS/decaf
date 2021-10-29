@@ -8,6 +8,7 @@ from coffea.util import load, save
 from optparse import OptionParser
 import json
 import uproot
+from tqdm import tqdm
 
 def validate_file(file):
     redirect_infn = 'root://xrootd-cms.infn.it//'
@@ -47,7 +48,8 @@ if __name__ == "__main__":
         lst = data[sample]['files']
         empty_list = []
         print("Processing sample:{} out of {} datasets".format(i+1, datasets_total))
-        for file in lst:
+        
+        for file in tqdm(lst):
             empty_list.append(validate_file(file))
 #         print("Processing sample:{} out of {} datasets".format(i+1, datasets_total))
         data[sample]['files'] = empty_list
