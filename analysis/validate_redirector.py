@@ -15,7 +15,7 @@ def validate_file(file):
     redirect_fnal = 'root://cmsxrootd.fnal.gov//'
     
     final_redirect = ''
-    file = fnameUL.split('//')[2]
+    file = file.split('//')[2]
     try: 
         uproot.open(redirect_cern+file)
         final_redirect = redirect_cern
