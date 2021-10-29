@@ -43,7 +43,7 @@ if __name__ == "__main__":
         data = json.load(f)
     datasets_total = len(data.keys())
     
-    for i, sample in enumerate(dct.keys()):
+    for i, sample in enumerate(data.keys()):
         lst = data[sample]['files']
         empty_list = []
         for file in lst:
