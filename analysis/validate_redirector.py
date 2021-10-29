@@ -46,10 +46,11 @@ if __name__ == "__main__":
     for i, sample in enumerate(data.keys()):
         lst = data[sample]['files']
         empty_list = []
+        print("Processing sample:{} out of {} datasets".format(i+1, datasets_total))
         for file in lst:
             empty_list.append(validate_file(file))
-        print("Processing sample:{} out of {} datasets".format(i, datasets_total))
-        data[sample]['files'] = empty_lst
+#         print("Processing sample:{} out of {} datasets".format(i+1, datasets_total))
+        data[sample]['files'] = empty_list
 
     folder = "metadata/"+"_"+options.filename
     with open(folder, "w") as fout:
