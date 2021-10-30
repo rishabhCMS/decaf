@@ -110,6 +110,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         Photon_pt
         Tau_eta
         Tau_idDecayMode
+        Tau_idDecayModeOldDMs
         Tau_idMVAoldDM2017v2
         Tau_phi
         Tau_pt
@@ -614,8 +615,6 @@ class AnalysisProcessor(processor.ProcessorABC):
             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayMode,tau.idDeepTau2017v2p1VSjet,self._year)
         except:
             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayModeNewDMs,tau.idDeepTau2017v2p1VSjet,self._year)
-#         else:
-#             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayModeNewDMs,tau.idDeepTau2017v2p1VSjet,self._year)
         tau_clean = tau[tau.isclean.astype(np.bool)]
         tau_loose = tau_clean[tau_clean.isloose.astype(np.bool)]
         tau_ntot = tau.counts
@@ -1593,5 +1592,5 @@ if __name__ == '__main__':
                                            ids=ids,
                                            common=common)
 
-    save(processor_instance, 'data/lep_monotop_v1_test_'+options.year+'.processor')
-    print("processor name: lep_monotop_v1_test_{}".format(options.year))
+    save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.year+'.processor')
+    print("processor name: UL_lep_monotop_v1_test_{}".format(options.year))
