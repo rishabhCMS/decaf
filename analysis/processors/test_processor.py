@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import awkward
 from uproot_methods import TVector2Array, TLorentzVectorArray
 from optparse import OptionParser
 from coffea.jetmet_tools import FactorizedJetCorrector, JetCorrectionUncertainty, JetTransformer, JetResolution, JetResolutionScaleFactor
@@ -12,6 +11,7 @@ import json
 import pprint
 import numpy as np
 import math
+import awkward
 np.seterr(divide='ignore', invalid='ignore', over='ignore')
 import time
 
@@ -110,7 +110,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         Photon_pt
         Tau_eta
         Tau_idDecayMode
-        Tau_idDecayModeOldDMs
         Tau_idMVAoldDM2017v2
         Tau_phi
         Tau_pt
@@ -137,8 +136,6 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbarm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),
             'wjete':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','SinglePhoton','EGamma'),
             'wjetm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),
-#             'dilepe':('DY','TT','ST','WW','WZ','ZZ','SingleElectron','SinglePhoton','EGamma'),
-#             'dilepm':('DY','TT','ST','WW','WZ','ZZ','SingleMuon')
         }
 
         self._gentype_map = {
@@ -611,9 +608,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         tau = events.Tau
         tau['isclean'] = ~match(tau, mu_loose, 0.4) & ~match(tau, e_loose, 0.4)
-        try:
+        if 'WJetsToLNu_2J' in dataset:
             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayMode,tau.idDeepTau2017v2p1VSjet,self._year)
-        except:
+        else:
             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayModeOldDMs,tau.idDeepTau2017v2p1VSjet,self._year)
         tau_clean = tau[tau.isclean.astype(np.bool)]
         tau_loose = tau_clean[tau_clean.isloose.astype(np.bool)]
@@ -801,7 +798,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             gen['isTop'] = (abs(gen.pdgId) == 6) & gen.hasFlags(
                 ['fromHardProcess', 'isLastCopy'])
             genTops = gen[gen.isTop]
-            ttjet_weights = np.ones(events.size)
+            events_size = len(e)
+            ttjet_weights = np.ones(events_size)
             if('TTJets' in dataset):
                 ttjet_weights = np.sqrt(get_ttbar_weight(
                     genTops.pt.sum()) * get_ttbar_weight(genTops.pt.sum()))
@@ -849,8 +847,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             genIsoAs = gen[gen.isIsoA & (gen.pt > 100)]
 
             nnlo_nlo = {}
-            nlo_qcd = np.ones(events.size)
-            nlo_ewk = np.ones(events.size)
+            nlo_qcd = np.ones(events_size)
+            nlo_ewk = np.ones(events_size)
             if('GJets' in dataset):
                 if self._year == '2016':
                     nlo_qcd = get_nlo_qcd_weight['a'](genIsoAs.pt.max())
@@ -916,12 +914,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
 #             }
             trig = {
-                'sre': np.ones(events.size),
-                'srm':np.ones(events.size),
-                'ttbare': np.ones(events.size),
-                'ttbarm': np.ones(events.size),
-                'wjete': np.ones(events.size),
-                'wjetm':np.ones(events.size),
+                'sre': np.ones(events_size),
+                'srm':np.ones(events_size),
+                'ttbare': np.ones(events_size),
+                'ttbarm': np.ones(events_size),
+                'wjete': np.ones(events_size),
+                'wjetm':np.ones(events_size),
 #                                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
 #                                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
@@ -968,11 +966,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             reco = {
                 'sre': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'srm': np.ones(events.size),
+                'srm': np.ones(events_size),
                 'ttbare': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'ttbarm': np.ones(events.size),
+                'ttbarm': np.ones(events_size),
                 'wjete': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'wjetm': np.ones(events.size),
+                'wjetm': np.ones(events_size),
 #                 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
 #                 'dilepm': np.ones(events.size)
             }
@@ -982,11 +980,11 @@ class AnalysisProcessor(processor.ProcessorABC):
             ###
 
             isolation = {
-                'sre': np.ones(events.size),
+                'sre': np.ones(events_size),
                 'srm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
-                'ttbare': np.ones(events.size),
+                'ttbare': np.ones(events_size),
                 'ttbarm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
-                'wjete': np.ones(events.size),
+                'wjete': np.ones(events_size),
                 'wjetm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
 #                 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
 #                 'dilepe': np.ones(events.size),
@@ -1009,12 +1007,12 @@ class AnalysisProcessor(processor.ProcessorABC):
             csev_weight[csev_weight == 0] = 1
 
             csev = {
-                'sre': np.ones(events.size),
-                'srm': np.ones(events.size),
-                'ttbare': np.ones(events.size),
-                'ttbarm': np.ones(events.size),
-                'wjete': np.ones(events.size),
-                'wjetm': np.ones(events.size),
+                'sre': np.ones(events_size),
+                'srm': np.ones(events_size),
+                'ttbare': np.ones(events_size),
+                'ttbarm': np.ones(events_size),
+                'wjete': np.ones(events_size),
+                'wjetm': np.ones(events_size),
 #                 'dilepe': np.ones(events.size),
 #                 'dilepm': np.ones(events.size),
 #                 'gcr':  csev_weight
@@ -1051,8 +1049,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         # Selections
         ###
-
-        met_filters = np.ones(events.size, dtype=np.bool)
+#       since events.size is not working we can use len(e) or len(mu)
+#         events_size = len(e)
+        met_filters = np.ones(events_size, dtype=np.bool)
         # this filter is recommended for data only
         if isData:
             met_filters = met_filters & events.Flag['eeBadScFilter']
@@ -1060,39 +1059,39 @@ class AnalysisProcessor(processor.ProcessorABC):
             met_filters = met_filters & events.Flag[flag]
         selection.add('met_filters', met_filters)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(events_size, dtype=np.bool)
         for path in self._met_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('met_triggers', triggers)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(events_size, dtype=np.bool)
         for path in self._singleelectron_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_electron_triggers', triggers)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(events_size, dtype=np.bool)
         for path in self._singlephoton_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_photon_triggers', triggers)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(events_size, dtype=np.bool)
         for path in self._singlemuon_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_muon_triggers', triggers)
 
-        noHEMj = np.ones(events.size, dtype=np.bool)
+        noHEMj = np.ones(events_size, dtype=np.bool)
         if self._year == '2018':
             noHEMj = (j_nHEM == 0)
 
-        noHEMmet = np.ones(events.size, dtype=np.bool)
+        noHEMmet = np.ones(events_size, dtype=np.bool)
         if self._year == '2018':
             noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
 
@@ -1132,28 +1131,28 @@ class AnalysisProcessor(processor.ProcessorABC):
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
-            selection.add("exclude_wjets_greater_200", np.full(events.size, True))
+            selection.add("exclude_wjets_greater_200", np.full(events_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
         else:
-            selection.add("exclude_wjets_less_200", np.full(events.size, True))
+            selection.add("exclude_wjets_less_200", np.full(events_size, True))
             
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
         else:
-            selection.add("exclude_dyjets_less_400", np.full(events.size, True))
+            selection.add("exclude_dyjets_less_400", np.full(events_size, True))
             
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
-            selection.add("exclude_dyjets_greater_400", np.full(events.size, True))
+            selection.add("exclude_dyjets_greater_400", np.full(events_size, True))
             
 
         selection.add('DeltaR_LJ_mask',
@@ -1335,27 +1334,27 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
 #                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
 #                                       eT_miss=met.pt[cut].flatten(),               
-                                      weight=np.ones(events.size)[cut].flatten())
+                                      weight=np.ones(events_size)[cut].flatten())
                 hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
                                       mT=mT[region][cut].flatten(),
                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                      weight=np.ones(events.size)[cut].flatten())
+                                      weight=np.ones(events_size)[cut].flatten())
                 hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                       eT_miss=met.pt[cut].flatten(),
-                                      weight=np.ones(events.size)[cut].flatten())
+                                      weight=np.ones(events_size)[cut].flatten())
                 hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                       lep_eta=lep_eta[region][cut].flatten(),
-                                      weight=np.ones(events.size)[cut].flatten())
+                                      weight=np.ones(events_size)[cut].flatten())
                 
-                fill(dataset, np.ones(events.size), cut)
+                fill(dataset, np.ones(events_size), cut)
             else:
                 weights = processor.Weights(len(events))
                 if 'L1PreFiringWeight' in events.columns:
@@ -1367,31 +1366,31 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'cen' in nnlo_nlo:
 #                                         weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
-                        events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
-                        events.size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
                     weights.add('qcd3', np.ones(
-                        events.size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
                     weights.add('ew1', np.ones(
-                        events.size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
                     weights.add('ew2G', np.ones(
-                        events.size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
                     weights.add('ew3G', np.ones(
-                        events.size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
                     weights.add('ew2W', np.ones(
-                        events.size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
                     weights.add('ew3W', np.ones(
-                        events.size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
                     weights.add('ew2Z', np.ones(
-                        events.size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
                     weights.add('ew3Z', np.ones(
-                        events.size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
                     weights.add('mix', np.ones(
-                        events.size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
                     weights.add('muF', np.ones(
-                        events.size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
-                        events.size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
+                        events_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu)
                 weights.add('trig', trig[region])
                 weights.add('ids', ids[region])
