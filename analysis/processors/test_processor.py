@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import awkward
 from uproot_methods import TVector2Array, TLorentzVectorArray
 from optparse import OptionParser
 from coffea.jetmet_tools import FactorizedJetCorrector, JetCorrectionUncertainty, JetTransformer, JetResolution, JetResolutionScaleFactor
@@ -11,7 +12,6 @@ import json
 import pprint
 import numpy as np
 import math
-import awkward
 np.seterr(divide='ignore', invalid='ignore', over='ignore')
 import time
 
