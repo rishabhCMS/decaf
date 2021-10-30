@@ -1578,7 +1578,7 @@ if __name__ == '__main__':
     parser.add_option('-y', '--year', help='year', dest='year')
     (options, args) = parser.parse_args()
 
-    with open('metadata/'+options.year+'.json') as fin:
+    with open('metadata/_UL_'+options.year+'.json') as fin:
         samplefiles = json.load(fin)
         xsec = {k: v['xs'] for k, v in samplefiles.items()}
 
