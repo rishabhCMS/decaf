@@ -110,6 +110,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         Photon_pt
         Tau_eta
         Tau_idDecayMode
+        Tau_idDecayModeOldDMs
         Tau_idMVAoldDM2017v2
         Tau_phi
         Tau_pt
