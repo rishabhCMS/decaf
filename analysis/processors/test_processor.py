@@ -110,6 +110,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         Photon_pt
         Tau_eta
         Tau_idDecayMode
+        Tau_idDecayModeOldDMs
         Tau_idMVAoldDM2017v2
         Tau_phi
         Tau_pt
@@ -608,10 +609,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         tau = events.Tau
         tau['isclean'] = ~match(tau, mu_loose, 0.4) & ~match(tau, e_loose, 0.4)
-        if 'WJetsToLNu_2J' in dataset:
+        try:
             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayMode,tau.idDeepTau2017v2p1VSjet,self._year)
-        else:
+        except:
             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayModeOldDMs,tau.idDeepTau2017v2p1VSjet,self._year)
+        else: 
+            tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayModeNewDMs,tau.idDeepTau2017v2p1VSjet,self._year)
+            
         tau_clean = tau[tau.isclean.astype(np.bool)]
         tau_loose = tau_clean[tau_clean.isloose.astype(np.bool)]
         tau_ntot = tau.counts
