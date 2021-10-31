@@ -1050,7 +1050,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Selections
         ###
 #       since events.size is not working we can use len(e) or len(mu)
-#         events_size = len(e)
+        events_size = len(e)
         met_filters = np.ones(events_size, dtype=np.bool)
         # this filter is recommended for data only
         if isData:
