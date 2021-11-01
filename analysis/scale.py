@@ -60,7 +60,7 @@ def scale(hists):
         if key=='sumw': continue
         for d in hists[key].identifiers('dataset'):
             if 'MET' in d.name or 'SingleElectron' in d.name or 'SinglePhoton' in d.name or 'EGamma' in d.name or 'SingleMuon' in d.name: continue
-            hists[key].scale({d:1/scale[d]},axis='dataset')
+            hists[key].scale({d:1},axis='dataset')
     print('Histograms scaled')
     
     # printing the lumi DF
