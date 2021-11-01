@@ -1360,7 +1360,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 
                 fill(dataset, np.ones(events_size), cut)
             else:
-                weights = processor.Weights(len(events))
+                weights = processor.Weights(len(e))
                 if 'L1PreFiringWeight' in events.columns:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
@@ -1404,7 +1404,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
 
-                if 'WJetsToLNu_HT' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
+                if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
                         hout['sumw'].fill(
                             dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
