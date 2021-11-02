@@ -1418,32 +1418,33 @@ class AnalysisProcessor(processor.ProcessorABC):
                     systematics = [None,
 #                                    'btagUp',
 #                                    'btagDown',
-                                   'qcd1Up',
-                                   'qcd1Down',
-                                   'qcd2Up',
-                                   'qcd2Down',
-                                   'qcd3Up',
-                                   'qcd3Down',
-                                   'muFUp',
-                                   'muFDown',
-                                   'muRUp',
-                                   'muRDown',
-                                   'ew1Up',
-                                   'ew1Down',
-                                   'ew2GUp',
-                                   'ew2GDown',
-                                   'ew2WUp',
-                                   'ew2WDown',
-                                   'ew2ZUp',
-                                   'ew2ZDown',
-                                   'ew3GUp',
-                                   'ew3GDown',
-                                   'ew3WUp',
-                                   'ew3WDown',
-                                   'ew3ZUp',
-                                   'ew3ZDown',
-                                   'mixUp',
-                                   'mixDown']
+#                                    'qcd1Up',
+#                                    'qcd1Down',
+#                                    'qcd2Up',
+#                                    'qcd2Down',
+#                                    'qcd3Up',
+#                                    'qcd3Down',
+#                                    'muFUp',
+#                                    'muFDown',
+#                                    'muRUp',
+#                                    'muRDown',
+#                                    'ew1Up',
+#                                    'ew1Down',
+#                                    'ew2GUp',
+#                                    'ew2GDown',
+#                                    'ew2WUp',
+#                                    'ew2WDown',
+#                                    'ew2ZUp',
+#                                    'ew2ZDown',
+#                                    'ew3GUp',
+#                                    'ew3GDown',
+#                                    'ew3WUp',
+#                                    'ew3WDown',
+#                                    'ew3ZUp',
+#                                    'ew3ZDown',
+#                                    'mixUp',
+#                                    'mixDown'
+                                  ]
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
                         #HF for template_mt_dphi_met_lj
@@ -1576,6 +1577,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 h.scale(scale, axis='dataset')
 
         return accumulator
+
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-y', '--year', help='year', dest='year')
