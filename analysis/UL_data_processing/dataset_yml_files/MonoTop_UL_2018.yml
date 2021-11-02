@@ -256,7 +256,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           91.4936
+        xs:           0.04674
         source:       global
         isData:       False
         jec:          Total
@@ -268,7 +268,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           374.292
+        xs:           687.1
         source:       global
         isData:       False
         jec:          Total
@@ -280,7 +280,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           365.9744
+        xs:           687.1
         source:       global
         isData:       False
         jec:          Total
@@ -376,7 +376,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /WW_TuneCP5_13TeV-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           118.7
+        xs:           75.11
         source:       global
         isData:       False
         jec:          Total
@@ -388,7 +388,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /WZ_TuneCP5_13TeV-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           65.5443
+        xs:           27.4
         source:       global
         isData:       False
         jec:          Total
@@ -472,7 +472,7 @@
         tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
         dbs:
             /QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           0.1259
+        xs:           0.6442
         source:       global
         isData:       False
         jec:          Total
