@@ -39,7 +39,7 @@ for dataset in lst:
     else:    
         xs_reference[dataset] = data[options.year][dataset]['xs']
 
-flist = glob.glob('metadata/UL_'+options.year+'/*.txt')
+flist = glob.glob('metadata/UL_'+options.year+'_textfiles'+'/*.txt')
 datadict_obj = {}
 for txt_file in flist:
     if 'MET' in txt_file or 'SinglePhoton' in txt_file:
