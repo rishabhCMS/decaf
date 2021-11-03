@@ -42,7 +42,7 @@ for dataset in lst:
 flist = glob.glob('metadata/UL_'+options.year+'/*.txt')
 datadict_obj = {}
 for txt_file in flist:
-    if 'MET' in txt_file or 'SinglePhoton' in txt_file:
+    if 'MET' in txt_file:
         continue
 
 #     print(txt_file)
