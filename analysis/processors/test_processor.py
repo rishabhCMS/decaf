@@ -39,7 +39,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-#                  'ecalBadCalibFilterV2'
+                 'ecalBadCalibFilterV2'
                  ],
 
         '2018': ['goodVertices',
@@ -561,8 +561,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         met = events.MET
-#         if self._year == '2017':
-#             events.METFixEE2017  # Recommended for 2017
+        if self._year == '2017':
+            events.METFixEE2017  # Recommended for 2017
         met['T'] = TVector2Array.from_polar(met.pt, met.phi)
         calomet = events.CaloMET
         puppimet = events.PuppiMET
@@ -1132,28 +1132,28 @@ class AnalysisProcessor(processor.ProcessorABC):
         #WJetsToLNu_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT>200
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
             selection.add("exclude_wjets_greater_200", np.full(events_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
         else:
             selection.add("exclude_wjets_less_200", np.full(events_size, True))
             
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_less_400", np.full(events_size, True))
             
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_greater_400", np.full(events_size, True))
@@ -1418,33 +1418,32 @@ class AnalysisProcessor(processor.ProcessorABC):
                     systematics = [None,
 #                                    'btagUp',
 #                                    'btagDown',
-#                                    'qcd1Up',
-#                                    'qcd1Down',
-#                                    'qcd2Up',
-#                                    'qcd2Down',
-#                                    'qcd3Up',
-#                                    'qcd3Down',
-#                                    'muFUp',
-#                                    'muFDown',
-#                                    'muRUp',
-#                                    'muRDown',
-#                                    'ew1Up',
-#                                    'ew1Down',
-#                                    'ew2GUp',
-#                                    'ew2GDown',
-#                                    'ew2WUp',
-#                                    'ew2WDown',
-#                                    'ew2ZUp',
-#                                    'ew2ZDown',
-#                                    'ew3GUp',
-#                                    'ew3GDown',
-#                                    'ew3WUp',
-#                                    'ew3WDown',
-#                                    'ew3ZUp',
-#                                    'ew3ZDown',
-#                                    'mixUp',
-#                                    'mixDown'
-                                  ]
+                                   'qcd1Up',
+                                   'qcd1Down',
+                                   'qcd2Up',
+                                   'qcd2Down',
+                                   'qcd3Up',
+                                   'qcd3Down',
+                                   'muFUp',
+                                   'muFDown',
+                                   'muRUp',
+                                   'muRDown',
+                                   'ew1Up',
+                                   'ew1Down',
+                                   'ew2GUp',
+                                   'ew2GDown',
+                                   'ew2WUp',
+                                   'ew2WDown',
+                                   'ew2ZUp',
+                                   'ew2ZDown',
+                                   'ew3GUp',
+                                   'ew3GDown',
+                                   'ew3WUp',
+                                   'ew3WDown',
+                                   'ew3ZUp',
+                                   'ew3ZDown',
+                                   'mixUp',
+                                   'mixDown']
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
                         #HF for template_mt_dphi_met_lj
@@ -1577,7 +1576,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 h.scale(scale, axis='dataset')
 
         return accumulator
-
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-y', '--year', help='year', dest='year')
