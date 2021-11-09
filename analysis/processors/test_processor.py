@@ -1205,8 +1205,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('exactly_1_medium_btag',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
         for region in mT.keys():
-            sel_name = 'mt'+'_'+region+'>40'
-            select = (mT[region] >= 40)
+            sel_name = 'mt'+'_'+region+'>50'
+            select = (mT[region] >= 50)
             selection.add(sel_name, select)
 #         selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
 
@@ -1223,16 +1223,16 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             selection.add(sel_name, select)
         regions = {
             'sre': {'isoneE', 'exactly_1_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers',
-                     'Delta_Phi_Met_LJ', 'mt_sre>40','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",},
+                     'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",},
             'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers',
-                    'Delta_Phi_Met_LJ', 'mt_srm>40',  'met100', 'noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",},
+                    'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",},
             'ttbare': {'isoneE', 'atleast_2_medium_btag', 'noHEMj', 'met_filters', 'single_electron_triggers',
-                       'Delta_Phi_Met_LJ', 'mt_ttbare>40', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
+                       'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
             'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers',
-                        'Delta_Phi_Met_LJ', 'mt_ttbarm>40' , 'met100','noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
+                        'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
             'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers',
-                       'Delta_Phi_Met_LJ', 'mt_wjete>40' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
-            'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers','Delta_Phi_Met_LJ', 'mt_wjetm>40', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_wjets_less_200","exclude_dyjets_greater_400", "exclude_wjets_greater_200",}
+                       'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'leading_j>70', 'noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
+            'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers','Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMj', 'leading_j>70','noHEMmet','noHEMj',"exclude_dyjets_less_400", "exclude_wjets_less_200","exclude_dyjets_greater_400", "exclude_wjets_greater_200",}
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
