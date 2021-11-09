@@ -2803,7 +2803,6 @@
     },
     "SingleMuon____136_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/130000/4E075F6B-ED42-6B4D-B86F-E8079841E020.root",
             "root://cmsxrootd.fnal.gov//store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/130000/5C78099A-5E40-5541-B7C8-C69C81D25EAD.root",
             "root://cmsxrootd.fnal.gov//store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/130000/7FAFC91A-F473-0E44-B908-DEFCCC2D9F27.root"
         ],
