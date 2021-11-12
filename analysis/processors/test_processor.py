@@ -39,7 +39,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-#                  'ecalBadCalibFilterV2'
+                 'ecalBadCalibFilter'
                  ],
 
         '2018': ['goodVertices',
@@ -48,7 +48,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-#                  'ecalBadCalibFilterV2'
+                 'ecalBadCalibFilter'
                  ]
     }
 
