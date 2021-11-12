@@ -805,9 +805,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             genTops = gen[gen.isTop]
             events_size = len(e)
             ttjet_weights = np.ones(events_size)
-            if('TTJets' in dataset):
-                ttjet_weights = np.sqrt(get_ttbar_weight(
-                    genTops.pt.sum()) * get_ttbar_weight(genTops.pt.sum()))
+#             if('TTJets' in dataset):
+#                 ttjet_weights = np.sqrt(get_ttbar_weight(
+#                     genTops.pt.sum()) * get_ttbar_weight(genTops.pt.sum()))
 
             gen['isW'] = (abs(gen.pdgId) == 24) & gen.hasFlags(
                 ['fromHardProcess', 'isLastCopy'])
