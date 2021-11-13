@@ -1623,7 +1623,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
 #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
 #                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                              )
 
                         
@@ -1643,7 +1643,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               mT=mT[region][cut].flatten(),
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                              )
                         
                         # LF for template_mt_dphi_lep_etmiss
@@ -1660,7 +1660,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                             )
 
                         # LF for template_etmiss_dphi_lep_etmiss
@@ -1677,7 +1677,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
                                               lep_eta=lep_eta[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
                                              )
 
                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
