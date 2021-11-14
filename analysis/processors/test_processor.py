@@ -1409,9 +1409,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         events_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu)
 #                 weights.add('trig', trig[region])
-#                 weights.add('ids', ids[region])
-#                 weights.add('reco', reco[region])
-#                 weights.add('isolation', isolation[region])
+                weights.add('ids', ids[region])
+                weights.add('reco', reco[region])
+                weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
@@ -1734,7 +1734,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                              )                        
 
                     fill(dataset, weights.weight(), cut)
-        time.sleep(0.5)
+#         time.sleep(0.5)
         return hout
     def postprocess(self, accumulator):
         scale = {}
