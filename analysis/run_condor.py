@@ -53,7 +53,7 @@ Arguments = $ENV(METADATA) $ENV(SAMPLE) $ENV(PROCESSOR) $ENV(CLUSTER) $ENV(USER)
 accounting_group=group_cms
 JobBatchName = $ENV(BTCN)
 request_cpus = 3
-request_memory = 12G
+request_memory = 8G
 Queue 1"""
 
 if options.cluster == 'lpc':
