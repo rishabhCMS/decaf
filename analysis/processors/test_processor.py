@@ -1577,7 +1577,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
 #                                              )
                     ## Cutflow loop
-                    vcut=np.zeros(events.size, dtype=np.int)
+                    vcut=np.zeros(events_size, dtype=np.int)
                     hout['cutflow'].fill(dataset='HFb--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf_b)
                     hout['cutflow'].fill(dataset='HFc--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf_c)
 
@@ -1758,7 +1758,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                               weight=(weights.weight(modifier=systematic)[cut]).flatten()
 #                                              )                        
                     ## Cutflow loop
-                    vcut=np.zeros(events.size, dtype=np.int)
+                    vcut=np.zeros(len(e), dtype=np.int)
                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
                     allcuts = set()
                     for i, icut in enumerate(cuts):
