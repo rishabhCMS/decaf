@@ -256,7 +256,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           75.581
+        xs:           91.4936
         source:       global
         isData:       False
         jec:          Total
@@ -268,7 +268,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           309.195
+        xs:           374.292
         source:       global
         isData:       False
         jec:          Total
@@ -280,7 +280,7 @@
         tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
         dbs:
             /TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
-        xs:           302.324
+        xs:           365.9744
         source:       global
         isData:       False
         jec:          Total
