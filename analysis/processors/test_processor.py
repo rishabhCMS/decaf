@@ -73,7 +73,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         Flag_goodVertices
         GenPart_eta
         GenPart_genPartIdxMother
-        GenPart_pdgIdGenPart_phi
+        GenPart_pdgId
+        GenPart_phi
         GenPart_pt
         GenPart_statusFlags
         HLT_Ele115_CaloIdVT_GsfTrkIdT
@@ -469,7 +470,14 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5),
                 hist.Bin('dphi_lep_etmiss', '$\Delta\phi (lepton, E^T_{miss} )$', 30, 0, 3.5),
                 hist.Bin('lep_eta', 'Leading Lepton Eta', 48, -2.4, 2.4)
-            )
+            ),
+            'cutflow': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                #hist.Bin('cut', 'Cut index', 11, 0, 11),
+                hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+            ),
         })
 
     @property
@@ -491,7 +499,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if sample not in dataset:
                     continue
                 selected_regions.append(region)
-
+#         print(events.columns)
+#         import sys
+#         sys.exit(0)
         isData = 'genWeight' not in events.columns
         selection = processor.PackedSelection()
         hout = self.accumulator.identity()
@@ -1248,7 +1258,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
 #               '\n', 'e_ntight->', e_ntight.sum())
-        for region in selected_regions:
+        for region, cuts in regions.items():
+            if region not in selected_regions: continue
             #             print('Considering region:', region)
 
             ###
@@ -1343,39 +1354,39 @@ class AnalysisProcessor(processor.ProcessorABC):
                     hout['sumw'].fill(dataset=dataset, sumw=1, weight=1)
                     isFilled = True
                 cut = selection.all(*regions[region])
-                hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
-                                      region=region,
-                                      systematic='nominal',
-                                      mT=mT[region][cut].flatten(),
-                                      dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+#                 hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
+#                                       region=region,
+#                                       systematic='nominal',
+#                                       mT=mT[region][cut].flatten(),
+#                                       dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+# #                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+# #                                       eT_miss=met.pt[cut].flatten(),               
+#                                       weight=np.ones(events_size)[cut].flatten())
+#                 hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
+#                                       region=region,
+#                                       systematic='nominal',
+#                                       mT=mT[region][cut].flatten(),
 #                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-#                                       eT_miss=met.pt[cut].flatten(),               
-                                      weight=np.ones(events_size)[cut].flatten())
-                hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
-                                      region=region,
-                                      systematic='nominal',
-                                      mT=mT[region][cut].flatten(),
-                                      dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                      weight=np.ones(events_size)[cut].flatten())
-                hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
-                                      region=region,
-                                      systematic='nominal',
-                                      dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                      eT_miss=met.pt[cut].flatten(),
-                                      weight=np.ones(events_size)[cut].flatten())
-                hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
-                                      region=region,
-                                      systematic='nominal',
-                                      dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                      lep_eta=lep_eta[region][cut].flatten(),
-                                      weight=np.ones(events_size)[cut].flatten())
+#                                       weight=np.ones(events_size)[cut].flatten())
+#                 hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
+#                                       region=region,
+#                                       systematic='nominal',
+#                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                       eT_miss=met.pt[cut].flatten(),
+#                                       weight=np.ones(events_size)[cut].flatten())
+#                 hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+#                                       region=region,
+#                                       systematic='nominal',
+#                                       dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                       lep_eta=lep_eta[region][cut].flatten(),
+#                                       weight=np.ones(events_size)[cut].flatten())
                 
                 fill(dataset, np.ones(events_size), cut)
             else:
                 weights = processor.Weights(len(e))
 #                 if 'L1PreFiringWeight' in events.columns:
 #                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
-                weights.add('genw', events.genWeight)
+#                 weights.add('genw', events.genWeight)
 #                 weights.add('nlo_qcd', nlo_qcd)
 #                 weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
@@ -1407,11 +1418,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         events_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
 #                     weights.add('muR', np.ones(
 #                         events_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu)
+#                 weights.add('pileup', pu)
 #                 weights.add('trig', trig[region])
-                weights.add('ids', ids[region])
-                weights.add('reco', reco[region])
-                weights.add('isolation', isolation[region])
+#                 weights.add('ids', ids[region])
+#                 weights.add('reco', reco[region])
+#                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
@@ -1461,111 +1472,125 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                    'mixUp',
 #                                    'mixDown'
                                   ]
-                    for systematic in systematics:
-                        sname = 'nominal' if systematic is None else systematic
-                        #HF_b for template_mt_dphi_met_lj
-                        hout['template_mt_dphi_met_lj'].fill(dataset='HFb--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
-#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-#                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
-                                             )
-                        #HF_c for template_mt_dphi_met_lj
-                        hout['template_mt_dphi_met_lj'].fill(dataset='HFc--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
-#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-#                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
-                                             )
+#                     for systematic in systematics:
+#                         sname = 'nominal' if systematic is None else systematic
+#                         #HF_b for template_mt_dphi_met_lj
+#                         hout['template_mt_dphi_met_lj'].fill(dataset='HFb--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+# #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+# #                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+#                                              )
+#                         #HF_c for template_mt_dphi_met_lj
+#                         hout['template_mt_dphi_met_lj'].fill(dataset='HFc--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+# #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+# #                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
+#                                              )
                         
-                        #LF for template_mt_dphi_met_lj
-                        hout['template_mt_dphi_met_lj'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+#                         #LF for template_mt_dphi_met_lj
+#                         hout['template_mt_dphi_met_lj'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+# #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+# #                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                              )
+#                         # HF_b for template_mt_dphi_lep_etmiss
+#                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='HFb--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+#                                              )
+#                         # HF_c for template_mt_dphi_lep_etmiss
+#                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='HFc--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
+#                                              )
+#                         # LF for template_mt_dphi_lep_etmiss
+#                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                             )
+#                         # HF_b for template_etmiss_dphi_lep_etmiss
+#                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HFb--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
 #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
 #                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                             )
-                        # HF_b for template_mt_dphi_lep_etmiss
-                        hout['template_mt_dphi_lep_etmiss'].fill(dataset='HFb--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
-                                             )
-                        # HF_c for template_mt_dphi_lep_etmiss
-                        hout['template_mt_dphi_lep_etmiss'].fill(dataset='HFc--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
-                                             )
-                        # LF for template_mt_dphi_lep_etmiss
-                        hout['template_mt_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                            )
-                        # HF_b for template_etmiss_dphi_lep_etmiss
-                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HFb--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
-                                            )
-                        # HF_b for template_etmiss_dphi_lep_etmiss
-                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HFc--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
-                                            )
-                        # LF for template_etmiss_dphi_lep_etmiss
-                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                            )
-                        # HF_b for template_lep_eta_dphi_lep_etmiss
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='HFb--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              lep_eta=lep_eta[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
-                                             )
-                        # HF_c for template_lep_eta_dphi_lep_etmiss
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='HFc--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              lep_eta=lep_eta[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
-                                             )
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              lep_eta=lep_eta[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                             )
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+#                                             )
+#                         # HF_b for template_etmiss_dphi_lep_etmiss
+#                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HFc--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
+#                                             )
+#                         # LF for template_etmiss_dphi_lep_etmiss
+#                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                             )
+#                         # HF_b for template_lep_eta_dphi_lep_etmiss
+#                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='HFb--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               lep_eta=lep_eta[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_b[cut]).flatten()
+#                                              )
+#                         # HF_c for template_lep_eta_dphi_lep_etmiss
+#                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='HFc--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               lep_eta=lep_eta[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf_c[cut]).flatten()
+#                                              )
+#                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               lep_eta=lep_eta[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                              )
+                    ## Cutflow loop
+                    vcut=np.zeros(events.size, dtype=np.int)
+                    hout['cutflow'].fill(dataset='HFb--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf_b)
+                    hout['cutflow'].fill(dataset='HFc--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf_c)
 
+                    hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
+                    allcuts = set()
+                    for i, icut in enumerate(cuts):
+                        allcuts.add(icut)
+                        jcut = selection.all(*allcuts)
+                        vcut = (i+1)*jcut
+                        hout['cutflow'].fill(dataset='HFb--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf_b)
+                        hout['cutflow'].fill(dataset='HFc--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf_c)
+
+                        hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
 #                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('HFb--'+dataset, weights.weight()*whf_b, cut)
                     fill('HFc--'+dataset, weights.weight()*whf_c, cut)
@@ -1613,80 +1638,80 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                    'mixUp',
 #                                    'mixDown'
                                   ]
-                    for systematic in systematics:
-                        sname = 'nominal' if systematic is None else systematic
+#                     for systematic in systematics:
+#                         sname = 'nominal' if systematic is None else systematic
                         #HF for template_mt_dphi_met_lj
-                        hout['template_mt_dphi_met_lj'].fill(dataset='HF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
-#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-#                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
-                                             )
+#                         hout['template_mt_dphi_met_lj'].fill(dataset='HF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+# #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+# #                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
+#                                              )
 
                         
-                        #LF for template_mt_dphi_met_lj
-                        hout['template_mt_dphi_met_lj'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+#                         #LF for template_mt_dphi_met_lj
+#                         hout['template_mt_dphi_met_lj'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min().flatten(),
+# #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+# #                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                              )
+#                         # HF for template_mt_dphi_lep_etmiss
+#                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
+#                                              )
+                        
+#                         # LF for template_mt_dphi_lep_etmiss
+#                         hout['template_mt_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                             )
+#                         # HF for template_etmiss_dphi_lep_etmiss
+#                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
 #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
 #                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                             )
-                        # HF for template_mt_dphi_lep_etmiss
-                        hout['template_mt_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut],
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
-                                             )
-                        
-                        # LF for template_mt_dphi_lep_etmiss
-                        hout['template_mt_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                            )
-                        # HF for template_etmiss_dphi_lep_etmiss
-                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
-                                            )
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
+#                                             )
 
-                        # LF for template_etmiss_dphi_lep_etmiss
-                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                            )
-                        # HF for template_lep_eta_dphi_lep_etmiss
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              lep_eta=lep_eta[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
-                                             )
+#                         # LF for template_etmiss_dphi_lep_etmiss
+#                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                             )
+#                         # HF for template_lep_eta_dphi_lep_etmiss
+#                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='HF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               lep_eta=lep_eta[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(whf[cut]).flatten()
+#                                              )
 
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              lep_eta=lep_eta[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
-                                             )
+#                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset='LF--'+dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               lep_eta=lep_eta[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
+#                                              )
 
 #                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('HF--'+dataset, weights.weight()*whf, cut)
@@ -1698,41 +1723,49 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-                    for systematic in [None]:
+#                     for systematic in [None]:
 #                     for systematic in [None, 'btagUp', 'btagDown']:
-                        sname = 'nominal' if systematic is None else systematic
-                        hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min(),
+#                         sname = 'nominal' if systematic is None else systematic
+#                         hout['template_mt_dphi_met_lj'].fill(dataset=dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_Met_LJ=abs(met.T.delta_phi(leading_j.T))[cut].min(),
+# #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+# #                                               eT_miss=met.pt[cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut]).flatten(),
+#                                              )
+#                         hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               mT=mT[region][cut].flatten(),
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut]).flatten(),
+#                                              )
+                    
+#                         hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
+#                                               region=region,
+#                                               systematic=sname,
 #                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
 #                                               eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut]).flatten(),
-                                             )
-                        hout['template_mt_dphi_lep_etmiss'].fill(dataset=dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              mT=mT[region][cut].flatten(),
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut]).flatten(),
-                                             )
-                    
-                        hout['template_etmiss_dphi_lep_etmiss'].fill(dataset=dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              eT_miss=met.pt[cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut]).flatten(),
-                                              )
-                        hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
-                                              region=region,
-                                              systematic=sname,
-                                              dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
-                                              lep_eta=lep_eta[region][cut].flatten(),
-                                              weight=(weights.weight(modifier=systematic)[cut]).flatten()
-                                             )                        
-
+#                                               weight=(weights.weight(modifier=systematic)[cut]).flatten(),
+#                                               )
+#                         hout['template_lep_eta_dphi_lep_etmiss'].fill(dataset=dataset,
+#                                               region=region,
+#                                               systematic=sname,
+#                                               dphi_lep_etmiss=dphi_lep_etmiss[region][cut].flatten(),
+#                                               lep_eta=lep_eta[region][cut].flatten(),
+#                                               weight=(weights.weight(modifier=systematic)[cut]).flatten()
+#                                              )                        
+                    ## Cutflow loop
+                    vcut=np.zeros(events.size, dtype=np.int)
+                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
+                    allcuts = set()
+                    for i, icut in enumerate(cuts):
+                        allcuts.add(icut)
+                        jcut = selection.all(*allcuts)
+                        vcut = (i+1)*jcut
+                        hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     fill(dataset, weights.weight(), cut)
 #         time.sleep(0.5)
         return hout
@@ -1752,6 +1785,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 h.scale(scale, axis='dataset')
 
         return accumulator
+
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-y', '--year', help='year', dest='year')
