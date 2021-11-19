@@ -476,7 +476,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 #hist.Bin('cut', 'Cut index', 11, 0, 11),
-                hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+                hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
             ),
         })
 
@@ -1151,6 +1151,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         #WJetsToLNu_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT<200
         #WJetsToLNu_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8 WpT>200
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
+            print("hi I am in Wjets  pt")
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
@@ -1158,6 +1159,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             selection.add("exclude_wjets_greater_200", np.full(events_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
+            print("hi I am in Wjets not pt")
+
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
@@ -1165,6 +1168,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             selection.add("exclude_wjets_less_200", np.full(events_size, True))
             
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
+            print("hi I am in DY not pt")
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
@@ -1172,6 +1176,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             selection.add("exclude_dyjets_less_400", np.full(events_size, True))
             
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
+            print("hi I am in DY pt")
             GenPart = events.GenPart
             remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
@@ -1242,23 +1247,28 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             select = mT[region] > 310 & mT[region] <
 #             selection.add(sel_name, select)
         regions = {
-            'sre': {'isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",},
-            'srm': {'isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",},
-            'ttbare': {'isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
-            'ttbarm': {'isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
-            'wjete': {'isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", },
-            'wjetm': {'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers','Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_wjets_less_200","exclude_dyjets_greater_400", "exclude_wjets_greater_200",
-                     'atleast_one_jet_with_pt_grt_50'}
+            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+                     'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",],
+            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+                    'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200",],
+            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+                       'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", ],
+            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+                        'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", ],
+            'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+                       'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", "exclude_wjets_less_200", "exclude_wjets_greater_200", ],
+            'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers','Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_wjets_less_200","exclude_dyjets_greater_400", "exclude_wjets_greater_200",
+                     'atleast_one_jet_with_pt_grt_50']
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
 #               '\n', 'e_ntight->', e_ntight.sum())
         for region, cuts in regions.items():
+            if 'wjete' in region:
+                print(region, cuts)
+            else:continue  
+#             import sys
+#             sys.exit(0)
             if region not in selected_regions: continue
             #             print('Considering region:', region)
 
@@ -1384,6 +1394,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(events_size), cut)
             else:
                 weights = processor.Weights(len(e))
+#                 print("weights.weight",weights.weight())
+#                 import sys
+#                 sys.exit(0)
 #                 if 'L1PreFiringWeight' in events.columns:
 #                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
 #                 weights.add('genw', events.genWeight)
@@ -1418,21 +1431,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         events_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
 #                     weights.add('muR', np.ones(
 #                         events_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-#                 weights.add('pileup', pu)
-#                 weights.add('trig', trig[region])
-#                 weights.add('ids', ids[region])
-#                 weights.add('reco', reco[region])
-#                 weights.add('isolation', isolation[region])
+                weights.add('pileup', pu)
+                weights.add('trig', trig[region])
+                weights.add('ids', ids[region])
+                weights.add('reco', reco[region])
+                weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
 
-                if 'WJets' in dataset:
+                if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
                         hout['sumw'].fill(
-                            dataset='HFb--'+dataset, sumw=1, weight=events.genWeight.sum())
-                        hout['sumw'].fill(
-                            dataset='HFc--'+dataset, sumw=1, weight=events.genWeight.sum())
+                            dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
+#                         hout['sumw'].fill(
+#                             dataset='HFc--'+dataset, sumw=1, weight=events.genWeight.sum())
                         hout['sumw'].fill(
                             dataset='LF--'+dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
@@ -1442,7 +1455,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     whf_c =  (gen[gen.isc].counts > 0).astype(np.int)
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
-                    systematics = [None,
+#                     systematics = [None,
 #                                    'btagUp',
 #                                    'btagDown',
 #                                    'qcd1Up',
@@ -1471,7 +1484,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                    'ew3ZDown',
 #                                    'mixUp',
 #                                    'mixDown'
-                                  ]
+#                                   ]
 #                     for systematic in systematics:
 #                         sname = 'nominal' if systematic is None else systematic
 #                         #HF_b for template_mt_dphi_met_lj
@@ -1577,38 +1590,33 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                               weight=(weights.weight(modifier=systematic)[cut])*(wlf[cut]).flatten()
 #                                              )
                     ## Cutflow loop
-                    vcut=np.zeros(events_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset='HFb--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf_b)
-                    hout['cutflow'].fill(dataset='HFc--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf_c)
-
+                    vcut=np.zeros(events.size, dtype=np.int)
+                    hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
                     hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
                     allcuts = set()
                     for i, icut in enumerate(cuts):
                         allcuts.add(icut)
                         jcut = selection.all(*allcuts)
                         vcut = (i+1)*jcut
-                        hout['cutflow'].fill(dataset='HFb--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf_b)
-                        hout['cutflow'].fill(dataset='HFc--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf_c)
-
+                        
+                        hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
                         hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
-#                     fill('HF--'+dataset, weights.weight()*whf, cut)
-                    fill('HFb--'+dataset, weights.weight()*whf_b, cut)
-                    fill('HFc--'+dataset, weights.weight()*whf_c, cut)
+                    fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('LF--'+dataset, weights.weight()*wlf, cut)
 
-                elif 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
-                    if not isFilled:
-                        hout['sumw'].fill(
-                            dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
-                        hout['sumw'].fill(
-                            dataset='LF--'+dataset, sumw=1, weight=events.genWeight.sum())
-                        isFilled = True
-                    whf = ((gen[gen.isb].counts > 0) | (gen[gen.isc].counts > 0)).astype(np.int)
-#                     whf_b =  (gen[gen.isb].counts > 0).astype(np.int)
-#                     whf_c =  (gen[gen.isc].counts > 0).astype(np.int)
-                    wlf = (~(whf.astype(np.bool))).astype(np.int)
-                    cut = selection.all(*regions[region])
-                    systematics = [None,
+#                 elif 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
+#                     if not isFilled:
+#                         hout['sumw'].fill(
+#                             dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
+#                         hout['sumw'].fill(
+#                             dataset='LF--'+dataset, sumw=1, weight=events.genWeight.sum())
+#                         isFilled = True
+#                     whf = ((gen[gen.isb].counts > 0) | (gen[gen.isc].counts > 0)).astype(np.int)
+# #                     whf_b =  (gen[gen.isb].counts > 0).astype(np.int)
+# #                     whf_c =  (gen[gen.isc].counts > 0).astype(np.int)
+#                     wlf = (~(whf.astype(np.bool))).astype(np.int)
+#                     cut = selection.all(*regions[region])
+#                     systematics = [None,
 #                                    'btagUp',
 #                                    'btagDown',
 #                                    'qcd1Up',
@@ -1637,7 +1645,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                    'ew3ZDown',
 #                                    'mixUp',
 #                                    'mixDown'
-                                  ]
+#                                   ]
 #                     for systematic in systematics:
 #                         sname = 'nominal' if systematic is None else systematic
                         #HF for template_mt_dphi_met_lj
