@@ -1401,8 +1401,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-#                     for systematic in [None]:
-                    for systematic in [None, 'btagUp', 'btagDown']:
+                    for systematic in [None]:
+#                     for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
