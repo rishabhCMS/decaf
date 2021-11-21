@@ -1076,7 +1076,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
             print("hi I am in Wjets  pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
@@ -1085,7 +1085,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             print("hi I am in Wjets not pt")
 
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1093,7 +1093,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
             print("hi I am in DY not pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_less_400", np.full(event_size, True))
@@ -1101,7 +1101,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
             print("hi I am in DY pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
@@ -1290,12 +1290,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = processor.Weights(len(events))
-                if 'L1PreFiringWeight' in events.columns:
-                    weights.add('prefiring', events.L1PreFiringWeight.Nom)
+#                 if 'L1PreFiringWeight' in events.columns:
+#                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
 #                 weights.add('nlo_qcd', nlo_qcd)
 #                 weights.add('nlo_ewk', nlo_ewk)
-                weights.add('ttjet_weights', ttjet_weights)
+#                 weights.add('ttjet_weights', ttjet_weights)
 #                 if 'cen' in nnlo_nlo:
                     #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
 #                     weights.add('qcd1', np.ones(
