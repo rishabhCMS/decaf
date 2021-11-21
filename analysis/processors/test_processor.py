@@ -1165,28 +1165,27 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'noHEMj'],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", ],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", ],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
             'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", ],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
-            'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers','Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,
-                      'noHEMmet',"exclude_dyjets_less_400", "exclude_wjets_less_200","exclude_dyjets_greater_400", 
-                      "exclude_wjets_greater_200",
-                     'atleast_one_jet_with_pt_grt_50']
+            'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+                      'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj']
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
