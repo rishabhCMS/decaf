@@ -643,7 +643,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_j = j[j.pt.argmax()]
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
-        atleast_one_jet_with_pt_grt_50 = ((j_nclean>=1) & (j_clean.pt>=50).any())
+        atleast_one_jet_with_pt_grt_50 = ((j_nclean>=0) & (leading_j.pt>=50).any())
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
         # medium     0.4184
@@ -1107,21 +1107,14 @@ class AnalysisProcessor(processor.ProcessorABC):
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
             
             
-        selection.add('DeltaR_LJ_mask',
-                      (DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
+        selection.add('DeltaR_LJ_mask',(DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
 
-        selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
-                      & (tau_nloose == 0))
-        selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (
-            mu_nloose == 1))
-        selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (
-            mu_nloose == 0))
-        selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
-                      & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
-                      & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (
-            tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
+        selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)& (tau_nloose == 0))
+        selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (mu_nloose == 1))
+        selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (mu_nloose == 0))
+        selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2) & (tau_nloose == 0) & (pho_nloose == 0))
+        selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)& (tau_nloose == 0) & (pho_nloose == 0))
+        selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
 #         selection.add('leading_e_pt', (e_loose.pt.max() > 40))
 #         selection.add('dimu_mass', (leading_dimu.mass.sum() > 60)
 #                       & (leading_dimu.mass.sum() < 120))
@@ -1165,27 +1158,27 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'. 'DeltaR_LJ_Ele_mask'],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'noHEMj'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'noHEMj','DeltaR_LJ_Mu_mask'],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj','DeltaR_LJ_Ele_mask'],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask'],
             
             'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
             
             'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj']
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask']
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
