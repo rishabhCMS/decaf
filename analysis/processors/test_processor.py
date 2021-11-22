@@ -1158,7 +1158,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'. 'DeltaR_LJ_Ele_mask'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
