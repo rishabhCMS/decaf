@@ -753,12 +753,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 ttjet_weights = np.sqrt(get_ttbar_weight(
                     genTops.pt.sum()) * get_ttbar_weight(genTops.pt.sum()))
 
-            gen['isW'] = (abs(gen.pdgId) == 24) & gen.hasFlags(
-                ['fromHardProcess', 'isLastCopy'])
-            gen['isZ'] = (abs(gen.pdgId) == 23) & gen.hasFlags(
-                ['fromHardProcess', 'isLastCopy'])
-            gen['isA'] = (abs(gen.pdgId) == 22) & gen.hasFlags(
-                ['isPrompt', 'fromHardProcess', 'isLastCopy']) & (gen.status == 1)
+            gen['isW'] = (abs(gen.pdgId) == 24) & gen.hasFlags(['fromHardProcess', 'isLastCopy'])
+            gen['isZ'] = (abs(gen.pdgId) == 23) & gen.hasFlags(['fromHardProcess', 'isLastCopy'])
+            gen['isA'] = (abs(gen.pdgId) == 22) & gen.hasFlags(['isPrompt', 'fromHardProcess', 'isLastCopy']) & (gen.status == 1)
 
             ###
             # Calculating gen photon dynamic isolation as in https://arxiv.org/pdf/1705.04664.pdf
@@ -798,58 +795,50 @@ class AnalysisProcessor(processor.ProcessorABC):
             nnlo_nlo = {}
             nlo_qcd = np.ones(event_size)
             nlo_ewk = np.ones(event_size)
-#             if('GJets' in dataset):
-#                 if self._year == '2016':
-#                     nlo_qcd = get_nlo_qcd_weight['a'](genIsoAs.pt.max())
-#                     nlo_ewk = get_nlo_ewk_weight['a'](genIsoAs.pt.max())
-#                 for systematic in get_nnlo_nlo_weight['a']:
-#                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max(
-#                     ))*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
+            if('GJets' in dataset):
+                if self._year == '2016':
+                    nlo_qcd = get_nlo_qcd_weight['a'](genIsoAs.pt.max())
+                    nlo_ewk = get_nlo_ewk_weight['a'](genIsoAs.pt.max())
+                for systematic in get_nnlo_nlo_weight['a']:
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max())*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
 
-#             elif ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
-#                 nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
-#                 nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
-#                 for systematic in get_nnlo_nlo_weight['w']:
-#                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['w'][systematic](genWs.pt.max(
-#                     ))*(genWs.counts > 0).astype(np.int) + (~(genWs.counts > 0)).astype(np.int)
+            elif ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
+                nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
+                nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
+                for systematic in get_nnlo_nlo_weight['w']:
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['w'][systematic](genWs.pt.max())*(genWs.counts > 0).astype(np.int) + (~(genWs.counts > 0)).astype(np.int)
 
-#             elif('DY' in dataset):
-#                 nlo_qcd = get_nlo_qcd_weight['dy'](genDYs.pt.max())
-#                 nlo_ewk = get_nlo_ewk_weight['dy'](genDYs.pt.max())
-#                 for systematic in get_nnlo_nlo_weight['dy']:
-#                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['dy'][systematic](genZs.pt.max(
-#                     ))*(genZs.counts > 0).astype(np.int) + (~(genZs.counts > 0)).astype(np.int)
-#             elif('ZJets' in dataset):
-#                 nlo_qcd = get_nlo_qcd_weight['z'](genZs.pt.max())
-#                 nlo_ewk = get_nlo_ewk_weight['z'](genZs.pt.max())
-#                 for systematic in get_nnlo_nlo_weight['z']:
-#                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['z'][systematic](genZs.pt.max(
-#                     ))*(genZs.counts > 0).astype(np.int) + (~(genZs.counts > 0)).astype(np.int)
+            elif('DY' in dataset):
+                nlo_qcd = get_nlo_qcd_weight['dy'](genDYs.pt.max())
+                nlo_ewk = get_nlo_ewk_weight['dy'](genDYs.pt.max())
+                for systematic in get_nnlo_nlo_weight['dy']:
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['dy'][systematic](genZs.pt.max())*(genZs.counts > 0).astype(np.int) + (~(genZs.counts > 0)).astype(np.int)
+            elif('ZJets' in dataset):
+                nlo_qcd = get_nlo_qcd_weight['z'](genZs.pt.max())
+                nlo_ewk = get_nlo_ewk_weight['z'](genZs.pt.max())
+                for systematic in get_nnlo_nlo_weight['z']:
+                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['z'][systematic](genZs.pt.max())*(genZs.counts > 0).astype(np.int) + (~(genZs.counts > 0)).astype(np.int)
 
             ###
             # Calculate PU weight and systematic variations
             ###
 
-            pu = get_pu_weight(events.Pileup.nTrueInt)
+            pu = get_pu_weight(events.Pileup.nPVS)
 
             ###
             # Trigger efficiency weight
             ###
 
-            e1sf = get_ele_trig_weight(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(
-            ), leading_ele_pair.i0.pt.sum())*(leading_ele_pair.i0.pt.sum() > 40).astype(np.int)
-            e2sf = get_ele_trig_weight(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(
-            ), leading_ele_pair.i1.pt.sum())*(leading_ele_pair.i1.pt.sum() > 40).astype(np.int)
+            e1sf = get_ele_trig_weight(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum())*(leading_ele_pair.i0.pt.sum() > 40).astype(np.int)
+            e2sf = get_ele_trig_weight(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum())*(leading_ele_pair.i1.pt.sum() > 40).astype(np.int)
 
             if self._year == '2016':
                 sf = get_pho_trig_weight(leading_pho.pt.sum())
             elif self._year == '2017':  # Sigmoid used for 2017 and 2018, values from monojet
-                sf = sigmoid(leading_pho.pt.sum(), 0.335, 217.91, 0.065, 0.996) / \
-                    sigmoid(leading_pho.pt.sum(), 0.244, 212.34, 0.050, 1.000)
+                sf = sigmoid(leading_pho.pt.sum(), 0.335, 217.91, 0.065, 0.996) / sigmoid(leading_pho.pt.sum(), 0.244, 212.34, 0.050, 1.000)
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
             elif self._year == '2018':
-                sf = sigmoid(leading_pho.pt.sum(), 1.022, 218.39, 0.086, 0.999) / \
-                    sigmoid(leading_pho.pt.sum(), 0.301, 212.83, 0.062, 1.000)
+                sf = sigmoid(leading_pho.pt.sum(), 1.022, 218.39, 0.086, 0.999) / sigmoid(leading_pho.pt.sum(), 0.301, 212.83, 0.062, 1.000)
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
 
             trig = {
@@ -1148,6 +1137,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             sel_name = 'mt'+'_'+region+'>50'
             select = (mT[region] >= 50)
             selection.add(sel_name, select)
+            
         selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
 #           adding mT range cut to see some effects
 #         for region in mT.keys():
@@ -1208,7 +1198,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'j1pt':                   leading_j.pt,
                 # 'j1eta':                  leading_j.eta,
                 # 'j1phi':                  leading_j.phi,
-                # 'njets':                  j_nclean,
+#                 'njets':                  j_nclean,
                 # 'ndflvL':                 j_ndflvL,
                 # 'ndcsvL':     j_ndcsvL,
                 # 'e1pt'      : leading_e.pt,
@@ -1281,48 +1271,34 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = processor.Weights(len(events))
-#                 if 'L1PreFiringWeight' in events.columns:
-#                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
+                if 'L1PreFiringWeight' in events.columns:
+                    weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-#                 weights.add('nlo_qcd', nlo_qcd)
-#                 weights.add('nlo_ewk', nlo_ewk)
+                weights.add('nlo_qcd', nlo_qcd)
+                weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
-#                 if 'cen' in nnlo_nlo:
-                    #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
-#                     weights.add('qcd1', np.ones(
-#                         events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
-#                     weights.add('qcd2', np.ones(
-#                         events.size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
-#                     weights.add('qcd3', np.ones(
-#                         events.size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
-#                     weights.add('ew1', np.ones(
-#                         events.size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
-#                     weights.add('ew2G', np.ones(
-#                         events.size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3G', np.ones(
-#                         events.size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
-#                     weights.add('ew2W', np.ones(
-#                         events.size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3W', np.ones(
-#                         events.size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
-#                     weights.add('ew2Z', np.ones(
-#                         events.size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3Z', np.ones(
-#                         events.size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
-#                     weights.add('mix', np.ones(
-#                         events.size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
-#                     weights.add('muF', np.ones(
-#                         events.size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
-#                     weights.add('muR', np.ones(
-#                         events.size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
+                if 'cen' in nnlo_nlo:
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    weights.add('qcd1', np.ones(events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+                    weights.add('qcd2', np.ones(events.size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+                    weights.add('qcd3', np.ones(events.size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+                    weights.add('ew1', np.ones(events.size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
+                    weights.add('ew2G', np.ones(events.size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
+                    weights.add('ew3G', np.ones(events.size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
+                    weights.add('ew2W', np.ones(events.size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
+                    weights.add('ew3W', np.ones(events.size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
+                    weights.add('ew2Z', np.ones(events.size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
+                    weights.add('ew3Z', np.ones(events.size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
+                    weights.add('mix', np.ones(events.size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
+                    weights.add('muF', np.ones(events.size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
+                    weights.add('muR', np.ones(events.size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu)
                 weights.add('trig', trig[region])
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
-#                 weights.add('btag', btag[region],
-#                             btagUp[region], btagDown[region])
+#                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1331,39 +1307,38 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['sumw'].fill(
                             dataset='LF--'+dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
-                    whf = ((gen[gen.isb].counts > 0) | (
-                        gen[gen.isc].counts > 0)).astype(np.int)
+                    whf = ((gen[gen.isb].counts > 0) | (gen[gen.isc].counts > 0)).astype(np.int)
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
 #                                    'btagUp',
 #                                    'btagDown',
-#                                    'qcd1Up',
-#                                    'qcd1Down',
-#                                    'qcd2Up',
-#                                    'qcd2Down',
-#                                    'qcd3Up',
-#                                    'qcd3Down',
-#                                    'muFUp',
-#                                    'muFDown',
-#                                    'muRUp',
-#                                    'muRDown',
-#                                    'ew1Up',
-#                                    'ew1Down',
-#                                    'ew2GUp',
-#                                    'ew2GDown',
-#                                    'ew2WUp',
-#                                    'ew2WDown',
-#                                    'ew2ZUp',
-#                                    'ew2ZDown',
-#                                    'ew3GUp',
-#                                    'ew3GDown',
-#                                    'ew3WUp',
-#                                    'ew3WDown',
-#                                    'ew3ZUp',
-#                                    'ew3ZDown',
-#                                    'mixUp',
-#                                    'mixDown'
+                                   'qcd1Up',
+                                   'qcd1Down',
+                                   'qcd2Up',
+                                   'qcd2Down',
+                                   'qcd3Up',
+                                   'qcd3Down',
+                                   'muFUp',
+                                   'muFDown',
+                                   'muRUp',
+                                   'muRDown',
+                                   'ew1Up',
+                                   'ew1Down',
+                                   'ew2GUp',
+                                   'ew2GDown',
+                                   'ew2WUp',
+                                   'ew2WDown',
+                                   'ew2ZUp',
+                                   'ew2ZDown',
+                                   'ew3GUp',
+                                   'ew3GDown',
+                                   'ew3WUp',
+                                   'ew3WDown',
+                                   'ew3ZUp',
+                                   'ew3ZDown',
+                                   'mixUp',
+                                   'mixDown'
                                   ]
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
