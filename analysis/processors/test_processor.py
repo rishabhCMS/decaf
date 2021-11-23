@@ -432,7 +432,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 #hist.Bin('cut', 'Cut index', 11, 0, 11),
-                hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
+                hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]),
             ),
         })
 
@@ -509,16 +509,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Derive jet corrector for JEC/JER
         ###
 
-        JECcorrector = FactorizedJetCorrector(
-            **{name: Jetevaluator[name] for name in self._jec[self._year]})
-        JECuncertainties = JetCorrectionUncertainty(
-            **{name: Jetevaluator[name] for name in self._junc[self._year]})
-        JER = JetResolution(
-            **{name: Jetevaluator[name] for name in self._jr[self._year]})
-        JERsf = JetResolutionScaleFactor(
-            **{name: Jetevaluator[name] for name in self._jersf[self._year]})
-        Jet_transformer = JetTransformer(
-            jec=JECcorrector, junc=JECuncertainties, jer=JER, jersf=JERsf)
+        JECcorrector = FactorizedJetCorrector(**{name: Jetevaluator[name] for name in self._jec[self._year]})
+        JECuncertainties = JetCorrectionUncertainty(**{name: Jetevaluator[name] for name in self._junc[self._year]})
+        JER = JetResolution(**{name: Jetevaluator[name] for name in self._jr[self._year]})
+        JERsf = JetResolutionScaleFactor(**{name: Jetevaluator[name] for name in self._jersf[self._year]})
+        Jet_transformer = JetTransformer(jec=JECcorrector, junc=JECuncertainties, jer=JER, jersf=JERsf)
 
         ###
         # Initialize global quantities (MET ecc.)
@@ -536,13 +531,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         mu = events.Muon
-        mu['isloose'] = isLooseMuon(
-            mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
-        mu['istight'] = isTightMuon(
-            mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
+        mu['isloose'] = isLooseMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
+        mu['istight'] = isTightMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
         mu['T'] = TVector2Array.from_polar(mu.pt, mu.phi)
-        mu['p4'] = TLorentzVectorArray.from_ptetaphim(
-            mu.pt, mu.eta, mu.phi, mu.mass)
+        mu['p4'] = TLorentzVectorArray.from_ptetaphim(mu.pt, mu.eta, mu.phi, mu.mass)
         mu_loose = mu[mu.isloose.astype(np.bool)]
         mu_tight = mu[mu.istight.astype(np.bool)]
         mu_ntot = mu.counts
@@ -553,13 +545,10 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         e = events.Electron
         e['isclean'] = ~match(e, mu_loose, 0.3)
-        e['isloose'] = isLooseElectron(
-            e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
-        e['istight'] = isTightElectron(
-            e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
+        e['isloose'] = isLooseElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
+        e['istight'] = isTightElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['T'] = TVector2Array.from_polar(e.pt, e.phi)
-        e['p4'] = TLorentzVectorArray.from_ptetaphim(
-            e.pt, e.eta, e.phi, e.mass)
+        e['p4'] = TLorentzVectorArray.from_ptetaphim(e.pt, e.eta, e.phi, e.mass)
         e_clean = e[e.isclean.astype(np.bool)]
         e_loose = e_clean[e_clean.isloose.astype(np.bool)]
         e_tight = e_clean[e_clean.istight.astype(np.bool)]
@@ -823,7 +812,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             # Calculate PU weight and systematic variations
             ###
 
-            pu = get_pu_weight(events.Pileup.nPVS)
+            pu = get_pu_weight(events.Pileup.nTrueInt)
 
             ###
             # Trigger efficiency weight
@@ -1276,7 +1265,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-#                 weights.add('ttjet_weights', ttjet_weights)
+                weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
@@ -1302,10 +1291,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
-                        hout['sumw'].fill(
-                            dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
-                        hout['sumw'].fill(
-                            dataset='LF--'+dataset, sumw=1, weight=events.genWeight.sum())
+                        hout['sumw'].fill(dataset='HF--'+dataset, sumw=1, weight=events.genWeight.sum())
+                        hout['sumw'].fill(dataset='LF--'+dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     whf = ((gen[gen.isb].counts > 0) | (gen[gen.isc].counts > 0)).astype(np.int)
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
@@ -1349,16 +1336,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,)
                     ## Cutflow loop
-#                     vcut=np.zeros(event_size, dtype=np.int)
-#                     hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
-#                     hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
-#                     allcuts = set()
-#                     for i, icut in enumerate(cuts):
-#                         allcuts.add(icut)
-#                         jcut = selection.all(*allcuts)
-#                         vcut = (i+1)*jcut
-#                         hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
-#                         hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
+                    vcut=np.zeros(event_size, dtype=np.int)
+                    hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
+                    hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
+                    allcuts = set()
+                    for i, icut in enumerate(cuts):
+                        allcuts.add(icut)
+                        jcut = selection.all(*allcuts)
+                        vcut = (i+1)*jcut
+                        hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
+                        hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('LF--'+dataset, weights.weight()*wlf, cut)
                 else:
@@ -1375,14 +1362,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               weight=weights.weight(modifier=systematic)*cut)
                     ## Cutflow loop
-#                     vcut=np.zeros(event_size, dtype=np.int)
-#                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
-#                     allcuts = set()
-#                     for i, icut in enumerate(cuts):
-#                         allcuts.add(icut)
-#                         jcut = selection.all(*allcuts)
-#                         vcut = (i+1)*jcut
-#                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
+                    vcut=np.zeros(event_size, dtype=np.int)
+                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
+                    allcuts = set()
+                    for i, icut in enumerate(cuts):
+                        allcuts.add(icut)
+                        jcut = selection.all(*allcuts)
+                        vcut = (i+1)*jcut
+                        hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     fill(dataset, weights.weight(), cut)
 #         time.sleep(0.5)
         return hout
