@@ -643,7 +643,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_j = j[j.pt.argmax()]
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
-        atleast_one_jet_with_pt_grt_50 = ((j_nclean>0) & (leading_j.pt>=50).any())
+        atleast_one_jet_with_pt_grt_50 = ((j_nclean>0) & (leading_j.pt>=70).any())
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
         # medium     0.4184
@@ -1076,7 +1076,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
             print("hi I am in Wjets  pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
@@ -1085,7 +1085,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             print("hi I am in Wjets not pt")
 
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1093,7 +1093,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
             print("hi I am in DY not pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_less_400", np.full(event_size, True))
@@ -1101,7 +1101,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
             print("hi I am in DY pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
@@ -1109,12 +1109,12 @@ class AnalysisProcessor(processor.ProcessorABC):
             
         selection.add('DeltaR_LJ_mask',(DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
 
-        selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)& (tau_nloose == 0))
+#         selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)& (tau_nloose == 0))
         selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (mu_nloose == 1))
         selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (mu_nloose == 0))
-        selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2) & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)& (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
+#         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2) & (tau_nloose == 0) & (pho_nloose == 0))
+#         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)& (tau_nloose == 0) & (pho_nloose == 0))
+#         selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
 #         selection.add('leading_e_pt', (e_loose.pt.max() > 40))
 #         selection.add('dimu_mass', (leading_dimu.mass.sum() > 60)
 #                       & (leading_dimu.mass.sum() < 120))
@@ -1129,15 +1129,14 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMmet', noHEMmet)
         selection.add('met80', (met.pt < 80))
         selection.add('met100', (met.pt > 100))
-        selection.add(
-            'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
+#         selection.add('mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
 #         selection.add('zero_medium_btags',
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
         selection.add('Delta_Phi_Met_LJ', (Delta_Phi_Met_LJ))
         selection.add('DeltaR_LJ_Ele_mask', (DeltaR_LJ_Ele_mask))
 
-        selection.add('one_muon', (mu_tight.counts == 1))
-        selection.add('zero_loose_electron', (e_loose.counts == 0))
+#         selection.add('one_muon', (mu_tight.counts == 1))
+#         selection.add('zero_loose_electron', (e_loose.counts == 0))
         selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
 
 #         selection.add('atleast_2_medium_btag',
@@ -1156,27 +1155,27 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             select = mT[region] > 310 & mT[region] <
 #             selection.add(sel_name, select)
         regions = {
-            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'leading_j>70',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
             
-            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'leading_j>70',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",'noHEMj','DeltaR_LJ_Mu_mask'],
             
-            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'leading_j>70',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj','DeltaR_LJ_Ele_mask'],
             
-            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'leading_j>70',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask'],
             
-            'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'leading_j>70',
                        'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
             
-            'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'leading_j>70',
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask']
         }
@@ -1375,16 +1374,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,)
                     ## Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
-                    hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
-                        hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
-                        hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
+#                     hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
+#                         hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
+#                         hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('LF--'+dataset, weights.weight()*wlf, cut)
                 else:
@@ -1401,14 +1400,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               weight=weights.weight(modifier=systematic)*cut)
                     ## Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
-                        hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
+#                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     fill(dataset, weights.weight(), cut)
 #         time.sleep(0.5)
         return hout
