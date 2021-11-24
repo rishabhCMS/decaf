@@ -1054,7 +1054,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
             print("hi I am in Wjets  pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
@@ -1063,7 +1063,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             print("hi I am in Wjets not pt")
 
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1071,7 +1071,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
             print("hi I am in DY not pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_less_400", np.full(event_size, True))
@@ -1079,7 +1079,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
             print("hi I am in DY pt")
             GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
+            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
@@ -1099,17 +1099,16 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('diele_mass', (leading_diele.mass.sum() > 60)
 #                       & (leading_diele.mass.sum() < 120))
         selection.add('atleast_one_jet_with_pt_grt_50',atleast_one_jet_with_pt_grt_50)
-        selection.add('exactly_1_medium_btag', (j_ndflvM == 1))
-        selection.add('atleast_2_medium_btag', (j_ndflvM >= 2))
-        selection.add('zero_medium_btags', (j_ndflvM == 0))
+#         selection.add('exactly_1_medium_btag', (j_ndflvM == 1))
+#         selection.add('atleast_2_medium_btag', (j_ndflvM >= 2))
+#         selection.add('zero_medium_btags', (j_ndflvM == 0))
 
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
         selection.add('met80', (met.pt < 80))
         selection.add('met100', (met.pt > 100))
 #         selection.add('mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
-#         selection.add('zero_medium_btags',
-#                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
+        selection.add('zero_medium_btags_csv',(j_ndcsvM == 0))
         selection.add('Delta_Phi_Met_LJ', (Delta_Phi_Met_LJ))
         selection.add('DeltaR_LJ_Ele_mask', (DeltaR_LJ_Ele_mask))
 
@@ -1117,11 +1116,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('zero_loose_electron', (e_loose.counts == 0))
         selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
 
-#         selection.add('atleast_2_medium_btag',
-#                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
+        selection.add('exactly_2_medium_btag_csv',(j_ndcsvM == 2))
 
-#         selection.add('exactly_1_medium_btag',
-#                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
+        selection.add('exactly_1_medium_btag_csv',(j_ndcsvM == 1))
         for region in mT.keys():
             sel_name = 'mt'+'_'+region+'>50'
             select = (mT[region] >= 50)
@@ -1134,29 +1131,29 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             select = mT[region] > 310 & mT[region] <
 #             selection.add(sel_name, select)
         regions = {
-            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'leading_j>70',
+            'sre': ['isoneE', 'exactly_1_medium_btag_csv', 'met_filters', 'single_electron_triggers', 'leading_j>70',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
-            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'leading_j>70',
+            'srm': ['isoneM', 'exactly_1_medium_btag_csv', 'met_filters', 'single_muon_triggers', 'leading_j>70',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'noHEMj','DeltaR_LJ_Mu_mask'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'noHEMj'],
             
-            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'leading_j>70',
+            'ttbare': ['isoneE', 'exactly_2_medium_btag_csv', 'met_filters', 'single_electron_triggers', 'leading_j>70',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj','DeltaR_LJ_Ele_mask'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
-            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'leading_j>70',
+            'ttbarm': ['isoneM', 'exactly_2_medium_btag_csv', 'met_filters', 'single_muon_triggers', 'leading_j>70',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
-            'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'leading_j>70',
+            'wjete': ['isoneE', 'zero_medium_btags_csv', 'met_filters', 'single_electron_triggers', 'leading_j>70',
                        'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj'],
             
-            'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'leading_j>70',
+            'wjetm': ['isoneM', 'zero_medium_btags_csv', 'met_filters', 'single_muon_triggers', 'leading_j>70',
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask']
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj']
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
