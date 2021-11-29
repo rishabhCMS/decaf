@@ -745,7 +745,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             gen['isTop'] = (abs(gen.pdgId) == 6) & gen.hasFlags(
                 ['fromHardProcess', 'isLastCopy'])
             genTops = gen[gen.isTop]
-            ttjet_weights = np.ones(events.size)
+            ttjet_weights = np.ones(events_size)
             if('TTJets' in dataset):
                 ttjet_weights = np.sqrt(get_ttbar_weight(
                     genTops.pt.sum()) * get_ttbar_weight(genTops.pt.sum()))
@@ -793,8 +793,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             genIsoAs = gen[gen.isIsoA & (gen.pt > 100)]
 
             nnlo_nlo = {}
-            nlo_qcd = np.ones(events.size)
-            nlo_ewk = np.ones(events.size)
+            nlo_qcd = np.ones(event_size)
+            nlo_ewk = np.ones(event_size)
             if('GJets' in dataset):
                 if self._year == '2016':
                     nlo_qcd = get_nlo_qcd_weight['a'](genIsoAs.pt.max())
@@ -903,11 +903,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             reco = {
                 'sre': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'srm': np.ones(events.size),
+                'srm': np.ones(event_size),
                 'ttbare': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'ttbarm': np.ones(events.size),
+                'ttbarm': np.ones(event_size),
                 'wjete': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-                'wjetm': np.ones(events.size),
+                'wjetm': np.ones(event_size),
                 # 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
                 # 'dilepm': np.ones(events.size)
             }
@@ -917,11 +917,11 @@ class AnalysisProcessor(processor.ProcessorABC):
             ###
 
             isolation = {
-                'sre': np.ones(events.size),
+                'sre': np.ones(event_size),
                 'srm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
-                'ttbare': np.ones(events.size),
+                'ttbare': np.ones(event_size),
                 'ttbarm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
-                'wjete': np.ones(events.size),
+                'wjete': np.ones(event_size),
                 'wjetm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
                 # 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
                 # 'dilepe': np.ones(events.size),
@@ -944,12 +944,12 @@ class AnalysisProcessor(processor.ProcessorABC):
             csev_weight[csev_weight == 0] = 1
 
             csev = {
-                'sre': np.ones(events.size),
-                'srm': np.ones(events.size),
-                'ttbare': np.ones(events.size),
-                'ttbarm': np.ones(events.size),
-                'wjete': np.ones(events.size),
-                'wjetm': np.ones(events.size),
+                'sre': np.ones(event_size),
+                'srm': np.ones(event_size),
+                'ttbare': np.ones(event_size),
+                'ttbarm': np.ones(event_size),
+                'wjete': np.ones(event_size),
+                'wjetm': np.ones(event_size),
                 # 'dilepe': np.ones(events.size),
                 # 'dilepm': np.ones(events.size),
                 # 'gcr':  csev_weight
@@ -987,7 +987,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Selections
         ###
 
-        met_filters = np.ones(events.size, dtype=np.bool)
+        met_filters = np.ones(event_size, dtype=np.bool)
         # this filter is recommended for data only
         if isData:
             met_filters = met_filters & events.Flag['eeBadScFilter']
@@ -995,39 +995,39 @@ class AnalysisProcessor(processor.ProcessorABC):
             met_filters = met_filters & events.Flag[flag]
         selection.add('met_filters', met_filters)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(event_size, dtype=np.bool)
         for path in self._met_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('met_triggers', triggers)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(event_size, dtype=np.bool)
         for path in self._singleelectron_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_electron_triggers', triggers)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(event_size, dtype=np.bool)
         for path in self._singlephoton_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_photon_triggers', triggers)
 
-        triggers = np.zeros(events.size, dtype=np.bool)
+        triggers = np.zeros(event_size, dtype=np.bool)
         for path in self._singlemuon_triggers[self._year]:
             if path not in events.HLT.columns:
                 continue
             triggers = triggers | events.HLT[path]
         selection.add('single_muon_triggers', triggers)
 
-        noHEMj = np.ones(events.size, dtype=np.bool)
+        noHEMj = np.ones(event_size, dtype=np.bool)
         if self._year == '2018':
             noHEMj = (j_nHEM == 0)
 
-        noHEMmet = np.ones(events.size, dtype=np.bool)
+        noHEMmet = np.ones(event_size, dtype=np.bool)
         if self._year == '2018':
             noHEMmet = (met.pt > 470) | (met.phi > -0.62) | (met.phi < -1.62)
 
@@ -1279,8 +1279,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hout['template'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
-                                      weight=np.ones(events.size)*cut)
-                fill(dataset, np.ones(events.size), cut)
+                                      weight=np.ones(event_size)*cut)
+                fill(dataset, np.ones(event_size), cut)
             else:
                 weights = processor.Weights(len(events))
                 if 'L1PreFiringWeight' in events.columns:
@@ -1292,31 +1292,31 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 if 'cen' in nnlo_nlo:
                     #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
 #                     weights.add('qcd1', np.ones(
-#                         events.size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
 #                     weights.add('qcd2', np.ones(
-#                         events.size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
 #                     weights.add('qcd3', np.ones(
-#                         events.size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
 #                     weights.add('ew1', np.ones(
-#                         events.size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
 #                     weights.add('ew2G', np.ones(
-#                         events.size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
 #                     weights.add('ew3G', np.ones(
-#                         events.size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
 #                     weights.add('ew2W', np.ones(
-#                         events.size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
 #                     weights.add('ew3W', np.ones(
-#                         events.size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
 #                     weights.add('ew2Z', np.ones(
-#                         events.size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
 #                     weights.add('ew3Z', np.ones(
-#                         events.size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
 #                     weights.add('mix', np.ones(
-#                         events.size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
 #                     weights.add('muF', np.ones(
-#                         events.size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
 #                     weights.add('muR', np.ones(
-#                         events.size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
+#                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu)
                 weights.add('trig', trig[region])
                 weights.add('ids', ids[region])
