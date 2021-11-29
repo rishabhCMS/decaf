@@ -73,7 +73,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         Flag_goodVertices
         GenPart_eta
         GenPart_genPartIdxMother
-        GenPart_pdgIdGenPart_phi
+        GenPart_pdgId
+        GenPart_phi
         GenPart_pt
         GenPart_statusFlags
         HLT_Ele115_CaloIdVT_GsfTrkIdT
@@ -641,7 +642,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_j = j[j.pt.argmax()]
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
-        atleast_one_jet_with_pt_grt_50 = ((j_nclean>0) & (leading_j.pt>=50).any())
+        atleast_one_jet_with_pt_grt_50 = ((j_nclean>0) & (j_clean.pt>50).any())
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
         # medium     0.4184
@@ -657,7 +658,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['p4'] = TLorentzVectorArray.from_ptetaphim(
             j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>1.5
+        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).sum())>1.5
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
@@ -745,7 +746,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             gen['isTop'] = (abs(gen.pdgId) == 6) & gen.hasFlags(
                 ['fromHardProcess', 'isLastCopy'])
             genTops = gen[gen.isTop]
-            ttjet_weights = np.ones(events_size)
+            ttjet_weights = np.ones(event_size)
             if('TTJets' in dataset):
                 ttjet_weights = np.sqrt(get_ttbar_weight(
                     genTops.pt.sum()) * get_ttbar_weight(genTops.pt.sum()))
@@ -909,7 +910,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'wjete': sf(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
                 'wjetm': np.ones(event_size),
                 # 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
-                # 'dilepm': np.ones(events.size)
+                # 'dilepm': np.ones(event_size)
             }
 
             ###
@@ -924,7 +925,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'wjete': np.ones(event_size),
                 'wjetm': get_mu_tight_iso_sf(mueta, leading_mu.pt.sum()),
                 # 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
-                # 'dilepe': np.ones(events.size),
+                # 'dilepe': np.ones(event_size),
             }
 
             ###
@@ -950,8 +951,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ttbarm': np.ones(event_size),
                 'wjete': np.ones(event_size),
                 'wjetm': np.ones(event_size),
-                # 'dilepe': np.ones(events.size),
-                # 'dilepm': np.ones(events.size),
+                # 'dilepe': np.ones(event_size),
+                # 'dilepm': np.ones(event_size),
                 # 'gcr':  csev_weight
             }
 
@@ -1058,9 +1059,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             selection.add("exclude_low_WpT_JetHT", remove_overlap)
 
 #         else:
-#             selection.add("exclude_low_WpT_JetHT", np.full(events.size, True))
+#             selection.add("exclude_low_WpT_JetHT", np.full(event_size, True))
         # i dont think I need a photon trigger
-        #         triggers = np.zeros(events.size, dtype=np.bool)
+        #         triggers = np.zeros(event_size, dtype=np.bool)
         #         for path in PhoTrigger:
         #             if path not in events.HLT.columns: continue
         #             triggers = triggers | events.HLT[path]
@@ -1121,9 +1122,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('diele_mass', (leading_diele.mass.sum() > 60)
 #                       & (leading_diele.mass.sum() < 120))
 
-        selection.add('exactly_1_medium_btag', (j_ndflvM == 1))
-        selection.add('atleast_2_medium_btag', (j_ndflvM >= 2))
-        selection.add('zero_medium_btags', (j_ndflvM == 0))
+        selection.add('exactly_1_medium_btag', (j_ndcsvM == 1))
+        selection.add('atleast_2_medium_btag', (j_ndcsvM >= 2))
+        selection.add('zero_medium_btags', (j_ndcsvM == 0))
 
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
@@ -1158,28 +1159,28 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             selection.add(sel_name, select)
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
+                     'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Ele_mask'],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'noHEMj','DeltaR_LJ_Mu_mask'],
+                    'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'DeltaR_LJ_Mu_mask'],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj','DeltaR_LJ_Ele_mask'],
+                       'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200",'DeltaR_LJ_Ele_mask'],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask'],
+                        'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Mu_mask'],
             
             'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100', 'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Ele_mask'],
+                       'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100','noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Ele_mask'],
             
             'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                      'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'noHEMj', 'DeltaR_LJ_Mu_mask']
+                      'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100', 'noHEMj' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Mu_mask']
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
@@ -1229,7 +1230,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
                 'ndcsvM':     j_ndcsvM,
-#                 'scale_factors': np.ones(events.size, dtype=np.bool)
+#                 'scale_factors': np.ones(event_size, dtype=np.bool)
             }
             if region in mT:
                 variables['mT'] = mT[region]
@@ -1286,9 +1287,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'L1PreFiringWeight' in events.columns:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-                weights.add('nlo_qcd', nlo_qcd)
-                weights.add('nlo_ewk', nlo_ewk)
-                weights.add('ttjet_weights', ttjet_weights)
+#                 weights.add('nlo_qcd', nlo_qcd)
+#                 weights.add('nlo_ewk', nlo_ewk)
+#                 weights.add('ttjet_weights', ttjet_weights)
 #                 if 'cen' in nnlo_nlo:
                     #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
 #                     weights.add('qcd1', np.ones(
@@ -1322,7 +1323,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
-#                 weights.add('csev', csev[region])
+                weights.add('csev', csev[region])
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
 
