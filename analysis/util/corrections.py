@@ -471,12 +471,10 @@ class BTagCorrector:
 get_btag_weight = {
     'deepflav': {
         '2016': {
-            'loosepreVFP'  : BTagCorrector('deepflav','2016','preVFP','loose').btag_weight,
-            'mediumpreVFP' : BTagCorrector('deepflav','2016','preVFP','medium').btag_weight,
-            'tightpreVFP'  : BTagCorrector('deepflav','2016','preVFP','tight').btag_weight,
-            'loosepreVFP'  : BTagCorrector('deepflav','2016','postVFP','loose').btag_weight,
-            'mediumpreVFP' : BTagCorrector('deepflav','2016','postVFP','medium').btag_weight,
-            'tightpreVFP'  : BTagCorrector('deepflav','2016','postVFP','tight').btag_weight,
+            'loose'  : BTagCorrector('deepflav','2016','loose').btag_weight,
+            'medium' : BTagCorrector('deepflav','2016','medium').btag_weight,
+            'tight'  : BTagCorrector('deepflav','2016','tight').btag_weight,
+
         },
         '2017': {
             'loose'  : BTagCorrector('deepflav','2017','loose').btag_weight,
