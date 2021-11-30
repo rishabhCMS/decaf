@@ -15,17 +15,11 @@ def sigmoid(x,a,b,c,d):
     return c + (d-c) / (1 + np.exp(-a * (x-b)))
 
 deepflavWPs = {
-    '2016':{
-        'preVFP':  {
+    '2016':{ 
             'loose' :  0.0508,
             'medium':  0.2598,
             'tight' :  0.6502 
-                    },
-        'postVFP': {
-            'loose' : 0.0480,
-            'medium':  0.2489,
-            'tight' : 0.6377 
-                   }
+               
     },
     '2017': {
         'loose' : 0.0532,
