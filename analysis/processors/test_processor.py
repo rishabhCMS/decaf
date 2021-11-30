@@ -605,8 +605,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j = events.Jet
         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
-        j['isclean'] = ~match(j, e_loose, 0.4) & ~match(
-            j, mu_loose, 0.4) & ~match(j, pho_loose, 0.4)
+        j['isclean'] = ~match(j, e_loose, 0.4) & ~match( j, mu_loose, 0.4) & ~match(j, pho_loose, 0.4)
 #         print(j.isclean)
 
 #         j['isiso'] = ~match(j,j[j.pt.argmax()],0.4)
@@ -1122,9 +1121,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         selection.add('diele_mass', (leading_diele.mass.sum() > 60)
 #                       & (leading_diele.mass.sum() < 120))
 
-        selection.add('exactly_1_medium_btag', (j_ndcsvM == 1))
-        selection.add('atleast_2_medium_btag', (j_ndcsvM >= 2))
-        selection.add('zero_medium_btags', (j_ndcsvM == 0))
+        selection.add('exactly_1_medium_btag', (j_ndflvM == 1))
+        selection.add('atleast_2_medium_btag', (j_ndflvM >= 2))
+        selection.add('zero_medium_btags', (j_ndflvM == 0))
 
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
