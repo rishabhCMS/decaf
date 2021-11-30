@@ -498,6 +498,13 @@ class AnalysisProcessor(processor.ProcessorABC):
         match = self._common['match']
         # to calculate photon trigger efficiency
         sigmoid = self._common['sigmoid']
+        if self.year == '2016':
+            if 'preVFP' in dataset:
+                deepflavWPs = self._common['btagWPs']['deepflav'][self._year]['preVFP']
+                deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]['preVFP']
+            if 'postVFP' in dataset:
+                deepflavWPs = self._common['btagWPs']['deepflav'][self._year]['postVFP']
+                deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]['postVFP']
         deepflavWPs = self._common['btagWPs']['deepflav'][self._year]
         deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]
 
