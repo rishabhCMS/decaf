@@ -498,13 +498,13 @@ class AnalysisProcessor(processor.ProcessorABC):
         match = self._common['match']
         # to calculate photon trigger efficiency
         sigmoid = self._common['sigmoid']
-        if self.year == '2016':
-            if 'preVFP' in dataset:
-                deepflavWPs = self._common['btagWPs']['deepflav'][self._year]['preVFP']
-                deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]['preVFP']
-            if 'postVFP' in dataset:
-                deepflavWPs = self._common['btagWPs']['deepflav'][self._year]['postVFP']
-                deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]['postVFP']
+#         if self.year == '2016':
+#             if 'preVFP' in dataset:
+#                 deepflavWPs = self._common['btagWPs']['deepflav'][self._year]['preVFP']
+#                 deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]['preVFP']
+#             if 'postVFP' in dataset:
+#                 deepflavWPs = self._common['btagWPs']['deepflav'][self._year]['postVFP']
+#                 deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]['postVFP']
         deepflavWPs = self._common['btagWPs']['deepflav'][self._year]
         deepcsvWPs = self._common['btagWPs']['deepcsv'][self._year]
 
@@ -539,6 +539,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         mu = events.Muon
+        event_size = len(mu)
         mu['isloose'] = isLooseMuon(
             mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
         mu['istight'] = isTightMuon(
@@ -555,7 +556,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_mu = leading_mu[leading_mu.istight.astype(np.bool)]
 
         e = events.Electron
-        event_size = len(e)
+        
         e['isclean'] = ~match(e, mu_loose, 0.3)
         e['isloose'] = isLooseElectron(
             e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
@@ -610,6 +611,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_pho = leading_pho[leading_pho.istight.astype(np.bool)]
 
         j = events.Jet
+        j['T'] = TVector2Array.from_polar(j.pt, j.phi)
+        j['p4'] = TLorentzVectorArray.from_ptetaphim(j.pt, j.eta, j.phi, j.mass)
         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
         j['isclean'] = ~match(j, e_loose, 0.4) & ~match( j, mu_loose, 0.4) & ~match(j, pho_loose, 0.4)
@@ -660,11 +663,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # ************ calculate delta phi( leading ak4jet, met) > 1.5***********
 
-        j['T'] = TVector2Array.from_polar(j.pt, j.phi)
-        j['p4'] = TLorentzVectorArray.from_ptetaphim(
-            j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).sum())>1.5
+
+        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T)).min())>1.5
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
@@ -810,12 +811,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max(
                     ))*(genIsoAs.counts > 0).astype(np.int) + (~(genIsoAs.counts > 0)).astype(np.int)
 
-            elif ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
-                nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
-                nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
-                for systematic in get_nnlo_nlo_weight['w']:
-                    nnlo_nlo[systematic] = get_nnlo_nlo_weight['w'][systematic](genWs.pt.max(
-                    ))*(genWs.counts > 0).astype(np.int) + (~(genWs.counts > 0)).astype(np.int)
+#             elif ('WJetsToLNu' in dataset) & (events.metadata['dataset'].split('-')[0].split('_')[1] == 'HT'):
+#                 nlo_qcd = get_nlo_qcd_weight['w'](genWs.pt.max())
+#                 nlo_ewk = get_nlo_ewk_weight['w'](genWs.pt.max())
+#                 for systematic in get_nnlo_nlo_weight['w']:
+#                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['w'][systematic](genWs.pt.max(
+#                     ))*(genWs.counts > 0).astype(np.int) + (~(genWs.counts > 0)).astype(np.int)
 
             elif('DY' in dataset):
                 nlo_qcd = get_nlo_qcd_weight['dy'](genDYs.pt.max())
@@ -1113,9 +1114,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
                       & (tau_nloose == 0))
         selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (
-            mu_nloose == 1))
+            mu_nloose == 1) & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (
-            mu_nloose == 0))
+            mu_nloose == 0) & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
                       & (tau_nloose == 0) & (pho_nloose == 0))
         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
@@ -1329,7 +1330,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
-                weights.add('csev', csev[region])
+#                 weights.add('csev', csev[region])
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
 
