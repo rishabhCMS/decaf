@@ -942,7 +942,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'dilepe': np.ones(event_size),
                 # 'dilepm': np.ones(event_size),
                 # 'gcr':  csev_weight
-            }
+#             }
 
             ###
             # AK4 b-tagging weights
