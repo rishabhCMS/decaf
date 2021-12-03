@@ -594,7 +594,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j = events.Jet
         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
-        j['isclean'] = ~match(j, e, 0.4) & ~match(j, mu, 0.4) #& ~match(j, pho_loose, 0.4)
+        j['isclean'] = ~match(j, e_loose, 0.4) & ~match(j, mu_loose, 0.4) #& ~match(j, pho_loose, 0.4)
 #         print(j.isclean)
 
 #         j['isiso'] = ~match(j,j[j.pt.argmax()],0.4)
@@ -629,7 +629,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_j = j[j.pt.argmax()]
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
-        atleast_one_jet_with_pt_grt_50 = ((j_nclean>0) & (j_clean.pt>50).any())
+        atleast_one_jet_with_pt_grt_50 = ((j_nclean>=1) & (j_clean.pt>=50).any())
 
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
@@ -645,7 +645,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j['T'] = TVector2Array.from_polar(j.pt, j.phi)
 #         j['p4'] = TLorentzVectorArray.from_ptetaphim(j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = ((leading_j.T.delta_phi(met.T)).min())>1.5
+        Delta_Phi_Met_LJ = (abs(leading_j.T.delta_phi(met.T)).min())>1.5
 #         Delta_Phi_Met_LJ = ((abs(met.T.delta_phi(j_clean.T))).max())>1.5
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
@@ -1113,7 +1113,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
         selection.add('met80', (met.pt < 80))
-        selection.add('met100', (met.pt > 100))
+        selection.add('met100', (met.pt >= 100))
 #         selection.add(
 #             'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
 #         selection.add('zero_medium_btags',
@@ -1132,9 +1132,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
         for region in mT.keys():
             sel_name = 'mt'+'_'+region+'>50'
-            select = (mT[region] > 50)
+            select = (mT[region] >= 50)
             selection.add(sel_name, select)
-        selection.add('leading_j>70',(leading_j.pt.sum() >50)) # from the monotop paper
+        selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
         selection.add('atleast_one_jet_with_pt_grt_50',(atleast_one_jet_with_pt_grt_50))
 
             
@@ -1265,11 +1265,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = processor.Weights(len(events))
-                if 'L1PreFiringWeight' in events.columns:
-                    weights.add('prefiring', events.L1PreFiringWeight.Nom)
-                weights.add('genw', events.genWeight)
-                weights.add('nlo_qcd', nlo_qcd)
-                weights.add('nlo_ewk', nlo_ewk)
+#                 if 'L1PreFiringWeight' in events.columns:
+#                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
+#                 weights.add('genw', events.genWeight)
+#                 weights.add('nlo_qcd', nlo_qcd)
+#                 weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
 #                 if 'cen' in nnlo_nlo:
 #                     #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
@@ -1299,11 +1299,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
 #                     weights.add('muR', np.ones(
 #                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu)
-                weights.add('trig', trig[region])
-                weights.add('ids', ids[region])
-                weights.add('reco', reco[region])
-                weights.add('isolation', isolation[region])
+#                 weights.add('pileup', pu)
+#                 weights.add('trig', trig[region])
+#                 weights.add('ids', ids[region])
+#                 weights.add('reco', reco[region])
+#                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
@@ -1406,8 +1406,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 dataset = dataset.split('--')[1]
             print('Cross section:', self._xsec[dataset])
             if self._xsec[dataset] != -1:
-#                 scale[d.name] = 1
-                scale[d.name] = self._lumi*self._xsec[dataset]
+                scale[d.name] = 1
+#                 scale[d.name] = self._lumi*self._xsec[dataset]
             else:
                 scale[d.name] = 1
 
