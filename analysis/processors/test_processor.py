@@ -1265,11 +1265,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = processor.Weights(len(events))
-#                 if 'L1PreFiringWeight' in events.columns:
-#                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
-#                 weights.add('genw', events.genWeight)
-#                 weights.add('nlo_qcd', nlo_qcd)
-#                 weights.add('nlo_ewk', nlo_ewk)
+                if 'L1PreFiringWeight' in events.columns:
+                    weights.add('prefiring', events.L1PreFiringWeight.Nom)
+                weights.add('genw', events.genWeight)
+                weights.add('nlo_qcd', nlo_qcd)
+                weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
 #                 if 'cen' in nnlo_nlo:
 #                     #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
@@ -1299,11 +1299,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
 #                     weights.add('muR', np.ones(
 #                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-#                 weights.add('pileup', pu)
+                weights.add('pileup', pu)
 #                 weights.add('trig', trig[region])
-#                 weights.add('ids', ids[region])
-#                 weights.add('reco', reco[region])
-#                 weights.add('isolation', isolation[region])
+                weights.add('ids', ids[region])
+                weights.add('reco', reco[region])
+                weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
 #                 weights.add('btag', btag[region],
 #                             btagUp[region], btagDown[region])
@@ -1406,8 +1406,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 dataset = dataset.split('--')[1]
             print('Cross section:', self._xsec[dataset])
             if self._xsec[dataset] != -1:
-                scale[d.name] = 1
-#                 scale[d.name] = self._lumi*self._xsec[dataset]
+#                 scale[d.name] = 1
+                scale[d.name] = self._lumi*self._xsec[dataset]
             else:
                 scale[d.name] = 1
 
