@@ -111,6 +111,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         Photon_pt
         Tau_eta
         Tau_idDecayMode
+        Tau_idDeepTau2017v2p1VSjet
+        Tau_idDecayModeOldDMs
         Tau_idMVAoldDM2017v2
         Tau_phi
         Tau_pt
@@ -512,16 +514,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Derive jet corrector for JEC/JER
         ###
 
-        JECcorrector = FactorizedJetCorrector(
-            **{name: Jetevaluator[name] for name in self._jec[self._year]})
-        JECuncertainties = JetCorrectionUncertainty(
-            **{name: Jetevaluator[name] for name in self._junc[self._year]})
-        JER = JetResolution(
-            **{name: Jetevaluator[name] for name in self._jr[self._year]})
-        JERsf = JetResolutionScaleFactor(
-            **{name: Jetevaluator[name] for name in self._jersf[self._year]})
-        Jet_transformer = JetTransformer(
-            jec=JECcorrector, junc=JECuncertainties, jer=JER, jersf=JERsf)
+        JECcorrector = FactorizedJetCorrector(**{name: Jetevaluator[name] for name in self._jec[self._year]})
+        JECuncertainties = JetCorrectionUncertainty(**{name: Jetevaluator[name] for name in self._junc[self._year]})
+        JER = JetResolution(**{name: Jetevaluator[name] for name in self._jr[self._year]})
+        JERsf = JetResolutionScaleFactor(**{name: Jetevaluator[name] for name in self._jersf[self._year]})
+        Jet_transformer = JetTransformer(jec=JECcorrector, junc=JECuncertainties, jer=JER, jersf=JERsf)
 
         ###
         # Initialize global quantities (MET ecc.)
@@ -540,13 +537,10 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         mu = events.Muon
         event_size = len(mu)
-        mu['isloose'] = isLooseMuon(
-            mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
-        mu['istight'] = isTightMuon(
-            mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
+        mu['isloose'] = isLooseMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
+        mu['istight'] = isTightMuon( mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
         mu['T'] = TVector2Array.from_polar(mu.pt, mu.phi)
-        mu['p4'] = TLorentzVectorArray.from_ptetaphim(
-            mu.pt, mu.eta, mu.phi, mu.mass)
+        mu['p4'] = TLorentzVectorArray.from_ptetaphim(mu.pt, mu.eta, mu.phi, mu.mass)
         mu_loose = mu[mu.isloose.astype(np.bool)]
         mu_tight = mu[mu.istight.astype(np.bool)]
         mu_ntot = mu.counts
@@ -558,13 +552,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         e = events.Electron
         
         e['isclean'] = ~match(e, mu_loose, 0.3)
-        e['isloose'] = isLooseElectron(
-            e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
-        e['istight'] = isTightElectron(
-            e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
+        e['isloose'] = isLooseElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
+        e['istight'] = isTightElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['T'] = TVector2Array.from_polar(e.pt, e.phi)
-        e['p4'] = TLorentzVectorArray.from_ptetaphim(
-            e.pt, e.eta, e.phi, e.mass)
+        e['p4'] = TLorentzVectorArray.from_ptetaphim(e.pt, e.eta, e.phi, e.mass)
         e_clean = e[e.isclean.astype(np.bool)]
         e_loose = e_clean[e_clean.isloose.astype(np.bool)]
         e_tight = e_clean[e_clean.istight.astype(np.bool)]
@@ -595,10 +586,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         _id = 'cutBased'
         if self._year == '2016':
             _id = 'cutBased'
-        pho['isloose'] = isLoosePhoton(pho.pt, pho.eta, pho[_id], self._year) & (
-            pho.electronVeto)  # added electron veto flag
-        pho['istight'] = isTightPhoton(pho.pt, pho[_id], self._year) & (
-            pho.isScEtaEB) & (pho.electronVeto)  # tight photons are barrel only
+        pho['isloose'] = isLoosePhoton(pho.pt, pho.eta, pho[_id], self._year) & (pho.electronVeto)  # added electron veto flag
+        pho['istight'] = isTightPhoton(pho.pt, pho[_id], self._year) & (pho.isScEtaEB) & (pho.electronVeto)  # tight photons are barrel only
         pho['T'] = TVector2Array.from_polar(pho.pt, pho.phi)
         pho_clean = pho[pho.isclean.astype(np.bool)]
         pho_loose = pho_clean[pho_clean.isloose.astype(np.bool)]
@@ -624,8 +613,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium'])
         j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium'])
         j['T'] = TVector2Array.from_polar(j.pt, j.phi)
-        j['p4'] = TLorentzVectorArray.from_ptetaphim(
-            j.pt, j.eta, j.phi, j.mass)
+        j['p4'] = TLorentzVectorArray.from_ptetaphim(j.pt, j.eta, j.phi, j.mass)
         j['ptRaw'] = j.pt * (1-j.rawFactor)
         j['massRaw'] = j.mass * (1-j.rawFactor)
         j['rho'] = j.pt.ones_like()*events.fixedGridRhoFastjetAll.array
@@ -655,8 +643,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
         # medium     0.4184
-        btagWP_medium = 0.4184
-        Jet_btag_medium = j_clean[j_clean['btagDeepB'] > btagWP_medium]
         ###
         # Calculating derivatives
         ###
@@ -675,33 +661,33 @@ class AnalysisProcessor(processor.ProcessorABC):
         DeltaR_LJ_Mu = LJ_Mu.i0.delta_r(LJ_Mu.i1)
         DeltaR_LJ_Mu_mask = (abs(DeltaR_LJ_Mu).max() < 3.4)
 
-        ele_pairs = e_loose.distincts()
-        diele = ele_pairs.i0+ele_pairs.i1
-        diele['T'] = TVector2Array.from_polar(diele.pt, diele.phi)
-        leading_ele_pair = ele_pairs[diele.pt.argmax()]
-        leading_diele = diele[diele.pt.argmax()]
+#         ele_pairs = e_loose.distincts()
+#         diele = ele_pairs.i0+ele_pairs.i1
+#         diele['T'] = TVector2Array.from_polar(diele.pt, diele.phi)
+#         leading_ele_pair = ele_pairs[diele.pt.argmax()]
+#         leading_diele = diele[diele.pt.argmax()]
 
-        mu_pairs = mu_loose.distincts()
-        dimu = mu_pairs.i0+mu_pairs.i1
-        dimu['T'] = TVector2Array.from_polar(dimu.pt, dimu.phi)
-        leading_mu_pair = mu_pairs[dimu.pt.argmax()]
-        leading_dimu = dimu[dimu.pt.argmax()]
+#         mu_pairs = mu_loose.distincts()
+#         dimu = mu_pairs.i0+mu_pairs.i1
+#         dimu['T'] = TVector2Array.from_polar(dimu.pt, dimu.phi)
+#         leading_mu_pair = mu_pairs[dimu.pt.argmax()]
+#         leading_dimu = dimu[dimu.pt.argmax()]
 
         ###
         # Calculate recoil and transverse mass
         ###
 
-        u = {
-            'sre': met.T+leading_e.T.sum(),
-            'srm': met.T+leading_mu.T.sum(),
-            'ttbare': met.T+leading_e.T.sum(),
-            'ttbarm': met.T+leading_mu.T.sum(),
-            'wjete': met.T+leading_e.T.sum(),
-            'wjetm': met.T+leading_mu.T.sum(),
-            # 'dilepe': met.T+leading_diele.T.sum(),
-            # 'dilepm': met.T+leading_dimu.T.sum(),
-            # 'gcr'   : met.T+leading_pho.T.sum()
-        }
+#         u = {
+#             'sre': met.T+leading_e.T.sum(),
+#             'srm': met.T+leading_mu.T.sum(),
+#             'ttbare': met.T+leading_e.T.sum(),
+#             'ttbarm': met.T+leading_mu.T.sum(),
+#             'wjete': met.T+leading_e.T.sum(),
+#             'wjetm': met.T+leading_mu.T.sum(),
+#             # 'dilepe': met.T+leading_diele.T.sum(),
+#             # 'dilepm': met.T+leading_dimu.T.sum(),
+#             # 'gcr'   : met.T+leading_pho.T.sum()
+#         }
 
         mT = {
             'sre': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
@@ -712,16 +698,16 @@ class AnalysisProcessor(processor.ProcessorABC):
             'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
         }
 
-        LTe = leading_e.pt.sum() + met.pt
-        LTm = leading_mu.pt.sum() + met.pt
-        mT_misET = {
-            'sre': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'srm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'ttbare': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'ttbarm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
-            'wjete': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
-            'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
-        }
+#         LTe = leading_e.pt.sum() + met.pt
+#         LTm = leading_mu.pt.sum() + met.pt
+#         mT_misET = {
+#             'sre': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
+#             'srm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
+#             'ttbare': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
+#             'ttbarm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum())))),
+#             'wjete': np.sqrt(2*leading_e.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_e.T.sum())))),
+#             'wjetm': np.sqrt(2*leading_mu.pt.sum()*met.pt*(1-np.cos(met.T.delta_phi(leading_mu.T.sum()))))
+#         }
 #         Lpe=leading_e.pt / u.mag * \
 #             cos(abs(u[region].delta_phi(leading_e.T)).min())
 #         Lpm=leading_mu.pt / u.mag * \
@@ -744,14 +730,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             gen = events.GenPart
 
-            gen['isb'] = (abs(gen.pdgId) == 5) & gen.hasFlags(
-                ['fromHardProcess', 'isLastCopy'])
+            gen['isb'] = (abs(gen.pdgId) == 5) & gen.hasFlags(['fromHardProcess', 'isLastCopy'])
 
-            gen['isc'] = (abs(gen.pdgId) == 4) & gen.hasFlags(
-                ['fromHardProcess', 'isLastCopy'])
+            gen['isc'] = (abs(gen.pdgId) == 4) & gen.hasFlags(['fromHardProcess', 'isLastCopy'])
 
-            gen['isTop'] = (abs(gen.pdgId) == 6) & gen.hasFlags(
-                ['fromHardProcess', 'isLastCopy'])
+            gen['isTop'] = (abs(gen.pdgId) == 6) & gen.hasFlags(['fromHardProcess', 'isLastCopy'])
             genTops = gen[gen.isTop]
             ttjet_weights = np.ones(event_size)
             if('TTJets' in dataset):
@@ -849,12 +832,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             if self._year == '2016':
                 sf = get_pho_trig_weight(leading_pho.pt.sum())
             elif self._year == '2017':  # Sigmoid used for 2017 and 2018, values from monojet
-                sf = sigmoid(leading_pho.pt.sum(), 0.335, 217.91, 0.065, 0.996) / \
-                    sigmoid(leading_pho.pt.sum(), 0.244, 212.34, 0.050, 1.000)
+                sf = sigmoid(leading_pho.pt.sum(), 0.335, 217.91, 0.065, 0.996) / sigmoid(leading_pho.pt.sum(), 0.244, 212.34, 0.050, 1.000)
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
             elif self._year == '2018':
-                sf = sigmoid(leading_pho.pt.sum(), 1.022, 218.39, 0.086, 0.999) / \
-                    sigmoid(leading_pho.pt.sum(), 0.301, 212.83, 0.062, 1.000)
+                sf = sigmoid(leading_pho.pt.sum(), 1.022, 218.39, 0.086, 0.999) / sigmoid(leading_pho.pt.sum(), 0.301, 212.83, 0.062, 1.000)
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
 
             trig = {
@@ -939,25 +920,25 @@ class AnalysisProcessor(processor.ProcessorABC):
             # CSEV weight for photons: https://twiki.cern.ch/twiki/bin/view/CMS/EgammaIDRecipesRun2#Electron_Veto_CSEV_or_pixel_seed
             ###
 
-            if self._year == '2016':
-                csev_weight = get_pho_csev_sf(
-                    abs(leading_pho.eta.sum()), leading_pho.pt.sum())
-            elif self._year == '2017':
-                csev_sf_index = 0.5*(leading_pho.isScEtaEB.sum()).astype(np.int)+3.5*(~(leading_pho.isScEtaEB.sum())).astype(
-                    np.int)+1*(leading_pho.r9.sum() > 0.94).astype(np.int)+2*(leading_pho.r9.sum() <= 0.94).astype(np.int)
-                csev_weight = get_pho_csev_sf(csev_sf_index)
-            elif self._year == '2018':
-                csev_weight = get_pho_csev_sf(
-                    leading_pho.pt.sum(), abs(leading_pho.eta.sum()))
-            csev_weight[csev_weight == 0] = 1
+#             if self._year == '2016':
+#                 csev_weight = get_pho_csev_sf(
+#                     abs(leading_pho.eta.sum()), leading_pho.pt.sum())
+#             elif self._year == '2017':
+#                 csev_sf_index = 0.5*(leading_pho.isScEtaEB.sum()).astype(np.int)+3.5*(~(leading_pho.isScEtaEB.sum())).astype(
+#                     np.int)+1*(leading_pho.r9.sum() > 0.94).astype(np.int)+2*(leading_pho.r9.sum() <= 0.94).astype(np.int)
+#                 csev_weight = get_pho_csev_sf(csev_sf_index)
+#             elif self._year == '2018':
+#                 csev_weight = get_pho_csev_sf(
+#                     leading_pho.pt.sum(), abs(leading_pho.eta.sum()))
+#             csev_weight[csev_weight == 0] = 1
 
-            csev = {
-                'sre': np.ones(event_size),
-                'srm': np.ones(event_size),
-                'ttbare': np.ones(event_size),
-                'ttbarm': np.ones(event_size),
-                'wjete': np.ones(event_size),
-                'wjetm': np.ones(event_size),
+#             csev = {
+#                 'sre': np.ones(event_size),
+#                 'srm': np.ones(event_size),
+#                 'ttbare': np.ones(event_size),
+#                 'ttbarm': np.ones(event_size),
+#                 'wjete': np.ones(event_size),
+#                 'wjetm': np.ones(event_size),
                 # 'dilepe': np.ones(event_size),
                 # 'dilepm': np.ones(event_size),
                 # 'gcr':  csev_weight
@@ -1073,56 +1054,40 @@ class AnalysisProcessor(processor.ProcessorABC):
         #             if path not in events.HLT.columns: continue
         #             triggers = triggers | events.HLT[path]
         #         selection.add('pho_triggers', triggers)
-        
+#         (abs(gen.pdgId) == 5) & gen.hasFlags(['fromHardProcess', 'isLastCopy'])
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            print("hi I am in Wjets  pt")
-            GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt >= 200).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
 
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            print("hi I am in Wjets not pt")
-
-            GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 24))].pt < 200).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
 
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
-            print("hi I am in DY not pt")
-            GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt < 400).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_less_400", np.full(event_size, True))
 
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
-            print("hi I am in DY pt")
-            GenPart = events.GenPart
-            remove_overlap = (GenPart[GenPart.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(GenPart.pdgId) == 23))].pt >= 400).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
             
 
-        selection.add('DeltaR_LJ_mask',
-                      (DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
+#         selection.add('DeltaR_LJ_mask',(DeltaR_LJ_Ele_mask | DeltaR_LJ_Mu_mask))
 
-        selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)
-                      & (tau_nloose == 0))
-        selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (
-            mu_nloose == 1) & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (
-            mu_nloose == 0) & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)
-                      & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)
-                      & (tau_nloose == 0) & (pho_nloose == 0))
-        selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (
-            tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
+#         selection.add('iszeroL', (e_nloose == 0) & (mu_nloose == 0)& (tau_nloose == 0))
+        selection.add('isoneM', (e_nloose == 0) & (mu_ntight == 1) & (mu_nloose == 1) & (tau_nloose == 0) & (pho_nloose == 0))
+        selection.add('isoneE', (e_ntight == 1) & (e_nloose == 1) & (mu_nloose == 0) & (tau_nloose == 0) & (pho_nloose == 0))
+#         selection.add('istwoM', (e_nloose == 0) & (mu_nloose == 2)& (tau_nloose == 0) & (pho_nloose == 0))
+#         selection.add('istwoE', (e_nloose == 2) & (mu_nloose == 0)& (tau_nloose == 0) & (pho_nloose == 0))
+#         selection.add('isoneA', (e_nloose == 0) & (mu_nloose == 0) & (tau_nloose == 0) & (pho_ntight == 1) & (pho_nloose == 1))
 #         selection.add('leading_e_pt', (e_loose.pt.max() > 40))
 #         selection.add('dimu_mass', (leading_dimu.mass.sum() > 60)
 #                       & (leading_dimu.mass.sum() < 120))
@@ -1135,63 +1100,52 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
-        selection.add('met80', (met.pt < 80))
+#         selection.add('met80', (met.pt < 80))
         selection.add('met100', (met.pt > 100))
-        selection.add(
-            'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
-#         selection.add('zero_medium_btags',
-#                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
+#         selection.add('mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
+#         selection.add('zero_medium_btags',(j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 0))
         selection.add('Delta_Phi_Met_LJ', (Delta_Phi_Met_LJ))
-        selection.add('DeltaR_LJ_Ele_mask', (DeltaR_LJ_Ele_mask))
+#         selection.add('DeltaR_LJ_Ele_mask', (DeltaR_LJ_Ele_mask))
 
-        selection.add('one_muon', (mu_tight.counts == 1))
-        selection.add('zero_loose_electron', (e_loose.counts == 0))
-        selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
+#         selection.add('one_muon', (mu_tight.counts == 1))
+#         selection.add('zero_loose_electron', (e_loose.counts == 0))
+#         selection.add('DeltaR_LJ_Mu_mask', (DeltaR_LJ_Mu_mask))
         selection.add('atleast_one_jet_with_pt_grt_50', atleast_one_jet_with_pt_grt_50)
-
-#         selection.add('atleast_2_medium_btag',
-#                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts >= 2))
-
-#         selection.add('exactly_1_medium_btag',
-#                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
+    
         for region in mT.keys():
             sel_name = 'mt'+'_'+region+'>50'
-            select = (mT[region] >= 50)
+            select = (mT[region] > 50)
             selection.add(sel_name, select)
-        selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
-#           adding mT range cut to see some effects
-#         for region in mT.keys():
-#             sel_name = 'mt'+'_100<'+region+'>310'
-#             select = mT[region] > 310 & mT[region] <
-#             selection.add(sel_name, select)
+            
+#         selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
+
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Ele_mask'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200"],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'DeltaR_LJ_Mu_mask'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200"],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200",'DeltaR_LJ_Ele_mask'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200"],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Mu_mask'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200"],
             
             'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100','noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Ele_mask'],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200"],
             
             'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100', 'noHEMj' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Mu_mask']
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200"]
         }
         isFilled = False
-#         print("mu_ntight->", mu_ntight.sum(),
-#               '\n', 'e_ntight->', e_ntight.sum())
+
         for region, cuts in regions.items():
             if region not in selected_regions: continue
             print('Considering region:', region)
@@ -1251,10 +1205,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             def fill(dataset, weight, cut):
 
-                flat_variables = {k: v[cut].flatten()
-                                  for k, v in variables.items()}
-                flat_weight = {
-                    k: (~np.isnan(v[cut])*weight[cut]).flatten() for k, v in variables.items()}
+                flat_variables = {k: v[cut].flatten()for k, v in variables.items()}
+                flat_weight = {k: (~np.isnan(v[cut])*weight[cut]).flatten() for k, v in variables.items()}
 
                 for histname, h in hout.items():
                     if not isinstance(h, hist.Hist):
@@ -1265,11 +1217,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                         continue
                     elif histname == 'template':
                         continue
-                    elif histname == 'scale_factors':
-                        flat_variable = {histname: flat_weight[histname]}
-                        h.fill(dataset=dataset,
-                               region=region,
-                               **flat_variable)
+#                     elif histname == 'scale_factors':
+#                         flat_variable = {histname: flat_weight[histname]}
+#                         h.fill(dataset=dataset,
+#                                region=region,
+#                                **flat_variable)
 
                     else:
                         flat_variable = {histname: flat_variables[histname]}
@@ -1384,16 +1336,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,)
                     ## Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
-                    hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
-                        hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
-                        hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
+#                     hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
+#                         hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
+#                         hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
                     fill('HF--'+dataset, weights.weight()*whf, cut)
                     fill('LF--'+dataset, weights.weight()*wlf, cut)
                 else:
@@ -1410,14 +1362,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               weight=weights.weight(modifier=systematic)*cut)
                         ## Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
-                        hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
+#                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     fill(dataset, weights.weight(), cut)
 #         time.sleep(0.5)
         return hout
