@@ -78,7 +78,7 @@ jdl_file = open("run.submit", "w")
 jdl_file.write(jdl) 
 jdl_file.close() 
 
-with open('metadata/'+options.metadata+'.json') as fin:
+with open('metadata/UL_'+options.metadata+'.json') as fin:
     datadef = json.load(fin)
 
 for dataset, info in datadef.items():
