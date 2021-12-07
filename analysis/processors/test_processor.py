@@ -594,42 +594,39 @@ class AnalysisProcessor(processor.ProcessorABC):
         j = events.Jet
         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
-        j['isclean'] = ~match(j, e_loose, 0.4) & ~match(j, mu_loose, 0.4) #& ~match(j, pho_loose, 0.4)
-#         print(j.isclean)
-
-#         j['isiso'] = ~match(j,j[j.pt.argmax()],0.4)
-        j['isdcsvL'] = (j.btagDeepB > deepcsvWPs['loose'])
-        j['isdflvL'] = (j.btagDeepFlavB > deepflavWPs['loose'])
-        j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium'])
-        j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium'])
+        j['isclean'] = ~match(j,e_loose,0.4)&~match(j,mu_loose,0.4)&~match(j,pho_loose,0.4)
+        #j['isiso'] = ~match(j,fj_clean[fj_clean.pt.argmax()],1.5)
+        j['isdcsvL'] = (j.btagDeepB>deepcsvWPs['loose'])
+        j['isdflvL'] = (j.btagDeepFlavB>deepflavWPs['loose'])
+        j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium']) ## from Rishab
+        j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium']) ## from Rishabh
         j['T'] = TVector2Array.from_polar(j.pt, j.phi)
         j['p4'] = TLorentzVectorArray.from_ptetaphim(j.pt, j.eta, j.phi, j.mass)
-        j['ptRaw'] = j.pt * (1-j.rawFactor)
+        j['ptRaw'] =j.pt * (1-j.rawFactor)
         j['massRaw'] = j.mass * (1-j.rawFactor)
         j['rho'] = j.pt.ones_like()*events.fixedGridRhoFastjetAll.array
         j_good = j[j.isgood.astype(np.bool)]
-        j_clean = j[j.isclean.astype(np.bool)]
-#         print(j_c)
-#         j_iso = j_clean[j_clean.isiso.astype(np.bool)]
-#         j_iso=j_clean[j_clean.astype(np.bool)]  # Sunil changed
-        j_dcsvL = j_clean[j_clean.isdcsvL.astype(np.bool)]
-        j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
-        j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)]
-        j_dcsvM = j_clean[j_clean.isdcsvM.astype(np.bool)]
+        j_clean = j_good[j_good.isclean.astype(np.bool)]
+        #j_iso = j_clean[j_clean.isiso.astype(np.bool)]
+        #j_iso = j_clean[j_clean.astype(np.bool)]    #Sunil changed
+        j_iso = j_good[j_good.isclean.astype(np.bool)]    #Jieun changed
+        j_dcsvL = j_iso[j_iso.isdcsvL.astype(np.bool)]
+        j_dflvL = j_iso[j_iso.isdflvL.astype(np.bool)]
+        j_dflvM = j_iso[j_iso.isdflvM.astype(np.bool)] ## from Rishabh
+        j_dcsvM = j_iso[j_iso.isdcsvM.astype(np.bool)] ## from Rishabh
         j_HEM = j[j.isHEM.astype(np.bool)]
-        j_ntot = j.counts
-        j_ngood = j_good.counts
-        j_nclean = j_clean.counts
-#         j_niso=j_iso.counts
-        j_ndcsvL = j_dcsvL.counts
-        j_ndflvL = j_dflvL.counts
-        j_ndflvM = j_dflvM.counts
-        j_ndcsvM = j_dcsvM.counts
+        j_ntot=j.counts
+        j_ngood=j_good.counts
+        j_nclean=j_clean.counts
+#        j_niso=j_iso.counts
+        j_ndcsvL=j_dcsvL.counts
+        j_ndflvL=j_dflvL.counts
+        j_ndflvM = j_dflvM.counts ## from Rishabh
+        j_ndcsvM = j_dcsvM.counts ## from Rishabh
         j_nHEM = j_HEM.counts
         leading_j = j[j.pt.argmax()]
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
-        atleast_one_jet_with_pt_grt_50 = ((j_nclean>=1) & (j_clean.pt>=50).any())
 
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
