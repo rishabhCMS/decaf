@@ -52,8 +52,8 @@ TransferOutputRemaps = "$ENV(PROCESSOR)_$ENV(SAMPLE).futures=$ENV(PWD)/hists/$EN
 Arguments = $ENV(METADATA) $ENV(SAMPLE) $ENV(PROCESSOR) $ENV(CLUSTER) $ENV(USER)
 accounting_group=group_cms
 JobBatchName = $ENV(BTCN)
-request_cpus = 4
-request_memory = 13G
+request_cpus = 3
+request_memory = 9G
 Queue 1"""
 
 if options.cluster == 'lpc':
