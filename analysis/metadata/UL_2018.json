@@ -1732,7 +1732,7 @@
     "SingleMuon____2_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2018A/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/110000/D81673DF-C3AC-8246-ADBA-23BB623C9837.root",
-            "root://cmsxrootd.fnal.gov//store/data/Run2018A/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/110000/FF7CA9B0-2E9C-7947-9E3B-37C70FB1F0AA.root",
+            "root://cms-xrd-global.cern.ch//store/data/Run2018A/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/110000/FF7CA9B0-2E9C-7947-9E3B-37C70FB1F0AA.root",
             "root://cmsxrootd.fnal.gov//store/data/Run2018A/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/110000/4321AA99-C7AD-1C4A-BC55-CB5587C658F4.root"
         ],
         "xs": -1
