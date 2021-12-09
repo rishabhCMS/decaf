@@ -351,20 +351,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Bin('jet_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
                          [30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])),
-            'j1eta': hist.Hist(
-                'Events',
-                hist.Cat('dataset', 'Dataset'),
-                hist.Cat('region', 'Region'),
-                hist.Bin('gentype', 'Gen Type', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
-                hist.Bin('j1eta','AK4 Leading Jet Eta',35,-3.5,3.5)
-            ),
             'j1phi': hist.Hist(
                 'Events', 
                 hist.Cat('dataset', 'Dataset'), 
                 hist.Cat('region', 'Region'), 
-                hist.Bin('gentype', 'Gen Type', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
-                hist.Bin('j1phi','AK4 Leading Jet Phi',35,-3.5,3.5)
-            ),
+                hist.Bin('j1phi','AK4 Leading Jet Phi',35,-3.5,3.5)),
             'dphi_e_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
@@ -374,8 +365,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_mu_etmiss',
-                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
+                hist.Bin('dphi_mu_etmiss','$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
             'ndflvL': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -401,7 +391,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading_jet)$', 30, 0, 3.5)),
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5)),
             'dr_e_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
