@@ -351,11 +351,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Bin('jet_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
                          [30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])),
-            'j1phi': hist.Hist(
-                'Events', 
-                hist.Cat('dataset', 'Dataset'), 
-                hist.Cat('region', 'Region'), 
-                hist.Bin('j1phi','AK4 Leading Jet Phi',35,-3.5,3.5)),
             'dphi_e_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
@@ -365,7 +360,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_mu_etmiss','$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
+                hist.Bin('dphi_mu_etmiss',
+                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
             'ndflvL': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -391,7 +387,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading Jet)$', 30, 0, 3.5)),
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading_jet)$', 30, 0, 3.5)),
             'dr_e_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -427,7 +423,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
-
             'cutflow': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -526,6 +521,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         met['T'] = TVector2Array.from_polar(met.pt, met.phi)
         calomet = events.CaloMET
         puppimet = events.PuppiMET
+        puppimet['T'] = TVector2Array.from_polar(puppimet.pt, puppimet.phi)
 
         ###
         # Initialize physics objects
@@ -541,9 +537,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         mu_ntot = mu.counts
         mu_nloose = mu_loose.counts
         mu_ntight = mu_tight.counts
-        leading_mu = mu[mu.pt.argmax()]
-        leading_mu = leading_mu[leading_mu.istight.astype(np.bool)]
-
+#         leading_mu = mu[mu.pt.argmax()]
+#         leading_mu = leading_mu[leading_mu.istight.astype(np.bool)]
+        leading_mu = mu_tight[mu_tight.pt.argmax()]
+        
+        
         e = events.Electron
         event_size = len(e)
         e['isclean'] = ~match(e, mu_loose, 0.3)
@@ -557,9 +555,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         e_ntot = e.counts
         e_nloose = e_loose.counts
         e_ntight = e_tight.counts
-        leading_e = e[e.pt.argmax()]
-        leading_e = leading_e[leading_e.isclean.astype(np.bool)]
-        leading_e = leading_e[leading_e.istight.astype(np.bool)]
+#         good-> clean -> leading
+#         leading_e = e[e.pt.argmax()]
+#         leading_e = leading_e[leading_e.isclean.astype(np.bool)]
+#         leading_e = leading_e[leading_e.istight.astype(np.bool)]
+        leading_e = e_tight[e_tight.pt.argmax()]
         
 
         tau = events.Tau
@@ -613,12 +613,12 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_good = j[j.isgood.astype(np.bool)]
         j_clean = j_good[j_good.isclean.astype(np.bool)]
         #j_iso = j_clean[j_clean.isiso.astype(np.bool)]
-        #j_iso = j_clean[j_clean.astype(np.bool)]    #Sunil changed
-        j_iso = j_good[j_good.isclean.astype(np.bool)]    #Jieun changed
-        j_dcsvL = j_iso[j_iso.isdcsvL.astype(np.bool)]
-        j_dflvL = j_iso[j_iso.isdflvL.astype(np.bool)]
-        j_dflvM = j_iso[j_iso.isdflvM.astype(np.bool)] ## from Rishabh
-        j_dcsvM = j_iso[j_iso.isdcsvM.astype(np.bool)] ## from Rishabh
+        #j_iso = j_clean[j_clean.astype(np.bool)]    
+#         j_iso = j_good[j_good.isclean.astype(np.bool)]   
+        j_dcsvL = j_clean[j_clean.isdcsvL.astype(np.bool)]
+        j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
+        j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)] 
+        j_dcsvM = j_clean[j_clean.isdcsvM.astype(np.bool)] 
         j_HEM = j[j.isHEM.astype(np.bool)]
         j_ntot=j.counts
         j_ngood=j_good.counts
@@ -626,13 +626,14 @@ class AnalysisProcessor(processor.ProcessorABC):
 #        j_niso=j_iso.counts
         j_ndcsvL=j_dcsvL.counts
         j_ndflvL=j_dflvL.counts
-        j_ndflvM = j_dflvM.counts ## from Rishabh
-        j_ndcsvM = j_dcsvM.counts ## from Rishabh
+        j_ndflvM = j_dflvM.counts 
+        j_ndcsvM = j_dcsvM.counts 
         j_nHEM = j_HEM.counts
         leading_j = j[j.pt.argmax()]
         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
-        atleast_one_jet_with_pt_grt_50 = ((j_nclean>=1) & (j_clean.pt>=50).any())
+        leading_j_clean = j_clean[j_clean.pt.argmax()]
+        atleast_one_jet_with_pt_grt_50 = ((j_nclean>=1) & (j_clean.pt>50).any())
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
         # medium     0.4184
@@ -647,8 +648,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j['T'] = TVector2Array.from_polar(j.pt, j.phi)
 #         j['p4'] = TLorentzVectorArray.from_ptetaphim(j.pt, j.eta, j.phi, j.mass)
 
-        Delta_Phi_Met_LJ = (abs(leading_j.T.delta_phi(met.T)).sum())>1.5
-#         Delta_Phi_Met_LJ = ((abs(met.T.delta_phi(j_clean.T))).max())>1.5
+#         Delta_Phi_Met_LJ = (abs(leading_j.T.delta_phi(met.T)).sum())>1.5
+#         Delta_Phi_Met_LJ = (abs(leading_j_clean.T.delta_phi(met.T)).sum())>1.5
+        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j_clean.T.sum()))>1.5)
+
+#         Delta_Phi_Met_LJ_min = (abs(leading_j.T.delta_phi(met.T)).min())>1.5
+
+        
+#         print('Delta_Phi_Met_LJ_sum', Delta_Phi_Met_LJ_sum.sum())
+#         print('Delta_Phi_Met_LJ_min', Delta_Phi_Met_LJ_min.sum())
+#         print('Delta_Phi_Met_LJ_flatten', Delta_Phi_Met_LJ_min.flatten().sum())
+
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = leading_j['p4'].cross(e_loose['p4'])
         DeltaR_LJ_Ele = LJ_Ele.i0.delta_r(LJ_Ele.i1)
@@ -1115,7 +1125,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMj', noHEMj)
         selection.add('noHEMmet', noHEMmet)
         selection.add('met80', (met.pt < 80))
-        selection.add('met100', (met.pt >= 100))
+        selection.add('met100', (met.pt > 100))
 #         selection.add(
 #             'mindphimet', (abs(met.T.delta_phi(j_clean.T)).min()) > 0.7)
 #         selection.add('zero_medium_btags',
@@ -1134,9 +1144,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                       (j_clean[j_clean['btagDeepB'] > btagWP_medium].counts == 1))
         for region in mT.keys():
             sel_name = 'mt'+'_'+region+'>50'
-            select = (mT[region] >= 50)
+            select = (mT[region] > 50)
             selection.add(sel_name, select)
-        selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
+#         selection.add('leading_j>70',(leading_j.pt.sum() >70)) # from the monotop paper
         selection.add('atleast_one_jet_with_pt_grt_50',(atleast_one_jet_with_pt_grt_50))
 
             
@@ -1157,8 +1167,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Mu_mask'],
             
-            'wjete': ['isoneE', 'zero_medium_btags', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 'mt_wjete>50' , 'met100','noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+            'wjete': [  'atleast_one_jet_with_pt_grt_50','met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
+                       'mt_wjete>50' ,'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Ele_mask'],
             
             'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
@@ -1190,11 +1200,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
                 'metphi':                 met.phi,
-                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).sum(),
-#                 'j1pt':                   leading_j.pt,
-                'j1eta':                  leading_j.eta,
-                'j1phi':                  leading_j.phi,
-                'njets':                  j_nclean,
+                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).min(),
+                # 'j1pt':                   leading_j.pt,
+                # 'j1eta':                  leading_j.eta,
+                # 'j1phi':                  leading_j.phi,
+                # 'njets':                  j_nclean,
                 # 'ndflvL':                 j_ndflvL,
                 # 'ndcsvL':     j_ndcsvL,
                 # 'e1pt'      : leading_e.pt,
@@ -1210,7 +1220,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
                 'dr_e_lj': DeltaR_LJ_Ele,
                 'dr_mu_lj': DeltaR_LJ_Mu,
-#                 'njets':                  j_nclean,
+                'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
                 'ndcsvM':     j_ndcsvM,
 #                 'scale_factors': np.ones(event_size, dtype=np.bool)
