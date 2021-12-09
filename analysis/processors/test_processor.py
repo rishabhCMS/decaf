@@ -351,6 +351,20 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Bin('jet_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
                          [30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])),
+            'j1eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('gentype', 'Gen Type', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
+                hist.Bin('j1eta','AK4 Leading Jet Eta',35,-3.5,3.5)
+            ),
+            'j1phi': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'), 
+                hist.Bin('gentype', 'Gen Type', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]),
+                hist.Bin('j1phi','AK4 Leading Jet Phi',35,-3.5,3.5)
+            ),
             'dphi_e_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
@@ -423,6 +437,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
+
             'cutflow': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1185,11 +1200,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
                 'metphi':                 met.phi,
-                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).min(),
-                # 'j1pt':                   leading_j.pt,
-                # 'j1eta':                  leading_j.eta,
-                # 'j1phi':                  leading_j.phi,
-                # 'njets':                  j_nclean,
+                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).sum(),
+#                 'j1pt':                   leading_j.pt,
+                'j1eta':                  leading_j.eta,
+                'j1phi':                  leading_j.phi,
+                'njets':                  j_nclean,
                 # 'ndflvL':                 j_ndflvL,
                 # 'ndcsvL':     j_ndcsvL,
                 # 'e1pt'      : leading_e.pt,
@@ -1205,7 +1220,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'dphi_mu_etmiss':         abs(met['T'].delta_phi(leading_mu['T'].sum())),
                 'dr_e_lj': DeltaR_LJ_Ele,
                 'dr_mu_lj': DeltaR_LJ_Mu,
-                'njets':                  j_nclean,
+#                 'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
                 'ndcsvM':     j_ndcsvM,
 #                 'scale_factors': np.ones(event_size, dtype=np.bool)
