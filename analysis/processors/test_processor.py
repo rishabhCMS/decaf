@@ -1153,27 +1153,27 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Ele_mask'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",'DeltaR_LJ_Mu_mask'],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200",'DeltaR_LJ_Ele_mask'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200",],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Mu_mask'],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200",],
             
             'wjete': [  'atleast_one_jet_with_pt_grt_50','met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mt_wjete>50' ,'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Ele_mask'],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", ],
             
             'wjetm': ['isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100', 'noHEMj' ,'noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 'DeltaR_LJ_Mu_mask']
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", ]
         }
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
@@ -1200,7 +1200,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ele_pT':              e_tight.pt,
                 'jet_pT':              leading_j.pt,
                 'metphi':                 met.phi,
-                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).min(),
+                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).sum(),
                 # 'j1pt':                   leading_j.pt,
                 # 'j1eta':                  leading_j.eta,
                 # 'j1phi':                  leading_j.phi,
@@ -1280,8 +1280,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'L1PreFiringWeight' in events.columns:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-                weights.add('nlo_qcd', nlo_qcd)
-                weights.add('nlo_ewk', nlo_ewk)
+#                 weights.add('nlo_qcd', nlo_qcd)
+#                 weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
 #                 if 'cen' in nnlo_nlo:
 #                     #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
