@@ -344,13 +344,24 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mu_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
-
-            'jet_pT': hist.Hist(
+            'j1pt': hist.Hist(
                 'Events',
-                hist.Cat('dataset', 'dataset'),
+                hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('jet_pT', 'Leading $AK4 Jet p_{T}$ [GeV]',
-                         [30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])),
+                hist.Bin('j1pt','AK4 Leading Jet Pt',[30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 250.0, 280.0, 310.0, 340.0, 370.0, 400.0, 430.0, 470.0, 510.0, 550.0, 590.0, 640.0, 690.0, 740.0, 790.0, 840.0, 900.0, 960.0, 1020.0, 1090.0, 1160.0, 1250.0])
+            ),
+            'j1eta': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Bin('j1eta','AK4 Leading Jet Eta',35,-3.5,3.5)),
+            
+            'j1phi': hist.Hist(
+                'Events', 
+                hist.Cat('dataset', 'Dataset'), 
+                hist.Cat('region', 'Region'), 
+                hist.Bin('j1phi','AK4 Leading Jet Phi',35,-3.5,3.5)),
+
             'dphi_e_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
@@ -383,6 +394,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('ndcsvM', 'AK4 Number of deepCSV Medium Jets', 6, -0.5, 5.5)),
+            
             'dphi_Met_LJ': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -629,10 +641,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_ndflvM = j_dflvM.counts 
         j_ndcsvM = j_dcsvM.counts 
         j_nHEM = j_HEM.counts
-        leading_j = j[j.pt.argmax()]
-        leading_j = leading_j[leading_j.isgood.astype(np.bool)]
-        leading_j = leading_j[leading_j.isclean.astype(np.bool)]
-        leading_j_clean = j_clean[j_clean.pt.argmax()]
+#         leading_j = j[j.pt.argmax()]
+#         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
+#         leading_j = leading_j[leading_j.isclean.astype(np.bool)]
+        leading_j = j_clean[j_clean.pt.argmax()]
         atleast_one_jet_with_pt_grt_50 = ((j_nclean>=1) & (j_clean.pt>50).any())
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
@@ -650,7 +662,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         Delta_Phi_Met_LJ = (abs(leading_j.T.delta_phi(met.T)).sum())>1.5
 #         Delta_Phi_Met_LJ = (abs(leading_j_clean.T.delta_phi(met.T)).sum())>1.5
-        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j_clean.T.sum()))>1.5)
+        Delta_Phi_Met_LJ = (abs(met.T.delta_phi(leading_j.T.sum()))>1.5)
 
 #         Delta_Phi_Met_LJ_min = (abs(leading_j.T.delta_phi(met.T)).min())>1.5
 
@@ -971,21 +983,15 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             that is different from the weight you apply when you ask for at least 1 b-tag
             '''
-#             btag = {}
-#             btagUp = {}
-#             btagDown = {}
-#             btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-#             btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-#             btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-#             btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-#             btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-#             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](
-#                 j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
+            btag = {}
+            btagUp = {}
+            btagDown = {}
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
+            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
+            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
+            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
+            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
 
 
         ###
@@ -1198,12 +1204,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'CaloMinusPfOverRecoil':  abs(calomet.pt - met.pt) / u[region].mag,
                 'eT_miss':              met.pt,
                 'ele_pT':              e_tight.pt,
-                'jet_pT':              leading_j.pt,
+#                 'jet_pT':              leading_j.pt,
                 'metphi':                 met.phi,
-                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T)).sum(),
-                # 'j1pt':                   leading_j.pt,
-                # 'j1eta':                  leading_j.eta,
-                # 'j1phi':                  leading_j.phi,
+                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j_clean.T.sum())),
+                'j1pt':                   leading_j.pt,
+                'j1eta':                  leading_j.eta,
+                'j1phi':                  leading_j.phi,
                 # 'njets':                  j_nclean,
                 # 'ndflvL':                 j_ndflvL,
                 # 'ndcsvL':     j_ndcsvL,
@@ -1251,11 +1257,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                         continue
                     elif histname == 'template':
                         continue
-                    elif histname == 'scale_factors':
-                        flat_variable = {histname: flat_weight[histname]}
-                        h.fill(dataset=dataset,
-                               region=region,
-                               **flat_variable)
+#                     elif histname == 'scale_factors':
+#                         flat_variable = {histname: flat_weight[histname]}
+#                         h.fill(dataset=dataset,
+#                                region=region,
+#                                **flat_variable)
 
                     else:
                         flat_variable = {histname: flat_variables[histname]}
@@ -1280,45 +1286,45 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'L1PreFiringWeight' in events.columns:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-#                 weights.add('nlo_qcd', nlo_qcd)
-#                 weights.add('nlo_ewk', nlo_ewk)
-#                 weights.add('ttjet_weights', ttjet_weights)
-#                 if 'cen' in nnlo_nlo:
-#                     #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
-#                     weights.add('qcd1', np.ones(
-#                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
-#                     weights.add('qcd2', np.ones(
-#                         event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
-#                     weights.add('qcd3', np.ones(
-#                         event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
-#                     weights.add('ew1', np.ones(
-#                         event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
-#                     weights.add('ew2G', np.ones(
-#                         event_size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3G', np.ones(
-#                         event_size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
-#                     weights.add('ew2W', np.ones(
-#                         event_size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3W', np.ones(
-#                         event_size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
-#                     weights.add('ew2Z', np.ones(
-#                         event_size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3Z', np.ones(
-#                         event_size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
-#                     weights.add('mix', np.ones(
-#                         event_size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
-#                     weights.add('muF', np.ones(
-#                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
-#                     weights.add('muR', np.ones(
-#                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
+                weights.add('nlo_qcd', nlo_qcd)
+                weights.add('nlo_ewk', nlo_ewk)
+                weights.add('ttjet_weights', ttjet_weights)
+                if 'cen' in nnlo_nlo:
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    weights.add('qcd1', np.ones(
+                        event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+                    weights.add('qcd2', np.ones(
+                        event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+                    weights.add('qcd3', np.ones(
+                        event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+                    weights.add('ew1', np.ones(
+                        event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
+                    weights.add('ew2G', np.ones(
+                        event_size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
+                    weights.add('ew3G', np.ones(
+                        event_size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
+                    weights.add('ew2W', np.ones(
+                        event_size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
+                    weights.add('ew3W', np.ones(
+                        event_size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
+                    weights.add('ew2Z', np.ones(
+                        event_size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
+                    weights.add('ew3Z', np.ones(
+                        event_size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
+                    weights.add('mix', np.ones(
+                        event_size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
+                    weights.add('muF', np.ones(
+                        event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
+                    weights.add('muR', np.ones(
+                        event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu)
-#                 weights.add('trig', trig[region])
+                weights.add('trig', trig[region])
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
 #                 weights.add('csev', csev[region])
-#                 weights.add('btag', btag[region],
-#                             btagUp[region], btagDown[region])
+                weights.add('btag', btag[region],
+                            btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1332,34 +1338,34 @@ class AnalysisProcessor(processor.ProcessorABC):
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
                     systematics = [None,
-#                                    'btagUp',
-#                                    'btagDown',
-#                                    'qcd1Up',
-#                                    'qcd1Down',
-#                                    'qcd2Up',
-#                                    'qcd2Down',
-#                                    'qcd3Up',
-#                                    'qcd3Down',
-#                                    'muFUp',
-#                                    'muFDown',
-#                                    'muRUp',
-#                                    'muRDown',
-#                                    'ew1Up',
-#                                    'ew1Down',
-#                                    'ew2GUp',
-#                                    'ew2GDown',
-#                                    'ew2WUp',
-#                                    'ew2WDown',
-#                                    'ew2ZUp',
-#                                    'ew2ZDown',
-#                                    'ew3GUp',
-#                                    'ew3GDown',
-#                                    'ew3WUp',
-#                                    'ew3WDown',
-#                                    'ew3ZUp',
-#                                    'ew3ZDown',
-#                                    'mixUp',
-#                                    'mixDown'
+                                   'btagUp',
+                                   'btagDown',
+                                   'qcd1Up',
+                                   'qcd1Down',
+                                   'qcd2Up',
+                                   'qcd2Down',
+                                   'qcd3Up',
+                                   'qcd3Down',
+                                   'muFUp',
+                                   'muFDown',
+                                   'muRUp',
+                                   'muRDown',
+                                   'ew1Up',
+                                   'ew1Down',
+                                   'ew2GUp',
+                                   'ew2GDown',
+                                   'ew2WUp',
+                                   'ew2WDown',
+                                   'ew2ZUp',
+                                   'ew2ZDown',
+                                   'ew3GUp',
+                                   'ew3GDown',
+                                   'ew3WUp',
+                                   'ew3WDown',
+                                   'ew3ZUp',
+                                   'ew3ZDown',
+                                   'mixUp',
+                                   'mixDown'
                                   ]
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
@@ -1389,8 +1395,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-                    for systematic in [None]:
-#                     for systematic in [None, 'btagUp', 'btagDown']:
+#                     for systematic in [None]:
+                    for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
@@ -1406,7 +1412,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         vcut = (i+1)*jcut
                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     fill(dataset, weights.weight(), cut)
-#         time.sleep(0.5)
+        time.sleep(0.5)
         return hout
 
     def postprocess(self, accumulator):
