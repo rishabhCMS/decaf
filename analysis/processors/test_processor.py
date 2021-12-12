@@ -631,7 +631,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
         j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)] 
         j_dcsvM = j_clean[j_clean.isdcsvM.astype(np.bool)] 
-        j_HEM = j[j.isHEM.astype(np.bool)]
+        #this could be an issue
+        j_HEM = j[j.isHEM.astype(np.bool)] 
         j_ntot=j.counts
         j_ngood=j_good.counts
         j_nclean=j_clean.counts
@@ -1073,7 +1074,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
             print("hi I am in Wjets  pt")
 #             GenPart = events.GenPart
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt >= 200).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy','isPrompt']) & ((abs(gen.pdgId) == 24))].pt >= 200).all()
             selection.add("exclude_wjets_greater_200", remove_overlap)
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
@@ -1082,7 +1083,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             print("hi I am in Wjets not pt")
 
 #             GenPart = events.GenPart
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt < 200).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy','isPrompt']) & ((abs(gen.pdgId) == 24))].pt < 200).all()
             selection.add("exclude_wjets_less_200", remove_overlap)
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1090,7 +1091,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
             print("hi I am in DY not pt")
 #             GenPart = events.GenPart
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt < 400).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 23))].pt < 400).all()
             selection.add("exclude_dyjets_less_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_less_400", np.full(event_size, True))
@@ -1098,7 +1099,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
             print("hi I am in DY pt")
 #             GenPart = events.GenPart
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt >= 400).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
@@ -1322,9 +1323,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('ids', ids[region])
                 weights.add('reco', reco[region])
                 weights.add('isolation', isolation[region])
-#                 weights.add('csev', csev[region])
-                weights.add('btag', btag[region],
-                            btagUp[region], btagDown[region])
+                weights.add('csev', csev[region])
+                weights.add('btag', btag[region],btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1395,8 +1395,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-#                     for systematic in [None]:
-                    for systematic in [None, 'btagUp', 'btagDown']:
+                    for systematic in [None]:
+#                     for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
@@ -1412,7 +1412,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         vcut = (i+1)*jcut
                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     fill(dataset, weights.weight(), cut)
-        time.sleep(0.5)
+#         time.sleep(0.5)
         return hout
 
     def postprocess(self, accumulator):
