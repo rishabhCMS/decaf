@@ -1206,7 +1206,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'ele_pT':              e_tight.pt,
 #                 'jet_pT':              leading_j.pt,
                 'metphi':                 met.phi,
-                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j_clean.T.sum())),
+                'dphi_Met_LJ':             abs(met.T.delta_phi(leading_j.T.sum())),
                 'j1pt':                   leading_j.pt,
                 'j1eta':                  leading_j.eta,
                 'j1phi':                  leading_j.phi,
