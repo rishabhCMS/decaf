@@ -1287,17 +1287,17 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'L1PreFiringWeight' in events.columns:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-                weights.add('nlo_qcd', nlo_qcd)
+#                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
-                    weights.add('qcd1', np.ones(
-                        event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
-                    weights.add('qcd2', np.ones(
-                        event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
-                    weights.add('qcd3', np.ones(
-                        event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+#                     weights.add('qcd1', np.ones(
+#                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+#                     weights.add('qcd2', np.ones(
+#                         event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+#                     weights.add('qcd3', np.ones(
+#                         event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
                     weights.add('ew1', np.ones(
                         event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
                     weights.add('ew2G', np.ones(
@@ -1340,12 +1340,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                     systematics = [None,
                                    'btagUp',
                                    'btagDown',
-                                   'qcd1Up',
-                                   'qcd1Down',
-                                   'qcd2Up',
-                                   'qcd2Down',
-                                   'qcd3Up',
-                                   'qcd3Down',
+#                                    'qcd1Up',
+#                                    'qcd1Down',
+#                                    'qcd2Up',
+#                                    'qcd2Down',
+#                                    'qcd3Up',
+#                                    'qcd3Down',
                                    'muFUp',
                                    'muFDown',
                                    'muRUp',
@@ -1395,8 +1395,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             dataset=dataset, sumw=1, weight=events.genWeight.sum())
                         isFilled = True
                     cut = selection.all(*regions[region])
-                    for systematic in [None]:
-#                     for systematic in [None, 'btagUp', 'btagDown']:
+#                     for systematic in [None]:
+                    for systematic in [None, 'btagUp', 'btagDown']:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
