@@ -54,6 +54,7 @@ accounting_group=group_cms
 JobBatchName = $ENV(BTCN)
 request_cpus = 7
 request_memory = 21G
+request_disk = 15G
 Queue 1"""
 
 if options.cluster == 'lpc':
