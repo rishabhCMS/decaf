@@ -236,105 +236,113 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         self._jec = {
 
-            '2016': [ 
-                    {
-                        'no_apv':
-                        ['Summer19UL16_V7_MC_L1FastJet_AK4PFchs',
-                        'Summer19UL16_V7_MC_L2L3Residual_AK4PFchs',
-                        'Summer19UL16_V7_MC_L2Relative_AK4PFchs',
-                        'Summer19UL16_V7_MC_L2Residual_AK4PFchs',
-                        'Summer19UL16_V7_MC_L3Absolute_AK4PFchs'],
+#             '2016': [ 
+#                     {
+#                         'no_apv':
+#                         ['Summer19UL16_V7_MC_L1FastJet_AK4PFchs',
+#                         'Summer19UL16_V7_MC_L2L3Residual_AK4PFchs',
+#                         'Summer19UL16_V7_MC_L2Relative_AK4PFchs',
+#                         'Summer19UL16_V7_MC_L2Residual_AK4PFchs',
+#                         'Summer19UL16_V7_MC_L3Absolute_AK4PFchs'],
                     
-                        'apv':
-                        ['Summer19UL16APV_V7_MC_L1FastJet_AK4PFchs',
-                        'Summer19UL16APV_V7_MC_L2L3Residual_AK4PFchs',
-                        'Summer19UL16APV_V7_MC_L2Relative_AK4PFchs',
-                        'Summer19UL16APV_V7_MC_L2Residual_AK4PFchs',
-                        'Summer19UL16APV_V7_MC_L3Absolute_AK4PFchs']
-                    }
+#                         'apv':
+#                         ['Summer19UL16APV_V7_MC_L1FastJet_AK4PFchs',
+#                         'Summer19UL16APV_V7_MC_L2L3Residual_AK4PFchs',
+#                         'Summer19UL16APV_V7_MC_L2Relative_AK4PFchs',
+#                         'Summer19UL16APV_V7_MC_L2Residual_AK4PFchs',
+#                         'Summer19UL16APV_V7_MC_L3Absolute_AK4PFchs']
+#                     }
                 
-#                 'Summer16_07Aug2017_V11_MC_L1FastJet_AK4PFPuppi',
-#                 'Summer16_07Aug2017_V11_MC_L2L3Residual_AK4PFPuppi',
-#                 'Summer16_07Aug2017_V11_MC_L2Relative_AK4PFPuppi',
-#                 'Summer16_07Aug2017_V11_MC_L2Residual_AK4PFPuppi',
-#                 'Summer16_07Aug2017_V11_MC_L3Absolute_AK4PFPuppi'
+                'Summer16_07Aug2017_V11_MC_L1FastJet_AK4PFchs',
+                'Summer16_07Aug2017_V11_MC_L2L3Residual_AK4PFchs',
+                'Summer16_07Aug2017_V11_MC_L2Relative_AK4PFchs',
+                'Summer16_07Aug2017_V11_MC_L2Residual_AK4PFchs',
+                'Summer16_07Aug2017_V11_MC_L3Absolute_AK4PFchs'
             ],
 
             '2017': [
-                'Summer19UL17_V5_MC_L1FastJet_AK4PFchs',
-                'Summer19UL17_V5_MC_L2L3Residual_AK4PFchs',
-                'Summer19UL17_V5_MC_L2Relative_AK4PFchs,
-                'Summer19UL17_V5_MC_L2Residual_AK4PFchs',
-                'Summer19UL17_V5_MC_L3Absolute_AK4PFchs
+#                 'Summer19UL17_V5_MC_L1FastJet_AK4PFchs',
+#                 'Summer19UL17_V5_MC_L2L3Residual_AK4PFchs',
+#                 'Summer19UL17_V5_MC_L2Relative_AK4PFchs,
+#                 'Summer19UL17_V5_MC_L2Residual_AK4PFchs',
+#                 'Summer19UL17_V5_MC_L3Absolute_AK4PFchs
                 
-#                 'Fall17_17Nov2017_V32_MC_L1FastJet_AK4PFPuppi',
-#                 'Fall17_17Nov2017_V32_MC_L2L3Residual_AK4PFPuppi',
-#                 'Fall17_17Nov2017_V32_MC_L2Relative_AK4PFPuppi',
-#                 'Fall17_17Nov2017_V32_MC_L2Residual_AK4PFPuppi',
-#                 'Fall17_17Nov2017_V32_MC_L3Absolute_AK4PFPuppi'
+                'Fall17_17Nov2017_V32_MC_L1FastJet_AK4PFchs',
+                'Fall17_17Nov2017_V32_MC_L2L3Residual_AK4PFchs',
+                'Fall17_17Nov2017_V32_MC_L2Relative_AK4PFchs',
+                'Fall17_17Nov2017_V32_MC_L2Residual_AK4PFchs',
+                'Fall17_17Nov2017_V32_MC_L3Absolute_AK4PFchs'
             ],
 
             '2018': [
-                'Summer19UL18_V5_MC_L1FastJet_AK4PFchs',
-                'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
-                'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
-                'Summer19UL18_V5_MC_L2Relative_AK4PFchs',
-                'Summer19UL18_V5_MC_L2Residual_AK4PFchs',
-                'Summer19UL18_V5_MC_L3Absolute_AK4PFchs'
+#                 'Summer19UL18_V5_MC_L1FastJet_AK4PFchs',
+#                 'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
+#                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
+#                 'Summer19UL18_V5_MC_L2Relative_AK4PFchs',
+#                 'Summer19UL18_V5_MC_L2Residual_AK4PFchs',
+#                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs'
                      
-#                 'Autumn18_V19_MC_L1FastJet_AK4PFPuppi',
-#                 'Autumn18_V19_MC_L2L3Residual_AK4PFPuppi',
-#                 'Autumn18_V19_MC_L2Relative_AK4PFPuppi',  # currently broken
-#                 'Autumn18_V19_MC_L2Residual_AK4PFPuppi',
-#                 'Autumn18_V19_MC_L3Absolute_AK4PFPuppi'
+                'Autumn18_V19_MC_L1FastJet_AK4PFchs',
+                'Autumn18_V19_MC_L2L3Residual_AK4PFchs',
+                'Autumn18_V19_MC_L2Relative_AK4PFchs',  # currently broken
+                'Autumn18_V19_MC_L2Residual_AK4PFchs',
+                'Autumn18_V19_MC_L3Absolute_AK4PFchs'
             ]
         }
 # not updated JUNC
         self._junc = {
 
-            '2016': {'apv': 'Summer19UL16_V7_MC_Uncertainty_AK4PFchs',
-                     'no_apv': 'Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs'}
-#                 'Summer16_07Aug2017_V11_MC_Uncertainty_AK4PFPuppi'
+#             '2016': {'apv': 'Summer19UL16_V7_MC_Uncertainty_AK4PFchs',
+#                      'no_apv': 'Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs'}
+                'Summer16_07Aug2017_V11_MC_Uncertainty_AK4PFchs'
             
 
-            '2017': ['Summer19UL17_V5_MC_Uncertainty_AK4PFchs'
-#                 'Fall17_17Nov2017_V32_MC_Uncertainty_AK4PFPuppi'
+            '2017': [
+#                 'Summer19UL17_V5_MC_Uncertainty_AK4PFchs'
+                'Fall17_17Nov2017_V32_MC_Uncertainty_AK4PFchs'
             ],
 
-            '2018': ['Summer19UL18_V5_MC_Uncertainty_AK4PFchs'
-#                 'Autumn18_V19_MC_Uncertainty_AK4PFPuppi'
+            '2018': [
+#                 'Summer19UL18_V5_MC_Uncertainty_AK4PFchs'
+                'Autumn18_V19_MC_Uncertainty_AK4PFchs'
             ]
         }
 
         self._jr = {
 
-            '2016': {'apv': 'Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs',
-                     'no_apv': 'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs'}
-#                 'Summer16_25nsV1b_MC_PtResolution_AK4PFPuppi'
+            '2016': 
+#             {'apv': 'Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs',
+#                      'no_apv': 'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs'}
+                'Summer16_25nsV1b_MC_PtResolution_AK4PFchs'
 
 
-            '2017': ['Summer19UL17_JRV2_MC_PtResolution_AK4PFchs'
-#                 'Fall17_V3b_MC_PtResolution_AK4PFPuppi'
+            '2017': [
+#                 'Summer19UL17_JRV2_MC_PtResolution_AK4PFchs'
+                'Fall17_V3b_MC_PtResolution_AK4PFchs'
             ],
 
-            '2018': ['Summer19UL18_JRV2_MC_PtResolution_AK4PFchs'
-#                 'Autumn18_V7b_MC_PtResolution_AK4PFPuppi'
+            '2018': [
+#                 'Summer19UL18_JRV2_MC_PtResolution_AK4PFchs'
+                'Autumn18_V7b_MC_PtResolution_AK4PFchs'
             ]
         }
 
         self._jersf = {
 
-            '2016': {'no_apv':'Summer20UL16_JRV3_MC_SF_AK8PFchs',
-                     'apv':'Summer20UL16APV_JRV3_MC_SF_AK4PFchs'},
-#                 'Summer16_25nsV1b_MC_SF_AK4PFPuppi'
+            '2016': 
+#             {'no_apv':'Summer20UL16_JRV3_MC_SF_AK8PFchs',
+#                      'apv':'Summer20UL16APV_JRV3_MC_SF_AK4PFchs'},
+                'Summer16_25nsV1b_MC_SF_AK4PFchs'
             
 
-            '2017': ['Summer19UL17_JRV2_MC_SF_AK4PFchs'
-#                 'Fall17_V3b_MC_SF_AK4PFPuppi'
+            '2017': [
+#                 'Summer19UL17_JRV2_MC_SF_AK4PFchs'
+                'Fall17_V3b_MC_SF_AK4PFchs'
             ],
 
-            '2018': ['Summer19UL18_JRV2_MC_SF_AK4PFchs'
-#                 'Autumn18_V7b_MC_SF_AK4PFPuppi'
+            '2018': [
+#                 'Summer19UL18_JRV2_MC_SF_AK4PFchs'
+                'Autumn18_V7b_MC_SF_AK4PFchs'
             ]
         }
 
