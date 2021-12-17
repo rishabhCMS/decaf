@@ -512,7 +512,7 @@ for directory in ['jec_UL', 'jersf_UL', 'jr_UL', 'junc_UL']:
     print('Loading files in:',directory)
     for filename in os.listdir(directory):
         if '~' in filename: continue
-        if 'AK4PFPuppi' not in filename: continue
+        if 'AK4PFchs' not in filename: continue
         if 'DATA' in filename: continue
         filename=directory+'/'+filename
         print('Loading file:',filename)
