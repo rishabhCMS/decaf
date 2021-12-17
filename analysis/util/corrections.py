@@ -507,7 +507,7 @@ get_btag_weight = {
 }
 
 Jetext = extractor()
-for directory in ['jec_UL', 'jersf_UL', 'jr_UL', 'junc']:
+for directory in ['jec', 'jersf', 'jr', 'junc']:
     directory='data/'+directory
     print('Loading files in:',directory)
     for filename in os.listdir(directory):
