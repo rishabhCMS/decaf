@@ -236,7 +236,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         self._jec = {
 
-#             '2016': [ 
+            '2016': [ 
 #                     {
 #                         'no_apv':
 #                         ['Summer19UL16_V7_MC_L1FastJet_AK4PFchs',
@@ -292,9 +292,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 # not updated JUNC
         self._junc = {
 
-#             '2016': {'apv': 'Summer19UL16_V7_MC_Uncertainty_AK4PFchs',
+            '2016': 
+#             {
+#             'apv': 'Summer19UL16_V7_MC_Uncertainty_AK4PFchs',
 #                      'no_apv': 'Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs'}
-                'Summer16_07Aug2017_V11_MC_Uncertainty_AK4PFchs'
+                'Summer16_07Aug2017_V11_MC_Uncertainty_AK4PFchs',
             
 
             '2017': [
@@ -313,7 +315,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2016': 
 #             {'apv': 'Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs',
 #                      'no_apv': 'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs'}
-                'Summer16_25nsV1b_MC_PtResolution_AK4PFchs'
+                'Summer16_25nsV1b_MC_PtResolution_AK4PFchs',
 
 
             '2017': [
@@ -332,7 +334,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2016': 
 #             {'no_apv':'Summer20UL16_JRV3_MC_SF_AK8PFchs',
 #                      'apv':'Summer20UL16APV_JRV3_MC_SF_AK4PFchs'},
-                'Summer16_25nsV1b_MC_SF_AK4PFchs'
+                'Summer16_25nsV1b_MC_SF_AK4PFchs',
             
 
             '2017': [
@@ -1327,17 +1329,17 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'L1PreFiringWeight' in events.columns:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-#                 weights.add('nlo_qcd', nlo_qcd)
+                weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-                weights.add('ttjet_weights', ttjet_weights)
+#                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
-#                     weights.add('qcd1', np.ones(
-#                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
-#                     weights.add('qcd2', np.ones(
-#                         event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
-#                     weights.add('qcd3', np.ones(
-#                         event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+                    weights.add('qcd1', np.ones(
+                        event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+                    weights.add('qcd2', np.ones(
+                        event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+                    weights.add('qcd3', np.ones(
+                        event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
                     weights.add('ew1', np.ones(
                         event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
                     weights.add('ew2G', np.ones(
@@ -1380,12 +1382,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                     systematics = [None,
                                    'btagUp',
                                    'btagDown',
-#                                    'qcd1Up',
-#                                    'qcd1Down',
-#                                    'qcd2Up',
-#                                    'qcd2Down',
-#                                    'qcd3Up',
-#                                    'qcd3Down',
+                                   'qcd1Up',
+                                   'qcd1Down',
+                                   'qcd2Up',
+                                   'qcd2Down',
+                                   'qcd3Up',
+                                   'qcd3Down',
                                    'muFUp',
                                    'muFDown',
                                    'muRUp',
@@ -1452,7 +1454,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         vcut = (i+1)*jcut
                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     fill(dataset, weights.weight(), cut)
-#         time.sleep(0.5)
+        time.sleep(0.2)
         return hout
 
     def postprocess(self, accumulator):
