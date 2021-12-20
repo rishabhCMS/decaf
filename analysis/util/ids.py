@@ -95,11 +95,11 @@ def isGoodFatJet(pt, eta, jet_id):
 def isGoodJet(pt, eta, jet_id, pu_id, nhf, chf):
 #     mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2) #& (nhf<0.8) & (chf>0.1) & ((pu_id&1)==1)# & (nef<0.99) & (cef<0.99)
 #     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
-#     mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id>=4))
-#     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id >= 1))) # pu_id >= 1 for all working points
+    mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id>=4))
+    mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id >= 1))) # pu_id >= 1 for all working points
 #matteo
-    mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (nhf<0.8) & (chf>0.1)# & (nef<0.99) & (cef<0.99)
-    mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
+#     mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (nhf<0.8) & (chf>0.1)# & (nef<0.99) & (cef<0.99)
+#     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     return mask
 
 def isHEMJet(pt, eta, phi):
