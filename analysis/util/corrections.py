@@ -160,18 +160,67 @@ for year in ['2016','2017','2018']:
 # Electron reconstruction SFs. Depends on supercluster eta and pt.    
 ###
 
-ele_reco_files = {
-    '2016': uproot.open("data/ScaleFactor/EGM2D_BtoH_GT20GeV_RecoSF_Legacy2016.root"),
-    '2017': uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO.root"),
-    '2018': uproot.open("data/ScaleFactor/2018_egammaEffi_txt_EGM2D_updatedAll.root")
+# ele_reco_files = {
+#     '2016': uproot.open("data/ScaleFactor/EGM2D_BtoH_GT20GeV_RecoSF_Legacy2016.root"),
+#     '2017': uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO.root"),
+#     '2018': uproot.open("data/ScaleFactor/2018_egammaEffi_txt_EGM2D_updatedAll.root")
+# }
+# get_ele_reco_sf = {}
+# for year in ['2016','2017','2018']:
+#     ele_reco_hist = ele_reco_files[year]["EGamma_SF2D"]
+#     get_ele_reco_sf[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+# #2017 has a separate set of weights for low pt electrons (pt<20).
+# ele_reco_lowet_hist = uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO_lowEt.root")['EGamma_SF2D']
+# get_ele_reco_lowet_sf=lookup_tools.dense_lookup.dense_lookup(ele_reco_lowet_hist.values, ele_reco_lowet_hist.edges)
+
+
+###
+# Electron reconstruction SFs. Depends on supercluster eta and pt.  UL
+#https://twiki.cern.ch/twiki/bin/view/CMS/EgammaUL2016To2018#SFs_for_Electrons_UL_2017
+###
+ele_reco_files_preVFP_below20 = {
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
 }
-get_ele_reco_sf = {}
+get_ele_reco_sf_preVFP_below20 = {}
 for year in ['2016','2017','2018']:
-    ele_reco_hist = ele_reco_files[year]["EGamma_SF2D"]
-    get_ele_reco_sf[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
-#2017 has a separate set of weights for low pt electrons (pt<20).
-ele_reco_lowet_hist = uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO_lowEt.root")['EGamma_SF2D']
-get_ele_reco_lowet_sf=lookup_tools.dense_lookup.dense_lookup(ele_reco_lowet_hist.values, ele_reco_lowet_hist.edges)
+    ele_reco_hist = ele_reco_files_preVFP_below20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_preVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+
+ele_reco_files_postVFP_below20 = {
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
+}
+get_ele_reco_sf_postVFP_below20 = {}
+for year in ['2016','2017','2018']:
+    ele_reco_hist = ele_reco_files_postVFP_below20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_postVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+ele_reco_files_postVFP_above20 = {
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+}
+get_ele_reco_sf_postVFP_above20 = {}
+for year in ['2016','2017','2018']:
+    ele_reco_hist = ele_reco_files_postVFP_above20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_postVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+
+ele_reco_files_preVFP_above20 = {
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+}
+get_ele_reco_sf_preVFP_above20 = {}
+for year in ['2016','2017','2018']:
+    ele_reco_hist = ele_reco_files_preVFP_above20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+
 
 ###
 # Photon ID SFs. Tight photons use medium id. 2017/18 use dedicated measurement from monojet, depends only on abs(eta): https://indico.cern.ch/event/879924/
@@ -583,8 +632,8 @@ corrections = {
     'get_pho_csev_sf':          get_pho_csev_sf,
     'get_mu_tight_id_sf':       get_mu_tight_id_sf,
     'get_mu_loose_id_sf':       get_mu_loose_id_sf,
-    'get_ele_reco_sf':          get_ele_reco_sf,
-    'get_ele_reco_lowet_sf':    get_ele_reco_lowet_sf,
+#     'get_ele_reco_sf':          get_ele_reco_sf,
+#     'get_ele_reco_lowet_sf':    get_ele_reco_lowet_sf,
     'get_mu_tight_iso_sf':      get_mu_tight_iso_sf,
     'get_mu_loose_iso_sf':      get_mu_loose_iso_sf,
     'get_ecal_bad_calib':       get_ecal_bad_calib,
@@ -595,6 +644,11 @@ corrections = {
     'get_ele_tight_id_sf_preVFP': get_ele_tight_id_sf_preVFP,
     'get_ele_loose_id_sf_postVFP': get_ele_loose_id_sf_postVFP,
     'get_ele_loose_id_sf_preVFP': get_ele_loose_id_sf_preVFP,
+    
+    'get_ele_reco_sf_preVFP_below20': get_ele_reco_sf_preVFP_below20,
+    'get_ele_reco_sf_postVFP_below20':get_ele_reco_sf_postVFP_below20,
+    'get_ele_reco_sf_postVFP_above20':get_ele_reco_sf_postVFP_above20,
+    'get_ele_reco_sf_preVFP_above20':get_ele_reco_sf_preVFP_above20,
 }
 save(corrections, 'data/corrections.coffea')
 
