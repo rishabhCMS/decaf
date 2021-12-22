@@ -119,14 +119,14 @@ for year in ['2016','2017','2018']:
 ###
 #preVFP
 ele_loose_files_preVFP = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_pVFP_id_loose_egammaEffi.txt_Ele_Loose_preVFP_EGM2D.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_id_loose_egammaEffi.txt_Ele_Loose_preVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
 }
 ele_tight_files_preVFP = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_pVFP_id_tight_egammaEffi.txt_Ele_Tight_preVFP_EGM2D.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_id_tight_egammaEffi.txt_Ele_Tight_preVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
 }
 get_ele_loose_id_sf_preVFP = {}
 get_ele_tight_id_sf_preVFP = {}
@@ -138,14 +138,14 @@ for year in ['2016','2017','2018']:
     get_ele_tight_id_sf_preVFP[year]  = lookup_tools.dense_lookup.dense_lookup(ele_tight_sf_hist.values, ele_tight_sf_hist.edges)
 #postVFP
 ele_loose_files_postVFP = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_id_loose_egammaEffi.txt_Ele_Loose_postVFP_EGM2D.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_loose_egammaEffi.txt_Ele_Loose_postVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
 }
 ele_tight_files_postVFP = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_id_tight_egammaEffi.txt_Ele_Tight_postVFP_EGM2D.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_tight_egammaEffi.txt_Ele_Tight_postVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
 }
 get_ele_loose_id_sf_postVFP = {}
 get_ele_tight_id_sf_postVFP = {}
