@@ -95,40 +95,132 @@ for year in ['2016','2017','2018']:
 # Electron id SFs. 2017/18 used dedicated weights from monojet. depends on supercluster eta and pt.
 ###
 
-ele_loose_files = {
-    '2016': uproot.open("data/ScaleFactor/2016_ElectronWPVeto_Fall17V2.root"),
-    '2017': uproot.open("data/ScaleFactor/2017_ElectronWPVeto_Fall17V2_BU.root"),
-    '2018': uproot.open("data/ScaleFactor/2018_ElectronWPVeto_Fall17V2_BU.root")
+# ele_loose_files = {
+#     '2016': uproot.open("data/ScaleFactor/2016_ElectronWPVeto_Fall17V2.root"),
+#     '2017': uproot.open("data/ScaleFactor/2017_ElectronWPVeto_Fall17V2_BU.root"),
+#     '2018': uproot.open("data/ScaleFactor/2018_ElectronWPVeto_Fall17V2_BU.root")
+# }
+# ele_tight_files = {
+#     '2016': uproot.open("data/ScaleFactor/2016LegacyReReco_ElectronTight_Fall17V2.root"),
+#     '2017': uproot.open("data/ScaleFactor/2017_ElectronTight_Fall17V2_BU.root"),
+#     '2018': uproot.open("data/ScaleFactor/2018_ElectronTight_Fall17V2_BU.root")
+# }
+# get_ele_loose_id_sf = {}
+# get_ele_tight_id_sf = {}
+# for year in ['2016','2017','2018']:
+#     ele_loose_sf_hist = ele_loose_files[year]["EGamma_SF2D"]
+#     get_ele_loose_id_sf[year]  = lookup_tools.dense_lookup.dense_lookup(ele_loose_sf_hist.values, ele_loose_sf_hist.edges)
+#     ele_tight_sf_hist =ele_tight_files[year]["EGamma_SF2D"]
+#     get_ele_tight_id_sf[year]  = lookup_tools.dense_lookup.dense_lookup(ele_tight_sf_hist.values, ele_tight_sf_hist.edges)
+
+###
+# Electron id SFs. 16/17/18 . depends on supercluster eta and pt.
+# https://twiki.cern.ch/twiki/bin/view/CMS/EgammaUL2016To2018#SFs_for_Electrons_UL_2017
+###
+#preVFP
+ele_loose_files_preVFP = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_id_loose_egammaEffi.txt_Ele_Loose_preVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
 }
-ele_tight_files = {
-    '2016': uproot.open("data/ScaleFactor/2016LegacyReReco_ElectronTight_Fall17V2.root"),
-    '2017': uproot.open("data/ScaleFactor/2017_ElectronTight_Fall17V2_BU.root"),
-    '2018': uproot.open("data/ScaleFactor/2018_ElectronTight_Fall17V2_BU.root")
+ele_tight_files_preVFP = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_id_tight_egammaEffi.txt_Ele_Tight_preVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
 }
-get_ele_loose_id_sf = {}
-get_ele_tight_id_sf = {}
+get_ele_loose_id_sf_preVFP = {}
+get_ele_tight_id_sf_preVFP = {}
 for year in ['2016','2017','2018']:
-    ele_loose_sf_hist = ele_loose_files[year]["EGamma_SF2D"]
-    get_ele_loose_id_sf[year]  = lookup_tools.dense_lookup.dense_lookup(ele_loose_sf_hist.values, ele_loose_sf_hist.edges)
-    ele_tight_sf_hist =ele_tight_files[year]["EGamma_SF2D"]
-    get_ele_tight_id_sf[year]  = lookup_tools.dense_lookup.dense_lookup(ele_tight_sf_hist.values, ele_tight_sf_hist.edges)
+    ele_loose_sf_hist = ele_loose_files_preVFP[year]["EGamma_SF2D"]
+    get_ele_loose_id_sf_preVFP[year]  = lookup_tools.dense_lookup.dense_lookup(ele_loose_sf_hist.values, ele_loose_sf_hist.edges)
+    
+    ele_tight_sf_hist =ele_tight_files_preVFP[year]["EGamma_SF2D"]
+    get_ele_tight_id_sf_preVFP[year]  = lookup_tools.dense_lookup.dense_lookup(ele_tight_sf_hist.values, ele_tight_sf_hist.edges)
+#postVFP
+ele_loose_files_postVFP = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_loose_egammaEffi.txt_Ele_Loose_postVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
+}
+ele_tight_files_postVFP = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_tight_egammaEffi.txt_Ele_Tight_postVFP_EGM2D.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
+}
+get_ele_loose_id_sf_postVFP = {}
+get_ele_tight_id_sf_postVFP = {}
+for year in ['2016','2017','2018']:
+    ele_loose_sf_hist = ele_loose_files_postVFP[year]["EGamma_SF2D"]
+    get_ele_loose_id_sf_postVFP[year]  = lookup_tools.dense_lookup.dense_lookup(ele_loose_sf_hist.values, ele_loose_sf_hist.edges)
+    
+    ele_tight_sf_hist =ele_tight_files_postVFP[year]["EGamma_SF2D"]
+    get_ele_tight_id_sf_postVFP[year]  = lookup_tools.dense_lookup.dense_lookup(ele_tight_sf_hist.values, ele_tight_sf_hist.edges)
 
 ###
 # Electron reconstruction SFs. Depends on supercluster eta and pt.    
 ###
 
-ele_reco_files = {
-    '2016': uproot.open("data/ScaleFactor/EGM2D_BtoH_GT20GeV_RecoSF_Legacy2016.root"),
-    '2017': uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO.root"),
-    '2018': uproot.open("data/ScaleFactor/2018_egammaEffi_txt_EGM2D_updatedAll.root")
+# ele_reco_files = {
+#     '2016': uproot.open("data/ScaleFactor/EGM2D_BtoH_GT20GeV_RecoSF_Legacy2016.root"),
+#     '2017': uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO.root"),
+#     '2018': uproot.open("data/ScaleFactor/2018_egammaEffi_txt_EGM2D_updatedAll.root")
+# }
+# get_ele_reco_sf = {}
+# for year in ['2016','2017','2018']:
+#     ele_reco_hist = ele_reco_files[year]["EGamma_SF2D"]
+#     get_ele_reco_sf[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+# #2017 has a separate set of weights for low pt electrons (pt<20).
+# ele_reco_lowet_hist = uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO_lowEt.root")['EGamma_SF2D']
+# get_ele_reco_lowet_sf=lookup_tools.dense_lookup.dense_lookup(ele_reco_lowet_hist.values, ele_reco_lowet_hist.edges)
+
+
+###
+# Electron reconstruction SFs. Depends on supercluster eta and pt.  UL
+#https://twiki.cern.ch/twiki/bin/view/CMS/EgammaUL2016To2018#SFs_for_Electrons_UL_2017
+###
+ele_reco_files_preVFP_below20 = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
 }
-get_ele_reco_sf = {}
+get_ele_reco_sf_preVFP_below20 = {}
 for year in ['2016','2017','2018']:
-    ele_reco_hist = ele_reco_files[year]["EGamma_SF2D"]
-    get_ele_reco_sf[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
-#2017 has a separate set of weights for low pt electrons (pt<20).
-ele_reco_lowet_hist = uproot.open("data/ScaleFactor/2017_egammaEffi_txt_EGM2D_runBCDEF_passingRECO_lowEt.root")['EGamma_SF2D']
-get_ele_reco_lowet_sf=lookup_tools.dense_lookup.dense_lookup(ele_reco_lowet_hist.values, ele_reco_lowet_hist.edges)
+    ele_reco_hist = ele_reco_files_preVFP_below20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_preVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+
+ele_reco_files_postVFP_below20 = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
+}
+get_ele_reco_sf_postVFP_below20 = {}
+for year in ['2016','2017','2018']:
+    ele_reco_hist = ele_reco_files_postVFP_below20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_postVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+ele_reco_files_postVFP_above20 = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+}
+get_ele_reco_sf_postVFP_above20 = {}
+for year in ['2016','2017','2018']:
+    ele_reco_hist = ele_reco_files_postVFP_above20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_postVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+
+ele_reco_files_preVFP_above20 = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+}
+get_ele_reco_sf_preVFP_above20 = {}
+for year in ['2016','2017','2018']:
+    ele_reco_hist = ele_reco_files_preVFP_above20[year]["EGamma_SF2D"]
+    get_ele_reco_sf_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
+    
+
 
 ###
 # Photon ID SFs. Tight photons use medium id. 2017/18 use dedicated measurement from monojet, depends only on abs(eta): https://indico.cern.ch/event/879924/
@@ -533,19 +625,30 @@ corrections = {
     'get_ele_trig_weight':      get_ele_trig_weight,
     'get_mu_trig_weight':      get_mu_trig_weight,    
     'get_pho_trig_weight':      get_pho_trig_weight,
-    'get_ele_loose_id_sf':      get_ele_loose_id_sf,
-    'get_ele_tight_id_sf':      get_ele_tight_id_sf,
+#     'get_ele_loose_id_sf':      get_ele_loose_id_sf,
+#     'get_ele_tight_id_sf':      get_ele_tight_id_sf,
+
     'get_pho_tight_id_sf':      get_pho_tight_id_sf,
     'get_pho_csev_sf':          get_pho_csev_sf,
     'get_mu_tight_id_sf':       get_mu_tight_id_sf,
     'get_mu_loose_id_sf':       get_mu_loose_id_sf,
-    'get_ele_reco_sf':          get_ele_reco_sf,
-    'get_ele_reco_lowet_sf':    get_ele_reco_lowet_sf,
+#     'get_ele_reco_sf':          get_ele_reco_sf,
+#     'get_ele_reco_lowet_sf':    get_ele_reco_lowet_sf,
     'get_mu_tight_iso_sf':      get_mu_tight_iso_sf,
     'get_mu_loose_iso_sf':      get_mu_loose_iso_sf,
     'get_ecal_bad_calib':       get_ecal_bad_calib,
     'get_btag_weight':          get_btag_weight,
     'Jetevaluator':             Jetevaluator,
+    
+    'get_ele_tight_id_sf_postVFP': get_ele_tight_id_sf_postVFP,
+    'get_ele_tight_id_sf_preVFP': get_ele_tight_id_sf_preVFP,
+    'get_ele_loose_id_sf_postVFP': get_ele_loose_id_sf_postVFP,
+    'get_ele_loose_id_sf_preVFP': get_ele_loose_id_sf_preVFP,
+    
+    'get_ele_reco_sf_preVFP_below20': get_ele_reco_sf_preVFP_below20,
+    'get_ele_reco_sf_postVFP_below20':get_ele_reco_sf_postVFP_below20,
+    'get_ele_reco_sf_postVFP_above20':get_ele_reco_sf_postVFP_above20,
+    'get_ele_reco_sf_preVFP_above20':get_ele_reco_sf_preVFP_above20,
 }
 save(corrections, 'data/corrections.coffea')
 
