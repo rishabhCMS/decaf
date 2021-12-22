@@ -593,6 +593,8 @@ corrections = {
     
     'get_ele_tight_id_sf_postVFP': get_ele_tight_id_sf_postVFP,
     'get_ele_tight_id_sf_preVFP': get_ele_tight_id_sf_preVFP,
+    'get_ele_loose_id_sf_postVFP': get_ele_loose_id_sf_postVFP,
+    'get_ele_loose_id_sf_preVFP': get_ele_loose_id_sf_preVFP,
 }
 save(corrections, 'data/corrections.coffea')
 
