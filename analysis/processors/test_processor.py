@@ -1154,7 +1154,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
 #             print("hi I am in DY pt")
 #             GenPart = events.GenPart
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy') & ((abs(gen.pdgId) == 23))].pt >= 400).all()
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt >= 400).all()
             selection.add("exclude_dyjets_greater_400", remove_overlap)
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
