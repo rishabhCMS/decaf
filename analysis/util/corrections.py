@@ -358,14 +358,14 @@ mu_iso_files_preVFP = {
     '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
 }
 mu_iso_tight_hist_preVFP = {
-    '2016': mu_iso_files['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
-    '2017': mu_iso_files['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
-    '2018': mu_iso_files['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"]
+    '2016': mu_iso_files_preVFP['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2017': mu_iso_files_preVFP['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2018': mu_iso_files_preVFP['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"]
 }
 mu_iso_loose_hist_preVFP = {
-    '2016': mu_iso_files['2016']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
-    '2017': mu_iso_files['2017']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
-    '2018': mu_iso_files['2018']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"]
+    '2016': mu_iso_files_preVFP['2016']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2017': mu_iso_files_preVFP['2017']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2018': mu_iso_files_preVFP['2018']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"]
 }
 get_mu_tight_iso_sf_preVFP = {}
 get_mu_loose_iso_sf_preVFP = {}
@@ -380,14 +380,14 @@ mu_iso_files_postVFP = {
     '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
 }
 mu_iso_tight_hist_postVFP = {
-    '2016': mu_iso_files['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
-    '2017': mu_iso_files['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
-    '2018': mu_iso_files['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"]
+    '2016': mu_iso_files_postVFP['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2017': mu_iso_files_postVFP['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2018': mu_iso_files_postVFP['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"]
 }
 mu_iso_loose_hist_postVFP = {
-    '2016': mu_iso_files['2016']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
-    '2017': mu_iso_files['2017']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
-    '2018': mu_iso_files['2018']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"]
+    '2016': mu_iso_files_postVFP['2016']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2017': mu_iso_files_postVFP['2017']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2018': mu_iso_files_postVFP['2018']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"]
 }
 get_mu_tight_iso_sf_postVFP = {}
 get_mu_loose_iso_sf_postVFP = {}
