@@ -326,26 +326,76 @@ for year in ['2016','2018', '2017']:
 # Muon isolation SFs
 ###
 
-mu_iso_files = {
-    '2016': uproot.open("data/ScaleFactor/Merged_SF_ISO.root"),
-    '2017': uproot.open("data/ScaleFactor/RunBCDEF_SF_ISO_syst.root"),
-    '2018': uproot.open("data/ScaleFactor/RunABCD_SF_ISO.root")
+# mu_iso_files = {
+#     '2016': uproot.open("data/ScaleFactor/Merged_SF_ISO.root"),
+#     '2017': uproot.open("data/ScaleFactor/RunBCDEF_SF_ISO_syst.root"),
+#     '2018': uproot.open("data/ScaleFactor/RunABCD_SF_ISO.root")
+# }
+# mu_iso_tight_hist = {
+#     '2016': mu_iso_files['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_eta_pt"],
+#     '2017': mu_iso_files['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_pt_abseta"],
+#     '2018': mu_iso_files['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_pt_abseta"]
+# }
+# mu_iso_loose_hist = {
+#     '2016': mu_iso_files['2016']["NUM_LooseRelIso_DEN_LooseID_eta_pt"],
+#     '2017': mu_iso_files['2017']["NUM_LooseRelIso_DEN_LooseID_pt_abseta"],
+#     '2018': mu_iso_files['2018']["NUM_LooseRelIso_DEN_LooseID_pt_abseta"]
+# }
+# get_mu_tight_iso_sf = {}
+# get_mu_loose_iso_sf = {}
+# for year in ['2016','2017','2018']:
+#     get_mu_tight_iso_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist[year].values, mu_iso_tight_hist[year].edges)
+#     get_mu_loose_iso_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist[year].values, mu_iso_loose_hist[year].edges)
+
+###
+# Muon isolation SFs
+#https://twiki.cern.ch/twiki/bin/view/CMS/MuonUL2018#ID_efficiencies_AN1
+###
+#iso
+mu_iso_files_preVFP = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_preVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ISO.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
 }
-mu_iso_tight_hist = {
-    '2016': mu_iso_files['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_eta_pt"],
-    '2017': mu_iso_files['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_pt_abseta"],
-    '2018': mu_iso_files['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_pt_abseta"]
+mu_iso_tight_hist_preVFP = {
+    '2016': mu_iso_files['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2017': mu_iso_files['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2018': mu_iso_files['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"]
 }
-mu_iso_loose_hist = {
-    '2016': mu_iso_files['2016']["NUM_LooseRelIso_DEN_LooseID_eta_pt"],
-    '2017': mu_iso_files['2017']["NUM_LooseRelIso_DEN_LooseID_pt_abseta"],
-    '2018': mu_iso_files['2018']["NUM_LooseRelIso_DEN_LooseID_pt_abseta"]
+mu_iso_loose_hist_preVFP = {
+    '2016': mu_iso_files['2016']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2017': mu_iso_files['2017']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2018': mu_iso_files['2018']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"]
 }
-get_mu_tight_iso_sf = {}
-get_mu_loose_iso_sf = {}
+get_mu_tight_iso_sf_preVFP = {}
+get_mu_loose_iso_sf_preVFP = {}
 for year in ['2016','2017','2018']:
-    get_mu_tight_iso_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist[year].values, mu_iso_tight_hist[year].edges)
-    get_mu_loose_iso_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist[year].values, mu_iso_loose_hist[year].edges)
+    get_mu_tight_iso_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist_preVFP[year].values, mu_iso_tight_hist_preVFP[year].edges)
+    get_mu_loose_iso_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist_preVFP[year].values, mu_iso_loose_hist_preVFP[year].edges)
+
+#iso
+mu_iso_files_postVFP = {
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ISO.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
+}
+mu_iso_tight_hist_postVFP = {
+    '2016': mu_iso_files['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2017': mu_iso_files['2017']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
+    '2018': mu_iso_files['2018']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"]
+}
+mu_iso_loose_hist_postVFP = {
+    '2016': mu_iso_files['2016']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2017': mu_iso_files['2017']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"],
+    '2018': mu_iso_files['2018']["NUM_LooseRelIso_DEN_LooseID_abseta_pt"]
+}
+get_mu_tight_iso_sf_postVFP = {}
+get_mu_loose_iso_sf_postVFP = {}
+for year in ['2016','2017','2018']:
+    get_mu_tight_iso_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist_postVFP[year].values, mu_iso_tight_hist_postVFP[year].edges)
+    get_mu_loose_iso_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist_postVFP[year].values, mu_iso_loose_hist_postVFP[year].edges)
+
+
 ###
 # V+jets NLO k-factors
 ###
@@ -681,8 +731,8 @@ corrections = {
 #     'get_mu_loose_id_sf':       get_mu_loose_id_sf,
 #     'get_ele_reco_sf':          get_ele_reco_sf,
 #     'get_ele_reco_lowet_sf':    get_ele_reco_lowet_sf,
-    'get_mu_tight_iso_sf':      get_mu_tight_iso_sf,
-    'get_mu_loose_iso_sf':      get_mu_loose_iso_sf,
+#     'get_mu_tight_iso_sf':      get_mu_tight_iso_sf,
+#     'get_mu_loose_iso_sf':      get_mu_loose_iso_sf,
     'get_ecal_bad_calib':       get_ecal_bad_calib,
     'get_btag_weight':          get_btag_weight,
     'Jetevaluator':             Jetevaluator,
@@ -700,7 +750,11 @@ corrections = {
     'get_mu_tight_id_sf_preVFP':get_mu_tight_id_sf_preVFP,
     'get_mu_loose_id_sf_preVFP':get_mu_loose_id_sf_preVFP,
     'get_mu_tight_id_sf_postVFP':get_mu_tight_id_sf_postVFP,
-    'get_mu_loose_id_sf_postVFP':get_mu_loose_id_sf_postVFP
+    'get_mu_loose_id_sf_postVFP':get_mu_loose_id_sf_postVFP,
+    'get_mu_tight_iso_sf_preVFP':get_mu_tight_iso_sf_preVFP,
+    'get_mu_loose_iso_sf_preVFP':get_mu_loose_iso_sf_preVFP,
+    'get_mu_tight_iso_sf_postVFP':get_mu_tight_iso_sf_postVFP,
+    'get_mu_loose_iso_sf_postVFP':get_mu_loose_iso_sf_postVFP,
 }
 save(corrections, 'data/corrections.coffea')
 
