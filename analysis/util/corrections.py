@@ -281,9 +281,9 @@ for year in ['2016','2017','2018']:
 ###
 
 mu_files_preVFP = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_preVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ID.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_preVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ID.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
 }
 mu_tight_hist_preVFP = {
     '2016': mu_files['2016']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
@@ -303,9 +303,9 @@ for year in ['2016','2018', '2017']:
 
 
 mu_files_postVFP = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ID.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ID.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
 }
 mu_tight_hist_postVFP = {
     '2016': mu_files['2016']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
