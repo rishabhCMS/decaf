@@ -925,7 +925,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'wjetm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
 #                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
 #                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-#             }
+            }
 #             trig = {
 #                 'sre': np.ones(event_size),
 #                 'srm':np.ones(event_size),
