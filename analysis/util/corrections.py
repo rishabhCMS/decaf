@@ -254,27 +254,74 @@ for year in ['2016','2017','2018']:
 # Muon ID SFs
 ###
 
-mu_files = {
-    '2016': uproot.open("data/ScaleFactor/2016LegacyReReco_Muon_SF_ID.root"),
-    '2017': uproot.open("data/ScaleFactor/2017_Muon_RunBCDEF_SF_ID.root"),
-    '2018': uproot.open("data/ScaleFactor/2018_Muon_RunABCD_SF_ID.root")
-}
-mu_tight_hist = {
-    '2016': mu_files['2016']["NUM_TightID_DEN_genTracks_eta_pt"],
-    '2017': mu_files['2017']["NUM_TightID_DEN_genTracks_pt_abseta"],
-    '2018': mu_files['2018']["NUM_TightID_DEN_TrackerMuons_pt_abseta"]
-}
-mu_loose_hist = {
-    '2016': mu_files['2016']["NUM_LooseID_DEN_genTracks_eta_pt"],
-    '2017': mu_files['2017']["NUM_LooseID_DEN_genTracks_pt_abseta"],
-    '2018': mu_files['2018']["NUM_LooseID_DEN_TrackerMuons_pt_abseta"]
-}
-get_mu_tight_id_sf = {}
-get_mu_loose_id_sf = {}
-for year in ['2016','2017','2018']:
-    get_mu_tight_id_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist[year].values, mu_tight_hist[year].edges)
-    get_mu_loose_id_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist[year].values, mu_loose_hist[year].edges)
+# mu_files = {
+#     '2016': uproot.open("data/ScaleFactor/2016LegacyReReco_Muon_SF_ID.root"),
+#     '2017': uproot.open("data/ScaleFactor/2017_Muon_RunBCDEF_SF_ID.root"),
+#     '2018': uproot.open("data/ScaleFactor/2018_Muon_RunABCD_SF_ID.root")
+# }
+# mu_tight_hist = {
+#     '2016': mu_files['2016']["NUM_TightID_DEN_genTracks_eta_pt"],
+#     '2017': mu_files['2017']["NUM_TightID_DEN_genTracks_pt_abseta"],
+#     '2018': mu_files['2018']["NUM_TightID_DEN_TrackerMuons_pt_abseta"]
+# }
+# mu_loose_hist = {
+#     '2016': mu_files['2016']["NUM_LooseID_DEN_genTracks_eta_pt"],
+#     '2017': mu_files['2017']["NUM_LooseID_DEN_genTracks_pt_abseta"],
+#     '2018': mu_files['2018']["NUM_LooseID_DEN_TrackerMuons_pt_abseta"]
+# }
+# get_mu_tight_id_sf = {}
+# get_mu_loose_id_sf = {}
+# for year in ['2016','2017','2018']:
+#     get_mu_tight_id_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist[year].values, mu_tight_hist[year].edges)
+#     get_mu_loose_id_sf[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist[year].values, mu_loose_hist[year].edges)
 
+###
+# Muon ID SFs
+#https://twiki.cern.ch/twiki/bin/view/CMS/MuonUL2018#ID_efficiencies_AN1
+###
+
+mu_files_preVFP = {
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_preVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ID.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
+}
+mu_tight_hist_preVFP = {
+    '2016': mu_files['2016']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
+    '2017': mu_files['2017']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
+    '2018': mu_files['2018']["NUM_TightID_DEN_TrackerMuons_abseta_pt"]
+}
+mu_loose_hist_preVFP = {
+    '2016': mu_files['2016']["NUM_LooseID_DEN_TrackerMuons_abseta_pt"],
+    '2017': mu_files['2017']["NUM_LooseID_DEN_TrackerMuons_abseta_pt"],
+    '2018': mu_files['2018']["NUM_LooseID_DEN_TrackerMuons_abseta_pt"]
+}
+get_mu_tight_id_sf_preVFP = {}
+get_mu_loose_id_sf_preVFP = {}
+for year in ['2016','2018', '2017']:
+    get_mu_tight_id_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_preVFP[year].values, mu_tight_hist_preVFP[year].edges)
+    get_mu_loose_id_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_preVFP[year].values, mu_loose_hist_preVFP[year].edges)
+
+
+mu_files_postVFP = {
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ID.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
+}
+mu_tight_hist_postVFP = {
+    '2016': mu_files['2016']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
+    '2017': mu_files['2017']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
+    '2018': mu_files['2018']["NUM_TightID_DEN_TrackerMuons_abseta_pt"]
+}
+mu_loose_hist_postVFP = {
+    '2016': mu_files['2016']["NUM_LooseID_DEN_TrackerMuons_abseta_pt"],
+    '2017': mu_files['2017']["NUM_LooseID_DEN_TrackerMuons_abseta_pt"],
+    '2018': mu_files['2018']["NUM_LooseID_DEN_TrackerMuons_abseta_pt"]
+}
+get_mu_tight_id_sf_postVFP = {}
+get_mu_loose_id_sf_postVFP = {}
+for year in ['2016','2018', '2017']:
+    get_mu_tight_id_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_postVFP[year].values, mu_tight_hist_postVFP[year].edges)
+    get_mu_loose_id_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_postVFP[year].values, mu_loose_hist_postVFP[year].edges)    
 ###
 # Muon isolation SFs
 ###
@@ -630,8 +677,8 @@ corrections = {
 
     'get_pho_tight_id_sf':      get_pho_tight_id_sf,
     'get_pho_csev_sf':          get_pho_csev_sf,
-    'get_mu_tight_id_sf':       get_mu_tight_id_sf,
-    'get_mu_loose_id_sf':       get_mu_loose_id_sf,
+#     'get_mu_tight_id_sf':       get_mu_tight_id_sf,
+#     'get_mu_loose_id_sf':       get_mu_loose_id_sf,
 #     'get_ele_reco_sf':          get_ele_reco_sf,
 #     'get_ele_reco_lowet_sf':    get_ele_reco_lowet_sf,
     'get_mu_tight_iso_sf':      get_mu_tight_iso_sf,
@@ -649,6 +696,11 @@ corrections = {
     'get_ele_reco_sf_postVFP_below20':get_ele_reco_sf_postVFP_below20,
     'get_ele_reco_sf_postVFP_above20':get_ele_reco_sf_postVFP_above20,
     'get_ele_reco_sf_preVFP_above20':get_ele_reco_sf_preVFP_above20,
+    
+    'get_mu_tight_id_sf_preVFP':get_mu_tight_id_sf_preVFP,
+    'get_mu_loose_id_sf_preVFP':get_mu_loose_id_sf_preVFP,
+    'get_mu_tight_id_sf_postVFP':get_mu_tight_id_sf_postVFP,
+    'get_mu_loose_id_sf_postVFP':get_mu_loose_id_sf_postVFP
 }
 save(corrections, 'data/corrections.coffea')
 
