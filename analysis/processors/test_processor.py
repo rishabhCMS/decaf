@@ -916,23 +916,23 @@ class AnalysisProcessor(processor.ProcessorABC):
                 sf = sigmoid(leading_pho.pt.sum(), 1.022, 218.39, 0.086, 0.999) / sigmoid(leading_pho.pt.sum(), 0.301, 212.83, 0.062, 1.000)
                 sf[np.isnan(sf) | np.isinf(sf)] == 1
 
-#             trig = {
-#                 'sre': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-#                 'srm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
-#                 'ttbare': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-#                 'ttbarm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
-#                 'wjete': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
-#                 'wjetm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+            trig = {
+                'sre': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'srm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'ttbare': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'ttbarm': get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'wjete': get_ele_trig_weight(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'wjetm':get_mu_trig_weight(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
 #                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
 #                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
 #             }
-            trig = {
-                'sre': np.ones(event_size),
-                'srm':np.ones(event_size),
-                'ttbare': np.ones(event_size),
-                'ttbarm': np.ones(event_size),
-                'wjete': np.ones(event_size),
-                'wjetm':np.ones(event_size),
+#             trig = {
+#                 'sre': np.ones(event_size),
+#                 'srm':np.ones(event_size),
+#                 'ttbare': np.ones(event_size),
+#                 'ttbarm': np.ones(event_size),
+#                 'wjete': np.ones(event_size),
+#                 'wjetm':np.ones(event_size),
                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
