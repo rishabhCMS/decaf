@@ -935,7 +935,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 'wjetm':np.ones(event_size),
                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-            }
+#             }
             ###
             # Calculating electron and muon ID weights
             ###
