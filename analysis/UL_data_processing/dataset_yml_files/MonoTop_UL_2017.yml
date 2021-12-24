@@ -199,6 +199,134 @@
         lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
         isTopNanoAOD: False
         split:        lumi
+    SingleElectron_Run2017B:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017B-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017C:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017C-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017D:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017D-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017E:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017E-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017F:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017F-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+    SinglePhoton_Run2017B:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017B-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017C:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017C-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017D:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017D-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017E:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017E-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017F:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017F-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
 
     SingleMuon_Run2018A:
         tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
