@@ -1,0 +1,705 @@
+"2016":
+    DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018']
+        dbs:
+            /DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv2-106X_mc2017_realistic_v8-v1/NANOAODSIM
+        xs:           5103
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   2088.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    DYJetsToLL_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018']
+        dbs:
+            /DYJetsToLL_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv2-106X_mc2017_realistic_v8-v1/NANOAODSIM
+        xs:           944.4
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1614.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    DYJetsToLL_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018']
+        dbs:
+            /DYJetsToLL_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           356.7
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   3732.0
+        isTopNanoAOD: False
+        split:        lumi
+
+
+    DYJetsToLL_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /DYJetsToLL_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv2-106X_mc2017_realistic_v8-v1/NANOAODSIM
+        xs:           94.9
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1524.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    DYJetsToLL_Pt-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /DYJetsToLL_Pt-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           3.681
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   798.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    DYJetsToLL_Pt-400To650_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /DYJetsToLL_Pt-400To650_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           0.5
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   762.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    DYJetsToLL_Pt-50To100_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /DYJetsToLL_Pt-50To100_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           384.1
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   700.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+           /DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           0.04568
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   666.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017B:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017B-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017C:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017C-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017D:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017D-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017E:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017E-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleElectron_Run2017F:
+        tags: ['ul', 'global', 'data', '2017', 'nanoaodv2']
+        dbs:
+            /SingleElectron/Run2017F-UL2017_MiniAODv2_NanoAODv9-v2/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   288.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2017B:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2017B-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2017B:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2017B-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2018C:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2018C-UL2018_MiniAODv1_NanoAODv2-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1602.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2017D:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2017D-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2017E:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2017E-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2017F:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2017F-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2017G:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2017G-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SingleMuon_Run2017H:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SingleMuon/Run2017H-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017B:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017B-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017C:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017C-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017D:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017D-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017E:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017E-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    SinglePhoton_Run2017F:
+        tags: ['ul', 'global', 'data', '2018', 'nanoaodv2']
+        dbs:
+            /SinglePhoton/Run2017F-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD
+        xs:           1.0
+        source:       global
+        isData:       True
+        jec:          None
+        throughput:   1812.0
+        lumiMask:     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/Legacy_2018/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt
+        isTopNanoAOD: False
+        split:        lumi
+
+    TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           687.1
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1230.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    TTToHadronic_TuneCP5_13TeV-powheg-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv2-106X_mc2017_realistic_v8-v1/NANOAODSIM
+        xs:           687.1
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1902.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           687.1
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1398.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WJetsToLNu_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WJetsToLNu_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           53240
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   2304.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WJetsToLNu_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WJetsToLNu_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv2-106X_mc2017_realistic_v8-v1/NANOAODSIM
+        xs:           9169
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   888.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WJetsToLNu_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WJetsToLNu_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           3296
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1836.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WJetsToLNu_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WJetsToLNu_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           761.7
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1344.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WJetsToLNu_Pt-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WJetsToLNu_Pt-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           27.89
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   312.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WJetsToLNu_Pt-400To600_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WJetsToLNu_Pt-400To600_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
+        xs:           3.56
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   624.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WJetsToLNu_Pt-600ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WJetsToLNu_Pt-600ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           0.5327
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   528.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WW_TuneCP5_13TeV-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WW_TuneCP5_13TeV-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           76.32
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   678.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    WZ_TuneCP5_13TeV-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /WZ_TuneCP5_13TeV-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           27.42
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1764.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    ZZ_TuneCP5_13TeV-pythia8:
+        tags: ['global', 'ul', 'nanoaodv2', '2018', 'mc']
+        dbs:
+            /ZZ_TuneCP5_13TeV-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           12.06
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1812.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', "u'st'", 'ST', 'ul', '2018']
+        dbs:
+            /ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           3.549
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1476.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', "u'st'", 'ST', 'ul', '2018']
+        dbs:
+            /ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM
+        xs:           32.51
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   750.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', "u'st'", 'ST', 'ul', '2018']
+        dbs:
+            /ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM
+        xs:           32.45
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1320.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           7.419
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   990.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_120to170_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_120to170_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           405100
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1932.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           0.6362
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1260.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_15to30_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_15to30_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           1230000000
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1000
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_170to300_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_170to300_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           101700
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1410.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           0.08738
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1134.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           0.005145
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   942.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_300to470_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_300to470_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           6747
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1000
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_30to50_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_30to50_TuneCP5_13TeV_pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2018_realistic_v15_L1v1-v1/NANOAODSIM
+        xs:           106400000
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   2760.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_3200toInf_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_30to50_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           0.0001336
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   960.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_470to600_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_470to600_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           548.4
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   636.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_50to80_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_50to80_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           15600000
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1962.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_600to800_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_600to800_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           155.6
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1188.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_800to1000_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_800to1000_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           26.01
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   1518.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    QCD_Pt_80to120_TuneCP5_13TeV_pythia8:
+        tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018', 'QCD', "u'qcd'"]
+        dbs:
+            /QCD_Pt_80to120_TuneCP5_13TeV_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM
+        xs:           2301000
+        source:       global
+        isData:       False
+        jec:          Total
+        throughput:   2988.0
+        isTopNanoAOD: False
+        split:        lumi
+
+
