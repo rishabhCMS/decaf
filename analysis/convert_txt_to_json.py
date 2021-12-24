@@ -66,7 +66,7 @@ for txt_file in flist:
         else:
             key_name = txt_file.split('/')[2].split('.')[0] + '____'+str(i+1)+'_'
             if 'preVFP' in keyname:
-                dataset_name = txt_file..split('/')[2].split('.')[0][:-6]
+                dataset_name = txt_file.split('/')[2].split('.')[0][:-6]
             elif 'postVFP' in keyname:
                 dataset_name = txt_file.split('/')[2].split('.')[0][:-7]
             else:
