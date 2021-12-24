@@ -65,7 +65,12 @@ for txt_file in flist:
             key_name = txt_file.split('/')[2].split('.')[0].split('_')[0] + '____'+str(i+1)+'_'
         else:
             key_name = txt_file.split('/')[2].split('.')[0] + '____'+str(i+1)+'_'
-        dataset_name = txt_file.split('/')[2].split('.')[0]
+            if 'preVFP' in keyname:
+                dataset_name = txt_file..split('/')[2].split('.')[0][:-6]
+            elif 'postVFP' in keyname:
+                dataset_name = txt_file.split('/')[2].split('.')[0][:-7]
+            else:
+                dataset_name = txt_file.split('/')[2].split('.')[0]
         datadict_obj[key_name] = {'files': lst, 'xs': xs_reference[dataset_name]}
         
 import json
