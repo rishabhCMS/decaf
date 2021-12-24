@@ -1,0 +1,11 @@
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/F1F06351-AAB5-4840-A474-5E6601F91D6C.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/E162B536-DA4A-A341-9C89-9D10AD7D553A.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/1419C11E-8ADB-BF4F-9ADE-A21E001190E3.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/F6A54F00-2A43-6A40-8BEC-3D5C4194A654.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/74457F4F-63A0-5944-87FD-860C2F795F72.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/A47239DB-06BF-5D45-81EC-28519A656159.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/FC3028A0-0A5E-B64B-81F3-5AE2DD02856B.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/9A00429C-C4FA-6449-B34D-CCABDCBC7F75.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/2B7D28B7-763F-CC45-AEFF-B853A1550000.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/D97C6038-EDDC-464D-AC14-A94AB141710A.root
+root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/270000/439BF3ED-0E84-8943-83EE-F0851CC1AAAD.root
