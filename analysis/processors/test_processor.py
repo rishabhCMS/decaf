@@ -522,6 +522,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_mu_loose_id_sf = self._corrections['get_mu_loose_id_sf_preVFP'][self._year]
             get_mu_tight_iso_sf = self._corrections['get_mu_tight_iso_sf_preVFP'][self._year]
             get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf_preVFP'][self._year]
+            get_mu_trig_weight = self._corrections['get_mu_trig_weight_preVFP'][self._year]
             
         elif ("postVFP" in dataset) and (self._year == '2016'):
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
@@ -532,6 +533,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_mu_loose_id_sf = self._corrections['get_mu_loose_id_sf_postVFP'][self._year]
             get_mu_tight_iso_sf = self._corrections['get_mu_tight_iso_sf_postVFP'][self._year]
             get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf_postVFP'][self._year]
+            get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
 
         else:
 #             print("hi")
@@ -543,7 +545,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_mu_loose_id_sf = self._corrections['get_mu_loose_id_sf_postVFP'][self._year]
             get_mu_tight_iso_sf = self._corrections['get_mu_tight_iso_sf_postVFP'][self._year]
             get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf_postVFP'][self._year]            
-
+            get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
 
         get_msd_weight = self._corrections['get_msd_weight']
         get_ttbar_weight = self._corrections['get_ttbar_weight']
@@ -554,7 +556,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         get_met_trig_weight = self._corrections['get_met_trig_weight'][self._year]
         get_met_zmm_trig_weight = self._corrections['get_met_zmm_trig_weight'][self._year]
         get_ele_trig_weight = self._corrections['get_ele_trig_weight'][self._year]
-        get_mu_trig_weight = self._corrections['get_mu_trig_weight'][self._year]
+#         get_mu_trig_weight = self._corrections['get_mu_trig_weight'][self._year]
         get_pho_trig_weight = self._corrections['get_pho_trig_weight'][self._year]
 #         get_ele_loose_id_sf = self._corrections['get_ele_loose_id_sf'][self._year]
 #         get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf'][self._year]
