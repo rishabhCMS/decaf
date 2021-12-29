@@ -67,16 +67,36 @@ for year in ['2016','2017','2018']:
 # Muon trigger efficiency SFs. depends on supercluster eta and pt:
 ###
 
-mu_trig_hists = {
-    '2016': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2016_RunBtoH.root")['IsoMu24_OR_IsoTkMu24_PtEtaBins']['pt_abseta_ratio'],
-    '2017': uproot.open("data/trigger_eff/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['IsoMu27_PtEtaBins']['pt_abseta_ratio'],
-    '2018': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2018_RunAtoD_kr.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
-}
-get_mu_trig_weight = {}
-for year in ['2016','2017','2018']:
-    mu_trig_hist = mu_trig_hists[year]
-    get_mu_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
+# mu_trig_hists = {
+#     '2016': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2016_RunBtoH.root")['IsoMu24_OR_IsoTkMu24_PtEtaBins']['pt_abseta_ratio'],
+#     '2017': uproot.open("data/trigger_eff/EfficienciesAndSF_RunBtoF_Nov17Nov2017.root")['IsoMu27_PtEtaBins']['pt_abseta_ratio'],
+#     '2018': uproot.open("data/trigger_eff/SingleMuTriggerEfficienciesAndSF_2018_RunAtoD_kr.root")['IsoMu24_PtEtaBins']['pt_abseta_ratio']
+# }
+# get_mu_trig_weight = {}
+# for year in ['2016','2017','2018']:
+#     mu_trig_hist = mu_trig_hists[year]
+#     get_mu_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
     
+    
+mu_trig_hists_preVFP = {
+    '2016': uproot.open("../data/trigger_eff_UL/UL_SingleMuon/2016_preVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_SingleMuonTriggers.root")['NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
+    '2017': uproot.open("../data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_IsoMu27_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
+    '2018': uproot.open("../data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt']
+}
+get_mu_trig_weight_preVFP = {}
+for year in ['2018', '2017', '2016']:
+    mu_trig_hist = mu_trig_hists_preVFP[year]
+    get_mu_trig_weight_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
+    
+mu_trig_hists_postVFP = {
+    '2016': uproot.open("../data/trigger_eff_UL/UL_SingleMuon/2016_postVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_SingleMuonTriggers.root")['NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
+    '2017': uproot.open("../data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_IsoMu27_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
+    '2018': uproot.open("../data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt']
+}
+get_mu_trig_weight_postVFP = {}
+for year in ['2018', '2017', '2016']:
+    mu_trig_hist = mu_trig_hists_preVFP[year]
+    get_mu_trig_weight_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
 ###
 # Photon trigger efficiency SFs. 2017/18 not actually used, sigmoid is used instead.
 ###
@@ -720,7 +740,7 @@ corrections = {
     'get_met_trig_weight':      get_met_trig_weight,
     'get_met_zmm_trig_weight':  get_met_zmm_trig_weight,
     'get_ele_trig_weight':      get_ele_trig_weight,
-    'get_mu_trig_weight':      get_mu_trig_weight,    
+#     'get_mu_trig_weight':      get_mu_trig_weight,    
     'get_pho_trig_weight':      get_pho_trig_weight,
 #     'get_ele_loose_id_sf':      get_ele_loose_id_sf,
 #     'get_ele_tight_id_sf':      get_ele_tight_id_sf,
@@ -755,6 +775,9 @@ corrections = {
     'get_mu_loose_iso_sf_preVFP':get_mu_loose_iso_sf_preVFP,
     'get_mu_tight_iso_sf_postVFP':get_mu_tight_iso_sf_postVFP,
     'get_mu_loose_iso_sf_postVFP':get_mu_loose_iso_sf_postVFP,
+    
+    'get_mu_trig_weight_preVFP':get_mu_trig_weight_preVFP,
+    'get_mu_trig_weight_postVFP':get_mu_trig_weight_postVFP,
 }
 save(corrections, 'data/corrections.coffea')
 
