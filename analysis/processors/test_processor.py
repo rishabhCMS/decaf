@@ -685,7 +685,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_pho = leading_pho[leading_pho.istight.astype(np.bool)]
 
         j = events.Jet
-        j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF)
+        j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
         j['isclean'] = ~match(j,e_loose,0.4)&~match(j,mu_loose,0.4)&~match(j,pho_loose,0.4)
         #j['isiso'] = ~match(j,fj_clean[fj_clean.pt.argmax()],1.5)
