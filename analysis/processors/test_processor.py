@@ -604,8 +604,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
         met = events.MET
-        if self._year == '2017':
-            events.METFixEE2017  # Recommended for 2017
+#         if self._year == '2017':
+#             events.METFixEE2017  # Recommended for 2017
         met['T'] = TVector2Array.from_polar(met.pt, met.phi)
         calomet = events.CaloMET
         puppimet = events.PuppiMET
