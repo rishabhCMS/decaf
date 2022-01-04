@@ -23,13 +23,19 @@ parser.add_option('-p', '--pack', help='pack', dest='pack')
 (options, args) = parser.parse_args()
 
 # a dict for dataset and cross section reference
+if '2016' in options.year:
+    year = options.year.split('_')[0]
+
+else:
+    year = options.year
+    
 yml_file = {}
 yml_file['2016'] = 'UL_data_processing/dataset_yml_files/MonoTop_UL_2016.yml'
 yml_file['2017'] = 'UL_data_processing/dataset_yml_files/MonoTop_UL_2017.yml'
 yml_file['2018'] = 'UL_data_processing/dataset_yml_files/MonoTop_UL_2018.yml'
-with open(yml_file[options.year], 'r') as file:
+with open(yml_file[year], 'r') as file:
     data = yaml.safe_load(file)
-lst = list(data[options.year].keys())
+lst = list(data[year].keys())
 
 xs_reference = {}
 for dataset in lst:
@@ -39,6 +45,8 @@ for dataset in lst:
     else:    
         xs_reference[dataset] = data[options.year][dataset]['xs']
 
+
+    
 flist = glob.glob('metadata/UL_'+options.year+'/*.txt')
 datadict_obj = {}
 for txt_file in flist:
