@@ -79,9 +79,9 @@ for year in ['2016','2017','2018']:
     
     
 mu_trig_hists_preVFP = {
-    '2016': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2016_preVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_SingleMuonTriggers.root")['NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
-    '2017': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_IsoMu27_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
-    '2018': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt']
+    '2016': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2016_preVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_SingleMuonTriggers.root")['NUM_Mu50_or_TkMu50_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose'],
+    '2017': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose'],
+    '2018': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose']
 }
 get_mu_trig_weight_preVFP = {}
 for year in ['2018', '2017', '2016']:
@@ -89,9 +89,9 @@ for year in ['2018', '2017', '2016']:
     get_mu_trig_weight_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
     
 mu_trig_hists_postVFP = {
-    '2016': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2016_postVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_SingleMuonTriggers.root")['NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
-    '2017': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_IsoMu27_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt'],
-    '2018': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt']
+    '2016': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2016_postVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_SingleMuonTriggers.root")['NUM_Mu50_or_TkMu50_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose'],
+    '2017': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose'],
+    '2018': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose']
 }
 get_mu_trig_weight_postVFP = {}
 for year in ['2018', '2017', '2016']:
