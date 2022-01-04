@@ -43,7 +43,7 @@ for dataset in lst:
     if 'EGamma' in dataset or 'SingleMuon' in dataset or 'MET' in dataset or 'SingleElectron' in dataset or 'SinglePhoton' in dataset:
         xs_reference[dataset] = -1
     else:    
-        xs_reference[dataset] = data[options.year][dataset]['xs']
+        xs_reference[dataset] = data[year][dataset]['xs']
 
 
     
