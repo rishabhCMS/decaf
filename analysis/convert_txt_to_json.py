@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
 #usage: python convert_txt_to_json.py -y [enter the year you want to process] -p [enter the pack size]
+#  python convert_txt_to_json.py -y 2016_postVFP -p 3
+#  python convert_txt_to_json.py -y 2016_preVFP -p 3
+#  python convert_txt_to_json.py -y 2017 -p 3
+#  python convert_txt_to_json.py -y 2018 -p 3
 import uproot
 import json
 import pyxrootd.client
