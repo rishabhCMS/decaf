@@ -19,7 +19,8 @@ import time
 class AnalysisProcessor(processor.ProcessorABC):
 
     lumis = {  # Values from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
-        '2016': 35.92,
+        '2016': 19.52, #preVFP
+#         '2016': 16.81, #postVFP
         '2017': 40.66,
         '2018': 59.74
     }
@@ -593,11 +594,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Derive jet corrector for JEC/JER
         ###
 
-        JECcorrector = FactorizedJetCorrector(**{name: Jetevaluator[name] for name in self._jec[self._year]})
-        JECuncertainties = JetCorrectionUncertainty(**{name: Jetevaluator[name] for name in self._junc[self._year]})
-        JER = JetResolution(**{name: Jetevaluator[name] for name in self._jr[self._year]})
-        JERsf = JetResolutionScaleFactor(**{name: Jetevaluator[name] for name in self._jersf[self._year]})
-        Jet_transformer = JetTransformer(jec=JECcorrector, junc=JECuncertainties, jer=JER, jersf=JERsf)
+#         JECcorrector = FactorizedJetCorrector(**{name: Jetevaluator[name] for name in self._jec[self._year]})
+#         JECuncertainties = JetCorrectionUncertainty(**{name: Jetevaluator[name] for name in self._junc[self._year]})
+#         JER = JetResolution(**{name: Jetevaluator[name] for name in self._jr[self._year]})
+#         JERsf = JetResolutionScaleFactor(**{name: Jetevaluator[name] for name in self._jersf[self._year]})
+#         Jet_transformer = JetTransformer(jec=JECcorrector, junc=JECuncertainties, jer=JER, jersf=JERsf)
 
         ###
         # Initialize global quantities (MET ecc.)
