@@ -1467,7 +1467,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template'].fill(dataset=dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT = mT[region]
+                                              mT = mT[region],
                                               weight=weights.weight(modifier=systematic)*cut)
                         ## Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
