@@ -1353,7 +1353,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('nlo_ewk', nlo_ewk)
                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
-                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    print('hi')
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
@@ -1399,36 +1400,43 @@ class AnalysisProcessor(processor.ProcessorABC):
                         gen[gen.isc].counts > 0)).astype(np.int)
                     wlf = (~(whf.astype(np.bool))).astype(np.int)
                     cut = selection.all(*regions[region])
-                    systematics = [None,
+#                     import sys
+#                     print(weights._modifiers.keys())
+#                     sys.exit(0)
+                    if 'WJets' in dataset:
+                        systematics = [None,
                                    'btagUp',
-                                   'btagDown',
-                                   'qcd1Up',
-                                   'qcd1Down',
-                                   'qcd2Up',
-                                   'qcd2Down',
-                                   'qcd3Up',
-                                   'qcd3Down',
-                                   'muFUp',
-                                   'muFDown',
-                                   'muRUp',
-                                   'muRDown',
-                                   'ew1Up',
-                                   'ew1Down',
-                                   'ew2GUp',
-                                   'ew2GDown',
-                                   'ew2WUp',
-                                   'ew2WDown',
-                                   'ew2ZUp',
-                                   'ew2ZDown',
-                                   'ew3GUp',
-                                   'ew3GDown',
-                                   'ew3WUp',
-                                   'ew3WDown',
-                                   'ew3ZUp',
-                                   'ew3ZDown',
-                                   'mixUp',
-                                   'mixDown'
-                                  ]
+                                   'btagDown',]
+                    else:
+                        systematics = [None,
+                                       'btagUp',
+                                       'btagDown',
+                                       'qcd1Up',
+                                       'qcd1Down',
+                                       'qcd2Up',
+                                       'qcd2Down',
+                                       'qcd3Up',
+                                       'qcd3Down',
+                                       'muFUp',
+                                       'muFDown',
+                                       'muRUp',
+                                       'muRDown',
+                                       'ew1Up',
+                                       'ew1Down',
+                                       'ew2GUp',
+                                       'ew2GDown',
+                                       'ew2WUp',
+                                       'ew2WDown',
+                                       'ew2ZUp',
+                                       'ew2ZDown',
+                                       'ew3GUp',
+                                       'ew3GDown',
+                                       'ew3WUp',
+                                       'ew3WDown',
+                                       'ew3ZUp',
+                                       'ew3ZDown',
+                                       'mixUp',
+                                       'mixDown']
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset='HF--'+dataset,
