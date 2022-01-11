@@ -358,19 +358,21 @@ class AnalysisProcessor(processor.ProcessorABC):
             'sumw': hist.Hist(
                 'sumw',
                 hist.Cat('dataset', 'Dataset'),
-                hist.Bin('sumw', 'Weight value', [0.])
-            ),
+                hist.Bin('sumw', 'Weight value', [0.])),
+            
             'template': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-            ),
+                hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
+            
             'mT': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
+            
             'eT_miss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -388,6 +390,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('mu_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
+            
             'j1pt': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -411,12 +414,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Bin('dphi_e_etmiss', '$\Delta\phi (e, E^T_{miss} )$', 30, 0, 3.5)),
+            
             'dphi_mu_etmiss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_mu_etmiss',
-                         '$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
+                hist.Bin('dphi_mu_etmiss','$\Delta\phi (\mu, E^T_{miss} )$', 30, 0, 3.5)),
+            
             'ndflvL': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -443,7 +447,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, leading_jet)$', 30, 0, 3.5)),
+                hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, Leading Jet)$', 30, 0, 3.5)),
             'dr_e_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1337,6 +1341,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hout['template'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
+                                      mT = mT[region],
                                       weight=np.ones(event_size)*cut)
                 fill(dataset, np.ones(event_size), cut)
             else:
@@ -1428,10 +1433,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
-                                              systematic=sname,)
+                                              systematic=sname,
+                                              mT = mT[region],
+                                              weight=weights.weight(modifier=systematic)*whf*cut)
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
-                                              systematic=sname,)
+                                              systematic=sname,
+                                              mT = mT[region],
+                                              weight=weights.weight(modifier=systematic)*wlf*cut)
                     ## Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
                     hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
@@ -1458,6 +1467,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template'].fill(dataset=dataset,
                                               region=region,
                                               systematic=sname,
+                                              mT = mT[region]
                                               weight=weights.weight(modifier=systematic)*cut)
                         ## Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
