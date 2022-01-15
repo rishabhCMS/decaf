@@ -127,7 +127,7 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
         return (output, binning, "mT", sumw2)
     return (output, binning, "mT")
 
-def model(year, mT):
+def model(year):
 
 #     model_id = year + category + "recoil" + str(recoil)
 #     print(model_id)
@@ -347,4 +347,4 @@ if __name__ == "__main__":
     with open(
         "data/"+"test"+year+".model",
         "wb",) as fout:
-        pickle.dump(model(year, mTbin), fout, protocol=2)
+        pickle.dump(model(year), fout, protocol=2)
