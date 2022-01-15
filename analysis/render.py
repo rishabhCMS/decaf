@@ -9,6 +9,7 @@ import gzip
 import pickle
 import cloudpickle
 import ROOT
+ROOT.v5.TFormula.SetMaxima(5000000)
 import gzip
 sys.setrecursionlimit(1500)
 rl.util.install_roofit_helpers()
