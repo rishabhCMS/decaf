@@ -109,6 +109,7 @@ def scale(hists):
     bkg_map["G+jetsNNLO"] = ("nnlo--GJets*",)
     
     bkg_map["QCD"] = ("*QCD*",)
+    sig_map["Mphi-1995_Mchi-1000"] = ("*Mphi-1995_Mchi-1000*",)  ## signals
 #     sig_map["Mhs_50"] = ("*Mhs_50*",)  ## signals
 #     sig_map["Mhs_70"] = ("*Mhs_70*",)
 #     sig_map["Mhs_90"] = ("*Mhs_90*",)
