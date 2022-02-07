@@ -61,7 +61,7 @@ def remap_histograms(hists):
 
     for key in hists["data"].keys():
         bkg_hists[key] = hists["bkg"][key].group(cats, process, bkg_map)
-#         signal_hists[key] = hists["sig"][key].group(cats, process, sig_map)
+        signal_hists[key] = hists["sig"][key].group(cats, process, sig_map)
         data_hists[key] = hists["data"][key].group(cats, process, data_map)
 
     print('initial mT binning',bkg_hists["template"].axis("mT").edges())
@@ -69,12 +69,10 @@ def remap_histograms(hists):
 
     bkg_hists["template"] = bkg_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
     
-    signal_hists["template"] = signal_hists["template"].rebin(
-        "mT", hist.Bin("mT", "mT", recoil_binning)
-    )
+    signal_hists["template"] = signal_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
     data_hists["template"] = data_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
 
-    hists = {"bkg": bkg_hists, "data": data_hists}
+    hists = {"bkg": bkg_hists, "data": data_hists, "sig": signal_hists}
 
     return hists
 
