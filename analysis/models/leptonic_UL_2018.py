@@ -136,7 +136,7 @@ def model(year):
 
 
 
-    model_id = 'ControlRegionModel'
+    model_id = 'w'
     model = rl.Model(model_id)
     ch_name = "wjete" 
     # Create a channel/Control region
@@ -152,7 +152,24 @@ def model(year):
         wjete.setObservation(template(data, "EGamma", "data", "wjete"))
     else:
         wjete.setObservation(template(data, "SingleElectron", "data","wjete"))
-
+        
+    #template for signal
+    wjete_signalTemplate = template(signal, "Mphi-1995_Mchi-1000", "nominal", "wjete", read_sumw2=True)
+    wjete_signalMC = rl.TemplateSample(
+        ch_name + "_signalMC",
+        rl.Sample.SIGNAL,
+        wjete_signalTemplate
+    )
+    
+    wjete_signalMC.setParamEffect(lumi, 1.027)
+    wjete_signalMC.setParamEffect(trig_e, 1.01)
+    wjete_signalMC.setParamEffect(veto_tau, 1.03)
+    wjete_signalMC.setParamEffect(wjets_norm, 1.4)
+    wjete_signalMC.setParamEffect(jec, 1.05)
+    wjete_signalMC.setParamEffect(id_e, 1.02)
+    wjete_signalMC.setParamEffect(reco_e, 1.02)
+    wjete.addSample(wjete_signalMC)
+    
     ###
     # W(->lnu)+jets data-driven model
     ###
