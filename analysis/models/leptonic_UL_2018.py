@@ -52,11 +52,12 @@ def remap_histograms(hists):
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
+    sig_map["Mphi-1995_Mchi-1000"] = ("*Mphi-1995_Mchi-1000*",)
     
-#     haven't processed signal yet
-#     for signal in hists['sig']['template'].identifiers('process'):
-#         if 'mhs' not in str(signal): continue
-#         sig_map[str(signal)] = (str(signal),)  ## signals
+#    processed signal 
+    for signal in hists['sig']['template'].identifiers('process'):
+        if 'Mphi' not in str(signal): continue
+        sig_map[str(signal)] = (str(signal),)  ## signals
 
     for key in hists["data"].keys():
         bkg_hists[key] = hists["bkg"][key].group(cats, process, bkg_map)
@@ -68,9 +69,9 @@ def remap_histograms(hists):
 
     bkg_hists["template"] = bkg_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
     
-#     signal_hists["template"] = signal_hists["template"].rebin(
-#         "mT", hist.Bin("mT", "mT", recoil_binning)
-#     )
+    signal_hists["template"] = signal_hists["template"].rebin(
+        "mT", hist.Bin("mT", "mT", recoil_binning)
+    )
     data_hists["template"] = data_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
 
     hists = {"bkg": bkg_hists, "data": data_hists}
@@ -286,7 +287,7 @@ if __name__ == "__main__":
     hists = remap_histograms(hists)
     data_hists = hists["data"]
     bkg_hists = hists["bkg"]
-#     signal_hists = hists["sig"]
+    signal_hists = hists["sig"]
 
 
     ###
@@ -301,9 +302,9 @@ if __name__ == "__main__":
     for r in bkg_hists["template"].identifiers("region"):
         background[str(r)] = bkg_hists["template"].integrate("region", r)
 
-#     signal = {}
-#     for r in bkg_hists["template"].identifiers("region"):
-#         signal[str(r)] = signal_hists["template"].integrate("region", r)
+    signal = {}
+    for r in bkg_hists["template"].identifiers("region"):
+        signal[str(r)] = signal_hists["template"].integrate("region", r)
     
     ###
     ###
