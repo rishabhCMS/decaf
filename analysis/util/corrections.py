@@ -173,6 +173,17 @@ for year in ['2016','2017','2018']:
     
     ele_tight_sf_hist =ele_tight_files_preVFP[year]["EGamma_SF2D"]
     get_ele_tight_id_sf_preVFP[year]  = lookup_tools.dense_lookup.dense_lookup(ele_tight_sf_hist.values, ele_tight_sf_hist.edges)
+    
+get_ele_loose_id_err_preVFP = {}
+for year in ['2016','2017','2018']:
+    ele_id_hist = ele_loose_files_preVFP[year]["EGamma_SF2D"]
+    get_ele_loose_id_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(ele_id_hist.variances ** 0.5, ele_trig_hist.edges)
+    
+get_ele_tight_id_err_preVFP = {}
+for year in ['2016','2017','2018']:
+    ele_id_hist = ele_tight_files_preVFP[year]["EGamma_SF2D"]
+    get_ele_tight_id_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(ele_id_hist.variances ** 0.5, ele_trig_hist.edges)
+     
 #postVFP
 ele_loose_files_postVFP = {
     '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_loose_egammaEffi.txt_Ele_Loose_postVFP_EGM2D.root"),
@@ -192,6 +203,16 @@ for year in ['2016','2017','2018']:
     
     ele_tight_sf_hist =ele_tight_files_postVFP[year]["EGamma_SF2D"]
     get_ele_tight_id_sf_postVFP[year]  = lookup_tools.dense_lookup.dense_lookup(ele_tight_sf_hist.values, ele_tight_sf_hist.edges)
+    
+get_ele_loose_id_err_postVFP = {}
+for year in ['2016','2017','2018']:
+    ele_id_hist = ele_loose_files_postVFP[year]["EGamma_SF2D"]
+    get_ele_loose_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(ele_id_hist.variances ** 0.5, ele_trig_hist.edges)
+    
+get_ele_tight_id_err_postVFP = {}
+for year in ['2016','2017','2018']:
+    ele_id_hist = ele_tight_files_postVFP[year]["EGamma_SF2D"]
+    get_ele_tight_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(ele_id_hist.variances ** 0.5, ele_trig_hist.edges)
 
 ###
 # Electron reconstruction SFs. Depends on supercluster eta and pt.    
@@ -800,6 +821,10 @@ corrections = {
     'get_ele_trig_err':get_ele_trig_err,
     'get_mu_trig_err_postVFP':get_mu_trig_err_postVFP,
     'get_mu_trig_err_postVFP':get_mu_trig_err_postVFP,
+    'get_ele_loose_id_err_preVFP':get_ele_loose_id_err_preVFP,
+    'get_ele_tight_id_err_preVFP':get_ele_tight_id_err_preVFP,
+    'get_ele_loose_id_err_postVFP':get_ele_loose_id_err_postVFP,
+    'get_ele_tight_id_err_postVFP':get_ele_tight_id_err_postVFP
 }
 save(corrections, 'data/corrections.coffea')
 
