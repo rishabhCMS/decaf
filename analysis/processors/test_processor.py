@@ -521,36 +521,91 @@ class AnalysisProcessor(processor.ProcessorABC):
         if ("preVFP" in dataset) and (self._year == '2016'):
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_preVFP'][self._year]
             get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf_preVFP'][self._year]
+            
             get_ele_reco_sf = self._corrections['get_ele_reco_sf_preVFP_above20'][self._year]
+            get_ele_reco_err = self._corrections['get_ele_reco_err_preVFP_above20'][self._year]
+            
             get_ele_reco_lowet_sf = self._corrections['get_ele_reco_sf_preVFP_below20'][self._year]
+            get_ele_reco_lowet_err = self._corrections['get_ele_reco_err_preVFP_below20'][self._year]
+            
             get_mu_tight_id_sf = self._corrections['get_mu_tight_id_sf_preVFP'][self._year]
             get_mu_loose_id_sf = self._corrections['get_mu_loose_id_sf_preVFP'][self._year]
+            get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_preVFP'][self._year]
+            get_mu_loose_err_sf = self._corrections['get_mu_loose_id_err_preVFP'][self._year]            
+            
+            
             get_mu_tight_iso_sf = self._corrections['get_mu_tight_iso_sf_preVFP'][self._year]
             get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf_preVFP'][self._year]
+            get_mu_tight_iso_err = self._corrections['get_mu_tight_iso_err_preVFP'][self._year]
+            get_mu_loose_iso_err = self._corrections['get_mu_loose_iso_err_preVFP'][self._year]            
+
+            
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_preVFP'][self._year]
+            get_mu_trig_err = self._corrections['get_mu_trig_weight_preVFP'][self._year]
+            get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_preVFP'][self._year]
+            get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_preVFP'][self._year]
+            get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_preVFP'][self._year]
+            get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_preVFP'][self._year]
             
         elif ("postVFP" in dataset) and (self._year == '2016'):
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
             get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
+            
             get_ele_reco_sf = self._corrections['get_ele_reco_sf_postVFP_above20'][self._year]
+            get_ele_reco_err = self._corrections['get_ele_reco_err_postVFP_above20'][self._year]
+            
             get_ele_reco_lowet_sf = self._corrections['get_ele_reco_sf_postVFP_below20'][self._year]
+            get_ele_reco_lowet_err = self._corrections['get_ele_reco_err_postVFP_below20'][self._year]
+            
+            
             get_mu_tight_id_sf = self._corrections['get_mu_tight_id_sf_postVFP'][self._year]
             get_mu_loose_id_sf = self._corrections['get_mu_loose_id_sf_postVFP'][self._year]
+            get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
+            get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]            
+            
             get_mu_tight_iso_sf = self._corrections['get_mu_tight_iso_sf_postVFP'][self._year]
             get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf_postVFP'][self._year]
+            get_mu_tight_iso_err = self._corrections['get_mu_tight_iso_err_postVFP'][self._year]
+            get_mu_loose_iso_err = self._corrections['get_mu_loose_iso_err_postVFP'][self._year]
+            
+            
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
+            get_mu_trig_err = self._corrections['get_mu_trig_weight_postVFP'][self._year]
+            get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_postVFP'][self._year]
+            get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_postVFP'][self._year]
+            get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
+            get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
 
         else:
 #             print("hi")
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
             get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
+            
             get_ele_reco_sf = self._corrections['get_ele_reco_sf_postVFP_above20'][self._year]
+            get_ele_reco_err = self._corrections['get_ele_reco_err_postVFP_above20'][self._year]
+            
             get_ele_reco_lowet_sf = self._corrections['get_ele_reco_sf_postVFP_below20'][self._year]
+            get_ele_reco_lowet_err = self._corrections['get_ele_reco_err_postVFP_below20'][self._year]
+            
+            
             get_mu_tight_id_sf = self._corrections['get_mu_tight_id_sf_postVFP'][self._year]
             get_mu_loose_id_sf = self._corrections['get_mu_loose_id_sf_postVFP'][self._year]
+            get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
+            get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]            
+            
             get_mu_tight_iso_sf = self._corrections['get_mu_tight_iso_sf_postVFP'][self._year]
-            get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf_postVFP'][self._year]            
+            get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf_postVFP'][self._year]
+            get_mu_tight_iso_err = self._corrections['get_mu_tight_iso_err_postVFP'][self._year]
+            get_mu_loose_iso_err = self._corrections['get_mu_loose_iso_err_postVFP'][self._year]
+            
+            
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
+            get_mu_trig_err = self._corrections['get_mu_trig_weight_postVFP'][self._year]
+            get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_postVFP'][self._year]
+            get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_postVFP'][self._year]
+            get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
+            get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
+            
 
         get_msd_weight = self._corrections['get_msd_weight']
         get_ttbar_weight = self._corrections['get_ttbar_weight']
@@ -561,6 +616,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         get_met_trig_weight = self._corrections['get_met_trig_weight'][self._year]
         get_met_zmm_trig_weight = self._corrections['get_met_zmm_trig_weight'][self._year]
         get_ele_trig_weight = self._corrections['get_ele_trig_weight'][self._year]
+        get_ele_trig_err    = self._corrections['get_ele_trig_err'][self._year]
 #         get_mu_trig_weight = self._corrections['get_mu_trig_weight'][self._year]
         get_pho_trig_weight = self._corrections['get_pho_trig_weight'][self._year]
 #         get_ele_loose_id_sf = self._corrections['get_ele_loose_id_sf'][self._year]
@@ -933,16 +989,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
 #                 #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
             }
-#             trig = {
-#                 'sre': np.ones(event_size),
-#                 'srm':np.ones(event_size),
-#                 'ttbare': np.ones(event_size),
-#                 'ttbarm': np.ones(event_size),
-#                 'wjete': np.ones(event_size),
-#                 'wjetm':np.ones(event_size),
-                #                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
-                #                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
-#             }
+            trig_err = {
+                'sre': get_ele_trig_err(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'srm':get_mu_trig_err(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'ttbare': get_ele_trig_err(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'ttbarm': get_mu_trig_err(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+                'wjete': get_ele_trig_err(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'wjetm':get_mu_trig_err(leading_mu.pt.sum(), abs(leading_mu.eta.sum())),
+#                                 'dilepe' : get_met_trig_weight(leading_e.eta.sum(),leading_e.pt.sum()),
+#                                 'dilepm' : get_met_trig_weight(leading_mu.eta.sum(),leading_mu.pt.sum()),
+            }
+
             ###
             # Calculating electron and muon ID weights
             ###
@@ -970,6 +1027,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'dilepe': get_ele_loose_id_sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * get_ele_loose_id_sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
                 # 'dilepm': get_mu_loose_id_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_id_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
             }
+            ids_err = {
+                'sre': get_ele_tight_id_err(abs(leading_e.eta.sum()), leading_e.pt.sum()),
+                'srm': get_mu_tight_id_err(abs(leading_mu.eta.sum()), leading_mu.pt.sum()),
+                'ttbare': get_ele_tight_id_err(abs(leading_e.eta.sum()), leading_e.pt.sum()),
+                'ttbarm': get_mu_tight_id_err(abs(leading_mu.eta.sum()), leading_mu.pt.sum()),
+                'wjete': get_ele_tight_id_err(abs(leading_e.eta.sum()), leading_e.pt.sum()),
+                'wjetm': get_mu_tight_id_err(abs(leading_mu.eta.sum()), leading_mu.pt.sum()),
+                # 'dilepe': get_ele_loose_id_sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * get_ele_loose_id_sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
+                # 'dilepm': get_mu_loose_id_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_id_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
+            }
 
             ###
             # Reconstruction weights for electrons
@@ -978,6 +1045,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             # 2017 has separate weights for low/high pT (threshold at 20 GeV)
             def ele_reco_sf(pt, eta):
                 return get_ele_reco_sf(eta, pt)*(pt > 20).astype(np.int) + get_ele_reco_lowet_sf(eta, pt)*(~(pt > 20)).astype(np.int)
+            
+            def ele_reco_err(pt, eta):
+                return get_ele_reco_err(eta, pt)*(pt > 20).astype(np.int) + get_ele_reco_lowet_err(eta, pt)*(~(pt > 20)).astype(np.int)
+
             #look at this rRISHABH
             if self._year == '2017' or self._year == '2018' or self._year == '2016':
                 sf = ele_reco_sf
@@ -994,7 +1065,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
                 # 'dilepm': np.ones(event_size)
             }
-
+            reco_err = {
+                'sre': ele_reco_err(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'srm': np.ones(event_size),
+                'ttbare': ele_reco_err(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'ttbarm': np.ones(event_size),
+                'wjete': ele_reco_err(leading_e.eta.sum()+leading_e.deltaEtaSC.sum(), leading_e.pt.sum()),
+                'wjetm': np.ones(event_size),
+                # 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
+                # 'dilepm': np.ones(event_size)
+            }
             ###
             # Isolation weights for muons
             ###
@@ -1009,7 +1089,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
                 # 'dilepe': np.ones(event_size),
             }
-
+            isolation_err = {
+                'sre': np.ones(event_size),
+                'srm': get_mu_tight_iso_err(mueta, leading_mu.pt.sum()),
+                'ttbare': np.ones(event_size),
+                'ttbarm': get_mu_tight_iso_err(mueta, leading_mu.pt.sum()),
+                'wjete': np.ones(event_size),
+                'wjetm': get_mu_tight_iso_err(mueta, leading_mu.pt.sum()),
+                # 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
+                # 'dilepe': np.ones(event_size),
+            }
             ###
             # CSEV weight for photons: https://twiki.cern.ch/twiki/bin/view/CMS/EgammaIDRecipesRun2#Electron_Veto_CSEV_or_pixel_seed
             ###
@@ -1346,8 +1435,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = processor.Weights(len(events))
-                if 'L1PreFiringWeight' in events.columns:
-                    weights.add('prefiring', events.L1PreFiringWeight.Nom)
+#                 if 'L1PreFiringWeight' in events.columns:
+#                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
@@ -1382,10 +1471,28 @@ class AnalysisProcessor(processor.ProcessorABC):
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu)
-                weights.add('trig', trig[region])
-                weights.add('ids', ids[region])
-                weights.add('reco', reco[region])
-                weights.add('isolation', isolation[region])
+                if 'e' == region[-1]:
+                    trig_name = 'trig_e'
+                elif 'm' == region[-1]:
+                    trig_name = 'trig_m'
+                weights.add(trig_name, trig[region],trig[region]+trig_err[region], trig[region]-trig_err[region])
+                if 'e' == region[-1]:
+                    ids_name = 'id_e'
+                elif 'm' == region[-1]:
+                    ids_name = 'id_m'                
+                weights.add(ids_name, ids[region], ids[region]+ids_err[region], ids[region]-ids_err[region])
+                
+                if 'e' == region[-1]:
+                    reco_name = 'reco_e'
+                elif 'm' == region[-1]:
+                    reco_name = 'reco_m'
+                weights.add(reco_name, reco[region], reco[region]+reco_err[region], reco[region]-reco_err[region])
+                
+                if 'e' == region[-1]:
+                    isolation_name = 'isolation_e'
+                elif 'm' == region[-1]:
+                    isolation_name = 'isolation_m'                
+                weights.add(isolation_name, isolation[region], isolation[region]+isolation_err[region], isolation[region]-isolation_err[region])
                 weights.add('csev', csev[region])
                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
 
@@ -1406,7 +1513,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                     if 'WJets' in dataset:
                         systematics = [None,
                                    'btagUp',
-                                   'btagDown',]
+                                   'btagDown',
+                                       trig_name+'Up', trig_name+'Down',
+                                       ids_name+'Up', ids_name+'Down',
+                                       reco_name+'Up', reco_name+'Down',
+                                       isolation_name+'Up', isolation_name+'Down',
+                                      ]
                     else:
                         systematics = [None,
                                        'btagUp',
@@ -1436,7 +1548,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        'ew3ZUp',
                                        'ew3ZDown',
                                        'mixUp',
-                                       'mixDown']
+                                       'mixDown',
+                                       trig_name+'Up', trig_name+'Down',
+                                       ids_name+'Up', ids_name+'Down',
+                                       reco_name+'Up', reco_name+'Down',
+                                       isolation_name+'Up', isolation_name+'Down',
+                                      ]
                     for systematic in systematics:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset='HF--'+dataset,
@@ -1470,7 +1587,14 @@ class AnalysisProcessor(processor.ProcessorABC):
                         isFilled = True
                     cut = selection.all(*regions[region])
 #                     for systematic in [None]:
-                    for systematic in [None, 'btagUp', 'btagDown']:
+                    for systematic in [None,
+                                   'btagUp',
+                                   'btagDown',
+                                       trig_name+'Up', trig_name+'Down',
+                                       ids_name+'Up', ids_name+'Down',
+                                       reco_name+'Up', reco_name+'Down',
+                                       isolation_name+'Up', isolation_name+'Down',
+                                      ]:
                         sname = 'nominal' if systematic is None else systematic
                         hout['template'].fill(dataset=dataset,
                                               region=region,
