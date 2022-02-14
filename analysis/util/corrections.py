@@ -95,6 +95,11 @@ for year in ['2018', '2017', '2016']:
     mu_trig_hist = mu_trig_hists_preVFP[year]
     get_mu_trig_weight_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
     
+get_mu_trig_err_preVFP = {}
+for year in ['2018', '2017', '2016']:
+    mu_trig_hist = mu_trig_hists_preVFP[year]
+    get_mu_trig_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.variances  ** 0.5, mu_trig_hist.edges)
+    
 mu_trig_hists_postVFP = {
     '2016': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2016_postVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_SingleMuonTriggers.root")['NUM_Mu50_or_TkMu50_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
     '2017': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
@@ -104,6 +109,11 @@ get_mu_trig_weight_postVFP = {}
 for year in ['2018', '2017', '2016']:
     mu_trig_hist = mu_trig_hists_preVFP[year]
     get_mu_trig_weight_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.values, mu_trig_hist.edges)
+    
+get_mu_trig_err_postVFP = {}
+for year in ['2018', '2017', '2016']:
+    mu_trig_hist = mu_trig_hists_postVFP[year]
+    get_mu_trig_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.variances  ** 0.5, mu_trig_hist.edges)
 ###
 # Photon trigger efficiency SFs. 2017/18 not actually used, sigmoid is used instead.
 ###
@@ -788,6 +798,8 @@ corrections = {
     
 #     err files
     'get_ele_trig_err':get_ele_trig_err,
+    'get_mu_trig_err_postVFP':get_mu_trig_err_postVFP,
+    'get_mu_trig_err_postVFP':get_mu_trig_err_postVFP,
 }
 save(corrections, 'data/corrections.coffea')
 
