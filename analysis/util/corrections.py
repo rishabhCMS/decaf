@@ -246,7 +246,7 @@ get_ele_reco_err_preVFP_below20 = {}
 for year in ['2016','2017','2018']:
     ele_reco_hist = ele_reco_files_preVFP_below20[year]["EGamma_SF2D"]
     get_ele_reco_sf_preVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
-    get_ele_reco_err_preVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances, ele_reco_hist.edges)
+    get_ele_reco_err_preVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances ** 0.5, ele_reco_hist.edges)
 
 
 ele_reco_files_postVFP_below20 = {
@@ -259,7 +259,7 @@ get_ele_reco_err_postVFP_below20 = {}
 for year in ['2016','2017','2018']:
     ele_reco_hist = ele_reco_files_postVFP_below20[year]["EGamma_SF2D"]
     get_ele_reco_sf_postVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
-    get_ele_reco_err_postVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances, ele_reco_hist.edges)
+    get_ele_reco_err_postVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances ** 0.5, ele_reco_hist.edges)
 
 ele_reco_files_postVFP_above20 = {
     '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
@@ -271,7 +271,7 @@ get_ele_reco_err_postVFP_above20 = {}
 for year in ['2016','2017','2018']:
     ele_reco_hist = ele_reco_files_postVFP_above20[year]["EGamma_SF2D"]
     get_ele_reco_sf_postVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
-    get_ele_reco_err_postVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances, ele_reco_hist.edges)
+    get_ele_reco_err_postVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances ** 0.5, ele_reco_hist.edges)
 
 
 ele_reco_files_preVFP_above20 = {
@@ -284,7 +284,7 @@ get_ele_reco_err_preVFP_above20 = {}
 for year in ['2016','2017','2018']:
     ele_reco_hist = ele_reco_files_preVFP_above20[year]["EGamma_SF2D"]
     get_ele_reco_sf_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
-    get_ele_reco_err_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances, ele_reco_hist.edges)
+    get_ele_reco_err_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances ** 0.05, ele_reco_hist.edges)
     
 
 
@@ -430,9 +430,9 @@ for year in ['2016','2018', '2017']:
 ###
 #iso
 mu_iso_files_preVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_preVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ISO.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_preVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ISO.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
 }
 mu_iso_tight_hist_preVFP = {
     '2016': mu_iso_files_preVFP['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
@@ -446,15 +446,21 @@ mu_iso_loose_hist_preVFP = {
 }
 get_mu_tight_iso_sf_preVFP = {}
 get_mu_loose_iso_sf_preVFP = {}
+
+get_mu_tight_iso_err_preVFP = {}
+get_mu_loose_iso_err_preVFP = {}
 for year in ['2016','2017','2018']:
     get_mu_tight_iso_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist_preVFP[year].values, mu_iso_tight_hist_preVFP[year].edges)
     get_mu_loose_iso_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist_preVFP[year].values, mu_iso_loose_hist_preVFP[year].edges)
 
+    get_mu_tight_iso_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist_preVFP[year].variances ** 0.5, mu_iso_tight_hist_preVFP[year].edges)
+    get_mu_loose_iso_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist_preVFP[year].variances ** 0.5, mu_iso_loose_hist_preVFP[year].edges)
+
 #iso
 mu_iso_files_postVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ISO.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
+    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ISO.root"),
+    '2017': uproot.open("../data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
+    '2018': uproot.open("../data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
 }
 mu_iso_tight_hist_postVFP = {
     '2016': mu_iso_files_postVFP['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
@@ -468,10 +474,16 @@ mu_iso_loose_hist_postVFP = {
 }
 get_mu_tight_iso_sf_postVFP = {}
 get_mu_loose_iso_sf_postVFP = {}
+
+get_mu_tight_iso_err_postVFP = {}
+get_mu_loose_iso_err_postVFP = {}
+
 for year in ['2016','2017','2018']:
     get_mu_tight_iso_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist_postVFP[year].values, mu_iso_tight_hist_postVFP[year].edges)
     get_mu_loose_iso_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist_postVFP[year].values, mu_iso_loose_hist_postVFP[year].edges)
 
+    get_mu_tight_iso_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_tight_hist_postVFP[year].variances ** 0.5, mu_iso_tight_hist_postVFP[year].edges)
+    get_mu_loose_iso_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_iso_loose_hist_postVFP[year].variances ** 0.5, mu_iso_loose_hist_postVFP[year].edges)
 
 ###
 # V+jets NLO k-factors
@@ -854,6 +866,11 @@ corrections = {
     'get_ele_reco_err_postVFP_above20':get_ele_reco_err_postVFP_above20,
     'get_ele_reco_err_postVFP_below20':get_ele_reco_err_postVFP_below20,
     'get_ele_reco_err_preVFP_below20':get_ele_reco_err_preVFP_below20,
+    
+    'get_mu_loose_iso_err_postVFP':get_mu_loose_iso_err_postVFP,
+    'get_mu_tight_iso_err_postVFP':get_mu_tight_iso_err_postVFP,
+    'get_mu_loose_iso_err_preVFP':get_mu_loose_iso_err_preVFP,
+    'get_mu_tight_iso_err_preVFP':get_mu_tight_iso_err_preVFP,
 }
 save(corrections, 'data/corrections.coffea')
 
