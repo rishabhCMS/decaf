@@ -358,7 +358,12 @@ get_mu_loose_id_sf_preVFP = {}
 for year in ['2016','2018', '2017']:
     get_mu_tight_id_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_preVFP[year].values, mu_tight_hist_preVFP[year].edges)
     get_mu_loose_id_sf_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_preVFP[year].values, mu_loose_hist_preVFP[year].edges)
-
+    
+get_mu_tight_id_err_preVFP = {}
+get_mu_loose_id_err_preVFP = {}
+for year in ['2016','2018', '2017']:
+    get_mu_tight_id_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_preVFP[year].variances ** 0.5, mu_tight_hist_preVFP[year].edges)
+    get_mu_loose_id_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_preVFP[year].variances ** 0.5, mu_loose_hist_preVFP[year].edges)
 
 mu_files_postVFP = {
     '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ID.root"),
@@ -379,7 +384,13 @@ get_mu_tight_id_sf_postVFP = {}
 get_mu_loose_id_sf_postVFP = {}
 for year in ['2016','2018', '2017']:
     get_mu_tight_id_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_postVFP[year].values, mu_tight_hist_postVFP[year].edges)
-    get_mu_loose_id_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_postVFP[year].values, mu_loose_hist_postVFP[year].edges)    
+    get_mu_loose_id_sf_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_postVFP[year].values, mu_loose_hist_postVFP[year].edges) 
+
+get_mu_tight_id_err_postVFP = {}
+get_mu_loose_id_err_postVFP = {}
+for year in ['2016','2018', '2017']:
+    get_mu_tight_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_postVFP[year].variances, mu_tight_hist_preVFP[year].edges)
+    get_mu_loose_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_postVFP[year].variances, mu_loose_hist_preVFP[year].edges)
 ###
 # Muon isolation SFs
 ###
@@ -824,7 +835,12 @@ corrections = {
     'get_ele_loose_id_err_preVFP':get_ele_loose_id_err_preVFP,
     'get_ele_tight_id_err_preVFP':get_ele_tight_id_err_preVFP,
     'get_ele_loose_id_err_postVFP':get_ele_loose_id_err_postVFP,
-    'get_ele_tight_id_err_postVFP':get_ele_tight_id_err_postVFP
+    'get_ele_tight_id_err_postVFP':get_ele_tight_id_err_postVFP,
+    
+    'get_mu_loose_id_err_preVFP':get_mu_loose_id_err_preVFP,
+    'get_mu_tight_id_err_preVFP':get_mu_tight_id_err_preVFP,
+    'get_mu_loose_id_err_postVFP':get_mu_loose_id_err_postVFP,
+    'get_mu_tight_id_err_postVFP':get_mu_tight_id_err_postVFP
 }
 save(corrections, 'data/corrections.coffea')
 
