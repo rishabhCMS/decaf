@@ -237,9 +237,9 @@ for year in ['2016','2017','2018']:
 #https://twiki.cern.ch/twiki/bin/view/CMS/EgammaUL2016To2018#SFs_for_Electrons_UL_2017
 ###
 ele_reco_files_preVFP_below20 = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016preVFP.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_preVFP_below20 = {}
 get_ele_reco_err_preVFP_below20 = {}
@@ -250,9 +250,9 @@ for year in ['2016','2017','2018']:
 
 
 ele_reco_files_postVFP_below20 = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_postVFP_below20 = {}
 get_ele_reco_err_postVFP_below20 = {}
@@ -262,9 +262,9 @@ for year in ['2016','2017','2018']:
     get_ele_reco_err_postVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances, ele_reco_hist.edges)
 
 ele_reco_files_postVFP_above20 = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_postVFP_above20 = {}
 get_ele_reco_err_postVFP_above20 = {}
@@ -275,9 +275,9 @@ for year in ['2016','2017','2018']:
 
 
 ele_reco_files_preVFP_above20 = {
-    '2016': uproot.open("../data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2016preVFP.root"),
-    '2017': uproot.open("../data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("../data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_preVFP_above20 = {}
 get_ele_reco_err_preVFP_above20 = {}
