@@ -65,7 +65,7 @@ for year in ['2016','2017','2018']:
     
 
 get_ele_trig_err = {}
-for year in ['2016','2017','2018']::
+for year in ['2016','2017','2018']:
     ele_trig_hist = ele_trig_hists[year]
     get_ele_trig_err[year] = lookup_tools.dense_lookup.dense_lookup(ele_trig_hist.variances ** 0.5, ele_trig_hist.edges)
     
