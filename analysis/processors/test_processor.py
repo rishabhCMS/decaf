@@ -1138,7 +1138,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             if 'preVFP' in dataset:
                 VFP_status = 'preVFP'
             elif 'postVFP' in dataset:
-                VFP_status = 'postVFP
+                VFP_status = 'postVFP'
             else:
                 VFP_status = False
             btag = {}
