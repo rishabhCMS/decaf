@@ -699,7 +699,7 @@ class BTagCorrectorPreVFP:
 #            }
         common = load('data/common.coffea')
         self._wp = common['btagWPs'][tagger][year][workingpoint]
-        filename = 'data/btag_SF/UL'+files[tagger][year]
+        filename = 'data/btag_SF/UL/'+files[tagger][year]
         self.sf = BTagScaleFactor(filename, workingpoint)
         files = {
             '2016': 'btag2016.merged',
