@@ -670,22 +670,36 @@ def get_ecal_bad_calib(run_number, lumi_number, event_number, year, dataset):
 
 class BTagCorrector:
 
-    def __init__(self, tagger, year, workingpoint):
+    def __init__(self, tagger, year, workingpoint, VFP_status):
         self._year = year
+        if 'preVFP' in VFP_status:
+           files = {
+               'deepflav': {
+                   '2016': 'wp_deepJet_106XUL16preVFP_v2.csv',
+                   '2017': 'wp_deepJet_106XUL17_v3.csv',
+                   '2018': 'wp_deepJet_106XUL18_v2.csv'
+               },
+               'deepcsv': {
+                    '2016': 'wp_deepCSV_106XUL16preVFP_v2.csv',
+                    '2017': 'wp_deepCSV_106XUL17_v3.csv',
+                    '2018': 'wp_deepCSV_106XUL18_v2.csv
+               }
+           }
+        else:
+           files = {
+               'deepflav': {
+                   '2016': 'wp_deepJet_106XUL16postVFP_v2.csv',
+                   '2017': 'wp_deepJet_106XUL17_v3.csv',
+                   '2018': 'wp_deepJet_106XUL18_v2.csv'
+               },
+               'deepcsv': {
+                    '2016': 'wp_deepCSV_106XUL16postVFP_v2.csv',
+                    '2017': 'wp_deepCSV_106XUL17_v3.csv',
+                    '2018': 'wp_deepCSV_106XUL18_v2.csv
+               }
+           }
         common = load('data/common.coffea')
         self._wp = common['btagWPs'][tagger][year][workingpoint]
-        files = {
-            'deepflav': {
-                '2016': 'DeepJet_2016LegacySF_V1.csv',
-                '2017': 'wp_deepJet_106XUL17_v3.csv',
-                '2018': 'wp_deepJet_106XUL18_v2.csv'
-                },
-            'deepcsv': {
-                '2016': 'DeepCSV_2016LegacySF_V1.csv',
-                '2017': 'wp_deepCSV_106XUL17_v3.csv',
-                '2018': 'wp_deepCSV_106XUL18_v2.csv'      
-                }
-        }
         filename = 'data/btag_SF/UL'+files[tagger][year]
         self.sf = BTagScaleFactor(filename, workingpoint)
         files = {
@@ -749,37 +763,37 @@ class BTagCorrector:
 get_btag_weight = {
     'deepflav': {
         '2016': {
-            'loose'  : BTagCorrector('deepflav','2016','loose').btag_weight,
-            'medium' : BTagCorrector('deepflav','2016','medium').btag_weight,
-            'tight'  : BTagCorrector('deepflav','2016','tight').btag_weight,
+            'loose'  : BTagCorrector('deepflav','2016','loose', VFP_status).btag_weight,
+            'medium' : BTagCorrector('deepflav','2016','medium', VFP_status).btag_weight,
+            'tight'  : BTagCorrector('deepflav','2016','tight', VFP_status).btag_weight,
 
         },
         '2017': {
-            'loose'  : BTagCorrector('deepflav','2017','loose').btag_weight,
-            'medium' : BTagCorrector('deepflav','2017','medium').btag_weight,
-            'tight'  : BTagCorrector('deepflav','2017','tight').btag_weight
+            'loose'  : BTagCorrector('deepflav','2017','loose', VFP_status).btag_weight,
+            'medium' : BTagCorrector('deepflav','2017','medium', VFP_status).btag_weight,
+            'tight'  : BTagCorrector('deepflav','2017','tight', VFP_status).btag_weight
         },
         '2018': {
-            'loose'  : BTagCorrector('deepflav','2018','loose').btag_weight,
-            'medium' : BTagCorrector('deepflav','2018','medium').btag_weight,
-            'tight'  : BTagCorrector('deepflav','2018','tight').btag_weight
+            'loose'  : BTagCorrector('deepflav','2018','loose', VFP_status).btag_weight,
+            'medium' : BTagCorrector('deepflav','2018','medium', VFP_status).btag_weight,
+            'tight'  : BTagCorrector('deepflav','2018','tight', VFP_status).btag_weight
         }
     },
     'deepcsv' : {
         '2016': {
-            'loose'  : BTagCorrector('deepcsv','2016','loose').btag_weight,
-            'medium' : BTagCorrector('deepcsv','2016','medium').btag_weight,
-            'tight'  : BTagCorrector('deepcsv','2016','tight').btag_weight
+            'loose'  : BTagCorrector('deepcsv','2016','loose', VFP_status).btag_weight,
+            'medium' : BTagCorrector('deepcsv','2016','medium', VFP_status).btag_weight,
+            'tight'  : BTagCorrector('deepcsv','2016','tight', VFP_status).btag_weight
         },
         '2017': {
-            'loose'  : BTagCorrector('deepcsv','2017','loose').btag_weight,
-            'medium' : BTagCorrector('deepcsv','2017','medium').btag_weight,
-            'tight'  : BTagCorrector('deepcsv','2017','tight').btag_weight
+            'loose'  : BTagCorrector('deepcsv','2017','loose', VFP_status).btag_weight,
+            'medium' : BTagCorrector('deepcsv','2017','medium', VFP_status).btag_weight,
+            'tight'  : BTagCorrector('deepcsv','2017','tight', VFP_status).btag_weight
         },
         '2018': {
-            'loose'  : BTagCorrector('deepcsv','2018','loose').btag_weight,
-            'medium' : BTagCorrector('deepcsv','2018','medium').btag_weight,
-            'tight'  : BTagCorrector('deepcsv','2018','tight').btag_weight
+            'loose'  : BTagCorrector('deepcsv','2018','loose', VFP_status).btag_weight,
+            'medium' : BTagCorrector('deepcsv','2018','medium', VFP_status).btag_weight,
+            'tight'  : BTagCorrector('deepcsv','2018','tight', VFP_status).btag_weight
         }
     }
 }
