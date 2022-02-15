@@ -836,7 +836,7 @@ corrections = {
 #     'get_mu_tight_iso_sf':      get_mu_tight_iso_sf,
 #     'get_mu_loose_iso_sf':      get_mu_loose_iso_sf,
     'get_ecal_bad_calib':       get_ecal_bad_calib,
-    'get_btag_weight':          get_btag_weight,
+#     'get_btag_weight':          get_btag_weight,
     'Jetevaluator':             Jetevaluator,
     
     'get_ele_tight_id_sf_postVFP': get_ele_tight_id_sf_postVFP,
@@ -884,6 +884,9 @@ corrections = {
     'get_mu_tight_iso_err_postVFP':get_mu_tight_iso_err_postVFP,
     'get_mu_loose_iso_err_preVFP':get_mu_loose_iso_err_preVFP,
     'get_mu_tight_iso_err_preVFP':get_mu_tight_iso_err_preVFP,
+    
+    'get_btag_weight_preVFP':get_btag_weight_preVFP,
+    
 }
 save(corrections, 'data/corrections.coffea')
 
