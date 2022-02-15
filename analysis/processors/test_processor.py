@@ -1135,15 +1135,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             that is different from the weight you apply when you ask for at least 1 b-tag
             '''
+            if 'preVFP' in dataset:
+                VFP_status = 'preVFP'
+            elif 'postVFP' in dataset:
+                VFP_status = 'postVFP
+            else:
+                VFP_status = False
             btag = {}
             btagUp = {}
             btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1')
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2')
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0')  
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1', VFP_status)
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1', VFP_status)
+            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2', VFP_status)
+            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2', VFP_status)
+            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0', VFP_status)
+            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0', VFP_status)  
 
 
         ###
