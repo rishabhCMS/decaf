@@ -1440,7 +1440,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       weight=np.ones(event_size)*cut)
                 fill(dataset, np.ones(event_size), cut)
             else:
-                weights = processor.Weights(len(events))
+                weights = processor.Weights(event_size)
                 if 'L1PreFiringWeight' in events.columns:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
