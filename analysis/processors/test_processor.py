@@ -1441,8 +1441,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = processor.Weights(len(events))
-#                 if 'L1PreFiringWeight' in events.columns:
-#                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
+                if 'L1PreFiringWeight' in events.columns:
+                    weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
