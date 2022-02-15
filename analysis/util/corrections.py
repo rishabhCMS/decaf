@@ -682,7 +682,7 @@ class BTagCorrector:
                'deepcsv': {
                     '2016': 'wp_deepCSV_106XUL16preVFP_v2.csv',
                     '2017': 'wp_deepCSV_106XUL17_v3.csv',
-                    '2018': 'wp_deepCSV_106XUL18_v2.csv
+                    '2018': 'wp_deepCSV_106XUL18_v2.csv'
                }
            }
         else:
@@ -695,7 +695,7 @@ class BTagCorrector:
                'deepcsv': {
                     '2016': 'wp_deepCSV_106XUL16postVFP_v2.csv',
                     '2017': 'wp_deepCSV_106XUL17_v3.csv',
-                    '2018': 'wp_deepCSV_106XUL18_v2.csv
+                    '2018': 'wp_deepCSV_106XUL18_v2.csv'
                }
            }
         common = load('data/common.coffea')
