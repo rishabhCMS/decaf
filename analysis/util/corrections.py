@@ -677,16 +677,16 @@ class BTagCorrector:
         files = {
             'deepflav': {
                 '2016': 'DeepJet_2016LegacySF_V1.csv',
-                '2017': 'DeepFlavour_94XSF_V4_B_F.csv',
-                '2018': 'DeepJet_102XSF_V1.csv'
+                '2017': 'wp_deepJet_106XUL17_v3.csv',
+                '2018': 'wp_deepJet_106XUL18_v2.csv'
                 },
             'deepcsv': {
                 '2016': 'DeepCSV_2016LegacySF_V1.csv',
-                '2017': 'DeepCSV_94XSF_V5_B_F.csv',
-                '2018': 'DeepCSV_102XSF_V1.csv'      
+                '2017': 'wp_deepCSV_106XUL17_v3.csv',
+                '2018': 'wp_deepCSV_106XUL18_v2.csv'      
                 }
         }
-        filename = 'data/'+files[tagger][year]
+        filename = 'data/btag_SF/UL'+files[tagger][year]
         self.sf = BTagScaleFactor(filename, workingpoint)
         files = {
             '2016': 'btag2016.merged',
