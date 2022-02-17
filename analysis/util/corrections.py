@@ -5,7 +5,7 @@ import os
 from coffea import hist, lookup_tools
 from coffea.lookup_tools import extractor, dense_lookup
 from coffea.util import save, load
-from ..btag import BTagScaleFactor
+from btag import BTagScaleFactor
 
 ###
 # Pile-up weight
