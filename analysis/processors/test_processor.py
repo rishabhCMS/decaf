@@ -769,9 +769,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         #j_iso = j_clean[j_clean.isiso.astype(np.bool)]
         #j_iso = j_clean[j_clean.astype(np.bool)]    
 #         j_iso = j_good[j_good.isclean.astype(np.bool)]   
-        j_dcsvL = j_clean[j_clean.isdcsvL.astype(np.bool)]
+#         j_dcsvL = j_clean[j_clean.isdcsvL.astype(np.bool)]
         j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
-#         j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)] 
+        j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)] 
 #         j_dcsvM = j_clean[j_clean.isdcsvM.astype(np.bool)] 
         #this could be an issue
         j_HEM = j[j.isHEM.astype(np.bool)] 
@@ -782,7 +782,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j_ndcsvL=j_dcsvL.counts
 #         j_ndflvL=j_dflvL.counts
         j_ndflvM = j_dflvM.counts 
-        j_ndcsvM = j_dcsvM.counts 
+#         j_ndcsvM = j_dcsvM.counts 
         j_nHEM = j_HEM.counts
 #         leading_j = j[j.pt.argmax()]
 #         leading_j = leading_j[leading_j.isgood.astype(np.bool)]
@@ -1149,12 +1149,12 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag = {}
             btagUp = {}
             btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1', VFP_status)
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1', VFP_status)
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2', VFP_status)
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2', VFP_status)
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0', VFP_status)
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0', VFP_status)  
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1', )
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '+1', )
+            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2', )
+            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '2', )
+            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0', )
+            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_clean.pt, j_clean.eta, j_clean.hadronFlavour, '0', )  
 
 
         ###
@@ -1390,7 +1390,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'dr_mu_lj': DeltaR_LJ_Mu,
                 'njets':                  j_nclean,
                 'ndflvM':                 j_ndflvM,
-                'ndcsvM':     j_ndcsvM,
+#                 'ndcsvM':     j_ndcsvM,
 #                 'scale_factors': np.ones(event_size, dtype=np.bool)
             }
             if region in mT:
