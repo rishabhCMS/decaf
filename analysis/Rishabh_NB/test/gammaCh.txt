@@ -1,0 +1,11 @@
+# Datacard for <Channel (gammaCh) instance at 0x7fd26222d278> generated on 2022-01-16 10:10:31.284222
+imax 1 # number of categories ('bins' but here we are using shape templates)
+jmax -1 # number of samples minus 1
+kmax 0 # number of nuisance parameters
+shapes * gammaCh testMonojet.root testMonojet:gammaCh_$PROCESS testMonojet:gammaCh_$PROCESS_$SYSTEMATIC
+bin gammaCh
+observation 887.867
+bin     
+process 
+process 
+rate    
