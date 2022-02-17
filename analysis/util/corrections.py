@@ -803,12 +803,12 @@ class BTagCorrectorPostVFP:
         self._year = year
         files = {
            'deepflav': {
-               '2016': 'wp_deepJet_106XUL16postVFP_v2.csv',
+               '2016': 'wp_deepJet_106XUL16postVFP_v3.csv',
                '2017': 'wp_deepJet_106XUL17_v3.csv',
                '2018': 'wp_deepJet_106XUL18_v2.csv'
            },
            'deepcsv': {
-                '2016': 'wp_deepCSV_106XUL16postVFP_v2.csv',
+                '2016': 'wp_deepCSV_106XUL16postVFP_v3.csv',
                 '2017': 'wp_deepCSV_106XUL17_v3.csv',
                 '2018': 'wp_deepCSV_106XUL18_v2.csv'
            }
