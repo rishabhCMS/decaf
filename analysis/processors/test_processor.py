@@ -547,6 +547,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_preVFP'][self._year]
             get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_preVFP'][self._year]
             
+            get_deepflav_weight = self._corrections['get_btag_weight_preVFP']['deepflav'][self._year]
+            
         elif ("postVFP" in dataset) and (self._year == '2016'):
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
             get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
@@ -575,6 +577,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_postVFP'][self._year]
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
             get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
+            
+            get_deepflav_weight = self._corrections['get_btag_weight_postVFP']['deepflav'][self._year]
 
         else:
 #             print("hi")
@@ -606,6 +610,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
             get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
             
+            get_deepflav_weight = self._corrections['get_btag_weight_postVFP']['deepflav'][self._year]
 
         get_msd_weight = self._corrections['get_msd_weight']
         get_ttbar_weight = self._corrections['get_ttbar_weight']
@@ -630,8 +635,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         get_mu_tight_iso_sf = self._corrections['get_mu_tight_iso_sf'][self._year]
 #         get_mu_loose_iso_sf = self._corrections['get_mu_loose_iso_sf'][self._year]
         get_ecal_bad_calib = self._corrections['get_ecal_bad_calib']
-        get_deepflav_weight = self._corrections['get_btag_weight']['deepflav'][self._year]
-        get_deepcsv_weight = self._corrections['get_btag_weight']['deepcsv'][self._year]
+#         get_deepflav_weight = self._corrections['get_btag_weight']['deepflav'][self._year]
+#         get_deepcsv_weight = self._corrections['get_btag_weight']['deepcsv'][self._year]
         Jetevaluator = self._corrections['Jetevaluator']
 
         isLooseElectron = self._ids['isLooseElectron']
@@ -766,16 +771,16 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j_iso = j_good[j_good.isclean.astype(np.bool)]   
         j_dcsvL = j_clean[j_clean.isdcsvL.astype(np.bool)]
         j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
-        j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)] 
-        j_dcsvM = j_clean[j_clean.isdcsvM.astype(np.bool)] 
+#         j_dflvM = j_clean[j_clean.isdflvM.astype(np.bool)] 
+#         j_dcsvM = j_clean[j_clean.isdcsvM.astype(np.bool)] 
         #this could be an issue
         j_HEM = j[j.isHEM.astype(np.bool)] 
         j_ntot=j.counts
         j_ngood=j_good.counts
         j_nclean=j_clean.counts
 #        j_niso=j_iso.counts
-        j_ndcsvL=j_dcsvL.counts
-        j_ndflvL=j_dflvL.counts
+#         j_ndcsvL=j_dcsvL.counts
+#         j_ndflvL=j_dflvL.counts
         j_ndflvM = j_dflvM.counts 
         j_ndcsvM = j_dcsvM.counts 
         j_nHEM = j_HEM.counts
