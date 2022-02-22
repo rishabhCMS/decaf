@@ -940,7 +940,7 @@ corrections = {
     'get_nlo_ewk_weight':       get_nlo_ewk_weight,
     'get_pu_weight':            get_pu_weight,
     'get_met_trig_weight':      get_met_trig_weight,
-    'get_met_zmm_trig_weight':  get_met_zmm_trig_weight,
+#     'get_met_zmm_trig_weight':  get_met_zmm_trig_weight,
     'get_ele_trig_weight':      get_ele_trig_weight,
 #     'get_mu_trig_weight':      get_mu_trig_weight,    
     'get_pho_trig_weight':      get_pho_trig_weight,
