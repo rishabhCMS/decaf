@@ -1,9 +1,11 @@
 #!/usr/bin/env python
-import uproot, uproot_methods
+import uproot3
 import numpy as np
 import os
 from coffea import hist, lookup_tools
-from coffea.lookup_tools import extractor, dense_lookup
+# from coffea.lookup_tools import extractor, dense_lookup
+from coffea import util
+from coffea.lookup_tools import dense_lookup
 from coffea.util import save, load
 from coffea.btag_tools import BTagScaleFactor
 
@@ -12,9 +14,9 @@ from coffea.btag_tools import BTagScaleFactor
 ###
 
 pu_files = {
-    '2018': uproot.open("data/pileup/PileupHistograms_2018_69mb_pm5.root"),
-    '2017': uproot.open("data/pileup/PileupHistograms_2017_69mb_pm5.root"),
-    '2016': uproot.open("data/pileup/PileupHistograms_2016_69mb_pm5.root")
+    '2018': uproot3.open("data/pileup/PileupHistograms_2018_69mb_pm5.root"),
+    '2017': uproot3.open("data/pileup/PileupHistograms_2017_69mb_pm5.root"),
+    '2016': uproot3.open("data/pileup/PileupHistograms_2016_69mb_pm5.root")
 }
 get_pu_weight = {}
 for year in ['2016','2017','2018']:
@@ -26,9 +28,9 @@ for year in ['2016','2017','2018']:
 ###
 
 met_trig_hists = {
-    '2016': uproot.open("data/trigger_eff/metTriggerEfficiency_recoil_monojet_TH1F.root")['hden_monojet_recoil_clone_passed'],
-    '2017': uproot.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2017'],
-    '2018': uproot.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2018']
+    '2016': uproot3.open("data/trigger_eff/metTriggerEfficiency_recoil_monojet_TH1F.root")['hden_monojet_recoil_clone_passed'],
+    '2017': uproot3.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2017'],
+    '2018': uproot3.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2018']
 }
 get_met_trig_weight = {}
 for year in ['2016','2017','2018']:
@@ -39,24 +41,24 @@ for year in ['2016','2017','2018']:
 # MET z->mumu efficiency SF. 2017/18 using 1m as done in monojet, 2m used only for systematics. Depends on recoil.
 ###
 
-zmm_trig_hists ={
-    '2016': uproot.open("data/trigger_eff/metTriggerEfficiency_zmm_recoil_monojet_TH1F.root")['hden_monojet_recoil_clone_passed'],
-    '2017': uproot.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2017'],
-    '2018': uproot.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2018']
-}
-get_met_zmm_trig_weight = {}
-for year in ['2016','2017','2018']:
-    zmm_trig_hist = zmm_trig_hists[year]
-    get_met_zmm_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(zmm_trig_hist.values, zmm_trig_hist.edges)
+# zmm_trig_hists ={
+#     '2016': uproot.open("data/trigger_eff/metTriggerEfficiency_zmm_recoil_monojet_TH1F.root")['hden_monojet_recoil_clone_passed'],
+#     '2017': uproot.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2017'],
+#     '2018': uproot.open("data/trigger_eff/met_trigger_sf.root")['120pfht_hltmu_1m_2018']
+# }
+# get_met_zmm_trig_weight = {}
+# for year in ['2016','2017','2018']:
+#     zmm_trig_hist = zmm_trig_hists[year]
+#     get_met_zmm_trig_weight[year] = lookup_tools.dense_lookup.dense_lookup(zmm_trig_hist.values, zmm_trig_hist.edges)
 
 ###
 # Electron trigger efficiency SFs. depends on supercluster eta and pt:
 ###
 
 ele_trig_hists = {
-    '2016': uproot.open("data/trigger_eff/eleTrig.root")['hEffEtaPt'],
-    '2017': uproot.open("data/trigger_eff/electron_trigger_sf_2017.root")['EGamma_SF2D'],#monojet measurement for the combined trigger path
-    '2018': uproot.open("data/trigger_eff/electron_trigger_sf_2018.root")['EGamma_SF2D'] #approved by egamma group: https://indico.cern.ch/event/924522/
+    '2016': uproot3.open("data/trigger_eff/eleTrig.root")['hEffEtaPt'],
+    '2017': uproot3.open("data/trigger_eff/electron_trigger_sf_2017.root")['EGamma_SF2D'],#monojet measurement for the combined trigger path
+    '2018': uproot3.open("data/trigger_eff/electron_trigger_sf_2018.root")['EGamma_SF2D'] #approved by egamma group: https://indico.cern.ch/event/924522/
 }
 get_ele_trig_weight = {}
 for year in ['2016','2017','2018']:
@@ -86,9 +88,9 @@ for year in ['2016','2017','2018']:
     
     
 mu_trig_hists_preVFP = {
-    '2016': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2016_preVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_SingleMuonTriggers.root")['NUM_Mu50_or_TkMu50_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
-    '2017': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
-    '2018': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt']
+    '2016': uproot3.open("data/trigger_eff_UL/UL_SingleMuon/2016_preVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_SingleMuonTriggers.root")['NUM_Mu50_or_TkMu50_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
+    '2017': uproot3.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
+    '2018': uproot3.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt']
 }
 get_mu_trig_weight_preVFP = {}
 for year in ['2018', '2017', '2016']:
@@ -101,9 +103,9 @@ for year in ['2018', '2017', '2016']:
     get_mu_trig_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_trig_hist.variances  ** 0.5, mu_trig_hist.edges)
     
 mu_trig_hists_postVFP = {
-    '2016': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2016_postVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_SingleMuonTriggers.root")['NUM_Mu50_or_TkMu50_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
-    '2017': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
-    '2018': uproot.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt']
+    '2016': uproot3.open("data/trigger_eff_UL/UL_SingleMuon/2016_postVFP/Efficiencies_muon_generalTracks_Z_Run2016_UL_SingleMuonTriggers.root")['NUM_Mu50_or_TkMu50_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
+    '2017': uproot3.open("data/trigger_eff_UL/UL_SingleMuon/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt'],
+    '2018': uproot3.open("data/trigger_eff_UL/UL_SingleMuon/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root")['NUM_Mu50_or_OldMu100_or_TkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose_abseta_pt']
 }
 get_mu_trig_weight_postVFP = {}
 for year in ['2018', '2017', '2016']:
@@ -119,9 +121,9 @@ for year in ['2018', '2017', '2016']:
 ###
 
 pho_trig_files = {
-    '2016': uproot.open("data/trigger_eff/photonTriggerEfficiency_photon_TH1F.root"),
-    "2017": uproot.open("data/trigger_eff/photonTriggerEfficiency_photon_TH1F.root"),
-    "2018": uproot.open("data/trigger_eff/photonTriggerEfficiency_photon_TH1F.root")
+    '2016': uproot3.open("data/trigger_eff/photonTriggerEfficiency_photon_TH1F.root"),
+    "2017": uproot3.open("data/trigger_eff/photonTriggerEfficiency_photon_TH1F.root"),
+    "2018": uproot3.open("data/trigger_eff/photonTriggerEfficiency_photon_TH1F.root")
 }
 get_pho_trig_weight = {}
 for year in ['2016','2017','2018']:
@@ -156,14 +158,14 @@ for year in ['2016','2017','2018']:
 ###
 #preVFP
 ele_loose_files_preVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_id_loose_egammaEffi.txt_Ele_Loose_preVFP_EGM2D.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_pVFP_id_loose_egammaEffi.txt_Ele_Loose_preVFP_EGM2D.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
 }
 ele_tight_files_preVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_id_tight_egammaEffi.txt_Ele_Tight_preVFP_EGM2D.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_pVFP_id_tight_egammaEffi.txt_Ele_Tight_preVFP_EGM2D.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
 }
 get_ele_loose_id_sf_preVFP = {}
 get_ele_tight_id_sf_preVFP = {}
@@ -186,14 +188,14 @@ for year in ['2016','2017','2018']:
      
 #postVFP
 ele_loose_files_postVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_loose_egammaEffi.txt_Ele_Loose_postVFP_EGM2D.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_postVFP_id_loose_egammaEffi.txt_Ele_Loose_postVFP_EGM2D.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_id_loose_egammaEffi.txt_EGM2D_Loose_UL17.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_id_loose_egammaEffi.txt_Ele_Loose_EGM2D.root")
 }
 ele_tight_files_postVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_tight_egammaEffi.txt_Ele_Tight_postVFP_EGM2D.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_postVFP_id_tight_egammaEffi.txt_Ele_Tight_postVFP_EGM2D.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_id_tight_egammaEffi.txt_EGM2D_Tight_UL17.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_id_tight_egammaEffi.txt_Ele_Tight_EGM2D.root")
 }
 get_ele_loose_id_sf_postVFP = {}
 get_ele_tight_id_sf_postVFP = {}
@@ -237,9 +239,9 @@ for year in ['2016','2017','2018']:
 #https://twiki.cern.ch/twiki/bin/view/CMS/EgammaUL2016To2018#SFs_for_Electrons_UL_2017
 ###
 ele_reco_files_preVFP_below20 = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016preVFP.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_preVFP_below20 = {}
 get_ele_reco_err_preVFP_below20 = {}
@@ -250,9 +252,9 @@ for year in ['2016','2017','2018']:
 
 
 ele_reco_files_postVFP_below20 = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2017.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_postVFP_below20 = {}
 get_ele_reco_err_postVFP_below20 = {}
@@ -262,9 +264,9 @@ for year in ['2016','2017','2018']:
     get_ele_reco_err_postVFP_below20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances ** 0.5, ele_reco_hist.edges)
 
 ele_reco_files_postVFP_above20 = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_postVFP_reco_egammaEffi_ptBelow20.txt_EGM2D_UL2016postVFP.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_postVFP_above20 = {}
 get_ele_reco_err_postVFP_above20 = {}
@@ -275,9 +277,9 @@ for year in ['2016','2017','2018']:
 
 
 ele_reco_files_preVFP_above20 = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2016preVFP.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_pVFP_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2016preVFP.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2017.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_reco_egammaEffi_ptAbove20.txt_EGM2D_UL2018.root")
 }
 get_ele_reco_sf_preVFP_above20 = {}
 get_ele_reco_err_preVFP_above20 = {}
@@ -293,9 +295,9 @@ for year in ['2016','2017','2018']:
 ###
 
 pho_tight_hists = {
-    '2016': uproot.open("data/ScaleFactor/Fall17V2_2016_Medium_photons.root")['EGamma_SF2D'],
-    '2017': uproot.open("data/ScaleFactor/photon_medium_id_sf_v0.root")['photon_medium_id_sf_2017'],
-    '2018': uproot.open("data/ScaleFactor/photon_medium_id_sf_v0.root")['photon_medium_id_sf_2018']
+    '2016': uproot3.open("data/ScaleFactor/Fall17V2_2016_Medium_photons.root")['EGamma_SF2D'],
+    '2017': uproot3.open("data/ScaleFactor/photon_medium_id_sf_v0.root")['photon_medium_id_sf_2017'],
+    '2018': uproot3.open("data/ScaleFactor/photon_medium_id_sf_v0.root")['photon_medium_id_sf_2018']
 }
 get_pho_tight_id_sf = {}
 for year in ['2016','2017','2018']:
@@ -307,9 +309,9 @@ for year in ['2016','2017','2018']:
 ###
 
 pho_csev_hists = {
-    '2016': uproot.open("data/ScaleFactor/ScalingFactors_80X_Summer16_rename.root")['Scaling_Factors_CSEV_R9_Inclusive'],
-    '2017': uproot.open("data/ScaleFactor/CSEV_ScaleFactors_2017.root")['Medium_ID'],
-    '2018': uproot.open("data/ScaleFactor/CSEV_2018.root")['eleVeto_SF'],
+    '2016': uproot3.open("data/ScaleFactor/ScalingFactors_80X_Summer16_rename.root")['Scaling_Factors_CSEV_R9_Inclusive'],
+    '2017': uproot3.open("data/ScaleFactor/CSEV_ScaleFactors_2017.root")['Medium_ID'],
+    '2018': uproot3.open("data/ScaleFactor/CSEV_2018.root")['eleVeto_SF'],
 }
 get_pho_csev_sf = {}
 for year in ['2016','2017','2018']:
@@ -347,9 +349,9 @@ for year in ['2016','2017','2018']:
 ###
 
 mu_files_preVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_preVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ID.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_preVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ID.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
 }
 mu_tight_hist_preVFP = {
     '2016': mu_files_preVFP['2016']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
@@ -374,9 +376,9 @@ for year in ['2016','2018', '2017']:
     get_mu_loose_id_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_preVFP[year].variances ** 0.5, mu_loose_hist_preVFP[year].edges)
 
 mu_files_postVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ID.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_postVFP_id_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ID.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_id_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_id_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root")
 }
 mu_tight_hist_postVFP = {
     '2016': mu_files_postVFP['2016']["NUM_TightID_DEN_TrackerMuons_abseta_pt"],
@@ -430,9 +432,9 @@ for year in ['2016','2018', '2017']:
 ###
 #iso
 mu_iso_files_preVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_preVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ISO.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_preVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_HIPM_ISO.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
 }
 mu_iso_tight_hist_preVFP = {
     '2016': mu_iso_files_preVFP['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
@@ -458,9 +460,9 @@ for year in ['2016','2017','2018']:
 
 #iso
 mu_iso_files_postVFP = {
-    '2016': uproot.open("data/ScaleFactor_UL/2016_postVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ISO.root"),
-    '2017': uproot.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
-    '2018': uproot.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
+    '2016': uproot3.open("data/ScaleFactor_UL/2016_postVFP_iso_mu_Efficiencies_muon_generalTracks_Z_Run2016_UL_ISO.root"),
+    '2017': uproot3.open("data/ScaleFactor_UL/2017_iso_mu_Efficiencies_muon_generalTracks_Z_Run2017_UL_ISO.root"),
+    '2018': uproot3.open("data/ScaleFactor_UL/2018_iso_mu_Efficiencies_muon_generalTracks_Z_Run2018_UL_ISO.root")
 }
 mu_iso_tight_hist_postVFP = {
     '2016': mu_iso_files_postVFP['2016']["NUM_TightRelIso_DEN_TightIDandIPCut_abseta_pt"],
@@ -491,29 +493,29 @@ for year in ['2016','2017','2018']:
 
 nlo_qcd_hists = {
     '2016':{
-        'dy': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_qcd"],
-        'w': uproot.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_qcd"],
-        'z': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_qcd"],
-        'a': uproot.open("data/vjets_SFs/merged_kfactors_gjets.root")["kfactor_monojet_qcd"]
+        'dy': uproot3.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_qcd"],
+        'w': uproot3.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_qcd"],
+        'z': uproot3.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_qcd"],
+        'a': uproot3.open("data/vjets_SFs/merged_kfactors_gjets.root")["kfactor_monojet_qcd"]
     },
     '2017':{
-        'z': uproot.open("data/vjets_SFs/SF_QCD_NLO_ZJetsToNuNu.root")["kfac_znn_filter"],
-        'w': uproot.open("data/vjets_SFs/SF_QCD_NLO_WJetsToLNu.root")["wjet_dress_monojet"],
-        'dy': uproot.open("data/vjets_SFs/SF_QCD_NLO_DYJetsToLL.root")["kfac_dy_filter"],
-        'a': uproot.open("data/vjets_SFs/SF_QCD_NLO_GJets.root")["gjets_stat1_monojet"]
+        'z': uproot3.open("data/vjets_SFs/SF_QCD_NLO_ZJetsToNuNu.root")["kfac_znn_filter"],
+        'w': uproot3.open("data/vjets_SFs/SF_QCD_NLO_WJetsToLNu.root")["wjet_dress_monojet"],
+        'dy': uproot3.open("data/vjets_SFs/SF_QCD_NLO_DYJetsToLL.root")["kfac_dy_filter"],
+        'a': uproot3.open("data/vjets_SFs/SF_QCD_NLO_GJets.root")["gjets_stat1_monojet"]
     },
     '2018':{
-        'z': uproot.open("data/vjets_SFs/SF_QCD_NLO_ZJetsToNuNu.root")["kfac_znn_filter"],
-        'w': uproot.open("data/vjets_SFs/SF_QCD_NLO_WJetsToLNu.root")["wjet_dress_monojet"],
-        'dy': uproot.open("data/vjets_SFs/SF_QCD_NLO_DYJetsToLL.root")["kfac_dy_filter"],
-        'a': uproot.open("data/vjets_SFs/SF_QCD_NLO_GJets.root")["gjets_stat1_monojet"]
+        'z': uproot3.open("data/vjets_SFs/SF_QCD_NLO_ZJetsToNuNu.root")["kfac_znn_filter"],
+        'w': uproot3.open("data/vjets_SFs/SF_QCD_NLO_WJetsToLNu.root")["wjet_dress_monojet"],
+        'dy': uproot3.open("data/vjets_SFs/SF_QCD_NLO_DYJetsToLL.root")["kfac_dy_filter"],
+        'a': uproot3.open("data/vjets_SFs/SF_QCD_NLO_GJets.root")["gjets_stat1_monojet"]
     }
 }
 nlo_ewk_hists = {
-    'dy': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
-    'w': uproot.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_ewk"],
-    'z': uproot.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
-    'a': uproot.open("data/vjets_SFs/merged_kfactors_gjets.root")["kfactor_monojet_ewk"]
+    'dy': uproot3.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
+    'w': uproot3.open("data/vjets_SFs/merged_kfactors_wjets.root")["kfactor_monojet_ewk"],
+    'z': uproot3.open("data/vjets_SFs/merged_kfactors_zjets.root")["kfactor_monojet_ewk"],
+    'a': uproot3.open("data/vjets_SFs/merged_kfactors_gjets.root")["kfactor_monojet_ewk"]
 }    
 get_nlo_qcd_weight = {}
 get_nlo_ewk_weight = {}
@@ -614,10 +616,10 @@ get_nnlo_nlo_weight = {}
 for year in ['2016','2017','2018']:
     get_nnlo_nlo_weight[year] = {}
     nnlo_file = {
-        'dy': uproot.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_eej_madgraph_"+year+".root"),
-        'w': uproot.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_evj_madgraph_"+year+".root"),
-        'z': uproot.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_vvj_madgraph_"+year+".root"),
-        'a': uproot.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_aj_madgraph_"+year+".root")
+        'dy': uproot3.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_eej_madgraph_"+year+".root"),
+        'w': uproot3.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_evj_madgraph_"+year+".root"),
+        'z': uproot3.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_vvj_madgraph_"+year+".root"),
+        'a': uproot3.open("data/Vboson_Pt_Reweighting/"+year+"/TheoryXS_aj_madgraph_"+year+".root")
     }
     for p in ['dy','w','z','a']:
         get_nnlo_nlo_weight[year][p] = {}
@@ -659,7 +661,7 @@ def get_ecal_bad_calib(run_number, lumi_number, event_number, year, dataset):
     
     regular_dataset = ""
     regular_dataset = [name for name in ["MET","SinglePhoton","SingleElectron","EGamma"] if (name in dataset)]
-    fbad = uproot.open(bad[year][regular_dataset[0]])
+    fbad = uproot3.open(bad[year][regular_dataset[0]])
     bad_tree = fbad["vetoEvents"]
     runs_to_veto = bad_tree.array("Run")
     lumis_to_veto = bad_tree.array("LS")
@@ -711,7 +713,7 @@ class BTagCorrectorPreVFP:
         bpass = btag[tagger].integrate('dataset').integrate('wp',workingpoint).integrate('btag', 'pass').values()[()]
         ball = btag[tagger].integrate('dataset').integrate('wp',workingpoint).integrate('btag').values()[()]
         nom = bpass / np.maximum(ball, 1.)
-        self.eff = lookup_tools.dense_lookup.dense_lookup(nom, [ax.edges() for ax in btag[tagger].axes()[3:]])
+        self.eff = dense_lookup.dense_lookup(nom, [ax.edges() for ax in btag[tagger].axes()[3:]])
 
     def btag_weight(self, pt, eta, flavor, tag):
         abseta = abs(eta)
@@ -824,11 +826,11 @@ class BTagCorrectorPostVFP:
             '2018': 'btag2018.merged',
         }
         filename = 'hists/'+files[year]
-        btag = load(filename)
+        btag = util.load(filename)
         bpass = btag[tagger].integrate('dataset').integrate('wp',workingpoint).integrate('btag', 'pass').values()[()]
         ball = btag[tagger].integrate('dataset').integrate('wp',workingpoint).integrate('btag').values()[()]
         nom = bpass / np.maximum(ball, 1.)
-        self.eff = lookup_tools.dense_lookup.dense_lookup(nom, [ax.edges() for ax in btag[tagger].axes()[3:]])
+        self.eff = dense_lookup.dense_lookup(nom, [ax.edges() for ax in btag[tagger].axes()[3:]])
 
     def btag_weight(self, pt, eta, flavor, tag):
         abseta = abs(eta)
