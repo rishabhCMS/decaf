@@ -5,7 +5,7 @@ import numpy as np
 
 def match(a, b, val):
     combinations = awkward.cartesian({"a":a, "b": b})
-    dr = abs(combinations.a.delta_r(b))
+    dr = abs(combinations.a.delta_r(combinations.b))
     return (ak.any(dr < val, axis=-1))
 
 def sigmoid(x,a,b,c,d):
