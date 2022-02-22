@@ -917,20 +917,20 @@ get_btag_weight_postVFP = {
 }
 
 
-Jetext = extractor()
-for directory in ['jec', 'jersf', 'jr', 'junc']:
-    directory='data/'+directory
-    print('Loading files in:',directory)
-    for filename in os.listdir(directory):
-        if '~' in filename: continue
-        if 'AK4PFchs' not in filename: continue
-        if 'DATA' in filename: continue
-        filename=directory+'/'+filename
-        print('Loading file:',filename)
-        Jetext.add_weight_sets(['* * '+filename])
-    print('All files in',directory,'loaded')
-Jetext.finalize()
-Jetevaluator = Jetext.make_evaluator()
+# Jetext = extractor()
+# for directory in ['jec', 'jersf', 'jr', 'junc']:
+#     directory='data/'+directory
+#     print('Loading files in:',directory)
+#     for filename in os.listdir(directory):
+#         if '~' in filename: continue
+#         if 'AK4PFchs' not in filename: continue
+#         if 'DATA' in filename: continue
+#         filename=directory+'/'+filename
+#         print('Loading file:',filename)
+#         Jetext.add_weight_sets(['* * '+filename])
+#     print('All files in',directory,'loaded')
+# Jetext.finalize()
+# Jetevaluator = Jetext.make_evaluator()
 
 corrections = {
     'get_msd_weight':           get_msd_weight,
@@ -957,7 +957,7 @@ corrections = {
 #     'get_mu_loose_iso_sf':      get_mu_loose_iso_sf,
     'get_ecal_bad_calib':       get_ecal_bad_calib,
 #     'get_btag_weight':          get_btag_weight,
-    'Jetevaluator':             Jetevaluator,
+#     'Jetevaluator':             Jetevaluator,
     
     'get_ele_tight_id_sf_postVFP': get_ele_tight_id_sf_postVFP,
     'get_ele_tight_id_sf_preVFP': get_ele_tight_id_sf_preVFP,
