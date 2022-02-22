@@ -1,11 +1,12 @@
 from coffea.util import save
-import awkward
+import awkward 
 import uproot, uproot_methods
 import numpy as np
 
 def match(a, b, val):
-    combinations = a.cross(b, nested=True)
-    return (combinations.i0.delta_r(combinations.i1)<val).any()
+    combinations = awkward.cartesian({"a":a, "b": b})
+    dr = abs(combinations.a.delta_r(b))
+    return (ak.any(dr < val, axis=-1))
 
 def sigmoid(x,a,b,c,d):
     """
