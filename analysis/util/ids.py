@@ -1,5 +1,5 @@
 import awkward
-import uproot, uproot_methods
+import uproot3
 import numpy as np
 from coffea.util import save
 
