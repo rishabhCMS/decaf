@@ -1,6 +1,6 @@
 from coffea.util import save
 import awkward 
-import uproot, uproot_methods
+import uproot3
 import numpy as np
 
 def match(a, b, val):
