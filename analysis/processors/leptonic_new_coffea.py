@@ -26,6 +26,15 @@ ak.behavior.update(candidate.behavior)
 ak.behavior.update(vector.behavior)
 # vec.register_awkward()
 
+
+from optparse import OptionParser
+from coffea.arrays import Initialize
+import lz4.frame as lz4f
+import cloudpickle
+
+# import pprint
+
+import math
 import time
 
 import coffea.processor as processor
@@ -39,8 +48,6 @@ NanoAODSchema.warn_missing_crossrefs = False
 import pickle
 import re
 
-import awkward as ak
-import numpy as np
 
 
 class AnalysisProcessor(processor.ProcessorABC):
