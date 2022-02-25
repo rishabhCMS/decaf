@@ -8,7 +8,7 @@ from coffea import util
 from coffea.lookup_tools import dense_lookup
 from coffea.util import save, load
 from coffea.btag_tools import BTagScaleFactor
-import awkard as ak
+import awkward as ak
 
 ###
 # Pile-up weight
