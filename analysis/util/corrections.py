@@ -827,7 +827,7 @@ class BTagCorrectorPostVFP:
         nom = bpass / np.maximum(ball, 1.)
         self.eff = dense_lookup.dense_lookup(nom, [ax.edges() for ax in btag[tagger].axes()[3:]])
 
-    def btag_weight(self, pt, eta, flavor, tag):
+    def btag_weight(self, events, pt, eta, flavor, tag):
         abseta = abs(eta)
         tightJet = events
         #https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods#1b_Event_reweighting_using_scale
