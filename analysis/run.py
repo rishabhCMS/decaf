@@ -47,7 +47,7 @@ for dataset, info in samplefiles.items():
     output = processor.run_uproot_job(filelist,
                                       "Events",
                                        processor_instance=processor_instance,
-                                       executor=processor.iterative_executor,
+                                       executor=processor.futures_executor,
                                        executor_args={'schema': NanoAODSchema,'workers':  options.workers},
                                        )
 #     output = processor.run_uproot_job(filelist,
