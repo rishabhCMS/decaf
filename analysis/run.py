@@ -8,7 +8,7 @@ import gzip
 import os
 from optparse import OptionParser
 
-import uproot
+import uproot3
 import numpy as np
 from coffea import hist, processor
 from coffea.util import load, save
@@ -41,12 +41,18 @@ for dataset, info in samplefiles.items():
     filelist[dataset] = files
 
     tstart = time.time()
-    output = processor.run_uproot_job(filelist,
-                                      treename='Events',
-                                      processor_instance=processor_instance,
-                                      executor=processor.futures_executor,
-                                      executor_args={'nano': True, 'workers': options.workers},
-                                      )
+    output = processor.run_uproot_job(fileset,
+                                      "Events",
+                                       processor_instance=processor_instance,
+                                       executor=processor.iterative_executor,
+                                       executor_args={'schema': NanoAODSchema,'workers':  options.workers},
+                                       )
+#     output = processor.run_uproot_job(filelist,
+#                                       treename='Events',
+#                                       processor_instance=processor_instance,
+#                                       executor=processor.futures_executor,
+#                                       executor_args={'nano': True, 'workers': options.workers},
+#                                       )
     
     #nbins = sum(sum(arr.size for arr in h._sumw.values()) for h in output.values() if isinstance(h, hist.Hist))
     #nfilled = sum(sum(np.sum(arr > 0) for arr in h._sumw.values()) for h in output.values() if isinstance(h, hist.Hist))
