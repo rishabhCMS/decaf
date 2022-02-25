@@ -28,8 +28,7 @@ ak.behavior.update(vector.behavior)
 
 
 from optparse import OptionParser
-from coffea.arrays import Initialize
-import lz4.frame as lz4f
+# import lz4.frame as lz4f
 import cloudpickle
 
 # import pprint
