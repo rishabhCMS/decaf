@@ -8,6 +8,7 @@ from coffea import util
 from coffea.lookup_tools import dense_lookup
 from coffea.util import save, load
 from coffea.btag_tools import BTagScaleFactor
+import awkard as ak
 
 ###
 # Pile-up weight
@@ -715,22 +716,16 @@ class BTagCorrectorPreVFP:
         nom = bpass / np.maximum(ball, 1.)
         self.eff = dense_lookup.dense_lookup(nom, [ax.edges() for ax in btag[tagger].axes()[3:]])
 
-    def btag_weight(self, pt, eta, flavor, tag):
+    def btag_weight(self, events, pt, eta, flavor, tag):
         abseta = abs(eta)
-        
+        tightJet = events
         #https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods#1b_Event_reweighting_using_scale
         def zerotag(eff):
-            return (1 - eff).prod()
+            return ak.prod(1.0 - eff[tightJet.isdflvM], axis=-1)
         
         def onetag(eff):
-            output = np.zeros(eff.shape[0], np.float64)
-            for event_num in range(eff.shape[0]):
-                p = 0
-                for i in range(len(eff[event_num])):
-                  p += eff[event_num][i] * (1 - np.delete(eff[event_num],i)).prod()
-        #           print(p)
-                output[event_num] = p
-            return output
+            output = ak.prod(eff[tightJet.isdflvM], axis=-1) * ak.prod((1.0 - eff[np.invert(tightJet.isdflvM)]), axis=-1)
+            return(output)
         
         eff = self.eff(flavor, pt, abseta)
         sf_nom = self.sf.eval('central', flavor, abseta, pt)
@@ -834,20 +829,14 @@ class BTagCorrectorPostVFP:
 
     def btag_weight(self, pt, eta, flavor, tag):
         abseta = abs(eta)
-        
+        tightJet = events
         #https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods#1b_Event_reweighting_using_scale
         def zerotag(eff):
-            return (1 - eff).prod()
+            return ak.prod(1.0 - eff[tightJet.isdflvM], axis=-1)
         
         def onetag(eff):
-            output = np.zeros(eff.shape[0], np.float64)
-            for event_num in range(eff.shape[0]):
-                p = 0
-                for i in range(len(eff[event_num])):
-                  p += eff[event_num][i] * (1 - np.delete(eff[event_num],i)).prod()
-        #           print(p)
-                output[event_num] = p
-            return output
+            output = ak.prod(eff[tightJet.isdflvM], axis=-1) * ak.prod((1.0 - eff[np.invert(tightJet.isdflvM)]), axis=-1)
+            return(output)
         
         eff = self.eff(flavor, pt, abseta)
         sf_nom = self.sf.eval('central', flavor, abseta, pt)
