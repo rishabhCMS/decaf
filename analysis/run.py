@@ -41,7 +41,7 @@ for dataset, info in samplefiles.items():
     filelist[dataset] = files
 
     tstart = time.time()
-    output = processor.run_uproot_job(fileset,
+    output = processor.run_uproot_job(filelist,
                                       "Events",
                                        processor_instance=processor_instance,
                                        executor=processor.iterative_executor,
