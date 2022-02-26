@@ -27,8 +27,8 @@ from coffea.analysis_tools import PackedSelection, Weights
 from coffea.nanoevents import NanoAODSchema, NanoEventsFactory
 from coffea.nanoevents.methods import nanoaod
 
-# NanoAODSchema.warn_missing_crossrefs = False
-
+NanoAODSchema.warn_missing_crossrefs = False
+from optparse import OptionParser
 import pickle
 np.errstate(invalid='ignore', divide='ignore')
 
