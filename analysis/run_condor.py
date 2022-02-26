@@ -10,7 +10,7 @@ import time
 import numexpr
 import os
 from optparse import OptionParser
-import uproot3 as uproot
+import uproot
 import numpy as np
 from coffea import hist
 
