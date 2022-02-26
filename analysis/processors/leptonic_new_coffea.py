@@ -1634,8 +1634,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                 else:
                     if not isFilled:
-                        hout['sumw'].fill(
-                            dataset=dataset, sumw=1, weight=events.genWeight)
+                        hout['sumw'].fill(dataset=dataset, sumw=1, weight=ak.sum(events.genWeight))
                         isFilled = True
                     cut = selection.all(*regions[region])
 #                     for systematic in [None]:
