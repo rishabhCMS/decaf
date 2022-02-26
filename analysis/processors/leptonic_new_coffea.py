@@ -1393,7 +1393,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 }
             if region in mT:
                 variables['mT'] = mT[region]
-                print(mT[region])
+#                 print(mT[region])
 #                 if 'e' in region[-1]:
 #                     WRF = leading_e.T.sum()-met.T
 #                 else:
@@ -1424,7 +1424,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     import sys
 #                     sys.exit(0)
                 for histname, h in hout.items():
-                    print("L1410")
+#                     print("L1410")
                     if not isinstance(h, hist.Hist):
                         continue
                     if histname not in variables:
@@ -1441,7 +1441,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                     else:
                         flat_variable = {histname: flat_variables[histname]}
-                        print("L1427",flat_variable)
+#                         print("L1427",flat_variable)
                         h.fill(dataset=dataset,
                                region=region,
                                **flat_variable,
@@ -1460,7 +1460,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = Weights(len(events))
-                print("L1445")
+#                 print("L1445")
                 if 'L1PreFiringWeight' in events.fields:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
