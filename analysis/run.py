@@ -11,7 +11,7 @@ from coffea.nanoevents import NanoAODSchema, NanoEventsFactory
 from coffea.nanoevents.methods import nanoaod
 
 NanoAODSchema.warn_missing_crossrefs = False
-import uproot3 as uproot
+import uproot
 import numpy as np
 from coffea import hist, processor
 from coffea.util import load, save
