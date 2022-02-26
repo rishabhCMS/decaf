@@ -1,7 +1,7 @@
 #!/usr/bin/env python
+
 import time
 from coffea import hist, nanoevents, util
-from coffea.util import load, save
 import coffea.processor as processor
 import awkward as ak
 import numpy as np
@@ -20,22 +20,6 @@ from coffea.jetmet_tools import JetResolution, JetResolutionScaleFactor
 # from jmeCorrections import JetMetCorrections
 import json
 
-np.errstate(invalid='ignore', divide='ignore')
-
-
-ak.behavior.update(candidate.behavior)
-ak.behavior.update(vector.behavior)
-# vec.register_awkward()
-
-
-from optparse import OptionParser
-# import lz4.frame as lz4f
-import cloudpickle
-
-# import pprint
-
-import math
-import time
 
 import coffea.processor as processor
 from coffea import hist
@@ -43,12 +27,10 @@ from coffea.analysis_tools import PackedSelection, Weights
 from coffea.nanoevents import NanoAODSchema, NanoEventsFactory
 from coffea.nanoevents.methods import nanoaod
 
-NanoAODSchema.warn_missing_crossrefs = False
+# NanoAODSchema.warn_missing_crossrefs = False
 
 import pickle
-import re
-
-
+np.errstate(invalid='ignore', divide='ignore')
 
 class AnalysisProcessor(processor.ProcessorABC):
 
@@ -743,7 +725,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         
         e = events.Electron
-        event_size = len(e)
+        event_size = len(events)
         
         
         e['isclean'] = ak.all(e.metric_table(mu_loose) > 0.3, axis=-1)
@@ -1169,16 +1151,16 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             elif 'postVFP' in dataset:
 #                 VFP_status = 'postVFP'
 #             else:
-#                 VFP_status = False
-            btag = {}
-            btagUp = {}
-            btagDown = {}
-            btag['sre'],   btagDown['sre'],   btagUp['sre'] = get_deepflav_weight['medium'](j_good_clean,j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '+1', )
-            btag['srm'],   btagDown['srm'],   btagUp['srm'] = get_deepflav_weight['medium'](j_good_clean,j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '+1', )
-            btag['ttbare'], btagDown['ttbare'], btagUp['ttbare'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '2', )
-            btag['ttbarm'], btagDown['ttbarm'], btagUp['ttbarm'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '2', )
-            btag['wjete'], btagDown['wjete'], btagUp['wjete'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '0', )
-            btag['wjetm'], btagDown['wjetm'], btagUp['wjetm'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '0', )  
+# #                 VFP_status = False
+#             btag = {}
+#             btagUp = {}
+#             btagDown = {}
+#             btag['sre'],   btagDown['sre'],   btagUp['sre'] = get_deepflav_weight['medium'](j_good_clean,j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '+1', )
+#             btag['srm'],   btagDown['srm'],   btagUp['srm'] = get_deepflav_weight['medium'](j_good_clean,j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '+1', )
+#             btag['ttbare'], btagDown['ttbare'], btagUp['ttbare'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '2', )
+#             btag['ttbarm'], btagDown['ttbarm'], btagUp['ttbarm'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '2', )
+#             btag['wjete'], btagDown['wjete'], btagUp['wjete'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '0', )
+#             btag['wjetm'], btagDown['wjetm'], btagUp['wjetm'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '0', )  
 
 
         ###
@@ -1350,12 +1332,14 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
 #     small code piece for checcking cutflow for after each selection
 #         mult = np.ones(len(events))
-#         for sel in regions['test']:
+#         for sel in regions['wjete']:
 #             print(sel,selection.all(sel),"\nSUM:",sum(selection.all(sel)))
 #             mult *= selection.all(sel)
 #             print("events left",sum(mult))
 #         print("MULT", mult)
 #         print("SUM_MULT", sum(mult))
+#         import sys
+#         sys.exit(0)
         isFilled = False
 #         print("mu_ntight->", mu_ntight.sum(),
 #               '\n', 'e_ntight->', e_ntight.sum())
@@ -1408,6 +1392,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 }
             if region in mT:
                 variables['mT'] = mT[region]
+                print(mT[region])
 #                 if 'e' in region[-1]:
 #                     WRF = leading_e.T.sum()-met.T
 #                 else:
@@ -1438,6 +1423,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     import sys
 #                     sys.exit(0)
                 for histname, h in hout.items():
+                    print("L1410")
                     if not isinstance(h, hist.Hist):
                         continue
                     if histname not in variables:
@@ -1454,7 +1440,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                     else:
                         flat_variable = {histname: flat_variables[histname]}
-#                         print(flat_variable)
+                        print("L1427",flat_variable)
                         h.fill(dataset=dataset,
                                region=region,
                                **flat_variable,
@@ -1473,6 +1459,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 fill(dataset, np.ones(event_size), cut)
             else:
                 weights = Weights(len(events))
+                print("L1445")
                 if 'L1PreFiringWeight' in events.fields:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
@@ -1533,7 +1520,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     isolation_name = 'isolation_m'                
                 weights.add(isolation_name, isolation[region], isolation[region]+isolation_err[region], isolation[region]-isolation_err[region])
 #                 weights.add('csev', csev[region])
-                weights.add('btag', btag[region],btagUp[region], btagDown[region])
+#                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
                     if not isFilled:
@@ -1550,8 +1537,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     sys.exit(0)
                     if 'WJets' in dataset:
                         systematics = [None,
-                                   'btagUp',
-                                   'btagDown',
+#                                    'btagUp',
+#                                    'btagDown',
                                        trig_name+'Up', trig_name+'Down',
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
@@ -1559,8 +1546,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       ]
                     else:
                         systematics = [None,
-                                       'btagUp',
-                                       'btagDown',
+#                                        'btagUp',
+#                                        'btagDown',
                                        'qcd1Up',
                                        'qcd1Down',
                                        'qcd2Up',
@@ -1634,13 +1621,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                 else:
                     if not isFilled:
-                        hout['sumw'].fill(dataset=dataset, sumw=1, weight=ak.sum(events.genWeight))
+                        hout['sumw'].fill(dataset=dataset, sumw=1, weight=ak.sum(events.genWeight, axis=-1))
                         isFilled = True
                     cut = selection.all(*regions[region])
 #                     for systematic in [None]:
                     for systematic in [None,
-                                   'btagUp',
-                                   'btagDown',
+#                                    'btagUp',
+#                                    'btagDown',
                                        trig_name+'Up', trig_name+'Down',
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
@@ -1650,7 +1637,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template'].fill(dataset=dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT = mT[region],
+                                              mT = ak.sum(mT[region], axis=-1),
                                               weight=weights.weight(modifier=systematic)*cut)
                         ## Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
