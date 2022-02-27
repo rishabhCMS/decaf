@@ -963,19 +963,19 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max())*ak.values_astype((ak.num(genIsoAs,axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genIsoAs, axis=1) > 0), np.int)
 
             if ('WJetsToLNu' in dataset) & ('HT' in dataset):
-                nlo_qcd = get_nlo_qcd_weight['w'](ak.max(genWs.pt))
-                nlo_ewk = get_nlo_ewk_weight['w'](ak.max(genWs.pt))
+                nlo_qcd = get_nlo_qcd_weight['w'](ak.max(genWs.pt, axis=1))
+                nlo_ewk = get_nlo_ewk_weight['w'](ak.max(genWs.pt, axis=1))
                 for systematic in get_nnlo_nlo_weight['w']:
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['w'][systematic](ak.max(genWs.pt))*ak.values_astype((ak.num(genWs,axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genWs, axis=1) > 0), np.int)
 
             elif('DY' in dataset):
-                nlo_qcd = get_nlo_qcd_weight['dy'](ak.max(genDYs.pt))
-                nlo_ewk = get_nlo_ewk_weight['dy'](ak.max(genDYs.pt))
+                nlo_qcd = get_nlo_qcd_weight['dy'](ak.max(genDYs.pt, axis=1))
+                nlo_ewk = get_nlo_ewk_weight['dy'](ak.max(genDYs.pt, axis=1))
                 for systematic in get_nnlo_nlo_weight['dy']:
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['dy'][systematic](ak.max(genDYs.pt))*ak.values_astype((ak.num(genZs, axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genZs, axis=1) > 0), np.int)
             elif('ZJets' in dataset):
-                nlo_qcd = get_nlo_qcd_weight['z'](ak.max(genZs.pt))
-                nlo_ewk = get_nlo_ewk_weight['z'](ak.max(genZs.pt))
+                nlo_qcd = get_nlo_qcd_weight['z'](ak.max(genZs.pt, axis=1))
+                nlo_ewk = get_nlo_ewk_weight['z'](ak.max(genZs.pt, axis=1))
                 for systematic in get_nnlo_nlo_weight['z']:
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['z'][systematic](ak.max(genZs.pt))*ak.values_astype((ak.num(genZs, axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genZs, axis=1) > 0), np.int)
 
