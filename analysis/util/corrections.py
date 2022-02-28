@@ -908,7 +908,7 @@ get_btag_weight_postVFP = {
 
 Jetext = extractor()
 for directory in ['jec', 'jersf', 'jr', 'junc']:
-    directory='../../data/'+directory
+    directory='data/'+directory
     print('Loading files in:',directory)
     for filename in os.listdir(directory):
         if '~' in filename: continue
