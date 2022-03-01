@@ -1143,7 +1143,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             if in a region you are asking for 0 btags, you have to apply the 0-btag weight
             if in a region you are asking for at least 1 btag, you need to apply the -1-btag weight
 
-            it’s “-1” because we want to reserve “1" to name the weight that should be applied when you ask for exactly 1 b-tag
+            it’s -1 because we want to reserve 1 to name the weight that should be applied when you ask for exactly One b-tag
 
             that is different from the weight you apply when you ask for at least 1 b-tag
             '''
