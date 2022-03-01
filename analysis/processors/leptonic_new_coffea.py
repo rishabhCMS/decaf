@@ -1455,7 +1455,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hout['template'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
-                                      mT = mT[region],
+                                      mT = ak.sum(mT[region], axis=-1),
                                       weight=np.ones(event_size)*cut)
                 fill(dataset, np.ones(event_size), cut)
             else:
