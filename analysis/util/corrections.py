@@ -907,7 +907,7 @@ get_btag_weight_postVFP = {
 
 
 Jetext = extractor()
-for directory in ['jec', 'jersf', 'jr', 'junc']:
+for directory in ['jec_UL', 'jersf_UL', 'jr_UL', 'junc_UL']:
     directory='data/'+directory
     print('Loading files in:',directory)
     for filename in os.listdir(directory):
