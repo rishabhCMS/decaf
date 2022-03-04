@@ -27,6 +27,8 @@ from coffea.nanoevents.methods import nanoaod
 
 # NanoAODSchema.warn_missing_crossrefs = False
 
+NanoAODSchema.warn_missing_crossrefs = False
+from optparse import OptionParser
 import pickle
 np.errstate(invalid='ignore', divide='ignore')
 
