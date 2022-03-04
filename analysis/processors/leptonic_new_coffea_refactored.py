@@ -1737,9 +1737,9 @@ if __name__ == '__main__':
         samplefiles = json.load(fin)
         xsec = {k: v['xs'] for k, v in samplefiles.items()}
 
-    corrections = load('data/corrections.coffea')
-    ids = load('data/ids.coffea')
-    common = load('data/common.coffea')
+    corrections = util.load('data/corrections.coffea')
+    ids = util.load('data/ids.coffea')
+    common = util.load('data/common.coffea')
 
     processor_instance = AnalysisProcessor(year=options.year,
                                            xsec=xsec,
