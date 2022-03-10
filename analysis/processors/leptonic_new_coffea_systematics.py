@@ -1488,7 +1488,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       systematic='nominal',
                                       mT = ak.sum(mT[region], axis=-1),
                                       weight=np.ones(event_size)*cut)
-                fill(dataset, np.ones(event_size), cut, systematic='nominal')
+                fill(dataset, np.ones(event_size), cut)
             else:
                 weights = Weights(len(events))
 #                 print("L1445")
@@ -1499,7 +1499,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('nlo_ewk', nlo_ewk)
                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
-                    print("if 'cen' in nnlo_nlo")
+#                     print("if 'cen' in nnlo_nlo")
 #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
