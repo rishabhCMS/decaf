@@ -15,8 +15,8 @@ from coffea.nanoevents import NanoAODSchema, BaseSchema
 from coffea.lumi_tools import LumiMask
 # for applying JECs
 from coffea.lookup_tools import extractor
-from coffea.jetmet_tools import FactorizedJetCorrector, JetCorrectionUncertainty
-from coffea.jetmet_tools import JECStack, CorrectedJetsFactory
+from coffea.jetmet_tools import FactorizedJetCorrector
+from coffea.jetmet_tools import JECStack, CorrectedJetsFactory, JetCorrectionUncertainty, CorrectedMETFactory
 from coffea.jetmet_tools import JetResolution, JetResolutionScaleFactor
 # from jmeCorrections import JetMetCorrections
 import json
