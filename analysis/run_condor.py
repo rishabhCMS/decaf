@@ -52,8 +52,8 @@ TransferOutputRemaps = "$ENV(PROCESSOR)_$ENV(SAMPLE).futures=$ENV(PWD)/hists/$EN
 Arguments = $ENV(METADATA) $ENV(SAMPLE) $ENV(PROCESSOR) $ENV(CLUSTER) $ENV(USER)
 accounting_group=group_cms
 JobBatchName = $ENV(BTCN)
-request_cpus = 7
-request_memory = 21G
+request_cpus = 3
+request_memory = 8G
 request_disk = 50G
 Queue 1"""
 
