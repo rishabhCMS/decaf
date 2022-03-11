@@ -246,9 +246,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
         
         self._golden_json_path = {
-    '2016': 'data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
-    '2017': 'data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
-    '2018': 'data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
+    '2016': '../../data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
+    '2017': '../../data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
+    '2018': '../../data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
 }
         self._corrections = corrections
         self._ids = ids
@@ -1385,45 +1385,78 @@ class AnalysisProcessor(processor.ProcessorABC):
             # selection.add('mindphi_'+region, (abs(u[region].delta_phi(j_clean.T)).min()>0.8))
             # regions[region].update({'recoil_'+region,'mindphi_'+region})
             #             print('Selection:',regions[region])
-            variables = {
+            if not isData:
+                variables = {
 
-                'mu_pT':              mu_tight.pt,
-                'eT_miss':              met.pt,
-                'ele_pT':              e_tight.pt,
-#                 'jet_pT':              leading_j.pt,
-                'metphi':                 met.phi,
-                'dphi_Met_LJ':             Delta_Phi_Met_LJ_var,
-                'j1pt':                   leading_j.pt,
-                'j1eta':                  leading_j.eta,
-                'j1phi':                  leading_j.phi,
-                # 'njets':                  j_nclean,
-                # 'ndflvL':                 j_ndflvL,
-                # 'ndcsvL':     j_ndcsvL,
-                # 'e1pt'      : leading_e.pt,
-                'ele_phi'     : leading_e.phi,
-                'ele_eta'     : leading_e.eta,
-                # 'dielemass' : leading_diele.mass,
-                # 'dielept'   : leading_diele.pt,
-                # 'mu1pt' : leading_mu.pt,
-                'mu_phi' : leading_mu.phi,
-                'mu_eta' : leading_mu.eta,
-                # 'dimumass' : leading_dimu.mass,
-                'dphi_e_etmiss':          abs(met.delta_phi(leading_e)),
-                'dphi_mu_etmiss':         abs(met.delta_phi(leading_mu)),
-                'dr_e_lj': DeltaR_LJ_Ele,
-                'dr_mu_lj': DeltaR_LJ_Mu,
-                'njets':                  j_ngood_clean,
-                'ndflvM':                 j_ndflvM,
-                'W_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt,
-                'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
-#                 'ndcsvM':     j_ndcsvM,
-#                 'scale_factors': np.ones(event_size, dtype=np.bool),
-                'leading_mu_pT': leading_mu.pt
-                }
-            if isData:
-                variables.pop('Z_gen_pT')
-                variables.pop('W_gen_pT')
+                    'mu_pT':              mu_tight.pt,
+                    'eT_miss':              met.pt,
+                    'ele_pT':              e_tight.pt,
+    #                 'jet_pT':              leading_j.pt,
+                    'metphi':                 met.phi,
+                    'dphi_Met_LJ':             Delta_Phi_Met_LJ_var,
+                    'j1pt':                   leading_j.pt,
+                    'j1eta':                  leading_j.eta,
+                    'j1phi':                  leading_j.phi,
+                    # 'njets':                  j_nclean,
+                    # 'ndflvL':                 j_ndflvL,
+                    # 'ndcsvL':     j_ndcsvL,
+                    # 'e1pt'      : leading_e.pt,
+                    'ele_phi'     : leading_e.phi,
+                    'ele_eta'     : leading_e.eta,
+                    # 'dielemass' : leading_diele.mass,
+                    # 'dielept'   : leading_diele.pt,
+                    # 'mu1pt' : leading_mu.pt,
+                    'mu_phi' : leading_mu.phi,
+                    'mu_eta' : leading_mu.eta,
+                    # 'dimumass' : leading_dimu.mass,
+                    'dphi_e_etmiss':          abs(met.delta_phi(leading_e)),
+                    'dphi_mu_etmiss':         abs(met.delta_phi(leading_mu)),
+                    'dr_e_lj': DeltaR_LJ_Ele,
+                    'dr_mu_lj': DeltaR_LJ_Mu,
+                    'njets':                  j_ngood_clean,
+                    'ndflvM':                 j_ndflvM,
+                    'W_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt,
+                    'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
+    #                 'ndcsvM':     j_ndcsvM,
+    #                 'scale_factors': np.ones(event_size, dtype=np.bool),
+                    'leading_mu_pT': leading_mu.pt
+                    }
+            else:
+                variables = {
 
+                    'mu_pT':              mu_tight.pt,
+                    'eT_miss':              met.pt,
+                    'ele_pT':              e_tight.pt,
+    #                 'jet_pT':              leading_j.pt,
+                    'metphi':                 met.phi,
+                    'dphi_Met_LJ':             Delta_Phi_Met_LJ_var,
+                    'j1pt':                   leading_j.pt,
+                    'j1eta':                  leading_j.eta,
+                    'j1phi':                  leading_j.phi,
+                    # 'njets':                  j_nclean,
+                    # 'ndflvL':                 j_ndflvL,
+                    # 'ndcsvL':     j_ndcsvL,
+                    # 'e1pt'      : leading_e.pt,
+                    'ele_phi'     : leading_e.phi,
+                    'ele_eta'     : leading_e.eta,
+                    # 'dielemass' : leading_diele.mass,
+                    # 'dielept'   : leading_diele.pt,
+                    # 'mu1pt' : leading_mu.pt,
+                    'mu_phi' : leading_mu.phi,
+                    'mu_eta' : leading_mu.eta,
+                    # 'dimumass' : leading_dimu.mass,
+                    'dphi_e_etmiss':          abs(met.delta_phi(leading_e)),
+                    'dphi_mu_etmiss':         abs(met.delta_phi(leading_mu)),
+                    'dr_e_lj': DeltaR_LJ_Ele,
+                    'dr_mu_lj': DeltaR_LJ_Mu,
+                    'njets':                  j_ngood_clean,
+                    'ndflvM':                 j_ndflvM,
+#                     'W_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt,
+#                     'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
+#                     'ndcsvM':     j_ndcsvM,
+#                     'scale_factors': np.ones(event_size, dtype=np.bool),
+                    'leading_mu_pT': leading_mu.pt
+                    }
             if region in mT:
                 variables['mT'] = mT[region]
 #                 print(mT[region])
