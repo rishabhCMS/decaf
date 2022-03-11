@@ -1420,6 +1420,10 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 'scale_factors': np.ones(event_size, dtype=np.bool),
                 'leading_mu_pT': leading_mu.pt
                 }
+            if isData:
+                variables.pop('Z_gen_pT')
+                variables.pop('W_gen_pT')
+
             if region in mT:
                 variables['mT'] = mT[region]
 #                 print(mT[region])
