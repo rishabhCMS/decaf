@@ -246,9 +246,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
         
         self._golden_json_path = {
-    '2016': 'data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
-    '2017': 'data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
-    '2018': 'data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
+    '2016': '../../data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
+    '2017': '../../data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
+    '2018': '../../data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
 }
         self._corrections = corrections
         self._ids = ids
@@ -747,7 +747,6 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         mu_loose = mu[ak.values_astype(mu.isloose, np.bool)]
         mu_tight = mu[ak.values_astype(mu.istight, np.bool)]
-        ak.num(mu, axis=1)
         mu_ntot = ak.num(mu, axis=1)
         mu_nloose = ak.num(mu_loose, axis=1)
         mu_ntight = ak.num(mu_tight, axis=1)
@@ -758,7 +757,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         event_size = len(events)
         
         
-        e['isclean'] = ak.all(e.metric_table(mu_loose) >= 0.3, axis=-1)
+        e['isclean'] = ~(ak.any(e.metric_table(mu_loose) < 0.3, axis=-1))
         e['isloose'] = isLooseElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['istight'] = isTightElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
 #         e['T'] = TVector2Array.from_polar(e.pt, e.phi)
@@ -784,7 +783,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         
 
         tau = events.Tau
-        tau['isclean'] = ak.all(tau.metric_table(mu_loose) >= 0.4, axis=-1) & ak.all(tau.metric_table(e_loose) >= 0.4, axis=-1)
+        tau['isclean'] = ~(ak.any(tau.metric_table(mu_loose) < 0.4, axis=-1)) & ~(ak.any(tau.metric_table(e_loose) < 0.4, axis=-1))
 #         ak.all(tau.metric_table(mu_loose) > 0.4, axis=-1)
         try:
             tau['isloose']=isLooseTau(tau.pt,tau.eta,tau.idDecayMode,tau.idDeepTau2017v2p1VSjet,self._year)
@@ -800,7 +799,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         tau_nloose = ak.num(tau_loose, axis=1)
 
         pho = events.Photon
-        pho['isclean'] = ak.all(pho.metric_table(mu_loose) >= 0.4, axis=-1) & ak.all(pho.metric_table(e_loose) >= 0.4, axis=-1)
+        pho['isclean'] = ~(ak.any(pho.metric_table(mu_loose) < 0.4, axis=-1)) & ~(ak.any(pho.metric_table(e_loose) < 0.4, axis=-1))
         _id = 'cutBased'
         if self._year == '2016':
             _id = 'cutBased'
@@ -860,11 +859,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         def jetcleaning(j, mu_loose, e_loose, pho_loose, r):
             
             
-            jetMuMask = ak.all(j.metric_table(mu_loose) >= 0.4, axis=-1)
-            jetEleMask = ak.all(j.metric_table(e_loose) >= 0.4, axis=-1)
-            jetPhoMask = ak.all(j.metric_table(pho_loose) >= 0.4, axis=-1)
+            jetMuMask = ak.any(j.metric_table(mu_loose) < r, axis=-1)
+            jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
+            jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
 
-            j_isclean_mask = (jetMuMask & jetEleMask & jetPhoMask)
+            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
             j_good_clean = j[j_isclean_mask & j_isgood_mask]
             
@@ -1275,13 +1274,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         else:
 #             selection.add("exclude_low_WpT_JetHT", np.full(event_size, True))
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 200)
+            remove_overlap = (gen[gen.hasFlags(['isPrompt','fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 200)
             selection.add("exclude_wjets_greater_200", ak.to_numpy(ak.sum(remove_overlap, axis=1)>0))
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 200)
+            remove_overlap = (gen[gen.hasFlags(['isPrompt','fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 200)
             selection.add("exclude_wjets_less_200", ak.to_numpy(ak.sum(remove_overlap, axis=1)>0))
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1342,7 +1341,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask"],
             
-            'wjete': [  'atleast_one_jet_with_pt_grt_50','met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
+            'wjete': [ 'atleast_one_jet_with_pt_grt_50','met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mt_wjete>50' ,'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask"],
             
@@ -1756,28 +1755,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                     fill(dataset, weights.weight(), cut)
 #         time.sleep(0.5)
         return hout
-
-#     def postprocess(self, accumulator):
-#         scale = {}
-#         for d in accumulator['sumw'].identifiers('dataset'):
-#             print('Scaling:', d.name)
-#             dataset = d.name
-#             if '--' in dataset:
-#                 dataset = dataset.split('--')[1]
-#             print('Cross section:', self._xsec[dataset])
-#             if self._xsec[dataset] != -1:
-# #                 scale[d.name] = 1
-#                 scale[d.name] = self._lumi*self._xsec[dataset]
-#             else:
-#                 scale[d.name] = 1
-
-#         for histname, h in accumulator.items():
-#             if histname == 'sumw':
-#                 continue
-#             if isinstance(h, hist.Hist):
-#                 h.scale(scale, axis='dataset')
-
-#         return accumulator
     def postprocess(self, accumulator):
         scale = {}
         for d in accumulator['sumw'].identifiers('dataset'):
