@@ -1,0 +1,32 @@
+{
+    "Mphi-1995_Mchi-1000_2018____0_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-1995_Mchi-1000_2018/Mphi-1995_Mchi-1000_2018_1.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-1995_Mchi-1000_2018/Mphi-1995_Mchi-1000_2018_2.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-1995_Mchi-1000_2018/Mphi-1995_Mchi-1000_2018_3.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-1995_Mchi-1000_2018/Mphi-1995_Mchi-1000_2018_4.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-1995_Mchi-1000_2018/Mphi-1995_Mchi-1000_2018_5.root"
+        ],
+        "xs": 1.0
+    },
+    "Mphi-2000_Mchi-1500_2018____0_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-1500_2018/Mphi-2000_Mchi-1500_2018_1.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-1500_2018/Mphi-2000_Mchi-1500_2018_2.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-1500_2018/Mphi-2000_Mchi-1500_2018_3.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-1500_2018/Mphi-2000_Mchi-1500_2018_4.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-1500_2018/Mphi-2000_Mchi-1500_2018_5.root"
+        ],
+        "xs": 1.0
+    },
+    "Mphi-2000_Mchi-500_2018____0_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-500_2018/Mphi-2000_Mchi-500_2018_1.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-500_2018/Mphi-2000_Mchi-500_2018_2.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-500_2018/Mphi-2000_Mchi-500_2018_3.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-500_2018/Mphi-2000_Mchi-500_2018_4.root",
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2018/Mphi-2000_Mchi-500_2018/Mphi-2000_Mchi-500_2018_5.root"
+        ],
+        "xs": 1.0
+    }
+}
