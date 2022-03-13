@@ -890,7 +890,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         met_LJ_Pairs = ak.cartesian({"met":met, "lj": leading_j})
         Delta_Phi_Met_LJ_var = (abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj)))
-        Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var >1 .5)
+        Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var > 1.5)
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = ak.cartesian({"leading_j":leading_j, "e_loose": e_loose})
