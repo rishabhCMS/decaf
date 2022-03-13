@@ -875,7 +875,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_j = j_good_clean[:,:1] # new way to define leading jet
         j_HEM = j[ak.values_astype(j.isHEM, np.bool)]       
         j_nHEM = ak.num(j_HEM, axis=1)
-        atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>=1) & ak.any(j_good_clean.pt>=50, axis=-1))
+#         atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>=1) & ak.any(j_good_clean.pt>=50, axis=-1))
+        atleast_one_jet_with_pt_grt_50 = np.full(event_size, True)
         
         # *****btag
         # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X#Supported_Algorithms_and_Operati
