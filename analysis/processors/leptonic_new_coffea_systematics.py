@@ -750,13 +750,12 @@ class AnalysisProcessor(processor.ProcessorABC):
         mu_ntot = ak.num(mu, axis=1)
         mu_nloose = ak.num(mu_loose, axis=1)
         mu_ntight = ak.num(mu_tight, axis=1)
-        leading_mu = mu_tight[:,:1]
+        leading_mu = mu[:,:1]
+        leading_mu = leading_mu[ak.values_astype(leading_mu.istight, np.bool)]
         
         
         e = events.Electron
         event_size = len(events)
-        
-        
         e['isclean'] = ~(ak.any(e.metric_table(mu_loose) < 0.3, axis=-1))
         e['isloose'] = isLooseElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['istight'] = isTightElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
@@ -779,7 +778,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         e_nloose = e_loose.counts
         e_ntight = ak.num(e_tight, axis=1)
-        leading_e = e_tight[:,:1]
+        leading_e = e[:,:1]
+        leading_e = leading_e[ak.values_astype(leading_e.isclean, np.bool)]
+        leading_e = leading_e[ak.values_astype(leading_e.istight, np.bool)]
         
 
         tau = events.Tau
@@ -818,8 +819,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         pho_ntight = ak.num(pho_tight, axis=1)
         leading_pho = pho[:,:1] #new way to define leading photon
         leading_pho = leading_pho[ak.values_astype(leading_pho.isclean, np.bool)]
-        
-        leading_pho = leading_pho[ak.values_astype(leading_pho.istight, np.bool)]
         leading_pho = leading_pho[ak.values_astype(leading_pho.istight, np.bool)]
 
 #         j = events.Jet
@@ -871,7 +870,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_good_clean = jetcleaning(j, mu_loose, e_loose, pho_loose, 0.4)
         j_ngood_clean = ak.num(j_good_clean)
         j_good_clean_dflvB = j_good_clean.isdflvM
-        j_ndflvM = ak.num(j[j_good_clean_dflvB])
+        j_ndflvM = ak.num(j[j_good_clean_dflvB], axis=1)
         leading_j = j_good_clean[:,:1] # new way to define leading jet
         j_HEM = j[ak.values_astype(j.isHEM, np.bool)]       
         j_nHEM = ak.num(j_HEM, axis=1)
@@ -891,7 +890,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         met_LJ_Pairs = ak.cartesian({"met":met, "lj": leading_j})
         Delta_Phi_Met_LJ_var = (abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj)))
-        Delta_Phi_Met_LJ = (abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj))>1.5)
+        Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var >1 .5)
 
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = ak.cartesian({"leading_j":leading_j, "e_loose": e_loose})
