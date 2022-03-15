@@ -278,7 +278,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
 #                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT_corrected', '$m_{T}$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', 20, 0, 600)),
             "EventCount": processor.value_accumulator(int),
             'cutflow': hist.Hist(
                 'Events',
