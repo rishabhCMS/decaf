@@ -739,7 +739,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
             #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18.h
-            if 'genWeights' not in events.fields:
+            if 'genWeight' not in events.fields:
                 isData = True
             else: isData = False
             dataset=events.metadata['dataset']   
