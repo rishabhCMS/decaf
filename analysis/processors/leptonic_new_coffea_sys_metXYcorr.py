@@ -739,7 +739,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
             #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18.h
-            if 'genWeights' in events.fields:
+            if 'genWeights' not in events.fields:
                 isData = True
             else: isData = False
             dataset=events.metadata['dataset']   
@@ -771,7 +771,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 runNMax = max(events.run)
                 runNMin = min(events.run)
                 if "2018" in year:
-                    if (runNMin >=315252) and r(runNMax <=316995):
+                    if (runNMin >=315252) and (runNMax <=316995):
                         era = "A"
 
                     elif (runNMin >=316998) and (runNMax <=319312):
