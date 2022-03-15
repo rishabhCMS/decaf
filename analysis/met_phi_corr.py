@@ -35,7 +35,7 @@ def METXYCorr_Met_MetPhi(events, year):
         runNMax = max(events.run)
         runNMin = min(events.run)
         if "2018" in year:
-            if (runNMin >=315252) and r(runNMax <=316995):
+            if (runNMin >=315252) and (runNMax <=316995):
                 era = "A"
 
             elif (runNMin >=316998) and (runNMax <=319312):
