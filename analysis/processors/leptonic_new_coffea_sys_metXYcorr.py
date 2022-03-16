@@ -246,9 +246,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
         
         self._golden_json_path = {
-    '2016': 'data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
-    '2017': 'data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
-    '2018': 'data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
+    '2016': '../../data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
+    '2017': '../../data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
+    '2018': '../../data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
 }
         self._corrections = corrections
         self._ids = ids
@@ -292,7 +292,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
 #                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('eT_miss', '$E^T_{miss}$[GeV]', 20, 0, 600)),
-
+            'eT_miss_corrected': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+#                 hist.Cat('systematic', 'Systematic'),
+                hist.Bin('eT_miss_corrected', '$E^T_{miss} Corrected$[GeV]', 20, 0, 600)),
             'ele_pT': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'dataset'),
@@ -426,6 +431,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
 #                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('metphi','MET phi',35,-3.5,3.5)),
+            'eT_miss_corrected_phi': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+#                 hist.Cat('systematic', 'Systematic'),
+                hist.Bin('eT_miss_corrected_phi','MET phi Corrected',35,-3.5,3.5)),
             'mu_phi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -739,9 +750,10 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
             #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18.h
-            if 'genWeight' not in events.fields:
-                isData = True
-            else: isData = False
+            if 'genWeight' in events.fields:
+                isData = False
+                print("hi I am MC")
+            else: isData = True
             dataset=events.metadata['dataset']   
             met = events.MET
             originalMet = met.pt
@@ -770,6 +782,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             if isData:
                 runNMax = max(events.run)
                 runNMin = min(events.run)
+                print(runNMax, runNMin)
                 if "2018" in year:
                     if (runNMin >=315252) and (runNMax <=316995):
                         era = "A"
@@ -1513,6 +1526,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             sel_name = 'mt'+'_'+region+'>50'
             select = (mT[region] > 50)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
+        for region in mT_corrected.keys():
+            sel_name = 'mtcorr'+'_'+region+'>50'
+            select = (mT_corrected[region] > 50)
+            selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
             
         selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >70))# from the monotop paper
         selection.add('atleast_one_jet_with_pt_grt_50',ak.to_numpy(atleast_one_jet_with_pt_grt_50))
@@ -1521,23 +1538,23 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask',],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask',"mtcorr_sre>50"],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", ],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_srm>50"],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask',],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', "mtcorr_ttbare>50"],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask"],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_ttbarm>50"],
             
             'wjete': [ 'atleast_one_jet_with_pt_grt_50','met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mt_wjete>50' ,'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask"],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", "mtcorr_wjete>50"],
             
 #             'testm': [ 
 #                     'exclude_dyjets_less_400', 
@@ -1548,7 +1565,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100', 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "mtcorr_wjetm>50",
                 "leading_j>70"
             ]
         }
@@ -1613,6 +1630,8 @@ class AnalysisProcessor(processor.ProcessorABC):
     #                 'ndcsvM':     j_ndcsvM,
     #                 'scale_factors': np.ones(event_size, dtype=np.bool),
                     'leading_mu_pT': leading_mu.pt,
+                    "eT_miss_corrected":corrected_met["T"]["pt"],
+                    "eT_miss_corrected_phi":corrected_met["T"]["phi"]
                     
                     }
             else:
@@ -1649,7 +1668,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
 #                     'ndcsvM':     j_ndcsvM,
 #                     'scale_factors': np.ones(event_size, dtype=np.bool),
-                    'leading_mu_pT': leading_mu.pt
+                    'leading_mu_pT': leading_mu.pt,
+                    "eT_miss_corrected":corrected_met["T"]["pt"],
+                    "eT_miss_corrected_phi":corrected_met["T"]["phi"]
                     }
             if region in mT:
                 variables['mT'] = mT[region]
