@@ -2025,7 +2025,7 @@ if __name__ == '__main__':
                                            common=common)
     if options.vfp=="preVFP":
         save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+"_"+options.year+'.processor')
-        print("processor name: UL_lep_monotop_v1_test_{}".format(options.year, options.vfp))
+        print("processor name: UL_lep_monotop_v1_test_{}_{}".format(options.year, options.vfp))
     elif options.vfp == "postVFP":
         save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+"_"+options.year+'.processor')
         print("processor name: UL_lep_monotop_v1_test_{}_{}".format(options.year, options.vfp))
