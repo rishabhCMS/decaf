@@ -2007,7 +2007,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-y', '--year', help='year', dest='year')
-    parser.add_option('-vfp', '--vfp', help='vfp', dest='vfp', default=None)
+    parser.add_option('-v', '--vfp', help='vfp', dest='vfp', default=None)
     (options, args) = parser.parse_args()
 
     with open('metadata/UL_'+options.year+'.json') as fin:
