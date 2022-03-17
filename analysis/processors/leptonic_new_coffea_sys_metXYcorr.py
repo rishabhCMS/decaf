@@ -191,8 +191,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2016': 
             {
-            'apv': ['Summer19UL16_V7_MC_Uncertainty_AK4PFchs'],
-                     'no_apv': ['Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs']},
+            'no_apv': ['Summer19UL16_V7_MC_Uncertainty_AK4PFchs'],
+                     'apv': ['Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs']},
 #                 'Summer16_07Aug2017_V11_MC_Uncertainty_AK4PFchs',
             
 
@@ -2007,6 +2007,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-y', '--year', help='year', dest='year')
+    parser.add_option('-vfp', '--vfp', help='vfp', dest='vfp', default=None)
     (options, args) = parser.parse_args()
 
     with open('metadata/UL_'+options.year+'.json') as fin:
@@ -2022,8 +2023,12 @@ if __name__ == '__main__':
                                            corrections=corrections,
                                            ids=ids,
                                            common=common)
-
-    save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.year+'.processor')
+    if options.vfp=="preVFP":
+        save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+options.year+'.processor')
+    elif options.vfp == "postVFP":
+        save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+options.year+'.processor')
+    else:
+        save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.year+'.processor')
     print("processor name: UL_lep_monotop_v1_test_{}".format(options.year))
   
   
