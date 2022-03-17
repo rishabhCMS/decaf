@@ -37,8 +37,8 @@ class AnalysisProcessor(processor.ProcessorABC):
     
     
     lumis = {  # Values from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
-        '2016': 19.52, #preVFP
-#         '2016': 16.81, #postVFP
+        '2016': {'preVFP':19.52,'postVFP':16.81}
+                 #postVFP
         '2017': 40.66,
         '2018': 59.74
     }
@@ -71,11 +71,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'ecalBadCalibFilter'
                  ]
     }
-    def __init__(self, year, xsec, corrections, ids, common):
+    def __init__(self, year, xsec, corrections, ids, common, vfp):
         ak.behavior.update(nanoaod.behavior)
         self._year = year
-
-        self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
+        if self._year == "2016":
+            self._lumi = 1000.*float(AnalysisProcessor.lumis[year][vfp])
+        else:   
+            self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
 
         self._xsec = xsec
         
@@ -2022,7 +2024,8 @@ if __name__ == '__main__':
                                            xsec=xsec,
                                            corrections=corrections,
                                            ids=ids,
-                                           common=common)
+                                           common=common,
+                                           vfp=options.vfp)
     if options.vfp=="preVFP":
         save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+"_"+options.year+'.processor')
         print("processor name: UL_lep_monotop_v1_test_{}_{}".format(options.year, options.vfp))
