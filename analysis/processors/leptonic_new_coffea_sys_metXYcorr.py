@@ -37,7 +37,7 @@ class AnalysisProcessor(processor.ProcessorABC):
     
     
     lumis = {  # Values from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
-        '2016': {'preVFP':19.52,'postVFP':16.81}
+        '2016': {'preVFP':19.52,'postVFP':16.81},
                  #postVFP
         '2017': 40.66,
         '2018': 59.74
