@@ -824,6 +824,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                     elif (runNMin >=304911) and (runNMax <=306462):
                         era = "F"
+                        
+                    else: era = "X"
                     if "E" in era:
                         METxcorr = [-(-0.162472*npv +0.176329)]
                         METycorr = [-(0.138076*npv -0.250239)]
@@ -839,6 +841,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                     elif "F" in era:
                         METxcorr = [-(-0.210639*npv +0.72934)]
                         METycorr = [-(0.198626*npv +1.028)]
+                    elif "X" in era:
+                        METxcorr = [np.zeros(len(events))]
+                        METycorr = [np.zeros(len(events))]
                 if "2016" in year in dataset:
 
                     if (runNMin >=272007) and (runNMax <=275376):
