@@ -847,55 +847,56 @@ class AnalysisProcessor(processor.ProcessorABC):
                         METxcorr = [np.zeros(len(events))]
                         METycorr = [np.zeros(len(events))]
                 if "2016" in year:
+                        METxcorr = [np.zeros(len(events))]
+                        METycorr = [np.zeros(len(events))]
+#                     if (runNMin >=272007) and (runNMax <=275376):
+#                         era = "B"
 
-                    if (runNMin >=272007) and (runNMax <=275376):
-                        era = "B"
+#                     elif (runNMin >=275657) and (runNMax <=276283):
+#                         era = "C"
 
-                    elif (runNMin >=275657) and (runNMax <=276283):
-                        era = "C"
+#                     elif (runNMin >=276315) and (runNMax <=276811):
+#                         era = "D"
 
-                    elif (runNMin >=276315) and (runNMax <=276811):
-                        era = "D"
+#                     elif (runNMin >=276831) and (runNMax <=277420) :
+#                         era = "E"
 
-                    elif (runNMin >=276831) and (runNMax <=277420) :
-                        era = "E"
+#                     elif (runNMin >=277772 and runNMax <=278768) or (runNMin==278770) or (runNMax==278770):
+#                         era = "F"
 
-                    elif (runNMin >=277772 and runNMax <=278768) or (runNMin==278770) or (runNMax==278770):
-                        era = "F"
+#                     elif (runNMin >=278801 and runNMax <=278808) or (runNMax==278769) or (runNMax==278769):
+#                         era = "F_late"
 
-                    elif (runNMin >=278801 and runNMax <=278808) or (runNMax==278769) or (runNMax==278769):
-                        era = "F_late"
+#                     elif (runNMin >=278820) and (runNMax <=280385):
+#                         era = "G"
 
-                    elif (runNMin >=278820) and (runNMax <=280385):
-                        era = "G"
+#                     elif (runNMin >=280919) and (runNMax <=284044):
+#                         era = "H"
 
-                    elif (runNMin >=280919) and (runNMax <=284044):
-                        era = "H"
-
-                    if "B" in era:
-                        METxcorr = [-(-0.0214894*npv -0.188255)]
-                        METycorr = [-(0.0876624*npv +0.812885)]
-                    elif "C" in era:
-                        METxcorr = [-(-0.032209*npv +0.067288)]
-                        METycorr = [-(0.113917*npv +0.743906)]
-                    elif "D" in era:
-                        METxcorr = [-(-0.0293663*npv +0.21106)]
-                        METycorr = [-(0.11331*npv +0.815787)]
-                    elif "E" in era:
-                        METxcorr = [-(-0.0132046*npv +0.20073)]
-                        METycorr = [-(0.134809*npv +0.679068)] 
-                    elif "F" in era:
-                        METxcorr = [-(-0.0543566*npv +0.816597)]
-                        METycorr = [-(0.114225*npv +1.17266)] 
-                    elif "F_late" in era:
-                        METxcorr = [-(0.134616*npv -0.89965)]
-                        METycorr = [-(0.0397736*npv +1.0385)] 
-                    elif "G" in era:
-                        METxcorr = [-(0.121809*npv -0.584893)]
-                        METycorr = [-(0.0558974*npv +0.891234)]
-                    elif "H" in era:
-                        METxcorr = [-(0.0868828*npv -0.703489)]
-                        METycorr = [-(0.0888774*npv +0.902632)]
+#                     if "B" in era:
+#                         METxcorr = [-(-0.0214894*npv -0.188255)]
+#                         METycorr = [-(0.0876624*npv +0.812885)]
+#                     elif "C" in era:
+#                         METxcorr = [-(-0.032209*npv +0.067288)]
+#                         METycorr = [-(0.113917*npv +0.743906)]
+#                     elif "D" in era:
+#                         METxcorr = [-(-0.0293663*npv +0.21106)]
+#                         METycorr = [-(0.11331*npv +0.815787)]
+#                     elif "E" in era:
+#                         METxcorr = [-(-0.0132046*npv +0.20073)]
+#                         METycorr = [-(0.134809*npv +0.679068)] 
+#                     elif "F" in era:
+#                         METxcorr = [-(-0.0543566*npv +0.816597)]
+#                         METycorr = [-(0.114225*npv +1.17266)] 
+#                     elif "F_late" in era:
+#                         METxcorr = [-(0.134616*npv -0.89965)]
+#                         METycorr = [-(0.0397736*npv +1.0385)] 
+#                     elif "G" in era:
+#                         METxcorr = [-(0.121809*npv -0.584893)]
+#                         METycorr = [-(0.0558974*npv +0.891234)]
+#                     elif "H" in era:
+#                         METxcorr = [-(0.0868828*npv -0.703489)]
+#                         METycorr = [-(0.0888774*npv +0.902632)]
 
             CorrectedMET_x = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METxcorr)).flatten()
             CorrectedMET_y = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METycorr)).flatten()
