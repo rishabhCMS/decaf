@@ -9,6 +9,7 @@ import os
 from optparse import OptionParser
 
 import uproot
+import uproot3
 import numpy as np
 from coffea import hist, processor
 from coffea.util import load, save
