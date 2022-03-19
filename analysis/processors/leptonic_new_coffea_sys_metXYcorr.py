@@ -769,8 +769,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             if not isData:
                 if (year == '2016') and ("preVFP" in dataset):
-                    METxcorr = [-(-0.188743*npv +0.136539)]
-                    METycorr = [-(0.0127927*npv +0.117747)]
+#                     METxcorr = [-(-0.188743*npv +0.136539)]
+#                     METycorr = [-(0.0127927*npv +0.117747)]
+                    METxcorr = [np.zeros(len(events))]
+                    METycorr = [np.zeros(len(events))]
                 if (year == '2016') and ("postVFP" in dataset):
                     METxcorr = [-(-0.153497*npv +0.231751)]
                     METycorr = [-(0.00731978*npv +0.243323)]
