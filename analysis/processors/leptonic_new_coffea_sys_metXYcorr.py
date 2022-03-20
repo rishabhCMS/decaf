@@ -2014,11 +2014,15 @@ if __name__ == '__main__':
     parser.add_option('-y', '--year', help='year', dest='year')
     parser.add_option('-v', '--vfp', help='vfp', dest='vfp', default=None)
     (options, args) = parser.parse_args()
-
-    with open('metadata/UL_'+options.year+'.json') as fin:
-        samplefiles = json.load(fin)
-        xsec = {k: v['xs'] for k, v in samplefiles.items()}
-
+    if options.vfp is not None:
+        with open('metadata/UL_'+options.year+options.vfp+'.json') as fin:
+            samplefiles = json.load(fin)
+            xsec = {k: v['xs'] for k, v in samplefiles.items()}
+    else:
+        with open('metadata/UL_'+options.year+'.json') as fin:
+            samplefiles = json.load(fin)
+            xsec = {k: v['xs'] for k, v in samplefiles.items()}
+            
     corrections = util.load('data/corrections.coffea')
     ids = util.load('data/ids.coffea')
     common = util.load('data/common.coffea')
@@ -2029,12 +2033,10 @@ if __name__ == '__main__':
                                            ids=ids,
                                            common=common,
                                            vfp=options.vfp)
-    if options.vfp=="preVFP":
+    if options.vfp is not None:
         save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+'_'+options.year+'.processor')
         print("processor name: UL_lep_monotop_v1_test_{}_{}".format(options.vfp, options.year))
-    elif options.vfp == "postVFP":
-        save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+'_'+options.year+'.processor')
-        print("processor name: UL_lep_monotop_v1_test_{}_{}".format(options.vfp, options.year))
+
     else:
         save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.year+'.processor')
         print("processor name: UL_lep_monotop_v1_test_{}".format(options.year))
