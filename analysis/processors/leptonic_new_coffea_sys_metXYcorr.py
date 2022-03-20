@@ -231,7 +231,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._jersf = {
 
             '2016': 
-            {'no_apv':['Summer20UL16_JRV3_MC_SF_AK8PFchs'],
+            {'no_apv':['Summer20UL16_JRV3_MC_SF_AK4PFchs'],
                      'apv':['Summer20UL16APV_JRV3_MC_SF_AK4PFchs']},
 #                 'Summer16_25nsV1b_MC_SF_AK4PFchs',
             
