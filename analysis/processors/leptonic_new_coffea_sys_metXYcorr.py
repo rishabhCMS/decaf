@@ -2015,7 +2015,7 @@ if __name__ == '__main__':
     parser.add_option('-v', '--vfp', help='vfp', dest='vfp', default=None)
     (options, args) = parser.parse_args()
     if options.vfp is not None:
-        with open('metadata/UL_'+options.year+options.vfp+'.json') as fin:
+        with open('metadata/UL_'+options.year+'_'+options.vfp+'.json') as fin:
             samplefiles = json.load(fin)
             xsec = {k: v['xs'] for k, v in samplefiles.items()}
     else:
