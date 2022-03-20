@@ -213,7 +213,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2016': 
             {'apv': ['Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs'],
-                     'no_apv': ['Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs']},
+                     'no_apv': ['Summer20UL16_JRV3_MC_PtResolution_AK4PFchs']},
 #                 'Summer16_25nsV1b_MC_PtResolution_AK4PFchs',
 
 
