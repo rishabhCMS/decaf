@@ -774,8 +774,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                     METxcorr = [np.zeros(len(events))]
                     METycorr = [np.zeros(len(events))]
                 if (year == '2016') and ("postVFP" in dataset):
-                    METxcorr = [-(-0.153497*npv +0.231751)]
-                    METycorr = [-(0.00731978*npv +0.243323)]
+#                     METxcorr = [-(-0.153497*npv +0.231751)]
+#                     METycorr = [-(0.00731978*npv +0.243323)]
+                    METxcorr = [np.zeros(len(events))]
+                    METycorr = [np.zeros(len(events))]
                 elif year == '2017':
                     METxcorr = [-(-0.300155*npv +1.90608)]
                     METycorr = [-(0.300213*npv +2.02232)]
