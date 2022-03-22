@@ -849,8 +849,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         METxcorr = [np.zeros(len(events))]
                         METycorr = [np.zeros(len(events))]
                 if "2016" in year:
-                        METxcorr = [np.zeros(len(events))]
-                        METycorr = [np.zeros(len(events))]
+                    METxcorr = [np.zeros(len(events))]
+                    METycorr = [np.zeros(len(events))]
                     if (runNMin >=272007) and (runNMax <=275376):
                         era = "B"
 
