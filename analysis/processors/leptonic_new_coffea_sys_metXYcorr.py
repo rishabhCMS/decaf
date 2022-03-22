@@ -744,14 +744,15 @@ class AnalysisProcessor(processor.ProcessorABC):
         puppimet["T"] = ak.zip({"pt": puppimet.pt, "phi": puppimet.phi}, 
                           with_name="PolarTwoVector", 
                           behavior=vector.behavior)
+        
+        
 ###################################################################################
     # Met Phi X-Y corrections
-    
     
         def METXYCorr_Met_MetPhi(events, year):
 
 
-#             https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18andUL16.h
+            #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18.h
             if 'genWeight' in events.fields:
                 isData = False
                 print("hi I am MC")
@@ -769,13 +770,15 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             if not isData:
                 if (year == '2016') and ("preVFP" in dataset):
-                    METxcorr = [-(-0.188743*npv +0.136539)] 
-                    METycorr = [-(0.0127927*npv +0.117747)]
-
+#                     METxcorr = [-(-0.188743*npv +0.136539)]
+#                     METycorr = [-(0.0127927*npv +0.117747)]
+                    METxcorr = [np.zeros(len(events))]
+                    METycorr = [np.zeros(len(events))]
                 if (year == '2016') and ("postVFP" in dataset):
-                    METxcorr = [-(-0.153497*npv +0.231751)]
-                    METycorr = [-(0.00731978*npv +0.243323)]
-
+#                     METxcorr = [-(-0.153497*npv +0.231751)]
+#                     METycorr = [-(0.00731978*npv +0.243323)]
+                    METxcorr = [np.zeros(len(events))]
+                    METycorr = [np.zeros(len(events))]
                 elif year == '2017':
                     METxcorr = [-(-0.300155*npv +1.90608)]
                     METycorr = [-(0.300213*npv +2.02232)]
@@ -784,10 +787,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                     METycorr = [-(0.192263*npv +0.42121)]
 
             if isData:
-                runNMax = max(events.run)
-                runNMin = min(events.run)
-                print(runNMax, runNMin)
+
+#                 print(runNMax, runNMin)
                 if "2018" in year:
+                    runNMax = max(events.run)
+                    runNMin = min(events.run)
                     if (runNMin >=315252) and (runNMax <=316995):
                         era = "A"
 
@@ -814,6 +818,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
                 if "2017" in year:
+                    
+                    runNMax = max(events.run)
+                    runNMin = min(events.run)
                     if (runNMin >=297020) and (runNMax <=299329):
                         era = "B"
 
@@ -849,31 +856,35 @@ class AnalysisProcessor(processor.ProcessorABC):
                         METxcorr = [np.zeros(len(events))]
                         METycorr = [np.zeros(len(events))]
                 if "2016" in year:
-                    METxcorr = [np.zeros(len(events))]
-                    METycorr = [np.zeros(len(events))]
-                    if (runNMin >=272007) and (runNMax <=275376):
+                    runNMax = max(events.run)
+                    runNMin = min(events.run)
+
+                    if (runNMin >=273150) and (runNMax <=275376):
                         era = "B"
-
-                    elif (runNMin >=275657) and (runNMax <=276283):
+                        print(era)
+                    elif (runNMin >=275656) and (runNMax <=276283):
                         era = "C"
-
+                        print('runNMax', runNMax, 'runMin', runNMin, ' era:', era)
+#                         print(era)
                     elif (runNMin >=276315) and (runNMax <=276811):
                         era = "D"
-
+                        print(era)
                     elif (runNMin >=276831) and (runNMax <=277420) :
                         era = "E"
-
-                    elif (runNMin >=277772 and runNMax <=278768) or (runNMin==278770) or (runNMax==278770):
+                        print(era)
+                    elif (runNMin >=277772 and runNMax <=278807) or (runNMin in [278770, 278806, 278807]) or (runNMax in [278770, 278806, 278807] ):
                         era = "F"
-
-                    elif (runNMin >=278801 and runNMax <=278808) or (runNMax==278769) or (runNMax==278769):
+#                  https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVDatasetsUL2016
+                        print(era)
+                    elif (runNMin >=278801 and runNMax <=278808) or (runNMax in [278769, 278806, 278807]) or (runNMax in [278769,278806, 278807]):
                         era = "F_late"
-
+                        print(era)
                     elif (runNMin >=278820) and (runNMax <=280385):
                         era = "G"
-
-                    elif (runNMin >=280919) and (runNMax <=284044):
+                        print(era)
+                    elif (runNMin >=281613) and (runNMax <=284044):
                         era = "H"
+                        print(era)
 
                     if "B" in era:
                         METxcorr = [-(-0.0214894*npv -0.188255)]
