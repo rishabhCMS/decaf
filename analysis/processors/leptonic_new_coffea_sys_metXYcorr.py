@@ -772,6 +772,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if (year == '2016') and ("preVFP" in dataset):
                     METxcorr = [-(-0.188743*npv +0.136539)]
                     METycorr = [-(0.0127927*npv +0.117747)]
+
                 if (year == '2016') and ("postVFP" in dataset):
                     METxcorr = [-(-0.153497*npv +0.231751)]
                     METycorr = [-(0.00731978*npv +0.243323)]
@@ -856,7 +857,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     runNMax = max(events.run)
                     runNMin = min(events.run)
 
-                    if (runNMin >=273150) and (runNMax <=275376):
+                    if (runNMin >=272007) and (runNMax <=275376):
                         era = "B"
                         print(era)
                     elif (runNMin >=275656) and (runNMax <=276283):
