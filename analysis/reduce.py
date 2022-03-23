@@ -66,6 +66,8 @@ def reduce(folder,_dataset=None,variable=None):
                     else: tmp[k].append(hin[k])
                del hin
           for k in tmp:
+               if 'EventCount' in k:
+                    continue
                tmp_arr=futuresum(np.array(tmp[k]))
                hists = {}
                hists[k]=tmp_arr[0]
