@@ -1534,6 +1534,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMmet', ak.to_numpy(noHEMmet))
         selection.add('met80', ak.to_numpy(met.pt < 80))
         selection.add('met100', ak.to_numpy(met.pt > 100))
+        selection.add('corr_met100', ak.to_numpy(corrected_met["T"]["pt"] > 100))
         selection.add('Delta_Phi_Met_LJ', ak.to_numpy(ak.sum(abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj))>1.5, axis=1)>0))
         selection.add('DeltaR_LJ_Ele_mask', ak.to_numpy((DeltaR_LJ_Ele_mask)>0))
 
@@ -1557,23 +1558,26 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask',"mtcorr_sre>50"],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask',"mtcorr_sre>50", 'DeltaR_LJ_Ele_mask', 'corr_met100'],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_srm>50"],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_srm>50", 'DeltaR_LJ_Mu_mask', 'corr_met100'],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', "mtcorr_ttbare>50"],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', "mtcorr_ttbare>50", 'DeltaR_LJ_Ele_mask',
+                      'corr_met100'],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_ttbarm>50"],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_ttbarm>50", 'DeltaR_LJ_Mu_mask',
+                      'corr_met100'],
             
             'wjete': [ 'atleast_one_jet_with_pt_grt_50','met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mt_wjete>50' ,'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", "mtcorr_wjete>50"],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", "mtcorr_wjete>50", 'DeltaR_LJ_Ele_mask',
+                     'corr_met100'],
             
 #             'testm': [ 
 #                     'exclude_dyjets_less_400', 
@@ -1585,7 +1589,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100', 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", "mtcorr_wjetm>50",
-                "leading_j>70"
+                "leading_j>70", 'DeltaR_LJ_Mu_mask', 'corr_met100'
             ]
         }
 #     small code piece for checcking cutflow for after each selection
