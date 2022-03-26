@@ -281,7 +281,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
 #                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', 20, 0, 600)),
-            "EventCount": processor.value_accumulator(int),
+#             "EventCount": processor.value_accumulator(int),
             'cutflow': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -478,7 +478,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             output = self.process_shift(events, "nominal")
 
         # only add events up once
-        output["EventCount"] += len(events)
+#         output["EventCount"] += len(events)
         return output
             
     def process_shift(self, events, shift_syst=None):
@@ -727,7 +727,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-                j   = events.Jet
+                j   = corrected_jets
                 met = events.MET
 #                 print(shift_syst)
         ###
@@ -1361,11 +1361,11 @@ class AnalysisProcessor(processor.ProcessorABC):
             }
             reco_err = {
                 'sre': ele_reco_err(ak.sum(leading_e.eta+leading_e.deltaEtaSC, axis=-1), ak.sum(leading_e.pt, axis=-1)),
-                'srm': np.ones(event_size),
+                'srm': np.zeros(event_size),
                 'ttbare': ele_reco_err(ak.sum(leading_e.eta+leading_e.deltaEtaSC, axis=-1), ak.sum(leading_e.pt, axis=-1)),
-                'ttbarm': np.ones(event_size),
+                'ttbarm': np.zeros(event_size),
                 'wjete': ele_reco_err(ak.sum(leading_e.eta+leading_e.deltaEtaSC, axis=-1), ak.sum(leading_e.pt, axis=-1)),
-                'wjetm': np.ones(event_size),
+                'wjetm': np.zeros(event_size),
                 # 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
                 # 'dilepm': np.ones(event_size)
             }
@@ -1384,11 +1384,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 'dilepe': np.ones(event_size),
             }
             isolation_err = {
-                'sre': np.ones(event_size),
+                'sre': np.zeros(event_size),
                 'srm': get_mu_tight_iso_err(abs(ak.sum(leading_mu.eta, axis=-1)), ak.sum(leading_mu.pt, axis=-1)),
-                'ttbare': np.ones(event_size),
+                'ttbare': np.zeros(event_size),
                 'ttbarm': get_mu_tight_iso_err(abs(ak.sum(leading_mu.eta, axis=-1)), ak.sum(leading_mu.pt, axis=-1)),
-                'wjete': np.ones(event_size),
+                'wjete': np.zeros(event_size),
                 'wjetm': get_mu_tight_iso_err(abs(ak.sum(leading_mu.eta, axis=-1)), ak.sum(leading_mu.pt, axis=-1)),
 #                 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
 #                 'dilepe': np.ones(event_size),
@@ -1773,7 +1773,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-                weights.add('ttjet_weights', ttjet_weights)
+#                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     print("if 'cen' in nnlo_nlo")
 #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
@@ -1897,7 +1897,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         
                     for systematic in systematics:
                         if systematic is None:
-                            systematic == 'nominal'
+                            systematic = 'nominal'
                             
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown", "METunclUp", "METunclDown"]:
                             sname = systematic
@@ -1967,7 +1967,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematic = [shift_syst] 
                     for systematic in systematic:
                         if systematic is None:
-                            systematic == "nominal"
+                            systematic = "nominal"
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown","METunclUp", "METunclDown"]:
                             sname = systematic
                             systematic = None
