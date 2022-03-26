@@ -37,8 +37,8 @@ class AnalysisProcessor(processor.ProcessorABC):
     
     
     lumis = {  # Values from https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
-        '2016': 19.52, #preVFP
-#         '2016': 16.81, #postVFP
+        '2016': {'preVFP':19.52,'postVFP':16.81},
+                 #postVFP
         '2017': 40.66,
         '2018': 59.74
     }
@@ -71,11 +71,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'ecalBadCalibFilter'
                  ]
     }
-    def __init__(self, year, xsec, corrections, ids, common):
+    def __init__(self, year, xsec, corrections, ids, common, vfp):
         ak.behavior.update(nanoaod.behavior)
         self._year = year
-
-        self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
+        if self._year == "2016":
+            self._lumi = 1000.*float(AnalysisProcessor.lumis[year][vfp])
+        else:   
+            self._lumi = 1000.*float(AnalysisProcessor.lumis[year])
 
         self._xsec = xsec
         
@@ -246,9 +248,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
         
         self._golden_json_path = {
-    '2016': 'data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
-    '2017': 'data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
-    '2018': 'data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
+    '2016': '../../data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
+    '2017': '../../data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
+    '2018': '../../data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
 }
         self._corrections = corrections
         self._ids = ids
@@ -265,7 +267,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT_corrected', '$m_{T}$ [GeV] Corrected', 20, 0, 600)),
             
             'mT': hist.Hist(
                 'Events',
@@ -279,12 +281,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', 20, 0, 600)),
-            "EventCount": processor.value_accumulator(int),
+#             "EventCount": processor.value_accumulator(int),
             'cutflow': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-                #hist.Bin('cut', 'Cut index', 11, 0, 11),
+                hist.Bin('cut', 'Cut index', 11, 0, 11),
                 hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])),
             'eT_miss': hist.Hist(
                 'Events',
@@ -476,7 +478,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             output = self.process_shift(events, "nominal")
 
         # only add events up once
-        output["EventCount"] += len(events)
+#         output["EventCount"] += len(events)
         return output
             
     def process_shift(self, events, shift_syst=None):
@@ -497,7 +499,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         # Getting corrections, ids from .coffea files
         ###
-        if (("preVFP" in dataset)) and (self._year == '2016'):
+        if ("preVFP" in dataset) and (self._year == '2016'):
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_preVFP'][self._year]
             get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf_preVFP'][self._year]
             
@@ -528,7 +530,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             get_deepflav_weight = self._corrections['get_btag_weight_preVFP']['deepflav'][self._year]
             
-        elif (("postVFP" in dataset)) and (self._year == '2016'):
+        elif ("postVFP" in dataset) and (self._year == '2016'):
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
             get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
             
@@ -742,9 +744,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         puppimet["T"] = ak.zip({"pt": puppimet.pt, "phi": puppimet.phi}, 
                           with_name="PolarTwoVector", 
                           behavior=vector.behavior)
+        
+        
 ###################################################################################
     # Met Phi X-Y corrections
-    
     
         def METXYCorr_Met_MetPhi(events, year):
 
@@ -769,9 +772,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if (year == '2016') and ("preVFP" in dataset):
                     METxcorr = [-(-0.188743*npv +0.136539)]
                     METycorr = [-(0.0127927*npv +0.117747)]
+
                 if (year == '2016') and ("postVFP" in dataset):
                     METxcorr = [-(-0.153497*npv +0.231751)]
                     METycorr = [-(0.00731978*npv +0.243323)]
+
                 elif year == '2017':
                     METxcorr = [-(-0.300155*npv +1.90608)]
                     METycorr = [-(0.300213*npv +2.02232)]
@@ -780,6 +785,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     METycorr = [-(0.192263*npv +0.42121)]
 
             if isData:
+
+#                 print(runNMax, runNMin)
                 if "2018" in year:
                     runNMax = max(events.run)
                     runNMin = min(events.run)
@@ -809,6 +816,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
                 if "2017" in year:
+                    
                     runNMax = max(events.run)
                     runNMin = min(events.run)
                     if (runNMin >=297020) and (runNMax <=299329):
@@ -825,6 +833,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                     elif (runNMin >=304911) and (runNMax <=306462):
                         era = "F"
+                        
+                    else: era = "X"
                     if "E" in era:
                         METxcorr = [-(-0.162472*npv +0.176329)]
                         METycorr = [-(0.138076*npv -0.250239)]
@@ -840,57 +850,64 @@ class AnalysisProcessor(processor.ProcessorABC):
                     elif "F" in era:
                         METxcorr = [-(-0.210639*npv +0.72934)]
                         METycorr = [-(0.198626*npv +1.028)]
-                if "2016" in year in dataset:
+                    elif "X" in era:
                         METxcorr = [np.zeros(len(events))]
                         METycorr = [np.zeros(len(events))]
-#                     if (runNMin >=272007) and (runNMax <=275376):
-#                         era = "B"
+                if "2016" in year:
+                    runNMax = max(events.run)
+                    runNMin = min(events.run)
 
-#                     elif (runNMin >=275657) and (runNMax <=276283):
-#                         era = "C"
+                    if (runNMin >=272007) and (runNMax <=275376):
+                        era = "B"
+                        print(era)
+                    elif (runNMin >=275656) and (runNMax <=276283):
+                        era = "C"
+                        print('runNMax', runNMax, 'runMin', runNMin, ' era:', era)
+#                         print(era)
+                    elif (runNMin >=276315) and (runNMax <=276811):
+                        era = "D"
+                        print(era)
+                    elif (runNMin >=276831) and (runNMax <=277420) :
+                        era = "E"
+                        print(era)
+                    elif (runNMin >=277772 and runNMax <=278807) or (runNMin in [278770, 278806, 278807]) or (runNMax in [278770, 278806, 278807] ):
+                        era = "F"
+#                  https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVDatasetsUL2016
+                        print(era)
+                    elif (runNMin >=278801 and runNMax <=278808) or (runNMax in [278769, 278806, 278807]) or (runNMax in [278769,278806, 278807]):
+                        era = "F_late"
+                        print(era)
+                    elif (runNMin >=278820) and (runNMax <=280385):
+                        era = "G"
+                        print(era)
+                    elif (runNMin >=281613) and (runNMax <=284044):
+                        era = "H"
+                        print(era)
 
-#                     elif (runNMin >=276315) and (runNMax <=276811):
-#                         era = "D"
-
-#                     elif (runNMin >=276831) and (runNMax <=277420) :
-#                         era = "E"
-
-#                     elif (runNMin >=277772 and runNMax <=278768) or (runNMin==278770) or (runNMax==278770):
-#                         era = "F"
-
-#                     elif (runNMin >=278801 and runNMax <=278808) or (runNMax==278769) or (runNMax==278769):
-#                         era = "F_late"
-
-#                     elif (runNMin >=278820) and (runNMax <=280385):
-#                         era = "G"
-
-#                     elif (runNMin >=280919) and (runNMax <=284044):
-#                         era = "H"
-
-#                     if "B" in era:
-#                         METxcorr = [-(-0.0214894*npv -0.188255)]
-#                         METycorr = [-(0.0876624*npv +0.812885)]
-#                     elif "C" in era:
-#                         METxcorr = [-(-0.032209*npv +0.067288)]
-#                         METycorr = [-(0.113917*npv +0.743906)]
-#                     elif "D" in era:
-#                         METxcorr = [-(-0.0293663*npv +0.21106)]
-#                         METycorr = [-(0.11331*npv +0.815787)]
-#                     elif "E" in era:
-#                         METxcorr = [-(-0.0132046*npv +0.20073)]
-#                         METycorr = [-(0.134809*npv +0.679068)] 
-#                     elif "F" in era:
-#                         METxcorr = [-(-0.0543566*npv +0.816597)]
-#                         METycorr = [-(0.114225*npv +1.17266)] 
-#                     elif "F_late" in era:
-#                         METxcorr = [-(0.134616*npv -0.89965)]
-#                         METycorr = [-(0.0397736*npv +1.0385)] 
-#                     elif "G" in era:
-#                         METxcorr = [-(0.121809*npv -0.584893)]
-#                         METycorr = [-(0.0558974*npv +0.891234)]
-#                     elif "H" in era:
-#                         METxcorr = [-(0.0868828*npv -0.703489)]
-#                         METycorr = [-(0.0888774*npv +0.902632)]
+                    if "B" in era:
+                        METxcorr = [-(-0.0214894*npv -0.188255)]
+                        METycorr = [-(0.0876624*npv +0.812885)]
+                    elif "C" in era:
+                        METxcorr = [-(-0.032209*npv +0.067288)]
+                        METycorr = [-(0.113917*npv +0.743906)]
+                    elif "D" in era:
+                        METxcorr = [-(-0.0293663*npv +0.21106)]
+                        METycorr = [-(0.11331*npv +0.815787)]
+                    elif "E" in era:
+                        METxcorr = [-(-0.0132046*npv +0.20073)]
+                        METycorr = [-(0.134809*npv +0.679068)] 
+                    elif "F" in era:
+                        METxcorr = [-(-0.0543566*npv +0.816597)]
+                        METycorr = [-(0.114225*npv +1.17266)] 
+                    elif "F_late" in era:
+                        METxcorr = [-(0.134616*npv -0.89965)]
+                        METycorr = [-(0.0397736*npv +1.0385)] 
+                    elif "G" in era:
+                        METxcorr = [-(0.121809*npv -0.584893)]
+                        METycorr = [-(0.0558974*npv +0.891234)]
+                    elif "H" in era:
+                        METxcorr = [-(0.0868828*npv -0.703489)]
+                        METycorr = [-(0.0888774*npv +0.902632)]
 
             CorrectedMET_x = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METxcorr)).flatten()
             CorrectedMET_y = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METycorr)).flatten()
@@ -1064,7 +1081,6 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
-#             print("j_isgood_mask", sum(ak.flatten(j_isgood_mask)))
             j_good_clean = j[j_isclean_mask & j_isgood_mask]
             
             return(j_good_clean)
@@ -1076,10 +1092,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_HEM = j[ak.values_astype(j.isHEM, np.bool)]       
         j_nHEM = ak.num(j_HEM, axis=1)
         atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>=1) & ak.any(j_good_clean.pt>=50, axis=-1))
-#         print(sum(ak.num(j_good_clean)>=1))
-#         print(j_good_clean.pt>=50, axis=-1)
-#         import sys
-#         sys.exit(0)
 #         atleast_one_jet_with_pt_grt_50 = np.full(event_size, True)
         
         # *****btag
@@ -1349,11 +1361,11 @@ class AnalysisProcessor(processor.ProcessorABC):
             }
             reco_err = {
                 'sre': ele_reco_err(ak.sum(leading_e.eta+leading_e.deltaEtaSC, axis=-1), ak.sum(leading_e.pt, axis=-1)),
-                'srm': np.ones(event_size),
+                'srm': np.zeros(event_size),
                 'ttbare': ele_reco_err(ak.sum(leading_e.eta+leading_e.deltaEtaSC, axis=-1), ak.sum(leading_e.pt, axis=-1)),
-                'ttbarm': np.ones(event_size),
+                'ttbarm': np.zeros(event_size),
                 'wjete': ele_reco_err(ak.sum(leading_e.eta+leading_e.deltaEtaSC, axis=-1), ak.sum(leading_e.pt, axis=-1)),
-                'wjetm': np.ones(event_size),
+                'wjetm': np.zeros(event_size),
                 # 'dilepe': sf(leading_ele_pair.i0.eta.sum()+leading_ele_pair.i0.deltaEtaSC.sum(), leading_ele_pair.i0.pt.sum()) * sf(leading_ele_pair.i1.eta.sum()+leading_ele_pair.i1.deltaEtaSC.sum(), leading_ele_pair.i1.pt.sum()),
                 # 'dilepm': np.ones(event_size)
             }
@@ -1372,11 +1384,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 'dilepe': np.ones(event_size),
             }
             isolation_err = {
-                'sre': np.ones(event_size),
+                'sre': np.zeros(event_size),
                 'srm': get_mu_tight_iso_err(abs(ak.sum(leading_mu.eta, axis=-1)), ak.sum(leading_mu.pt, axis=-1)),
-                'ttbare': np.ones(event_size),
+                'ttbare': np.zeros(event_size),
                 'ttbarm': get_mu_tight_iso_err(abs(ak.sum(leading_mu.eta, axis=-1)), ak.sum(leading_mu.pt, axis=-1)),
-                'wjete': np.ones(event_size),
+                'wjete': np.zeros(event_size),
                 'wjetm': get_mu_tight_iso_err(abs(ak.sum(leading_mu.eta, axis=-1)), ak.sum(leading_mu.pt, axis=-1)),
 #                 'dilepm': get_mu_loose_iso_sf(mu1eta, leading_mu_pair.i0.pt.sum()) * get_mu_loose_iso_sf(mu2eta, leading_mu_pair.i1.pt.sum()),
 #                 'dilepe': np.ones(event_size),
@@ -1522,6 +1534,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('noHEMmet', ak.to_numpy(noHEMmet))
         selection.add('met80', ak.to_numpy(met.pt < 80))
         selection.add('met100', ak.to_numpy(met.pt > 100))
+        selection.add('corr_met100', ak.to_numpy(corrected_met["T"]["pt"] > 100))
         selection.add('Delta_Phi_Met_LJ', ak.to_numpy(ak.sum(abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj))>1.5, axis=1)>0))
         selection.add('DeltaR_LJ_Ele_mask', ak.to_numpy((DeltaR_LJ_Ele_mask)>0))
 
@@ -1545,23 +1558,26 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Met_LJ', 'mt_sre>50','met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask',"mtcorr_sre>50"],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask',"mtcorr_sre>50", 'DeltaR_LJ_Ele_mask', 'corr_met100'],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Met_LJ', 'mt_srm>50',  'met100', 'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_srm>50"],
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_srm>50", 'DeltaR_LJ_Mu_mask', 'corr_met100'],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Met_LJ', 'mt_ttbare>50', 'met100', 'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', "mtcorr_ttbare>50"],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', "mtcorr_ttbare>50", 'DeltaR_LJ_Ele_mask',
+                      'corr_met100'],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Met_LJ', 'mt_ttbarm>50' , 'met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_ttbarm>50"],
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", "mtcorr_ttbarm>50", 'DeltaR_LJ_Mu_mask',
+                      'corr_met100'],
             
             'wjete': [ 'atleast_one_jet_with_pt_grt_50','met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mt_wjete>50' ,'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", "mtcorr_wjete>50"],
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", "mtcorr_wjete>50", 'DeltaR_LJ_Ele_mask',
+                     'corr_met100'],
             
 #             'testm': [ 
 #                     'exclude_dyjets_less_400', 
@@ -1573,7 +1589,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'Delta_Phi_Met_LJ', 'mt_wjetm>50', 'met100', 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", "mtcorr_wjetm>50",
-                "leading_j>70"
+                "leading_j>70", 'DeltaR_LJ_Mu_mask', 'corr_met100'
             ]
         }
 #     small code piece for checcking cutflow for after each selection
@@ -1746,7 +1762,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hout['template'].fill(dataset=dataset,
                                       region=region,
                                       systematic='nominal',
-                                      mT = ak.sum(mT[region], axis=-1),
+                                      mT_corrected = ak.sum(mT_corrected[region], axis=-1),
                                       weight=np.ones(event_size)*cut)
                 fill(dataset, np.ones(event_size), cut, systematic='nominal')
             else:
@@ -1757,7 +1773,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-                weights.add('ttjet_weights', ttjet_weights)
+#                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     print("if 'cen' in nnlo_nlo")
 #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
@@ -1881,15 +1897,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                         
                     for systematic in systematics:
                         if systematic is None:
-                            systematic == 'nominal'
+                            systematic = 'nominal'
                             
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown", "METunclUp", "METunclDown"]:
                             sname = systematic
                             systematic = None
                         else:
                             sname = systematic
-                        print('sname', sname)
-                        print('systematic', systematic)
 #                         sname = 'nominal' if systematic is None else systematic
 #                         import sys
 #                         print('weights.weight(modifier=systematic)', weights.weight(modifier=systematic))
@@ -1908,13 +1922,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT = ak.sum(mT[region], axis=-1),
+                                              mT_corrected = ak.sum(mT_corrected[region], axis=-1),
                                               weight=weights.weight(modifier=systematic)*whf*cut)
     
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT = ak.sum(mT[region], axis=-1),
+                                              mT_corrected = ak.sum(mT_corrected[region], axis=-1),
                                               weight=weights.weight(modifier=systematic)*wlf*cut)
                     ## Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
@@ -1929,8 +1943,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
                     sname = 'nominal' if shift_syst is None else shift_syst
 #                     print(sname)
-                    fill('HF--'+dataset, weights.weight()*whf, cut, sname)
-                    fill('LF--'+dataset, weights.weight()*wlf, cut, sname)
+                    fill('HF--'+dataset, weights.weight()*whf, cut,systematic=sname)
+                    fill('LF--'+dataset, weights.weight()*wlf, cut, systematic=sname)
 #                     fill('HF--'+dataset, weights.weight()*whf, cut)
 #                     fill('LF--'+dataset, weights.weight()*wlf, cut)
                 else: #for bkgs WW, QCD etc
@@ -1953,7 +1967,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematic = [shift_syst] 
                     for systematic in systematic:
                         if systematic is None:
-                            systematic == "nominal"
+                            systematic = "nominal"
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown","METunclUp", "METunclDown"]:
                             sname = systematic
                             systematic = None
@@ -1964,7 +1978,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['template'].fill(dataset=dataset,
                                               region=region,
                                               systematic=sname,
-                                              mT = ak.sum(mT[region], axis=-1),
+                                              mT_corrected = ak.sum(mT_corrected[region], axis=-1),
                                               weight=weights.weight(modifier=systematic)*cut)
                         ## Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
@@ -2007,7 +2021,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 h.scale(scale, axis='dataset')
 
         return accumulator
- 
 
 if __name__ == '__main__':
     parser = OptionParser()
