@@ -1604,7 +1604,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #               '\n', 'e_ntight->', e_ntight.sum())
         for region, cuts in regions.items():
             if region not in selected_regions: continue
-            print("region", region,ak.max(btag[region]), ak.max((btagUp[region])), ak.max(btagDown[region]))
+#             print("region", region,ak.max(btag[region]), ak.max((btagUp[region])), ak.max(btagDown[region]))
 
             ###
             # Adding recoil and minDPhi requirements
