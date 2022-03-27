@@ -1786,7 +1786,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     isolation_name = 'isolation_m'                
                 weights.add(isolation_name, isolation[region], isolation[region]+isolation_err[region], isolation[region]-isolation_err[region])
 #                 weights.add('csev', csev[region])
-#                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
+                weights.add('btag', btag[region],btagUp[region], btagDown[region])
     
     
 ##################################################################################################################
@@ -1808,8 +1808,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     cut = ak.to_numpy(selection.all(*regions[region]))
                     if 'WJets' in dataset and shift_syst is None:
                         systematics = [None,
-#                                    'btagUp',
-#                                    'btagDown',
+                                   'btagUp',
+                                   'btagDown',
                                        trig_name+'Up', trig_name+'Down',
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
