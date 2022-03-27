@@ -1434,7 +1434,13 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '2', )
             btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '0', )
             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '0', )  
-
+#             This part is for handling the large btag weight exp(138) . this brings in nans in the template.
+            
+            for region in ['ttbare', 'ttbarm']:
+                for tag in [btag, btagUp, btagDown]:
+                    tag[region] = np.asarray(btag[region])
+                    mask = tag[region]>=2
+                    tag[region][mask==True] = 1
 
         ###
         # Selections
@@ -1841,7 +1847,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 # ###################   else: donot separate into HF and LF                  ###########################
 
                 if 'WJets' in dataset or 'DY' in dataset or 'ZJets' in dataset or 'GJets' in dataset:
-                    if not isFilled:
+                    if (not isFilled) and (shift_syst is None):
                         hout['sumw'].fill(dataset='HF--'+dataset, sumw=1, weight=ak.sum(events.genWeight))
                         hout['sumw'].fill(dataset='LF--'+dataset, sumw=1, weight=ak.sum(events.genWeight))
                         isFilled = True
@@ -1949,7 +1955,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     fill('LF--'+dataset, weights.weight()*wlf, cut)
                 else: #for bkgs WW, QCD etc
 #                     print("hi")
-                    if not isFilled:
+                    if (not isFilled) and (shift_syst is None):
                         hout['sumw'].fill(dataset=dataset, sumw=1, weight=ak.sum(events.genWeight, axis=-1))
                         isFilled = True
                     cut = selection.all(*regions[region])
