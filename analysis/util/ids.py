@@ -110,8 +110,8 @@ def isGoodJet(pt, eta, jet_id, pu_id, nhf, chf, year):
     return mask
 
 def isHEMJet(pt, eta, phi):
-#     mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
-    mask = ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
+    mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
+#     mask = ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
 
     return mask
 
