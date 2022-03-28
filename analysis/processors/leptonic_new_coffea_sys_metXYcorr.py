@@ -427,6 +427,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('ele_phi', 'Leading Electron Phi', 64, -3.2, 3.2)),
+            
+            'ele_phi_loose': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+                hist.Bin('ele_phi_loose', 'Loose Electron Phi', 64, -3.2, 3.2)),
             'metphi': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1439,7 +1446,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             for region in ['ttbare', 'ttbarm']:
                 for tag in [btag, btagUp, btagDown]:
                     tag[region] = np.asarray(btag[region])
-                    mask = tag[region]>=2
+                    mask = abs(tag[region])>=2
                     tag[region][mask==True] = 1
 
         ###
@@ -1505,13 +1512,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         else:
 #             selection.add("exclude_low_WpT_JetHT", np.full(event_size, True))
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['isPrompt','fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 200)
+            remove_overlap = (gen[gen.hasFlags(['isPrompt','fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 250)
             selection.add("exclude_wjets_greater_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['isPrompt','fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 200)
+            remove_overlap = (gen[gen.hasFlags(['isPrompt','fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 250)
             selection.add("exclude_wjets_less_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1628,6 +1635,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 variables = {
 
                     'mu_pT':              mu_tight.pt,
+                    'ele_phi_loose':mu_loose.pt,
                     'eT_miss':              met.pt,
                     'ele_pT':              e_tight.pt,
     #                 'jet_pT':              leading_j.pt,
@@ -1668,6 +1676,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                     'mu_pT':              mu_tight.pt,
                     'eT_miss':              met.pt,
+                    'ele_phi_loose':mu_loose.pt,
                     'ele_pT':              e_tight.pt,
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
@@ -1782,7 +1791,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     print("if 'cen' in nnlo_nlo")
-#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
