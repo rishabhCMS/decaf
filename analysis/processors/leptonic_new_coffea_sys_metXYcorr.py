@@ -954,35 +954,11 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Initialize physics objects
         ###
 
-        def selectMuons(events, year):
-            """Select tight and loose muons
-            Returns a tuple of (tight, loose) muons
-            Tight muons should have a pt of at least 30 GeV, |eta| < 2.4, pass the tight muon ID cut
-            (tightId variable), and have a relative isolation of less than 0.15
-            Loose muon requirements are already coded
-            """
+
             
-            if year  in ['2016', '2017']:
-                pt_loose = 20
-            else: pt_loose = 15
-            muonSelectTight_mask = (
-                (events.Muon.pt > 30.) & (abs(events.Muon.eta) < 2.4)
-                & (events.Muon.tightId) & (events.Muon.pfRelIso04_all < 0.15)
-            )  # FIXME 1a
-
-            muonSelectLoose_mask = (
-                (events.Muon.pt > pt_loose)
-                & (abs(events.Muon.eta) < 2.4)
-                & ((events.Muon.isPFcand) & (events.Muon.isTracker | events.Muon.isGlobal))
-                & (events.Muon.pfRelIso04_all < 0.25)
-                & np.invert(muonSelectTight_mask)
-            )
-
-            return muonSelectTight_mask, muonSelectLoose_mask
-            
-        mu = events.Muon  #u.pfRelIso04_all -> u.pfRelIso03_all
-        istightMuon_mask, islooseMuon_mask = selectMuons(events, self._year)
-
+        mu = events.Muon
+        mu['isloose'] = isLooseMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
+        mu['istight'] = isTightMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
         mu["T"] = ak.zip({"pt": mu.pt, "phi": mu.phi}, 
                   with_name="PolarTwoVector", 
                   behavior=vector.behavior)
@@ -995,12 +971,13 @@ class AnalysisProcessor(processor.ProcessorABC):
         )
     
 
-        mu_loose = mu[islooseMuon_mask]
-        mu_tight = mu[istightMuon_mask]
+        mu_loose = mu[ak.values_astype(mu.isloose, np.bool)]
+        mu_tight = mu[ak.values_astype(mu.istight, np.bool)]
         mu_ntot = ak.num(mu, axis=1)
         mu_nloose = ak.num(mu_loose, axis=1)
         mu_ntight = ak.num(mu_tight, axis=1)
-        leading_mu = mu_tight[:,:1]
+        leading_mu = mu[:,:1]
+        leading_mu = leading_mu[ak.values_astype(leading_mu.istight, np.bool)]
         
         
         e = events.Electron
@@ -1661,10 +1638,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             if not isData:
                 variables = {
 
-                    'mu_pT':              mu_tight.pt,
-                    'ele_phi_loose':mu_loose.pt,
+                    'mu_pT':              leading_mu.pt,
                     'eT_miss':              met.pt,
-                    'ele_pT':              e_tight.pt,
+                    'ele_pT':              leading_e.pt,
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
                     'dphi_Met_LJ':             Delta_Phi_Met_LJ_var,
@@ -1693,7 +1669,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
     #                 'ndcsvM':     j_ndcsvM,
     #                 'scale_factors': np.ones(event_size, dtype=np.bool),
-                    'leading_mu_pT': leading_mu.pt,
                     "eT_miss_corrected":corrected_met["T"]["pt"],
                     "eT_miss_corrected_phi":corrected_met["T"]["phi"]
                     
@@ -1701,10 +1676,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             else:
                 variables = {
 
-                    'mu_pT':              mu_tight.pt,
+                    'mu_pT':              leading_mu.pt,
                     'eT_miss':              met.pt,
-                    'ele_phi_loose':mu_loose.pt,
-                    'ele_pT':              e_tight.pt,
+                    'ele_pT':              leading_e.pt,
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
                     'dphi_Met_LJ':             Delta_Phi_Met_LJ_var,
@@ -1733,7 +1707,6 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
 #                     'ndcsvM':     j_ndcsvM,
 #                     'scale_factors': np.ones(event_size, dtype=np.bool),
-                    'leading_mu_pT': leading_mu.pt,
                     "eT_miss_corrected":corrected_met["T"]["pt"],
                     "eT_miss_corrected_phi":corrected_met["T"]["phi"]
                     }
@@ -1818,7 +1791,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     print("if 'cen' in nnlo_nlo")
-                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
