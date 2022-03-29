@@ -1572,27 +1572,38 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         print(selection.all())
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Met_LJ', 'mtcorr_sre>50','corr_met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                     'Delta_Phi_Met_LJ',
+#                     'mtcorr_sre>50','corr_met100',
+                    'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Met_LJ', 'mtcorr_srm>50',  'corr_met100', 'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                    'Delta_Phi_Met_LJ', 
+#                     'mtcorr_srm>50',  'corr_met100', 
+                    'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 'mtcorr_ttbare>50', 'corr_met100', 'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                       'Delta_Phi_Met_LJ', 
+#                        'mtcorr_ttbare>50', 'corr_met100', 
+                       'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Met_LJ', 'mtcorr_ttbarm>50' , 'corr_met100','noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                        'Delta_Phi_Met_LJ', 
+#                        'mtcorr_ttbarm>50' , 'corr_met100',
+                       'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
-            'wjete': [ 'atleast_one_jet_with_pt_grt_50','corr_met100','Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
-                       'mtcorr_wjete>50' ,'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+            'wjete': [ 'atleast_one_jet_with_pt_grt_50',
+#                       'corr_met100',
+                      'Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
+#                        'mtcorr_wjete>50' ,
+                      'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
