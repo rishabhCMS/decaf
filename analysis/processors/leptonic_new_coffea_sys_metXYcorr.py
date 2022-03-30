@@ -759,7 +759,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         def METXYCorr_Met_MetPhi(events, year):
 
 
-            #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18.h
+            #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18andUL16.h
             if 'genWeight' in events.fields:
                 isData = False
                 print("hi I am MC")
@@ -1557,6 +1557,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('met100', ak.to_numpy(met.pt > 100))
         selection.add('corr_met100', ak.to_numpy(corrected_met["T"]["pt"] > 100))
         selection.add('Delta_Phi_Met_LJ', ak.to_numpy(ak.sum(abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj))>1.5, axis=1)>0))
+        selection.add('Delta_Phi_Corr_Met_LJ', ak.to_numpy(ak.sum(abs(corrected_met['T'].delta_phi(leading_j['T']))>1.5, axis=1)>0))
+
         selection.add('DeltaR_LJ_Ele_mask', ak.to_numpy((DeltaR_LJ_Ele_mask)>0))
 
         selection.add('one_muon', ak.to_numpy(ak.num(mu_tight, axis=1) == 1))
@@ -1975,8 +1977,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                         hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
                     sname = 'nominal' if shift_syst is None else shift_syst
 #                     print(sname)
-                    fill('HF--'+dataset, weights.weight()*whf, cut,systematic=sname)
-                    fill('LF--'+dataset, weights.weight()*wlf, cut, systematic=sname)
+                    if shift_syst is None:
+                        fill('HF--'+dataset, weights.weight()*whf, cut,systematic=sname)
+                        fill('LF--'+dataset, weights.weight()*wlf, cut, systematic=sname)
 #                     fill('HF--'+dataset, weights.weight()*whf, cut)
 #                     fill('LF--'+dataset, weights.weight()*wlf, cut)
                 else: #for bkgs WW, QCD etc
@@ -2023,7 +2026,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         
                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     sname = 'nominal' if shift_syst is None else shift_syst
-                    fill(dataset, weights.weight(), cut, systematic=sname)
+                    if shift_syst is None:
+                        fill(dataset, weights.weight(), cut, systematic=sname)
 #                     fill(dataset, weights.weight(), cut)
 #         time.sleep(0.5)
         return hout
