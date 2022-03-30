@@ -1626,9 +1626,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                       ],
             
             'wjete': [ 'atleast_one_jet_with_pt_grt_50',
-                      'corr_met100',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
-                       'mtcorr_wjete>50' ,
+                       'mtcorr_wjete>50' ,'corr_met100',
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
@@ -1641,7 +1640,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'wjetm': [
                 'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ',
-#                 'mtcorr_wjetm>50', 'corr_met100', 
+                'mtcorr_wjetm>50', 'corr_met100', 
                 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200",
