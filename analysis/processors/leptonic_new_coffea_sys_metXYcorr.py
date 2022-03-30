@@ -917,7 +917,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         METycorr = [-(0.0888774*npv +0.902632)]
 
             CorrectedMET_x = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METxcorr)).flatten()
-            CorrectedMET_y = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METycorr)).flatten()
+            CorrectedMET_y = np.multiply(originalMet,np.sin(originalMet_phi))+ (np.array(METycorr)).flatten()
 #             print(CorrectedMET_x/CorrectedMET_y)
 
             CorrectedMET = np.sqrt(np.square(CorrectedMET_x)+np.square(CorrectedMET_y))
@@ -941,6 +941,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             mask5 = (CorrectedMET_x >0 )
             CorrectedMETPhi[mask5==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x))[mask5==True]   
 
+            mask6 = (~mask1 & ~mask2 & ~mask3 & ~mask4 & ~mask5) 
+            CorrectedMETPhi[mask6==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x))[mask6==True]
             return (CorrectedMET, CorrectedMETPhi)
 
         XY_correctedmet_pt , XY_correctedmet_phi = METXYCorr_Met_MetPhi(events, self._year)
@@ -1118,6 +1120,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         Delta_Phi_Met_LJ_var = (abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj)))
         Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var > 1.5)
 
+        corrected_met['T'].delta_phi(leading_j['T'])
+        Delta_Phi_Corr_Met_LJ_var = (abs(corrected_met['T'].delta_phi(leading_j['T'])))
+        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.5)
+        
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = ak.cartesian({"leading_j":leading_j, "e_loose": e_loose})
         DeltaR_LJ_Ele = abs(LJ_Ele.leading_j.delta_r(LJ_Ele.e_loose))
@@ -1572,37 +1578,37 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         print(selection.all())
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Met_LJ','met100',
-#                     'mtcorr_sre>50','corr_met100',
+                     'Delta_Phi_Corr_Met_LJ',
+                    'mtcorr_sre>50','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", 'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Met_LJ', 'met100',
-#                     'mtcorr_srm>50',  'corr_met100', 
+                    'Delta_Phi_Corr_Met_LJ', 
+                    'mtcorr_srm>50',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 'met100',
-#                        'mtcorr_ttbare>50', 'corr_met100', 
+                       'Delta_Phi_Corr_Met_LJ',
+                       'mtcorr_ttbare>50', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", 'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Met_LJ', 'met100',
-#                        'mtcorr_ttbarm>50' , 'corr_met100',
+                        'Delta_Phi_Corr_Met_LJ',
+                       'mtcorr_ttbarm>50' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
-            'wjete': [ 'atleast_one_jet_with_pt_grt_50','met100',
-#                       'corr_met100',
-                      'Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
-#                        'mtcorr_wjete>50' ,
+            'wjete': [ 'atleast_one_jet_with_pt_grt_50',
+                      'corr_met100',
+                      'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
+                       'mtcorr_wjete>50' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>100", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
@@ -1614,7 +1620,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                      'exclude_wjets_greater_200'],
             'wjetm': [
                 'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                      'Delta_Phi_Met_LJ', 'met100',
+                      'Delta_Phi_Corr_Met_LJ',
 #                 'mtcorr_wjetm>50', 'corr_met100', 
                 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
@@ -1656,7 +1662,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'ele_pT':              leading_e.pt,
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
-                    'dphi_Met_LJ':             Delta_Phi_Met_LJ_var,
+                    'dphi_Met_LJ':             Delta_Phi_Corr_Met_LJ_var,
                     'j1pt':                   leading_j.pt,
                     'j1eta':                  leading_j.eta,
                     'j1phi':                  leading_j.phi,
@@ -1678,8 +1684,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'dr_mu_lj': DeltaR_LJ_Mu,
                     'njets':                  j_ngood_clean,
                     'ndflvM':                 j_ndflvM,
-                    'W_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt,
-                    'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
     #                 'ndcsvM':     j_ndcsvM,
     #                 'scale_factors': np.ones(event_size, dtype=np.bool),
                     "eT_miss_corrected":corrected_met["T"]["pt"],
