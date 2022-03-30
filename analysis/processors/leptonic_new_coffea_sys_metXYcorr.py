@@ -1566,45 +1566,45 @@ class AnalysisProcessor(processor.ProcessorABC):
             select = (mT_corrected[region] > 50)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
             
-        selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >70))# from the monotop paper
+        selection.add('leading_j>100',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >100))# from the monotop paper
         selection.add('atleast_one_jet_with_pt_grt_50',ak.to_numpy(atleast_one_jet_with_pt_grt_50))
 
 #         print(selection.all())
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Met_LJ',
+                     'Delta_Phi_Met_LJ','met100',
 #                     'mtcorr_sre>50','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask'
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", 'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Met_LJ', 
+                    'Delta_Phi_Met_LJ', 'met100',
 #                     'mtcorr_srm>50',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask'
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ', 
+                       'Delta_Phi_Met_LJ', 'met100',
 #                        'mtcorr_ttbare>50', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask',
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", 'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Met_LJ', 
+                        'Delta_Phi_Met_LJ', 'met100',
 #                        'mtcorr_ttbarm>50' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask',
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
-            'wjete': [ 'atleast_one_jet_with_pt_grt_50',
+            'wjete': [ 'atleast_one_jet_with_pt_grt_50','met100',
 #                       'corr_met100',
                       'Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
 #                        'mtcorr_wjete>50' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>100", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
 #             'testm': [ 
@@ -1614,10 +1614,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                      'exclude_wjets_greater_200'],
             'wjetm': [
                 'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
-                      'Delta_Phi_Met_LJ', 'mtcorr_wjetm>50', 'corr_met100', 'noHEMj' ,'noHEMmet',
+                      'Delta_Phi_Met_LJ', 'met100',
+#                 'mtcorr_wjetm>50', 'corr_met100', 
+                'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200",
-                "leading_j>70", 'DeltaR_LJ_Mu_mask'
+                "leading_j>100", 'DeltaR_LJ_Mu_mask'
             ]
         }
 #     small code piece for checcking cutflow for after each selection
