@@ -82,12 +82,30 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._xsec = xsec
         
         self._samples = {
-            'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'Mphi-1995_Mchi-1000', 'SingleElectron','SinglePhoton','EGamma'),
-            'srm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'Mphi-1995_Mchi-1000', 'SingleMuon'),
-            'ttbare':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','SinglePhoton','EGamma'),
-            'ttbarm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon'),
-            'wjete':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','SinglePhoton','EGamma'),
-            'wjetm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon', 'Mphi-1995_Mchi-1000'),
+            'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','SinglePhoton','EGamma',
+                   'Mphi-1995_Mchi-1000',
+                    'Mphi-2000_Mchi-1500',
+                    'Mphi-2000_Mchi-500'),
+            'srm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon',
+                    'Mphi-1995_Mchi-1000',
+                    'Mphi-2000_Mchi-1500',
+                    'Mphi-2000_Mchi-500'),
+            'ttbare':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','EGamma',
+                     'Mphi-1995_Mchi-1000',
+                    'Mphi-2000_Mchi-1500',
+                    'Mphi-2000_Mchi-500'),
+            'ttbarm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon',
+                     'Mphi-1995_Mchi-1000',
+                    'Mphi-2000_Mchi-1500',
+                    'Mphi-2000_Mchi-500'),
+            'wjete':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','EGamma',
+                    'Mphi-1995_Mchi-1000',
+                    'Mphi-2000_Mchi-1500',
+                    'Mphi-2000_Mchi-500'),
+            'wjetm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon',
+                    'Mphi-1995_Mchi-1000',
+                    'Mphi-2000_Mchi-1500',
+                    'Mphi-2000_Mchi-500'),
         }
         
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
@@ -1583,28 +1601,28 @@ class AnalysisProcessor(processor.ProcessorABC):
                      'Delta_Phi_Corr_Met_LJ',
                     'mtcorr_sre>50','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", 'lumi_mask', 'DeltaR_LJ_Ele_mask'
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Corr_Met_LJ', 
                     'mtcorr_srm>50',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", "lumi_mask", 'DeltaR_LJ_Mu_mask'
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbare>50', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", 'lumi_mask', 'DeltaR_LJ_Ele_mask',
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbarm>50' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>100", "lumi_mask", 'DeltaR_LJ_Mu_mask',
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
             'wjete': [ 'atleast_one_jet_with_pt_grt_50',
@@ -1612,7 +1630,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>50' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>100", "lumi_mask", 'DeltaR_LJ_Ele_mask',
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
 #             'testm': [ 
@@ -1627,7 +1645,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200",
-                "leading_j>100", 'DeltaR_LJ_Mu_mask'
+                "leading_j>70", 'DeltaR_LJ_Mu_mask'
             ]
         }
 #     small code piece for checcking cutflow for after each selection
