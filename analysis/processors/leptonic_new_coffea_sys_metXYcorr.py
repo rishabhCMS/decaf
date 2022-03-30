@@ -1592,7 +1592,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             select = (mT_corrected[region] > 50)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
             
-        selection.add('leading_j>100',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >100))# from the monotop paper
+        selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >70))# from the monotop paper
         selection.add('atleast_one_jet_with_pt_grt_50',ak.to_numpy(atleast_one_jet_with_pt_grt_50))
 
 #         print(selection.all())
