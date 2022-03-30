@@ -11,19 +11,19 @@
         isTopNanoAOD: False
         split:        lumi
         
-    Mphi-1995_Mchi-1000_2016:
+    Mphi-1995_Mchi-1000:
         tags: ['nanoaodv2', 'mc', 'global', 'ul', '2016']
         dbs:
             /DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2016_realistic_v15_L1v1-v1/NANOAODSIM
         xs:           1.0
         
-    Mphi-2000_Mchi-1500_2016:
+    Mphi-2000_Mchi-1500:
         tags: ['nanoaodv2', 'mc', 'global', 'ul', '2016']
         dbs:
             /DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2016_realistic_v15_L1v1-v1/NANOAODSIM
         xs:           1.0
         
-    Mphi-2000_Mchi-500_2016:
+    Mphi-2000_Mchi-500:
         tags: ['nanoaodv2', 'mc', 'global', 'ul', '2016']
         dbs:
             /DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv2-106X_upgrade2016_realistic_v15_L1v1-v1/NANOAODSIM
