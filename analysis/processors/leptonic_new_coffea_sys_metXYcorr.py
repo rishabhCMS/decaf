@@ -960,7 +960,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             CorrectedMETPhi[mask5==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x))[mask5==True]   
 
             mask6 = (~mask1 & ~mask2 & ~mask3 & ~mask4 & ~mask5) 
-            CorrectedMETPhi[mask6==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x))[mask6==True]
+            CorrectedMETPhi[mask6==True] = 0
+            
             return (CorrectedMET, CorrectedMETPhi)
 
         XY_correctedmet_pt , XY_correctedmet_phi = METXYCorr_Met_MetPhi(events, self._year)
