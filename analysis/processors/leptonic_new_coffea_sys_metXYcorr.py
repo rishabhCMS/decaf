@@ -1551,13 +1551,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         else:
 #             selection.add("exclude_low_WpT_JetHT", np.full(event_size, True))
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 200)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 400)
             selection.add("exclude_wjets_greater_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 200)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 400)
             selection.add("exclude_wjets_less_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
