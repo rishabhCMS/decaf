@@ -420,7 +420,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('dphi_Corr_Met_LJ', '$\Delta \Phi (E^T_{miss corr}, Leading Jet)$', 30, 0, 3.5))
+                hist.Bin('dphi_Corr_Met_LJ', '$\Delta \Phi (E^T_{miss corr}, Leading Jet)$', 30, 0, 3.5)),
             'dr_e_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1695,7 +1695,7 @@ class AnalysisProcessor(processor.ProcessorABC):
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
                     'dphi_Met_LJ':             Delta_Phi_Corr_Met_LJ_var,
-                    'dphi_Corr_Met_LJ':Delta_Phi_Met_LJ_var
+                    'dphi_Corr_Met_LJ':Delta_Phi_Met_LJ_var,
                     'j1pt':                   leading_j.pt,
                     'j1eta':                  leading_j.eta,
                     'j1phi':                  leading_j.phi,
