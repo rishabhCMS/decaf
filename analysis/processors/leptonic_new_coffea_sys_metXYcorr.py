@@ -672,13 +672,18 @@ class AnalysisProcessor(processor.ProcessorABC):
         if (self._year == '2016'):
             if ("preVFP" in dataset):
 #                 print(self._jr[self._year]['apv'][0])
+                list_of_jec = self._jec[self._year]['apv']
                 list_of_jr = self._jr[self._year]['apv']
                 list_of_junc = self._junc[self._year]['apv']
                 list_of_jersf = self._jersf[self._year]['apv']
             else: 
+                list_of_jec = self._jec[self._year]['apv']
                 list_of_jr =self ._jr[self._year]['no_apv']
                 list_of_junc =self ._junc[self._year]['no_apv']
                 list_of_jersf = self._jersf[self._year]['no_apv']
+                
+            for name in list_of_jec:
+                jec_names.append(name)
             for name in list_of_jr:
                 jec_names.append(name)
             for name in list_of_junc:
@@ -686,7 +691,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             for name in list_of_jersf:
                 jec_names.append(name)                
         else:
-                
+            for name in self._jec[self._year]:
+                jec_names.append(name)                 
             for name in self._jr[self._year]:
                 jec_names.append(name)    
             for name in self._jersf[self._year]:
