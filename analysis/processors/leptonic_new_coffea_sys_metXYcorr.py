@@ -415,6 +415,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('dphi_Met_LJ', '$\Delta \Phi (E^T_{miss}, Leading Jet)$', 30, 0, 3.5)),
+            'dphi_Corr_Met_LJ': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+                hist.Bin('dphi_Corr_Met_LJ', '$\Delta \Phi (E^T_{miss corr}, Leading Jet)$', 30, 0, 3.5))
             'dr_e_lj': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1683,6 +1689,7 @@ class AnalysisProcessor(processor.ProcessorABC):
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
                     'dphi_Met_LJ':             Delta_Phi_Corr_Met_LJ_var,
+                    'dphi_Corr_Met_LJ':Delta_Phi_Met_LJ_var
                     'j1pt':                   leading_j.pt,
                     'j1eta':                  leading_j.eta,
                     'j1phi':                  leading_j.phi,
@@ -2034,15 +2041,15 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
                                               weight=weights.weight(modifier=systematic)*cut)
                         ## Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
                         
-                        hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
+#                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     sname = 'nominal' if shift_syst is None else shift_syst
                     if shift_syst is None:
                         fill(dataset, weights.weight(), cut, systematic=sname)
