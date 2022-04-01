@@ -224,18 +224,7 @@ def METXYCorr_Met_MetPhi(events, year):
 
     return (CorrectedMET, CorrectedMETPhi)
 
-def jetcleaning(j, mu_loose, e_loose, pho_loose, r):
 
-
-    jetMuMask = ak.any(j.metric_table(mu_loose) < r, axis=-1)
-    jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
-    jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
-
-    j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
-    j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
-    j_good_clean = j[j_isclean_mask & j_isgood_mask]
-
-    return(j_good_clean)
 class AnalysisProcessor(processor.ProcessorABC):
     
     
@@ -1104,7 +1093,18 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         Junc Already applied in nanoAOD
 #         Jer  to be applied
 #         JERSF  to be applied
-        
+        def jetcleaning(j, mu_loose, e_loose, pho_loose, r):
+
+
+            jetMuMask = ak.any(j.metric_table(mu_loose) < r, axis=-1)
+            jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
+            jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
+
+            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
+            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
+            j_good_clean = j[j_isclean_mask & j_isgood_mask]
+
+            return(j_good_clean)
         
         
         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
