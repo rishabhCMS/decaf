@@ -33,6 +33,209 @@ from optparse import OptionParser
 import pickle
 np.errstate(invalid='ignore', divide='ignore')
 
+
+def METXYCorr_Met_MetPhi(events, year):
+
+
+    #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18andUL16.h
+    if 'genWeight' in events.fields:
+        isData = False
+        print("hi I am MC")
+    else: isData = True
+    dataset=events.metadata['dataset']   
+    met = events.MET
+    originalMet = met.pt
+    originalMet_phi = met.phi
+
+    npv = events.PV.npvs
+    mask = np.asarray(npv>100)
+    npv = np.asarray(npv)
+    npv[mask==True] = 100
+
+
+    if not isData:
+        if (year == '2016') and ("preVFP" in dataset):
+            METxcorr = [-(-0.188743*npv +0.136539)]
+            METycorr = [-(0.0127927*npv +0.117747)]
+
+        if (year == '2016') and ("postVFP" in dataset):
+            METxcorr = [-(-0.153497*npv +0.231751)]
+            METycorr = [-(0.00731978*npv +0.243323)]
+
+        elif year == '2017':
+            METxcorr = [-(-0.300155*npv +1.90608)]
+            METycorr = [-(0.300213*npv +2.02232)]
+        elif year == '2018':
+            METxcorr = [-(0.183518*npv +0.546754)]
+            METycorr = [-(0.192263*npv +0.42121)]
+
+    if isData:
+
+#                 print(runNMax, runNMin)
+        if "2018" in year:
+            runNMax = max(events.run)
+            runNMin = min(events.run)
+            if (runNMin >=315252) and (runNMax <=316995):
+                era = "A"
+
+            elif (runNMin >=316998) and (runNMax <=319312):
+                era = "B"
+
+            elif (runNMin >=319313) and (runNMax <=320393):
+                era = "C"
+
+            elif (runNMin >=320394) and (runNMax <=325273):
+                era = "D"
+            if "A" in era:
+                METxcorr = [-(0.263733*npv -1.91115)]
+                METycorr = [-(0.0431304*npv -0.112043)]
+            elif "B" in era:
+                METxcorr = [-(0.400466*npv -3.05914)]
+                METycorr = [-(0.146125*npv -0.533233)]
+            elif "C" in era:
+                METxcorr = [-(0.430911*npv -1.42865)]
+                METycorr = [-(0.0620083*npv -1.46021)]
+            elif "D" in era:
+                METxcorr = [-(0.457327*npv -1.56856)]
+                METycorr = [-(0.0684071*npv -0.928372)]
+
+
+        if "2017" in year:
+
+            runNMax = max(events.run)
+            runNMin = min(events.run)
+            if (runNMin >=297020) and (runNMax <=299329):
+                era = "B"
+
+            elif (runNMin >=299337) and (runNMax <=302029):
+                era = "C"
+
+            elif (runNMin >=302030) and (runNMax <=303434):
+                era = "D"
+
+            elif (runNMin >=303435) and (runNMax <=304826):
+                era = "E"
+
+            elif (runNMin >=304911) and (runNMax <=306462):
+                era = "F"
+
+            else: era = "X"
+            if "E" in era:
+                METxcorr = [-(-0.162472*npv +0.176329)]
+                METycorr = [-(0.138076*npv -0.250239)]
+            elif "B" in era:
+                METxcorr = [-(-0.211161*npv +0.419333)]
+                METycorr = [-(0.251789*npv -1.28089)]
+            elif "C" in era:
+                METxcorr = [-(-0.185184*npv -0.164009)]
+                METycorr = [-(0.200941*npv -0.56853)]
+            elif "D" in era:
+                METxcorr = [-(-0.201606*npv +0.426502)]
+                METycorr = [-(0.188208*npv -0.58313)]
+            elif "F" in era:
+                METxcorr = [-(-0.210639*npv +0.72934)]
+                METycorr = [-(0.198626*npv +1.028)]
+            elif "X" in era:
+                METxcorr = [np.zeros(len(events))]
+                METycorr = [np.zeros(len(events))]
+        if "2016" in year:
+            runNMax = max(events.run)
+            runNMin = min(events.run)
+
+            if (runNMin >=272007) and (runNMax <=275376):
+                era = "B"
+                print(era)
+            elif (runNMin >=275656) and (runNMax <=276283):
+                era = "C"
+                print('runNMax', runNMax, 'runMin', runNMin, ' era:', era)
+#                         print(era)
+            elif (runNMin >=276315) and (runNMax <=276811):
+                era = "D"
+                print(era)
+            elif (runNMin >=276831) and (runNMax <=277420) :
+                era = "E"
+                print(era)
+            elif (runNMin >=277772 and runNMax <=278807) or (runNMin in [278770, 278806, 278807]) or (runNMax in [278770, 278806, 278807] ):
+                era = "F"
+#                  https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVDatasetsUL2016
+                print(era)
+            elif (runNMin >=278801 and runNMax <=278808) or (runNMax in [278769, 278806, 278807]) or (runNMax in [278769,278806, 278807]):
+                era = "F_late"
+                print(era)
+            elif (runNMin >=278820) and (runNMax <=280385):
+                era = "G"
+                print(era)
+            elif (runNMin >=281613) and (runNMax <=284044):
+                era = "H"
+                print(era)
+
+            if "B" in era:
+                METxcorr = [-(-0.0214894*npv -0.188255)]
+                METycorr = [-(0.0876624*npv +0.812885)]
+            elif "C" in era:
+                METxcorr = [-(-0.032209*npv +0.067288)]
+                METycorr = [-(0.113917*npv +0.743906)]
+            elif "D" in era:
+                METxcorr = [-(-0.0293663*npv +0.21106)]
+                METycorr = [-(0.11331*npv +0.815787)]
+            elif "E" in era:
+                METxcorr = [-(-0.0132046*npv +0.20073)]
+                METycorr = [-(0.134809*npv +0.679068)] 
+            elif "F" in era:
+                METxcorr = [-(-0.0543566*npv +0.816597)]
+                METycorr = [-(0.114225*npv +1.17266)] 
+            elif "F_late" in era:
+                METxcorr = [-(0.134616*npv -0.89965)]
+                METycorr = [-(0.0397736*npv +1.0385)] 
+            elif "G" in era:
+                METxcorr = [-(0.121809*npv -0.584893)]
+                METycorr = [-(0.0558974*npv +0.891234)]
+            elif "H" in era:
+                METxcorr = [-(0.0868828*npv -0.703489)]
+                METycorr = [-(0.0888774*npv +0.902632)]
+
+    CorrectedMET_x = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METxcorr)).flatten()
+    CorrectedMET_y = np.multiply(originalMet,np.sin(originalMet_phi))+ (np.array(METycorr)).flatten()
+#             print(CorrectedMET_x/CorrectedMET_y)
+
+    CorrectedMET = np.sqrt(np.square(CorrectedMET_x)+np.square(CorrectedMET_y))
+    CorrectedMETPhi = np.zeros(len(events))
+
+#             print(CorrectedMET)
+#             print(CorrectedMETPhi)
+
+    mask1 = (CorrectedMET_x ==0 )& (CorrectedMET_y > 0)
+    CorrectedMETPhi[mask1==True] = np.pi
+
+    mask2 = (CorrectedMET_x ==0 )& (CorrectedMET_y < 0)
+    CorrectedMETPhi[mask2==True] = -np.pi
+
+    mask3 = (CorrectedMET_x <0 )& (CorrectedMET_y > 0)
+    CorrectedMETPhi[mask3==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x) + np.pi )[mask3==True] 
+
+    mask4 = (CorrectedMET_x <0 )& (CorrectedMET_y < 0)
+    CorrectedMETPhi[mask4==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x) - np.pi )[mask4==True]
+
+    mask5 = (CorrectedMET_x >0 )
+    CorrectedMETPhi[mask5==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x))[mask5==True]   
+
+    mask6 = (~mask1 & ~mask2 & ~mask3 & ~mask4 & ~mask5) 
+    CorrectedMETPhi[mask6==True] = 0
+
+    return (CorrectedMET, CorrectedMETPhi)
+
+def jetcleaning(j, mu_loose, e_loose, pho_loose, r):
+
+
+    jetMuMask = ak.any(j.metric_table(mu_loose) < r, axis=-1)
+    jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
+    jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
+
+    j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
+    j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
+    j_good_clean = j[j_isclean_mask & j_isgood_mask]
+
+    return(j_good_clean)
 class AnalysisProcessor(processor.ProcessorABC):
     
     
@@ -71,6 +274,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'ecalBadCalibFilter'
                  ]
     }
+
     def __init__(self, year, xsec, corrections, ids, common, vfp):
         ak.behavior.update(nanoaod.behavior)
         self._year = year
@@ -111,9 +315,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
             '2016': [
                 'Ele27_WPTight_Gsf',
-                'Ele105_CaloIdVT_GsfTrkIdT'
-#                 'Ele115_CaloIdVT_GsfTrkIdT'
-#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+#                 'Ele105_CaloIdVT_GsfTrkIdT'
+                'Ele115_CaloIdVT_GsfTrkIdT'
+                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
@@ -123,8 +327,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2018': [
                 'Ele32_WPTight_Gsf',
                 'Ele115_CaloIdVT_GsfTrkIdT',
-                'Photon200',
-#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                'Photon200','Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ]
         }
         
@@ -479,9 +682,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
  
         })
+
     @property
     def accumulator(self):
         return self._accumulator
+
+
 
     def process(self, events):
         ## Here we pre-compute a few common variables that we will re-use later and add them to the events object
@@ -787,195 +993,6 @@ class AnalysisProcessor(processor.ProcessorABC):
 ###################################################################################
     # Met Phi X-Y corrections
     
-        def METXYCorr_Met_MetPhi(events, year):
-
-
-            #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18andUL16.h
-            if 'genWeight' in events.fields:
-                isData = False
-                print("hi I am MC")
-            else: isData = True
-            dataset=events.metadata['dataset']   
-            met = events.MET
-            originalMet = met.pt
-            originalMet_phi = met.phi
-
-            npv = events.PV.npvs
-            mask = np.asarray(npv>100)
-            npv = np.asarray(npv)
-            npv[mask==True] = 100
-
-            
-            if not isData:
-                if (year == '2016') and ("preVFP" in dataset):
-                    METxcorr = [-(-0.188743*npv +0.136539)]
-                    METycorr = [-(0.0127927*npv +0.117747)]
-
-                if (year == '2016') and ("postVFP" in dataset):
-                    METxcorr = [-(-0.153497*npv +0.231751)]
-                    METycorr = [-(0.00731978*npv +0.243323)]
-
-                elif year == '2017':
-                    METxcorr = [-(-0.300155*npv +1.90608)]
-                    METycorr = [-(0.300213*npv +2.02232)]
-                elif year == '2018':
-                    METxcorr = [-(0.183518*npv +0.546754)]
-                    METycorr = [-(0.192263*npv +0.42121)]
-
-            if isData:
-
-#                 print(runNMax, runNMin)
-                if "2018" in year:
-                    runNMax = max(events.run)
-                    runNMin = min(events.run)
-                    if (runNMin >=315252) and (runNMax <=316995):
-                        era = "A"
-
-                    elif (runNMin >=316998) and (runNMax <=319312):
-                        era = "B"
-
-                    elif (runNMin >=319313) and (runNMax <=320393):
-                        era = "C"
-
-                    elif (runNMin >=320394) and (runNMax <=325273):
-                        era = "D"
-                    if "A" in era:
-                        METxcorr = [-(0.263733*npv -1.91115)]
-                        METycorr = [-(0.0431304*npv -0.112043)]
-                    elif "B" in era:
-                        METxcorr = [-(0.400466*npv -3.05914)]
-                        METycorr = [-(0.146125*npv -0.533233)]
-                    elif "C" in era:
-                        METxcorr = [-(0.430911*npv -1.42865)]
-                        METycorr = [-(0.0620083*npv -1.46021)]
-                    elif "D" in era:
-                        METxcorr = [-(0.457327*npv -1.56856)]
-                        METycorr = [-(0.0684071*npv -0.928372)]
-
-
-                if "2017" in year:
-                    
-                    runNMax = max(events.run)
-                    runNMin = min(events.run)
-                    if (runNMin >=297020) and (runNMax <=299329):
-                        era = "B"
-
-                    elif (runNMin >=299337) and (runNMax <=302029):
-                        era = "C"
-
-                    elif (runNMin >=302030) and (runNMax <=303434):
-                        era = "D"
-
-                    elif (runNMin >=303435) and (runNMax <=304826):
-                        era = "E"
-
-                    elif (runNMin >=304911) and (runNMax <=306462):
-                        era = "F"
-                        
-                    else: era = "X"
-                    if "E" in era:
-                        METxcorr = [-(-0.162472*npv +0.176329)]
-                        METycorr = [-(0.138076*npv -0.250239)]
-                    elif "B" in era:
-                        METxcorr = [-(-0.211161*npv +0.419333)]
-                        METycorr = [-(0.251789*npv -1.28089)]
-                    elif "C" in era:
-                        METxcorr = [-(-0.185184*npv -0.164009)]
-                        METycorr = [-(0.200941*npv -0.56853)]
-                    elif "D" in era:
-                        METxcorr = [-(-0.201606*npv +0.426502)]
-                        METycorr = [-(0.188208*npv -0.58313)]
-                    elif "F" in era:
-                        METxcorr = [-(-0.210639*npv +0.72934)]
-                        METycorr = [-(0.198626*npv +1.028)]
-                    elif "X" in era:
-                        METxcorr = [np.zeros(len(events))]
-                        METycorr = [np.zeros(len(events))]
-                if "2016" in year:
-                    runNMax = max(events.run)
-                    runNMin = min(events.run)
-
-                    if (runNMin >=272007) and (runNMax <=275376):
-                        era = "B"
-                        print(era)
-                    elif (runNMin >=275656) and (runNMax <=276283):
-                        era = "C"
-                        print('runNMax', runNMax, 'runMin', runNMin, ' era:', era)
-#                         print(era)
-                    elif (runNMin >=276315) and (runNMax <=276811):
-                        era = "D"
-                        print(era)
-                    elif (runNMin >=276831) and (runNMax <=277420) :
-                        era = "E"
-                        print(era)
-                    elif (runNMin >=277772 and runNMax <=278807) or (runNMin in [278770, 278806, 278807]) or (runNMax in [278770, 278806, 278807] ):
-                        era = "F"
-#                  https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVDatasetsUL2016
-                        print(era)
-                    elif (runNMin >=278801 and runNMax <=278808) or (runNMax in [278769, 278806, 278807]) or (runNMax in [278769,278806, 278807]):
-                        era = "F_late"
-                        print(era)
-                    elif (runNMin >=278820) and (runNMax <=280385):
-                        era = "G"
-                        print(era)
-                    elif (runNMin >=281613) and (runNMax <=284044):
-                        era = "H"
-                        print(era)
-
-                    if "B" in era:
-                        METxcorr = [-(-0.0214894*npv -0.188255)]
-                        METycorr = [-(0.0876624*npv +0.812885)]
-                    elif "C" in era:
-                        METxcorr = [-(-0.032209*npv +0.067288)]
-                        METycorr = [-(0.113917*npv +0.743906)]
-                    elif "D" in era:
-                        METxcorr = [-(-0.0293663*npv +0.21106)]
-                        METycorr = [-(0.11331*npv +0.815787)]
-                    elif "E" in era:
-                        METxcorr = [-(-0.0132046*npv +0.20073)]
-                        METycorr = [-(0.134809*npv +0.679068)] 
-                    elif "F" in era:
-                        METxcorr = [-(-0.0543566*npv +0.816597)]
-                        METycorr = [-(0.114225*npv +1.17266)] 
-                    elif "F_late" in era:
-                        METxcorr = [-(0.134616*npv -0.89965)]
-                        METycorr = [-(0.0397736*npv +1.0385)] 
-                    elif "G" in era:
-                        METxcorr = [-(0.121809*npv -0.584893)]
-                        METycorr = [-(0.0558974*npv +0.891234)]
-                    elif "H" in era:
-                        METxcorr = [-(0.0868828*npv -0.703489)]
-                        METycorr = [-(0.0888774*npv +0.902632)]
-
-            CorrectedMET_x = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METxcorr)).flatten()
-            CorrectedMET_y = np.multiply(originalMet,np.sin(originalMet_phi))+ (np.array(METycorr)).flatten()
-#             print(CorrectedMET_x/CorrectedMET_y)
-
-            CorrectedMET = np.sqrt(np.square(CorrectedMET_x)+np.square(CorrectedMET_y))
-            CorrectedMETPhi = np.zeros(len(events))
-
-#             print(CorrectedMET)
-#             print(CorrectedMETPhi)
-
-            mask1 = (CorrectedMET_x ==0 )& (CorrectedMET_y > 0)
-            CorrectedMETPhi[mask1==True] = np.pi
-
-            mask2 = (CorrectedMET_x ==0 )& (CorrectedMET_y < 0)
-            CorrectedMETPhi[mask2==True] = -np.pi
-
-            mask3 = (CorrectedMET_x <0 )& (CorrectedMET_y > 0)
-            CorrectedMETPhi[mask3==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x) + np.pi )[mask3==True] 
-
-            mask4 = (CorrectedMET_x <0 )& (CorrectedMET_y < 0)
-            CorrectedMETPhi[mask4==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x) - np.pi )[mask4==True]
-
-            mask5 = (CorrectedMET_x >0 )
-            CorrectedMETPhi[mask5==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x))[mask5==True]   
-
-            mask6 = (~mask1 & ~mask2 & ~mask3 & ~mask4 & ~mask5) 
-            CorrectedMETPhi[mask6==True] = 0
-            
-            return (CorrectedMET, CorrectedMETPhi)
 
         XY_correctedmet_pt , XY_correctedmet_phi = METXYCorr_Met_MetPhi(events, self._year)
 
@@ -1115,18 +1132,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
 
-        def jetcleaning(j, mu_loose, e_loose, pho_loose, r):
-            
-            
-            jetMuMask = ak.any(j.metric_table(mu_loose) < r, axis=-1)
-            jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
-            jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
 
-            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
-            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
-            j_good_clean = j[j_isclean_mask & j_isgood_mask]
-            
-            return(j_good_clean)
         j_good_clean = jetcleaning(j, mu_loose, e_loose, pho_loose, 0.4)
         j_ngood_clean = ak.num(j_good_clean)
         j_good_clean_dflvB = j_good_clean.isdflvM
@@ -1603,7 +1609,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
         for region in mT_corrected.keys():
             sel_name = 'mtcorr'+'_'+region+'>50'
-            select = (mT_corrected[region] > 50)
+            select = (mT_corrected[region] >=50)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
             
         selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >70))# from the monotop paper
@@ -1611,39 +1617,49 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         print(selection.all())
         regions = {
-            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 
+#                     'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Corr_Met_LJ',
                     'mtcorr_sre>50','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask'
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",#"leading_j>70",
+                    'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
-            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 
+#                     'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Corr_Met_LJ', 
                     'mtcorr_srm>50',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask'
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200",#"leading_j>70", 
+                    "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
-            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 
+#                        'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbare>50', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 'lumi_mask', 'DeltaR_LJ_Ele_mask',
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200",#"leading_j>70", 
+                       'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
-            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 
+#                        'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbarm>50' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", "lumi_mask", 'DeltaR_LJ_Mu_mask',
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200",
+#                        "leading_j>70", 
+                       "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
             'wjete': [ 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>50' ,'corr_met100',
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 
+                      "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
 #             'testm': [ 
@@ -1652,13 +1668,15 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     'exclude_wjets_less_200',
 #                      'exclude_wjets_greater_200'],
             'wjetm': [
-                'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 'atleast_one_jet_with_pt_grt_50',
+                'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 
+#                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ',
                 'mtcorr_wjetm>50', 'corr_met100', 
                 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200",
-                "leading_j>70", 'DeltaR_LJ_Mu_mask'
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200",'lumi_mask',
+#                 "leading_j>70", 
+                'DeltaR_LJ_Mu_mask'
             ]
         }
 #     small code piece for checcking cutflow for after each selection
@@ -1695,8 +1713,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'ele_pT':              leading_e.pt,
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
-                    'dphi_Met_LJ':             Delta_Phi_Corr_Met_LJ_var,
-                    'dphi_Corr_Met_LJ':Delta_Phi_Met_LJ_var,
+                    'dphi_Corr_Met_LJ':             Delta_Phi_Corr_Met_LJ_var,
+                    'dphi_Met_LJ':Delta_Phi_Met_LJ_var,
                     'j1pt':                   leading_j.pt,
                     'j1eta':                  leading_j.eta,
                     'j1phi':                  leading_j.phi,
