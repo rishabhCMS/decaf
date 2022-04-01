@@ -18,11 +18,11 @@ def isLooseElectron(pt,eta,dxy,dz,veto_id,year):
 def isTightElectron(pt,eta,dxy,dz,tight_id,year):
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = ((pt>29)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>29)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
+        mask = ((pt>29)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>29)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
     elif year=='2017':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
     elif year=='2018':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
     return mask
 
 
@@ -100,12 +100,12 @@ def isGoodJet(pt, eta, jet_id, pu_id, nhf, chf, year):
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&4)==4)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
 
     else:
-        mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id>=4)  #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&(pu_id==0)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
+#         mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id==6)  #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&(pu_id==0)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
 #matteo
-#     mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (nhf<0.8) & (chf>0.1)# & (nef<0.99) & (cef<0.99)
-#     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-    return mask
+        mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (nhf<0.8) & (chf>0.1)# & (nef<0.99) & (cef<0.99)
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
+        return mask
 
 def isHEMJet(pt, eta, phi):
     mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
