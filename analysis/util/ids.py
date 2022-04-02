@@ -97,7 +97,7 @@ def isGoodJet(pt, eta, jet_id, pu_id, nhf, chf, year):
 #     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
     if year=='2016':
         mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2) #& (nhf<0.9) & (chf>0.0) #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&4)==4)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
 
     else:
 #         mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id==6)  #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
