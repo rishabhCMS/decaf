@@ -1094,14 +1094,21 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         Jer  to be applied
 #         JERSF  to be applied
         def jetcleaning(j, mu_loose, e_loose, pho_loose, r):
-
+            NumNeutralParticles = (j.nConstituents-j.nElectrons+j.nMuons)
+            NumConst = j.nConstituents
+            NHF = j.neHEF
+            NEMF = j.neEmEF
+            CHF = j.chHEF
+            MUF = j.muEF
+            CEMF = j.chEmEF
+            CHM = j.nElectrons+j.nMuons
 
             jetMuMask = ak.any(j.metric_table(mu_loose) < r, axis=-1)
             jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
             jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
 
             j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
-            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
+            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
             j_good_clean = j[j_isclean_mask & j_isgood_mask]
 
             return(j_good_clean)
@@ -1114,7 +1121,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         CEMF = j.chEmEF
         CHM = j.nElectrons+j.nMuons
         
-        j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
+#         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
         j['isdcsvL'] = (j.btagDeepB>deepcsvWPs['loose'])
         j['isdflvL'] = (j.btagDeepFlavB>deepflavWPs['loose'])
@@ -1629,7 +1636,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                      'Delta_Phi_Corr_Met_LJ',
                     'mtcorr_sre>50','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",#"leading_j>70",
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70",
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
@@ -1638,7 +1645,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'Delta_Phi_Corr_Met_LJ', 
                     'mtcorr_srm>50',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                    "exclude_wjets_less_200", "exclude_wjets_greater_200",#"leading_j>70", 
+                    "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
@@ -1647,7 +1654,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbare>50', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
-                       "exclude_wjets_less_200", "exclude_wjets_greater_200",#"leading_j>70", 
+                       "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
@@ -1657,11 +1664,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_ttbarm>50' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                        "leading_j>70", 
+                       "leading_j>70", 
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
-            'wjete': [ 'atleast_one_jet_with_pt_grt_50',
+            'wjete': [ 
+#                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>50' ,'corr_met100',
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
@@ -1669,11 +1677,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                       "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
-#             'testm': [ 
-#                     'exclude_dyjets_less_400', 
-#                      'exclude_dyjets_greater_400', 
-#                     'exclude_wjets_less_200',
-#                      'exclude_wjets_greater_200'],
             'wjetm': [
                 'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 
 #                 'atleast_one_jet_with_pt_grt_50',
@@ -1682,7 +1685,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200",'lumi_mask',
-#                 "leading_j>70", 
+                "leading_j>70", 
                 'DeltaR_LJ_Mu_mask'
             ]
         }
