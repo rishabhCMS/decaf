@@ -275,7 +275,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._xsec = xsec
         
         self._samples = {
-            'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','SinglePhoton','EGamma',
+            'sre':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','EGamma',
                    'Mphi-1995_Mchi-1000',
                     'Mphi-2000_Mchi-1500',
                     'Mphi-2000_Mchi-500'),
