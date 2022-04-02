@@ -1105,9 +1105,16 @@ class AnalysisProcessor(processor.ProcessorABC):
             j_good_clean = j[j_isclean_mask & j_isgood_mask]
 
             return(j_good_clean)
+        NumNeutralParticles = (j.nConstituents-j.nElectrons+j.nMuons)
+        NumConst = j.nConstituents
+        NHF = j.neHEF
+        NEMF = j.neEmEF
+        CHF = j.chHEF
+        MUF = j.muEF
+        CEMF = j.chEmEF
+        CHM = j.nElectrons+j.nMuons
         
-        
-        j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId, j.neHEF, j.chHEF, self._year)
+        j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
         j['isdcsvL'] = (j.btagDeepB>deepcsvWPs['loose'])
         j['isdflvL'] = (j.btagDeepFlavB>deepflavWPs['loose'])
