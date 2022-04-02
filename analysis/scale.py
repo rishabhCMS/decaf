@@ -77,7 +77,7 @@ def scale(hists):
     bkg_map = OrderedDict()
     data_map = OrderedDict()
 #     bkg_map["Hbb"] = ("*HTo*")
-#     bkg_map["DY"] = ("DYJets*",)
+    bkg_map["DY"] = ("DYJets*",)
     bkg_map["DY+HF"] = ("HF--DYJets*",)
     bkg_map["DY+LF"] = ("LF--DYJets*",)
 #     bkg_map["DY+jetsLO"] = ("lo--DYJets*",)
@@ -89,7 +89,7 @@ def scale(hists):
     bkg_map["ZZ"] = ("ZZ*", )
     bkg_map["ST"] = ("ST*",)
     bkg_map["TT"] = ("TT*",)
-#     bkg_map["WJets"] = ("WJets*",)
+    bkg_map["WJets"] = ("WJets*",)
     bkg_map["W+HF"] = ("HF--WJets*",)
 #     bkg_map["W+HFc"] = ("HFc--WJets*",)
     bkg_map["W+LF"] = ("LF--WJets*",)
@@ -123,7 +123,7 @@ def scale(hists):
 #     data_map["SinglePhoton"] = ("SinglePhoton*", )
     data_map["SingleMuon"] = ("SingleMuon*", )
     data_map["EGamma"] = ("EGamma*", )
-#     data_map["Data"] = (["SingleElectron","SinglePhoton"], )
+    data_map["Data"] = (["SingleElectron","SinglePhoton"], )
     print('Processes defined')
     
     ###
