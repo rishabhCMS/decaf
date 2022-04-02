@@ -93,17 +93,19 @@ def isGoodFatJet(pt, eta, jet_id):
 #POG use tight jetID as a standart JetID 
 
 def isGoodJet(pt, eta, jet_id, pu_id, nhf, chf, year):
-#     mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2) #& (nhf<0.8) & (chf>0.1) & ((pu_id&1)==1)# & (nef<0.99) & (cef<0.99)
-#     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
-    if year=='2016':
-        mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2) #& (nhf<0.9) & (chf>0.0) #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
+    #working id for tt region
+#     if year=='2016':
+#         mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2) #& (nhf<0.9) & (chf>0.0) #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
 
+#     else:
+#         mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
+    if year=='2016':
+        mask = (pt>=30) & (abs(eta)<=2.4) & (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     else:
-#         mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id==6)  #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
-#         mask = ((pt>=50)&mask) | ((pt<50)&mask&(pu_id==0)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
-#matteo
-        mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
+        mask = (pt>=30) & (abs(eta)<=2.6) & (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     return mask
 
