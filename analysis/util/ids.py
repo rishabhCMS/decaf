@@ -92,7 +92,7 @@ def isGoodFatJet(pt, eta, jet_id):
 #Jet ID flags bit1 is loose (always false in 2017 since it does not exist), bit2 is tight, bit3 is tightLepVeto
 #POG use tight jetID as a standart JetID 
 
-def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year:
+def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year):
     #working id for tt region
 #     if year=='2016':
 #         mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2) #& (nhf<0.9) & (chf>0.0) #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
