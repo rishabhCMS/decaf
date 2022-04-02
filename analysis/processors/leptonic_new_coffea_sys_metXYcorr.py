@@ -1757,6 +1757,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'ele_pT':              leading_e.pt,
     #                 'jet_pT':              leading_j.pt,
                     'metphi':                 met.phi,
+                    'dphi_Corr_Met_LJ':             Delta_Phi_Corr_Met_LJ_var,
                     'dphi_Met_LJ':             Delta_Phi_Met_LJ_var,
                     'j1pt':                   leading_j.pt,
                     'j1eta':                  leading_j.eta,
