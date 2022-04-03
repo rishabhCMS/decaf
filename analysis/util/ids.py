@@ -102,10 +102,10 @@ def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, y
 #         mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
 #         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     if year=='2016':
-        mask = (pt>=30) & (abs(eta)<=2.4) & (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
+        mask = (pt>=30) & (jet_id&2)==2) & (abs(eta)<=2.4) & (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     else:
-        mask = (pt>=30) & (abs(eta)<=2.6) & (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
+        mask = (pt>=30) & (abs(eta)<=2.6) & (jet_id&2)==2)& (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     return mask
 
