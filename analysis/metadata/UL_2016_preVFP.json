@@ -649,7 +649,7 @@
     },
     "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8preVFP____17_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/240000/0225326C-52F6-8F4D-8F0C-652760D9F6F7.root"
+            "root://xrootd-cms.infn.it//store/mc/RunIISummer20UL16NanoAODAPVv2/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/240000/0225326C-52F6-8F4D-8F0C-652760D9F6F7.root"
         ],
         "xs": 91.4936
     },
@@ -787,7 +787,7 @@
     },
     "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8preVFP____40_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/250000/0783F08A-CAC8-9943-900D-83675FC10CF3.root"
+            "root://xrootd-cms.infn.it//store/mc/RunIISummer20UL16NanoAODAPVv2/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/250000/0783F08A-CAC8-9943-900D-83675FC10CF3.root"
         ],
         "xs": 91.4936
     },
@@ -1003,7 +1003,7 @@
     },
     "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8preVFP____76_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL16NanoAODAPVv2/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/230000/A18FF64D-87EB-D241-9866-9B3DF52C7D4F.root"
+            "root://xrootd-cms.infn.it//store/mc/RunIISummer20UL16NanoAODAPVv2/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v9-v1/230000/A18FF64D-87EB-D241-9866-9B3DF52C7D4F.root"
         ],
         "xs": 91.4936
     },
