@@ -235,6 +235,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         '2018': 59.74
     }
 
+    
     met_filter_flags = {
 
         '2016': ['goodVertices',
@@ -242,7 +243,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseFilter',
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
-                 'BadPFMuonFilter'
+                 'BadPFMuonFilter',
+#                  'BadPFMuonDzFilter',
+                 'eeBadScFilter',
+                 
                  ],
 
         '2017': ['goodVertices',
@@ -251,7 +255,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-                 'ecalBadCalibFilter'
+                 'ecalBadCalibFilter',
+                 'eeBadScFilter',
+                 'BadPFMuonDzFilter',
+                 'hfNoisyHitsFilter'
                  ],
 
         '2018': ['goodVertices',
@@ -260,7 +267,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-                 'ecalBadCalibFilter'
+                 'ecalBadCalibFilter',
+                 'eeBadScFilter',
+                 'BadPFMuonDzFilter',
+                 'hfNoisyHitsFilter'
                  ]
     }
 
@@ -363,12 +373,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         'Summer19UL16APV_V7_MC_L2Residual_AK4PFchs',
                         'Summer19UL16APV_V7_MC_L3Absolute_AK4PFchs']
                     },
-                
-#                 'Summer16_07Aug2017_V11_MC_L1FastJet_AK4PFchs',
-#                 'Summer16_07Aug2017_V11_MC_L2L3Residual_AK4PFchs',
-#                 'Summer16_07Aug2017_V11_MC_L2Relative_AK4PFchs',
-#                 'Summer16_07Aug2017_V11_MC_L2Residual_AK4PFchs',
-#                 'Summer16_07Aug2017_V11_MC_L3Absolute_AK4PFchs',
+
 
             '2017': [
                 'Summer19UL17_V5_MC_L1FastJet_AK4PFchs',
@@ -377,11 +382,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL17_V5_MC_L2Residual_AK4PFchs',
                 'Summer19UL17_V5_MC_L3Absolute_AK4PFchs'
                 
-#                 'Fall17_17Nov2017_V32_MC_L1FastJet_AK4PFchs',
-#                 'Fall17_17Nov2017_V32_MC_L2L3Residual_AK4PFchs',
-#                 'Fall17_17Nov2017_V32_MC_L2Relative_AK4PFchs',
-#                 'Fall17_17Nov2017_V32_MC_L2Residual_AK4PFchs',
-#                 'Fall17_17Nov2017_V32_MC_L3Absolute_AK4PFchs'
             ],
 
             '2018': [
@@ -392,11 +392,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL18_V5_MC_L2Residual_AK4PFchs',
                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs'
                      
-#                 'Autumn18_V19_MC_L1FastJet_AK4PFchs',
-#                 'Autumn18_V19_MC_L2L3Residual_AK4PFchs',
-#                 'Autumn18_V19_MC_L2Relative_AK4PFchs',  # currently broken
-#                 'Autumn18_V19_MC_L2Residual_AK4PFchs',
-#                 'Autumn18_V19_MC_L3Absolute_AK4PFchs'
             ]
         }
         
