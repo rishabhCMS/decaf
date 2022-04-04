@@ -257,7 +257,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
                  'eeBadScFilter',
-                 'BadPFMuonDzFilter',
+#                  'BadPFMuonDzFilter',
                  'hfNoisyHitsFilter'
                  ],
 
