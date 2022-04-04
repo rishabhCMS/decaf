@@ -258,7 +258,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'ecalBadCalibFilter',
                  'eeBadScFilter',
 #                  'BadPFMuonDzFilter',
-                 'hfNoisyHitsFilter'
+#                  'hfNoisyHitsFilter'
                  ],
 
         '2018': ['goodVertices',
