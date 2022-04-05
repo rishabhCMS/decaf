@@ -18,11 +18,11 @@ def isLooseElectron(pt,eta,dxy,dz,veto_id,year):
 def isTightElectron(pt,eta,dxy,dz,tight_id,year):
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = ((pt>29)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>29)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
+        mask = ((pt>29)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>29)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
     elif year=='2017':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
     elif year=='2018':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
     return mask
 
 
@@ -114,7 +114,7 @@ def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, y
         mask = (pt>=30) & (jet_id>=4) 
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     else:
-        mask = (pt>=30) & (abs(eta)<=2.6) & ((jet_id&2)==2)& (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
+        mask = (pt>=30) & (abs(eta)<=2.6) & ((jet_id&2)==2)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     return mask
 def isHEMJet(pt, eta, phi):
