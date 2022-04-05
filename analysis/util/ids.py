@@ -103,14 +103,20 @@ def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, y
 #         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
 # ((jet_id&2)==2) -->> equivalent to ((jet_id>=2) tight and tighlepveto
 
+#     if year=='2016':
+#         mask = (pt>=30) & ((jet_id&2)==2) & (abs(eta)<=2.4) & (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
+#     else:
+#         mask = (pt>=30) & (abs(eta)<=2.6) & ((jet_id&2)==2)& (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
+#     return mask
     if year=='2016':
-        mask = (pt>=30) & ((jet_id&2)==2) & (abs(eta)<=2.4) & (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
+        mask = (pt>=30) & (jet_id>=4) 
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     else:
         mask = (pt>=30) & (abs(eta)<=2.6) & ((jet_id&2)==2)& (NHF<0.90) & (NEMF<0.90) & (NumConst>1) & (MUF<0.8) & (CHF>0) & (CHM>0) & (CEMF<0.8)
         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     return mask
-
 def isHEMJet(pt, eta, phi):
     mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
 #     mask = ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
