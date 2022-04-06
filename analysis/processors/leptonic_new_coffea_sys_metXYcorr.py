@@ -1089,7 +1089,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         Jer  to be applied
 #         JERSF  to be applied
         def jetcleaning(j, mu_loose, e_loose, pho_loose, r):
-            NumNeutralParticles = (j.nConstituents-j.nElectrons+j.nMuons)
+            NumNeutralParticles = (j.nConstituents-j.nElectrons-j.nMuons)
             NumConst = j.nConstituents
             NHF = j.neHEF
             NEMF = j.neEmEF
