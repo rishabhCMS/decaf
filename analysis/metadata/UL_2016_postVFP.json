@@ -4183,7 +4183,7 @@
     },
     "SingleMuon____6_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016G/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/70000/23734531-415C-BD43-83DE-94E787D3F57C.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016G/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/70000/23734531-415C-BD43-83DE-94E787D3F57C.root"
         ],
         "xs": -1
     },
@@ -4609,7 +4609,7 @@
     },
     "SingleMuon____77_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/70000/8E33310F-1983-EE41-A97A-7D6853AF1BAD.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/70000/8E33310F-1983-EE41-A97A-7D6853AF1BAD.root"
         ],
         "xs": -1
     },
@@ -4621,7 +4621,7 @@
     },
     "SingleMuon____79_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/70000/874B6634-10CD-4541-97E6-7A97BA44F4C6.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/70000/874B6634-10CD-4541-97E6-7A97BA44F4C6.root"
         ],
         "xs": -1
     },
@@ -4807,7 +4807,7 @@
     },
     "SingleMuon____110_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/280000/579013D1-626D-D943-A8B0-A1A558C54F33.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/280000/579013D1-626D-D943-A8B0-A1A558C54F33.root"
         ],
         "xs": -1
     },
@@ -4897,7 +4897,7 @@
     },
     "SingleMuon____125_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/236A04EE-C105-D947-8A2E-F8CC6731644F.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/236A04EE-C105-D947-8A2E-F8CC6731644F.root"
         ],
         "xs": -1
     },
@@ -5017,7 +5017,7 @@
     },
     "SingleMuon____145_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/FFED1DB7-3626-A04C-8438-BF055BD16672.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/FFED1DB7-3626-A04C-8438-BF055BD16672.root"
         ],
         "xs": -1
     },
@@ -5047,7 +5047,7 @@
     },
     "SingleMuon____150_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/E6C5C5AA-946B-A34C-ABB5-4B14AA0E9ED7.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/E6C5C5AA-946B-A34C-ABB5-4B14AA0E9ED7.root"
         ],
         "xs": -1
     },
@@ -5059,7 +5059,7 @@
     },
     "SingleMuon____152_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/CEE8B116-DBE4-E54F-B038-A81090B2A147.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016H/SingleMuon/NANOAOD/UL2016_MiniAODv2_NanoAODv9-v1/130000/CEE8B116-DBE4-E54F-B038-A81090B2A147.root"
         ],
         "xs": -1
     },
