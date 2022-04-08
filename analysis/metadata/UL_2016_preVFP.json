@@ -2029,13 +2029,13 @@
     },
     "SingleMuon____5_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/F18B3F97-2D28-CB4C-B58B-04E107D78DEE.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/F18B3F97-2D28-CB4C-B58B-04E107D78DEE.root"
         ],
         "xs": -1
     },
     "SingleMuon____6_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/F09C8AF5-DBAF-1D45-B878-507369E0F329.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/F09C8AF5-DBAF-1D45-B878-507369E0F329.root"
         ],
         "xs": -1
     },
@@ -2065,7 +2065,7 @@
     },
     "SingleMuon____11_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/7558C0DE-9A27-A74C-9CE1-78570497BC95.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/7558C0DE-9A27-A74C-9CE1-78570497BC95.root"
         ],
         "xs": -1
     },
@@ -2083,7 +2083,7 @@
     },
     "SingleMuon____14_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/DC09F24C-802D-D14D-9395-E42EB5FC2F31.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/DC09F24C-802D-D14D-9395-E42EB5FC2F31.root"
         ],
         "xs": -1
     },
@@ -2107,13 +2107,13 @@
     },
     "SingleMuon____18_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/73F7D4B2-1D08-1445-AE5A-80EA2B958462.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/73F7D4B2-1D08-1445-AE5A-80EA2B958462.root"
         ],
         "xs": -1
     },
     "SingleMuon____19_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/95E4925B-8152-4A4B-AC0D-0B371AD578BD.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/95E4925B-8152-4A4B-AC0D-0B371AD578BD.root"
         ],
         "xs": -1
     },
@@ -2131,7 +2131,7 @@
     },
     "SingleMuon____22_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/57601A65-4ED6-7E45-ACB8-F1B32213FD6F.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/57601A65-4ED6-7E45-ACB8-F1B32213FD6F.root"
         ],
         "xs": -1
     },
@@ -2203,19 +2203,19 @@
     },
     "SingleMuon____34_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B84FB5E5-85CA-5E4F-B9DD-CE8F40CF1583.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B84FB5E5-85CA-5E4F-B9DD-CE8F40CF1583.root"
         ],
         "xs": -1
     },
     "SingleMuon____35_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/F4EB4524-7937-BF42-BAB2-F626609D05BC.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/F4EB4524-7937-BF42-BAB2-F626609D05BC.root"
         ],
         "xs": -1
     },
     "SingleMuon____36_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/40F95ABB-573A-104D-99D9-64FF90217E4F.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/40F95ABB-573A-104D-99D9-64FF90217E4F.root"
         ],
         "xs": -1
     },
@@ -2227,7 +2227,7 @@
     },
     "SingleMuon____38_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/890FB030-5E96-AD48-A4C9-264DA75B12CD.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/890FB030-5E96-AD48-A4C9-264DA75B12CD.root"
         ],
         "xs": -1
     },
@@ -2251,13 +2251,13 @@
     },
     "SingleMuon____42_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B1DB48F2-1BE6-284C-83AB-8CE9D51A054B.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B1DB48F2-1BE6-284C-83AB-8CE9D51A054B.root"
         ],
         "xs": -1
     },
     "SingleMuon____43_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/FC06CCAF-FC76-EB49-A40C-5674B6505BBF.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/FC06CCAF-FC76-EB49-A40C-5674B6505BBF.root"
         ],
         "xs": -1
     },
@@ -2305,7 +2305,7 @@
     },
     "SingleMuon____51_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/63BD90EF-F9AD-9B4F-9F27-A725E8F01F5B.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/63BD90EF-F9AD-9B4F-9F27-A725E8F01F5B.root"
         ],
         "xs": -1
     },
@@ -2377,13 +2377,13 @@
     },
     "SingleMuon____63_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/D05F9A62-879C-9147-A868-DE527AB30A80.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/D05F9A62-879C-9147-A868-DE527AB30A80.root"
         ],
         "xs": -1
     },
     "SingleMuon____64_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/68DD4304-663C-0343-BCE7-12987EF7DD11.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/68DD4304-663C-0343-BCE7-12987EF7DD11.root"
         ],
         "xs": -1
     },
@@ -2401,7 +2401,7 @@
     },
     "SingleMuon____67_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/50000/8AAF731C-C771-224C-930A-CD8C588EBA8D.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/50000/8AAF731C-C771-224C-930A-CD8C588EBA8D.root"
         ],
         "xs": -1
     },
@@ -2419,7 +2419,7 @@
     },
     "SingleMuon____70_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/50000/B0D5F476-0C26-A740-8BC1-3A5A544B124D.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/50000/B0D5F476-0C26-A740-8BC1-3A5A544B124D.root"
         ],
         "xs": -1
     },
@@ -2437,7 +2437,7 @@
     },
     "SingleMuon____73_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/9E7AC524-081F-BC46-81E2-5AE386C851AB.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/9E7AC524-081F-BC46-81E2-5AE386C851AB.root"
         ],
         "xs": -1
     },
@@ -2455,13 +2455,13 @@
     },
     "SingleMuon____76_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/E65B1062-E116-D649-9DB9-8DFD6C7CDC44.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/E65B1062-E116-D649-9DB9-8DFD6C7CDC44.root"
         ],
         "xs": -1
     },
     "SingleMuon____77_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/58C7E8F5-705C-084D-B38E-D9E2513E2950.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/58C7E8F5-705C-084D-B38E-D9E2513E2950.root"
         ],
         "xs": -1
     },
@@ -2473,7 +2473,7 @@
     },
     "SingleMuon____79_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/1518E78F-C65C-BE4C-95E5-D39D61228274.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/1518E78F-C65C-BE4C-95E5-D39D61228274.root"
         ],
         "xs": -1
     },
@@ -2491,7 +2491,7 @@
     },
     "SingleMuon____82_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/FB6C09E0-1378-FF4B-AC39-67DE52B5AB8E.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/FB6C09E0-1378-FF4B-AC39-67DE52B5AB8E.root"
         ],
         "xs": -1
     },
@@ -2557,7 +2557,7 @@
     },
     "SingleMuon____93_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/7F0737E4-DB76-D14B-A006-73F29A2234B0.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/7F0737E4-DB76-D14B-A006-73F29A2234B0.root"
         ],
         "xs": -1
     },
@@ -2581,7 +2581,7 @@
     },
     "SingleMuon____97_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/110F91E7-5A73-9045-ADE5-8782FA482821.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/110F91E7-5A73-9045-ADE5-8782FA482821.root"
         ],
         "xs": -1
     },
@@ -3049,13 +3049,13 @@
     },
     "SingleMuon____175_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/506FBDD8-A159-5B4A-9FFA-B6598C0104FA.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/506FBDD8-A159-5B4A-9FFA-B6598C0104FA.root"
         ],
         "xs": -1
     },
     "SingleMuon____176_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/51B69D8E-91E8-AC45-A76A-426507AFA41D.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/51B69D8E-91E8-AC45-A76A-426507AFA41D.root"
         ],
         "xs": -1
     },
@@ -3079,19 +3079,19 @@
     },
     "SingleMuon____180_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B0B99479-8AB8-B747-A117-ECBB5A52C349.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B0B99479-8AB8-B747-A117-ECBB5A52C349.root"
         ],
         "xs": -1
     },
     "SingleMuon____181_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/A5907B76-B9CA-D648-BE93-4C0489B489BD.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/A5907B76-B9CA-D648-BE93-4C0489B489BD.root"
         ],
         "xs": -1
     },
     "SingleMuon____182_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/A4BB5C1D-16E2-8540-B3C8-8E3E832C1976.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/A4BB5C1D-16E2-8540-B3C8-8E3E832C1976.root"
         ],
         "xs": -1
     },
@@ -3103,7 +3103,7 @@
     },
     "SingleMuon____184_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/566C466D-6314-2142-A249-B62146F29684.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016E/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/566C466D-6314-2142-A249-B62146F29684.root"
         ],
         "xs": -1
     },
@@ -3331,7 +3331,7 @@
     },
     "SingleMuon____222_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/C6758395-CE07-0B4F-ACAD-D286B7E6C2DB.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016F/SingleMuon/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/C6758395-CE07-0B4F-ACAD-D286B7E6C2DB.root"
         ],
         "xs": -1
     },
@@ -11929,7 +11929,7 @@
     },
     "SingleElectron____120_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/C735F6B6-A047-4E47-A98D-52780315D71D.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/C735F6B6-A047-4E47-A98D-52780315D71D.root"
         ],
         "xs": -1
     },
@@ -11941,7 +11941,7 @@
     },
     "SingleElectron____122_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/E1245C63-2CDE-3A45-9E22-D75219E0C2F1.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/E1245C63-2CDE-3A45-9E22-D75219E0C2F1.root"
         ],
         "xs": -1
     },
@@ -11959,7 +11959,7 @@
     },
     "SingleElectron____125_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/BA416FBA-E485-334C-86C2-05ECC297B048.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/BA416FBA-E485-334C-86C2-05ECC297B048.root"
         ],
         "xs": -1
     },
@@ -11977,7 +11977,7 @@
     },
     "SingleElectron____128_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/932B2BF1-08E2-3D46-A804-E988B75727A7.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016C/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/932B2BF1-08E2-3D46-A804-E988B75727A7.root"
         ],
         "xs": -1
     },
@@ -13099,7 +13099,7 @@
     },
     "SingleElectron____315_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/90D507E6-B1A0-5C4E-9C96-F566E4EABBA4.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/90D507E6-B1A0-5C4E-9C96-F566E4EABBA4.root"
         ],
         "xs": -1
     },
@@ -13147,7 +13147,7 @@
     },
     "SingleElectron____323_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B4CAA379-F895-2D4F-BCA4-70F012D2FAA4.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/B4CAA379-F895-2D4F-BCA4-70F012D2FAA4.root"
         ],
         "xs": -1
     },
@@ -13177,7 +13177,7 @@
     },
     "SingleElectron____328_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/51D62227-D22B-4747-966A-D3EEAD0DB4A0.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/51D62227-D22B-4747-966A-D3EEAD0DB4A0.root"
         ],
         "xs": -1
     },
@@ -13189,7 +13189,7 @@
     },
     "SingleElectron____330_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/0E71FDFE-7263-3A44-BC24-0A201F098E8A.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/0E71FDFE-7263-3A44-BC24-0A201F098E8A.root"
         ],
         "xs": -1
     },
@@ -13207,13 +13207,13 @@
     },
     "SingleElectron____333_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/3BE6AA03-7695-C54C-B2CA-8AB251D1B846.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/3BE6AA03-7695-C54C-B2CA-8AB251D1B846.root"
         ],
         "xs": -1
     },
     "SingleElectron____334_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/8FF2E2AA-6EB1-074B-8AD4-C9B1EC260566.root"
+            "root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/8FF2E2AA-6EB1-074B-8AD4-C9B1EC260566.root"
         ],
         "xs": -1
     },
