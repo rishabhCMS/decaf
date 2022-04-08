@@ -325,11 +325,11 @@ root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL201
 root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/D16CC50F-92F6-494B-AF0B-52321A6FBE16.root
 root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/D00864B7-6890-9545-ABDB-A2C11B3EFB8C.root
 root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/6312F951-55EC-3D48-BB38-605783676C4A.root
-root://cms-xrd-global.cern.ch//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/51D62227-D22B-4747-966A-D3EEAD0DB4A0.root
+root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/51D62227-D22B-4747-966A-D3EEAD0DB4A0.root
 root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/54247034-C69E-F042-8ACC-F3A76694C23F.root
-root://cms-xrd-global.cern.ch//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/0E71FDFE-7263-3A44-BC24-0A201F098E8A.root
+root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/0E71FDFE-7263-3A44-BC24-0A201F098E8A.root
 root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/F7E07DE8-666C-B74B-99A1-68C432ED1705.root
 root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/22C7AA10-00F8-534C-9857-FE279E6BD731.root
-root://cms-xrd-global.cern.ch//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/3BE6AA03-7695-C54C-B2CA-8AB251D1B846.root
-root://cms-xrd-global.cern.ch//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/8FF2E2AA-6EB1-074B-8AD4-C9B1EC260566.root
+root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/3BE6AA03-7695-C54C-B2CA-8AB251D1B846.root
+root://xrootd-cms.infn.it//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/8FF2E2AA-6EB1-074B-8AD4-C9B1EC260566.root
 root://cmsxrootd.fnal.gov//store/data/Run2016F/SingleElectron/NANOAOD/HIPM_UL2016_MiniAODv2_NanoAODv9-v2/40000/84F02507-29EA-DB41-935D-5DDA8FA22EC0.root
