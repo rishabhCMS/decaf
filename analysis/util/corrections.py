@@ -111,7 +111,7 @@ for year in ['2016','2017','2018']:
     corr[mask] /= mc_pu[mask]
 #     corr_puUp[mask] /= mc_pu[mask]
 #     corr_puDown[mask] /= mc_pu[mask]
-    pileup_corr = lookup_tools.dense_lookup.dense_lookup(corr, fin_pileup["pileup"].edges)
+    pileup_corr = lookup_tools.dense_lookup.dense_lookup(corr, pu_hist.edges)
     get_pu_weight[year] = pileup_corr
 ###
 # MET trigger efficiency SFs, 2017/18 from monojet. Depends on recoil.
