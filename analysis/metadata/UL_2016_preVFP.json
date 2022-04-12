@@ -2029,7 +2029,7 @@
     },
     "SingleMuon____5_": {
         "files": [
-            "root://xrootd-cms.infn.it//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/F18B3F97-2D28-CB4C-B58B-04E107D78DEE.root"
+            "root://cmsxrootd.fnal.gov//store/data/Run2016B/SingleMuon/NANOAOD/ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/2520000/F18B3F97-2D28-CB4C-B58B-04E107D78DEE.root"
         ],
         "xs": -1
     },
