@@ -376,7 +376,7 @@ get_ele_reco_err_preVFP_above20 = {}
 for year in ['2016','2017','2018']:
     ele_reco_hist = ele_reco_files_preVFP_above20[year]["EGamma_SF2D"]
     get_ele_reco_sf_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.values, ele_reco_hist.edges)
-    get_ele_reco_err_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances ** 0.05, ele_reco_hist.edges)
+    get_ele_reco_err_preVFP_above20[year]=lookup_tools.dense_lookup.dense_lookup(ele_reco_hist.variances ** 0.5, ele_reco_hist.edges)
     
 
 
