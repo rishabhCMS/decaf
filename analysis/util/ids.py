@@ -115,7 +115,7 @@ def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, y
         mask = ((pt>=50)&mask) | ((pt<50)&mask&(pu_id==4))
     else:
         mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2)#& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id>=1))
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&(pu_id>=1))
     return mask
 def isHEMJet(pt, eta, phi):
 #     mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
