@@ -1911,7 +1911,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 elif 'm' == region[-1]:
                     isolation_name = 'isolation_m'                
                 weights.add(isolation_name, isolation[region], isolation[region]+isolation_err[region], isolation[region]-isolation_err[region])
-                weights.add('csev', csev[region])
+#                 weights.add('csev', csev[region])
                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
     
     
