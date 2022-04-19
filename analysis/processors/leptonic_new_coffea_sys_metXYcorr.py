@@ -480,7 +480,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT', '$m_{T}$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
             'mT_corrected': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
