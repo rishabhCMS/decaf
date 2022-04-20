@@ -1665,7 +1665,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>50' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
@@ -1674,7 +1674,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'Delta_Phi_Met_LJ','zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
                        'mtcorr_wjetm>50' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Mu_mask',
                      ],
         }
