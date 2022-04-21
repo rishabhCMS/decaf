@@ -2126,9 +2126,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 dataset = dataset.split('--')[1]
             print('Cross section:', self._xsec[dataset])
             if self._xsec[dataset] != -1:
-                scale[d.name] = 1
+#                 scale[d.name] = 1
 #                 scale[d.name] = (self._lumi*self._xsec[dataset])/nevents
-#                 scale[d.name] = (self._lumi*self._xsec[dataset])
+                scale[d.name] = (self._lumi*self._xsec[dataset])
 
             else:
                 scale[d.name] = 1
