@@ -95,13 +95,13 @@ def isGoodFatJet(pt, eta, jet_id):
 def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year):
     #working id for tt region
 
-    if year=='2016':
-        mask = (pt>=30) & (jet_id==6) & (abs(eta)<=2.4)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1)  & (CHF>0) & (CHM>0)
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-    else:
-        mask = (pt>30) & (abs(eta)<2.4) & (jet_id==6) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-    return mask
+#     if year=='2016':
+#         mask = (pt>=30) & (jet_id==6) & (abs(eta)<=2.4)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1)  & (CHF>0) & (CHM>0)
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
+#     else:
+#         mask = (pt>30) & (abs(eta)<2.4) & (jet_id==6) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
+#     return mask
 
 
 #     if year=='2016':
@@ -111,7 +111,10 @@ def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, y
 #         mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id>=4)#& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
 #         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id & (1 << 2)) ==4))
 #     return mask
-
+#matteo ids
+    mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (nhf<0.8) & (chf>0.1)# & (nef<0.99) & (cef<0.99)
+    mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
+    return mask
 def isHEMJet(pt, eta, phi):
     mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
 #     mask = ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
