@@ -21295,7 +21295,7 @@
     },
     "SingleMuon____392_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/130000/BDCB6932-4CDA-B84D-A729-E3B6E68C1317.root"
+            "root://xrootd-cms.infn.it//store/data/Run2018D/SingleMuon/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/130000/BDCB6932-4CDA-B84D-A729-E3B6E68C1317.root"
         ],
         "xs": -1
     },
