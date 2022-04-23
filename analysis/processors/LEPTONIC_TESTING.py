@@ -480,13 +480,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT', '$m_{T}$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])),
             'mT_corrected': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])),
 #             "EventCount": processor.value_accumulator(int),
             'cutflow': hist.Hist(
                 'Events',
@@ -1180,7 +1180,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         leading_j = j[:,:1]
         leading_j = leading_j[leading_j.isgood]
         leading_j = leading_j[leading_j.isclean]
-        atleast_one_jet_with_pt_grt_50 = (j_ngood>0)&(ak.any(leading_j.pt>=70, axis=1))
+        atleast_one_jet_with_pt_grt_50 = (j_ngood>0)&(ak.any(leading_j.pt>70, axis=1))
         print("ak.any(leading_j.pt>70, axis=1)", ak.any(leading_j.pt>70, axis=1))
 #         atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>0) & ak.any(leading_j.pt>70, axis=-1))
 #         atleast_one_jet_with_pt_grt_50 = np.full(event_size, True)
@@ -1698,7 +1698,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
-            'wjete': [ "atleast_one_jet_with_pt_grt_50",'corr_met100',
+            'wjete': [ 'corr_met100',
 #                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>50' ,
@@ -1707,7 +1707,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
-            'wjetm': [ "atleast_one_jet_with_pt_grt_50",'corr_met100',
+            'wjetm': [ 'corr_met100',
 #                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
                        'mtcorr_wjetm>50' ,
