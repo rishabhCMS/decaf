@@ -480,13 +480,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT', '$m_{T}$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT', '$m_{T}$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])),
             'mT_corrected': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])),
 #             "EventCount": processor.value_accumulator(int),
             'cutflow': hist.Hist(
                 'Events',
@@ -524,18 +524,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mu_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
-            'W_gen_pT': hist.Hist(
-                'Events',
-                hist.Cat('dataset', 'dataset'),
-                hist.Cat('region', 'Region'),
-                hist.Cat('systematic', 'Systematic'),
-                hist.Bin('W_gen_pT', 'W Boson Gen $p_{T}$ [GeV]', 50, 0, 1000)), 
-            'Z_gen_pT': hist.Hist(
-                'Events',
-                hist.Cat('dataset', 'dataset'),
-                hist.Cat('region', 'Region'),
-                hist.Cat('systematic', 'Systematic'),
-                hist.Bin('Z_gen_pT', 'Z Boson Gen $p_{T}$ [GeV]', 50, 0, 1000)),
+
             'j1pt': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1021,7 +1010,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         e = events.Electron
         event_size = len(events)
-        e['isclean'] = ~(ak.any(e.metric_table(mu_loose) < 0.3, axis=2))
+        e['isclean'] = (ak.all(e.metric_table(mu_tight) > 0.3, axis=-1)) 
 #         print(mu_loose)
 #         print(e)
 #         print(e.metric_table(mu_loose) )
@@ -1113,19 +1102,24 @@ class AnalysisProcessor(processor.ProcessorABC):
             j_good = j[j_isgood_mask] # [ [True, False, False], [True],...[False, True] ]
             
             #then for all the good jets we select isolated jets with muons and electron and photons
-            jetMuMask = ak.any(ak.flatten(j_good.metric_table(mu_loose) < r, axis=2), axis=1)
-            jetEleMask = ak.any(ak.flatten(j_good.metric_table(e_loose) < r, axis=2), axis=1)
-            jetPhoMask = ak.any(ak.flatten(j_good.metric_table(pho_loose) < r, axis=2), axis=1)
+            jetMuMask = ak.any((j.metric_table(mu_tight)<0.4), axis=2)
+            jetEleMask = ak.any((j.metric_table(e_tight)<0.4), axis=2)
+            jetPhoMask = ak.any((j.metric_table(pho_tight)<0.4), axis=2)
             
-#             print(j[-1])
-#             print(e_loose[-1])
-#             print("j.metric_table(e_loose)",j.metric_table(e_loose)[-1] , len(j.metric_table(e_loose)))
-#             print("j.metric_table(e_loose)",ak.flatten(j.metric_table(e_loose) < r, axis=2)[-1], len(j.metric_table(e_loose)))
-#             print("jetEleMask",ak.any(ak.flatten(j.metric_table(e_loose) < r, axis=2), axis=1), len(jetEleMask))
+#             print('jetEle',jetEle)
+#             print('j_good',j)
+#             print('e_loose', e_loose)
+#             print('jetEleMask_old',jetEleMask)
+#             print('jetEleMask_new',ak.fill_none(jetEleDR<r, True))
+#             print('j_isgood_mask', j_isgood_mask)
+#             print('j_isgood_mask&jetEleMask', ak.all(j_isgood_mask&jetEleMask), axis=1)
+#             print('j_isgood_mask&jetEleMask_newk', ak.all(j_isgood_mask&ak.fill_none(jetEleDR<r, True)), axis=1)
+#             print("old jet sel",j[j_isgood_mask&jetEleMask])
+#             print("new jet sel",j[j_isgood_mask&ak.fill_none(jetEleDR<r, True)])
 #             import sys
 #             sys.exit(0)
-            j_isgoodclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask) # this is event based [True, False,..False]
-            print('j_isgoodclean_mask',j_isgoodclean_mask)
+            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask) # this is event based [ [True, False, False], [True],...[False, True] ]
+#             print('j_isclean_mask',j_isclean_mask)
             
 #             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
 #             j_clean = j[j_isclean_mask ]
@@ -1133,7 +1127,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             print('j_isgood_mask',j_isgood_mask)
 #             import sys
 #             sys.exit(0)
-            return(j_isgood_mask, j_isgoodclean_mask)
+            return(j_isgood_mask, j_isclean_mask)
         
 #         j['isgood'] = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
@@ -1161,19 +1155,19 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
 
 
-        j_good_mask, j_goodclean_mask = jetcleaning(j, mu_loose, e_loose, pho_loose, 0.4)
+        j_good_mask, j_clean_mask = jetcleaning(j, mu_loose, e_loose, pho_loose, 0.4)
         print("j_good_mask",j_good_mask)
-        print("j_goodclean_mask",j_goodclean_mask)
+#         print("j_goodclean_mask",j_goodclean_mask)
         j['isgood'] = j_good_mask
-        j['isclean'] = j_goodclean_mask
+        j['isclean'] = j_clean_mask
         j_good = j[j.isgood]
         print("j_good",j)
         print("j.isclean",j.isclean)
         print("j.isgood",j.isgood)        
         j_clean = j[j.isclean]
-        j_goodclean = j[j_clean.isgood]
+        j_good = j[j_clean.isgood]
         j_ngood = ak.num(j_good, axis=1)
-        j_ngoodclean = ak.num(j_goodclean, axis=1)
+        j_nclean = ak.num(j_clean, axis=1)
 
         j_HEM = j[ak.values_astype(j.isHEM, np.bool)] 
         j_nHEM = ak.num(j_HEM, axis=1)
@@ -1181,10 +1175,10 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j_clean = j_good[ak.values_astype(j_good.isclean, np.bool)]
 #         j_goodclean = j[ak.values_astype(j.isgoodclean, np.bool)]
 
-        j_dflvM = j[ak.values_astype(j_goodclean.isdflvM, np.bool)]
+        j_dflvM = j[ak.values_astype(j_good.isdflvM, np.bool)]
         j_ndflvM = ak.num(j_dflvM, axis=1)
-        leading_j = j_goodclean[:,:1]
-        atleast_one_jet_with_pt_grt_50 = (j_ngoodclean>0)&(ak.any(leading_j.pt>70, axis=1))
+        leading_j = j_good[:,:1]
+        atleast_one_jet_with_pt_grt_50 = (j_ngood>0)&(ak.any(leading_j.pt>=70, axis=1))
         print("ak.any(leading_j.pt>70, axis=1)", ak.any(leading_j.pt>70, axis=1))
 #         atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>0) & ak.any(leading_j.pt>70, axis=-1))
 #         atleast_one_jet_with_pt_grt_50 = np.full(event_size, True)
@@ -1529,12 +1523,12 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag = {}
             btagUp = {}
             btagDown = {}
-            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](j_goodclean,j_goodclean.pt, j_goodclean.eta, j_goodclean.hadronFlavour, '+1', )
-            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](j_goodclean,j_goodclean.pt, j_goodclean.eta, j_goodclean.hadronFlavour, '+1', )
-            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](j_goodclean, j_goodclean.pt, j_goodclean.eta, j_goodclean.hadronFlavour, '2', )
-            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_goodclean, j_goodclean.pt, j_goodclean.eta, j_goodclean.hadronFlavour, '2', )
-            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_goodclean, j_goodclean.pt, j_goodclean.eta, j_goodclean.hadronFlavour, '0', )
-            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_goodclean, j_goodclean.pt, j_goodclean.eta, j_goodclean.hadronFlavour, '0', ) 
+            btag['sre'],   btagUp['sre'],   btagDown['sre'] = get_deepflav_weight['medium'](j_good,j_good.pt, j_good.eta, j_good.hadronFlavour, '+1', )
+            btag['srm'],   btagUp['srm'],   btagDown['srm'] = get_deepflav_weight['medium'](j_good,j_good.pt, j_good.eta, j_good.hadronFlavour, '+1', )
+            btag['ttbare'], btagUp['ttbare'], btagDown['ttbare'] = get_deepflav_weight['medium'](j_good, j_good.pt, j_good.eta, j_good.hadronFlavour, '2', )
+            btag['ttbarm'], btagUp['ttbarm'], btagDown['ttbarm'] = get_deepflav_weight['medium'](j_good, j_good.pt, j_good.eta, j_good.hadronFlavour, '2', )
+            btag['wjete'], btagUp['wjete'], btagDown['wjete'] = get_deepflav_weight['medium'](j_good, j_good.pt, j_good.eta, j_good.hadronFlavour, '0', )
+            btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_good, j_good.pt, j_good.eta, j_good.hadronFlavour, '0', ) 
 #             This part is for handling the large btag weight exp(138) . this brings in nans in the template.
             
             for region in ['ttbare', 'ttbarm', 'wjete', 'wjetm', 'sre', 'srm']:
@@ -1775,7 +1769,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'dphi_mu_etmiss':         abs(met.delta_phi(leading_mu)),
                     'dr_e_lj': DeltaR_LJ_Ele,
                     'dr_mu_lj': DeltaR_LJ_Mu,
-                    'njets':                  j_ngoodclean,
+                    'njets':                  j_ngood,
                     'ndflvM':                 j_ndflvM,
     #                 'ndcsvM':     j_ndcsvM,
     #                 'scale_factors': np.ones(event_size, dtype=np.bool),
@@ -1812,7 +1806,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'dphi_mu_etmiss':         abs(met.delta_phi(leading_mu)),
                     'dr_e_lj': DeltaR_LJ_Ele,
                     'dr_mu_lj': DeltaR_LJ_Mu,
-                    'njets':                  j_ngoodclean,
+                    'njets':                  j_ngood,
                     'ndflvM':                 j_ndflvM,
 #                     'W_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt,
 #                     'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
@@ -1903,7 +1897,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=np.ones(event_size)*jcut)
             else:
                 weights = Weights(len(events))
-#                 print("L1445")
+                print("L1445")
                 if 'L1PreFiringWeight' in events.fields:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
