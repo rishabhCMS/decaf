@@ -46,8 +46,11 @@ def METXYCorr_Met_MetPhi(events, year):
     met = events.MET
     originalMet = met.pt
     originalMet_phi = met.phi
-
-    npv = events.Pileup.nTrueInt
+    
+    if isData:
+        npv = events.PV.npvs
+    else: 
+        npv = events.Pileup.nTrueInt
     mask = np.asarray(npv>100)
     npv = np.asarray(npv)
     npv[mask==True] = 100
@@ -1886,7 +1889,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-#                 weights.add('pileup', pu)
+                weights.add('pileup', pu)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
