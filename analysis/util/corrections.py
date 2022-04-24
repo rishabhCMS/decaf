@@ -15,9 +15,9 @@ from coffea.lookup_tools import extractor
 ###
 
 pu_files = {
-    '2018': uproot.open("data/pileup/PileupHistograms_2018_69mb_pm5.root"),
-    '2017': uproot.open("data/pileup/PileupHistograms_2017_69mb_pm5.root"),
-    '2016': uproot.open("data/pileup/PileupHistograms_2016_69mb_pm5.root")
+    '2018': uproot3.open("data/pileup/PileupHistograms_2018_69mb_pm5.root"),
+    '2017': uproot3.open("data/pileup/PileupHistograms_2017_69mb_pm5.root"),
+    '2016': uproot3.open("data/pileup/PileupHistograms_2016_69mb_pm5.root")
 }
 get_pu_weight = {}
 for year in ['2016','2017','2018']:
