@@ -268,7 +268,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
-#                  'eeBadScFilter',
+                 'eeBadScFilter',
                  'BadPFMuonDzFilter',
                  'hfNoisyHitsFilter'
                  ]
@@ -486,13 +486,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT_corrected', '$m_{T} XY  Corrected$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', 20, 0, 600)),
 #             "EventCount": processor.value_accumulator(int),
             'cutflow': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
-#                 hist.Bin('cut', 'Cut index', 11, 0, 11),
+                hist.Bin('cut', 'Cut index', 11, 0, 11),
                 hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])),
             'eT_miss': hist.Hist(
                 'Events',
@@ -691,8 +691,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         if self.isMC:
             output = self.accumulator.identity()
-            shift_systs = [None,]
-#             shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown"]
+#             shift_systs = [None,]
+            shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown"]
             for _syst in shift_systs:
                 output += self.process_shift(events, _syst)
         else:
@@ -1113,7 +1113,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['isHEM'] = isHEMJet(j.pt, j.eta, j.phi)
         j['isdcsvL'] = (j.btagDeepB>deepcsvWPs['loose'])
         j['isdflvL'] = (j.btagDeepFlavB>deepflavWPs['loose'])
-        j['isdflvM'] = (j.btagDeepFlavB >= deepflavWPs['medium']) ## from Rishab
+        j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium']) ## from Rishab
         j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium']) ## from Rishabh
 
         j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
@@ -1140,13 +1140,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_good_clean_dflvB = j_good_clean.isdflvM
         j_ndflvM = ak.num(j[j_good_clean_dflvB], axis=1)
         leading_j = j_good_clean[:,:1] # new way to define leading jet
-#         leading_j = ak.firsts(j_good_clean, axis=1)
-#         print(leading_j)
-#         import sys
-#         sys.exit(0)
         j_HEM = j[ak.values_astype(j.isHEM, np.bool)]       
         j_nHEM = ak.num(j_HEM, axis=1)
-        atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>0) & ak.any(leading_j.pt>70, axis=-1))
+        atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>=1) & ak.any(j_good_clean.pt>=50, axis=-1))
 #         atleast_one_jet_with_pt_grt_50 = np.full(event_size, True)
         
         # *****btag
@@ -1162,7 +1158,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         met_LJ_Pairs = ak.cartesian({"met":met, "lj": leading_j})
         Delta_Phi_Met_LJ_var = (abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj)))
-        Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var >= 1.5)
+        Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var > 1.5)
 
         corrected_met['T'].delta_phi(leading_j['T'])
         Delta_Phi_Corr_Met_LJ_var = (abs(corrected_met['T'].delta_phi(leading_j['T'])))
@@ -1495,10 +1491,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             btag['wjetm'], btagUp['wjetm'], btagDown['wjetm'] = get_deepflav_weight['medium'](j_good_clean, j_good_clean.pt, j_good_clean.eta, j_good_clean.hadronFlavour, '0', )  
 #             This part is for handling the large btag weight exp(138) . this brings in nans in the template.
             
-            for region in ['ttbare', 'ttbarm', 'wjete', 'wjetm', 'sre', 'srm']:
+            for region in ['ttbare', 'ttbarm']:
                 for tag in [btag, btagUp, btagDown]:
                     tag[region] = np.asarray(btag[region])
-                    mask = abs(tag[region])>=5
+                    mask = abs(tag[region])>=2
                     tag[region][mask==True] = 0
 
         ###
@@ -1618,15 +1614,15 @@ class AnalysisProcessor(processor.ProcessorABC):
             select = (mT_corrected[region] >=50)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
             
-        selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >100))# from the monotop paper
+        selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >70))# from the monotop paper
         selection.add('atleast_one_jet_with_pt_grt_50',ak.to_numpy(atleast_one_jet_with_pt_grt_50))
 
 #         print(selection.all())
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 
 #                     'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Corr_Met_LJ',
-                    'mtcorr_sre>50','corr_met100',
+                     'Delta_Phi_Met_LJ',
+                    'mt_sre>50','met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70",
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
@@ -1634,8 +1630,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 
 #                     'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Corr_Met_LJ', 
-                    'mtcorr_srm>50',  'corr_met100', 
+                    'Delta_Phi_Met_LJ', 
+                    'mt_srm>50',  'met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
@@ -1643,8 +1639,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 
 #                        'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Corr_Met_LJ',
-                       'mtcorr_ttbare>50', 'corr_met100', 
+                       'Delta_Phi_Met_LJ',
+                       'mt_ttbare>50', 'met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
@@ -1652,31 +1648,34 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 
 #                        'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Corr_Met_LJ',
-                       'mtcorr_ttbarm>50' , 'corr_met100',
+                        'Delta_Phi_Met_LJ',
+                       'mt_ttbarm>50' , 'met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
                        "leading_j>70", 
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
-            'wjete': [ "atleast_one_jet_with_pt_grt_50",'corr_met100',
+            'wjete': [ 
 #                 'atleast_one_jet_with_pt_grt_50',
-                      'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
-                       'mtcorr_wjete>50' ,
+                      'Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
+                       'mt_wjete>50' ,'met100',
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70",
-                      "lumi_mask", 'DeltaR_LJ_Ele_mask',
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200", 
+                      "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
-            'wjetm': [ "atleast_one_jet_with_pt_grt_50",'corr_met100',
+            'wjetm': [
+                'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 
 #                 'atleast_one_jet_with_pt_grt_50',
-                      'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
-                       'mtcorr_wjetm>50' ,
-                      'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
-                      "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70",
-                      "lumi_mask", 'DeltaR_LJ_Mu_mask',
-                     ],
+                      'Delta_Phi_Met_LJ',
+                'mt_wjetm>50', 'met100', 
+                'noHEMj' ,'noHEMmet',
+                "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                      "exclude_wjets_less_200", "exclude_wjets_greater_200",'lumi_mask',
+                "leading_j>70", 
+                'DeltaR_LJ_Mu_mask'
+            ]
         }
 #     small code piece for checcking cutflow for after each selection
 #         mult = np.ones(len(events))
@@ -1857,10 +1856,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-                weights.add('ttjet_weights', ttjet_weights)
+#                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
-                    print("if 'cen' in nnlo_nlo")
-                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
+#                     print("if 'cen' in nnlo_nlo")
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
@@ -1887,7 +1886,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu)
+#                 weights.add('pileup', pu)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
@@ -2065,16 +2064,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               systematic=sname,
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
                                               weight=weights.weight(modifier=systematic)*cut)
-                        # Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
+                        ## Cutflow loop
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
                         
-                        hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
+#                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     sname = 'nominal' if shift_syst is None else shift_syst
                     if shift_syst is None:
                         fill(dataset, weights.weight(), cut, systematic=sname)
