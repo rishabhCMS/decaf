@@ -37,7 +37,7 @@ def isLooseMuon(pt,eta,iso,loose_id,year, is_pfcand, is_global, is_tracker):
         mask = (pt>15)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)&(is_pfcand)&(is_global)&(is_tracker)
     return mask
 
-def isTightMuon(pt,eta,iso,tight_id,year):
+def isTightMuon(pt,eta,iso,tight_id,year, is_pfcand, is_global, is_tracker):
     #dxy and dz cuts are baked on tight_id; tight isolation is 0.15
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
