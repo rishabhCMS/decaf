@@ -37,37 +37,40 @@ np.errstate(invalid='ignore', divide='ignore')
 def METXYCorr_Met_MetPhi(events, year):
 
 
-    #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18andUL16.h
+    #https://lathomas.web.cern.ch/lathomas/METStuff/XYCorrections/XYMETCorrection_withUL17andUL18.h
     if 'genWeight' in events.fields:
         isData = False
         print("hi I am MC")
     else: isData = True
-    dataset=events.metadata['dataset']   
+    dataset=events.metadata['dataset'] 
+#     dataset = 'WJetsToLNu_Pt-400To600_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_'
     met = events.MET
     originalMet = met.pt
     originalMet_phi = met.phi
 
-    npv = events.PV.npvs
+    npv = npvs = events.PV.npvs
     mask = np.asarray(npv>100)
     npv = np.asarray(npv)
+#     print(npv)
     npv[mask==True] = 100
+#     print(npv)
 
 
     if not isData:
         if (year == '2016') and ("preVFP" in dataset):
-            METxcorr = [-(-0.188743*npv +0.136539)]
-            METycorr = [-(0.0127927*npv +0.117747)]
+            METxcorr = -(-0.188743*npv +0.136539)
+            METycorr = -(0.0127927*npv +0.117747)
 
         if (year == '2016') and ("postVFP" in dataset):
-            METxcorr = [-(-0.153497*npv +0.231751)]
-            METycorr = [-(0.00731978*npv +0.243323)]
+            METxcorr = -(-0.153497*npv -0.231751)
+            METycorr = -(0.00731978*npv +0.243323)
 
         elif year == '2017':
-            METxcorr = [-(-0.300155*npv +1.90608)]
-            METycorr = [-(0.300213*npv +2.02232)]
+            METxcorr = -(-0.300155*npv +1.90608)
+            METycorr = -(0.300213*npv +-2.02232)
         elif year == '2018':
-            METxcorr = [-(0.183518*npv +0.546754)]
-            METycorr = [-(0.192263*npv +0.42121)]
+            METxcorr = -(0.183518*npv +0.546754)
+            METycorr = -(0.192263*npv +-0.42121)
 
     if isData:
 
@@ -87,17 +90,17 @@ def METXYCorr_Met_MetPhi(events, year):
             elif (runNMin >=320394) and (runNMax <=325273):
                 era = "D"
             if "A" in era:
-                METxcorr = [-(0.263733*npv -1.91115)]
-                METycorr = [-(0.0431304*npv -0.112043)]
+                METxcorr = -(0.263733*npv +-1.91115)
+                METycorr = -(0.0431304*npv +-0.112043)
             elif "B" in era:
-                METxcorr = [-(0.400466*npv -3.05914)]
-                METycorr = [-(0.146125*npv -0.533233)]
+                METxcorr = -(0.400466*npv +-3.05914)
+                METycorr = -(0.146125*npv +-0.533233)
             elif "C" in era:
-                METxcorr = [-(0.430911*npv -1.42865)]
-                METycorr = [-(0.0620083*npv -1.46021)]
+                METxcorr = -(0.430911*npv +-1.42865)
+                METycorr = -(0.0620083*npv +-1.46021)
             elif "D" in era:
-                METxcorr = [-(0.457327*npv -1.56856)]
-                METycorr = [-(0.0684071*npv -0.928372)]
+                METxcorr = -(0.457327*npv +-1.56856)
+                METycorr = -(0.0684071*npv +-0.928372)
 
 
         if "2017" in year:
@@ -121,23 +124,23 @@ def METXYCorr_Met_MetPhi(events, year):
 
             else: era = "X"
             if "E" in era:
-                METxcorr = [-(-0.162472*npv +0.176329)]
-                METycorr = [-(0.138076*npv -0.250239)]
+                METxcorr = -(-0.162472*npv +0.176329)
+                METycorr = -(0.138076*npv +-0.250239)
             elif "B" in era:
-                METxcorr = [-(-0.211161*npv +0.419333)]
-                METycorr = [-(0.251789*npv -1.28089)]
+                METxcorr = -(-0.211161*npv +0.419333)
+                METycorr = -(0.251789*npv +-1.28089)
             elif "C" in era:
-                METxcorr = [-(-0.185184*npv -0.164009)]
-                METycorr = [-(0.200941*npv -0.56853)]
+                METxcorr = -(-0.185184*npv +-0.164009)
+                METycorr = -(0.200941*npv +-0.56853)
             elif "D" in era:
-                METxcorr = [-(-0.201606*npv +0.426502)]
-                METycorr = [-(0.188208*npv -0.58313)]
+                METxcorr = -(-0.201606*npv +0.426502)
+                METycorr = -(0.188208*npv +-0.58313)
             elif "F" in era:
-                METxcorr = [-(-0.210639*npv +0.72934)]
-                METycorr = [-(0.198626*npv +1.028)]
+                METxcorr = -(-0.210639*npv +0.72934)
+                METycorr = -(0.198626*npv +1.028)
             elif "X" in era:
-                METxcorr = [np.zeros(len(events))]
-                METycorr = [np.zeros(len(events))]
+                METxcorr = np.zeros(len(events))
+                METycorr = np.zeros(len(events))
         if "2016" in year:
             runNMax = max(events.run)
             runNMin = min(events.run)
@@ -170,40 +173,42 @@ def METXYCorr_Met_MetPhi(events, year):
                 print(era)
 
             if "B" in era:
-                METxcorr = [-(-0.0214894*npv -0.188255)]
-                METycorr = [-(0.0876624*npv +0.812885)]
+                METxcorr = -(-0.0214894*npv +-0.188255)
+                METycorr = -(0.0876624*npv +0.812885)
             elif "C" in era:
-                METxcorr = [-(-0.032209*npv +0.067288)]
-                METycorr = [-(0.113917*npv +0.743906)]
+                METxcorr = -(-0.032209*npv +0.067288)
+                METycorr = -(0.113917*npv +0.743906)
             elif "D" in era:
-                METxcorr = [-(-0.0293663*npv +0.21106)]
-                METycorr = [-(0.11331*npv +0.815787)]
+                METxcorr = -(-0.0293663*npv +0.21106)
+                METycorr = -(0.11331*npv +0.815787)
             elif "E" in era:
-                METxcorr = [-(-0.0132046*npv +0.20073)]
-                METycorr = [-(0.134809*npv +0.679068)] 
+                METxcorr = -(-0.0132046*npv +0.20073)
+                METycorr = -(0.134809*npv +0.679068)
             elif "F" in era:
-                METxcorr = [-(-0.0543566*npv +0.816597)]
-                METycorr = [-(0.114225*npv +1.17266)] 
+                METxcorr = -(-0.0543566*npv +0.816597)
+                METycorr = -(0.114225*npv +1.17266)
             elif "F_late" in era:
-                METxcorr = [-(0.134616*npv -0.89965)]
-                METycorr = [-(0.0397736*npv +1.0385)] 
+                METxcorr = -(0.134616*npv +-0.89965)
+                METycorr = -(0.0397736*npv +1.0385)
             elif "G" in era:
-                METxcorr = [-(0.121809*npv -0.584893)]
-                METycorr = [-(0.0558974*npv +0.891234)]
+                METxcorr = -(0.121809*npv +-0.584893)
+                METycorr = -(0.0558974*npv +0.891234)
             elif "H" in era:
-                METxcorr = [-(0.0868828*npv -0.703489)]
-                METycorr = [-(0.0888774*npv +0.902632)]
+                METxcorr = -(0.0868828*npv +-0.703489)
+                METycorr = -(0.0888774*npv +0.902632)
 
-    CorrectedMET_x = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METxcorr)).flatten()
-    CorrectedMET_y = np.multiply(originalMet,np.sin(originalMet_phi))+ (np.array(METycorr)).flatten()
+    CorrectedMET_x = np.multiply(originalMet,np.cos(originalMet_phi))+ (np.array(METxcorr))
+    CorrectedMET_y = np.multiply(originalMet,np.sin(originalMet_phi))+ (np.array(METycorr))
 #             print(CorrectedMET_x/CorrectedMET_y)
-
+#   double CorrectedMET_x = uncormet *cos( uncormet_phi)+METxcorr;
+#   double CorrectedMET_y = uncormet *sin( uncormet_phi)+METycorr;
     CorrectedMET = np.sqrt(np.square(CorrectedMET_x)+np.square(CorrectedMET_y))
     CorrectedMETPhi = np.zeros(len(events))
 
-#             print(CorrectedMET)
-#             print(CorrectedMETPhi)
 
+
+    
+    
     mask1 = (CorrectedMET_x ==0 )& (CorrectedMET_y > 0)
     CorrectedMETPhi[mask1==True] = np.pi
 
@@ -223,6 +228,8 @@ def METXYCorr_Met_MetPhi(events, year):
     CorrectedMETPhi[mask6==True] = 0
 
     return (CorrectedMET, CorrectedMETPhi)
+
+# XY_correctedmet_pt , XY_correctedmet_phi = METXYCorr_Met_MetPhi(events, self._year)
 
 
 class AnalysisProcessor(processor.ProcessorABC):
@@ -486,7 +493,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', 20, 0, 600)),
+                hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])),
 #             "EventCount": processor.value_accumulator(int),
             'cutflow': hist.Hist(
                 'Events',
@@ -1610,8 +1617,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 
 #                     'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Met_LJ',
-                    'mt_sre>50','met100',
+                     'Delta_Phi_Corr_Met_LJ',
+                    'mtcorr_sre>50','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70",
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
@@ -1619,8 +1626,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 
 #                     'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Met_LJ', 
-                    'mt_srm>50',  'met100', 
+                    'Delta_Phi_Corr_Met_LJ', 
+                    'mtcorr_srm>50',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
@@ -1628,8 +1635,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 
 #                        'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Met_LJ',
-                       'mt_ttbare>50', 'met100', 
+                       'Delta_Phi_Corr_Met_LJ',
+                       'mtcorr_ttbare>50', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
@@ -1637,8 +1644,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 
 #                        'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Met_LJ',
-                       'mt_ttbarm>50' , 'met100',
+                        'Delta_Phi_Corr_Met_LJ',
+                       'mtcorr_ttbarm>50' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
                        "leading_j>70", 
@@ -1647,8 +1654,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'wjete': [ 
 #                 'atleast_one_jet_with_pt_grt_50',
-                      'Delta_Phi_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
-                       'mt_wjete>50' ,'met100',
+                      'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
+                       'mtcorr_wjete>50' ,'corr_met100',
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
                       "leading_j>70", "lumi_mask", 'DeltaR_LJ_Ele_mask',
@@ -1657,8 +1664,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             'wjetm': [
                 'isoneM', 'zero_medium_btags', 'met_filters', 'single_muon_triggers', 
 #                 'atleast_one_jet_with_pt_grt_50',
-                      'Delta_Phi_Met_LJ',
-                'mt_wjetm>50', 'met100', 
+                      'Delta_Phi_Corr_Met_LJ',
+                'mtcorr_wjetm>50', 'corr_met100', 
                 'noHEMj' ,'noHEMmet',
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200",'lumi_mask',
@@ -1848,7 +1855,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
 #                     print("if 'cen' in nnlo_nlo")
-#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
@@ -1875,7 +1882,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu)
+#                 weights.add('pileup', pu)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
