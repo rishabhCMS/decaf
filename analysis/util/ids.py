@@ -26,26 +26,26 @@ def isTightElectron(pt,eta,dxy,dz,tight_id,year):
     return mask
 
 
-def isLooseMuon(pt,eta,iso,loose_id,year):
+def isLooseMuon(pt,eta,iso,loose_id,year, is_pfcand, is_global, is_tracker):
     #dxy and dz cuts are missing from med_id; loose isolation is 0.25
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = (pt>20)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)
+        mask = (pt>20)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)&(is_pfcand)&(is_global)&(is_tracker)
     elif year=='2017':
-        mask = (pt>20)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)
+        mask = (pt>20)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)&(is_pfcand)&(is_global)&(is_tracker)
     elif year=='2018':
-        mask = (pt>15)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)
+        mask = (pt>15)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)&(is_pfcand)&(is_global)&(is_tracker)
     return mask
 
 def isTightMuon(pt,eta,iso,tight_id,year):
     #dxy and dz cuts are baked on tight_id; tight isolation is 0.15
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)
+        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)&(is_pfcand)&(is_global)&(is_tracker)
     elif year=='2017':
-        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)
+        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)&(is_pfcand)&(is_global)&(is_tracker)
     elif year=='2018':
-        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)
+        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)&(is_pfcand)&(is_global)&(is_tracker)
     return mask
 
 #bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
@@ -95,22 +95,22 @@ def isGoodFatJet(pt, eta, jet_id):
 def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year):
     #working id for tt region
 
-    if year=='2016':
-        mask = (pt>=30) & (jet_id==6) & (abs(eta)<=2.4)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1)  & (CHF>0) & (CHM>0)
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-    else:
-        mask = (pt>30) & (abs(eta)<2.4) & (jet_id==6) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
-        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-    return mask
-
-
 #     if year=='2016':
-#         mask = (pt>=30) & (jet_id>=4) & (abs(eta)<=2.4)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1)  & (CHF>0) & (CHM>0)
-#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id & (0 << 1))==1))
+#         mask = (pt>=30) & (jet_id==6) & (abs(eta)<=2.4)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1)  & (CHF>0) & (CHM>0)
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
 #     else:
-#         mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id>=4)#& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
-#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id & (1 << 2)) ==4))
+#         mask = (pt>30) & (abs(eta)<2.4) & (jet_id==6) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
+#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
 #     return mask
+
+
+    if year=='2016':
+        mask = (pt>=30) & (jet_id>=4) & (abs(eta)<=2.4)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1)  & (CHF>0) & (CHM>0)
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id & (0 << 1))==1))
+    else:
+        mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id>=4)#& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id & (1 << 2)) ==4))
+    return mask
 #matteo ids not good plots
 #     mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (NHF<0.8) & (CHF>0.1)# & (nef<0.99) & (cef<0.99)
 #     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
