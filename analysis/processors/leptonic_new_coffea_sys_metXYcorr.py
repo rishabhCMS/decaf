@@ -239,7 +239,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         '2016': {'preVFP':19.52,'postVFP':16.81},
                  #postVFP
         '2017': 40.66,
-        '2018': 59.74
+        '2018': 59.69
     }
 
     
@@ -989,8 +989,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             
         mu = events.Muon
-        mu['isloose'] = isLooseMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year)
-        mu['istight'] = isTightMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.tightId, self._year)
+        mu['isloose'] = isLooseMuon(mu.pt, mu.eta, mu.pfRelIso04_all, mu.looseId, self._year, events.Muon.isPFcand,
+                                   events.Muon.isGlobal,
+                                   events.Muon.isTracker)
+        mu['istight'] = isTightMuon(mu.pt, mu.eta, mu.pfRelIso04_all,  mu.looseId, self._year, events.Muon.isPFcand,
+                                   events.Muon.isGlobal,
+                                   events.Muon.isTracker)
         mu["T"] = ak.zip({"pt": mu.pt, "phi": mu.phi}, 
                   with_name="PolarTwoVector", 
                   behavior=vector.behavior)
@@ -1099,7 +1103,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
             jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
 
-            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask)
+            j_isclean_mask = (~jetMuMask & ~jetEleMask)
             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
             j_good_clean = j[j_isclean_mask & j_isgood_mask]
 
