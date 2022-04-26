@@ -953,7 +953,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             else:
 #                 j   = corrected_jets
                 j   = corrected_jets
-                met = corrected_mets
+                met = met
 #                 print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
