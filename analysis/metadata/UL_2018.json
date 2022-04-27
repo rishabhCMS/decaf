@@ -15139,7 +15139,7 @@
     },
     "EGamma____118_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018A/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/270000/DC9402F2-83F2-F64F-8475-71C256417133.root"
+            "root://xrootd-cms.infn.it//store/data/Run2018A/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/270000/DC9402F2-83F2-F64F-8475-71C256417133.root"
         ],
         "xs": -1
     },
