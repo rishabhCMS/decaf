@@ -1018,7 +1018,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         e = events.Electron
         event_size = len(events)
+#         require all electrons to be away from the muon
         e['isclean'] = ~(ak.any(e.metric_table(mu_loose) < 0.3, axis=-1))
+#         print()
         e['isloose'] = isLooseElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['istight'] = isTightElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
 #         e['T'] = TVector2Array.from_polar(e.pt, e.phi)
@@ -1099,9 +1101,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             CEMF = j.chEmEF
             CHM = j.nElectrons+j.nMuons
 
-            jetMuMask = ak.any(j.metric_table(mu_loose) < r, axis=-1)
-            jetEleMask = ak.any(j.metric_table(e_loose) < r, axis=-1)
-            jetPhoMask = ak.any(j.metric_table(pho_loose) < r, axis=-1)
+            jetMuMask = ak.any(j.metric_table(mu_tight) < r, axis=-1)
+            jetEleMask = ak.any(j.metric_table(e_tight) < r, axis=-1)
+            jetPhoMask = ak.any(j.metric_table(pho_tight) < r, axis=-1)
 
             j_isclean_mask = (~jetMuMask & ~jetEleMask)
             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
@@ -1165,13 +1167,13 @@ class AnalysisProcessor(processor.ProcessorABC):
         Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.5)
         
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
-        LJ_Ele = ak.cartesian({"leading_j":leading_j, "e_loose": e_loose})
-        DeltaR_LJ_Ele = abs(LJ_Ele.leading_j.delta_r(LJ_Ele.e_loose))
+        LJ_Ele = ak.cartesian({"leading_j":leading_j, "e_tight": e_tight})
+        DeltaR_LJ_Ele = abs(LJ_Ele.leading_j.delta_r(LJ_Ele.e_tight))
         
         DeltaR_LJ_Ele_mask = ak.any(DeltaR_LJ_Ele < 3.4, axis=-1)
 
-        LJ_Mu = ak.cartesian({"leading_j":leading_j, "mu_loose": mu_loose})
-        DeltaR_LJ_Mu = abs(LJ_Mu.leading_j.delta_r(LJ_Mu.mu_loose))
+        LJ_Mu = ak.cartesian({"leading_j":leading_j, "mu_tight": mu_tight})
+        DeltaR_LJ_Mu = abs(LJ_Mu.leading_j.delta_r(LJ_Mu.mu_tight))
         
         DeltaR_LJ_Mu_mask = ak.any(DeltaR_LJ_Mu < 3.4, axis=-1)
 #         ele_pairs = e_loose.distincts()
@@ -1886,7 +1888,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
 #                     weights.add('muR', np.ones(
 #                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu)
+#                 weights.add('pileup', pu)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
