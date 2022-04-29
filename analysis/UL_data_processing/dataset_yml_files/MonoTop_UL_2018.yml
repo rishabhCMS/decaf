@@ -1,4 +1,29 @@
 "2018":
+
+    ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8:
+        tags: ['phys03', 'mc', 'st', 'ul', '2018', 'customnanov9', 'ST']
+        dbs:
+            /ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/merhart-KIT_CustomNanoV9_MC_2018-a4eebff50342a560e5537ef6eec137c6/USER
+        xs:           80.95
+        source:       phys03
+        isData:       False
+        jec:          Total
+        throughput:   3828.0
+        isTopNanoAOD: False
+        split:        lumi
+
+    ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8:
+        tags: ['phys03', 'mc', 'st', 'ul', '2018', 'customnanov9', 'ST']
+        dbs:
+            /ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/merhart-KIT_CustomNanoV9_MC_2018-a4eebff50342a560e5537ef6eec137c6/USER
+        xs:           136.02
+        source:       phys03
+        isData:       False
+        jec:          Total
+        throughput:   3702.0
+        isTopNanoAOD: False
+        split:        lumi
+        
     DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
         tags: ['nanoaodv2', 'mc', 'global', 'ul', '2018']
         dbs:
