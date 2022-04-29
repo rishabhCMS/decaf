@@ -116,8 +116,9 @@ def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, y
 #     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
 #     return mask
 def isHEMJet(pt, eta, phi):
-    mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
-#     mask = ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
+#     mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
+#     x.Eta() < -1.3 and x.Eta() > -3.0 and x.Phi() < -0.87 and x.Phi() > -1.57) seb
+    mask = ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
 
     return mask
 
