@@ -962,7 +962,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-#                 j   = corrected_jets
+                j   = corrected_jets
 #                 j   = events.Jet
                 met = corrected_mets
 #                 print(shift_syst)
