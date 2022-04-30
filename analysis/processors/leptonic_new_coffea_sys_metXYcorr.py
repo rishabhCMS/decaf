@@ -213,10 +213,10 @@ def METXYCorr_Met_MetPhi(events, year, met):
     
     
     mask1 = (CorrectedMET_x ==0 )& (CorrectedMET_y > 0)
-    CorrectedMETPhi[mask1==True] = np.pi
+    CorrectedMETPhi[mask1==True] = np.pi/2
 
     mask2 = (CorrectedMET_x ==0 )& (CorrectedMET_y < 0)
-    CorrectedMETPhi[mask2==True] = -np.pi
+    CorrectedMETPhi[mask2==True] = -np.pi/2
 
     mask3 = (CorrectedMET_x <0 )& (CorrectedMET_y > 0)
     CorrectedMETPhi[mask3==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x) + np.pi )[mask3==True] 
