@@ -213,10 +213,10 @@ def METXYCorr_Met_MetPhi(events, year, met):
     
     
     mask1 = (CorrectedMET_x ==0 )& (CorrectedMET_y > 0)
-    CorrectedMETPhi[mask1==True] = np.pi/2
+    CorrectedMETPhi[mask1==True] = np.pi
 
     mask2 = (CorrectedMET_x ==0 )& (CorrectedMET_y < 0)
-    CorrectedMETPhi[mask2==True] = -np.pi/2
+    CorrectedMETPhi[mask2==True] = -np.pi
 
     mask3 = (CorrectedMET_x <0 )& (CorrectedMET_y > 0)
     CorrectedMETPhi[mask3==True] = (np.arctan(CorrectedMET_y/CorrectedMET_x) + np.pi )[mask3==True] 
@@ -870,18 +870,18 @@ class AnalysisProcessor(processor.ProcessorABC):
         if (self._year == '2016'):
             if ("preVFP" in dataset):
 #                 print(self._jr[self._year]['apv'][0])
-#                 list_of_jec = self._jec[self._year]['apv']
+                list_of_jec = self._jec[self._year]['apv']
                 list_of_jr = self._jr[self._year]['apv']
                 list_of_junc = self._junc[self._year]['apv']
                 list_of_jersf = self._jersf[self._year]['apv']
             else: 
-#                 list_of_jec = self._jec[self._year]['apv']
+                list_of_jec = self._jec[self._year]['apv']
                 list_of_jr =self ._jr[self._year]['no_apv']
                 list_of_junc =self ._junc[self._year]['no_apv']
                 list_of_jersf = self._jersf[self._year]['no_apv']
                 
-#             for name in list_of_jec:
-#                 jec_names.append(name)
+            for name in list_of_jec:
+                jec_names.append(name)
             for name in list_of_jr:
                 jec_names.append(name)
             for name in list_of_junc:
@@ -889,8 +889,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             for name in list_of_jersf:
                 jec_names.append(name)                
         else:
-#             for name in self._jec[self._year]:
-#                 jec_names.append(name)                 
+            for name in self._jec[self._year]:
+                jec_names.append(name)                 
             for name in self._jr[self._year]:
                 jec_names.append(name)    
             for name in self._jersf[self._year]:
