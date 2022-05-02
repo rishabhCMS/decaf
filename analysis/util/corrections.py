@@ -44,7 +44,7 @@ for year in ['2018', '2017', '2016']:
 get_pu_nom_weight_postVFP = {}
 get_pu_up_weight_postVFP = {}
 get_pu_down_weight_postVFP = {}
-pu_files_preVFP = {
+pu_files_postVFP = {
     '2016': "data/pileup/UL/puWeights2016postVFPUL.json",
     '2017': "data/pileup/UL/puWeights2017UL.json",
     '2018': "data/pileup/UL/puWeights2018UL.json"
