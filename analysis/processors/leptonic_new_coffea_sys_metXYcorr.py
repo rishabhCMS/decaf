@@ -461,9 +461,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         }
         
         self._golden_json_path = {
-    '2016': 'data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
-    '2017': 'data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
-    '2018': 'data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
+    '2016': '../../data/golden_txt/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt',
+    '2017': '../../data/golden_txt/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt',
+    '2018': '../../data/golden_txt/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt',
 }
         self._corrections = corrections
         self._ids = ids
@@ -1140,7 +1140,18 @@ class AnalysisProcessor(processor.ProcessorABC):
             jetPhoMask = ak.any((j.metric_table(pho_loose)<0.4), axis=2)
             
             print('jetMuMask',jetMuMask)
-            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask) # this is event based [True, False,..False]
+#             print('j_good',j)
+#             print('e_loose', e_loose)
+#             print('jetEleMask_old',jetEleMask)
+#             print('jetEleMask_new',ak.fill_none(jetEleDR<r, True))
+#             print('j_isgood_mask', j_isgood_mask)
+#             print('j_isgood_mask&jetEleMask', ak.all(j_isgood_mask&jetEleMask), axis=1)
+#             print('j_isgood_mask&jetEleMask_newk', ak.all(j_isgood_mask&ak.fill_none(jetEleDR<r, True)), axis=1)
+#             print("old jet sel",j[j_isgood_mask&jetEleMask])
+#             print("new jet sel",j[j_isgood_mask&ak.fill_none(jetEleDR<r, True)])
+#             import sys
+#             sys.exit(0)
+            j_isclean_mask = (~jetMuMask & ~jetEleMask ) # this is event based [True, False,..False]
 #             print('j_isclean_mask',j_isclean_mask)
             
 #             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
@@ -1284,10 +1295,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'wjetm': np.sqrt(2*leading_mu.pt*met.pt*(1-np.cos(met.delta_phi(leading_mu))))
         }
         
-        print('mT["wjete"]',mT["wjete"])
-        print("leading_e.pt",leading_e.pt)
-        print("met.pt",met.pt)
-        print("met.delta_phi(leading_e)",met.delta_phi(leading_e))
+
 #         import sys
 #         sys.exit(0)
         
@@ -1404,6 +1412,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             pu = get_pu_nom_weight(events.Pileup.nTrueInt)
             puUp = get_pu_up_weight(events.Pileup.nTrueInt)
             puDown = get_pu_down_weight(events.Pileup.nTrueInt)
+            print("get_pu_up_weight", get_pu_up_weight(events.Pileup.nTrueInt))
             ###
             # Trigger efficiency weight
             ###
@@ -1688,8 +1697,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         selection.add('met80', ak.to_numpy(met.pt < 80))
         selection.add('met100', ak.to_numpy(met.pt > 100))
         selection.add('corr_met100', ak.to_numpy(corrected_met["T"]["pt"] > 100))
-        print("met.pt > 100",met.pt )
-        print('corrected_met["T"]["pt"] > 100',corrected_met["T"]["pt"] )
+#         print("met.pt > 100",met.pt )
+#         print('corrected_met["T"]["pt"] > 100',corrected_met["T"]["pt"] )
         selection.add('Delta_Phi_Met_LJ', ak.to_numpy(ak.sum(abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj))>1.5, axis=1)>0))
         selection.add('Delta_Phi_Corr_Met_LJ', ak.to_numpy(ak.sum(Delta_Phi_Corr_Met_LJ, axis=1)>0))
 
@@ -1988,7 +1997,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu)
+                weights.add('pileup', pu, puUp, puDown)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
@@ -2014,6 +2023,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add(isolation_name, isolation[region], isolation[region]+isolation_err[region], isolation[region]-isolation_err[region])
 #                 weights.add('csev', csev[region])
                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
+#                 print("btag['wjete']",btag['wjete'])
     
     
 ##################################################################################################################
@@ -2041,7 +2051,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
-                                       puUp, puDown,
+                                       'pileupUp', 'pileupDown',
                                       ]
                     elif not('WJets' in dataset) and shift_syst is None:
                         systematics = ['nominal',
@@ -2077,7 +2087,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
-                                       puUp, puDown,
+                                       'pileupUp','pileupDown',
                                       ]
                     else:
                         systematics = [shift_syst] #[None, "JERUp"]
@@ -2091,7 +2101,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                             systematic = None
                         else:
                             sname = systematic
-#                         sname = 'nominal' if systematic is None else systematic
+                        sname = 'nominal' if systematic is None else systematic
 #                         import sys
 #                         print('weights.weight(modifier=systematic)', weights.weight(modifier=systematic))
 #                         print('whf', whf)
@@ -2105,7 +2115,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         print(len(cut))
 #                         print(sum(ak.sum(mT[region], axis=-1)*x*cut))
 #                         sys.exit(0)
-#                         print(sname)
+                        print(sname)
                         hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic=sname,
@@ -2150,7 +2160,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                            ids_name+'Up', ids_name+'Down',
                                            reco_name+'Up', reco_name+'Down',
                                            isolation_name+'Up', isolation_name+'Down',
-                                         puUp, puDown,
+                                         'pileupUp', 'pileupDown',
                                           ]
                     else:
                         systematic = [shift_syst] 
