@@ -759,6 +759,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             get_deepflav_weight = self._corrections['get_btag_weight_preVFP']['deepflav'][self._year]
             
+            get_pu_nom_weight = self._corrections['get_pu_nom_weight_preVFP'][self._year]
+            get_pu_up_weight = self._corrections['get_pu_up_weight_preVFP'][self._year]
+            get_pu_down_weight = self._corrections['get_pu_down_weight_preVFP'][self._year]
         elif ("postVFP" in dataset) and (self._year == '2016'):
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
             get_ele_tight_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
@@ -789,7 +792,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
             
             get_deepflav_weight = self._corrections['get_btag_weight_postVFP']['deepflav'][self._year]
-
+            get_pu_nom_weight = self._corrections['get_pu_nom_weight_postVFP'][self._year]
+            get_pu_up_weight = self._corrections['get_pu_up_weight_postVFP'][self._year]
+            get_pu_down_weight = self._corrections['get_pu_down_weight_postVFP'][self._year]
         else:
 #             print("hi")
             get_ele_loose_id_sf = self._corrections['get_ele_tight_id_sf_postVFP'][self._year]
@@ -821,12 +826,17 @@ class AnalysisProcessor(processor.ProcessorABC):
             get_mu_tight_id_err = self._corrections['get_mu_tight_id_err_postVFP'][self._year]
             
             get_deepflav_weight = self._corrections['get_btag_weight_postVFP']['deepflav'][self._year]
-
+            get_pu_nom_weight = self._corrections['get_pu_nom_weight_postVFP'][self._year]
+            get_pu_up_weight = self._corrections['get_pu_up_weight_postVFP'][self._year]
+            get_pu_down_weight = self._corrections['get_pu_down_weight_postVFP'][self._year]
+            
+            
         get_ttbar_weight = self._corrections['get_ttbar_weight']
         get_nnlo_nlo_weight = self._corrections['get_nnlo_nlo_weight'][self._year]
         get_nlo_qcd_weight = self._corrections['get_nlo_qcd_weight'][self._year]
         get_nlo_ewk_weight = self._corrections['get_nlo_ewk_weight'][self._year]
-        get_pu_weight = self._corrections['get_pu_weight'][self._year]
+#         get_pu_weight = self._corrections['get_pu_weight'][self._year]
+        
 
         get_ele_trig_weight = self._corrections['get_ele_trig_weight'][self._year]
         get_ele_trig_err    = self._corrections['get_ele_trig_err'][self._year]
@@ -962,10 +972,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-#                 j   = corrected_jets
-                j   = events.Jet
-                met = events.MET
-#                 met = corrected_mets
+                j   = corrected_jets
+#                 j   = events.Jet
+#                 met = events.MET
+                met = corrected_mets
 #                 print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
@@ -1130,18 +1140,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             jetPhoMask = ak.any((j.metric_table(pho_loose)<0.4), axis=2)
             
             print('jetMuMask',jetMuMask)
-#             print('j_good',j)
-#             print('e_loose', e_loose)
-#             print('jetEleMask_old',jetEleMask)
-#             print('jetEleMask_new',ak.fill_none(jetEleDR<r, True))
-#             print('j_isgood_mask', j_isgood_mask)
-#             print('j_isgood_mask&jetEleMask', ak.all(j_isgood_mask&jetEleMask), axis=1)
-#             print('j_isgood_mask&jetEleMask_newk', ak.all(j_isgood_mask&ak.fill_none(jetEleDR<r, True)), axis=1)
-#             print("old jet sel",j[j_isgood_mask&jetEleMask])
-#             print("new jet sel",j[j_isgood_mask&ak.fill_none(jetEleDR<r, True)])
-#             import sys
-#             sys.exit(0)
-            j_isclean_mask = (~jetMuMask & ~jetEleMask ) # this is event based [True, False,..False]
+            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask) # this is event based [True, False,..False]
 #             print('j_isclean_mask',j_isclean_mask)
             
 #             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
@@ -1178,7 +1177,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
 
 
-        j_good_mask, j_clean_mask = jetcleaning(j, mu_tight, e_tight, pho_tight, 0.4)
+        j_good_mask, j_clean_mask = jetcleaning(j, mu_loose, e_loose, pho_loose, 0.4)
 #         print("j_good_mask",j_good_mask)
 #         print("j_goodclean_mask",j_goodclean_mask)
         j['isgood'] = j_good_mask
@@ -1402,8 +1401,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             # Calculate PU weight and systematic variations
             ###
 
-            pu = get_pu_weight(events.Pileup.nTrueInt)
-            pu = np.minimum(5, pu)
+            pu = get_pu_nom_weight(events.Pileup.nTrueInt)
+            puUp = get_pu_up_weight(events.Pileup.nTrueInt)
+            puDown = get_pu_down_weight(events.Pileup.nTrueInt)
             ###
             # Trigger efficiency weight
             ###
@@ -2041,6 +2041,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
+                                       puUp, puDown,
                                       ]
                     elif not('WJets' in dataset) and shift_syst is None:
                         systematics = ['nominal',
@@ -2076,6 +2077,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
+                                       puUp, puDown,
                                       ]
                     else:
                         systematics = [shift_syst] #[None, "JERUp"]
@@ -2148,6 +2150,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                            ids_name+'Up', ids_name+'Down',
                                            reco_name+'Up', reco_name+'Down',
                                            isolation_name+'Up', isolation_name+'Down',
+                                         puUp, puDown,
                                           ]
                     else:
                         systematic = [shift_syst] 
