@@ -962,10 +962,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-                j   = corrected_jets
-#                 j   = events.Jet
-#                 met = events.MET
-                met = corrected_mets
+#                 j   = corrected_jets
+                j   = events.Jet
+                met = events.MET
+#                 met = corrected_mets
 #                 print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
@@ -1178,7 +1178,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         j_dflvL = j_clean[j_clean.isdflvL.astype(np.bool)]
 
 
-        j_good_mask, j_clean_mask = jetcleaning(j, mu_loose, e_loose, pho_loose, 0.4)
+        j_good_mask, j_clean_mask = jetcleaning(j, mu_tight, e_tight, pho_tight, 0.4)
 #         print("j_good_mask",j_good_mask)
 #         print("j_goodclean_mask",j_goodclean_mask)
         j['isgood'] = j_good_mask
