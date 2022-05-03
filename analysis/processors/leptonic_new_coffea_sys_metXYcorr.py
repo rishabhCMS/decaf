@@ -480,6 +480,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
+                hist.Bin('npvs', 'NPVS', 99, 0, 99),
                 hist.Bin('mT_corrected', '$m_{T}$ [GeV] Corrected', 20, 0, 600)),
             
             'mT': hist.Hist(
@@ -671,6 +672,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mu_phi', 'Leading Muon Phi', 64, -3.2, 3.2)),
+            'npvs': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+                hist.Bin('npvs', 'NPVS', 20, 0, 80)),
  
         })
 
@@ -1807,7 +1814,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             #             print('Selection:',regions[region])
             if not isData:
                 variables = {
-
+                    'npvs': events.PV.npvs,
                     'mu_pT':              leading_mu.pt,
                     'eT_miss':              met.pt,
                     'ele_pT':              leading_e.pt,
@@ -1844,7 +1851,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     }
             else:
                 variables = {
-
+                    'npvs': events.PV.npvs,
                     'mu_pT':              leading_mu.pt,
                     'eT_miss':              met.pt,
                     'ele_pT':              leading_e.pt,
@@ -1948,7 +1955,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       region=region,
                                       systematic='nominal',
                                       mT_corrected = ak.sum(mT_corrected[region], axis=-1),
+                                      npvs = events.PV.npvs,
                                       weight=np.ones(event_size)*cut)
+
                 fill(dataset, np.ones(event_size), cut, systematic='nominal')
                         # Cutflow loop
                 vcut=np.zeros(event_size, dtype=np.int)
@@ -2121,13 +2130,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
+                                              npvs = events.PV.npvs,
                                               weight=weights.weight(modifier=systematic)*whf*cut)
     
                         hout['template'].fill(dataset='LF--'+dataset,
                                               region=region,
                                               systematic=sname,
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
+                                              npvs = events.PV.npvs,
                                               weight=weights.weight(modifier=systematic)*wlf*cut)
+
                     ## Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
                     hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
@@ -2179,6 +2191,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
+                                              npvs = events.PV.npvs,
                                               weight=weights.weight(modifier=systematic)*cut)
                         # Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
