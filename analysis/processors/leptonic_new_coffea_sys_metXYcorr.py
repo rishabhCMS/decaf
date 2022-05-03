@@ -944,7 +944,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             events_cache = events.caches[0]
             met_factory = CorrectedMETFactory(jec_name_map)
             corrected_jets = jet_factory.build(events.Jet, lazy_cache=events_cache)
-            corrected_mets = met_factory.build(events.MET, corrected_jets, {})
+            corrected_mets = met_factory.build(events.MET, events.Jet, {})
             
             
             if shift_syst == "JESUp":
@@ -972,8 +972,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-                j   = corrected_jets
-#                 j   = events.Jet
+#                 j   = corrected_jets
+                j   = events.Jet
 #                 met = events.MET
                 met = corrected_mets
 #                 print(shift_syst)
@@ -1151,7 +1151,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             print("new jet sel",j[j_isgood_mask&ak.fill_none(jetEleDR<r, True)])
 #             import sys
 #             sys.exit(0)
-            j_isclean_mask = (~jetMuMask & ~jetEleMask ) # this is event based [True, False,..False]
+            j_isclean_mask = (~jetMuMask & ~jetEleMask & ~jetPhoMask) # this is event based [True, False,..False]
 #             print('j_isclean_mask',j_isclean_mask)
             
 #             j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
@@ -1759,7 +1759,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
-            'wjete': [ "atleast_one_jet_with_pt_grt_50",'corr_met100',
+            'wjete': [
+                      'corr_met100',
 #                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>50' ,
@@ -1768,13 +1769,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
-            'wjetm': [ "atleast_one_jet_with_pt_grt_50",'corr_met100',
+            'wjetm': ['corr_met100',
 #                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
                        'mtcorr_wjetm>50' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
-#                       "leading_j>70",
+                      "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Mu_mask',
                      ],
         }
