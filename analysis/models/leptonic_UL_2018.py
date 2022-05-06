@@ -157,21 +157,19 @@ def model(year):
         wjete.setObservation(template(data, "SingleElectron", "data","wjete"))
         
     #template for signal
-    wjete_signalTemplate = template(signal, "Mphi-1995_Mchi-1000", "nominal", "wjete", read_sumw2=True)
-    wjete_signalMC = rl.TemplateSample(
-        ch_name + "_signalMC",
-        rl.Sample.SIGNAL,
-        wjete_signalTemplate
-    )
-    
-    wjete_signalMC.setParamEffect(lumi, 1.027)
-#     wjete_signalMC.setParamEffect(trig_e, 1.01)
-#     wjete_signalMC.setParamEffect(veto_tau, 1.03)
-#     wjete_signalMC.setParamEffect(wjets_norm, 1.4)
-#     wjete_signalMC.setParamEffect(jec, 1.05)
-#     wjete_signalMC.setParamEffect(id_e, 1.02)
-#     wjete_signalMC.setParamEffect(reco_e, 1.02)
-    wjete.addSample(wjete_signalMC)
+    for s in signal['wjete'].identifiers('process'):
+        print(s)
+        if 'Mhs_50' not in str(s): continue
+        wjete_signalTemplate = template(signal,s,'nominal','wjete')
+        wjete_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjete_signalTemplate)
+        wjete_signal.setParamEffect(lumi, 1.027)
+    #     sr_signal.setParamEffect(trig_met, 1.01)
+    #     sr_signal.setParamEffect(veto_tau, 1.03)
+    #     sr_signal.setParamEffect(jec, 1.05)
+        btagUp=template(signal, s,'btagUp','wjete')[0]
+        btagDown=template(signal, s,'btagDown','wjete')[0]
+        wjete_signal.setParamEffect(btag, btagUp, btagDown)
+        wjete.addSample(wjete_signal)
     
     ###
     # W(->lnu)+jets data-driven model
