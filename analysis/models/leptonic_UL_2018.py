@@ -26,10 +26,6 @@ mT_binning_dict = {
 
 
 def remap_histograms(hists):
-    
-    '''
-    This method is used for mapping  the histograms in the .scaled file
-    '''
     data_hists = {}
     bkg_hists = {}
     signal_hists = {}
@@ -40,23 +36,27 @@ def remap_histograms(hists):
     bkg_map = OrderedDict()
     data_map = OrderedDict()
     bkg_map["Hbb"] = ("Hbb*",)
-    bkg_map["DY+jets"] = ("DY+*",)
+    bkg_map["DY_jets"] = ("DY+*",)
     bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
     bkg_map["ST"] = ("ST*",)
     bkg_map["TT"] = ("TT*",)
-    bkg_map["W+jets"] = ("W+*",)
+    bkg_map["W_jets"] = ("W+*",)
 #     bkg_map["W+HF"] = ("W+HF",)
 #     bkg_map["W+LF"] = ("W+LF",)
-    bkg_map["Z+jets"] = ("Z+*",)
+    bkg_map["Z_jets"] = ("Z+*",)
+#     bkg_map["Z+HF"] = ("Z+HF",)
+#     bkg_map["Z+LF"] = ("Z+LF",)
+#     bkg_map["G+jets"] = ("G+*",)
     bkg_map["QCD"] = ("QCD*",)
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
-    sig_map["Mphi-1995_Mchi-1000"] = ("*Mphi-1995_Mchi-1000*",)
-    
-#    processed signal 
+    sig_map["Mphi1995_Mchi1000"] = ("Mphi-1995_Mchi-1000")
+    sig_map["Mphi2000_Mchi1500"] = ("Mphi-2000_Mchi-1500")
+    sig_map["Mphi2000_Mchi500"] = ("Mphi-2000_Mchi-500")
+#     haven't processed signal yet
     for signal in hists['sig']['template'].identifiers('process'):
-        if 'Mphi' not in str(signal): continue
+        if 'mchi' not in str(signal): continue
         sig_map[str(signal)] = (str(signal),)  ## signals
 
     for key in hists["data"].keys():
@@ -64,15 +64,20 @@ def remap_histograms(hists):
         signal_hists[key] = hists["sig"][key].group(cats, process, sig_map)
         data_hists[key] = hists["data"][key].group(cats, process, data_map)
 
-    print('initial mT binning',bkg_hists["template"].axis("mT").edges())
+    print('initial mT_corrected binning',bkg_hists["template"].axis("mT_corrected").edges())
 
 
-    bkg_hists["template"] = bkg_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
-    
-    signal_hists["template"] = signal_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
-    data_hists["template"] = data_hists["template"].rebin("mT", hist.Bin("mT", "mT", mT_binning))
+    bkg_hists["template"] = bkg_hists["template"].rebin(
+        "mT_corrected", hist.Bin("mT_corrected", "mT_corrected", mT_corrected_binning)
+    )
+    signal_hists["template"] = signal_hists["template"].rebin(
+        "mT_corrected", hist.Bin("mT_corrected", "mT_corrected", mT_corrected_binning)
+    )
+    data_hists["template"] = data_hists["template"].rebin(
+        "mT_corrected", hist.Bin("mT_corrected", "mT_corrected", mT_corrected_binning)
+    )
 
-    hists = {"bkg": bkg_hists, "data": data_hists, "sig": signal_hists}
+    hists = {"bkg": bkg_hists, "data": data_hists, "sig":signal_hists}
 
     return hists
 
@@ -85,9 +90,10 @@ def addBtagSyst(dictionary, process, region, templ):
 def addVJetsSyst(dictionary, process, region, templ):
     def addSyst(dictionary, process, region, templ, syst, string):
         histogram = dictionary[region].integrate("process", process)
-        nominal=histogram.integrate("systematic", "nominal").values()[()]
-        up=histogram.integrate("systematic", string+"Up").values()[()]
-        down=histogram.integrate("systematic",string+"Down").values()[()]
+#         print(histogram.integrate("systematic", "nominal").sum('npvs').values()[()])
+        nominal=histogram.integrate("systematic", "nominal").sum('npvs').values()[()]
+        up=histogram.integrate("systematic", string+"Up").sum('npvs').values()[()]
+        down=histogram.integrate("systematic",string+"Down").sum('npvs').values()[()]
         systUp = np.array( up.sum() / nominal.sum() )
         systUp[np.isnan(systUp)] = 1.
         systUp = systUp.sum()
@@ -103,7 +109,7 @@ def addVJetsSyst(dictionary, process, region, templ):
     addSyst(dictionary, process, region, templ, qcd3, "qcd3")
     
 def template(dictionary, process, systematic, region, read_sumw2=False):
-    histogram = dictionary[region].integrate("process", process)
+    histogram = dictionary[region].integrate("process", process).sum('npvs')
     nominal, sumw2 = histogram.integrate("systematic", "nominal").values(sumw2=True)[()]
     zerobins = nominal <= 0.
     output = nominal
@@ -114,17 +120,16 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
         output[zerobins] = 1.
         output[~zerobins] /= nominal[~zerobins]
         output[np.isnan(output)] = 1.
-        
     binning = (
         dictionary[region]
         .integrate("process", process)
         .integrate("systematic", systematic)
-        .axis("mT")
+        .axis("mT_corrected")
         .edges()
     )
     if read_sumw2:
-        return (output, binning, "mT", sumw2)
-    return (output, binning, "mT")
+        return (output, binning, "mT_corrected", sumw2)
+    return (output, binning, "mT_corrected")
 
 def model(year):
 
@@ -160,12 +165,12 @@ def model(year):
     )
     
     wjete_signalMC.setParamEffect(lumi, 1.027)
-    wjete_signalMC.setParamEffect(trig_e, 1.01)
-    wjete_signalMC.setParamEffect(veto_tau, 1.03)
-    wjete_signalMC.setParamEffect(wjets_norm, 1.4)
-    wjete_signalMC.setParamEffect(jec, 1.05)
-    wjete_signalMC.setParamEffect(id_e, 1.02)
-    wjete_signalMC.setParamEffect(reco_e, 1.02)
+#     wjete_signalMC.setParamEffect(trig_e, 1.01)
+#     wjete_signalMC.setParamEffect(veto_tau, 1.03)
+#     wjete_signalMC.setParamEffect(wjets_norm, 1.4)
+#     wjete_signalMC.setParamEffect(jec, 1.05)
+#     wjete_signalMC.setParamEffect(id_e, 1.02)
+#     wjete_signalMC.setParamEffect(reco_e, 1.02)
     wjete.addSample(wjete_signalMC)
     
     ###
@@ -179,12 +184,12 @@ def model(year):
         wjete_wjetsTemplate
     )
     wjete_wjetsMC.setParamEffect(lumi, 1.027)
-    wjete_wjetsMC.setParamEffect(trig_e, 1.01)
-    wjete_wjetsMC.setParamEffect(veto_tau, 1.03)
-    wjete_wjetsMC.setParamEffect(wjets_norm, 1.4)
-    wjete_wjetsMC.setParamEffect(jec, 1.05)
-    wjete_wjetsMC.setParamEffect(id_e, 1.02)
-    wjete_wjetsMC.setParamEffect(reco_e, 1.02)
+#     wjete_wjetsMC.setParamEffect(trig_e, 1.01)
+#     wjete_wjetsMC.setParamEffect(veto_tau, 1.03)
+#     wjete_wjetsMC.setParamEffect(wjets_norm, 1.4)
+#     wjete_wjetsMC.setParamEffect(jec, 1.05)
+#     wjete_wjetsMC.setParamEffect(id_e, 1.02)
+#     wjete_wjetsMC.setParamEffect(reco_e, 1.02)
     #wjete_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
     # addVJetsSyst(background, "W+jets", "wjete", wjete_wjetsMC)
@@ -210,11 +215,11 @@ def model(year):
         wjete_ttTemplate
     )
     wjete_ttMC.setParamEffect(lumi, 1.027)
-    wjete_ttMC.setParamEffect(trig_e, 1.01)
-    wjete_ttMC.setParamEffect(veto_tau, 1.03)
-    wjete_ttMC.setParamEffect(jec, 1.05)
-    wjete_ttMC.setParamEffect(id_e, 1.02)
-    wjete_ttMC.setParamEffect(reco_e, 1.02)
+#     wjete_ttMC.setParamEffect(trig_e, 1.01)
+#     wjete_ttMC.setParamEffect(veto_tau, 1.03)
+#     wjete_ttMC.setParamEffect(jec, 1.05)
+#     wjete_ttMC.setParamEffect(id_e, 1.02)
+#     wjete_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
     # wjete_ttMC.setParamEffect(ttMC_norm, 1.2)
     wjete.addSample(wjete_ttMC)
@@ -228,12 +233,12 @@ def model(year):
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
     )
     wjete_st.setParamEffect(lumi, 1.027)
-    wjete_st.setParamEffect(trig_e, 1.01)
-    wjete_st.setParamEffect(veto_tau, 1.03)
-    # wjete_st.setParamEffect(st_norm, 1.2) something related to signal
-    wjete_st.setParamEffect(jec, 1.05)
-    wjete_st.setParamEffect(id_e, 1.02)
-    wjete_st.setParamEffect(reco_e, 1.02)
+#     wjete_st.setParamEffect(trig_e, 1.01)
+#     wjete_st.setParamEffect(veto_tau, 1.03)
+#     wjete_st.setParamEffect(st_norm, 1.2) something related to signal
+#     wjete_st.setParamEffect(jec, 1.05)
+#     wjete_st.setParamEffect(id_e, 1.02)
+#     wjete_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjete", wjete_st)
     wjete.addSample(wjete_st)
 
@@ -243,14 +248,14 @@ def model(year):
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjete_dyjetsTemplate
     )
     wjete_dyjets.setParamEffect(lumi, 1.027)
-    wjete_dyjets.setParamEffect(trig_e, 1.01)
-    wjete_dyjets.setParamEffect(veto_tau, 1.03)
-    # wjete_dyjets.setParamEffect(zjetsMC_norm, 1.4)
-    wjete_dyjets.setParamEffect(jec, 1.05)
-    wjete_dyjets.setParamEffect(id_e, 1.02)
-    wjete_dyjets.setParamEffect(reco_e, 1.02)
+#     wjete_dyjets.setParamEffect(trig_e, 1.01)
+#     wjete_dyjets.setParamEffect(veto_tau, 1.03)
+#     wjete_dyjets.setParamEffect(zjetsMC_norm, 1.4)
+#     wjete_dyjets.setParamEffect(jec, 1.05)
+#     wjete_dyjets.setParamEffect(id_e, 1.02)
+#     wjete_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
-    addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
+#     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
     wjete.addSample(wjete_dyjets)
 
 
@@ -260,12 +265,12 @@ def model(year):
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjete_vvTemplate
     )
     wjete_vv.setParamEffect(lumi, 1.027)
-    wjete_vv.setParamEffect(trig_e, 1.01)
-    wjete_vv.setParamEffect(veto_tau, 1.03)
-    # wjete_vv.setParamEffect(vv_norm, 1.2)
-    wjete_vv.setParamEffect(jec, 1.05)
-    wjete_vv.setParamEffect(id_e, 1.02)
-    wjete_vv.setParamEffect(reco_e, 1.02)
+#     wjete_vv.setParamEffect(trig_e, 1.01)
+#     wjete_vv.setParamEffect(veto_tau, 1.03)
+#     wjete_vv.setParamEffect(vv_norm, 1.2)
+#     wjete_vv.setParamEffect(jec, 1.05)
+#     wjete_vv.setParamEffect(id_e, 1.02)
+#     wjete_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "wjete", wjete_vv)
     wjete.addSample(wjete_vv)
 
@@ -275,12 +280,12 @@ def model(year):
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, wjete_qcdTemplate
     )
     wjete_qcd.setParamEffect(lumi, 1.027)
-    wjete_qcd.setParamEffect(trig_e, 1.01)
-    wjete_qcd.setParamEffect(veto_tau, 1.03)
-    # wjete_qcd.setParamEffect(qcde_norm, 2.0)
-    wjete_qcd.setParamEffect(jec, 1.05)
-    wjete_qcd.setParamEffect(id_e, 1.02)
-    wjete_qcd.setParamEffect(reco_e, 1.02)
+#     wjete_qcd.setParamEffect(trig_e, 1.01)
+#     wjete_qcd.setParamEffect(veto_tau, 1.03)
+#     wjete_qcd.setParamEffect(qcde_norm, 2.0)
+#     wjete_qcd.setParamEffect(jec, 1.05)
+#     wjete_qcd.setParamEffect(id_e, 1.02)
+#     wjete_qcd.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "QCD", "wjete", wjete_qcd)
     wjete.addSample(wjete_qcd)
     return model
@@ -292,18 +297,27 @@ if __name__ == "__main__":
     parser.add_option("-y", "--year", help="year", dest="year", default="")
     (options, args) = parser.parse_args()
     year = options.year
-    mT_binning = mT_binning_dict[year]
-    mTbins = np.array(mT_binning)
-    nmT = len(mTbins) - 1
+    year = '2018'
 
-    
+    mT_corrected_binning_dict = {
+        "2018": np.linspace(0,600,21),
+        "2017": np.linspace(0,600,21),
+        "2016": np.linspace(0,600,21)
+    }
+    mT_corrected_binning = mT_corrected_binning_dict[year]
+    mT_correctedbins = np.array(mT_corrected_binning)
+    nmT_corrected = len(mT_correctedbins) - 1
+
+    ###
+    # Extract histograms from input file
+    ###
+
     print("Grouping histograms")
     hists = load("hists/UL_lep_monotop_v1_test_" + year + ".scaled")
     hists = remap_histograms(hists)
     data_hists = hists["data"]
     bkg_hists = hists["bkg"]
     signal_hists = hists["sig"]
-
 
     ###
     # Preparing histograms for fit
@@ -318,9 +332,8 @@ if __name__ == "__main__":
         background[str(r)] = bkg_hists["template"].integrate("region", r)
 
     signal = {}
-    for r in bkg_hists["template"].identifiers("region"):
+    for r in signal_hists["template"].identifiers("region"):
         signal[str(r)] = signal_hists["template"].integrate("region", r)
-    
     ###
     ###
     # Setting up systematics
