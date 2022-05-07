@@ -171,7 +171,7 @@ def model(year):
         ttbare_signal.setParamEffect(btag, btagUp, btagDown)
         trigeUp=template(signal, s, 'trig_eUp', 'ttbare')[0] 
         trigeDown=template(signal, s, 'trig_eDown', 'ttbare')[0]
-        ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+        ttbare_signal.setParamEffect(trig_e, trigeUp, trigeDown)
         ttbare.addSample(ttbare_signal)
     
     ###
