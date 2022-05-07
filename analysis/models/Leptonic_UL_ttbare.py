@@ -195,7 +195,7 @@ def model(year):
     addBtagSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'W+jets', 'trig_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+    ttbare_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
     # addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
 
     # ttbare_wjetsTFstatParameters =  np.array([rl.NuisanceParameter("ttbare_"+year+"_wjetsTFstat_" + category + "_recoil"+str(recoilbin)+"_mass%d" % i, "shape") for i in range(ttbare_wjetsTemplate[0].size)])
@@ -227,7 +227,7 @@ def model(year):
     addBtagSyst(background, "TT", "ttbare", ttbare_ttMC)
     trigeUp=template(background, 'TT', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+    ttbare_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
     # ttbare_ttMC.setParamEffect(ttMC_norm, 1.2)
     ttbare.addSample(ttbare_ttMC)
 
@@ -249,7 +249,7 @@ def model(year):
     addBtagSyst(background, "ST", "ttbare", ttbare_st)
     trigeUp=template(background, 'ST', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+    ttbare_st.setParamEffect(trig_e, trigeUp, trigeDown)
     ttbare.addSample(ttbare_st)
 
     # DY Jet Background
@@ -268,7 +268,7 @@ def model(year):
 #     addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+    ttbare_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
     ttbare.addSample(ttbare_dyjets)
 
 
@@ -287,7 +287,7 @@ def model(year):
     addBtagSyst(background, "VV", "ttbare", ttbare_vv)
     trigeUp=template(background, 'VV', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+    ttbare_vv.setParamEffect(trig_e, trigeUp, trigeDown)
     ttbare.addSample(ttbare_vv)
 
     # QCD background
