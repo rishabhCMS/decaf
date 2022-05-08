@@ -107,6 +107,8 @@ def addVJetsSyst(dictionary, process, region, templ):
     addSyst(dictionary, process, region, templ, qcd1, "qcd1")
     addSyst(dictionary, process, region, templ, qcd2, "qcd2")
     addSyst(dictionary, process, region, templ, qcd3, "qcd3")
+    addSyst(dictionary, process, region, templ, muR, "muR")
+    addSyst(dictionary, process, region, templ, muF, "muF")
     
 def template(dictionary, process, systematic, region, read_sumw2=False):
     histogram = dictionary[region].integrate("process", process).sum('npvs')
@@ -309,7 +311,7 @@ def model(year):
 #     ttbare_dyjets.setParamEffect(id_e, 1.02)
 #     ttbare_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
-#     addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
+    addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'ttbare')[0]
