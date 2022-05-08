@@ -1,7 +1,7 @@
-# Datacard for <Channel (ttbare) instance at 0x7fc4eef814a8> generated on 2022-05-08 22:45:25.025689
+# Datacard for <Channel (ttbare) instance at 0x7fc4eedc05f8> generated on 2022-05-08 23:51:13.547145
 imax 1 # number of categories ('bins' but here we are using shape templates)
 jmax 6 # number of samples minus 1
-kmax 5 # number of nuisance parameters
+kmax 12 # number of nuisance parameters
 shapes * ttbare ControlRegionModel.root ControlRegionModel:ttbare_$PROCESS ControlRegionModel:ttbare_$PROCESS_$SYSTEMATIC
 bin ttbare
 observation 31009.000
@@ -11,6 +11,13 @@ process                           0        1          2         3         4     
 rate                         31.823  660.659  30338.675  1620.413    65.700  32.595  20.698
 btag2018 shape               1.0000   1.0000     1.0000    1.0000    1.0000  1.0000  1.0000
 ew1 shape                         -        -          -         -    1.0000       -       -
+ew2Z shape                        -        -          -         -    1.0000       -       -
+ew3Z shape                        -        -          -         -    1.0000       -       -
 lumi2018 lnN                 1.0270   1.0270     1.0270    1.0270    1.0270  1.0270  1.0270
+mix shape                         -        -          -         -    1.0000       -       -
+muF lnN                           -        -          -         -    1.0150       -       -
+muR lnN                           -        -          -         -    1.0256       -       -
 pileup2018 shape                  -   1.0000          -         -         -       -       -
+qcd1 shape                        -        -          -         -    1.0000       -       -
+qcd2 shape                        -        -          -         -    1.0000       -       -
 trig_e2018 shape             1.0000        -          -    1.0000         -       -       -
