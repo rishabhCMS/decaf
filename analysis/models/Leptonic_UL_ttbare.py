@@ -183,6 +183,10 @@ def model(year):
         pileupDown=template(signal, s,'pileupDown','ttbare')[0] 
         ttbare_signal.setParamEffect(pileup, pileupUp, pileupDown)
         ttbare.addSample(ttbare_signal)
+        #reco Electron
+        recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
+        recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
+        ttbare_signal.setParamEffect(trig_e, recoeUp, recoDown)
     
     ###
     # W(->lnu)+jets data-driven model
@@ -215,6 +219,10 @@ def model(year):
     pileupUp=template(background, 'W+jets','pileupUp','ttbare')[0] 
     pileupDown=template(background, 'W+jets','pileupDown','ttbare')[0] 
     ttbare_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+    #reco Electron
+    recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
+    recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(trig_e, recoeUp, recoDown)
     # addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
     ttbare.addSample(ttbare_wjetsMC)
 
@@ -247,6 +255,10 @@ def model(year):
     pileupUp=template(background, 'TT','pileupUp','ttbare')[0] 
     pileupDown=template(background, 'TT','pileupDown','ttbare')[0] 
     ttbare_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+    #reco Electron
+    recoeUp=template(background, 'TT', 'reco_eUp', 'ttbare')[0] 
+    recoDown=template(background, 'TT', 'reco_eDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(trig_e, recoeUp, recoDown)
     # ttbare_ttMC.setParamEffect(ttMC_norm, 1.2)
     ttbare.addSample(ttbare_ttMC)
 
@@ -278,6 +290,10 @@ def model(year):
     pileupUp=template(background, 'ST','pileupUp','ttbare')[0] 
     pileupDown=template(background, 'ST','pileupDown','ttbare')[0] 
     ttbare_st.setParamEffect(pileup, pileupUp, pileupDown)
+    #reco Electron
+    recoeUp=template(background, 'ST', 'reco_eUp', 'ttbare')[0] 
+    recoDown=template(background, 'ST', 'reco_eDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(trig_e, recoeUp, recoDown)
     ttbare.addSample(ttbare_st)
 
     # DY Jet Background
@@ -306,6 +322,10 @@ def model(year):
     pileupUp=template(background, 'DY+jets','pileupUp','ttbare')[0] 
     pileupDown=template(background, 'DY+jets','pileupDown','ttbare')[0] 
     ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+    #reco Electron
+    recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
+    recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(trig_e, recoeUp, recoDown)
     ttbare.addSample(ttbare_dyjets)
 
 
@@ -334,6 +354,11 @@ def model(year):
     pileupUp=template(background, 'VV','pileupUp','ttbare')[0] 
     pileupDown=template(background, 'VV','pileupDown','ttbare')[0] 
     ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
+    #reco Electron
+    recoeUp=template(background, 'VV', 'reco_eUp', 'ttbare')[0] 
+    recoDown=template(background, 'VV', 'reco_eDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(trig_e, recoeUp, recoDown)
+    
     ttbare.addSample(ttbare_vv)
 
     # QCD background
@@ -361,6 +386,11 @@ def model(year):
     pileupUp=template(background, 'QCD','pileupUp','ttbare')[0] 
     pileupDown=template(background, 'QCD','pileupDown','ttbare')[0] 
     ttbare_qcd.setParamEffect(pileup, pileupUp, pileupDown)
+    #reco Electron
+    recoeUp=template(background, 'QCD', 'reco_eUp', 'ttbare')[0] 
+    recoDown=template(background, 'QCD', 'reco_eDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(trig_e, recoeUp, recoDown)
+    
     ttbare.addSample(ttbare_qcd)
     return model
 
@@ -420,7 +450,7 @@ if __name__ == "__main__":
     id_e = rl.NuisanceParameter("id_e" + year, "shape")
     id_mu = rl.NuisanceParameter("id_mu" + year, "lnN")
     id_pho = rl.NuisanceParameter("id_pho" + year, "lnN")
-    reco_e = rl.NuisanceParameter("reco_e" + year, "lnN")
+    reco_e = rl.NuisanceParameter("reco_e" + year, "shape")
     iso_mu = rl.NuisanceParameter("iso_mu" + year, "lnN")
     trig_e = rl.NuisanceParameter("trig_e" + year, "shape")
     trig_met = rl.NuisanceParameter("trig_met" + year, "lnN")
