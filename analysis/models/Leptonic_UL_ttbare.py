@@ -184,12 +184,13 @@ def model(year):
         pileupUp=template(signal, s,'pileupUp','ttbare')[0] 
         pileupDown=template(signal, s,'pileupDown','ttbare')[0] 
         ttbare_signal.setParamEffect(pileup, pileupUp, pileupDown)
-        ttbare.addSample(ttbare_signal)
+        
         #reco Electron
         recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
         recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
         ttbare_signal.setParamEffect(trig_e, recoeUp, recoDown)
-    
+        
+        ttbare.addSample(ttbare_signal)
     ###
     # W(->lnu)+jets data-driven model
     ###
@@ -469,8 +470,8 @@ if __name__ == "__main__":
     ew3W = rl.NuisanceParameter("ew3W", "lnN")
     ew3Z = rl.NuisanceParameter("ew3Z", "lnN")
     mix = rl.NuisanceParameter("mix", "lnN")
-    muF = rl.NuisanceParameter("muF", "lnN")
-    muR = rl.NuisanceParameter("muR", "lnN")
+    #muF = rl.NuisanceParameter("muF", "lnN")
+    #muR = rl.NuisanceParameter("muR", "lnN")
     qcd1 = rl.NuisanceParameter("qcd1", "lnN")
     qcd2 = rl.NuisanceParameter("qcd2", "lnN")
     qcd3 = rl.NuisanceParameter("qcd3", "lnN")
