@@ -154,9 +154,9 @@ def model(year):
     ###
 
     if year == "2018":
-        ttbarm.setObservation(template(data, "EGamma", "data", "ttbarm"))
+        ttbarm.setObservation(template(data, "SingleMuon", "data", "ttbarm"))
     else:
-        ttbarm.setObservation(template(data, "SingleElectron", "data","ttbarm"))
+        ttbarm.setObservation(template(data, "SingleMuon", "data","ttbarm"))
         
     #template for signal
     for s in signal['ttbarm'].identifiers('process'):
