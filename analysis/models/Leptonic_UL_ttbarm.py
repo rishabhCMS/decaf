@@ -173,20 +173,20 @@ def model(year):
         btagDown=template(signal, s,'btagDown','ttbarm')[0]
         ttbarm_signal.setParamEffect(btag, btagUp, btagDown)
         #trigger Muon
-        trig_muUp=template(signal, 'W+jets', 'trig_mUp', 'ttbarm')[0] 
-        trig_muDown=template(signal, 'W+jets', 'trig_mDown', 'ttbarm')[0]
+        trig_muUp=template(signal, s, 'trig_mUp', 'ttbarm')[0] 
+        trig_muDown=template(signal, s, 'trig_mDown', 'ttbarm')[0]
         ttbarm_signal.setParamEffect(trig_mu, trig_muUp, trig_muDown)
         #id Muon
-        id_mUp=template(signal, "W+jets", 'id_mUp', 'ttbarm')[0] 
-        id_mDown=template(signal, "W+jets", 'id_mDown', 'ttbarm')[0]
+        id_mUp=template(signal, s, 'id_mUp', 'ttbarm')[0] 
+        id_mDown=template(signal, s, 'id_mDown', 'ttbarm')[0]
         ttbarm_signal.setParamEffect(id_m, id_mUp, id_mDown)
         #pileup
-        pileup_Up=template(signal, 'W+jets','pileupUp','ttbarm')[0] 
-        pileup_Down=template(signal, 'W+jets','pileupDown','ttbarm')[0] 
+        pileup_Up=template(signal, s,'pileupUp','ttbarm')[0] 
+        pileup_Down=template(signal, s,'pileupDown','ttbarm')[0] 
         ttbarm_signal.setParamEffect(pileup, pileup_Up, pileup_Down)
         #iso Muon
-        iso_mUp=template(signal, 'W+jets', 'isolation_mUp', 'ttbarm')[0] 
-        iso_mDown=template(signal, 'W+jets', 'isolation_mDown', 'ttbarm')[0]
+        iso_mUp=template(signal, s, 'isolation_mUp', 'ttbarm')[0] 
+        iso_mDown=template(signal, s, 'isolation_mDown', 'ttbarm')[0]
         ttbarm_signal.setParamEffect(isolation_m, iso_mUp, iso_mDown)
         ttbarm.addSample(ttbare_signal)
     ###
