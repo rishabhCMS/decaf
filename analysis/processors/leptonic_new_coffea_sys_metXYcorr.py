@@ -1603,7 +1603,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 for tag in [btag, btagUp, btagDown]:
                     tag[region] = np.asarray(tag[region])
                     mask = abs(tag[region])>=5
-                    tag[region][mask==True] = 0
+                    tag[region][mask==True] = 5
 
         ###
         # Selections
