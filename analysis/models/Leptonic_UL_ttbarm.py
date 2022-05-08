@@ -468,8 +468,8 @@ if __name__ == "__main__":
     ew3W = rl.NuisanceParameter("ew3W", "lnN")
     ew3Z = rl.NuisanceParameter("ew3Z", "lnN")
     mix = rl.NuisanceParameter("mix", "lnN")
-    #muF = rl.NuisanceParameter("muF", "lnN")
-    #muR = rl.NuisanceParameter("muR", "lnN")
+    muF = rl.NuisanceParameter("muF", "lnN")
+    muR = rl.NuisanceParameter("muR", "lnN")
     qcd1 = rl.NuisanceParameter("qcd1", "lnN")
     qcd2 = rl.NuisanceParameter("qcd2", "lnN")
     qcd3 = rl.NuisanceParameter("qcd3", "lnN")
@@ -479,6 +479,6 @@ if __name__ == "__main__":
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
     
     with open(
-        "data/"+"test"+year+".model",
+        "data/"+"test_ttbarm"+year+".model",
         "wb",) as fout:
         pickle.dump(model(year), fout, protocol=2)
