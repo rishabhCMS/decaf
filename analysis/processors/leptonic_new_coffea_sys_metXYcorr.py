@@ -758,7 +758,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_preVFP'][self._year]
-            get_mu_trig_err = self._corrections['get_mu_trig_weight_preVFP'][self._year]
+            get_mu_trig_err = self._corrections['get_mu_trig_err_preVFP'][self._year]
             get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_preVFP'][self._year]
             get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_preVFP'][self._year]
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_preVFP'][self._year]
@@ -792,7 +792,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
-            get_mu_trig_err = self._corrections['get_mu_trig_weight_postVFP'][self._year]
+            get_mu_trig_err = self._corrections['get_mu_trig_err_postVFP'][self._year]
             get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_postVFP'][self._year]
             get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_postVFP'][self._year]
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
@@ -826,7 +826,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
-            get_mu_trig_err = self._corrections['get_mu_trig_weight_postVFP'][self._year]
+            get_mu_trig_err = self._corrections['get_mu_trig_err_postVFP'][self._year]
             get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_postVFP'][self._year]
             get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_postVFP'][self._year]
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
