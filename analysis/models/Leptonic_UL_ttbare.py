@@ -169,26 +169,26 @@ def model(year):
     #     sr_signal.setParamEffect(veto_tau, 1.03)
     #     sr_signal.setParamEffect(jec, 1.05)
         #btag
-        btagUp=template(signal, s,'btagUp','ttbare')[0]
-        btagDown=template(signal, s,'btagDown','ttbare')[0]
-        ttbare_signal.setParamEffect(btag, btagUp, btagDown)
-        #trigger Electron
-        trigeUp=template(signal, s, 'trig_eUp', 'ttbare')[0] 
-        trigeDown=template(signal, s, 'trig_eDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(trig_e, trigeUp, trigeDown)
-        #id Electron
-        id_eUp=template(signal, s, 'id_eUp', 'ttbare')[0] 
-        id_eDown=template(signal, s, 'id_eDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(id_e, id_eUp, id_eDown)
+#         btagUp=template(signal, s,'btagUp','ttbare')[0]
+#         btagDown=template(signal, s,'btagDown','ttbare')[0]
+#         ttbare_signal.setParamEffect(btag, btagUp, btagDown)
+#         #trigger Electron
+#         trigeUp=template(signal, s, 'trig_eUp', 'ttbare')[0] 
+#         trigeDown=template(signal, s, 'trig_eDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(trig_e, trigeUp, trigeDown)
+#         #id Electron
+#         id_eUp=template(signal, s, 'id_eUp', 'ttbare')[0] 
+#         id_eDown=template(signal, s, 'id_eDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(id_e, id_eUp, id_eDown)
         #pileup
 #         pileupUp=template(signal, s,'pileupUp','ttbare')[0] 
 #         pileupDown=template(signal, s,'pileupDown','ttbare')[0] 
 #         ttbare_signal.setParamEffect(pileup, pileupUp, pileupDown)
         
         #reco Electron
-        recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
-        recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(trig_e, recoeUp, recoDown)
+#         recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
+#         recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(trig_e, recoeUp, recoDown)
         
         ttbare.addSample(ttbare_signal)
     ###
@@ -209,23 +209,23 @@ def model(year):
 #     ttbare_wjetsMC.setParamEffect(id_e, 1.02)
 #     ttbare_wjetsMC.setParamEffect(reco_e, 1.02)
     #ttbare_wjetsMC.autoMCStats()
-    addBtagSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
+#     addBtagSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
     #trigger Electron
-    trigeUp=template(background, 'W+jets', 'trig_eUp', 'ttbare')[0] 
-    trigeDown=template(background, 'W+jets', 'trig_eDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
-    #id Electron
-    id_eUp=template(background, "W+jets", 'id_eUp', 'ttbare')[0] 
-    id_eDown=template(background, "W+jets", 'id_eDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
+#     trigeUp=template(background, 'W+jets', 'trig_eUp', 'ttbare')[0] 
+#     trigeDown=template(background, 'W+jets', 'trig_eDown', 'ttbare')[0]
+#     ttbare_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     #id Electron
+#     id_eUp=template(background, "W+jets", 'id_eUp', 'ttbare')[0] 
+#     id_eDown=template(background, "W+jets", 'id_eDown', 'ttbare')[0]
+#     ttbare_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
 #     pileupUp=template(background, 'W+jets','pileupUp','ttbare')[0] 
 #     pileupDown=template(background, 'W+jets','pileupDown','ttbare')[0] 
 #     ttbare_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
-    recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
-    recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(trig_e, recoeUp, recoDown)
+#     recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
+#     recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
+#     ttbare_wjetsMC.setParamEffect(trig_e, recoeUp, recoDown)
     # addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
     ttbare.addSample(ttbare_wjetsMC)
 
@@ -245,23 +245,23 @@ def model(year):
 #     ttbare_ttMC.setParamEffect(jec, 1.05)
 #     ttbare_ttMC.setParamEffect(id_e, 1.02)
 #     ttbare_ttMC.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "TT", "ttbare", ttbare_ttMC)
+#     addBtagSyst(background, "TT", "ttbare", ttbare_ttMC)
     #trigger Electron
-    trigeUp=template(background, 'TT', 'trig_eUp', 'ttbare')[0] 
-    trigeDown=template(background, 'TT', 'trig_eDown', 'ttbare')[0]
-    ttbare_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'TT', 'trig_eUp', 'ttbare')[0] 
+#     trigeDown=template(background, 'TT', 'trig_eDown', 'ttbare')[0]
+#     ttbare_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
-    id_eUp=template(background, "TT", 'id_eUp', 'ttbare')[0] 
-    id_eDown=template(background, "TT", 'id_eDown', 'ttbare')[0]
-    ttbare_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
+#     id_eUp=template(background, "TT", 'id_eUp', 'ttbare')[0] 
+#     id_eDown=template(background, "TT", 'id_eDown', 'ttbare')[0]
+#     ttbare_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
 #     pileupUp=template(background, 'TT','pileupUp','ttbare')[0] 
 #     pileupDown=template(background, 'TT','pileupDown','ttbare')[0] 
 #     ttbare_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
-    recoeUp=template(background, 'TT', 'reco_eUp', 'ttbare')[0] 
-    recoDown=template(background, 'TT', 'reco_eDown', 'ttbare')[0]
-    ttbare_ttMC.setParamEffect(trig_e, recoeUp, recoDown)
+#     recoeUp=template(background, 'TT', 'reco_eUp', 'ttbare')[0] 
+#     recoDown=template(background, 'TT', 'reco_eDown', 'ttbare')[0]
+#     ttbare_ttMC.setParamEffect(trig_e, recoeUp, recoDown)
     # ttbare_ttMC.setParamEffect(ttMC_norm, 1.2)
     ttbare.addSample(ttbare_ttMC)
 
@@ -280,23 +280,23 @@ def model(year):
 #     ttbare_st.setParamEffect(jec, 1.05)
 #     ttbare_st.setParamEffect(id_e, 1.02)
 #     ttbare_st.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "ST", "ttbare", ttbare_st)
+#     addBtagSyst(background, "ST", "ttbare", ttbare_st)
     #trigger Electron
-    trigeUp=template(background, 'ST', 'trig_eUp', 'ttbare')[0] 
-    trigeDown=template(background, 'ST', 'trig_eDown', 'ttbare')[0]
-    ttbare_st.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'ST', 'trig_eUp', 'ttbare')[0] 
+#     trigeDown=template(background, 'ST', 'trig_eDown', 'ttbare')[0]
+#     ttbare_st.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
-    id_eUp=template(background, "ST", 'id_eUp', 'ttbare')[0] 
-    id_eDown=template(background, "ST", 'id_eDown', 'ttbare')[0]
-    ttbare_st.setParamEffect(id_e, id_eUp, id_eDown)
+#     id_eUp=template(background, "ST", 'id_eUp', 'ttbare')[0] 
+#     id_eDown=template(background, "ST", 'id_eDown', 'ttbare')[0]
+#     ttbare_st.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
 #     pileupUp=template(background, 'ST','pileupUp','ttbare')[0] 
 #     pileupDown=template(background, 'ST','pileupDown','ttbare')[0] 
 #     ttbare_st.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
-    recoeUp=template(background, 'ST', 'reco_eUp', 'ttbare')[0] 
-    recoDown=template(background, 'ST', 'reco_eDown', 'ttbare')[0]
-    ttbare_st.setParamEffect(trig_e, recoeUp, recoDown)
+#     recoeUp=template(background, 'ST', 'reco_eUp', 'ttbare')[0] 
+#     recoDown=template(background, 'ST', 'reco_eDown', 'ttbare')[0]
+#     ttbare_st.setParamEffect(trig_e, recoeUp, recoDown)
     ttbare.addSample(ttbare_st)
 
     # DY Jet Background
@@ -311,24 +311,24 @@ def model(year):
 #     ttbare_dyjets.setParamEffect(jec, 1.05)
 #     ttbare_dyjets.setParamEffect(id_e, 1.02)
 #     ttbare_dyjets.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
-    addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
+#     addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
+#     addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
     #trigger Electron
-    trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
-    trigeDown=template(background, 'DY+jets', 'trig_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
+#     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
-    id_eUp=template(background, "DY+jets", 'id_eUp', 'ttbare')[0] 
-    id_eDown=template(background, "DY+jets", 'id_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
+#     id_eUp=template(background, "DY+jets", 'id_eUp', 'ttbare')[0] 
+#     id_eDown=template(background, "DY+jets", 'id_eDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
 #     pileupUp=template(background, 'DY+jets','pileupUp','ttbare')[0] 
 #     pileupDown=template(background, 'DY+jets','pileupDown','ttbare')[0] 
 #     ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
-    recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
-    recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(trig_e, recoeUp, recoDown)
+#     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
+#     recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(trig_e, recoeUp, recoDown)
     ttbare.addSample(ttbare_dyjets)
 
 
@@ -344,15 +344,15 @@ def model(year):
 #     ttbare_vv.setParamEffect(jec, 1.05)
 #     ttbare_vv.setParamEffect(id_e, 1.02)
 #     ttbare_vv.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "VV", "ttbare", ttbare_vv)
-    #trigger Electron
-    trigeUp=template(background, 'VV', 'trig_eUp', 'ttbare')[0] 
-    trigeDown=template(background, 'VV', 'trig_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(trig_e, trigeUp, trigeDown)
-    #id Electron
-    id_eUp=template(background, "VV", 'id_eUp', 'ttbare')[0] 
-    id_eDown=template(background, "VV", 'id_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(id_e, id_eUp, id_eDown)
+#     addBtagSyst(background, "VV", "ttbare", ttbare_vv)
+#     #trigger Electron
+#     trigeUp=template(background, 'VV', 'trig_eUp', 'ttbare')[0] 
+#     trigeDown=template(background, 'VV', 'trig_eDown', 'ttbare')[0]
+#     ttbare_vv.setParamEffect(trig_e, trigeUp, trigeDown)
+#     #id Electron
+#     id_eUp=template(background, "VV", 'id_eUp', 'ttbare')[0] 
+#     id_eDown=template(background, "VV", 'id_eDown', 'ttbare')[0]
+#     ttbare_vv.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
 #     pileupUp=template(background, 'VV','pileupUp','ttbare')[0] 
 #     pileupDown=template(background, 'VV','pileupDown','ttbare')[0] 
@@ -376,23 +376,23 @@ def model(year):
 #     ttbare_qcd.setParamEffect(jec, 1.05)
 #     ttbare_qcd.setParamEffect(id_e, 1.02)
 #     ttbare_qcd.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "QCD", "ttbare", ttbare_qcd)
+#     addBtagSyst(background, "QCD", "ttbare", ttbare_qcd)
     #trigger Electron
-    trigeUp=template(background, 'QCD', 'trig_eUp', 'ttbare')[0] 
-    trigeDown=template(background, 'QCD', 'trig_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
-    #id Electron
-    id_eUp=template(background, "QCD", 'id_eUp', 'ttbare')[0] 
-    id_eDown=template(background, "QCD", 'id_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(id_e, id_eUp, id_eDown)
+#     trigeUp=template(background, 'QCD', 'trig_eUp', 'ttbare')[0] 
+#     trigeDown=template(background, 'QCD', 'trig_eDown', 'ttbare')[0]
+#     ttbare_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+#     #id Electron
+#     id_eUp=template(background, "QCD", 'id_eUp', 'ttbare')[0] 
+#     id_eDown=template(background, "QCD", 'id_eDown', 'ttbare')[0]
+#     ttbare_qcd.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
 #     pileupUp=template(background, 'QCD','pileupUp','ttbare')[0] 
 #     pileupDown=template(background, 'QCD','pileupDown','ttbare')[0] 
 #     ttbare_qcd.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
-    recoeUp=template(background, 'QCD', 'reco_eUp', 'ttbare')[0] 
-    recoDown=template(background, 'QCD', 'reco_eDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(trig_e, recoeUp, recoDown)
+#     recoeUp=template(background, 'QCD', 'reco_eUp', 'ttbare')[0] 
+#     recoDown=template(background, 'QCD', 'reco_eDown', 'ttbare')[0]
+#     ttbare_qcd.setParamEffect(trig_e, recoeUp, recoDown)
     
     ttbare.addSample(ttbare_qcd)
     return model
