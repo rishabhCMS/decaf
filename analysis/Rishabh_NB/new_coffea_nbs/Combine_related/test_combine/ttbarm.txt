@@ -1,0 +1,24 @@
+# Datacard for <Channel (ttbarm) instance at 0x7f5187053080> generated on 2022-05-10 01:24:14.071288
+imax 1 # number of categories ('bins' but here we are using shape templates)
+jmax 6 # number of samples minus 1
+kmax 13 # number of nuisance parameters
+shapes * ttbarm ControlRegionModel.root ControlRegionModel:ttbarm_$PROCESS ControlRegionModel:ttbarm_$PROCESS_$SYSTEMATIC
+bin ttbarm
+observation 51547.000
+bin                           ttbarm    ttbarm     ttbarm    ttbarm    ttbarm  ttbarm  ttbarm
+process            Mphi1995_Mchi1000   wjetsMC       ttMC      stMC  dyjetsMC    vvMC   qcdMC
+process                            0         1          2         3         4       5       6
+rate                          51.020  1138.226  49920.778  2723.402   130.955  52.080  53.838
+btag2018 shape                1.0000    1.0000     1.0000    1.0000    1.0000  1.0000  1.0000
+ew1 shape                          -         -          -         -    1.0000       -       -
+ew2Z shape                         -         -          -         -    1.0000       -       -
+ew3Z shape                         -         -          -         -    1.0000       -       -
+id_m2018 shape                1.0000         -          -         -         -       -       -
+lumi2018 lnN                  1.0270    1.0270     1.0270    1.0270    1.0270  1.0270  1.0270
+mix shape                          -         -          -         -    1.0000       -       -
+muF lnN                            -         -          -         -    1.0053       -       -
+muR lnN                            -         -          -         -    1.0084       -       -
+pileup2018 shapeN                  -    1.0000          -         -         -       -       -
+qcd1 shape                         -         -          -         -    1.0000       -       -
+qcd2 shape                         -         -          -         -    1.0000       -       -
+trig_m2018 shape              1.0000         -          -    1.0000         -       -       -
