@@ -431,8 +431,8 @@ for year in ['2016','2018', '2017']:
 get_mu_tight_id_err_postVFP = {}
 get_mu_loose_id_err_postVFP = {}
 for year in ['2016','2018', '2017']:
-    get_mu_tight_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_postVFP[year].variances, mu_tight_hist_preVFP[year].edges)
-    get_mu_loose_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_postVFP[year].variances, mu_loose_hist_preVFP[year].edges)
+    get_mu_tight_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_tight_hist_postVFP[year].variances ** 0.5, mu_tight_hist_preVFP[year].edges)
+    get_mu_loose_id_err_postVFP[year] = lookup_tools.dense_lookup.dense_lookup(mu_loose_hist_postVFP[year].variances ** 0.5, mu_loose_hist_preVFP[year].edges)
 ###
 # Muon isolation SFs
 ###
