@@ -478,7 +478,7 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "shapeN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     
     with open(
         "data/"+"test_ttbare"+year+".model",
