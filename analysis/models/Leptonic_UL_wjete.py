@@ -239,7 +239,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjete_ttTemplate
     )
-    wjete_ttMC.setParamEffect(lumi, 1.027)
+    wjete_ttMC.setParamEffect(lumi, 1.015)
 #     wjete_ttMC.setParamEffect(trig_e, 1.01)
 #     wjete_ttMC.setParamEffect(veto_tau, 1.03)
 #     wjete_ttMC.setParamEffect(jec, 1.05)
@@ -478,7 +478,7 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "shapeN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     
     with open(
         "data/"+"test_wjete"+year+".model",
