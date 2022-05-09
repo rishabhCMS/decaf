@@ -56,7 +56,7 @@ def remap_histograms(hists):
     sig_map["Mphi2000_Mchi500"] = ("Mphi-2000_Mchi-500")
 #     haven't processed signal yet
     for signal in hists['sig']['template'].identifiers('process'):
-        if 'mchi' not in str(signal): continue
+        if 'Mchi' not in str(signal): continue
         sig_map[str(signal)] = (str(signal),)  ## signals
 
     for key in hists["data"].keys():
