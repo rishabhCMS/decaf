@@ -189,7 +189,7 @@ def model(year):
         recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
         recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
         ttbare_signal.setParamEffect(reco_e, recoeUp, recoDown)
-        ttbare_signal.autoMCStats()
+#         ttbare_signal.autoMCStats()
         ttbare.addSample(ttbare_signal)
     ###
     # W(->lnu)+jets data-driven model
