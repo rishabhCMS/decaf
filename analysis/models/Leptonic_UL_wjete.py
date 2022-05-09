@@ -164,7 +164,7 @@ def model(year):
         if 'Mphi1995' not in str(s): continue
         wjete_signalTemplate = template(signal,s,'nominal','wjete')
         wjete_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjete_signalTemplate)
-        wjete_signal.setParamEffect(lumi, 1.027)
+        wjete_signal.setParamEffect(lumi, 1.015)
     #     sr_signal.setParamEffect(trig_met, 1.01)
     #     sr_signal.setParamEffect(veto_tau, 1.03)
     #     sr_signal.setParamEffect(jec, 1.05)
@@ -201,7 +201,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjete_wjetsTemplate
     )
-    wjete_wjetsMC.setParamEffect(lumi, 1.027)
+    wjete_wjetsMC.setParamEffect(lumi, 1.015)
 #     wjete_wjetsMC.setParamEffect(trig_e, 1.01)
 #     wjete_wjetsMC.setParamEffect(veto_tau, 1.03)
 #     wjete_wjetsMC.setParamEffect(wjets_norm, 1.4)
@@ -273,7 +273,7 @@ def model(year):
     wjete_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
     )
-    wjete_st.setParamEffect(lumi, 1.027)
+    wjete_st.setParamEffect(lumi, 1.015)
 #     wjete_st.setParamEffect(trig_e, 1.01)
 #     wjete_st.setParamEffect(veto_tau, 1.03)
 #     wjete_st.setParamEffect(st_norm, 1.2) something related to signal
@@ -304,7 +304,7 @@ def model(year):
     wjete_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjete_dyjetsTemplate
     )
-    wjete_dyjets.setParamEffect(lumi, 1.027)
+    wjete_dyjets.setParamEffect(lumi, 1.015)
 #     wjete_dyjets.setParamEffect(trig_e, 1.01)
 #     wjete_dyjets.setParamEffect(veto_tau, 1.03)
 #     wjete_dyjets.setParamEffect(zjetsMC_norm, 1.4)
@@ -337,7 +337,7 @@ def model(year):
     wjete_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjete_vvTemplate
     )
-    wjete_vv.setParamEffect(lumi, 1.027)
+    wjete_vv.setParamEffect(lumi, 1.015)
 #     wjete_vv.setParamEffect(trig_e, 1.01)
 #     wjete_vv.setParamEffect(veto_tau, 1.03)
 #     wjete_vv.setParamEffect(vv_norm, 1.2)
@@ -369,7 +369,7 @@ def model(year):
     wjete_qcd = rl.TemplateSample(
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, wjete_qcdTemplate
     )
-    wjete_qcd.setParamEffect(lumi, 1.027)
+    wjete_qcd.setParamEffect(lumi, 1.015)
 #     wjete_qcd.setParamEffect(trig_e, 1.01)
 #     wjete_qcd.setParamEffect(veto_tau, 1.03)
 #     wjete_qcd.setParamEffect(qcde_norm, 2.0)
