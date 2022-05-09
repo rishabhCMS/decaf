@@ -445,21 +445,21 @@ if __name__ == "__main__":
     ###
     ###
     lumi = rl.NuisanceParameter("lumi" + year, "lnN")
-    zjets_norm = rl.NuisanceParameter("zjets_norm", "lnN")
-    wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
-    tt_norm = rl.NuisanceParameter("tt_norm", "lnN")
+#     zjets_norm = rl.NuisanceParameter("zjets_norm", "lnN")
+#     wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
+#     tt_norm = rl.NuisanceParameter("tt_norm", "lnN")
     id_e = rl.NuisanceParameter("id_e" + year, "shape")
-    id_m = rl.NuisanceParameter("id_m" + year, "lnN")
-    id_pho = rl.NuisanceParameter("id_pho" + year, "lnN")
+    id_m = rl.NuisanceParameter("id_m" + year, "shape")
+#     id_pho = rl.NuisanceParameter("id_pho" + year, "lnN")
     reco_e = rl.NuisanceParameter("reco_e" + year, "shape")
     isolation_m = rl.NuisanceParameter("isolation_m" + year, "shape")
     trig_e = rl.NuisanceParameter("trig_e" + year, "shape")
     trig_m = rl.NuisanceParameter("trig_m" + year, "shape")
 
-    veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
+#     veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
     jec = rl.NuisanceParameter("jec" + year, "lnN")
     #btag = rl.NuisanceParameter("btag" + year, "shapeN")  # AK4 btag
-    btag = rl.NuisanceParameter("btag" + year, "shape")  # AK4 btag
+    btag = rl.NuisanceParameter("btag" + year, "shapeN")  # AK4 btag
     ew1 = rl.NuisanceParameter("ew1", "lnN")
     #ew2G = rl.NuisanceParameter("ew2G", "lnN")
     ew2W = rl.NuisanceParameter("ew2W", "lnN")
