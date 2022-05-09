@@ -188,7 +188,7 @@ def model(year):
         #reco Electron
         recoeUp=template(signal, s, 'reco_eUp', 'wjete')[0] 
         recoDown=template(signal, s, 'reco_eDown', 'wjete')[0]
-        wjete_signal.setParamEffect(trig_e, recoeUp, recoDown)
+        wjete_signal.setParamEffect(reco_e, recoeUp, recoDown)
         
         wjete.addSample(wjete_signal)
     ###
@@ -225,7 +225,7 @@ def model(year):
     #reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(trig_e, recoeUp, recoDown)
+    wjete_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
     # addVJetsSyst(background, "W+jets", "wjete", wjete_wjetsMC)
     wjete.addSample(wjete_wjetsMC)
 
@@ -261,7 +261,7 @@ def model(year):
     #reco Electron
     recoeUp=template(background, 'TT', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'TT', 'reco_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(trig_e, recoeUp, recoDown)
+    wjete_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
     # wjete_ttMC.setParamEffect(ttMC_norm, 1.2)
     wjete.addSample(wjete_ttMC)
 
@@ -296,7 +296,7 @@ def model(year):
     #reco Electron
     recoeUp=template(background, 'ST', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'ST', 'reco_eDown', 'wjete')[0]
-    wjete_st.setParamEffect(trig_e, recoeUp, recoDown)
+    wjete_st.setParamEffect(reco_e, recoeUp, recoDown)
     wjete.addSample(wjete_st)
 
     # DY Jet Background
@@ -328,7 +328,7 @@ def model(year):
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(trig_e, recoeUp, recoDown)
+    wjete_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
     wjete.addSample(wjete_dyjets)
 
 
@@ -360,7 +360,7 @@ def model(year):
     #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(trig_e, recoeUp, recoDown)
+    wjete_vv.setParamEffect(reco_e, recoeUp, recoDown)
     
     wjete.addSample(wjete_vv)
 
@@ -392,7 +392,7 @@ def model(year):
     #reco Electron
     recoeUp=template(background, 'QCD', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'QCD', 'reco_eDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(trig_e, recoeUp, recoDown)
+    wjete_qcd.setParamEffect(reco_e, recoeUp, recoDown)
     
     wjete.addSample(wjete_qcd)
     return model
