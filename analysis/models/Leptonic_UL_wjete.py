@@ -181,9 +181,9 @@ def model(year):
         id_eDown=template(signal, s, 'id_eDown', 'wjete')[0]
         wjete_signal.setParamEffect(id_e, id_eUp, id_eDown)
         #pileup
-#         pileupUp=template(signal, s,'pileupUp','wjete')[0] 
-#         pileupDown=template(signal, s,'pileupDown','wjete')[0] 
-#         wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
+        pileupUp=template(signal, s,'pileupUp','wjete')[0] 
+        pileupDown=template(signal, s,'pileupDown','wjete')[0] 
+        wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
         
         #reco Electron
         recoeUp=template(signal, s, 'reco_eUp', 'wjete')[0] 
@@ -219,9 +219,9 @@ def model(year):
     id_eDown=template(background, "W+jets", 'id_eDown', 'wjete')[0]
     wjete_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-#     pileupUp=template(background, 'W+jets','pileupUp','wjete')[0] 
-#     pileupDown=template(background, 'W+jets','pileupDown','wjete')[0] 
-#     wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+    pileupUp=template(background, 'W+jets','pileupUp','wjete')[0] 
+    pileupDown=template(background, 'W+jets','pileupDown','wjete')[0] 
+    wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'wjete')[0]
@@ -255,9 +255,9 @@ def model(year):
     id_eDown=template(background, "TT", 'id_eDown', 'wjete')[0]
     wjete_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-#     pileupUp=template(background, 'TT','pileupUp','wjete')[0] 
-#     pileupDown=template(background, 'TT','pileupDown','wjete')[0] 
-#     wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+    pileupUp=template(background, 'TT','pileupUp','wjete')[0] 
+    pileupDown=template(background, 'TT','pileupDown','wjete')[0] 
+    wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'TT', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'TT', 'reco_eDown', 'wjete')[0]
@@ -290,9 +290,9 @@ def model(year):
     id_eDown=template(background, "ST", 'id_eDown', 'wjete')[0]
     wjete_st.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-#     pileupUp=template(background, 'ST','pileupUp','wjete')[0] 
-#     pileupDown=template(background, 'ST','pileupDown','wjete')[0] 
-#     wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
+    pileupUp=template(background, 'ST','pileupUp','wjete')[0] 
+    pileupDown=template(background, 'ST','pileupDown','wjete')[0] 
+    wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'ST', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'ST', 'reco_eDown', 'wjete')[0]
@@ -322,9 +322,9 @@ def model(year):
     id_eDown=template(background, "DY+jets", 'id_eDown', 'wjete')[0]
     wjete_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-#     pileupUp=template(background, 'DY+jets','pileupUp','wjete')[0] 
-#     pileupDown=template(background, 'DY+jets','pileupDown','wjete')[0] 
-#     wjete_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+    pileupUp=template(background, 'DY+jets','pileupUp','wjete')[0] 
+    pileupDown=template(background, 'DY+jets','pileupDown','wjete')[0] 
+    wjete_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'wjete')[0]
@@ -354,9 +354,9 @@ def model(year):
     id_eDown=template(background, "VV", 'id_eDown', 'wjete')[0]
     wjete_vv.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-#     pileupUp=template(background, 'VV','pileupUp','wjete')[0] 
-#     pileupDown=template(background, 'VV','pileupDown','wjete')[0] 
-#     wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
+    pileupUp=template(background, 'VV','pileupUp','wjete')[0] 
+    pileupDown=template(background, 'VV','pileupDown','wjete')[0] 
+    wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'wjete')[0]
@@ -386,9 +386,9 @@ def model(year):
     id_eDown=template(background, "QCD", 'id_eDown', 'wjete')[0]
     wjete_qcd.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-#     pileupUp=template(background, 'QCD','pileupUp','wjete')[0] 
-#     pileupDown=template(background, 'QCD','pileupDown','wjete')[0] 
-#     wjete_qcd.setParamEffect(pileup, pileupUp, pileupDown)
+    pileupUp=template(background, 'QCD','pileupUp','wjete')[0] 
+    pileupDown=template(background, 'QCD','pileupDown','wjete')[0] 
+    wjete_qcd.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'QCD', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'QCD', 'reco_eDown', 'wjete')[0]
@@ -478,7 +478,7 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "shape")
+    pileup = rl.NuisanceParameter("pileup"+year, "shapeN")
     
     with open(
         "data/"+"test_wjete"+year+".model",
