@@ -1975,38 +1975,38 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'L1PreFiringWeight' in events.fields:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-#                 weights.add('nlo_qcd', nlo_qcd)
+                weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
-#                 if 'cen' in nnlo_nlo:
-#                     print("if 'cen' in nnlo_nlo")
-# #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
-#                     weights.add('qcd1', np.ones(
-#                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
-#                     weights.add('qcd2', np.ones(
-#                         event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
-#                     weights.add('qcd3', np.ones(
-#                         event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
-#                     weights.add('ew1', np.ones(
-#                         event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
-#                     weights.add('ew2G', np.ones(
-#                         event_size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3G', np.ones(
-#                         event_size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
-#                     weights.add('ew2W', np.ones(
-#                         event_size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3W', np.ones(
-#                         event_size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
-#                     weights.add('ew2Z', np.ones(
-#                         event_size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
-#                     weights.add('ew3Z', np.ones(
-#                         event_size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
-#                     weights.add('mix', np.ones(
-#                         event_size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
-#                     weights.add('muF', np.ones(
-#                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
-#                     weights.add('muR', np.ones(
-#                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
+                if 'cen' in nnlo_nlo:
+                    print("if 'cen' in nnlo_nlo")
+                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    weights.add('qcd1', np.ones(
+                        event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+                    weights.add('qcd2', np.ones(
+                        event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+                    weights.add('qcd3', np.ones(
+                        event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+                    weights.add('ew1', np.ones(
+                        event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
+                    weights.add('ew2G', np.ones(
+                        event_size), nnlo_nlo['ew2Gup']/nnlo_nlo['cen'], nnlo_nlo['ew2Gdo']/nnlo_nlo['cen'])
+                    weights.add('ew3G', np.ones(
+                        event_size), nnlo_nlo['ew3Gup']/nnlo_nlo['cen'], nnlo_nlo['ew3Gdo']/nnlo_nlo['cen'])
+                    weights.add('ew2W', np.ones(
+                        event_size), nnlo_nlo['ew2Wup']/nnlo_nlo['cen'], nnlo_nlo['ew2Wdo']/nnlo_nlo['cen'])
+                    weights.add('ew3W', np.ones(
+                        event_size), nnlo_nlo['ew3Wup']/nnlo_nlo['cen'], nnlo_nlo['ew3Wdo']/nnlo_nlo['cen'])
+                    weights.add('ew2Z', np.ones(
+                        event_size), nnlo_nlo['ew2Zup']/nnlo_nlo['cen'], nnlo_nlo['ew2Zdo']/nnlo_nlo['cen'])
+                    weights.add('ew3Z', np.ones(
+                        event_size), nnlo_nlo['ew3Zup']/nnlo_nlo['cen'], nnlo_nlo['ew3Zdo']/nnlo_nlo['cen'])
+                    weights.add('mix', np.ones(
+                        event_size), nnlo_nlo['mixup']/nnlo_nlo['cen'], nnlo_nlo['mixdo']/nnlo_nlo['cen'])
+                    weights.add('muF', np.ones(
+                        event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
+                    weights.add('muR', np.ones(
+                        event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
                 weights.add('pileup', pu, puUp, puDown)
                 
                 if 'e' == region[-1]:
@@ -2067,32 +2067,32 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematics = ['nominal',
                                        'btagUp',
                                        'btagDown',
-#                                        'qcd1Up',
-#                                        'qcd1Down',
-#                                        'qcd2Up',
-#                                        'qcd2Down',
-#                                        'qcd3Up',
-#                                        'qcd3Down',
-#                                        'muFUp',
-#                                        'muFDown',
-#                                        'muRUp',
-#                                        'muRDown',
-#                                        'ew1Up',
-#                                        'ew1Down',
-#                                        'ew2GUp',
-#                                        'ew2GDown',
-#                                        'ew2WUp',
-#                                        'ew2WDown',
-#                                        'ew2ZUp',
-#                                        'ew2ZDown',
-#                                        'ew3GUp',
-#                                        'ew3GDown',
-#                                        'ew3WUp',
-#                                        'ew3WDown',
-#                                        'ew3ZUp',
-#                                        'ew3ZDown',
-#                                        'mixUp',
-#                                        'mixDown',
+                                       'qcd1Up',
+                                       'qcd1Down',
+                                       'qcd2Up',
+                                       'qcd2Down',
+                                       'qcd3Up',
+                                       'qcd3Down',
+                                       'muFUp',
+                                       'muFDown',
+                                       'muRUp',
+                                       'muRDown',
+                                       'ew1Up',
+                                       'ew1Down',
+                                       'ew2GUp',
+                                       'ew2GDown',
+                                       'ew2WUp',
+                                       'ew2WDown',
+                                       'ew2ZUp',
+                                       'ew2ZDown',
+                                       'ew3GUp',
+                                       'ew3GDown',
+                                       'ew3WUp',
+                                       'ew3WDown',
+                                       'ew3ZUp',
+                                       'ew3ZDown',
+                                       'mixUp',
+                                       'mixDown',
                                        trig_name+'Up', trig_name+'Down',
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
