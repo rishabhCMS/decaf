@@ -971,11 +971,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 print(shift_syst)
 
             elif shift_syst == "METunclUp":
-                met = met.MET_UnclusteredEnergy.up
+                met = corrected_mets.MET_UnclusteredEnergy.up
                 j   = events.Jet
             
             elif shift_syst == "METunclDown":
-                met = met.MET_UnclusteredEnergy.down
+                met = corrected_mets.MET_UnclusteredEnergy.down
                 j   = events.Jet
                 
             else:
