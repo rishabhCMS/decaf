@@ -979,8 +979,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-                j   = corrected_jets
-#                 j   = events.Jet
+#                 j   = corrected_jets
+                j   = events.Jet
                 met = events.MET
 #                 met = corrected_mets
 #                 print(shift_syst)
@@ -1221,15 +1221,14 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         j_dflvM = j_good_clean[ak.values_astype(j_good_clean.isdflvM, np.bool)]
         j_ndflvM = ak.num(j_dflvM, axis=1)
-        leading_j = j_good_clean[:,:1]
-#         leading_j = j[:,:1]
-#         leading_j = leading_j[leading_j.isgood]
-#         leading_j = leading_j[leading_j.isclean]
+#         leading_j = j_good_clean[:,:1]
+        leading_j = j[:,:1]
+        leading_j = leading_j[leading_j.isgood]
+        leading_j = leading_j[leading_j.isclean]
 #         leadhing_j = leading_j[]
 #         print(ak.max(leading_j.eta))
         atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(leading_j.pt>70, axis=1))
 #         atleast_one_jet_with_pt_grt_50 = (j_ngood>0)&(ak.any(j_good.pt>70, axis=-1))
-        leading_j
         print("ak.any(leading_j.pt>70, axis=1)", ak.any(leading_j.pt>50, axis=1))
 #         import sys
 #         sys.exit(0)
@@ -1980,7 +1979,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
                     print("if 'cen' in nnlo_nlo")
-                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
                     weights.add('qcd1', np.ones(
                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
                     weights.add('qcd2', np.ones(
