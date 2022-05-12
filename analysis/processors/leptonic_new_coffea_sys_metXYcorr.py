@@ -1216,12 +1216,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         j_dflvM = j_good_clean[ak.values_astype(j_good_clean.isdflvM, np.bool)]
         j_ndflvM = ak.num(j_dflvM, axis=1)
-#         leading_j = j_good_clean[:,:1]
+        leading_j = j_good_clean[:,:1]
 #         leadhing_j = leading_j[]
 #         print(ak.max(leading_j.eta))
         atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(leading_j.pt>70, axis=1))
 #         atleast_one_jet_with_pt_grt_50 = (j_ngood>0)&(ak.any(j_good.pt>70, axis=-1))
-        print("ak.any(leading_j.pt>70, axis=1)", ak.any(leading_j.pt>50, axis=1))
+#         print("ak.any(leading_j.pt>70, axis=1)", ak.any(leading_j.pt>50, axis=1))
 #         import sys
 #         sys.exit(0)
 #         atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>0) & ak.any(leading_j.pt>70, axis=-1))
