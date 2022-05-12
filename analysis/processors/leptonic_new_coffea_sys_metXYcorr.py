@@ -1044,8 +1044,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         mu_ntot = ak.num(mu, axis=1)
         mu_nloose = ak.num(mu_loose, axis=1)
         mu_ntight = ak.num(mu_tight, axis=1)
-        leading_mu = mu[:,:1]
-        leading_mu = leading_mu[ak.values_astype(leading_mu.istight, np.bool)]
+        leading_mu = mu_tight[:,:1]
         
         
         e = events.Electron
@@ -1079,9 +1078,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         e_nloose = e_loose.counts
         e_ntight = ak.num(e_tight, axis=1)
-        leading_e = e[:,:1]
-        leading_e = leading_e[ak.values_astype(leading_e.isclean, np.bool)]
-        leading_e = leading_e[ak.values_astype(leading_e.istight, np.bool)]
+        leading_e = e_tight[:,:1]
         
 
         tau = events.Tau
@@ -1118,9 +1115,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         pho_ntot = ak.num(pho,axis=1)
         pho_nloose = ak.num(pho_loose, axis=1)
         pho_ntight = ak.num(pho_tight, axis=1)
-        leading_pho = pho[:,:1] #new way to define leading photon
-        leading_pho = leading_pho[ak.values_astype(leading_pho.isclean, np.bool)]
-        leading_pho = leading_pho[ak.values_astype(leading_pho.istight, np.bool)]
+        leading_pho = pho_tight[:,:1] #new way to define leading photon
 
 #         j = events.Jet
 #         JET Corrections
@@ -1222,9 +1217,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_dflvM = j_good_clean[ak.values_astype(j_good_clean.isdflvM, np.bool)]
         j_ndflvM = ak.num(j_dflvM, axis=1)
 #         leading_j = j_good_clean[:,:1]
-        leading_j = j[:,:1]
-        leading_j = leading_j[leading_j.isgood]
-        leading_j = leading_j[leading_j.isclean]
 #         leadhing_j = leading_j[]
 #         print(ak.max(leading_j.eta))
         atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(leading_j.pt>70, axis=1))
