@@ -887,18 +887,18 @@ class AnalysisProcessor(processor.ProcessorABC):
         if (self._year == '2016'):
             if ("preVFP" in dataset):
 #                 print(self._jr[self._year]['apv'][0])
-#                 list_of_jec = self._jec[self._year]['apv']
+                list_of_jec = self._jec[self._year]['apv']
                 list_of_jr = self._jr[self._year]['apv']
                 list_of_junc = self._junc[self._year]['apv']
                 list_of_jersf = self._jersf[self._year]['apv']
             else: 
-#                 list_of_jec = self._jec[self._year]['no_apv']
+                list_of_jec = self._jec[self._year]['apv']
                 list_of_jr =self ._jr[self._year]['no_apv']
                 list_of_junc =self ._junc[self._year]['no_apv']
                 list_of_jersf = self._jersf[self._year]['no_apv']
                 
-#             for name in list_of_jec:
-#                 jec_names.append(name)
+            for name in list_of_jec:
+                jec_names.append(name)
             for name in list_of_jr:
                 jec_names.append(name)
             for name in list_of_junc:
@@ -906,8 +906,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             for name in list_of_jersf:
                 jec_names.append(name)                
         else:
-#             for name in self._jec[self._year]:
-#                 jec_names.append(name)                 
+            for name in self._jec[self._year]:
+                jec_names.append(name)                 
             for name in self._jr[self._year]:
                 jec_names.append(name)    
             for name in self._jersf[self._year]:
@@ -971,18 +971,18 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 print(shift_syst)
 
             elif shift_syst == "METunclUp":
-                met = corrected_mets.MET_UnclusteredEnergy.up
+                met = met.MET_UnclusteredEnergy.up
                 j   = events.Jet
             
             elif shift_syst == "METunclDown":
-                met = corrected_mets.MET_UnclusteredEnergy.down
+                met = met.MET_UnclusteredEnergy.down
                 j   = events.Jet
                 
             else:
 #                 j   = corrected_jets
                 j   = events.Jet
-                met = events.MET
-#                 met = corrected_mets
+#                 met = events.MET
+                met = corrected_mets
 #                 print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
@@ -1044,7 +1044,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         mu_ntot = ak.num(mu, axis=1)
         mu_nloose = ak.num(mu_loose, axis=1)
         mu_ntight = ak.num(mu_tight, axis=1)
-        leading_mu = mu_tight[:,:1]
+        leading_mu = mu[:,:1]
+        leading_mu = leading_mu[ak.values_astype(leading_mu.istight, np.bool)]
         
         
         e = events.Electron
@@ -1078,7 +1079,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         e_nloose = e_loose.counts
         e_ntight = ak.num(e_tight, axis=1)
-        leading_e = e_tight[:,:1]
+        leading_e = e[:,:1]
+        leading_e = leading_e[ak.values_astype(leading_e.isclean, np.bool)]
+        leading_e = leading_e[ak.values_astype(leading_e.istight, np.bool)]
         
 
         tau = events.Tau
@@ -1115,7 +1118,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         pho_ntot = ak.num(pho,axis=1)
         pho_nloose = ak.num(pho_loose, axis=1)
         pho_ntight = ak.num(pho_tight, axis=1)
-        leading_pho = pho_tight[:,:1] #new way to define leading photon
+        leading_pho = pho[:,:1] #new way to define leading photon
+        leading_pho = leading_pho[ak.values_astype(leading_pho.isclean, np.bool)]
+        leading_pho = leading_pho[ak.values_astype(leading_pho.istight, np.bool)]
 
 #         j = events.Jet
 #         JET Corrections
@@ -1217,11 +1222,15 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_dflvM = j_good_clean[ak.values_astype(j_good_clean.isdflvM, np.bool)]
         j_ndflvM = ak.num(j_dflvM, axis=1)
         leading_j = j_good_clean[:,:1]
+#         leading_j = j[:,:1]
+#         leading_j = leading_j[leading_j.isgood]
+#         leading_j = leading_j[leading_j.isclean]
 #         leadhing_j = leading_j[]
 #         print(ak.max(leading_j.eta))
         atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(leading_j.pt>70, axis=1))
 #         atleast_one_jet_with_pt_grt_50 = (j_ngood>0)&(ak.any(j_good.pt>70, axis=-1))
-#         print("ak.any(leading_j.pt>70, axis=1)", ak.any(leading_j.pt>50, axis=1))
+        leading_j
+        print("ak.any(leading_j.pt>70, axis=1)", ak.any(leading_j.pt>50, axis=1))
 #         import sys
 #         sys.exit(0)
 #         atleast_one_jet_with_pt_grt_50 = ((ak.num(j_good_clean)>0) & ak.any(leading_j.pt>70, axis=-1))
@@ -1593,8 +1602,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             for region in ['ttbare', 'ttbarm', 'wjete', 'wjetm', 'sre', 'srm']:
                 for tag in [btag, btagUp, btagDown]:
                     tag[region] = np.asarray(tag[region])
-                    mask = abs(tag[region])>=10
-                    tag[region][mask==True] = 10
+                    mask = abs(tag[region])>=5
+                    tag[region][mask==True] = 5
 
         ###
         # Selections
