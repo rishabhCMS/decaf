@@ -677,7 +677,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('dataset', 'Dataset'),
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
-                hist.Bin('npvs', 'NPVS', 20, 0, 80)),
+                hist.Bin('npvs', 'NPVS', 99, 0, 99)),
  
         })
 
