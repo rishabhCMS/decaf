@@ -173,17 +173,17 @@ def model(year):
         btagDown=template(signal, s,'btagDown','ttbarm')[0]
         ttbarm_signal.setParamEffect(btag, btagUp, btagDown)
         #trigger Muon
-#         trig_muUp=template(signal, s, 'trig_mUp', 'ttbarm')[0] 
-#         trig_muDown=template(signal, s, 'trig_mDown', 'ttbarm')[0]
-#         ttbarm_signal.setParamEffect(trig_m, trig_muUp, trig_muDown)
+        trig_muUp=template(signal, s, 'trig_mUp', 'ttbarm')[0] 
+        trig_muDown=template(signal, s, 'trig_mDown', 'ttbarm')[0]
+        ttbarm_signal.setParamEffect(trig_m, trig_muUp, trig_muDown)
         #id Muon
         id_mUp=template(signal, s, 'id_mUp', 'ttbarm')[0] 
         id_mDown=template(signal, s, 'id_mDown', 'ttbarm')[0]
         ttbarm_signal.setParamEffect(id_m, id_mUp, id_mDown)
         #pileup
-#         pileup_Up=template(signal, s,'pileupUp','ttbarm')[0] 
-#         pileup_Down=template(signal, s,'pileupDown','ttbarm')[0] 
-#         ttbarm_signal.setParamEffect(pileup, pileup_Up, pileup_Down)
+        pileup_Up=template(signal, s,'pileupUp','ttbarm')[0] 
+        pileup_Down=template(signal, s,'pileupDown','ttbarm')[0] 
+        ttbarm_signal.setParamEffect(pileup, pileup_Up, pileup_Down)
         #iso Muon
         iso_mUp=template(signal, s, 'isolation_mUp', 'ttbarm')[0] 
         iso_mDown=template(signal, s, 'isolation_mDown', 'ttbarm')[0]
@@ -209,17 +209,17 @@ def model(year):
     #ttbarm_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     #trigger Muon
-#     trig_muUp=template(background, 'W+jets', 'trig_mUp', 'ttbarm')[0] 
-#     trig_muDown=template(background, 'W+jets', 'trig_mDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
+    trig_muUp=template(background, 'W+jets', 'trig_mUp', 'ttbarm')[0] 
+    trig_muDown=template(background, 'W+jets', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_wjetsMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "W+jets", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "W+jets", 'id_mDown', 'ttbarm')[0]
     ttbarm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
-#     pileup_Up=template(background, 'W+jets','pileupUp','ttbarm')[0] 
-#     pileup_Down=template(background, 'W+jets','pileupDown','ttbarm')[0] 
-#     ttbarm_wjetsMC.setParamEffect(pileup, pileup_Up, pileup_Down)
+    pileup_Up=template(background, 'W+jets','pileupUp','ttbarm')[0] 
+    pileup_Down=template(background, 'W+jets','pileupDown','ttbarm')[0] 
+    ttbarm_wjetsMC.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'W+jets', 'isolation_mUp', 'ttbarm')[0] 
     iso_mDown=template(background, 'W+jets', 'isolation_mDown', 'ttbarm')[0]
@@ -245,17 +245,17 @@ def model(year):
 #     ttbarm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "ttbarm", ttbarm_ttMC)
     #trigger Muon
-#     trig_muUp=template(background, 'TT', 'trig_mUp', 'ttbarm')[0] 
-#     trig_muDown=template(background, 'TT', 'trig_mDown', 'ttbarm')[0]
-#     ttbarm_ttMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
+    trig_muUp=template(background, 'TT', 'trig_mUp', 'ttbarm')[0] 
+    trig_muDown=template(background, 'TT', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_ttMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "TT", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "TT", 'id_mDown', 'ttbarm')[0]
     ttbarm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
-#     pileup_Up=template(background, 'TT','pileupUp','ttbarm')[0] 
-#     pileup_Down=template(background, 'TT','pileupDown','ttbarm')[0] 
-#     ttbarm_ttMC.setParamEffect(pileup, pileup_Up, pileup_Down)
+    pileup_Up=template(background, 'TT','pileupUp','ttbarm')[0] 
+    pileup_Down=template(background, 'TT','pileupDown','ttbarm')[0] 
+    ttbarm_ttMC.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'TT', 'isolation_mUp', 'ttbarm')[0] 
     iso_mDown=template(background, 'TT', 'isolation_mDown', 'ttbarm')[0]
@@ -280,17 +280,17 @@ def model(year):
 #     ttbarm_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "ttbarm", ttbarm_st)
     #trigger Muon
-#     trig_muUp=template(background, 'ST', 'trig_mUp', 'ttbarm')[0] 
-#     trig_muDown=template(background, 'ST', 'trig_mDown', 'ttbarm')[0]
-#     ttbarm_st.setParamEffect(trig_m, trig_muUp, trig_muDown)
+    trig_muUp=template(background, 'ST', 'trig_mUp', 'ttbarm')[0] 
+    trig_muDown=template(background, 'ST', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_st.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "ST", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "ST", 'id_mDown', 'ttbarm')[0]
     ttbarm_st.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
-#     pileup_Up=template(background, 'ST','pileupUp','ttbarm')[0] 
-#     pileup_Down=template(background, 'ST','pileupDown','ttbarm')[0] 
-#     ttbarm_st.setParamEffect(pileup, pileup_Up, pileup_Down)
+    pileup_Up=template(background, 'ST','pileupUp','ttbarm')[0] 
+    pileup_Down=template(background, 'ST','pileupDown','ttbarm')[0] 
+    ttbarm_st.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'ST', 'isolation_mUp', 'ttbarm')[0] 
     iso_mDown=template(background, 'ST', 'isolation_mDown', 'ttbarm')[0]
@@ -312,17 +312,17 @@ def model(year):
     addBtagSyst(background, "DY+jets", "ttbarm", ttbarm_dyjets)
     addVJetsSyst(background,"DY+jets", "ttbarm", ttbarm_dyjets)
     #trigger Muon
-#     trig_muUp=template(background, 'DY+jets', 'trig_mUp', 'ttbarm')[0] 
-#     trig_muDown=template(background, 'DY+jets', 'trig_mDown', 'ttbarm')[0]
-#     ttbarm_dyjets.setParamEffect(trig_m, trig_muUp, trig_muDown)
+    trig_muUp=template(background, 'DY+jets', 'trig_mUp', 'ttbarm')[0] 
+    trig_muDown=template(background, 'DY+jets', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'ttbarm')[0]
     ttbarm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
-#     pileup_Up=template(background, 'DY+jets','pileupUp','ttbarm')[0] 
-#     pileup_Down=template(background, 'DY+jets','pileupDown','ttbarm')[0] 
-#     ttbarm_dyjets.setParamEffect(pileup, pileup_Up, pileup_Down)
+    pileup_Up=template(background, 'DY+jets','pileupUp','ttbarm')[0] 
+    pileup_Down=template(background, 'DY+jets','pileupDown','ttbarm')[0] 
+    ttbarm_dyjets.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'DY+jets', 'isolation_mUp', 'ttbarm')[0] 
     iso_mDown=template(background, 'DY+jets', 'isolation_mDown', 'ttbarm')[0]
@@ -344,17 +344,17 @@ def model(year):
 #     ttbarm_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "ttbarm", ttbarm_vv)
     #trigger Muon
-#     trig_muUp=template(background, 'VV', 'trig_mUp', 'ttbarm')[0] 
-#     trig_muDown=template(background, 'VV', 'trig_mDown', 'ttbarm')[0]
-#     ttbarm_vv.setParamEffect(trig_m, trig_muUp, trig_muDown)
+    trig_muUp=template(background, 'VV', 'trig_mUp', 'ttbarm')[0] 
+    trig_muDown=template(background, 'VV', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_vv.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'ttbarm')[0]
     ttbarm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
-#     pileup_Up=template(background, 'VV','pileupUp','ttbarm')[0] 
-#     pileup_Down=template(background, 'VV','pileupDown','ttbarm')[0] 
-#     ttbarm_vv.setParamEffect(pileup, pileup_Up, pileup_Down)
+    pileup_Up=template(background, 'VV','pileupUp','ttbarm')[0] 
+    pileup_Down=template(background, 'VV','pileupDown','ttbarm')[0] 
+    ttbarm_vv.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'VV', 'isolation_mUp', 'ttbarm')[0] 
     iso_mDown=template(background, 'VV', 'isolation_mDown', 'ttbarm')[0]
@@ -376,17 +376,17 @@ def model(year):
 #     ttbarm_qcd.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "QCD", "ttbarm", ttbarm_qcd)
     #trigger Muon
-#     trig_muUp=template(background, 'QCD', 'trig_mUp', 'ttbarm')[0] 
-#     trig_muDown=template(background, 'QCD', 'trig_mDown', 'ttbarm')[0]
-#     ttbarm_qcd.setParamEffect(trig_m, trig_muUp, trig_muDown)
+    trig_muUp=template(background, 'QCD', 'trig_mUp', 'ttbarm')[0] 
+    trig_muDown=template(background, 'QCD', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_qcd.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "QCD", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "QCD", 'id_mDown', 'ttbarm')[0]
     ttbarm_qcd.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
-#     pileup_Up=template(background, 'QCD','pileupUp','ttbarm')[0] 
-#     pileup_Down=template(background, 'QCD','pileupDown','ttbarm')[0] 
-#     ttbarm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
+    pileup_Up=template(background, 'QCD','pileupUp','ttbarm')[0] 
+    pileup_Down=template(background, 'QCD','pileupDown','ttbarm')[0] 
+    ttbarm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'QCD', 'isolation_mUp', 'ttbarm')[0] 
     iso_mDown=template(background, 'QCD', 'isolation_mDown', 'ttbarm')[0]
