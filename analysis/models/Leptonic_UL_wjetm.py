@@ -188,7 +188,7 @@ def model(year):
         iso_mUp=template(signal, s, 'isolation_mUp', 'wjetm')[0] 
         iso_mDown=template(signal, s, 'isolation_mDown', 'wjetm')[0]
         wjetm_signal.setParamEffect(isolation_m, iso_mUp, iso_mDown)
-        wjetm.addSample(twjetm_signal)
+        wjetm.addSample(wjetm_signal)
     ###
     # W(->lnu)+jets data-driven model
     ###
