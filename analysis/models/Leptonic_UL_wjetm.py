@@ -294,7 +294,7 @@ def model(year):
     #iso Muon
     iso_mUp=template(background, 'ST', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'ST', 'isolation_mDown', 'wjetm')[0]
-    wjetmst.setParamEffect(isolation_m, iso_mUp, iso_mDown)
+    wjetm_st.setParamEffect(isolation_m, iso_mUp, iso_mDown)
     wjetm.addSample(wjetm_st)
 
     # DY Jet Background
