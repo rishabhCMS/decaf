@@ -243,7 +243,7 @@ def model(year):
 #     ttbarm_ttMC.setParamEffect(jec, 1.05)
 #     ttbarm_ttMC.setParamEffect(id_e, 1.02)
 #     ttbarm_ttMC.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "TT", "ttbarm", ttbarm_ttMC)
+    addBtagSyst(background, "TT", "ttbarm", wjetm_ttMC)
     #trigger Muon
     trig_muUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trig_muDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
