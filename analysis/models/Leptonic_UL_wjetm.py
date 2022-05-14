@@ -360,7 +360,7 @@ def model(year):
     iso_mDown=template(background, 'VV', 'isolation_mDown', 'wjetm')[0]
     wjetm_vv.setParamEffect(isolation_m, iso_mUp, iso_mDown)
     
-    wjetm.addSample(ttbarm_vv)
+    wjetm.addSample(wjetm_vv)
 
     # QCD background
     wjetm_qcdTemplate = template(background, "QCD", "nominal", "wjetm")
