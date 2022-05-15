@@ -384,9 +384,9 @@ def model(year):
     id_mDown=template(background, "QCD", 'id_mDown', 'wjetm')[0]
     wjetm_qcd.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
-    pileup_Up=template(background, 'QCD','pileupUp','wjetm')[0] 
-    pileup_Down=template(background, 'QCD','pileupDown','wjetm')[0] 
-    wjetm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     pileup_Up=template(background, 'QCD','pileupUp','wjetm')[0] 
+#     pileup_Down=template(background, 'QCD','pileupDown','wjetm')[0] 
+#     wjetm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'QCD', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'QCD', 'isolation_mDown', 'wjetm')[0]
