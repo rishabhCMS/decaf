@@ -391,9 +391,9 @@ def model(year):
     id_eDown=template(background, "QCD", 'id_eDown', 'ttbare')[0]
     ttbare_qcd.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-    pileupUp=template(background, 'QCD','pileupUp','ttbare')[0] 
-    pileupDown=template(background, 'QCD','pileupDown','ttbare')[0] 
-    ttbare_qcd.setParamEffect(pileup, pileupUp, pileupDown)
+#     pileupUp=template(background, 'QCD','pileupUp','ttbare')[0] 
+#     pileupDown=template(background, 'QCD','pileupDown','ttbare')[0] 
+#     ttbare_qcd.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'QCD', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'QCD', 'reco_eDown', 'ttbare')[0]
