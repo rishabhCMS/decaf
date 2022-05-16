@@ -243,7 +243,7 @@ def model(year):
 #     ttbarm_ttMC.setParamEffect(jec, 1.05)
 #     ttbarm_ttMC.setParamEffect(id_e, 1.02)
 #     ttbarm_ttMC.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "TT", "ttbarm", wjetm_ttMC)
+    addBtagSyst(background, "TT", "wjetm", wjetm_ttMC)
     #trigger Muon
     trig_muUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trig_muDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
@@ -278,7 +278,7 @@ def model(year):
 #     ttbarm_st.setParamEffect(jec, 1.05)
 #     ttbarm_st.setParamEffect(id_e, 1.02)
 #     ttbarm_st.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "ST", "ttbarm", wjetm_st)
+    addBtagSyst(background, "ST", "wjetm", wjetm_st)
     #trigger Muon
     trig_muUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
     trig_muDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
@@ -298,7 +298,7 @@ def model(year):
     wjetm.addSample(wjetm_st)
 
     # DY Jet Background
-    wjetm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm")
+    wjetm_dyjetsTemplate = template(background, "DY+jets", "nominal","wjetm")
     wjetm_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjetm_dyjetsTemplate
     )
@@ -342,7 +342,7 @@ def model(year):
 #     ttbarm_vv.setParamEffect(jec, 1.05)
 #     ttbarm_vv.setParamEffect(id_e, 1.02)
 #     ttbarm_vv.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "VV", "ttbarm", wjetm_vv)
+    addBtagSyst(background, "VV", "wjetm", wjetm_vv)
     #trigger Muon
     trig_muUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
     trig_muDown=template(background, 'VV', 'trig_mDown', 'wjetm')[0]
