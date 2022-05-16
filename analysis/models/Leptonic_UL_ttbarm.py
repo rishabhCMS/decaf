@@ -418,7 +418,7 @@ if __name__ == "__main__":
     ###
 
     print("Grouping histograms")
-    hists = load("hists/UL_lep_monotop_v1_test_" + year + ".scaled")
+    hists = load("hists/UL_lep_monotop_v1_test_" + year + "_nometcrr.scaled")
     hists = remap_histograms(hists)
     data_hists = hists["data"]
     bkg_hists = hists["bkg"]
