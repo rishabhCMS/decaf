@@ -1593,8 +1593,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             for region in ['ttbare', 'ttbarm', 'wjete', 'wjetm', 'sre', 'srm']:
                 for tag in [btag, btagUp, btagDown]:
                     tag[region] = np.asarray(tag[region])
-                    mask = abs(tag[region])>=10
-                    tag[region][mask==True] = 10
+                    mask = abs(tag[region])>=4
+                    tag[region][mask==True] = 1
 
         ###
         # Selections
