@@ -399,6 +399,7 @@ if __name__ == "__main__":
     if not os.path.exists("datacards"):
         os.mkdir("datacards")
     parser = OptionParser()
+    parser.add_option("-y", "--year", help="year", dest="year", default="")
     parser.add_option("-f", "--file", help="file", dest="file", default="")
     (options, args) = parser.parse_args()
     year = options.year
