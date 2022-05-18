@@ -400,9 +400,10 @@ if __name__ == "__main__":
         os.mkdir("datacards")
     parser = OptionParser()
     parser.add_option("-y", "--year", help="year", dest="year", default="")
+    parser.add_option("-f", "--file", help="file", dest="file", default="")
     (options, args) = parser.parse_args()
     year = options.year
-    year = '2018'
+    hist_scaled_file = options.file
 
     mT_corrected_binning_dict = {
         "2018": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
@@ -418,7 +419,7 @@ if __name__ == "__main__":
     ###
 
     print("Grouping histograms")
-    hists = load("hists/UL_lep_monotop_v1_test_" + year + ".scaled")
+    hists = load("hists/" + hist_scaled_file + ".scaled")
     hists = remap_histograms(hists)
     data_hists = hists["data"]
     bkg_hists = hists["bkg"]
