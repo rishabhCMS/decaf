@@ -306,7 +306,7 @@ def model(year):
     ttbare_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbare_dyjetsTemplate
     )
-#     ttbare_dyjets.setParamEffect(lumi, 1.027)
+    ttbare_dyjets.setParamEffect(lumi, 1.027)
 #     ttbare_dyjets.setParamEffect(trig_e, 1.01)
 #     ttbare_dyjets.setParamEffect(veto_tau, 1.03)
 #     ttbare_dyjets.setParamEffect(zjetsMC_norm, 1.4)
@@ -327,7 +327,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'DY+jets','pileupUp','ttbare')[0] 
     pileupDown=template(background, 'DY+jets','pileupDown','ttbare')[0] 
-    ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbare')[0]
