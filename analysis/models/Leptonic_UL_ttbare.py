@@ -313,8 +313,8 @@ def model(year):
 #     ttbare_dyjets.setParamEffect(jec, 1.05)
 #     ttbare_dyjets.setParamEffect(id_e, 1.02)
 #     ttbare_dyjets.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
-    addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
+#     addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
+#     addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
 #     ttbare_dyjets.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
