@@ -183,7 +183,7 @@ def model(year):
         #pileup
         pileup_Up=template(signal, s,'pileupUp','wjetm')[0] 
         pileup_Down=template(signal, s,'pileupDown','wjetm')[0] 
-        wjetm_signal.setParamEffect(pileup, pileup_Up, pileup_Down)
+#         wjetm_signal.setParamEffect(pileup, pileup_Up, pileup_Down)
         #iso Muon
         iso_mUp=template(signal, s, 'isolation_mUp', 'wjetm')[0] 
         iso_mDown=template(signal, s, 'isolation_mDown', 'wjetm')[0]
@@ -219,7 +219,7 @@ def model(year):
     #pileup
     pileup_Up=template(background, 'W+jets','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'W+jets','pileupDown','wjetm')[0] 
-    wjetm_wjetsMC.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     wjetm_wjetsMC.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'W+jets', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'W+jets', 'isolation_mDown', 'wjetm')[0]
@@ -255,7 +255,7 @@ def model(year):
     #pileup
     pileup_Up=template(background, 'TT','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'TT','pileupDown','wjetm')[0] 
-    wjetm_ttMC.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     wjetm_ttMC.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'TT', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'TT', 'isolation_mDown', 'wjetm')[0]
@@ -290,7 +290,7 @@ def model(year):
     #pileup
     pileup_Up=template(background, 'ST','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'ST','pileupDown','wjetm')[0] 
-    wjetm_st.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     wjetm_st.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'ST', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'ST', 'isolation_mDown', 'wjetm')[0]
@@ -322,7 +322,7 @@ def model(year):
     #pileup
     pileup_Up=template(background, 'DY+jets','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'DY+jets','pileupDown','wjetm')[0] 
-    wjetm_dyjets.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     wjetm_dyjets.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'DY+jets', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'DY+jets', 'isolation_mDown', 'wjetm')[0]
@@ -354,7 +354,7 @@ def model(year):
     #pileup
     pileup_Up=template(background, 'VV','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'VV','pileupDown','wjetm')[0] 
-    wjetm_vv.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     wjetm_vv.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'VV', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'VV', 'isolation_mDown', 'wjetm')[0]
@@ -386,7 +386,7 @@ def model(year):
     #pileup
     pileup_Up=template(background, 'QCD','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'QCD','pileupDown','wjetm')[0] 
-    wjetm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     wjetm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'QCD', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'QCD', 'isolation_mDown', 'wjetm')[0]
