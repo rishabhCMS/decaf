@@ -378,7 +378,7 @@ def model(year):
     #trigger Muon
     trig_muUp=template(background, 'QCD', 'trig_mUp', 'wjetm')[0] 
     trig_muDown=template(background, 'QCD', 'trig_mDown', 'wjetm')[0]
-    wjetm_qcd.setParamEffect(trig_m, trig_muUp, trig_muDown)
+#     wjetm_qcd.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "QCD", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "QCD", 'id_mDown', 'wjetm')[0]
@@ -390,7 +390,7 @@ def model(year):
     #iso Muon
     iso_mUp=template(background, 'QCD', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'QCD', 'isolation_mDown', 'wjetm')[0]
-    wjetm_qcd.setParamEffect(isolation_m, iso_mUp, iso_mDown)
+#     wjetm_qcd.setParamEffect(isolation_m, iso_mUp, iso_mDown)
     
     wjetm.addSample(wjetm_qcd)
     return model
