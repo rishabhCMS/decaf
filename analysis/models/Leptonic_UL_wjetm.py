@@ -164,7 +164,7 @@ def model(year):
         if 'Mphi1995' not in str(s): continue
         wjetm_signalTemplate = template(signal,s,'nominal','wjetm')
         wjetm_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjetm_signalTemplate)
-        wjetm_signal.setParamEffect(lumi, 1.015)
+        wjetm_signal.setParamEffect(lumi, 1.027)
     #     sr_signal.setParamEffect(trig_met, 1.01)
     #     sr_signal.setParamEffect(veto_tau, 1.03)
     #     sr_signal.setParamEffect(jec, 1.05)
@@ -199,7 +199,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjetm_wjetsTemplate
     )
-    wjetm_wjetsMC.setParamEffect(lumi, 1.015)
+    wjetm_wjetsMC.setParamEffect(lumi, 1.027)
 #     ttbarm_wjetsMC.setParamEffect(trig_e, 1.01)
 #     ttbarm_wjetsMC.setParamEffect(veto_tau, 1.03)
 #     ttbarm_wjetsMC.setParamEffect(wjets_norm, 1.4)
@@ -237,7 +237,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjetm_ttTemplate
     )
-    wjetm_ttMC.setParamEffect(lumi, 1.015)
+    wjetm_ttMC.setParamEffect(lumi, 1.027)
 #     ttbarm_ttMC.setParamEffect(trig_e, 1.01)
 #     ttbarm_ttMC.setParamEffect(veto_tau, 1.03)
 #     ttbarm_ttMC.setParamEffect(jec, 1.05)
@@ -271,7 +271,7 @@ def model(year):
     wjetm_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjetm_stTemplate
     )
-    wjetm_st.setParamEffect(lumi, 1.015)
+    wjetm_st.setParamEffect(lumi, 1.027)
 #     ttbarm_st.setParamEffect(trig_e, 1.01)
 #     ttbarm_st.setParamEffect(veto_tau, 1.03)
 #     ttbarm_st.setParamEffect(st_norm, 1.2) something related to signal
@@ -302,7 +302,7 @@ def model(year):
     wjetm_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjetm_dyjetsTemplate
     )
-    wjetm_dyjets.setParamEffect(lumi, 1.015)
+    wjetm_dyjets.setParamEffect(lumi, 1.027)
 #     ttbarm_dyjets.setParamEffect(trig_e, 1.01)
 #     ttbarm_dyjets.setParamEffect(veto_tau, 1.03)
 #     ttbarm_dyjets.setParamEffect(zjetsMC_norm, 1.4)
@@ -335,7 +335,7 @@ def model(year):
     wjetm_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjetm_vvTemplate
     )
-    wjetm_vv.setParamEffect(lumi, 1.015)
+    wjetm_vv.setParamEffect(lumi, 1.027)
 #     ttbarm_vv.setParamEffect(trig_e, 1.01)
 #     ttbarm_vv.setParamEffect(veto_tau, 1.03)
 #     ttbarm_vv.setParamEffect(vv_norm, 1.2)
@@ -382,7 +382,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "QCD", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "QCD", 'id_mDown', 'wjetm')[0]
-    wjetm_qcd.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_qcd.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileup_Up=template(background, 'QCD','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'QCD','pileupDown','wjetm')[0] 
