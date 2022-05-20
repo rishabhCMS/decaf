@@ -277,8 +277,8 @@ def model(year):
 #     ttbarm_st.setParamEffect(st_norm, 1.2) something related to signal
 #     ttbarm_st.setParamEffect(jec, 1.05)
 #     ttbarm_st.setParamEffect(id_e, 1.02)
-    ttbarm_st.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "ST", "wjetm", wjetm_st)
+#     ttbarm_st.setParamEffect(reco_e, 1.02)
+#     addBtagSyst(background, "ST", "wjetm", wjetm_st)
     #trigger Muon
     trig_muUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
     trig_muDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
