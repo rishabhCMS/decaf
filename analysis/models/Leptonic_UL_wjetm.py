@@ -367,7 +367,7 @@ def model(year):
     wjetm_qcd = rl.TemplateSample(
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, wjetm_qcdTemplate
     )
-    wjetm_qcd.setParamEffect(lumi, 1.015)
+#     wjetm_qcd.setParamEffect(lumi, 1.015)
 #     ttbarm_qcd.setParamEffect(trig_e, 1.01)
 #     ttbarm_qcd.setParamEffect(veto_tau, 1.03)
 #     ttbarm_qcd.setParamEffect(qcde_norm, 2.0)
@@ -386,7 +386,7 @@ def model(year):
     #pileup
     pileup_Up=template(background, 'QCD','pileupUp','wjetm')[0] 
     pileup_Down=template(background, 'QCD','pileupDown','wjetm')[0] 
-    wjetm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
+#     wjetm_qcd.setParamEffect(pileup, pileup_Up, pileup_Down)
     #iso Muon
     iso_mUp=template(background, 'QCD', 'isolation_mUp', 'wjetm')[0] 
     iso_mDown=template(background, 'QCD', 'isolation_mDown', 'wjetm')[0]
