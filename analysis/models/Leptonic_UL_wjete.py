@@ -164,31 +164,31 @@ def model(year):
         if 'Mphi1995' not in str(s): continue
         wjete_signalTemplate = template(signal,s,'nominal','wjete')
         wjete_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjete_signalTemplate)
-        wjete_signal.setParamEffect(lumi, 1.015)
+        wjete_signal.setParamEffect(lumi, 1.027)
     #     sr_signal.setParamEffect(trig_met, 1.01)
     #     sr_signal.setParamEffect(veto_tau, 1.03)
     #     sr_signal.setParamEffect(jec, 1.05)
         #btag
         btagUp=template(signal, s,'btagUp','wjete')[0]
         btagDown=template(signal, s,'btagDown','wjete')[0]
-        wjete_signal.setParamEffect(btag, btagUp, btagDown)
+#         wjete_signal.setParamEffect(btag, btagUp, btagDown)
         #trigger Electron
         trigeUp=template(signal, s, 'trig_eUp', 'wjete')[0] 
         trigeDown=template(signal, s, 'trig_eDown', 'wjete')[0]
-        wjete_signal.setParamEffect(trig_e, trigeUp, trigeDown)
+#         wjete_signal.setParamEffect(trig_e, trigeUp, trigeDown)
         #id Electron
         id_eUp=template(signal, s, 'id_eUp', 'wjete')[0] 
         id_eDown=template(signal, s, 'id_eDown', 'wjete')[0]
-        wjete_signal.setParamEffect(id_e, id_eUp, id_eDown)
+#         wjete_signal.setParamEffect(id_e, id_eUp, id_eDown)
         #pileup
         pileupUp=template(signal, s,'pileupUp','wjete')[0] 
         pileupDown=template(signal, s,'pileupDown','wjete')[0] 
-        wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
+#         wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
         
         #reco Electron
         recoeUp=template(signal, s, 'reco_eUp', 'wjete')[0] 
         recoDown=template(signal, s, 'reco_eDown', 'wjete')[0]
-        wjete_signal.setParamEffect(reco_e, recoeUp, recoDown)
+#         wjete_signal.setParamEffect(reco_e, recoeUp, recoDown)
         
         wjete.addSample(wjete_signal)
     ###
@@ -201,7 +201,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjete_wjetsTemplate
     )
-    wjete_wjetsMC.setParamEffect(lumi, 1.015)
+    wjete_wjetsMC.setParamEffect(lumi, 1.027)
 #     wjete_wjetsMC.setParamEffect(trig_e, 1.01)
 #     wjete_wjetsMC.setParamEffect(veto_tau, 1.03)
 #     wjete_wjetsMC.setParamEffect(wjets_norm, 1.4)
@@ -209,23 +209,23 @@ def model(year):
 #     wjete_wjetsMC.setParamEffect(id_e, 1.02)
 #     wjete_wjetsMC.setParamEffect(reco_e, 1.02)
     #wjete_wjetsMC.autoMCStats()
-    addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
+#     addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
     #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'W+jets', 'trig_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "W+jets", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "W+jets", 'id_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'W+jets','pileupUp','wjete')[0] 
     pileupDown=template(background, 'W+jets','pileupDown','wjete')[0] 
-    wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
     # addVJetsSyst(background, "W+jets", "wjete", wjete_wjetsMC)
     wjete.addSample(wjete_wjetsMC)
 
@@ -239,29 +239,29 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjete_ttTemplate
     )
-    wjete_ttMC.setParamEffect(lumi, 1.015)
+    wjete_ttMC.setParamEffect(lumi, 1.027)
 #     wjete_ttMC.setParamEffect(trig_e, 1.01)
 #     wjete_ttMC.setParamEffect(veto_tau, 1.03)
 #     wjete_ttMC.setParamEffect(jec, 1.05)
 #     wjete_ttMC.setParamEffect(id_e, 1.02)
 #     wjete_ttMC.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "TT", "wjete", wjete_ttMC)
+#     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "TT", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "TT", 'id_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'TT','pileupUp','wjete')[0] 
     pileupDown=template(background, 'TT','pileupDown','wjete')[0] 
-    wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'TT', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'TT', 'reco_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
     # wjete_ttMC.setParamEffect(ttMC_norm, 1.2)
     wjete.addSample(wjete_ttMC)
 
@@ -273,30 +273,30 @@ def model(year):
     wjete_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
     )
-    wjete_st.setParamEffect(lumi, 1.015)
+    wjete_st.setParamEffect(lumi, 1.027)
 #     wjete_st.setParamEffect(trig_e, 1.01)
 #     wjete_st.setParamEffect(veto_tau, 1.03)
 #     wjete_st.setParamEffect(st_norm, 1.2) something related to signal
 #     wjete_st.setParamEffect(jec, 1.05)
 #     wjete_st.setParamEffect(id_e, 1.02)
 #     wjete_st.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "ST", "wjete", wjete_st)
+#     addBtagSyst(background, "ST", "wjete", wjete_st)
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
-    wjete_st.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_st.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "ST", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "ST", 'id_eDown', 'wjete')[0]
-    wjete_st.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_st.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'ST','pileupUp','wjete')[0] 
     pileupDown=template(background, 'ST','pileupDown','wjete')[0] 
-    wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'ST', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'ST', 'reco_eDown', 'wjete')[0]
-    wjete_st.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_st.setParamEffect(reco_e, recoeUp, recoDown)
     wjete.addSample(wjete_st)
 
     # DY Jet Background
@@ -304,31 +304,31 @@ def model(year):
     wjete_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjete_dyjetsTemplate
     )
-    wjete_dyjets.setParamEffect(lumi, 1.015)
+    wjete_dyjets.setParamEffect(lumi, 1.027)
 #     wjete_dyjets.setParamEffect(trig_e, 1.01)
 #     wjete_dyjets.setParamEffect(veto_tau, 1.03)
 #     wjete_dyjets.setParamEffect(zjetsMC_norm, 1.4)
 #     wjete_dyjets.setParamEffect(jec, 1.05)
 #     wjete_dyjets.setParamEffect(id_e, 1.02)
 #     wjete_dyjets.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
-    addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
+#     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
+#     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "DY+jets", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "DY+jets", 'id_eDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'DY+jets','pileupUp','wjete')[0] 
     pileupDown=template(background, 'DY+jets','pileupDown','wjete')[0] 
-    wjete_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
     wjete.addSample(wjete_dyjets)
 
 
@@ -337,30 +337,30 @@ def model(year):
     wjete_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjete_vvTemplate
     )
-    wjete_vv.setParamEffect(lumi, 1.015)
+    wjete_vv.setParamEffect(lumi, 1.027)
 #     wjete_vv.setParamEffect(trig_e, 1.01)
 #     wjete_vv.setParamEffect(veto_tau, 1.03)
 #     wjete_vv.setParamEffect(vv_norm, 1.2)
 #     wjete_vv.setParamEffect(jec, 1.05)
 #     wjete_vv.setParamEffect(id_e, 1.02)
 #     wjete_vv.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "VV", "wjete", wjete_vv)
+#     addBtagSyst(background, "VV", "wjete", wjete_vv)
     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_vv.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "VV", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "VV", 'id_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_vv.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'VV','pileupUp','wjete')[0] 
     pileupDown=template(background, 'VV','pileupDown','wjete')[0] 
-    wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_vv.setParamEffect(reco_e, recoeUp, recoDown)
     
     wjete.addSample(wjete_vv)
 
@@ -369,30 +369,30 @@ def model(year):
     wjete_qcd = rl.TemplateSample(
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, wjete_qcdTemplate
     )
-    wjete_qcd.setParamEffect(lumi, 1.015)
+    wjete_qcd.setParamEffect(lumi, 1.027)
 #     wjete_qcd.setParamEffect(trig_e, 1.01)
 #     wjete_qcd.setParamEffect(veto_tau, 1.03)
 #     wjete_qcd.setParamEffect(qcde_norm, 2.0)
 #     wjete_qcd.setParamEffect(jec, 1.05)
 #     wjete_qcd.setParamEffect(id_e, 1.02)
 #     wjete_qcd.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "QCD", "wjete", wjete_qcd)
+#     addBtagSyst(background, "QCD", "wjete", wjete_qcd)
     #trigger Electron
     trigeUp=template(background, 'QCD', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'QCD', 'trig_eDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "QCD", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "QCD", 'id_eDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_qcd.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'QCD','pileupUp','wjete')[0] 
     pileupDown=template(background, 'QCD','pileupDown','wjete')[0] 
-    wjete_qcd.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_qcd.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'QCD', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'QCD', 'reco_eDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_qcd.setParamEffect(reco_e, recoeUp, recoDown)
     
     wjete.addSample(wjete_qcd)
     return model
