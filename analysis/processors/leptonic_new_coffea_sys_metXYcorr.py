@@ -275,7 +275,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
-                 'eeBadScFilter',
+#                  'eeBadScFilter',
                  'BadPFMuonDzFilter',
                  'hfNoisyHitsFilter'
                  ]
@@ -1250,7 +1250,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         Delta_Phi_Corr_Met_LJ_var = (abs(corrected_met['T'].delta_phi(leading_j['T'])))
         print(corrected_met['T'].delta_phi(leading_j['T']))
 
-        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.5)
+        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 2.1)
         print("XYmet", Delta_Phi_Corr_Met_LJ)
         print("XY-sle-sum", ak.to_numpy(ak.sum(Delta_Phi_Corr_Met_LJ, axis=1)>0))
         print("XY-sle-any", ak.to_numpy(ak.any(Delta_Phi_Corr_Met_LJ, axis=1)>0))
