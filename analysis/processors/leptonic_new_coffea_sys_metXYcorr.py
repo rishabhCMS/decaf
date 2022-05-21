@@ -2004,7 +2004,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     trig_name = 'trig_e'
                 elif 'm' == region[-1]:
                     trig_name = 'trig_m'
-                weights.add(trig_name, trig[region],trig[region]+trig_err[region], trig[region]-trig_err[region])
+#                 weights.add(trig_name, trig[region],trig[region]+trig_err[region], trig[region]-trig_err[region])
                 if 'e' == region[-1]:
                     ids_name = 'id_e'
                 elif 'm' == region[-1]:
@@ -2048,7 +2048,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematics = ['nominal',
                                    'btagUp',
                                    'btagDown',
-                                       trig_name+'Up', trig_name+'Down',
+#                                        trig_name+'Up', trig_name+'Down',
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
@@ -2084,7 +2084,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                        'ew3ZDown',
 #                                        'mixUp',
 #                                        'mixDown',
-                                       trig_name+'Up', trig_name+'Down',
+#                                        trig_name+'Up', trig_name+'Down',
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
@@ -2160,7 +2160,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematic =['nominal',
                                        'btagUp',
                                        'btagDown',
-                                           trig_name+'Up', trig_name+'Down',
+#                                            trig_name+'Up', trig_name+'Down',
                                            ids_name+'Up', ids_name+'Down',
                                            reco_name+'Up', reco_name+'Down',
                                            isolation_name+'Up', isolation_name+'Down',
