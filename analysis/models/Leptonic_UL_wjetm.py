@@ -173,9 +173,9 @@ def model(year):
         btagDown=template(signal, s,'btagDown','wjetm')[0]
         wjetm_signal.setParamEffect(btag, btagUp, btagDown)
         #trigger Muon
-        trig_muUp=template(signal, s, 'trig_mUp', 'wjetm')[0] 
-        trig_muDown=template(signal, s, 'trig_mDown', 'wjetm')[0]
-        wjetm_signal.setParamEffect(trig_m, trig_muUp, trig_muDown)
+#         trig_muUp=template(signal, s, 'trig_mUp', 'wjetm')[0] 
+#         trig_muDown=template(signal, s, 'trig_mDown', 'wjetm')[0]
+#         wjetm_signal.setParamEffect(trig_m, trig_muUp, trig_muDown)
         #id Muon
         id_mUp=template(signal, s, 'id_mUp', 'wjetm')[0] 
         id_mDown=template(signal, s, 'id_mDown', 'wjetm')[0]
@@ -209,9 +209,9 @@ def model(year):
     #ttbarm_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     #trigger Muon
-    trig_muUp=template(background, 'W+jets', 'trig_mUp', 'wjetm')[0] 
-    trig_muDown=template(background, 'W+jets', 'trig_mDown', 'wjetm')[0]
-    wjetm_wjetsMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
+#     trig_muUp=template(background, 'W+jets', 'trig_mUp', 'wjetm')[0] 
+#     trig_muDown=template(background, 'W+jets', 'trig_mDown', 'wjetm')[0]
+#     wjetm_wjetsMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "W+jets", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "W+jets", 'id_mDown', 'wjetm')[0]
@@ -245,9 +245,9 @@ def model(year):
 #     ttbarm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjetm", wjetm_ttMC)
     #trigger Muon
-    trig_muUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
-    trig_muDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
+#     trig_muUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
+#     trig_muDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
+#     wjetm_ttMC.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "TT", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "TT", 'id_mDown', 'wjetm')[0]
@@ -280,9 +280,9 @@ def model(year):
 #     ttbarm_st.setParamEffect(reco_e, 1.02)
 #     addBtagSyst(background, "ST", "wjetm", wjetm_st)
     #trigger Muon
-    trig_muUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
-    trig_muDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(trig_m, trig_muUp, trig_muDown)
+#     trig_muUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
+#     trig_muDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
+#     wjetm_st.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "ST", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "ST", 'id_mDown', 'wjetm')[0]
@@ -312,9 +312,9 @@ def model(year):
     addBtagSyst(background, "DY+jets", "wjetm", wjetm_dyjets)
     addVJetsSyst(background,"DY+jets", "wjetm", wjetm_dyjets)
     #trigger Muon
-    trig_muUp=template(background, 'DY+jets', 'trig_mUp', 'wjetm')[0] 
-    trig_muDown=template(background, 'DY+jets', 'trig_mDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(trig_m, trig_muUp, trig_muDown)
+#     trig_muUp=template(background, 'DY+jets', 'trig_mUp', 'wjetm')[0] 
+#     trig_muDown=template(background, 'DY+jets', 'trig_mDown', 'wjetm')[0]
+#     wjetm_dyjets.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'wjetm')[0]
@@ -344,9 +344,9 @@ def model(year):
 #     ttbarm_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "wjetm", wjetm_vv)
     #trigger Muon
-    trig_muUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
-    trig_muDown=template(background, 'VV', 'trig_mDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(trig_m, trig_muUp, trig_muDown)
+#     trig_muUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
+#     trig_muDown=template(background, 'VV', 'trig_mDown', 'wjetm')[0]
+#     wjetm_vv.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'wjetm')[0]
@@ -376,8 +376,8 @@ def model(year):
 #     ttbarm_qcd.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "QCD", "wjetm", wjetm_qcd)
     #trigger Muon
-    trig_muUp=template(background, 'QCD', 'trig_mUp', 'wjetm')[0] 
-    trig_muDown=template(background, 'QCD', 'trig_mDown', 'wjetm')[0]
+#     trig_muUp=template(background, 'QCD', 'trig_mUp', 'wjetm')[0] 
+#     trig_muDown=template(background, 'QCD', 'trig_mDown', 'wjetm')[0]
 #     wjetm_qcd.setParamEffect(trig_m, trig_muUp, trig_muDown)
     #id Muon
     id_mUp=template(background, "QCD", 'id_mUp', 'wjetm')[0] 
