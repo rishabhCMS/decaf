@@ -274,10 +274,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-                 'ecalBadCalibFilter',
+#                  'ecalBadCalibFilter',
 #                  'eeBadScFilter',
-                 'BadPFMuonDzFilter',
-                 'hfNoisyHitsFilter'
+#                  'BadPFMuonDzFilter',
+#                  'hfNoisyHitsFilter'
                  ]
     }
 
@@ -889,20 +889,20 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 print(self._jr[self._year]['apv'][0])
 #                 list_of_jec = self._jec[self._year]['apv']
                 list_of_jr = self._jr[self._year]['apv']
-                list_of_junc = self._junc[self._year]['apv']
+#                 list_of_junc = self._junc[self._year]['apv']
                 list_of_jersf = self._jersf[self._year]['apv']
             else: 
 #                 list_of_jec = self._jec[self._year]['no_apv']
                 list_of_jr =self ._jr[self._year]['no_apv']
-                list_of_junc =self ._junc[self._year]['no_apv']
+#                 list_of_junc =self ._junc[self._year]['no_apv']
                 list_of_jersf = self._jersf[self._year]['no_apv']
                 
 #             for name in list_of_jec:
 #                 jec_names.append(name)
             for name in list_of_jr:
                 jec_names.append(name)
-            for name in list_of_junc:
-                jec_names.append(name)    
+#             for name in list_of_junc:
+#                 jec_names.append(name)    
             for name in list_of_jersf:
                 jec_names.append(name)                
         else:
@@ -912,8 +912,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 jec_names.append(name)    
             for name in self._jersf[self._year]:
                 jec_names.append(name)
-            for name in self._junc[self._year]:
-                jec_names.append(name)
+#             for name in self._junc[self._year]:
+#                 jec_names.append(name)
             
         j = events.Jet
         met = events.MET
@@ -951,7 +951,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             events_cache = events.caches[0]
             met_factory = CorrectedMETFactory(jec_name_map)
             corrected_jets = jet_factory.build(events.Jet, lazy_cache=events_cache)
-            corrected_mets = met_factory.build(events.MET, events.Jet, {})
+            corrected_mets = met_factory.build(events.MET, corrected_jets, {})
             
             
             if shift_syst == "JESUp":
@@ -979,8 +979,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-#                 j   = corrected_jets
-                j   = events.Jet
+                j   = corrected_jets
+#                 j   = events.Jet
 #                 met = events.MET
                 met = corrected_mets
 #                 print(shift_syst)
