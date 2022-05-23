@@ -173,9 +173,9 @@ def model(year):
         btagDown=template(signal, s,'btagDown','wjete')[0]
 #         wjete_signal.setParamEffect(btag, btagUp, btagDown)
         #trigger Electron
-        trigeUp=template(signal, s, 'trig_eUp', 'wjete')[0] 
-        trigeDown=template(signal, s, 'trig_eDown', 'wjete')[0]
-        wjete_signal.setParamEffect(trig_e, trigeUp, trigeDown)
+#         trigeUp=template(signal, s, 'trig_eUp', 'wjete')[0] 
+#         trigeDown=template(signal, s, 'trig_eDown', 'wjete')[0]
+#         wjete_signal.setParamEffect(trig_e, trigeUp, trigeDown)
         #id Electron
         id_eUp=template(signal, s, 'id_eUp', 'wjete')[0] 
         id_eDown=template(signal, s, 'id_eDown', 'wjete')[0]
@@ -211,9 +211,9 @@ def model(year):
     #wjete_wjetsMC.autoMCStats()
 #     addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
     #trigger Electron
-    trigeUp=template(background, 'W+jets', 'trig_eUp', 'wjete')[0] 
-    trigeDown=template(background, 'W+jets', 'trig_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'W+jets', 'trig_eUp', 'wjete')[0] 
+#     trigeDown=template(background, 'W+jets', 'trig_eDown', 'wjete')[0]
+#     wjete_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "W+jets", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "W+jets", 'id_eDown', 'wjete')[0]
@@ -247,9 +247,9 @@ def model(year):
 #     wjete_ttMC.setParamEffect(reco_e, 1.02)
 #     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
     #trigger Electron
-    trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
-    trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
+#     trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
+#     wjete_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "TT", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "TT", 'id_eDown', 'wjete')[0]
@@ -282,9 +282,9 @@ def model(year):
 #     wjete_st.setParamEffect(reco_e, 1.02)
 #     addBtagSyst(background, "ST", "wjete", wjete_st)
     #trigger Electron
-    trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
-    trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
-    wjete_st.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
+#     trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
+#     wjete_st.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "ST", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "ST", 'id_eDown', 'wjete')[0]
@@ -314,9 +314,9 @@ def model(year):
 #     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
 #     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
     #trigger Electron
-    trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
-    trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
+#     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
+#     wjete_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "DY+jets", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "DY+jets", 'id_eDown', 'wjete')[0]
@@ -346,9 +346,9 @@ def model(year):
 #     wjete_vv.setParamEffect(reco_e, 1.02)
 #     addBtagSyst(background, "VV", "wjete", wjete_vv)
     #trigger Electron
-    trigeUp=template(background, 'VV', 'trig_eUp', 'wjete')[0] 
-    trigeDown=template(background, 'VV', 'trig_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(trig_e, trigeUp, trigeDown)
+#     trigeUp=template(background, 'VV', 'trig_eUp', 'wjete')[0] 
+#     trigeDown=template(background, 'VV', 'trig_eDown', 'wjete')[0]
+#     wjete_vv.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "VV", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "VV", 'id_eDown', 'wjete')[0]
@@ -378,8 +378,8 @@ def model(year):
 #     wjete_qcd.setParamEffect(reco_e, 1.02)
 #     addBtagSyst(background, "QCD", "wjete", wjete_qcd)
     #trigger Electron
-    trigeUp=template(background, 'QCD', 'trig_eUp', 'wjete')[0] 
-    trigeDown=template(background, 'QCD', 'trig_eDown', 'wjete')[0]
+#     trigeUp=template(background, 'QCD', 'trig_eUp', 'wjete')[0] 
+#     trigeDown=template(background, 'QCD', 'trig_eDown', 'wjete')[0]
 #     wjete_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "QCD", 'id_eUp', 'wjete')[0] 
