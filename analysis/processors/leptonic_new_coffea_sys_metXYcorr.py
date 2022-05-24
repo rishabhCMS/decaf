@@ -393,11 +393,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2018': [
                 'Summer19UL18_V5_MC_L1FastJet_AK4PFchs',
-                'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
+#                 'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
                 'Summer19UL18_V5_MC_L2Relative_AK4PFchs',
-                'Summer19UL18_V5_MC_L2Residual_AK4PFchs',
-                'Summer19UL18_V5_MC_L3Absolute_AK4PFchs'
+#                 'Summer19UL18_V5_MC_L2Residual_AK4PFchs',
+#                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs'
                      
             ]
         }
@@ -887,33 +887,33 @@ class AnalysisProcessor(processor.ProcessorABC):
         if (self._year == '2016'):
             if ("preVFP" in dataset):
 #                 print(self._jr[self._year]['apv'][0])
-#                 list_of_jec = self._jec[self._year]['apv']
+                list_of_jec = self._jec[self._year]['apv']
                 list_of_jr = self._jr[self._year]['apv']
-#                 list_of_junc = self._junc[self._year]['apv']
+                list_of_junc = self._junc[self._year]['apv']
                 list_of_jersf = self._jersf[self._year]['apv']
             else: 
-#                 list_of_jec = self._jec[self._year]['no_apv']
+                list_of_jec = self._jec[self._year]['no_apv']
                 list_of_jr =self ._jr[self._year]['no_apv']
-#                 list_of_junc =self ._junc[self._year]['no_apv']
+                list_of_junc =self ._junc[self._year]['no_apv']
                 list_of_jersf = self._jersf[self._year]['no_apv']
                 
-#             for name in list_of_jec:
-#                 jec_names.append(name)
+            for name in list_of_jec:
+                jec_names.append(name)
             for name in list_of_jr:
                 jec_names.append(name)
-#             for name in list_of_junc:
-#                 jec_names.append(name)    
+            for name in list_of_junc:
+                jec_names.append(name)    
             for name in list_of_jersf:
                 jec_names.append(name)                
         else:
-#             for name in self._jec[self._year]:
-#                 jec_names.append(name)                 
+            for name in self._jec[self._year]:
+                jec_names.append(name)                 
             for name in self._jr[self._year]:
                 jec_names.append(name)    
             for name in self._jersf[self._year]:
                 jec_names.append(name)
-#             for name in self._junc[self._year]:
-#                 jec_names.append(name)
+            for name in self._junc[self._year]:
+                jec_names.append(name)
             
         j = events.Jet
         met = events.MET
@@ -1250,7 +1250,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         Delta_Phi_Corr_Met_LJ_var = (abs(corrected_met['T'].delta_phi(leading_j['T'])))
         print(corrected_met['T'].delta_phi(leading_j['T']))
 
-        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 2.1)
+        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.57)
         print("XYmet", Delta_Phi_Corr_Met_LJ)
         print("XY-sle-sum", ak.to_numpy(ak.sum(Delta_Phi_Corr_Met_LJ, axis=1)>0))
         print("XY-sle-any", ak.to_numpy(ak.any(Delta_Phi_Corr_Met_LJ, axis=1)>0))
