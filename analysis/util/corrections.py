@@ -944,7 +944,7 @@ for directory in ['jec_UL', 'jersf_UL', 'jr_UL', 'junc_UL']:
     for filename in os.listdir(directory):
         if '~' in filename: continue
         if 'AK4PFchs' not in filename: continue
-        if 'DATA' in filename: continue
+#         if 'DATA' in filename: continue
         if "Regrouped" in filename: continue
         if "UncertaintySources" in filename: continue
         filename=directory+'/'+filename
