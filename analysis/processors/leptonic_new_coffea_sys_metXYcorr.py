@@ -70,21 +70,21 @@ def get_data_era(events, year):
     if "2016" in year:
 
         if (runNMin >=272007) and (runNMax <=275376):
-            era = "B"
+            era = "BCD"
 
         elif (runNMin >=275656) and (runNMax <=276283):
-            era = "C"
+            era = "BCD"
 #                         print(era)
         elif (runNMin >=276315) and (runNMax <=276811):
-            era = "D"
+            era = "BCD"
 
         elif (runNMin >=276831) and (runNMax <=277420) :
-            era = "E"
+            era = "EF"
 
         elif (runNMin >=277772 and runNMax <=278807) or (runNMin in [278770, 278806, 278807]) or (runNMax in [278770, 278806, 278807] ):
-            era = "F"
+            era = "EF"
         elif (runNMin >=278801 and runNMax <=278808) or (runNMax in [278769, 278806, 278807]) or (runNMax in [278769,278806, 278807]):
-            era = "F_late"
+            era = "EF"
 
         elif (runNMin >=278820) and (runNMax <=280385):
             era = "G"
@@ -1093,8 +1093,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         else:
             j   = corrected_jets
 #                 j   = events.Jet
-            met = events.MET
-#                 met = corrected_mets
+#             met = events.MET
+            met = corrected_mets
 #                 print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
