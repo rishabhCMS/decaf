@@ -1054,8 +1054,9 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         events["Jet", "pt_raw"] = (1 - events.Jet.rawFactor) * events.Jet.pt
         events["Jet", "mass_raw"] = (1 - events.Jet.rawFactor) * events.Jet.mass
-        events["Jet", "pt_gen"] = ak.values_astype(
-            ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
+        if isMC:
+            events["Jet", "pt_gen"] = ak.values_astype(
+                ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
         )
         events["Jet", "rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, events.Jet.pt)[0]
 
