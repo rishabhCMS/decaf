@@ -1064,7 +1064,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         events_cache = events.caches[0]
         met_factory = CorrectedMETFactory(jec_name_map)
         corrected_jets = jet_factory.build(events.Jet, lazy_cache=events_cache)
-        corrected_mets = met_factory.build(events.MET, corrected_jets, {})
+        corrected_mets = met_factory.build(events.MET, events.Jet, {})
 
 
         if shift_syst == "JESUp":
@@ -1094,8 +1094,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         else:
             j   = corrected_jets
 #                 j   = events.Jet
-            met = events.MET
-#             met = corrected_mets
+#             met = events.MET
+            met = corrected_mets
 #                 print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
