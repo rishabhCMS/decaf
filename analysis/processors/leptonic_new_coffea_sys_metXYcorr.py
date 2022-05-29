@@ -7,7 +7,7 @@ import coffea.processor as processor
 import awkward as ak
 import numpy as np
 import glob as glob
-import re
+# import re
 import itertools
 # import vector as vec
 from coffea.nanoevents.methods import vector, candidate
