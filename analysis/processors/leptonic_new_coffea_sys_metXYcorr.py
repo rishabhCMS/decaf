@@ -302,17 +302,14 @@ class AnalysisProcessor(processor.ProcessorABC):
 
     
     met_filter_flags = {
-
+     
         '2016': ['goodVertices',
                  'globalSuperTightHalo2016Filter',
                  'HBHENoiseFilter',
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
-                 'BadPFMuonFilter',
-                 'BadPFMuonDzFilter',
-#                  'eeBadScFilter',
-                 
-                 ],
+                 'BadPFMuonFilter'
+             ],
 
         '2017': ['goodVertices',
                  'globalSuperTightHalo2016Filter',
@@ -320,11 +317,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-                 'ecalBadCalibFilter',
-                 'eeBadScFilter',
-                 'BadPFMuonDzFilter',
-#                  'hfNoisyHitsFilter'
-                 ],
+                 'ecalBadCalibFilterV2'
+             ],
 
         '2018': ['goodVertices',
                  'globalSuperTightHalo2016Filter',
@@ -332,11 +326,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-                 'ecalBadCalibFilter',
-                 'eeBadScFilter',
-                 'BadPFMuonDzFilter',
-#                  'hfNoisyHitsFilter'
-                 ]
+                 'ecalBadCalibFilterV2'
+             ]
     }
 
     def __init__(self, year, xsec, corrections, ids, common, vfp):
