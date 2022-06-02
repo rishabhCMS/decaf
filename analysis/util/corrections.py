@@ -1013,7 +1013,7 @@ corrections = {
 #     err files
     'get_ele_trig_err':get_ele_trig_err,
     'get_mu_trig_err_postVFP':get_mu_trig_err_postVFP,
-    'get_mu_trig_err_postVFP':get_mu_trig_err_postVFP,
+    'get_mu_trig_err_preVFP':get_mu_trig_err_preVFP,
     'get_ele_loose_id_err_preVFP':get_ele_loose_id_err_preVFP,
     'get_ele_tight_id_err_preVFP':get_ele_tight_id_err_preVFP,
     'get_ele_loose_id_err_postVFP':get_ele_loose_id_err_postVFP,
