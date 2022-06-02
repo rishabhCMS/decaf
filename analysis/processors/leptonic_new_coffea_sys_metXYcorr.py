@@ -1760,8 +1760,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         met_filters = np.ones(event_size, dtype=np.bool)
         # this filter is recommended for data only
-#         if isData:
-#             met_filters = met_filters & events.Flag['eeBadScFilter']
+        if isData:
+            met_filters = met_filters & events.Flag['eeBadScFilter']
         for flag in AnalysisProcessor.met_filter_flags[self._year]:
             met_filters = met_filters & events.Flag[flag]
         selection.add('met_filters', ak.to_numpy(met_filters, np.bool))
