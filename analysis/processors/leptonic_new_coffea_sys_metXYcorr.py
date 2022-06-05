@@ -333,7 +333,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
-#                  'eeBadScFilter',
+                 'eeBadScFilter',
                  'BadPFMuonDzFilter',
 #                  'hfNoisyHitsFilter'
                  ]
@@ -487,27 +487,27 @@ class AnalysisProcessor(processor.ProcessorABC):
             ],
 
             '2018': [
-#                 'Summer19UL18_V5_MC_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_V5_MC_L2Relative_AK4PFchs',
-#                 'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
+                'Summer19UL18_V5_MC_L1FastJet_AK4PFchs',
+                'Summer19UL18_V5_MC_L2Relative_AK4PFchs',
+                'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
+                'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
                 
-#                 'Summer19UL18_RunA_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunA_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunA_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunA_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L3Absolute_AK4PFchs',
+                'Summer19UL18_RunA_V5_DATA_L1FastJet_AK4PFchs',
+                'Summer19UL18_RunB_V5_DATA_L1FastJet_AK4PFchs',
+                'Summer19UL18_RunC_V5_DATA_L1FastJet_AK4PFchs',
+                'Summer19UL18_RunD_V5_DATA_L1FastJet_AK4PFchs',
+                'Summer19UL18_RunA_V5_DATA_L2Relative_AK4PFchs',
+                'Summer19UL18_RunB_V5_DATA_L2Relative_AK4PFchs',
+                'Summer19UL18_RunC_V5_DATA_L2Relative_AK4PFchs',
+                'Summer19UL18_RunD_V5_DATA_L2Relative_AK4PFchs',
+                'Summer19UL18_RunA_V5_DATA_L2L3Residual_AK4PFchs',
+                'Summer19UL18_RunB_V5_DATA_L2L3Residual_AK4PFchs',
+                'Summer19UL18_RunC_V5_DATA_L2L3Residual_AK4PFchs',
+                'Summer19UL18_RunD_V5_DATA_L2L3Residual_AK4PFchs',
+                'Summer19UL18_RunA_V5_DATA_L3Absolute_AK4PFchs',
+                'Summer19UL18_RunB_V5_DATA_L3Absolute_AK4PFchs',
+                'Summer19UL18_RunC_V5_DATA_L3Absolute_AK4PFchs',
+                'Summer19UL18_RunD_V5_DATA_L3Absolute_AK4PFchs',
             ]
         }
         
@@ -654,12 +654,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])),
 #             "EventCount": processor.value_accumulator(int),
-            'cutflow': hist.Hist(
-                'Events',
-                hist.Cat('dataset', 'Dataset'),
-                hist.Cat('region', 'Region'),
-#                 hist.Bin('cut', 'Cut index', 11, 0, 11),
-                hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])),
+#             'cutflow': hist.Hist(
+#                 'Events',
+#                 hist.Cat('dataset', 'Dataset'),
+#                 hist.Cat('region', 'Region'),
+# #                 hist.Bin('cut', 'Cut index', 11, 0, 11),
+#                 hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])),
             'eT_miss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -690,18 +690,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mu_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
-            'W_gen_pT': hist.Hist(
-                'Events',
-                hist.Cat('dataset', 'dataset'),
-                hist.Cat('region', 'Region'),
-                hist.Cat('systematic', 'Systematic'),
-                hist.Bin('W_gen_pT', 'W Boson Gen $p_{T}$ [GeV]', 50, 0, 1000)), 
-            'Z_gen_pT': hist.Hist(
-                'Events',
-                hist.Cat('dataset', 'dataset'),
-                hist.Cat('region', 'Region'),
-                hist.Cat('systematic', 'Systematic'),
-                hist.Bin('Z_gen_pT', 'Z Boson Gen $p_{T}$ [GeV]', 50, 0, 1000)),
             'j1pt': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1105,8 +1093,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         jet_factory = CorrectedJetsFactory(jec_name_map, jec_stack)
 
-        events["Jet", "pt_raw"] = (1 - events.Jet.rawFactor) * events.Jet.pt
-        events["Jet", "mass_raw"] = (1 - events.Jet.rawFactor) * events.Jet.mass
+        events["Jet", "pt_raw"] =  events.Jet.pt/(1 - events.Jet.rawFactor)
+        events["Jet", "mass_raw"] = events.Jet.mass/(1 - events.Jet.rawFactor)
         if isMC:
             events["Jet", "pt_gen"] = ak.values_astype(
                 ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
@@ -1117,38 +1105,34 @@ class AnalysisProcessor(processor.ProcessorABC):
         events_cache = events.caches[0]
         met_factory = CorrectedMETFactory(jec_name_map)
         corrected_jets = jet_factory.build(events.Jet, lazy_cache=events_cache)
-        corrected_mets = met_factory.build(events.MET, events.Jet, {})
+        corrected_mets = met_factory.build(events.MET, corrected_jets, {})
 
 
         if shift_syst == "JESUp":
             j = corrected_jets['JES_jes'].up
-#                 #print(shift_syst)
 
         elif shift_syst == "JESDown":
             j = corrected_jets['JES_jes'].down
-#                 #print(shift_syst)
 
         elif shift_syst == "JERUp":
             j = corrected_jets['JER'].up
-#                 #print(shift_syst)
 
         elif shift_syst == "JERDown":
             j = corrected_jets['JER'].down
-#                 #print(shift_syst)
 
         elif shift_syst == "METunclUp":
             met = corrected_mets.MET_UnclusteredEnergy.up
-            j   = events.Jet
+            j   = corrected_jets
 
         elif shift_syst == "METunclDown":
             met = corrected_mets.MET_UnclusteredEnergy.down
-            j   = events.Jet
+            j   = corrected_jets
 
         else:
-#             j   = corrected_jets
-            j   = events.Jet
-            met = events.MET
-#             met = corrected_mets
+            j   = corrected_jets
+#             j   = events.Jet
+#             met = events.MET
+            met = corrected_mets
 #                 #print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
@@ -1889,7 +1873,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 
 #                     'atleast_one_jet_with_pt_grt_50',
-                     'Delta_Phi_Corr_Met_LJ',
+                     'Delta_Phi_Corr_Met_LJ', 'noHEMmet',
                     'mtcorr_sre>150','corr_met100',
                     'noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70",
@@ -1898,7 +1882,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 
 #                     'atleast_one_jet_with_pt_grt_50',
-                    'Delta_Phi_Corr_Met_LJ', 
+                    'Delta_Phi_Corr_Met_LJ', 'noHEMmet',
                     'mtcorr_srm>150',  'corr_met100', 
                     'noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
@@ -1907,7 +1891,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 
 #                        'atleast_one_jet_with_pt_grt_50',
-                       'Delta_Phi_Corr_Met_LJ',
+                       'Delta_Phi_Corr_Met_LJ', 'noHEMmet',
                        'mtcorr_ttbare>150', 'corr_met100', 
                        'noHEMj' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200","leading_j>70", 
@@ -1916,7 +1900,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 
 #                        'atleast_one_jet_with_pt_grt_50',
-                        'Delta_Phi_Corr_Met_LJ',
+                        'Delta_Phi_Corr_Met_LJ', 'noHEMmet',
                        'mtcorr_ttbarm>150' , 'corr_met100',
                        'noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
@@ -1928,7 +1912,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'corr_met100',
 #                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
-                       'mtcorr_wjete>150' ,
+                       'mtcorr_wjete>150' , 'noHEMmet',
                       'noHEMj',  "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
@@ -1937,7 +1921,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'wjetm': ['corr_met100',
 #                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
-                       'mtcorr_wjetm>150' ,
+                       'mtcorr_wjetm>150' , 'noHEMmet',
                       'noHEMj', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
                       "leading_j>70",
@@ -2118,15 +2102,15 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                 fill(dataset, np.ones(event_size), cut, systematic='nominal')
                         # Cutflow loop
-                vcut=np.zeros(event_size, dtype=np.int)
-                hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=np.ones(event_size))
-                allcuts = set()
-                for i, icut in enumerate(cuts):
-                    allcuts.add(icut)
-                    jcut = selection.all(*allcuts)
-                    vcut = (i+1)*jcut
+#                 vcut=np.zeros(event_size, dtype=np.int)
+#                 hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=np.ones(event_size))
+#                 allcuts = set()
+#                 for i, icut in enumerate(cuts):
+#                     allcuts.add(icut)
+#                     jcut = selection.all(*allcuts)
+#                     vcut = (i+1)*jcut
 
-                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=np.ones(event_size)*jcut)
+#                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=np.ones(event_size)*jcut)
             else:
                 weights = Weights(len(events))
 #                 #print("L1445")
@@ -2303,16 +2287,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               weight=weights.weight(modifier=systematic)*wlf*cut)
 
                     ## Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
-                    hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
-                        hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
-                        hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*whf)
+#                     hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*wlf)
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
+#                         hout['cutflow'].fill(dataset='HF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*whf)
+#                         hout['cutflow'].fill(dataset='LF--'+dataset, region=region, cut=vcut, weight=weights.weight()*jcut*wlf)
                     sname = 'nominal' if shift_syst is None else shift_syst
 #                     #print(sname)
                     if shift_syst is None:
@@ -2356,15 +2340,15 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               npvs = events.PV.npvs,
                                               weight=weights.weight(modifier=systematic)*cut)
                         # Cutflow loop
-                    vcut=np.zeros(event_size, dtype=np.int)
-                    hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
-                    allcuts = set()
-                    for i, icut in enumerate(cuts):
-                        allcuts.add(icut)
-                        jcut = selection.all(*allcuts)
-                        vcut = (i+1)*jcut
+#                     vcut=np.zeros(event_size, dtype=np.int)
+#                     hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight())
+#                     allcuts = set()
+#                     for i, icut in enumerate(cuts):
+#                         allcuts.add(icut)
+#                         jcut = selection.all(*allcuts)
+#                         vcut = (i+1)*jcut
                         
-                        hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
+#                         hout['cutflow'].fill(dataset=dataset, region=region, cut=vcut, weight=weights.weight()*jcut)
                     sname = 'nominal' if shift_syst is None else shift_syst
                     if shift_syst is None:
                         fill(dataset, weights.weight(), cut, systematic=sname)
@@ -2377,7 +2361,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             nevents = accumulator['sumw'].integrate('dataset', d).values(overflow='all')[()][1]
 #             #print(nevents)
 
-            #print('Scaling:', d.name)
+            print('Scaling:', d.name)
             dataset = d.name
             if '--' in dataset:
                 dataset = dataset.split('--')[1]
