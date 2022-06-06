@@ -1131,8 +1131,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         else:
             j   = corrected_jets
 #             j   = events.Jet
-#             met = events.MET
-            met = corrected_mets
+            met = events.MET
+#             met = corrected_mets
 #                 #print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
@@ -1156,7 +1156,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         XY_correctedmet_pt , XY_correctedmet_phi = METXYCorr_Met_MetPhi(events, self._year, met)
 
-        corrected_met = events.MET
+        corrected_met = met
         corrected_met["T"] = ak.zip({"pt": XY_correctedmet_pt, "phi": XY_correctedmet_phi}, 
                           with_name="PolarTwoVector", 
                           behavior=vector.behavior)
