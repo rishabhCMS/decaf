@@ -1069,6 +1069,18 @@ class AnalysisProcessor(processor.ProcessorABC):
             jec_names = [name for name in jec_names if ERA in name]
         j = events.Jet
         met = events.MET
+        j = events.Jet
+        j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
+                  with_name="PolarTwoVector", 
+                  behavior=vector.behavior)
+        j["p4"] = ak.zip({
+        "pt": j.pt,
+        "eta": j.eta,
+        "phi": j.phi,
+        "mass": j.mass},
+        with_name="PtEtaPhiMLorentzVector",
+        )
+        
         #print("afer____")
         #print(jec_names)
         jec_inputs = {name: Jetevaluator[name] for name in jec_names}
@@ -1093,19 +1105,22 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         jet_factory = CorrectedJetsFactory(jec_name_map, jec_stack)
 
-        events["Jet", "pt_raw"] =  events.Jet.pt/(1 - events.Jet.rawFactor)
-        events["Jet", "mass_raw"] = events.Jet.mass/(1 - events.Jet.rawFactor)
+        j["pt_raw"] =  j.pt*(1 - j.rawFactor)
+        j["mass_raw"] = j.mass*(1 - j.rawFactor)
         if isMC:
-            events["Jet", "pt_gen"] = ak.values_astype(
-                ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
+            j["pt_gen"] = ak.values_astype(
+                ak.fill_none(j.matched_gen.pt, 0), np.float32
         )
-        events["Jet", "rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, events.Jet.pt)[0]
+        j["rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, j.pt)[0]
 
-
+        j["pt"] = j.pt_raw
+        j["mass"] = j.mass_raw
+        j["p4","pt"] = j.pt_raw
+        j["p4","mass"] = j.mass_raw
         events_cache = events.caches[0]
         met_factory = CorrectedMETFactory(jec_name_map)
-        corrected_jets = jet_factory.build(events.Jet, lazy_cache=events_cache)
-        corrected_mets = met_factory.build(events.MET, events.Jet, {})
+        corrected_jets = jet_factory.build(j, lazy_cache=events_cache)
+        corrected_mets = met_factory.build(events.MET, corrected_jets, {})
 
 
         if shift_syst == "JESUp":
@@ -1129,8 +1144,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             j   = corrected_jets
 
         else:
-#             j   = corrected_jets
-            j   = events.Jet
+            j   = corrected_jets
+#             j   = events.Jet
 #             met = events.MET
             met = corrected_mets
 #                 #print(shift_syst)
@@ -1321,16 +1336,16 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium']) ## from Rishab
         j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium']) ## from Rishabh
 
-        j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
-                  with_name="PolarTwoVector", 
-                  behavior=vector.behavior)
-        j['p4'] = ak.zip({
-        "pt": j.pt,
-        "eta": j.eta,
-        "phi": j.phi,
-        "mass": j.mass},
-        with_name="PtEtaPhiMLorentzVector",
-        )
+#         j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
+#                   with_name="PolarTwoVector", 
+#                   behavior=vector.behavior)
+#         j['p4'] = ak.zip({
+#         "pt": j.pt,
+#         "eta": j.eta,
+#         "phi": j.phi,
+#         "mass": j.mass},
+#         with_name="PtEtaPhiMLorentzVector",
+#         )
         
 #         https://coffeateam.github.io/coffea/modules/coffea.nanoevents.methods.vector.html#
 #         j['ptRaw'] =j.pt * (1-j.rawFactor)
