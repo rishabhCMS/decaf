@@ -494,12 +494,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mT_corrected', '$m_{T} XY \Phi Corrected$ [GeV]', [100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])),
 #             "EventCount": processor.value_accumulator(int),
-#             'cutflow': hist.Hist(
-#                 'Events',
-#                 hist.Cat('dataset', 'Dataset'),
-#                 hist.Cat('region', 'Region'),
-# #                 hist.Bin('cut', 'Cut index', 11, 0, 11),
-#                 hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])),
+            'cutflow': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'Dataset'),
+                hist.Cat('region', 'Region'),
+#                 hist.Bin('cut', 'Cut index', 11, 0, 11),
+                hist.Bin('cut', 'Cut index', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])),
             'eT_miss': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1991,7 +1991,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
 #                     weights.add('muR', np.ones(
 #                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu, puUp, puDown)
+#                 weights.add('pileup', pu, puUp, puDown)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
@@ -2045,7 +2045,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
-                                       'pileupUp', 'pileupDown',
+#                                        'pileupUp', 'pileupDown',
                                       ]
                     elif not('WJets' in dataset) and shift_syst is None:
                         systematics = ['nominal',
@@ -2081,7 +2081,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
-                                       'pileupUp','pileupDown',
+#                                        'pileupUp','pileupDown',
                                       ]
                     else:
                         systematics = [shift_syst] #[None, "JERUp"]
@@ -2157,7 +2157,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                            ids_name+'Up', ids_name+'Down',
                                            reco_name+'Up', reco_name+'Down',
                                            isolation_name+'Up', isolation_name+'Down',
-                                         'pileupUp', 'pileupDown',
+#                                          'pileupUp', 'pileupDown',
                                           ]
                     else:
                         systematic = [shift_syst] 
