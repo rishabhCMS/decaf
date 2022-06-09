@@ -1146,8 +1146,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         else:
             j   = corrected_jets
 #             j   = events.Jet
-            met = events.MET
-#             met = corrected_mets
+#             met = events.MET
+            met = corrected_mets
 #                 #print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
@@ -1572,10 +1572,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             # Calculate PU weight and systematic variations
             ###
 
-            pu = get_pu_nom_weight(events.Pileup.nTrueInt)
-            puUp = get_pu_up_weight(events.Pileup.nTrueInt)
-            puUp = np.array([i+(0.1*i) for i in puUp])
-            puDown = get_pu_down_weight(events.Pileup.nTrueInt)
+#             pu = get_pu_nom_weight(events.Pileup.nTrueInt)
+#             puUp = get_pu_up_weight(events.Pileup.nTrueInt)
+#             puUp = np.array([i+(0.1*i) for i in puUp])
+#             puDown = get_pu_down_weight(events.Pileup.nTrueInt)
             #print("get_pu_up_weight", get_pu_up_weight(events.Pileup.nTrueInt))
             ###
             # Trigger efficiency weight
@@ -2164,7 +2164,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu, puUp, puDown)
+#                 weights.add('pileup', pu, puUp, puDown)
                 #print("****** PILE UP*********")
                 #print("nom", pu)
                 #print("up", puUp)
