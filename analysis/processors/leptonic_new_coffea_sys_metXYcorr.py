@@ -1023,10 +1023,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         # Initialize physics objects
         ###
-        print(met.pt)
-        print(corrected_met['T']['pt'])
-        import sys
-        sys.exit(0)
 
             
         mu = events.Muon
