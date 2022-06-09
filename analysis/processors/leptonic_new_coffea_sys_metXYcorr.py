@@ -492,22 +492,22 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
                 
-                'Summer19UL18_RunA_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunA_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunA_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunA_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L3Absolute_AK4PFchs',
+#                 'Summer19UL18_RunA_V5_DATA_L1FastJet_AK4PFchs',
+#                 'Summer19UL18_RunB_V5_DATA_L1FastJet_AK4PFchs',
+#                 'Summer19UL18_RunC_V5_DATA_L1FastJet_AK4PFchs',
+#                 'Summer19UL18_RunD_V5_DATA_L1FastJet_AK4PFchs',
+#                 'Summer19UL18_RunA_V5_DATA_L2Relative_AK4PFchs',
+#                 'Summer19UL18_RunB_V5_DATA_L2Relative_AK4PFchs',
+#                 'Summer19UL18_RunC_V5_DATA_L2Relative_AK4PFchs',
+#                 'Summer19UL18_RunD_V5_DATA_L2Relative_AK4PFchs',
+#                 'Summer19UL18_RunA_V5_DATA_L2L3Residual_AK4PFchs',
+#                 'Summer19UL18_RunB_V5_DATA_L2L3Residual_AK4PFchs',
+#                 'Summer19UL18_RunC_V5_DATA_L2L3Residual_AK4PFchs',
+#                 'Summer19UL18_RunD_V5_DATA_L2L3Residual_AK4PFchs',
+#                 'Summer19UL18_RunA_V5_DATA_L3Absolute_AK4PFchs',
+#                 'Summer19UL18_RunB_V5_DATA_L3Absolute_AK4PFchs',
+#                 'Summer19UL18_RunC_V5_DATA_L3Absolute_AK4PFchs',
+#                 'Summer19UL18_RunD_V5_DATA_L3Absolute_AK4PFchs',
             ]
         }
         
@@ -584,7 +584,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL18_JRV2_MC_PtResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_MC_EtaResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_MC_PhiResolution_AK4PFchs',
-                'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs',
+#                 'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_DATA_EtaResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_DATA_PhiResolution_AK4PFchs',
 #                 'Autumn18_V7b_MC_PtResolution_AK4PFchs'
@@ -607,13 +607,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2017': [
                 'Summer19UL17_JRV2_MC_SF_AK4PFchs',
-                'Summer19UL17_JRV2_DATA_SF_AK4PFchs'
+#                 'Summer19UL17_JRV2_DATA_SF_AK4PFchs'
 #                 'Fall17_V3b_MC_SF_AK4PFchs'
             ],
 
             '2018': [
                 'Summer19UL18_JRV2_MC_SF_AK4PFchs',
-                'Summer19UL18_JRV2_DATA_SF_AK4PFchs'
+#                 'Summer19UL18_JRV2_DATA_SF_AK4PFchs'
 #                 'Autumn18_V7b_MC_SF_AK4PFchs'
             ]
         }
