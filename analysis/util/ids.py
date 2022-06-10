@@ -7,22 +7,22 @@ from coffea.util import save
 def isLooseElectron(pt,eta,dxy,dz,veto_id,year):
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     elif year=='2017':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     elif year=='2018':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     return mask
 
 #2017/18 pT thresholds adjusted to match monojet, using dedicated ID SFs
 def isTightElectron(pt,eta,dxy,dz,tight_id,year):
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
     elif year=='2017':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
     elif year=='2018':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
     return mask
 
 
