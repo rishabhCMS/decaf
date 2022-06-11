@@ -1179,20 +1179,31 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         # ************ calculate delta phi( leading ak4jet, met) > 1.5***********
 
- 
+        met_LJ_Pairs = ak.cartesian({"met":met, "lj": leading_j})
+#         Delta_Phi_Met_LJ_var = (abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj)))
         Delta_Phi_Met_LJ_var = (abs(met.delta_phi(leading_j)))
         Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var > 1.5)
-
+#         print("originalmet", Delta_Phi_Met_LJ_var)
+        corrected_met['T'].delta_phi(leading_j['T'])
+#         print("leading_j.phi",leading_j.phi)
+        print("leading_j['T']['phi']",leading_j['T']['phi'])
+        print("met.phi",corrected_met['T']['phi'] )
         Delta_Phi_Corr_Met_LJ_var = (abs(corrected_met['T'].delta_phi(leading_j['T'])))
-        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.5)
+        print(corrected_met['T'].delta_phi(leading_j['T']))
 
+        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.5)
+        print("XYmet", Delta_Phi_Corr_Met_LJ)
+#         import sys
+#         sys.exit(0)
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = ak.cartesian({"leading_j":leading_j, "e_loose": e_loose})
         DeltaR_LJ_Ele = abs(LJ_Ele.leading_j.delta_r(LJ_Ele.e_loose))
+        
         DeltaR_LJ_Ele_mask = ak.any(DeltaR_LJ_Ele < 3.4, axis=1)
 
         LJ_Mu = ak.cartesian({"leading_j":leading_j, "mu_loose": mu_loose})
         DeltaR_LJ_Mu = abs(LJ_Mu.leading_j.delta_r(LJ_Mu.mu_loose))
+        
         DeltaR_LJ_Mu_mask = ak.any(DeltaR_LJ_Mu < 3.4, axis=1)
 
 
@@ -1997,11 +2008,11 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematic =['nominal',
                                        'btagUp',
                                        'btagDown',
-#                                            trig_name+'Up', trig_name+'Down',
+                                           trig_name+'Up', trig_name+'Down',
                                            ids_name+'Up', ids_name+'Down',
                                            reco_name+'Up', reco_name+'Down',
                                            isolation_name+'Up', isolation_name+'Down',
-#                                          'pileupUp', 'pileupDown',
+                                         'pileupUp', 'pileupDown',
                                           ]
                     else:
                         systematic = [shift_syst] 
@@ -2049,9 +2060,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                 dataset = dataset.split('--')[1]
             print('Cross section:', self._xsec[dataset])
             if self._xsec[dataset] != -1:
-                scale[d.name] = 1
+#                 scale[d.name] = 1
 #                 scale[d.name] = (self._lumi*self._xsec[dataset])/nevents
-#                 scale[d.name] = (self._lumi*self._xsec[dataset])
+                scale[d.name] = (self._lumi*self._xsec[dataset])
 
             else:
                 scale[d.name] = 1
