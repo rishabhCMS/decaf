@@ -1865,7 +1865,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     trig_name = 'trig_e'
                 elif 'm' == region[-1]:
                     trig_name = 'trig_m'
-#                 weights.add(trig_name, trig[region],trig[region]+trig_err[region], trig[region]-trig_err[region])
+                weights.add(trig_name, trig[region],trig[region]+trig_err[region], trig[region]-trig_err[region])
                 if 'e' == region[-1]:
                     ids_name = 'id_e'
                 elif 'm' == region[-1]:
