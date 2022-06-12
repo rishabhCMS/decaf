@@ -1053,7 +1053,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         e = events.Electron
         event_size = len(events)
-        e['isclean'] = (ak.all(e.metric_table(mu_tight) > 0.3, axis=-1)) 
+        e['isclean'] = ~(ak.any(e.metric_table(mu_loose) < 0.3, axis=2)) 
         e['isloose'] = isLooseElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e['istight'] = isTightElectron(e.pt, e.eta+e.deltaEtaSC, e.dxy, e.dz, e.cutBased, self._year)
         e["T"] = ak.zip({"pt": e.pt, "phi": e.phi}, 
@@ -1067,8 +1067,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             with_name="PtEtaPhiMLorentzVector",
         )
         e_clean = e[ak.values_astype(e.isclean, np.bool)]
-        e_loose = e[ak.values_astype(e.isloose, np.bool)]
-        e_tight = e[ak.values_astype(e.istight, np.bool)]
+        e_loose = e_clean[ak.values_astype(e_clean.isloose, np.bool)]
+        e_tight = e_clean[ak.values_astype(e_clean.istight, np.bool)]
         e_ntot = ak.num(e, axis=1)
         e_nloose = ak.num(e_loose, axis=1)
 
@@ -1536,25 +1536,25 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         else:
 #             selection.add("exclude_low_WpT_JetHT", np.full(event_size, True))
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 24))].pt > 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 400)
             selection.add("exclude_wjets_greater_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 24))].pt <= 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 400)
             selection.add("exclude_wjets_less_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
 
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 23))].pt <= 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt <= 400)
             selection.add("exclude_dyjets_less_400", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_dyjets_less_400", np.full(event_size, True))
 
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 23))].pt > 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt > 400)
             selection.add("exclude_dyjets_greater_400", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
@@ -1590,11 +1590,11 @@ class AnalysisProcessor(processor.ProcessorABC):
             select = (mT[region] >= 50)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
         for region in mT_corrected.keys():
-            sel_name = 'mtcorr'+'_'+region+'>50'
+            sel_name = 'mtcorr'+'_'+region+'>150'
             select = (mT_corrected[region] >150)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
             
-        selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >50))# from the monotop paper
+        selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j.pt, axis=1) >70))# from the monotop paper
         selection.add('atleast_one_jet_with_pt_grt_50',ak.to_numpy(atleast_one_jet_with_pt_grt_50))
 
 #         print(selection.all())
@@ -1602,7 +1602,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 
                     'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Corr_Met_LJ',
-                    'mtcorr_sre>50','corr_met100',
+                    'mtcorr_sre>150','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
 #                     "leading_j>70",
@@ -1612,7 +1612,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 
                     'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Corr_Met_LJ', 
-                    'mtcorr_srm>50',  'corr_met100', 
+                    'mtcorr_srm>150',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
 #                     "leading_j>70", 
@@ -1622,7 +1622,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 
                        'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Corr_Met_LJ',
-                       'mtcorr_ttbare>50', 'corr_met100', 
+                       'mtcorr_ttbare>150', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
 #                        "leading_j>70", 
@@ -1632,7 +1632,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 
                        'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Corr_Met_LJ',
-                       'mtcorr_ttbarm>50' , 'corr_met100',
+                       'mtcorr_ttbarm>150' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
 #                        "leading_j>70", 
@@ -1643,7 +1643,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'corr_met100',
                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
-                       'mtcorr_wjete>50' ,
+                       'mtcorr_wjete>150' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
 #                 "leading_j>70",
@@ -1652,16 +1652,14 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'wjetm': ['atleast_one_jet_with_pt_grt_50',
                 'corr_met100',
-#                 "leading_j>70",
-                  
                       'Delta_Phi_Corr_Met_LJ',
                       'zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
-                       'mtcorr_wjetm>50' ,
+                       'mtcorr_wjetm>150' ,
                       'noHEMj', 'noHEMmet', 
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
 #                       "leading_j>70",
-                      "lumi_mask",
+                      "lumi_mask",'DeltaR_LJ_Mu_mask'
                      ],
         }
 #     small code piece for checcking cutflow for after each selection
