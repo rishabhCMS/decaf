@@ -981,10 +981,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j   = events.Jet
                 
             else:
-                j   = events.Jet
-#                 j   = corrected_jets
-#                 met = corrected_mets
-                met = events.MET
+#                 j   = events.Jet
+                j   = corrected_jets
+                met = corrected_mets
+#                 met = events.MET
         ###
         # Initialize global quantities (MET ecc.)
         ###
@@ -1127,7 +1127,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
 
-            j_clean = j_good[~jetEleMask & ~jetMuMask]
+            j_clean = j_good[~jetPhoMask & ~jetEleMask & ~jetMuMask]
 
             return(j_clean)
         
@@ -1158,7 +1158,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_ndflvM = ak.num(j_dflvM, axis=1)
         leading_j = j_clean[:,:1]
 
-        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(leading_j.pt>70, axis=1))
+        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(j_clean.pt>100, axis=1))
         
 
         ###
