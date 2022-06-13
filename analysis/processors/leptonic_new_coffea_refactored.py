@@ -2045,11 +2045,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #             nevents = accumulator['sumw'].integrate('dataset', d).values(overflow='all')[()][1]
 #             #print(nevents)
 
-            #print('Scaling:', d.name)
+            print('Scaling:', d.name)
             dataset = d.name
             if '--' in dataset:
                 dataset = dataset.split('--')[1]
-            #print('Cross section:', self._xsec[dataset])
+            print('Cross section:', self._xsec[dataset])
             if self._xsec[dataset] != -1:
 #                 scale[d.name] = 1
 #                 scale[d.name] = (self._lumi*self._xsec[dataset])/nevents
@@ -2092,11 +2092,11 @@ if __name__ == '__main__':
                                            vfp=options.vfp)
     if options.vfp is not None:
         save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.vfp+'_'+options.year+'.processor')
-        #print("processor name: UL_lep_monotop_v1_test_{}_{}".format(options.vfp, options.year))
+        print("processor name: UL_lep_monotop_v1_test_{}_{}".format(options.vfp, options.year))
 
     else:
         save(processor_instance, 'data/UL_lep_monotop_v1_test_'+options.year+'.processor')
-        #print("processor name: UL_lep_monotop_v1_test_{}".format(options.year))
+        print("processor name: UL_lep_monotop_v1_test_{}".format(options.year))
   
   
   
