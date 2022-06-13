@@ -7,11 +7,11 @@ from coffea.util import save
 def isLooseElectron(pt,eta,dxy,dz,veto_id,year):
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     elif year=='2017':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     elif year=='2018':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     return mask
 
 #2017/18 pT thresholds adjusted to match monojet, using dedicated ID SFs
