@@ -329,10 +329,10 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-#                  'ecalBadCalibFilter',
-#                  'eeBadScFilter',
-#                  'BadPFMuonDzFilter',
-#                  'hfNoisyHitsFilter'
+                 'ecalBadCalibFilter',
+                 'eeBadScFilter',
+                 'BadPFMuonDzFilter',
+                 'hfNoisyHitsFilter'
                  ]
     }
 
@@ -425,28 +425,15 @@ class AnalysisProcessor(processor.ProcessorABC):
                         ['Summer19UL16_V7_MC_L1FastJet_AK4PFchs',
                         'Summer19UL16_V7_MC_L2L3Residual_AK4PFchs',
                         'Summer19UL16_V7_MC_L2Relative_AK4PFchs',
-#                         'Summer19UL16_V7_MC_L2Residual_AK4PFchs',
-                        'Summer19UL16_V7_MC_L3Absolute_AK4PFchs'
-                        'Summer19UL16_V7_MC_L3Absolute_AK4PFchs',
-                        'Summer19UL16_RunFGH_V7_DATA_L1FastJet_AK4PFchs',
-                        'Summer19UL16_RunFGH_V7_DATA_L2L3Residual_AK4PFchs',
-                        'Summer19UL16_RunFGH_V7_DATA_L2Relative_AK4PFchs',
-                        'Summer19UL16_RunFGH_V7_DATA_L3Absolute_AK4PFchs'],
+                        'Summer19UL16_V7_MC_L2Residual_AK4PFchs',
+                        'Summer19UL16_V7_MC_L3Absolute_AK4PFchs'],
                     
                         'apv':
                         ['Summer19UL16APV_V7_MC_L1FastJet_AK4PFchs',
                         'Summer19UL16APV_V7_MC_L2L3Residual_AK4PFchs',
                         'Summer19UL16APV_V7_MC_L2Relative_AK4PFchs',
-#                         'Summer19UL16APV_V7_MC_L2Residual_AK4PFchs',
-                        'Summer19UL16APV_V7_MC_L3Absolute_AK4PFchs',
-                        'Summer19UL16APV_RunBCD_V7_DATA_L1FastJet_AK4PFchs',
-                        'Summer19UL16APV_RunEF_V7_DATA_L1FastJet_AK4PFchs',
-                        'Summer19UL16APV_RunBCD_V7_DATA_L2L3Residual_AK4PFchs',
-                        'Summer19UL16APV_RunEF_V7_DATA_L2L3Residual_AK4PFchs',
-                        'Summer19UL16APV_RunBCD_V7_DATA_L2Relative_AK4PFchs',
-                        'Summer19UL16APV_RunEF_V7_DATA_L2Relative_AK4PFchs',
-                        'Summer19UL16APV_RunBCD_V7_DATA_L3Absolute_AK4PFchs',
-                        'Summer19UL16APV_RunEF_V7_DATA_L3Absolute_AK4PFchs',]
+                        'Summer19UL16APV_V7_MC_L2Residual_AK4PFchs',
+                        'Summer19UL16APV_V7_MC_L3Absolute_AK4PFchs']
                     },
 
 
@@ -454,53 +441,19 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL17_V5_MC_L1FastJet_AK4PFchs',
                 'Summer19UL17_V5_MC_L2L3Residual_AK4PFchs',
                 'Summer19UL17_V5_MC_L2Relative_AK4PFchs',
-#                 'Summer19UL17_V5_MC_L2Residual_AK4PFchs',
-                'Summer19UL17_V5_MC_L3Absolute_AK4PFchs',
-                'Summer19UL17_RunB_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL17_RunC_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL17_RunD_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL17_RunE_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL17_RunF_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL17_RunE_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL17_RunF_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL17_RunB_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL17_RunC_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL17_RunD_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL17_RunE_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL17_RunF_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL17_RunB_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL17_RunC_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL17_RunD_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL17_RunF_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL17_RunE_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL17_RunB_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL17_RunC_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL17_RunD_V5_DATA_L3Absolute_AK4PFchs',
+                'Summer19UL17_V5_MC_L2Residual_AK4PFchs',
+                'Summer19UL17_V5_MC_L3Absolute_AK4PFchs'
                 
             ],
 
             '2018': [
                 'Summer19UL18_V5_MC_L1FastJet_AK4PFchs',
-                'Summer19UL18_V5_MC_L2Relative_AK4PFchs',
                 'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
-                
-                'Summer19UL18_RunA_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L1FastJet_AK4PFchs',
-                'Summer19UL18_RunA_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L2Relative_AK4PFchs',
-                'Summer19UL18_RunA_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L2L3Residual_AK4PFchs',
-                'Summer19UL18_RunA_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_L3Absolute_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_L3Absolute_AK4PFchs',
+                'Summer19UL18_V5_MC_L2Relative_AK4PFchs',
+                'Summer19UL18_V5_MC_L2Residual_AK4PFchs',
+                'Summer19UL18_V5_MC_L3Absolute_AK4PFchs'
+                     
             ]
         }
         
@@ -508,32 +461,18 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2016': 
             {
-            'no_apv': ['Summer19UL16_V7_MC_Uncertainty_AK4PFchs',
-                      'Summer19UL16_RunFGH_V7_DATA_Uncertainty_AK4PFchs',
-                      ],
-                     'apv': ['Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs',
-                            'Summer19UL16APV_RunBCD_V7_DATA_Uncertainty_AK4PFchs',
-                            'Summer19UL16APV_RunEF_V7_DATA_Uncertainty_AK4PFchs']},
+            'no_apv': ['Summer19UL16_V7_MC_Uncertainty_AK4PFchs'],
+                     'apv': ['Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs']},
 #                 'Summer16_07Aug2017_V11_MC_Uncertainty_AK4PFchs',
             
 
             '2017': [
-                'Summer19UL17_V5_MC_Uncertainty_AK4PFchs',
-                'Summer19UL17_RunB_V5_DATA_Uncertainty_AK4PFchs',
-                'Summer19UL17_RunC_V5_DATA_Uncertainty_AK4PFchs',
-                'Summer19UL17_RunD_V5_DATA_Uncertainty_AK4PFchs',
-                'Summer19UL17_RunE_V5_DATA_Uncertainty_AK4PFchs',
-                'Summer19UL17_RunF_V5_DATA_Uncertainty_AK4PFchs'
+                'Summer19UL17_V5_MC_Uncertainty_AK4PFchs'
 #                 'Fall17_17Nov2017_V32_MC_Uncertainty_AK4PFchs'
             ],
 
             '2018': [
-                'Summer19UL18_V5_MC_Uncertainty_AK4PFchs',
-                'Summer19UL18_RunA_V5_DATA_Uncertainty_AK4PFchs',
-                'Summer19UL18_RunB_V5_DATA_Uncertainty_AK4PFchs',
-                'Summer19UL18_RunC_V5_DATA_Uncertainty_AK4PFchs',
-                'Summer19UL18_RunD_V5_DATA_Uncertainty_AK4PFchs',
-                ''
+                'Summer19UL18_V5_MC_Uncertainty_AK4PFchs'
 #                 'Autumn18_V19_MC_Uncertainty_AK4PFchs'
             ],
         }
@@ -541,40 +480,18 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._jr = {
 
             '2016': 
-            {'apv': ['Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs',
-#                      'Summer20UL16APV_JRV3_MC_EtaResolution_AK4PFchs',
-#                      'Summer20UL16APV_JRV3_MC_PhiResolution_AK4PFchs',
-                    'Summer20UL16APV_JRV3_DATA_PtResolution_AK4PFchs',
-#                     'Summer20UL16APV_JRV3_DATA_EtaResolution_AK4PFchs',
-#                      'Summer20UL16APV_JRV3_DATA_PhiResolution_AK4PFchs',
-                    ],
-                     'no_apv': ['Summer20UL16_JRV3_MC_PtResolution_AK4PFchs',
-#                                 'Summer20UL16_JRV3_MC_EtaResolution_AK4PFchs',
-#                                 'Summer20UL16_JRV3_MC_PhiResolution_AK4PFchs',
-                               'Summer20UL16_JRV3_DATA_PtResolution_AK4PFchs',
-#                                'Summer20UL16_JRV3_DATA_EtaResolution_AK4PFchs',
-#                                 'Summer20UL16_JRV3_DATA_PhiResolution_AK4PFchs',
-                               ]},
+            {'apv': ['Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs'],
+                     'no_apv': ['Summer20UL16_JRV3_MC_PtResolution_AK4PFchs']},
 #                 'Summer16_25nsV1b_MC_PtResolution_AK4PFchs',
 
 
             '2017': [
-                'Summer19UL17_JRV2_MC_PtResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_MC_EtaResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_MC_PhiResolution_AK4PFchs',
-                'Summer19UL17_JRV2_DATA_PtResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_EtaResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_PhiResolution_AK4PFchs',
+                'Summer19UL17_JRV2_MC_PtResolution_AK4PFchs'
 #                 'Fall17_V3b_MC_PtResolution_AK4PFchs'
             ],
 
             '2018': [
-                'Summer19UL18_JRV2_MC_PtResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_MC_EtaResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_MC_PhiResolution_AK4PFchs',
-                'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_EtaResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_PhiResolution_AK4PFchs',
+                'Summer19UL18_JRV2_MC_PtResolution_AK4PFchs'
 #                 'Autumn18_V7b_MC_PtResolution_AK4PFchs'
             ]
         }
@@ -582,23 +499,18 @@ class AnalysisProcessor(processor.ProcessorABC):
         self._jersf = {
 
             '2016': 
-            {'no_apv':['Summer20UL16_JRV3_MC_SF_AK4PFchs',
-                      'Summer20UL16_JRV3_DATA_SF_AK4PFchs'],
-                     'apv':['Summer20UL16APV_JRV3_MC_SF_AK4PFchs',
-                           'Summer20UL16APV_JRV3_DATA_SF_AK4PFchs'
-                           ]},
+            {'no_apv':['Summer20UL16_JRV3_MC_SF_AK4PFchs'],
+                     'apv':['Summer20UL16APV_JRV3_MC_SF_AK4PFchs']},
 #                 'Summer16_25nsV1b_MC_SF_AK4PFchs',
             
 
             '2017': [
-                'Summer19UL17_JRV2_MC_SF_AK4PFchs',
-                'Summer19UL17_JRV2_DATA_SF_AK4PFchs'
+                'Summer19UL17_JRV2_MC_SF_AK4PFchs'
 #                 'Fall17_V3b_MC_SF_AK4PFchs'
             ],
 
             '2018': [
-                'Summer19UL18_JRV2_MC_SF_AK4PFchs',
-                'Summer19UL18_JRV2_DATA_SF_AK4PFchs'
+                'Summer19UL18_JRV2_MC_SF_AK4PFchs'
 #                 'Autumn18_V7b_MC_SF_AK4PFchs'
             ]
         }
@@ -675,6 +587,18 @@ class AnalysisProcessor(processor.ProcessorABC):
                 hist.Cat('region', 'Region'),
                 hist.Cat('systematic', 'Systematic'),
                 hist.Bin('mu_pT', 'Tight Muon $p_{T}$ [GeV]', 10, 0, 200)),
+            'W_gen_pT': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+                hist.Bin('W_gen_pT', 'W Boson Gen $p_{T}$ [GeV]', 50, 0, 1000)), 
+            'Z_gen_pT': hist.Hist(
+                'Events',
+                hist.Cat('dataset', 'dataset'),
+                hist.Cat('region', 'Region'),
+                hist.Cat('systematic', 'Systematic'),
+                hist.Bin('Z_gen_pT', 'Z Boson Gen $p_{T}$ [GeV]', 50, 0, 1000)),
             'j1pt': hist.Hist(
                 'Events',
                 hist.Cat('dataset', 'Dataset'),
@@ -1004,11 +928,17 @@ class AnalysisProcessor(processor.ProcessorABC):
         # Derive jet corrector for JEC/JER
         ### Not taking JEC because they have already been applied
         jec_names = []
-        if isMC:
-            string_ = "MC"
-        else: 
-            string_ = "DATA"
-            ERA = "Run"+str(get_data_era(events, self._year))
+#         #print(type(self._jr[self._year]['apv']))
+#         #print(type(self._jr[self._year]['no_apv']))
+        
+#         #print(type(self._junc[self._year]['apv']))
+#         #print(type(self._junc[self._year]['no_apv']))
+        
+#         #print(type(self._jersf[self._year]['apv']))
+#         #print(type(self._jersf[self._year]['no_apv']))        
+#         import sys
+#         sys.exit(0)
+#         list_of_jr = []
         if (self._year == '2016'):
             if ("preVFP" in dataset):
 #                 #print(self._jr[self._year]['apv'][0])
@@ -1021,107 +951,109 @@ class AnalysisProcessor(processor.ProcessorABC):
                 list_of_jr =self ._jr[self._year]['no_apv']
                 list_of_junc =self ._junc[self._year]['no_apv']
                 list_of_jersf = self._jersf[self._year]['no_apv']
-
+                
             for name in list_of_jec:
-                if string_ not in name: continue
                 jec_names.append(name)
             for name in list_of_jr:
-                if string_ not in name: continue
                 jec_names.append(name)
             for name in list_of_junc:
-                if string_ not in name: continue
                 jec_names.append(name)    
             for name in list_of_jersf:
-                if string_ not in name: continue
                 jec_names.append(name)                
         else:
             for name in self._jec[self._year]:
-                if string_ not in name: continue
                 jec_names.append(name)                 
             for name in self._jr[self._year]:
-                if string_ not in name: continue
                 jec_names.append(name)    
             for name in self._jersf[self._year]:
-                if string_ not in name: continue
                 jec_names.append(name)
             for name in self._junc[self._year]:
-                if string_ not in name: continue
                 jec_names.append(name)
-        #print("before____")
-        #print(jec_names)
-        if not isMC:
-            jec_names = [name for name in jec_names if ERA in name]
+            
         j = events.Jet
         met = events.MET
-        #print("afer____")
-        #print(jec_names)
-        jec_inputs = {name: Jetevaluator[name] for name in jec_names}
-        jec_stack = JECStack(jec_inputs)
-
-        jec_name_map = jec_stack.blank_name_map
-        jec_name_map = {
-            'JetPt': 'pt',
-            'JetMass': 'mass',
-            'JetEta': 'eta',
-            'JetA': 'area',
-            'ptGenJet': 'pt_gen',
-            'ptRaw': 'pt_raw',
-            'massRaw': 'mass_raw',
-            'Rho': 'rho',
-            'METpt': 'pt',
-            'METphi': 'phi',
-            'JetPhi': 'phi',
-            'UnClusteredEnergyDeltaX': 'MetUnclustEnUpDeltaX',
-            'UnClusteredEnergyDeltaY': 'MetUnclustEnUpDeltaY',
-        }
-
-        jet_factory = CorrectedJetsFactory(jec_name_map, jec_stack)
-
-        events["Jet", "pt_raw"] = (1 - events.Jet.rawFactor) * events.Jet.pt
-        events["Jet", "mass_raw"] = (1 - events.Jet.rawFactor) * events.Jet.mass
         if isMC:
-            events["Jet", "pt_gen"] = ak.values_astype(
-                ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
-        )
-        events["Jet", "rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, events.Jet.pt)[0]
+            jec_inputs = {name: Jetevaluator[name] for name in jec_names}
+            jec_stack = JECStack(jec_inputs)
+
+            jec_name_map = jec_stack.blank_name_map
+            jec_name_map = {
+                'JetPt': 'pt',
+                'JetMass': 'mass',
+                'JetEta': 'eta',
+                'JetA': 'area',
+                'ptGenJet': 'pt_gen',
+                'ptRaw': 'pt_raw',
+                'massRaw': 'mass_raw',
+                'Rho': 'rho',
+                'METpt': 'pt',
+                'METphi': 'phi',
+                'JetPhi': 'phi',
+                'UnClusteredEnergyDeltaX': 'MetUnclustEnUpDeltaX',
+                'UnClusteredEnergyDeltaY': 'MetUnclustEnUpDeltaY',
+            }
+            
+            jet_factory = CorrectedJetsFactory(jec_name_map, jec_stack)
+
+            j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
+                      with_name="PolarTwoVector", 
+                      behavior=vector.behavior)
+            j["p4"] = ak.zip({
+            "pt": j.pt,
+            "eta": j.eta,
+            "phi": j.phi,
+            "mass": j.mass},
+            with_name="PtEtaPhiMLorentzVector",
+            )
+            j["pt_raw"] =  j.pt*(1 - j.rawFactor)
+            j["mass_raw"] =  j.mass*(1 - j.rawFactor)
+
+            j["pt_gen"] = ak.values_astype(
+                ak.fill_none(j.matched_gen.pt, 0), np.float32
+            )
+            j["pt"] = j.pt_raw
+            j["mass"] = j.mass_raw
+            j["p4","pt"] = j.pt_raw
+            j["p4","mass"] = j.mass_raw
+
+            j["rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, j.pt)[0]
 
 
-        events_cache = events.caches[0]
-        met_factory = CorrectedMETFactory(jec_name_map)
-        corrected_jets = jet_factory.build(events.Jet, lazy_cache=events_cache)
-        corrected_mets = met_factory.build(events.MET, corrected_jets, {})
-
-
-        if shift_syst == "JESUp":
-            j = corrected_jets['JES_jes'].up
+            events_cache = events.caches[0]
+            met_factory = CorrectedMETFactory(jec_name_map)
+            corrected_jets = jet_factory.build(j, lazy_cache=events_cache)
+            corrected_mets = met_factory.build(events.MET,corrected_jets, {})
+            
+            
+            if shift_syst == "JESUp":
+                j = corrected_jets['JES_jes'].up
 #                 #print(shift_syst)
 
-        elif shift_syst == "JESDown":
-            j = corrected_jets['JES_jes'].down
+            elif shift_syst == "JESDown":
+                j = corrected_jets['JES_jes'].down
 #                 #print(shift_syst)
 
-        elif shift_syst == "JERUp":
-            j = corrected_jets['JER'].up
+            elif shift_syst == "JERUp":
+                j = corrected_jets['JER'].up
 #                 #print(shift_syst)
 
-        elif shift_syst == "JERDown":
-            j = corrected_jets['JER'].down
+            elif shift_syst == "JERDown":
+                j = corrected_jets['JER'].down
 #                 #print(shift_syst)
 
-        elif shift_syst == "METunclUp":
-            met = corrected_mets.MET_UnclusteredEnergy.up
-            j   = events.Jet
-
-        elif shift_syst == "METunclDown":
-            met = corrected_mets.MET_UnclusteredEnergy.down
-            j   = events.Jet
-
-        else:
-            j   = corrected_jets
+            elif shift_syst == "METunclUp":
+                met = corrected_mets.MET_UnclusteredEnergy.up
+                j   = events.Jet
+            
+            elif shift_syst == "METunclDown":
+                met = corrected_mets.MET_UnclusteredEnergy.down
+                j   = events.Jet
+                
+            else:
 #                 j   = events.Jet
-#             met = events.MET
-            met = corrected_mets
-#                 #print(shift_syst)
+                j   = corrected_jets
+                met = corrected_mets
+#                 met = events.MET
         ###
         # Initialize global quantities (MET ecc.)
         ###
@@ -1264,7 +1196,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
 
-            j_clean = j_good[~jetPhoMask & ~jetEleMask & ~jetMuMask]
+            j_clean = j_good[~jetEleMask & ~jetMuMask]
 
             return(j_clean)
         
@@ -1295,7 +1227,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_ndflvM = ak.num(j_dflvM, axis=1)
         leading_j = j_clean[:,:1]
 
-        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(j_clean.pt>100, axis=1))
+        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(j_clean.pt>70, axis=1))
         
 
         ###
@@ -1305,13 +1237,21 @@ class AnalysisProcessor(processor.ProcessorABC):
         # ************ calculate delta phi( leading ak4jet, met) > 1.5***********
 
         met_LJ_Pairs = ak.cartesian({"met":met, "lj": leading_j})
+#         Delta_Phi_Met_LJ_var = (abs(met_LJ_Pairs.met.delta_phi(met_LJ_Pairs.lj)))
         Delta_Phi_Met_LJ_var = (abs(met.delta_phi(leading_j)))
         Delta_Phi_Met_LJ = (Delta_Phi_Met_LJ_var > 1.5)
-
+#         #print("originalmet", Delta_Phi_Met_LJ_var)
         corrected_met['T'].delta_phi(leading_j['T'])
+#         #print("leading_j.phi",leading_j.phi)
+        #print("leading_j['T']['phi']",leading_j['T']['phi'])
+        #print("met.phi",corrected_met['T']['phi'] )
         Delta_Phi_Corr_Met_LJ_var = (abs(corrected_met['T'].delta_phi(leading_j['T'])))
-        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.5)
+        #print(corrected_met['T'].delta_phi(leading_j['T']))
 
+        Delta_Phi_Corr_Met_LJ = (Delta_Phi_Corr_Met_LJ_var > 1.5)
+        #print("XYmet", Delta_Phi_Corr_Met_LJ)
+#         import sys
+#         sys.exit(0)
         # *******calculate deltaR( leading ak4jet, e/mu) < 3.4 *****
         LJ_Ele = ak.cartesian({"leading_j":leading_j, "e_loose": e_loose})
         DeltaR_LJ_Ele = abs(LJ_Ele.leading_j.delta_r(LJ_Ele.e_loose))
@@ -1596,8 +1536,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         met_filters = np.ones(event_size, dtype=np.bool)
         # this filter is recommended for data only
-        if isData:
-            met_filters = met_filters & events.Flag['eeBadScFilter']
+#         if isData:
+#             met_filters = met_filters & events.Flag['eeBadScFilter']
         for flag in AnalysisProcessor.met_filter_flags[self._year]:
             met_filters = met_filters & events.Flag[flag]
         selection.add('met_filters', ak.to_numpy(met_filters, np.bool))
@@ -1722,7 +1662,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'mtcorr_sre>150','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                     "leading_j>70",
+                    "leading_j>70",
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
@@ -1732,7 +1672,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'mtcorr_srm>150',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                     "leading_j>70", 
+                    "leading_j>70", 
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
@@ -1742,7 +1682,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_ttbare>150', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                        "leading_j>70", 
+                       "leading_j>70", 
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
@@ -1752,7 +1692,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_ttbarm>150' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                        "leading_j>70", 
+                       "leading_j>70", 
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
@@ -1763,7 +1703,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_wjete>150' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
-#                 "leading_j>70",
+                "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
@@ -1775,7 +1715,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'noHEMj', 'noHEMmet', 
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
-#                       "leading_j>70",
+                      "leading_j>70",
                       "lumi_mask",'DeltaR_LJ_Mu_mask'
                      ],
         }
