@@ -1150,12 +1150,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             
         mu = events.Muon
-        mu['isloose'] = isLooseMuon(mu.pt, mu.eta, mu.pfIsoId, mu.looseId, self._year, mu.isPFcand,
-                                   mu.isGlobal,
-                                   mu.isTracker)
-        mu['istight'] = isTightMuon(mu.pt, mu.eta, mu.pfIsoId, mu.tightId, self._year, mu.isPFcand,
-                                   mu.isGlobal,
-                                   mu.isTracker)
+        mu['isloose'] = isLooseMuon(mu.pt,mu.eta,mu.pfRelIso04_all,mu.looseId,self._year)
+        mu['istight'] = isTightMuon(mu.pt,mu.eta,mu.pfRelIso04_all,mu.tightId,self._year)
         mu["T"] = ak.zip({"pt": mu.pt, "phi": mu.phi}, 
                   with_name="PolarTwoVector", 
                   behavior=vector.behavior)
