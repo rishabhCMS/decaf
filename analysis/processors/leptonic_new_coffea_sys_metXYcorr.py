@@ -1250,7 +1250,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             CEMF = j.chEmEF
             CHM = j.nElectrons+j.nMuons
             #1 Select good jets
-            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
+            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF,CHF, year=self._year)
             j_good = j[j_isgood_mask]
 
             #2 Select good jets which don't have a lepton closeby
