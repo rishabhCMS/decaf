@@ -7,45 +7,45 @@ from coffea.util import save
 def isLooseElectron(pt,eta,dxy,dz,veto_id,year):
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>10)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>10)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     elif year=='2017':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>10)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>10)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     elif year=='2018':
-        mask = ((pt>15)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>15)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
+        mask = ((pt>10)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(veto_id>=1)) | ((pt>10)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(veto_id>=1))
     return mask
 
 #2017/18 pT thresholds adjusted to match monojet, using dedicated ID SFs
 def isTightElectron(pt,eta,dxy,dz,tight_id,year):
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
+        mask = ((pt>29)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>29)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele27_WPTight_Gsf_v
     elif year=='2017':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele35_WPTight_Gsf_v
     elif year=='2018':
-        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id>=4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.4)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id>=4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
+        mask = ((pt>40)&(abs(eta)<1.4442)&(abs(dxy)<0.05)&(abs(dz)<0.1)&(tight_id==4)) | ((pt>40)&(abs(eta)>1.5660)&(abs(eta)<2.5)&(abs(dxy)<0.1)&(abs(dz)<0.2)&(tight_id==4)) # Trigger: HLT_Ele32_WPTight_Gsf_v
     return mask
 
 
-def isLooseMuon(pt,eta,iso,loose_id,year, is_pfcand, is_global, is_tracker):
+def isLooseMuon(pt,eta,iso,loose_id,year):
     #dxy and dz cuts are missing from med_id; loose isolation is 0.25
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = (pt>20)&(abs(eta)<2.4)&(loose_id)&(iso>=2)&(is_pfcand)&(is_global)&(is_tracker)
+        mask = (pt>20)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)
     elif year=='2017':
-        mask = (pt>20)&(abs(eta)<2.4)&(loose_id)&(iso>=2)&(is_pfcand)&(is_global)&(is_tracker)
+        mask = (pt>20)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)
     elif year=='2018':
-        mask = (pt>20)&(abs(eta)<2.4)&(loose_id)&(iso>=2)&(is_pfcand)&(is_global)&(is_tracker)
+        mask = (pt>15)&(abs(eta)<2.4)&(loose_id>0)&(iso<0.25)
     return mask
 
-def isTightMuon(pt,eta,iso,tight_id,year, is_pfcand, is_global, is_tracker):
+def isTightMuon(pt,eta,iso,tight_id,year):
     #dxy and dz cuts are baked on tight_id; tight isolation is 0.15
     mask = ~(pt==np.nan)#just a complicated way to initialize a jagged array with the needed shape to True
     if year=='2016':
-        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso>=4)&(is_pfcand)&(is_global)&(is_tracker)
+        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)
     elif year=='2017':
-        mask = (pt>29)&(abs(eta)<2.4)&(tight_id)&(iso>=4)&(is_pfcand)&(is_global)&(is_tracker)
+        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)
     elif year=='2018':
-        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso>=4)&(is_pfcand)&(is_global)&(is_tracker)
+        mask = (pt>30)&(abs(eta)<2.4)&(tight_id)&(iso<0.15)
     return mask
 
 #bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
@@ -92,34 +92,24 @@ def isGoodFatJet(pt, eta, jet_id):
 #Jet ID flags bit1 is loose (always false in 2017 since it does not exist), bit2 is tight, bit3 is tightLepVeto
 #POG use tight jetID as a standart JetID 
 
-def isGoodJet(pt, eta, jet_id, pu_id,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year):
-    #working id for tt region
+def isGoodJet(pt, eta, jet_id, pu_id, nhf, chf, year):
+#     mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&2)==2) #& (nhf<0.8) & (chf>0.1) & ((pu_id&1)==1)# & (nef<0.99) & (cef<0.99)
+#     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
+    if year=='2016':
+        mask = (pt>=30) & (abs(eta)<=2.4) & (~(jet_id&3)==3) & (nhf<0.8) & (chf>0.1) #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&4)==4)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
 
-#     if year=='2016':
-#         mask = (pt>=30) & (jet_id==6) & (abs(eta)<=2.4)#& (NHF<0.90) & (NEMF<0.90) & (NumConst>1)  & (CHF>0) & (CHM>0)
-#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-#     else:
-#         mask = (pt>30) & (abs(eta)<2.4) & (jet_id==6) #& (nhf<0.9) & (chf>0.0) #& (nef<0.99) & (cef<0.99)
-#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-#     return mask
-
-
-#     if year=='2016':
-#         mask = (pt>=30) & (jet_id==7) & (abs(eta)<=2.4)#& (NHF<0.8) & (CHF>0.1)#& (NHF<0.90)& (CHF>0.0)# & (NEMF<0.90) & (NumConst>1)   & (CHM>0)
-#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id & (0 << 1))==1))
-#     else:
-#         mask = (pt>=30) & (abs(eta)<=2.4) & (jet_id>=4)#& (NHF<0.8) & (CHF>0.1)#& (NHF<0.9) & (CHF>0.0) #& (nef<0.99) & (cef<0.99)
-#         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id & (1 << 2)) ==4))
-# #         mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
-#     return mask
-#matteo ids not good plots
-    mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (NHF<0.8) & (CHF>0.1)# & (nef<0.99) & (cef<0.99)
-    mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1)) #https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID, using loose wp
+    else:
+        mask = (pt>=30) & (abs(eta)<=2.4) & ((jet_id&6)==6) & (nhf<0.8) & (chf>0.1) #jetId==6 means: pass tight and tightLepVeto ID. https://twiki.cern.ch/twiki/bin/viewauth/CMS/JetID
+        mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&4)==4)) # puId&4)==4 jet pass atleast the loose pu_id, https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID#Recommendations_for_13_TeV_Ultra
+#matteo
+#     mask = (pt>30) & (abs(eta)<2.4) & ((jet_id&2)==2) & (nhf<0.8) & (chf>0.1)# & (nef<0.99) & (cef<0.99)
+#     mask = ((pt>=50)&mask) | ((pt<50)&mask&((pu_id&1)==1))
     return mask
+
 def isHEMJet(pt, eta, phi):
-    mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
-#     x.Eta() < -1.3 and x.Eta() > -3.0 and x.Phi() < -0.87 and x.Phi() > -1.57) seb
-#     mask = ((eta>-3.2)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
+#     mask = (pt>30) & ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
+    mask = ((eta>-3.0)&(eta<-1.3)) & ((phi>-1.57)&(phi<-0.87))
 
     return mask
 
