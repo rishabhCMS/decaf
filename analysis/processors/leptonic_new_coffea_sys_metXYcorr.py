@@ -533,7 +533,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL18_RunB_V5_DATA_Uncertainty_AK4PFchs',
                 'Summer19UL18_RunC_V5_DATA_Uncertainty_AK4PFchs',
                 'Summer19UL18_RunD_V5_DATA_Uncertainty_AK4PFchs',
-                ''
+                
 #                 'Autumn18_V19_MC_Uncertainty_AK4PFchs'
             ],
         }
@@ -544,14 +544,14 @@ class AnalysisProcessor(processor.ProcessorABC):
             {'apv': ['Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs',
 #                      'Summer20UL16APV_JRV3_MC_EtaResolution_AK4PFchs',
 #                      'Summer20UL16APV_JRV3_MC_PhiResolution_AK4PFchs',
-#                     'Summer20UL16APV_JRV3_DATA_PtResolution_AK4PFchs',
+                    'Summer20UL16APV_JRV3_DATA_PtResolution_AK4PFchs',
 #                     'Summer20UL16APV_JRV3_DATA_EtaResolution_AK4PFchs',
 #                      'Summer20UL16APV_JRV3_DATA_PhiResolution_AK4PFchs',
                     ],
                      'no_apv': ['Summer20UL16_JRV3_MC_PtResolution_AK4PFchs',
 #                                 'Summer20UL16_JRV3_MC_EtaResolution_AK4PFchs',
 #                                 'Summer20UL16_JRV3_MC_PhiResolution_AK4PFchs',
-#                                'Summer20UL16_JRV3_DATA_PtResolution_AK4PFchs',
+                               'Summer20UL16_JRV3_DATA_PtResolution_AK4PFchs',
 #                                'Summer20UL16_JRV3_DATA_EtaResolution_AK4PFchs',
 #                                 'Summer20UL16_JRV3_DATA_PhiResolution_AK4PFchs',
                                ]},
@@ -562,7 +562,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL17_JRV2_MC_PtResolution_AK4PFchs',
 #                 'Summer19UL17_JRV2_MC_EtaResolution_AK4PFchs',
 #                 'Summer19UL17_JRV2_MC_PhiResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_PtResolution_AK4PFchs',
+                'Summer19UL17_JRV2_DATA_PtResolution_AK4PFchs',
 #                 'Summer19UL17_JRV2_DATA_EtaResolution_AK4PFchs',
 #                 'Summer19UL17_JRV2_DATA_PhiResolution_AK4PFchs',
 #                 'Fall17_V3b_MC_PtResolution_AK4PFchs'
@@ -572,7 +572,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL18_JRV2_MC_PtResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_MC_EtaResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_MC_PhiResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs',
+                'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_DATA_EtaResolution_AK4PFchs',
 #                 'Summer19UL18_JRV2_DATA_PhiResolution_AK4PFchs',
 #                 'Autumn18_V7b_MC_PtResolution_AK4PFchs'
@@ -583,23 +583,23 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2016': 
             {'no_apv':['Summer20UL16_JRV3_MC_SF_AK4PFchs',
-#                       'Summer20UL16_JRV3_DATA_SF_AK4PFchs'
+                      'Summer20UL16_JRV3_DATA_SF_AK4PFchs'
                       ],
                      'apv':['Summer20UL16APV_JRV3_MC_SF_AK4PFchs',
-#                            'Summer20UL16APV_JRV3_DATA_SF_AK4PFchs'
+                           'Summer20UL16APV_JRV3_DATA_SF_AK4PFchs'
                            ]},
 #                 'Summer16_25nsV1b_MC_SF_AK4PFchs',
             
 
             '2017': [
                 'Summer19UL17_JRV2_MC_SF_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_SF_AK4PFchs'
+                'Summer19UL17_JRV2_DATA_SF_AK4PFchs'
 #                 'Fall17_V3b_MC_SF_AK4PFchs'
             ],
 
             '2018': [
                 'Summer19UL18_JRV2_MC_SF_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_SF_AK4PFchs'
+                'Summer19UL18_JRV2_DATA_SF_AK4PFchs'
 #                 'Autumn18_V7b_MC_SF_AK4PFchs'
             ]
         }
@@ -1045,19 +1045,6 @@ class AnalysisProcessor(processor.ProcessorABC):
             jec_names = [name for name in jec_names if ERA in name]
         j = events.Jet
         met = events.MET
-        j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
-          with_name="PolarTwoVector", 
-          behavior=vector.behavior)
-        j['p4'] = ak.zip({
-        "pt": j.pt,
-        "eta": j.eta,
-        "phi": j.phi,
-        "mass": j.mass},
-        with_name="PtEtaPhiMLorentzVector",
-        )
-        met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
-                  with_name="PolarTwoVector", 
-                  behavior=vector.behavior)
         #print("afer____")
         #print(jec_names)
         jec_inputs = {name: Jetevaluator[name] for name in jec_names}
@@ -1084,16 +1071,16 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         j["pt_raw"] = (1 - events.Jet.rawFactor) * events.Jet.pt
         j["mass_raw"] = (1 - events.Jet.rawFactor) * events.Jet.mass
-
-        j["pt_gen"] = ak.values_astype(
-            ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
-        )
+        if isMC:
+            j["pt_gen"] = ak.values_astype(
+                ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
+            )
         j["rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, events.Jet.pt)[0]
 
         j["pt"] = j.pt_raw
         j["mass"] = j.mass_raw
-        j["p4","pt"] = j.pt_raw
-        j["p4","mass"] = j.mass_raw
+#         j["p4","pt"] = j.pt_raw
+#         j["p4","mass"] = j.mass_raw
         events_cache = events.caches[0]
         met_factory = CorrectedMETFactory(jec_name_map)
         corrected_jets = jet_factory.build(j, lazy_cache=events_cache)
@@ -1134,9 +1121,14 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         # Initialize global quantities (MET ecc.)
         ###
-        j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
-          with_name="PolarTwoVector", 
-          behavior=vector.behavior)
+        
+        
+        met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
+                          with_name="PolarTwoVector", 
+                          behavior=vector.behavior)
+        j["T"] = ak.zip({"pt": j.pt_jec, "phi": j.phi}, 
+                  with_name="PolarTwoVector", 
+                  behavior=vector.behavior)
         j['p4'] = ak.zip({
         "pt": j.pt,
         "eta": j.eta,
@@ -1144,12 +1136,6 @@ class AnalysisProcessor(processor.ProcessorABC):
         "mass": j.mass},
         with_name="PtEtaPhiMLorentzVector",
         )
-        met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
-                  with_name="PolarTwoVector", 
-                  behavior=vector.behavior)        
-        
-
-
         
         
 ###################################################################################
@@ -1290,7 +1276,16 @@ class AnalysisProcessor(processor.ProcessorABC):
         j['isdflvM'] = (j.btagDeepFlavB > deepflavWPs['medium']) ## from Rishab
         j['isdcsvM'] = (j.btagDeepB > deepcsvWPs['medium']) ## from Rishabh
 
-
+        j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
+                  with_name="PolarTwoVector", 
+                  behavior=vector.behavior)
+        j['p4'] = ak.zip({
+        "pt": j.pt,
+        "eta": j.eta,
+        "phi": j.phi,
+        "mass": j.mass},
+        with_name="PtEtaPhiMLorentzVector",
+        )
         
         j_clean = jetcleaning(j, mu_loose, e_loose, pho_loose, 0.4)
         j_nclean = ak.num(j_clean, axis=1)
@@ -1409,7 +1404,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 for systematic in get_nnlo_nlo_weight['a']:
 #                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max())*ak.values_astype((ak.num(genIsoAs,axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genIsoAs, axis=1) > 0), np.int)
 
-            if ('WJetsToLNu' in dataset):
+            if ('WJetsToLNu' in dataset) & ('HT' in dataset):
                 nlo_qcd = get_nlo_qcd_weight['w'](ak.max(genWs.pt,axis=1))
                 nlo_ewk = get_nlo_ewk_weight['w'](ak.max(genWs.pt, axis=1))
                 for systematic in get_nnlo_nlo_weight['w']:
@@ -1659,13 +1654,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         else:
 #             selection.add("exclude_low_WpT_JetHT", np.full(event_size, True))
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 200)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 400)
             selection.add("exclude_wjets_greater_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 200)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 400)
             selection.add("exclude_wjets_less_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1879,10 +1874,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'dr_mu_lj': DeltaR_LJ_Mu,
                     'njets':                  j_nclean,
                     'ndflvM':                 j_ndflvM,
-#                     'W_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt,
-#                     'Z_gen_pT':gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt,
-#                     'ndcsvM':     j_ndcsvM,
-#                     'scale_factors': np.ones(event_size, dtype=np.bool),
                     "eT_miss_corrected":corrected_met["T"]["pt"],
                     "eT_miss_corrected_phi":corrected_met["T"]["phi"]
                     }
@@ -1904,11 +1895,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                         continue
                     elif histname == 'template':
                         continue
-#                     elif histname == 'scale_factors':
-#                         flat_variable = {histname: flat_weight[histname]}
-#                         h.fill(dataset=dataset,
-#                                region=region,
-#                                **flat_variable)
 
                     else:
                         flat_variable = {histname: flat_variables[histname]}
@@ -1950,7 +1936,6 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
 # #                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-                print("nlo_ewk",nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
                     #print("if 'cen' in nnlo_nlo")
