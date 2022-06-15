@@ -1126,7 +1126,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
                           with_name="PolarTwoVector", 
                           behavior=vector.behavior)
-        j["T"] = ak.zip({"pt": j.pt_jec, "phi": j.phi}, 
+        j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
                   with_name="PolarTwoVector", 
                   behavior=vector.behavior)
         j['p4'] = ak.zip({
@@ -1155,8 +1155,12 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             
         mu = events.Muon
-        mu['isloose'] = isLooseMuon(mu.pt,mu.eta,mu.pfRelIso04_all,mu.looseId,self._year)
-        mu['istight'] = isTightMuon(mu.pt,mu.eta,mu.pfRelIso04_all,mu.tightId,self._year)
+        mu['isloose'] = isLooseMuon(mu.pt, mu.eta, mu.pfIsoId, mu.looseId, self._year, mu.isPFcand,
+                                   mu.isGlobal,
+                                   mu.isTracker)
+        mu['istight'] = isTightMuon(mu.pt, mu.eta, mu.pfIsoId, mu.tightId, self._year, mu.isPFcand,
+                                   mu.isGlobal,
+                                   mu.isTracker)
         mu["T"] = ak.zip({"pt": mu.pt, "phi": mu.phi}, 
                   with_name="PolarTwoVector", 
                   behavior=vector.behavior)
@@ -1255,7 +1259,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             CEMF = j.chEmEF
             CHM = j.nElectrons+j.nMuons
             #1 Select good jets
-            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF,CHF, year=self._year)
+            j_isgood_mask = isGoodJet(j.pt, j.eta, j.jetId, j.puId,NHF, NEMF, NumConst, MUF, CHF, CHM, CEMF, year=self._year)
             j_good = j[j_isgood_mask]
 
             #2 Select good jets which don't have a lepton closeby
@@ -1404,7 +1408,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 for systematic in get_nnlo_nlo_weight['a']:
 #                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['a'][systematic](genIsoAs.pt.max())*ak.values_astype((ak.num(genIsoAs,axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genIsoAs, axis=1) > 0), np.int)
 
-            if ('WJetsToLNu' in dataset) & ('HT' in dataset):
+            if ('WJetsToLNu' in dataset):
                 nlo_qcd = get_nlo_qcd_weight['w'](ak.max(genWs.pt,axis=1))
                 nlo_ewk = get_nlo_ewk_weight['w'](ak.max(genWs.pt, axis=1))
                 for systematic in get_nnlo_nlo_weight['w']:
@@ -1934,18 +1938,18 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'L1PreFiringWeight' in events.fields:
                     weights.add('prefiring', events.L1PreFiringWeight.Nom)
                 weights.add('genw', events.genWeight)
-# #                 weights.add('nlo_qcd', nlo_qcd)
+                weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
                     #print("if 'cen' in nnlo_nlo")
-                    weights.add('nnlo_nlo', nnlo_nlo['cen'])
-#                     weights.add('qcd1', np.ones(
-#                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
-#                     weights.add('qcd2', np.ones(
-#                         event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
-#                     weights.add('qcd3', np.ones(
-#                         event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+#                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
+                    weights.add('qcd1', np.ones(
+                        event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+                    weights.add('qcd2', np.ones(
+                        event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+                    weights.add('qcd3', np.ones(
+                        event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
                     weights.add('ew1', np.ones(
                         event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
                     weights.add('ew2G', np.ones(
@@ -2026,12 +2030,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematics = ['nominal',
                                        'btagUp',
                                        'btagDown',
-#                                        'qcd1Up',
-#                                        'qcd1Down',
-#                                        'qcd2Up',
-#                                        'qcd2Down',
-#                                        'qcd3Up',
-#                                        'qcd3Down',
+                                       'qcd1Up',
+                                       'qcd1Down',
+                                       'qcd2Up',
+                                       'qcd2Down',
+                                       'qcd3Up',
+                                       'qcd3Down',
                                        'muFUp',
                                        'muFDown',
                                        'muRUp',
