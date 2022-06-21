@@ -1087,14 +1087,14 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         
         
-            met["T"] = ak.zip({"pt": met.pt_orig, "phi": met.phi}, 
+            met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
                               with_name="PolarTwoVector", 
                               behavior=vector.behavior)
-            j["T"] = ak.zip({"pt": j.pt_jec, "phi": j.phi}, 
+            j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
                       with_name="PolarTwoVector", 
                       behavior=vector.behavior)
             j['p4'] = ak.zip({
-            "pt": j.pt_jec,
+            "pt": j.pt,
             "eta": j.eta,
             "phi": j.phi,
             "mass": j.mass},
@@ -1133,10 +1133,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
 
-#         print()
-#         print("XYcorrected_met.pt_orig",corrected_met.pt_orig)
-#         print("XYcorrected_met[T].[pt]", corrected_met["T"]["pt"])
-#         print('met["T"]["pt"]', met["T"]["pt"])
+        print()
+        print("XYcorrected_met.pt_orig",corrected_met.pt_orig)
+        print("XYcorrected_met[T].[pt]", corrected_met["T"]["pt"])
+        print('XY_correctedmet_pt', XY_correctedmet_pt)
 
 #         import sys
 #         sys.exit(0)
@@ -1274,7 +1274,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_ndflvM = ak.num(j_dflvM, axis=1)
         leading_j = j_clean[:,:1]
 
-        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(j_clean["T"]["pt"]>100, axis=1))
+        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(j_clean["T"]["pt"]>70, axis=1))
         
 
         ###
