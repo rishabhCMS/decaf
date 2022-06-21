@@ -1937,17 +1937,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     whf = ak.values_astype(((ak.num(gen[gen.isb],axis=1) > 0) | (ak.num(gen[gen.isc], axis=1) > 0)), np.int)
                     wlf = ak.values_astype(~(ak.values_astype(whf,np.bool)), np.int)
                     cut = ak.to_numpy(selection.all(*regions[region]))
-                    if 'WJets' in dataset and shift_syst is None:
-                        systematics = ['nominal',
-                                   'btagUp',
-                                   'btagDown',
-                                       trig_name+'Up', trig_name+'Down',
-                                       ids_name+'Up', ids_name+'Down',
-                                       reco_name+'Up', reco_name+'Down',
-                                       isolation_name+'Up', isolation_name+'Down',
-                                       'pileupUp', 'pileupDown',
-                                      ]
-                    elif not('WJets' in dataset) and shift_syst is None:
+                    if shift_syst is None:
                         systematics = ['nominal',
                                        'btagUp',
                                        'btagDown',
