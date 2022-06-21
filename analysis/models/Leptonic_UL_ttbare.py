@@ -226,7 +226,7 @@ def model(year):
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
     ttbare_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
-    addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
+#     addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
     ttbare.addSample(ttbare_wjetsMC)
 
     # ###
