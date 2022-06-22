@@ -1133,10 +1133,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
 
 
-        print()
-        print("XYcorrected_met.pt_orig",corrected_met.pt_orig)
-        print("XYcorrected_met[T].[pt]", corrected_met["T"]["pt"])
-        print('XY_correctedmet_pt', XY_correctedmet_pt)
+#         print()
+#         print("XYcorrected_met.pt_orig",corrected_met.pt_orig)
+#         print("XYcorrected_met[T].[pt]", corrected_met["T"]["pt"])
+#         print('XY_correctedmet_pt', XY_correctedmet_pt)
 
 #         import sys
 #         sys.exit(0)
