@@ -1087,7 +1087,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         
         
-            met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
+            met["T"] = ak.zip({"pt": met.pt_orig, "phi": met.phi}, 
                               with_name="PolarTwoVector", 
                               behavior=vector.behavior)
             j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
