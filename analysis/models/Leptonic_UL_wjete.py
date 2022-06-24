@@ -479,7 +479,10 @@ if __name__ == "__main__":
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
-    
+    if "preVFP" in hist_scaled_file:
+        year = year+"preVFP"
+    elif "postVFP" in hist_scaled_file:
+        year = year+"postVFP"  
     with open(
         "data/"+"test_wjete"+year+".model",
         "wb",) as fout:
