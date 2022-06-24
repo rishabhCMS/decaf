@@ -1400,13 +1400,39 @@ class AnalysisProcessor(processor.ProcessorABC):
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['z'][systematic](ak.max(genZs.pt, axis=1))*ak.values_astype((ak.num(genZs, axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genZs, axis=1) > 0), np.int)
 
             ###
+            # Calculate fewz corrections
+            ###
+            k_wjets_fewz = np.ones(event_size)
+            if re.search("^WJetsToLNu", dataset):
+                if ('Pt' in dataset):
+                    xs_wjets = 789.2836
+                    print("hi I am applying the fewz for pt binned wjets")
+                if re.search("^WJetsToLNu_[012]J_", dataset):
+                    xs_wjets = 65582
+                
+                xs_wjets_fewz = 61526.7 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV
+                kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets
+                k_wjets_fewz = k_wjets_fewz*kfactor_wjets_fewz
+                
+            k_dyjets_fewz = np.ones(event_size)
+            if re.search("^DYJetsToLNu", dataset):
+                if ('Pt' in dataset):
+                    xs_dyjets = 400.29979
+                if re.search("^DYJetsToLNu_[012]J_", dataset):
+                    xs_dyjets = 6434.7
+                
+                xs_dyjets_fewz = 6077.22 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV                kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets_jetbinned
+                kfactor_dyjets = str(xs_dyjets_fewz/xs_dyjets)
+                k_dyjets_fewz = k_dyjets_fewz*kfactor_dyjets
+            ###
             # Calculate PU weight and systematic variations
             ###
 
             pu = get_pu_nom_weight(events.Pileup.nTrueInt)
             puUp = get_pu_up_weight(events.Pileup.nTrueInt)
             puDown = get_pu_down_weight(events.Pileup.nTrueInt)
-            #print("get_pu_up_weight", get_pu_up_weight(events.Pileup.nTrueInt))
+            print("get_pu_up_weight", get_pu_up_weight(events.Pileup.nTrueInt))
+            print("get_pu_do_weight", get_pu_down_weight(events.Pileup.nTrueInt))
             ###
             # Trigger efficiency weight
             ###
@@ -1741,11 +1767,11 @@ class AnalysisProcessor(processor.ProcessorABC):
 #     small code piece for checcking cutflow for after each selection
 #         mult = np.ones(len(events))
 #         for sel in regions['wjetm']:
-#             #print(sel,selection.all(sel),"\nSUM:",sum(selection.all(sel)))
+#             print(sel,selection.all(sel),"\nSUM:",sum(selection.all(sel)))
 #             mult *= selection.all(sel)
-#             #print("events left",sum(mult))
-#         #print("MULT", mult)
-#         #print("SUM_MULT", sum(mult))
+#             print("events left",sum(mult))
+#         print("MULT", mult)
+#         print("SUM_MULT", sum(mult))
 #         import sys
 #         sys.exit(0)
         isFilled = False
@@ -1861,6 +1887,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
+                weights.add('k_wjets_fewz', k_wjets_fewz)
+                weights.add('k_dyjets_fewz', k_dyjets_fewz)
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
                     #print("if 'cen' in nnlo_nlo")
