@@ -1411,7 +1411,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     xs_wjets = 65582
                 
                 xs_wjets_fewz = 61526.7 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV
-                kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets
+                kfactor_wjets_fewz = xs_wjets/xs_wjets_fewz
                 k_wjets_fewz = k_wjets_fewz*kfactor_wjets_fewz
                 
             k_dyjets_fewz = np.ones(event_size)
@@ -1422,7 +1422,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     xs_dyjets = 6434.7
                 
                 xs_dyjets_fewz = 6077.22 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV                kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets_jetbinned
-                kfactor_dyjets = str(xs_dyjets_fewz/xs_dyjets)
+                kfactor_dyjets = xs_dyjets/xs_dyjets_fewz
                 k_dyjets_fewz = k_dyjets_fewz*kfactor_dyjets
             ###
             # Calculate PU weight and systematic variations
