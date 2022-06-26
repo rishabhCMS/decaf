@@ -2063,7 +2063,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     cut = selection.all(*regions[region])
 #                     for systematic in [None]:
                     if shift_syst is None:
-                        systematic =['nominal',
+                        systematics =['nominal',
                                        'btagUp',
                                        'btagDown',
                                            trig_name+'Up', trig_name+'Down',
@@ -2075,8 +2075,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         if 'L1PreFiringWeight' in events.fields:
                             systematics.extend(["L1PrefiringUp", "L1PrefiringDown"])
                     else:
-                        systematic = [shift_syst] 
-                    for systematic in systematic:
+                        systematics = [shift_syst] 
+                    for systematic in systematics:
                         if systematic is None:
                             systematic = "nominal"
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown","METunclUp", "METunclDown"]:
