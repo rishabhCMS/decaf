@@ -104,7 +104,7 @@ def METXYCorr_Met_MetPhi(events, year, metpt, metphi):
     originalMet = metpt
     originalMet_phi = metpt
 
-    npv  = events.PV.npvs
+    npv  = events.PV.npvsGood
     mask = np.asarray(npv>100)
     npv = np.asarray(npv)
 #     #print(npv)
@@ -1075,7 +1075,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             elif shift_syst == "METunclDown":
                 met = corrected_mets.MET_UnclusteredEnergy.down
                 j   = events.Jet
-
+            
             else:
                 j   = corrected_jets
     #                 j   = events.Jet
@@ -1087,7 +1087,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         
         
-            met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
+            met["T"] = ak.zip({"pt": met.pt_orig, "phi": met.phi_orig}, 
                               with_name="PolarTwoVector", 
                               behavior=vector.behavior)
             j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
@@ -1404,35 +1404,36 @@ class AnalysisProcessor(processor.ProcessorABC):
             ###
             k_wjets_fewz = np.ones(event_size)
             if re.search("^WJetsToLNu", dataset):
-                if ('Pt' in dataset):
-                    xs_wjets = 789.2836
-                    print("hi I am applying the fewz for pt binned wjets")
+#                 if ('Pt' in dataset):
+#                     xs_wjets = 789.2836
+#                     print("hi I am applying the fewz for pt binned wjets")
                 if re.search("^WJetsToLNu_[012]J_", dataset):
                     xs_wjets = 65582
                 
                 xs_wjets_fewz = 61526.7 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV
-                kfactor_wjets_fewz = xs_wjets/xs_wjets_fewz
+                kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets
                 k_wjets_fewz = k_wjets_fewz*kfactor_wjets_fewz
                 
             k_dyjets_fewz = np.ones(event_size)
             if re.search("^DYJetsToLNu", dataset):
-                if ('Pt' in dataset):
-                    xs_dyjets = 400.29979
+#                 if ('Pt' in dataset):
+#                     xs_dyjets = 400.29979
                 if re.search("^DYJetsToLNu_[012]J_", dataset):
                     xs_dyjets = 6434.7
                 
                 xs_dyjets_fewz = 6077.22 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV                kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets_jetbinned
-                kfactor_dyjets = xs_dyjets/xs_dyjets_fewz
+                kfactor_dyjets = xs_dyjets_fewz/xs_dyjets
                 k_dyjets_fewz = k_dyjets_fewz*kfactor_dyjets
             ###
             # Calculate PU weight and systematic variations
             ###
 
-            pu = get_pu_nom_weight(events.Pileup.nTrueInt)
-            puUp = get_pu_up_weight(events.Pileup.nTrueInt)
-            puDown = get_pu_down_weight(events.Pileup.nTrueInt)
-            print("get_pu_up_weight", get_pu_up_weight(events.Pileup.nTrueInt))
-            print("get_pu_do_weight", get_pu_down_weight(events.Pileup.nTrueInt))
+            pu = np.minimum(5, get_pu_nom_weight(events.Pileup.nTrueInt))
+            puUp = np.minimum(5, get_pu_up_weight(events.Pileup.nTrueInt))
+            puDown = np.minimum(5, get_pu_down_weight(events.Pileup.nTrueInt))
+            print("pu nominal", pu)
+            print("pu Up", puUp)
+            print("pu Down", puDown)
             ###
             # Trigger efficiency weight
             ###
@@ -1792,7 +1793,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             #             #print('Selection:',regions[region])
 
             variables = {
-                'npvs': events.PV.npvs,
+                'npvs': events.PV.npvsGood,
                 'mu_pT':              leading_mu.pt,
 #                     'eT_miss':              met.pt,
                 'ele_pT':              leading_e.pt,
@@ -1883,7 +1884,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights = Weights(len(events))
 #                 #print("L1445")
                 if 'L1PreFiringWeight' in events.fields:
-                    weights.add('prefiring', events.L1PreFiringWeight.Nom)
+                    weights.add("L1Prefiring", events.L1PreFiringWeight.Nom,
+                                events.L1PreFiringWeight.Up, 
+                                events.L1PreFiringWeight.Dn)
+                print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
+                print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
+                print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
@@ -1925,24 +1931,24 @@ class AnalysisProcessor(processor.ProcessorABC):
                     trig_name = 'trig_e'
                 elif 'm' == region[-1]:
                     trig_name = 'trig_m'
-                weights.add(trig_name, trig[region],trig[region]+trig_err[region], trig[region]-trig_err[region])
+                weights.add(trig_name, trig[region],trig_err[region], trig_err[region], shift=True)
                 if 'e' == region[-1]:
                     ids_name = 'id_e'
                 elif 'm' == region[-1]:
                     ids_name = 'id_m'                
-                weights.add(ids_name, ids[region], ids[region]+ids_err[region], ids[region]-ids_err[region])
+                weights.add(ids_name, ids[region], ids_err[region], ids_err[region], shift=True)
                 
                 if 'e' == region[-1]:
                     reco_name = 'reco_e'
                 elif 'm' == region[-1]:
                     reco_name = 'reco_m'
-                weights.add(reco_name, reco[region], reco[region]+reco_err[region], reco[region]-reco_err[region])
+                weights.add(reco_name, reco[region], reco_err[region], reco_err[region], shift=True)
                 
                 if 'e' == region[-1]:
                     isolation_name = 'isolation_e'
                 elif 'm' == region[-1]:
                     isolation_name = 'isolation_m'                
-                weights.add(isolation_name, isolation[region], isolation[region]+isolation_err[region], isolation[region]-isolation_err[region])
+                weights.add(isolation_name, isolation[region], isolation_err[region], isolation_err[region], shift=True)
 #                 weights.add('csev', csev[region])
                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
 #                 #print("btag['wjete']",btag['wjete'])
@@ -2001,6 +2007,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        isolation_name+'Up', isolation_name+'Down',
                                        'pileupUp','pileupDown',
                                       ]
+                        if 'L1PreFiringWeight' in events.fields:
+                            systematics.extend(["L1PrefiringUp", "L1PrefiringDown"])
                     else:
                         systematics = [shift_syst] #[None, "JERUp"]
                         
@@ -2026,7 +2034,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
-                                              npvs = events.PV.npvs,
+                                              npvs = events.PV.npvsGood,
                                               weight=weights.weight(modifier=systematic)*wlf*cut)
 
                     ## Cutflow loop
@@ -2064,6 +2072,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                                            isolation_name+'Up', isolation_name+'Down',
                                          'pileupUp', 'pileupDown',
                                           ]
+                        if 'L1PreFiringWeight' in events.fields:
+                            systematics.extend(["L1PrefiringUp", "L1PrefiringDown"])
                     else:
                         systematic = [shift_syst] 
                     for systematic in systematic:
@@ -2080,7 +2090,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
-                                              npvs = events.PV.npvs,
+                                              npvs = events.PV.npvsGood,
                                               weight=weights.weight(modifier=systematic)*cut)
                         # Cutflow loop
                     vcut=np.zeros(event_size, dtype=np.int)
