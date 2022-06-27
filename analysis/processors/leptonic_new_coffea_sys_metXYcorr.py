@@ -1087,7 +1087,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         
         
-            met["T"] = ak.zip({"pt": met.pt_orig, "phi": met.phi_orig}, 
+            met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
                               with_name="PolarTwoVector", 
                               behavior=vector.behavior)
             j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
@@ -1893,8 +1893,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-#                 weights.add('k_wjets_fewz', k_wjets_fewz)
-#                 weights.add('k_dyjets_fewz', k_dyjets_fewz)
+                weights.add('k_wjets_fewz', k_wjets_fewz)
+                weights.add('k_dyjets_fewz', k_dyjets_fewz)
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
                     #print("if 'cen' in nnlo_nlo")
