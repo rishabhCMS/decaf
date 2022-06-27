@@ -1887,9 +1887,9 @@ class AnalysisProcessor(processor.ProcessorABC):
                     weights.add("L1Prefiring", events.L1PreFiringWeight.Nom,
                                 events.L1PreFiringWeight.Up, 
                                 events.L1PreFiringWeight.Dn)
-                print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
-                print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
-                print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
+                    print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
+                    print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
+                    print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
