@@ -1403,23 +1403,23 @@ class AnalysisProcessor(processor.ProcessorABC):
             # Calculate fewz corrections
             ###
             k_wjets_fewz = np.ones(event_size)
-            if re.search("^WJetsToLNu", dataset):
-#                 if ('Pt' in dataset):
-#                     xs_wjets = 789.2836
-#                     print("hi I am applying the fewz for pt binned wjets")
-                if re.search("^WJetsToLNu_[012]J_", dataset):
-                    xs_wjets = 65582
+#             if re.search("^WJetsToLNu", dataset):
+# #                 if ('Pt' in dataset):
+# #                     xs_wjets = 789.2836
+# #                     print("hi I am applying the fewz for pt binned wjets")
+            if re.search("^WJetsToLNu_[012]J_", dataset):
+                xs_wjets = 65582
                 
                 xs_wjets_fewz = 61526.7 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV
                 kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets
                 k_wjets_fewz = k_wjets_fewz*kfactor_wjets_fewz
                 
             k_dyjets_fewz = np.ones(event_size)
-            if re.search("^DYJetsToLNu", dataset):
+#             if re.search("^DYJetsToLNu", dataset):
 #                 if ('Pt' in dataset):
 #                     xs_dyjets = 400.29979
-                if re.search("^DYJetsToLNu_[012]J_", dataset):
-                    xs_dyjets = 6434.7
+            if re.search("^DYJetsToLNu_[012]J_", dataset):
+                xs_dyjets = 6434.7
                 
                 xs_dyjets_fewz = 6077.22 # from https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV                kfactor_wjets_fewz = xs_wjets_fewz/xs_wjets_jetbinned
                 kfactor_dyjets = xs_dyjets_fewz/xs_dyjets
@@ -1866,7 +1866,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                       region=region,
                                       systematic='nominal',
                                       mT_corrected = ak.sum(mT_corrected[region], axis=-1),
-                                      npvs = events.PV.npvs,
+                                      npvs = events.PV.npvsGood,
                                       weight=np.ones(event_size)*cut)
 
                 fill(dataset, np.ones(event_size), cut, systematic='nominal')
@@ -2027,7 +2027,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                               region=region,
                                               systematic=sname,
                                               mT_corrected = ak.sum(mT_corrected[region], axis=-1),
-                                              npvs = events.PV.npvs,
+                                              npvs = events.PV.npvsGood,
                                               weight=weights.weight(modifier=systematic)*whf*cut)
     
                         hout['template'].fill(dataset='LF--'+dataset,
