@@ -32,7 +32,19 @@ NanoAODSchema.warn_missing_crossrefs = False
 from optparse import OptionParser
 import pickle
 np.errstate(invalid='ignore', divide='ignore')
+import correctionlib
 
+
+def GetPUSF(IOV, nTrueInt, var='nominal'):
+    fname = "../../data/pileup/UL/puWeights"+IOV+".json.gz"
+    hname = {
+        "2016preVFP": "Collisions16_UltraLegacy_goldenJSON",
+        "2016postVFP"   : "Collisions16_UltraLegacy_goldenJSON",
+        "2017"   : "Collisions17_UltraLegacy_goldenJSON",
+        "2018"   : "Collisions18_UltraLegacy_goldenJSON"
+    }
+    evaluator = correctionlib.CorrectionSet.from_file(fname)
+    return evaluator[hname[IOV]].evaluate(np.array(nTrueInt), var)
 def get_data_era(events, year):
     runNMax = max(events.run)
     runNMin = min(events.run)
@@ -1398,6 +1410,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 nlo_ewk = get_nlo_ewk_weight['z'](ak.max(genZs.pt, axis=1))
                 for systematic in get_nnlo_nlo_weight['z']:
                     nnlo_nlo[systematic] = get_nnlo_nlo_weight['z'][systematic](ak.max(genZs.pt, axis=1))*ak.values_astype((ak.num(genZs, axis=1) > 0), np.int) + ak.values_astype(~(ak.num(genZs, axis=1) > 0), np.int)
+            
+            
 
             ###
             # Calculate fewz corrections
@@ -1427,13 +1441,18 @@ class AnalysisProcessor(processor.ProcessorABC):
             ###
             # Calculate PU weight and systematic variations
             ###
-
-            pu = np.minimum(10, get_pu_nom_weight(events.Pileup.nTrueInt))
-            puUp = np.minimum(10, get_pu_up_weight(events.Pileup.nTrueInt))
-            puDown = np.minimum(10, get_pu_down_weight(events.Pileup.nTrueInt))
-            print("pu nominal", pu)
-            print("pu Up", puUp)
-            print("pu Down", puDown)
+            if "preVFP" in dataset:
+                IOV = "2016preVFP"
+            elif "postVFP" in dataset:
+                IOV = "2016postVFP"
+            else:
+                IOV = self._year
+            pu = GetPUSF(IOV,(events.Pileup.nTrueInt))
+            puUp    = GetPUSF(IOV, (events.Pileup.nTrueInt), "up")
+            puDown    = GetPUSF(IOV, (events.Pileup.nTrueInt), "down")
+            pu = np.minimum(10, pu)
+            puUp = np.minimum(10, puUp)
+            puDown = np.minimum(10, puDown)
             ###
             # Trigger efficiency weight
             ###
@@ -1749,7 +1768,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_wjete>150' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
-                "leading_j>70",
+#                 "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
@@ -1761,7 +1780,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'noHEMj', 'noHEMmet', 
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
-                      "leading_j>70",
+#                       "leading_j>70",
                       "lumi_mask",'DeltaR_LJ_Mu_mask'
                      ],
         }
@@ -1883,13 +1902,93 @@ class AnalysisProcessor(processor.ProcessorABC):
             else:
                 weights = Weights(len(events))
 #                 #print("L1445")
+                if ak.mean(ak.num(events.PSWeight)) == 1:
+                    weights.add(
+                        "ISR",
+                        weight=np.ones(len(events)),
+                        weightUp=np.ones(len(events)),
+                        weightDown=np.ones(len(events)),
+                    )
+                    weights.add(
+                        "FSR",
+                        weight=np.ones(len(events)),
+                        weightUp=np.ones(len(events)),
+                        weightDown=np.ones(len(events)),
+                    )
+                    weights.add(
+                        "PDF",
+                        weight=np.ones(len(events)),
+                        weightUp=np.ones(len(events)),
+                        weightDown=np.ones(len(events)),
+                    )
+                    weights.add(
+                        "Q2Scale",
+                        weight=np.ones(len(events)),
+                        weightUp=np.ones(len(events)),
+                        weightDown=np.ones(len(events)),
+                    )
+
+                # Otherwise, calculate the weights and systematic variations
+                else:
+                    # PDF Uncertainty weights
+                    # avoid errors from 0/0 division
+                    LHEPdfWeight_0 = ak.where(
+                        events.LHEPdfWeight[:, 0] == 0, 1, events.LHEPdfWeight[:, 0]
+                    )
+                    LHEPdfVariation = events.LHEPdfWeight / LHEPdfWeight_0
+                    weights.add(
+                        "PDF",
+                        weight=np.ones(len(events)),
+                        weightUp=ak.max(LHEPdfVariation, axis=1),
+                        weightDown=ak.min(LHEPdfVariation, axis=1),
+                    )
+
+                    # Q2 Uncertainty weights
+                    if ak.mean(ak.num(events.LHEScaleWeight)) == 9:
+                        scaleWeightSelector = [0, 1, 3, 5, 7, 8]
+                    elif ak.mean(ak.num(events.LHEScaleWeight)) == 44:
+                        scaleWeightSelector = [0, 5, 15, 24, 34, 39]
+                    else:
+                        scaleWeightSelector = []
+                    LHEScaleVariation = events.LHEScaleWeight[:, scaleWeightSelector]
+                    weights.add(
+                        "Q2Scale",
+                        weight=np.ones(len(events)),
+                        weightUp=ak.max(LHEScaleVariation, axis=1),
+                        weightDown=ak.min(LHEScaleVariation, axis=1),
+                    )
+
+                    # ISR / FSR uncertainty weights
+                    if not ak.all(
+                        events.Generator.weight == events.LHEWeight.originalXWGTUP
+                    ):
+                        psWeights = (
+                            events.PSWeight
+                            * events.LHEWeight.originalXWGTUP
+                            / events.Generator.weight
+                        )
+                    else:
+                        psWeights = events.PSWeight
+
+                    weights.add(
+                        "ISR",
+                        weight=np.ones(len(events)),
+                        weightUp=psWeights[:, 2],
+                        weightDown=psWeights[:, 0],
+                    )
+                    weights.add(
+                        "FSR",
+                        weight=np.ones(len(events)),
+                        weightUp=psWeights[:, 3],
+                        weightDown=psWeights[:, 1],
+                    )
                 if 'L1PreFiringWeight' in events.fields:
                     weights.add("L1Prefiring", events.L1PreFiringWeight.Nom,
                                 events.L1PreFiringWeight.Up, 
                                 events.L1PreFiringWeight.Dn)
-                    print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
-                    print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
-                    print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
+#                     print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
+#                     print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
+#                     print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
@@ -2006,6 +2105,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
                                        'pileupUp','pileupDown',
+                                       "ISRUp", "ISRDown", "FSRUp", 'FSRDown', 'PDFUp', 'PDFDown'
                                       ]
                         if 'L1PreFiringWeight' in events.fields:
                             systematics.extend(["L1PrefiringUp", "L1PrefiringDown"])
@@ -2071,6 +2171,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                            reco_name+'Up', reco_name+'Down',
                                            isolation_name+'Up', isolation_name+'Down',
                                          'pileupUp', 'pileupDown',
+                                         "ISRUp", "ISRDown", "FSRUp", 'FSRDown', 'PDFUp', 'PDFDown'
                                           ]
                         if 'L1PreFiringWeight' in events.fields:
                             systematics.extend(["L1PrefiringUp", "L1PrefiringDown"])
