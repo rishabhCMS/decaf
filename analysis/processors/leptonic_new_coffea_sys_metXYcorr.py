@@ -937,8 +937,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             get_deepflav_weight = self._corrections['get_btag_weight_postVFP']['deepflav'][self._year]
             get_pu_nom_weight = self._corrections['get_pu_nom_weight_postVFP'][self._year]
-            get_pu_up_weight = self._corrections['get_pu_up_weight_postVFP'][self._year]
-            get_pu_down_weight = self._corrections['get_pu_down_weight_postVFP'][self._year]
+            get_pu_up_weight = self._corrections['get_pu_up_weight_preVFP'][self._year]
+            get_pu_down_weight = self._corrections['get_pu_down_weight_preVFP'][self._year]
             
             
         get_ttbar_weight = self._corrections['get_ttbar_weight']
@@ -1428,9 +1428,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             # Calculate PU weight and systematic variations
             ###
 
-            pu = np.minimum(5, get_pu_nom_weight(events.Pileup.nTrueInt))
-            puUp = np.minimum(5, get_pu_up_weight(events.Pileup.nTrueInt))
-            puDown = np.minimum(5, get_pu_down_weight(events.Pileup.nTrueInt))
+            pu = np.minimum(10, get_pu_nom_weight(events.Pileup.nTrueInt))
+            puUp = np.minimum(10, get_pu_up_weight(events.Pileup.nTrueInt))
+            puDown = np.minimum(10, get_pu_down_weight(events.Pileup.nTrueInt))
             print("pu nominal", pu)
             print("pu Up", puUp)
             print("pu Down", puDown)
