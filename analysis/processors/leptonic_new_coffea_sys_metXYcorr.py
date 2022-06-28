@@ -36,7 +36,7 @@ import correctionlib
 
 
 def GetPUSF(IOV, nTrueInt, var='nominal'):
-    fname = "../../data/pileup/UL/puWeights"+IOV+".json.gz"
+    fname = "data/pileup/UL/puWeights"+IOV+".json.gz"
     hname = {
         "2016preVFP": "Collisions16_UltraLegacy_goldenJSON",
         "2016postVFP"   : "Collisions16_UltraLegacy_goldenJSON",
