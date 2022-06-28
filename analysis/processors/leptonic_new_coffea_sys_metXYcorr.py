@@ -1902,7 +1902,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             else:
                 weights = Weights(len(events))
 #                 #print("L1445")
-                if ak.mean(ak.num(events.PSWeight)) == 1:
+                if ((ak.mean(ak.num(events.PSWeight)) == 1) or (re.search("^W[WZ]_", dataset)) or ( re.search("^ZZ_", dataset))):
                     weights.add(
                         "ISR",
                         weight=np.ones(len(events)),
@@ -1931,7 +1931,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 # Otherwise, calculate the weights and systematic variations
                 else:
                     # PDF Uncertainty weights
-                    # avoid errors from 0/0 division
+                    # avoid errors lfrom 0/0 division
                     LHEPdfWeight_0 = ak.where(
                         events.LHEPdfWeight[:, 0] == 0, 1, events.LHEPdfWeight[:, 0]
                     )
@@ -1944,19 +1944,19 @@ class AnalysisProcessor(processor.ProcessorABC):
                     )
 
                     # Q2 Uncertainty weights
-                    if ak.mean(ak.num(events.LHEScaleWeight)) == 9:
-                        scaleWeightSelector = [0, 1, 3, 5, 7, 8]
-                    elif ak.mean(ak.num(events.LHEScaleWeight)) == 44:
-                        scaleWeightSelector = [0, 5, 15, 24, 34, 39]
-                    else:
-                        scaleWeightSelector = []
-                    LHEScaleVariation = events.LHEScaleWeight[:, scaleWeightSelector]
-                    weights.add(
-                        "Q2Scale",
-                        weight=np.ones(len(events)),
-                        weightUp=ak.max(LHEScaleVariation, axis=1),
-                        weightDown=ak.min(LHEScaleVariation, axis=1),
-                    )
+#                     if ak.mean(ak.num(events.LHEScaleWeight)) == 9:
+#                         scaleWeightSelector = [0, 1, 3, 5, 7, 8]
+#                     elif ak.mean(ak.num(events.LHEScaleWeight)) == 44:
+#                         scaleWeightSelector = [0, 5, 15, 24, 34, 39]
+#                     else:
+#                         scaleWeightSelector = []
+#                     LHEScaleVariation = events.LHEScaleWeight[:, scaleWeightSelector]
+#                     weights.add(
+#                         "Q2Scale",
+#                         weight=np.ones(len(events)),
+#                         weightUp=ak.max(LHEScaleVariation, axis=1),
+#                         weightDown=ak.min(LHEScaleVariation, axis=1),
+#                     )
 
                     # ISR / FSR uncertainty weights
                     if not ak.all(
