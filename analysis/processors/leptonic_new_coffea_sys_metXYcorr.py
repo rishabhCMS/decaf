@@ -1922,12 +1922,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                         weightUp=np.ones(len(events)),
                         weightDown=np.ones(len(events)),
                     )
-                    weights.add(
-                        "Q2Scale",
-                        weight=np.ones(len(events)),
-                        weightUp=np.ones(len(events)),
-                        weightDown=np.ones(len(events)),
-                    )
+#                     weights.add(
+#                         "Q2Scale",
+#                         weight=np.ones(len(events)),
+#                         weightUp=np.ones(len(events)),
+#                         weightDown=np.ones(len(events)),
+#                     )
 
                 # Otherwise, calculate the weights and systematic variations
                 else:
