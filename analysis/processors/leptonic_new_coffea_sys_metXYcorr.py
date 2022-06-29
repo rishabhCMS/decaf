@@ -820,9 +820,10 @@ class AnalysisProcessor(processor.ProcessorABC):
         self.isMC ='genWeight' in events.fields
         if self.isMC:
             output = self.accumulator.identity()
-            shift_systs = [None,]
-#             shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown"]
+#             shift_systs = ['JESUp',]
+            shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown"]
             for _syst in shift_systs:
+                print("shift sys", _syst)
                 output += self.process_shift(events, _syst)
         else:
             # data doesn't need each systematic shift to be processed
@@ -2030,24 +2031,24 @@ class AnalysisProcessor(processor.ProcessorABC):
                     trig_name = 'trig_e'
                 elif 'm' == region[-1]:
                     trig_name = 'trig_m'
-                weights.add(trig_name, trig[region],trig_err[region], trig_err[region], shift=True)
+                weights.add(trig_name, trig[region],trig[region]+trig_err[region], trig[region]-trig_err[region])
                 if 'e' == region[-1]:
                     ids_name = 'id_e'
                 elif 'm' == region[-1]:
                     ids_name = 'id_m'                
-                weights.add(ids_name, ids[region], ids_err[region], ids_err[region], shift=True)
+                weights.add(ids_name, ids[region], ids[region]+ids_err[region], ids[region]-ids_err[region])
                 
                 if 'e' == region[-1]:
                     reco_name = 'reco_e'
                 elif 'm' == region[-1]:
                     reco_name = 'reco_m'
-                weights.add(reco_name, reco[region], reco_err[region], reco_err[region], shift=True)
+                weights.add(reco_name, reco[region], reco[region]+reco_err[region], reco[region]-reco_err[region])
                 
                 if 'e' == region[-1]:
                     isolation_name = 'isolation_e'
                 elif 'm' == region[-1]:
                     isolation_name = 'isolation_m'                
-                weights.add(isolation_name, isolation[region], isolation_err[region], isolation_err[region], shift=True)
+                weights.add(isolation_name, isolation[region], isolation[region]+isolation_err[region], isolation[region]-isolation_err[region])
 #                 weights.add('csev', csev[region])
                 weights.add('btag', btag[region],btagUp[region], btagDown[region])
 #                 #print("btag['wjete']",btag['wjete'])
@@ -2121,8 +2122,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             systematic = None
                         else:
                             sname = systematic
-                        sname = 'nominal' if systematic is None else systematic
-                        #print(sname)
+
+                        print(sname)
                         hout['template'].fill(dataset='HF--'+dataset,
                                               region=region,
                                               systematic=sname,
@@ -2184,8 +2185,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                             sname = systematic
                             systematic = None
                         else: sname=systematic   
-#                         sname = 'nominal' if systematic is None else systematic
-#                         #print(sname)
+                        print("sname",sname)
 #                         template is the place we keep track of all the uncertainities
                         hout['template'].fill(dataset=dataset,
                                               region=region,
