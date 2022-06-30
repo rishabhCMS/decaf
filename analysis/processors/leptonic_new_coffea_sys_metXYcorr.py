@@ -1987,7 +1987,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     weights.add("L1Prefiring", 
                                 events.L1PreFiringWeight.Nom,
                                 events.L1PreFiringWeight.Up, 
-                                events.L1PreFiringWeight.Dn)
+                                events.L1PreFiringWeight.Dn, shift=True)
 #                     print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
 #                     print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
 #                     print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
@@ -2026,7 +2026,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu, puUp, puDown)
+                weights.add('pileup', pu, puUp, puDown, shift=True)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
