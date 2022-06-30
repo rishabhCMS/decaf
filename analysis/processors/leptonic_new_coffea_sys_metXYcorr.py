@@ -318,7 +318,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'HBHENoiseIsoFilter',
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
-#                  'BadPFMuonDzFilter',
+                 'BadPFMuonDzFilter',
                  'eeBadScFilter',
                  
                  ],
@@ -331,7 +331,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
                  'eeBadScFilter',
-#                  'BadPFMuonDzFilter',
+                 'BadPFMuonDzFilter',
 #                  'hfNoisyHitsFilter'
                  ],
 
@@ -439,10 +439,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         'Summer19UL16_V7_MC_L2Relative_AK4PFchs',
                         'Summer19UL16_V7_MC_L2Residual_AK4PFchs',
                         'Summer19UL16_V7_MC_L3Absolute_AK4PFchs',
-#                         'Summer19UL16_RunFGH_V7_DATA_L1FastJet_AK4PFchs',
-#                         'Summer19UL16_RunFGH_V7_DATA_L2L3Residual_AK4PFchs',
-#                         'Summer19UL16_RunFGH_V7_DATA_L2Relative_AK4PFchs',
-#                         'Summer19UL16_RunFGH_V7_DATA_L3Absolute_AK4PFchs'
+
                         ],
                     
                         'apv':
@@ -451,14 +448,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         'Summer19UL16APV_V7_MC_L2Relative_AK4PFchs',
                         'Summer19UL16APV_V7_MC_L2Residual_AK4PFchs',
                         'Summer19UL16APV_V7_MC_L3Absolute_AK4PFchs',
-#                         'Summer19UL16APV_RunBCD_V7_DATA_L1FastJet_AK4PFchs',
-#                         'Summer19UL16APV_RunEF_V7_DATA_L1FastJet_AK4PFchs',
-#                         'Summer19UL16APV_RunBCD_V7_DATA_L2L3Residual_AK4PFchs',
-#                         'Summer19UL16APV_RunEF_V7_DATA_L2L3Residual_AK4PFchs',
-#                         'Summer19UL16APV_RunBCD_V7_DATA_L2Relative_AK4PFchs',
-#                         'Summer19UL16APV_RunEF_V7_DATA_L2Relative_AK4PFchs',
-#                         'Summer19UL16APV_RunBCD_V7_DATA_L3Absolute_AK4PFchs',
-#                         'Summer19UL16APV_RunEF_V7_DATA_L3Absolute_AK4PFchs',
+
                         ]
                     },
 
@@ -469,26 +459,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL17_V5_MC_L2Relative_AK4PFchs',
                 'Summer19UL17_V5_MC_L2Residual_AK4PFchs',
                 'Summer19UL17_V5_MC_L3Absolute_AK4PFchs',
-#                 'Summer19UL17_RunB_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL17_RunC_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL17_RunD_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL17_RunE_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL17_RunF_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL17_RunE_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL17_RunF_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL17_RunB_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL17_RunC_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL17_RunD_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL17_RunE_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL17_RunF_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL17_RunB_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL17_RunC_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL17_RunD_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL17_RunF_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL17_RunE_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL17_RunB_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL17_RunC_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL17_RunD_V5_DATA_L3Absolute_AK4PFchs',
+
                 
             ],
 
@@ -498,22 +469,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 'Summer19UL18_V5_MC_L2L3Residual_AK4PFchs',
                 'Summer19UL18_V5_MC_L3Absolute_AK4PFchs',
                 
-#                 'Summer19UL18_RunA_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L1FastJet_AK4PFchs',
-#                 'Summer19UL18_RunA_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L2Relative_AK4PFchs',
-#                 'Summer19UL18_RunA_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L2L3Residual_AK4PFchs',
-#                 'Summer19UL18_RunA_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_L3Absolute_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_L3Absolute_AK4PFchs',
+
             ]
         }
         
@@ -522,33 +478,18 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2016': 
             {
             'no_apv': ['Summer19UL16_V7_MC_Uncertainty_AK4PFchs',
-#                       'Summer19UL16_RunFGH_V7_DATA_Uncertainty_AK4PFchs',
                       ],
                      'apv': ['Summer19UL16APV_V7_MC_Uncertainty_AK4PFchs',
-#                             'Summer19UL16APV_RunBCD_V7_DATA_Uncertainty_AK4PFchs',
-#                             'Summer19UL16APV_RunEF_V7_DATA_Uncertainty_AK4PFchs'
                             ]},
-#                 'Summer16_07Aug2017_V11_MC_Uncertainty_AK4PFchs',
+
             
 
             '2017': [
                 'Summer19UL17_V5_MC_Uncertainty_AK4PFchs',
-#                 'Summer19UL17_RunB_V5_DATA_Uncertainty_AK4PFchs',
-#                 'Summer19UL17_RunC_V5_DATA_Uncertainty_AK4PFchs',
-#                 'Summer19UL17_RunD_V5_DATA_Uncertainty_AK4PFchs',
-#                 'Summer19UL17_RunE_V5_DATA_Uncertainty_AK4PFchs',
-#                 'Summer19UL17_RunF_V5_DATA_Uncertainty_AK4PFchs'
-#                 'Fall17_17Nov2017_V32_MC_Uncertainty_AK4PFchs'
             ],
 
             '2018': [
                 'Summer19UL18_V5_MC_Uncertainty_AK4PFchs',
-#                 'Summer19UL18_RunA_V5_DATA_Uncertainty_AK4PFchs',
-#                 'Summer19UL18_RunB_V5_DATA_Uncertainty_AK4PFchs',
-#                 'Summer19UL18_RunC_V5_DATA_Uncertainty_AK4PFchs',
-#                 'Summer19UL18_RunD_V5_DATA_Uncertainty_AK4PFchs',
-                
-#                 'Autumn18_V19_MC_Uncertainty_AK4PFchs'
             ],
         }
         
@@ -556,40 +497,17 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2016': 
             {'apv': ['Summer20UL16APV_JRV3_MC_PtResolution_AK4PFchs',
-#                      'Summer20UL16APV_JRV3_MC_EtaResolution_AK4PFchs',
-#                      'Summer20UL16APV_JRV3_MC_PhiResolution_AK4PFchs',
-#                     'Summer20UL16APV_JRV3_DATA_PtResolution_AK4PFchs',
-#                     'Summer20UL16APV_JRV3_DATA_EtaResolution_AK4PFchs',
-#                      'Summer20UL16APV_JRV3_DATA_PhiResolution_AK4PFchs',
                     ],
                      'no_apv': ['Summer20UL16_JRV3_MC_PtResolution_AK4PFchs',
-#                                 'Summer20UL16_JRV3_MC_EtaResolution_AK4PFchs',
-#                                 'Summer20UL16_JRV3_MC_PhiResolution_AK4PFchs',
-#                                'Summer20UL16_JRV3_DATA_PtResolution_AK4PFchs',
-#                                'Summer20UL16_JRV3_DATA_EtaResolution_AK4PFchs',
-#                                 'Summer20UL16_JRV3_DATA_PhiResolution_AK4PFchs',
                                ]},
-#                 'Summer16_25nsV1b_MC_PtResolution_AK4PFchs',
 
 
             '2017': [
                 'Summer19UL17_JRV2_MC_PtResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_MC_EtaResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_MC_PhiResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_PtResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_EtaResolution_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_PhiResolution_AK4PFchs',
-#                 'Fall17_V3b_MC_PtResolution_AK4PFchs'
             ],
 
             '2018': [
                 'Summer19UL18_JRV2_MC_PtResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_MC_EtaResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_MC_PhiResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_PtResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_EtaResolution_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_PhiResolution_AK4PFchs',
-#                 'Autumn18_V7b_MC_PtResolution_AK4PFchs'
             ]
         }
         
@@ -597,24 +515,18 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             '2016': 
             {'no_apv':['Summer20UL16_JRV3_MC_SF_AK4PFchs',
-#                       'Summer20UL16_JRV3_DATA_SF_AK4PFchs'
                       ],
                      'apv':['Summer20UL16APV_JRV3_MC_SF_AK4PFchs',
-#                            'Summer20UL16APV_JRV3_DATA_SF_AK4PFchs'
                            ]},
-#                 'Summer16_25nsV1b_MC_SF_AK4PFchs',
+
             
 
             '2017': [
                 'Summer19UL17_JRV2_MC_SF_AK4PFchs',
-#                 'Summer19UL17_JRV2_DATA_SF_AK4PFchs'
-#                 'Fall17_V3b_MC_SF_AK4PFchs'
             ],
 
             '2018': [
                 'Summer19UL18_JRV2_MC_SF_AK4PFchs',
-#                 'Summer19UL18_JRV2_DATA_SF_AK4PFchs'
-#                 'Autumn18_V7b_MC_SF_AK4PFchs'
             ]
         }
         
@@ -821,7 +733,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         if self.isMC:
             output = self.accumulator.identity()
 #             shift_systs = ['JESUp',]
-            shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown"]
+            shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown", "puUp", "puDown"]
             for _syst in shift_systs:
                 print("shift sys", _syst)
                 output += self.process_shift(events, _syst)
@@ -1084,17 +996,22 @@ class AnalysisProcessor(processor.ProcessorABC):
             elif shift_syst == "METunclUp":
                 met = corrected_mets.MET_UnclusteredEnergy.up
                 j   = events.Jet
-
+                
             elif shift_syst == "METunclDown":
                 met = corrected_mets.MET_UnclusteredEnergy.down
                 j   = events.Jet
+
+            elif shift_syst == "puUp":
+                j   = corrected_jets
+                met = corrected_mets
             
+            elif shift_syst == "puDown":
+                j   = corrected_jets
+                met = corrected_mets
+                
             else:
                 j   = corrected_jets
-    #                 j   = events.Jet
-    #             met = events.MET
                 met = corrected_mets
-#                 #print(shift_syst)
         ###
         # Initialize global quantities (MET ecc.)
         ###
@@ -1448,12 +1365,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                 IOV = "2016postVFP"
             else:
                 IOV = self._year
-            pu = GetPUSF(IOV,(events.Pileup.nTrueInt))
-            puUp    = GetPUSF(IOV, (events.Pileup.nTrueInt), "up")
-            puDown    = GetPUSF(IOV, (events.Pileup.nTrueInt), "down")
-            pu = np.minimum(10, pu)
-            puUp = np.minimum(10, puUp)
-            puDown = np.minimum(10, puDown)
+                
+            if shift_syst == "puUp":
+                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "up"))
+                
+            elif shift_syst == 'puDown':
+                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "down"))
+                
+            else:
+                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt)))
+
             ###
             # Trigger efficiency weight
             ###
@@ -1669,13 +1590,13 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 200)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 400)
             selection.add("exclude_wjets_greater_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 200)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 400)
             selection.add("exclude_wjets_less_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
@@ -1728,7 +1649,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'mtcorr_sre>150','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                     "leading_j>70",
+                    "leading_j>70",
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
@@ -1738,7 +1659,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'mtcorr_srm>150',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                     "leading_j>70", 
+                    "leading_j>70", 
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
@@ -1748,7 +1669,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_ttbare>150', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                        "leading_j>70", 
+                       "leading_j>70", 
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
@@ -1758,7 +1679,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_ttbarm>150' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
-#                        "leading_j>70", 
+                       "leading_j>70", 
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
@@ -1769,7 +1690,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_wjete>150' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
-#                 "leading_j>70",
+                "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
@@ -1781,7 +1702,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'noHEMj', 'noHEMmet', 
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
-#                       "leading_j>70",
+                      "leading_j>70",
                       "lumi_mask",'DeltaR_LJ_Mu_mask'
                      ],
         }
@@ -1987,7 +1908,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     weights.add("L1Prefiring", 
                                 events.L1PreFiringWeight.Nom,
                                 events.L1PreFiringWeight.Up, 
-                                events.L1PreFiringWeight.Dn, shift=True)
+                                events.L1PreFiringWeight.Dn)
 #                     print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
 #                     print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
 #                     print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
@@ -2026,7 +1947,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         event_size), nnlo_nlo['muFup']/nnlo_nlo['cen'], nnlo_nlo['muFdo']/nnlo_nlo['cen'])
                     weights.add('muR', np.ones(
                         event_size), nnlo_nlo['muRup']/nnlo_nlo['cen'], nnlo_nlo['muRdo']/nnlo_nlo['cen'])
-                weights.add('pileup', pu, puUp, puDown, shift=True)
+                weights.add('pileup', pu)
                 
                 if 'e' == region[-1]:
                     trig_name = 'trig_e'
@@ -2106,7 +2027,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                        ids_name+'Up', ids_name+'Down',
                                        reco_name+'Up', reco_name+'Down',
                                        isolation_name+'Up', isolation_name+'Down',
-                                       'pileupUp','pileupDown',
+#                                        'pileupUp','pileupDown',
                                        "ISRUp", "ISRDown", "FSRUp", 'FSRDown', 'PDFUp', 'PDFDown'
                                       ]
                         if 'L1PreFiringWeight' in events.fields:
@@ -2118,7 +2039,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         if systematic is None:
                             systematic = 'nominal'
                             
-                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown", "METunclUp", "METunclDown"]:
+                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown", "METunclUp", "METunclDown",
+                                         "puUp", "puDown"]:
                             sname = systematic
                             systematic = None
                         else:
@@ -2172,7 +2094,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                                            ids_name+'Up', ids_name+'Down',
                                            reco_name+'Up', reco_name+'Down',
                                            isolation_name+'Up', isolation_name+'Down',
-                                         'pileupUp', 'pileupDown',
+#                                          'pileupUp', 'pileupDown',
                                          "ISRUp", "ISRDown", "FSRUp", 'FSRDown', 'PDFUp', 'PDFDown'
                                           ]
                         if 'L1PreFiringWeight' in events.fields:
@@ -2182,7 +2104,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     for systematic in systematics:
                         if systematic is None:
                             systematic = "nominal"
-                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown","METunclUp", "METunclDown"]:
+                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown","METunclUp", "METunclDown",
+                                         "puUp", "puDown"]:
                             sname = systematic
                             systematic = None
                         else: sname=systematic   
