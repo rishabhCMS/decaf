@@ -1287,7 +1287,7 @@ class AnalysisProcessor(processor.ProcessorABC):
         j_ndflvM = ak.num(j_dflvM, axis=1)
         leading_j = j_clean[:,:1]
 
-        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(j_clean["T"]["pt"]>70, axis=1))
+        atleast_one_jet_with_pt_grt_50 = (j_nclean>0)&(ak.any(leading_j["T"]["pt"]>70, axis=1))
         
 
         ###
@@ -1728,7 +1728,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'mtcorr_sre>150','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
-                    "leading_j>70",
+#                     "leading_j>70",
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
@@ -1738,7 +1738,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'mtcorr_srm>150',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
-                    "leading_j>70", 
+#                     "leading_j>70", 
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
@@ -1748,7 +1748,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_ttbare>150', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
-                       "leading_j>70", 
+#                        "leading_j>70", 
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
@@ -1758,7 +1758,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'mtcorr_ttbarm>150' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
-                       "leading_j>70", 
+#                        "leading_j>70", 
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
                       ],
             
@@ -1984,7 +1984,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         weightDown=psWeights[:, 1],
                     )
                 if 'L1PreFiringWeight' in events.fields:
-                    weights.add("L1Prefiring", events.L1PreFiringWeight.Nom,
+                    weights.add("L1Prefiring", 
+                                events.L1PreFiringWeight.Nom,
                                 events.L1PreFiringWeight.Up, 
                                 events.L1PreFiringWeight.Dn)
 #                     print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
