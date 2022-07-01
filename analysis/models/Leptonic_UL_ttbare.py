@@ -201,9 +201,9 @@ def model(year):
         ttbare_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
-        metUnclUp=template(signal, s, 'METunclUp', 'ttbare')[0] 
-        metUnclDown=template(signal, s, 'METunclDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#         metUnclUp=template(signal, s, 'METunclUp', 'ttbare')[0] 
+#         metUnclDown=template(signal, s, 'METunclDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
         #L1 prefire
