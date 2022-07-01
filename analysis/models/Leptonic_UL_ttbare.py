@@ -191,34 +191,34 @@ def model(year):
         ttbare_signal.setParamEffect(reco_e, recoeUp, recoDown)
         
         #JEC_JER
-        jerUp=template(background, s, 'JERUp', 'ttbare')[0] 
-        jerDown=template(background, s, 'JERDown', 'ttbare')[0]
+        jerUp=template(signal, s, 'JERUp', 'ttbare')[0] 
+        jerDown=template(signal, s, 'JERDown', 'ttbare')[0]
         ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
-        jesUp=template(background, s, 'JESUp', 'ttbare')[0] 
-        jesDown=template(background, s, 'JESDown', 'ttbare')[0]
+        jesUp=template(signal, s, 'JESUp', 'ttbare')[0] 
+        jesDown=template(signal, s, 'JESDown', 'ttbare')[0]
         ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
-        metUnclUp=template(background, s, 'METunclUp', 'ttbare')[0] 
-        metUnclDown=template(background, s, 'METunclDown', 'ttbare')[0]
+        metUnclUp=template(signal, s, 'METunclUp', 'ttbare')[0] 
+        metUnclDown=template(signal, s, 'METunclDown', 'ttbare')[0]
         ttbare_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
         #L1 prefire
-        L1prefireUp=template(background, s, 'L1PrefireUp', 'ttbare')[0] 
-        L1prefireDown=template(background, s, 'L1PrefireDown', 'ttbare')[0]
+        L1prefireUp=template(signal, s, 'L1PrefireUp', 'ttbare')[0] 
+        L1prefireDown=template(signal, s, 'L1PrefireDown', 'ttbare')[0]
         ttbare_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
-        ISRUp=template(background, s, 'ISRUp', 'ttbare')[0] 
-        ISRDown=template(background, s, 'ISRDown', 'ttbare')[0]
+        ISRUp=template(signal, s, 'ISRUp', 'ttbare')[0] 
+        ISRDown=template(signal, s, 'ISRDown', 'ttbare')[0]
         ttbare_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
-        FSRUp=template(background, s, 'FSRUp', 'ttbare')[0] 
-        FSRDown=template(background, s, 'FSRDown', 'ttbare')[0]
+        FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
+        FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
         ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 #         ttbare_signal.autoMCStats()
         ttbare.addSample(ttbare_signal)
