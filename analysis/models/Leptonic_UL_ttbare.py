@@ -226,7 +226,6 @@ def model(year):
         pdfDown=template(signal, s, 'PDFDown', 'ttbare')[0]
         ttbare_signal.setParamEffect(pdf, pdfUp, pdfDown) 
         
-        ttbare.addSample(ttbare_wjetsMC)
 #         ttbare_signal.autoMCStats()
         ttbare.addSample(ttbare_signal)
     ###
