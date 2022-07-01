@@ -488,7 +488,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown
+    ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
     
     ttbare.addSample(ttbare_dyjets)
 
