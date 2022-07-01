@@ -181,8 +181,8 @@ def model(year):
         id_eDown=template(signal, s, 'id_eDown', 'ttbare')[0]
         ttbare_signal.setParamEffect(id_e, id_eUp, id_eDown)
         #pileup
-        pileupUp=template(signal, s,'pileupUp','ttbare')[0] 
-        pileupDown=template(signal, s,'pileupDown','ttbare')[0] 
+        pileupUp=template(signal, s,'puUp','ttbare')[0] 
+        pileupDown=template(signal, s,'puDown','ttbare')[0] 
         ttbare_signal.setParamEffect(pileup, pileupUp, pileupDown)
         
         #reco Electron
@@ -219,8 +219,8 @@ def model(year):
     id_eDown=template(background, "W+jets", 'id_eDown', 'ttbare')[0]
     ttbare_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-    pileupUp=template(background, 'W+jets','pileupUp','ttbare')[0] 
-    pileupDown=template(background, 'W+jets','pileupDown','ttbare')[0] 
+    pileupUp=template(background, 'W+jets','puUp','ttbare')[0] 
+    pileupDown=template(background, 'W+jets','puDown','ttbare')[0] 
     ttbare_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
@@ -256,8 +256,8 @@ def model(year):
     id_eDown=template(background, "TT", 'id_eDown', 'ttbare')[0]
     ttbare_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-    pileupUp=template(background, 'TT','pileupUp','ttbare')[0] 
-    pileupDown=template(background, 'TT','pileupDown','ttbare')[0] 
+    pileupUp=template(background, 'TT','puUp','ttbare')[0] 
+    pileupDown=template(background, 'TT','puDown','ttbare')[0] 
     ttbare_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'TT', 'reco_eUp', 'ttbare')[0] 
@@ -292,8 +292,8 @@ def model(year):
     id_eDown=template(background, "ST", 'id_eDown', 'ttbare')[0]
     ttbare_st.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-    pileupUp=template(background, 'ST','pileupUp','ttbare')[0] 
-    pileupDown=template(background, 'ST','pileupDown','ttbare')[0] 
+    pileupUp=template(background, 'ST','puUp','ttbare')[0] 
+    pileupDown=template(background, 'ST','puDown','ttbare')[0] 
     ttbare_st.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'ST', 'reco_eUp', 'ttbare')[0] 
@@ -325,8 +325,8 @@ def model(year):
     id_eDown=template(background, "DY+jets", 'id_eDown', 'ttbare')[0]
     ttbare_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-    pileupUp=template(background, 'DY+jets','pileupUp','ttbare')[0] 
-    pileupDown=template(background, 'DY+jets','pileupDown','ttbare')[0] 
+    pileupUp=template(background, 'DY+jets','puUp','ttbare')[0] 
+    pileupDown=template(background, 'DY+jets','puDown','ttbare')[0] 
     ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
@@ -358,8 +358,8 @@ def model(year):
     id_eDown=template(background, "VV", 'id_eDown', 'ttbare')[0]
     ttbare_vv.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-    pileupUp=template(background, 'VV','pileupUp','ttbare')[0] 
-    pileupDown=template(background, 'VV','pileupDown','ttbare')[0] 
+    pileupUp=template(background, 'VV','puUp','ttbare')[0] 
+    pileupDown=template(background, 'VV','puDown','ttbare')[0] 
     ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'ttbare')[0] 
@@ -391,8 +391,8 @@ def model(year):
     id_eDown=template(background, "QCD", 'id_eDown', 'ttbare')[0]
     ttbare_qcd.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
-    pileupUp=template(background, 'QCD','pileupUp','ttbare')[0] 
-    pileupDown=template(background, 'QCD','pileupDown','ttbare')[0] 
+    pileupUp=template(background, 'QCD','puUp','ttbare')[0] 
+    pileupDown=template(background, 'QCD','puDown','ttbare')[0] 
     ttbare_qcd.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'QCD', 'reco_eUp', 'ttbare')[0] 
