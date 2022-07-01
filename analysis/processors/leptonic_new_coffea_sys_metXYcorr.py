@@ -733,7 +733,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         if self.isMC:
             output = self.accumulator.identity()
 #             shift_systs = ['JESUp',]
-            shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown", "puUp", "puDown"]
+            shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown", 
+                           "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]
             for _syst in shift_systs:
                 print("shift sys", _syst)
                 output += self.process_shift(events, _syst)
@@ -1905,13 +1906,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                         weightDown=psWeights[:, 1],
                     )
                 if 'L1PreFiringWeight' in events.fields:
-                    weights.add("L1Prefiring", 
-                                events.L1PreFiringWeight.Nom,
-                                events.L1PreFiringWeight.Up, 
-                                events.L1PreFiringWeight.Dn)
-#                     print("events.L1PreFiringWeight.Nom",events.L1PreFiringWeight.Nom)
-#                     print("events.L1PreFiringWeight.Up",events.L1PreFiringWeight.Up)
-#                     print("events.L1PreFiringWeight.Do",events.L1PreFiringWeight.Dn)
+                    if shift_syst == 'L1PrefireUp':
+                        weights.add("L1Prefiring",events.L1PreFiringWeight.Up)
+                    elif shift_syst == 'L1PrefireDown':
+                        weights.add("L1Prefiring",events.L1PreFiringWeight.Dn)
+                    else:
+                        weights.add("L1Prefiring",events.L1PreFiringWeight.Nom)
+                        
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
@@ -2030,8 +2031,6 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                        'pileupUp','pileupDown',
                                        "ISRUp", "ISRDown", "FSRUp", 'FSRDown', 'PDFUp', 'PDFDown'
                                       ]
-                        if 'L1PreFiringWeight' in events.fields:
-                            systematics.extend(["L1PrefiringUp", "L1PrefiringDown"])
                     else:
                         systematics = [shift_syst] #[None, "JERUp"]
                         
@@ -2040,7 +2039,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                             systematic = 'nominal'
                             
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown", "METunclUp", "METunclDown",
-                                         "puUp", "puDown"]:
+                                         "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]:
                             sname = systematic
                             systematic = None
                         else:
@@ -2097,15 +2096,14 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                                          'pileupUp', 'pileupDown',
                                          "ISRUp", "ISRDown", "FSRUp", 'FSRDown', 'PDFUp', 'PDFDown'
                                           ]
-                        if 'L1PreFiringWeight' in events.fields:
-                            systematics.extend(["L1PrefiringUp", "L1PrefiringDown"])
+
                     else:
                         systematics = [shift_syst] 
                     for systematic in systematics:
                         if systematic is None:
                             systematic = "nominal"
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown","METunclUp", "METunclDown",
-                                         "puUp", "puDown"]:
+                                         "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]:
                             sname = systematic
                             systematic = None
                         else: sname=systematic   
