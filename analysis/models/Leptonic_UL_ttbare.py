@@ -220,6 +220,13 @@ def model(year):
         FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
         ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
+        
+        #pdf 
+        pdfUp=template(signal, s, 'pdfUp', 'ttbare')[0] 
+        pdfDown=template(signal, s, 'pdfDown', 'ttbare')[0]
+        ttbare_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+        
+        ttbare.addSample(ttbare_wjetsMC)
 #         ttbare_signal.autoMCStats()
         ttbare.addSample(ttbare_signal)
     ###
@@ -257,6 +264,7 @@ def model(year):
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
     ttbare_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
+    
     addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
 
     #JEC_JER
@@ -290,6 +298,10 @@ def model(year):
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
     ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
     
+    #pdf 
+    pdfUp=template(background, 'W+jets', 'pdfUp', 'ttbare')[0] 
+    pdfDown=template(background, 'W+jets', 'pdfDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
     ttbare.addSample(ttbare_wjetsMC)
 
     # ###
@@ -349,15 +361,21 @@ def model(year):
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'ttbare')[0]
     ttbare_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
-    #L1 ISR
+    #ISR
     ISRUp=template(background, 'TT', 'ISRUp', 'ttbare')[0] 
     ISRDown=template(background, 'TT', 'ISRDown', 'ttbare')[0]
     ttbare_ttMC.setParamEffect(isr, ISRUp, ISRDown)
 
-    #L1 FSR
+    #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'ttbare')[0]
     ttbare_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+    
+    #pdf 
+    pdfUp=template(background, 'TT', 'pdfUp', 'ttbare')[0] 
+    pdfDown=template(background, 'TT', 'pdfDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+
     ttbare.addSample(ttbare_ttMC)
 
     # ###
@@ -425,6 +443,11 @@ def model(year):
     FSRDown=template(background, 'ST', 'FSRDown', 'ttbare')[0]
     ttbare_st.setParamEffect(fsr, FSRUp, FSRDown)
     
+    #pdf 
+    pdfUp=template(background, 'ST', 'pdfUp', 'ttbare')[0] 
+    pdfDown=template(background, 'ST', 'pdfDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(pdf, pdfUp, pdfDown)  
+    
     ttbare.addSample(ttbare_st)
 
     # DY Jet Background
@@ -440,7 +463,7 @@ def model(year):
 #     ttbare_dyjets.setParamEffect(id_e, 1.02)
 #     ttbare_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
-#     addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
+    addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
 #     ttbare_dyjets.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
@@ -490,6 +513,11 @@ def model(year):
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
     ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
     
+    #pdf 
+    pdfUp=template(background, 'DY+jets', 'pdfUp', 'ttbare')[0] 
+    pdfDown=template(background, 'DY+jets', 'pdfDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+    
     ttbare.addSample(ttbare_dyjets)
 
 
@@ -505,7 +533,7 @@ def model(year):
 #     ttbare_vv.setParamEffect(jec, 1.05)
 #     ttbare_vv.setParamEffect(id_e, 1.02)
 #     ttbare_vv.setParamEffect(reco_e, 1.02)
-#     addBtagSyst(background, "VV", "ttbare", ttbare_vv)
+    addBtagSyst(background, "VV", "ttbare", ttbare_vv)
 #     ttbare_vv.autoMCStats()
 #     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'ttbare')[0] 
@@ -555,6 +583,11 @@ def model(year):
     FSRDown=template(background, 'VV', 'FSRDown', 'ttbare')[0]
     ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
     
+    #pdf 
+    pdfUp=template(background, 'VV', 'pdfUp', 'ttbare')[0] 
+    pdfDown=template(background, 'VV', 'pdfDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+    
     ttbare.addSample(ttbare_vv)
 
     # QCD background
@@ -569,7 +602,7 @@ def model(year):
 #     ttbare_qcd.setParamEffect(jec, 1.05)
 #     ttbare_qcd.setParamEffect(id_e, 1.02)
 #     ttbare_qcd.setParamEffect(reco_e, 1.02)
-#     addBtagSyst(background, "QCD", "ttbare", ttbare_qcd)
+    addBtagSyst(background, "QCD", "ttbare", ttbare_qcd)
 #     ttbare_qcd.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'QCD', 'trig_eUp', 'ttbare')[0] 
@@ -617,6 +650,11 @@ def model(year):
     FSRUp=template(background, 'QCD', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'QCD', 'FSRDown', 'ttbare')[0]
     ttbare_qcd.setParamEffect(fsr, FSRUp, FSRDown)
+    
+    #pdf 
+    pdfUp=template(background, 'QCD', 'pdfUp', 'ttbare')[0] 
+    pdfDown=template(background, 'QCD', 'pdfDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
     
     ttbare.addSample(ttbare_qcd)
     return model
@@ -709,6 +747,7 @@ if __name__ == "__main__":
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr"+year, "shape")
     fsr = rl.NuisanceParameter("fsr"+year, "shape")
+    pdf = rl.NuisanceParameter("pdf"+year, "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
