@@ -189,6 +189,37 @@ def model(year):
         recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
         recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
         ttbare_signal.setParamEffect(reco_e, recoeUp, recoDown)
+        
+        #JEC_JER
+        jerUp=template(background, s, 'JERUp', 'ttbare')[0] 
+        jerDown=template(background, s, 'JERDown', 'ttbare')[0]
+        ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+
+        #JEC_JEs
+        jesUp=template(background, s, 'JESUp', 'ttbare')[0] 
+        jesDown=template(background, s, 'JESDown', 'ttbare')[0]
+        ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+
+        #met_uncl
+        metUnclUp=template(background, s, 'METunclUp', 'ttbare')[0] 
+        metUnclDown=template(background, s, 'METunclDown', 'ttbare')[0]
+        ttbare_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+
+
+        #L1 prefire
+        L1prefireUp=template(background, s, 'L1PrefireUp', 'ttbare')[0] 
+        L1prefireDown=template(background, s, 'L1PrefireDown', 'ttbare')[0]
+        ttbare_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+
+        #L1 ISR
+        ISRUp=template(background, s, 'ISRUp', 'ttbare')[0] 
+        ISRDown=template(background, s, 'ISRDown', 'ttbare')[0]
+        ttbare_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
+
+        #L1 FSR
+        FSRUp=template(background, s, 'FSRUp', 'ttbare')[0] 
+        FSRDown=template(background, s, 'FSRDown', 'ttbare')[0]
+        ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 #         ttbare_signal.autoMCStats()
         ttbare.addSample(ttbare_signal)
     ###
@@ -226,7 +257,39 @@ def model(year):
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
     ttbare_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
-#     addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
+    addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
+
+    #JEC_JER
+    jerUp=template(background, 'W+jets', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'W+jets', 'JERDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+
+    #JEC_JEs
+    jesUp=template(background, 'W+jets', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'W+jets', 'JESDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+    
+    #met_uncl
+    metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'W+jets', 'METunclDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    
+    
+    #L1 prefire
+    L1prefireUp=template(background, 'W+jets', 'L1PrefireUp', 'ttbare')[0] 
+    L1prefireDown=template(background, 'W+jets', 'L1PrefireDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+
+    #L1 ISR
+    ISRUp=template(background, 'W+jets', 'ISRUp', 'ttbare')[0] 
+    ISRDown=template(background, 'W+jets', 'ISRDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
+
+    #L1 FSR
+    FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbare')[0] 
+    FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+    
     ttbare.addSample(ttbare_wjetsMC)
 
     # ###
@@ -264,6 +327,37 @@ def model(year):
     recoDown=template(background, 'TT', 'reco_eDown', 'ttbare')[0]
     ttbare_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
     # ttbare_ttMC.setParamEffect(ttMC_norm, 1.2)
+    
+    #JEC_JER
+    jerUp=template(background, 'TT', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'TT', 'JERDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
+
+    #JEC_JEs
+    jesUp=template(background, 'TT', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'TT', 'JESDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
+    
+    #met_uncl
+    metUnclUp=template(background, 'TT', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'TT', 'METunclDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    
+    
+    #L1 prefire
+    L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'ttbare')[0] 
+    L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+
+    #L1 ISR
+    ISRUp=template(background, 'TT', 'ISRUp', 'ttbare')[0] 
+    ISRDown=template(background, 'TT', 'ISRDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(isr, ISRUp, ISRDown)
+
+    #L1 FSR
+    FSRUp=template(background, 'TT', 'FSRUp', 'ttbare')[0] 
+    FSRDown=template(background, 'TT', 'FSRDown', 'ttbare')[0]
+    ttbare_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
     ttbare.addSample(ttbare_ttMC)
 
     # ###
@@ -299,6 +393,38 @@ def model(year):
     recoeUp=template(background, 'ST', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'ST', 'reco_eDown', 'ttbare')[0]
     ttbare_st.setParamEffect(reco_e, recoeUp, recoDown)
+
+    #JEC_JER
+    jerUp=template(background, 'ST', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'ST', 'JERDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(jec_jer, jerUp, jerDown)
+
+    #JEC_JEs
+    jesUp=template(background, 'ST', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'ST', 'JESDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(jec_jes, jesUp, jesDown)
+    
+    #met_uncl
+    metUnclUp=template(background, 'ST', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'ST', 'METunclDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    
+    
+    #L1 prefire
+    L1prefireUp=template(background, 'ST', 'L1PrefireUp', 'ttbare')[0] 
+    L1prefireDown=template(background, 'ST', 'L1PrefireDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+
+    #L1 ISR
+    ISRUp=template(background, 'ST', 'ISRUp', 'ttbare')[0] 
+    ISRDown=template(background, 'ST', 'ISRDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(isr, ISRUp, ISRDown)
+
+    #L1 FSR
+    FSRUp=template(background, 'ST', 'FSRUp', 'ttbare')[0] 
+    FSRDown=template(background, 'ST', 'FSRDown', 'ttbare')[0]
+    ttbare_st.setParamEffect(fsr, FSRUp, FSRDown)
+    
     ttbare.addSample(ttbare_st)
 
     # DY Jet Background
@@ -332,6 +458,38 @@ def model(year):
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbare')[0]
     ttbare_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
+    
+    #JEC_JER
+    jerUp=template(background, 'DY+jets', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'DY+jets', 'JERDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+
+    #JEC_JEs
+    jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+    
+    #met_uncl
+    metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    
+    
+    #L1 prefire
+    L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'ttbare')[0] 
+    L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+
+    #L1 ISR
+    ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbare')[0] 
+    ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+
+    #L1 FSR
+    FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbare')[0] 
+    FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown
+    
     ttbare.addSample(ttbare_dyjets)
 
 
@@ -365,6 +523,37 @@ def model(year):
     recoeUp=template(background, 'VV', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'ttbare')[0]
     ttbare_vv.setParamEffect(reco_e, recoeUp, recoDown)
+
+    #JEC_JER
+    jerUp=template(background, 'VV', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'VV', 'JERDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(jec_jer, jerUp, jerDown)
+
+    #JEC_JEs
+    jesUp=template(background, 'VV', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'VV', 'JESDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(jec_jes, jesUp, jesDown)
+    
+    #met_uncl
+    metUnclUp=template(background, 'VV', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'VV', 'METunclDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    
+    
+    #L1 prefire
+    L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'ttbare')[0] 
+    L1prefireDown=template(background, 'VV', 'L1PrefireDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+
+    #L1 ISR
+    ISRUp=template(background, 'VV', 'ISRUp', 'ttbare')[0] 
+    ISRDown=template(background, 'VV', 'ISRDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(isr, ISRUp, ISRDown)
+
+    #L1 FSR
+    FSRUp=template(background, 'VV', 'FSRUp', 'ttbare')[0] 
+    FSRDown=template(background, 'VV', 'FSRDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
     
     ttbare.addSample(ttbare_vv)
 
@@ -398,6 +587,36 @@ def model(year):
     recoeUp=template(background, 'QCD', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'QCD', 'reco_eDown', 'ttbare')[0]
     ttbare_qcd.setParamEffect(reco_e, recoeUp, recoDown)
+    #JEC_JER
+    jerUp=template(background, 'QCD', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'QCD', 'JERDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(jec_jer, jerUp, jerDown)
+
+    #JEC_JEs
+    jesUp=template(background, 'QCD', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'QCD', 'JESDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(jec_jes, jesUp, jesDown)
+    
+    #met_uncl
+    metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'QCD', 'METunclDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    
+    
+    #L1 prefire
+    L1prefireUp=template(background, 'QCD', 'L1PrefireUp', 'ttbare')[0] 
+    L1prefireDown=template(background, 'QCD', 'L1PrefireDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+
+    #L1 ISR
+    ISRUp=template(background, 'QCD', 'ISRUp', 'ttbare')[0] 
+    ISRDown=template(background, 'QCD', 'ISRDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(isr, ISRUp, ISRDown)
+
+    #L1 FSR
+    FSRUp=template(background, 'QCD', 'FSRUp', 'ttbare')[0] 
+    FSRDown=template(background, 'QCD', 'FSRDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(fsr, FSRUp, FSRDown)
     
     ttbare.addSample(ttbare_qcd)
     return model
@@ -465,7 +684,8 @@ if __name__ == "__main__":
     trig_met = rl.NuisanceParameter("trig_met" + year, "lnN")
     trig_pho = rl.NuisanceParameter("trig_pho" + year, "lnN")
     veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
-    jec = rl.NuisanceParameter("jec" + year, "lnN")
+    jec_jer = rl.NuisanceParameter("jec_jer" + year, "lnN")
+    jec_jes = rl.NuisanceParameter("jec_jes" + year, "lnN")
     #btag = rl.NuisanceParameter("btag" + year, "shapeN")  # AK4 btag
     btag = rl.NuisanceParameter("btag" + year, "shape")  # AK4 btag
     ew1 = rl.NuisanceParameter("ew1", "lnN")
@@ -485,7 +705,10 @@ if __name__ == "__main__":
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
-    
+    L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
+    metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
+    isr = rl.NuisanceParameter("isr"+year, "shape")
+    fsr = rl.NuisanceParameter("fsr"+year, "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
