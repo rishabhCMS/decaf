@@ -492,9 +492,9 @@ def model(year):
     ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
-    metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
-    metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
+#     metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
     
     
     #L1 prefire
