@@ -182,12 +182,12 @@ def model(year):
         pileupDown=template(signal, s,'puDown','ttbarm')[0] 
         ttbarm_signal.setParamEffect(pileup, pileupUp, pileupDown)
         #iso Muon
-        isolation_mUp=template(background, s, 'isolation_mUp', 'ttbarm')[0] 
-        isolation_mDown=template(background, s, 'isolation_mDown', 'ttbarm')[0]
+        isolation_mUp=template(signal, s, 'isolation_mUp', 'ttbarm')[0] 
+        isolation_mDown=template(signal, s, 'isolation_mDown', 'ttbarm')[0]
         ttbarm_signal.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
         #id Muon
-        id_mUp=template(background, s, 'id_mUp', 'ttbarm')[0] 
-        id_mDown=template(background, s, 'id_mDown', 'ttbarm')[0]
+        id_mUp=template(signal, s, 'id_mUp', 'ttbarm')[0] 
+        id_mDown=template(signal, s, 'id_mDown', 'ttbarm')[0]
         ttbarm_signal.setParamEffect(id_m, id_mUp, id_mDown)        
 
         
