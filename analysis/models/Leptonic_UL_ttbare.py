@@ -293,9 +293,9 @@ def model(year):
     ttbare_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
-    FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbare')[0] 
-    FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbare')[0] 
+#     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
+#     ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
     
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbare')[0] 
