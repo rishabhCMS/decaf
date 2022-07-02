@@ -173,22 +173,23 @@ def model(year):
         btagDown=template(signal, s,'btagDown','ttbarm')[0]
         ttbarm_signal.setParamEffect(btag, btagUp, btagDown)
 #         #trigger Electron
-        trigeUp=template(signal, s, 'trig_eUp', 'ttbarm')[0] 
-        trigeDown=template(signal, s, 'trig_eDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(trig_e, trigeUp, trigeDown)
-#         #id Electron
-        id_eUp=template(signal, s, 'id_eUp', 'ttbarm')[0] 
-        id_eDown=template(signal, s, 'id_eDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(id_e, id_eUp, id_eDown)
+        trigmUp=template(signal, s, 'trig_mUp', 'ttbarm')[0] 
+        trigmDown=template(signal, s, 'trig_mDown', 'ttbarm')[0]
+        ttbarm_signal.setParamEffect(trig_m, trigmUp, trigmDown)
+
         #pileup
         pileupUp=template(signal, s,'puUp','ttbarm')[0] 
         pileupDown=template(signal, s,'puDown','ttbarm')[0] 
         ttbarm_signal.setParamEffect(pileup, pileupUp, pileupDown)
-        
-        #reco Electron
-        recoeUp=template(signal, s, 'reco_eUp', 'ttbarm')[0] 
-        recoDown=template(signal, s, 'reco_eDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(reco_e, recoeUp, recoDown)
+        #iso Muon
+        isolation_mUp=template(background, s, 'isolation_mUp', 'ttbarm')[0] 
+        isolation_mDown=template(background, s, 'isolation_mDown', 'ttbarm')[0]
+        ttbarm_signal.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+        #id Muon
+        id_mUp=template(background, s, 'id_mUp', 'ttbarm')[0] 
+        id_mDown=template(background, s, 'id_mDown', 'ttbarm')[0]
+        ttbarm_signal.setParamEffect(id_m, id_mUp, id_mDown)        
+
         
         #JEC_JER
         jerUp=template(signal, s, 'JERUp', 'ttbarm')[0] 
@@ -239,32 +240,33 @@ def model(year):
         ttbarm_wjetsTemplate
     )
     ttbarm_wjetsMC.setParamEffect(lumi, 1.027)
-#     ttbarm_wjetsMC.setParamEffect(trig_e, 1.01)
+#     ttbarm_wjetsMC.setParamEffect(trig_m, 1.01)
 #     ttbarm_wjetsMC.setParamEffect(veto_tau, 1.03)
 #     ttbarm_wjetsMC.setParamEffect(wjets_norm, 1.4)
 #     ttbarm_wjetsMC.setParamEffect(jec, 1.05)
-#     ttbarm_wjetsMC.setParamEffect(id_e, 1.02)
+#     ttbarm_wjetsMC.setParamEffect(id_m, 1.02)
 #     ttbarm_wjetsMC.setParamEffect(reco_e, 1.02)
 #     ttbarm_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
-    #trigger Electron
-    trigeUp=template(background, 'W+jets', 'trig_eUp', 'ttbarm')[0] 
-    trigeDown=template(background, 'W+jets', 'trig_eDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
-#     #id Electron
-    id_eUp=template(background, "W+jets", 'id_eUp', 'ttbarm')[0] 
-    id_eDown=template(background, "W+jets", 'id_eDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
+    addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
+    #trigger Muon
+    trigmUp=template(background, 'W+jets', 'trig_mUp', 'ttbarm')[0] 
+    trigmDown=template(background, 'W+jets', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_wjetsMC.setParamEffect(trig_m, trigmUp, trigmDown)
+
     #pileup
     pileupUp=template(background, 'W+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'W+jets','puDown','ttbarm')[0] 
     ttbarm_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
-    recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbarm')[0] 
-    recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
-    
-    addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
+    #iso Muon
+    isolation_mUp=template(background, 'W+jets', 'isolation_mUp', 'ttbarm')[0] 
+    isolation_mDown=template(background, 'W+jets', 'isolation_mDown', 'ttbarm')[0]
+    ttbarm_wjetsMC.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+    #id Muon
+    id_mUp=template(background, "W+jets", 'id_mUp', 'ttbarm')[0] 
+    id_mDown=template(background, "W+jets", 'id_mDown', 'ttbarm')[0]
+    ttbarm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
+
 
     #JEC_JER
     jerUp=template(background, 'W+jets', 'JERUp', 'ttbarm')[0] 
@@ -314,29 +316,30 @@ def model(year):
         ttbarm_ttTemplate
     )
     ttbarm_ttMC.setParamEffect(lumi, 1.027)
-#     ttbarm_ttMC.setParamEffect(trig_e, 1.01)
+#     ttbarm_ttMC.setParamEffect(trig_m, 1.01)
 #     ttbarm_ttMC.setParamEffect(veto_tau, 1.03)
 #     ttbarm_ttMC.setParamEffect(jec, 1.05)
-#     ttbarm_ttMC.setParamEffect(id_e, 1.02)
+#     ttbarm_ttMC.setParamEffect(id_m, 1.02)
 #     ttbarm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "ttbarm", ttbarm_ttMC)
 #     ttbarm_ttMC.autoMCStats()
-    #trigger Electron
-    trigeUp=template(background, 'TT', 'trig_eUp', 'ttbarm')[0] 
-    trigeDown=template(background, 'TT', 'trig_eDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
-    #id Electron
-    id_eUp=template(background, "TT", 'id_eUp', 'ttbarm')[0] 
-    id_eDown=template(background, "TT", 'id_eDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
+    #trigger Muon
+    trigmUp=template(background, 'TT', 'trig_mUp', 'ttbarm')[0] 
+    trigmDown=template(background, 'TT', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_ttMC.setParamEffect(trig_m, trigmUp, trigmDown)
+    #iso Muon
+    isolation_mUp=template(background, 'TT', 'isolation_mUp', 'ttbarm')[0] 
+    isolation_mDown=template(background, 'TT', 'isolation_mDown', 'ttbarm')[0]
+    ttbarm_ttMC.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+    #id Muon
+    id_mUp=template(background, "TT", 'id_mUp', 'ttbarm')[0] 
+    id_mDown=template(background, "TT", 'id_mDown', 'ttbarm')[0]
+    ttbarm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'TT','puUp','ttbarm')[0] 
     pileupDown=template(background, 'TT','puDown','ttbarm')[0] 
     ttbarm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
-    recoeUp=template(background, 'TT', 'reco_eUp', 'ttbarm')[0] 
-    recoDown=template(background, 'TT', 'reco_eDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
+
     # ttbarm_ttMC.setParamEffect(ttMC_norm, 1.2)
     
     #JEC_JER
@@ -386,30 +389,31 @@ def model(year):
         ch_name + "_stMC", rl.Sample.BACKGROUND, ttbarm_stTemplate
     )
     ttbarm_st.setParamEffect(lumi, 1.027)
-#     ttbarm_st.setParamEffect(trig_e, 1.01)
+#     ttbarm_st.setParamEffect(trig_m, 1.01)
 #     ttbarm_st.setParamEffect(veto_tau, 1.03)
 #     ttbarm_st.setParamEffect(st_norm, 1.2) something related to signal
 #     ttbarm_st.setParamEffect(jec, 1.05)
-#     ttbarm_st.setParamEffect(id_e, 1.02)
+#     ttbarm_st.setParamEffect(id_m, 1.02)
 #     ttbarm_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "ttbarm", ttbarm_st)
 #     ttbarm_st.autoMCStats()
-    #trigger Electron
-    trigeUp=template(background, 'ST', 'trig_eUp', 'ttbarm')[0] 
-    trigeDown=template(background, 'ST', 'trig_eDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(trig_e, trigeUp, trigeDown)
-    #id Electron
-    id_eUp=template(background, "ST", 'id_eUp', 'ttbarm')[0] 
-    id_eDown=template(background, "ST", 'id_eDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(id_e, id_eUp, id_eDown)
+    #trigger Muon
+    trigmUp=template(background, 'ST', 'trig_mUp', 'ttbarm')[0] 
+    trigmDown=template(background, 'ST', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_st.setParamEffect(trig_m, trigmUp, trigmDown)
+    #iso Muon
+    isolation_mUp=template(background, 'ST', 'isolation_mUp', 'ttbarm')[0] 
+    isolation_mDown=template(background, 'ST', 'isolation_mDown', 'ttbarm')[0]
+    ttbarm_st.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+    #id Muon
+    id_mUp=template(background, "ST", 'id_mUp', 'ttbarm')[0] 
+    id_mDown=template(background, "ST", 'id_mDown', 'ttbarm')[0]
+    ttbarm_st.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'ST','puUp','ttbarm')[0] 
     pileupDown=template(background, 'ST','puDown','ttbarm')[0] 
     ttbarm_st.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
-    recoeUp=template(background, 'ST', 'reco_eUp', 'ttbarm')[0] 
-    recoDown=template(background, 'ST', 'reco_eDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(reco_e, recoeUp, recoDown)
+
 
     #JEC_JER
     jerUp=template(background, 'ST', 'JERUp', 'ttbarm')[0] 
@@ -455,31 +459,32 @@ def model(year):
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbarm_dyjetsTemplate
     )
     ttbarm_dyjets.setParamEffect(lumi, 1.027)
-#     ttbarm_dyjets.setParamEffect(trig_e, 1.01)
+#     ttbarm_dyjets.setParamEffect(trig_m, 1.01)
 #     ttbarm_dyjets.setParamEffect(veto_tau, 1.03)
 #     ttbarm_dyjets.setParamEffect(zjetsMC_norm, 1.4)
 #     ttbarm_dyjets.setParamEffect(jec, 1.05)
-#     ttbarm_dyjets.setParamEffect(id_e, 1.02)
+#     ttbarm_dyjets.setParamEffect(id_m, 1.02)
 #     ttbarm_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "ttbarm", ttbarm_dyjets)
     addVJetsSyst(background,"DY+jets", "ttbarm", ttbarm_dyjets)
 #     ttbarm_dyjets.autoMCStats()
-    #trigger Electron
-    trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbarm')[0] 
-    trigeDown=template(background, 'DY+jets', 'trig_eDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
-    #id Electron
-    id_eUp=template(background, "DY+jets", 'id_eUp', 'ttbarm')[0] 
-    id_eDown=template(background, "DY+jets", 'id_eDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
+    #trigger Muon
+    trigmUp=template(background, 'DY+jets', 'trig_mUp', 'ttbarm')[0] 
+    trigmDown=template(background, 'DY+jets', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
+    #iso Muon
+    isolation_mUp=template(background, 'DY+jets', 'isolation_mUp', 'ttbarm')[0] 
+    isolation_mDown=template(background, 'DY+jets', 'isolation_mDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+    #id Muon
+    id_mUp=template(background, "DY+jets", 'id_mUp', 'ttbarm')[0] 
+    id_mDown=template(background, "DY+jets", 'id_mDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','ttbarm')[0] 
     ttbarm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
-    recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbarm')[0] 
-    recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
+
     
     #JEC_JER
     jerUp=template(background, 'DY+jets', 'JERUp', 'ttbarm')[0] 
@@ -526,30 +531,31 @@ def model(year):
         ch_name + "_vvMC", rl.Sample.BACKGROUND, ttbarm_vvTemplate
     )
     ttbarm_vv.setParamEffect(lumi, 1.027)
-#     ttbarm_vv.setParamEffect(trig_e, 1.01)
+#     ttbarm_vv.setParamEffect(trig_m, 1.01)
 #     ttbarm_vv.setParamEffect(veto_tau, 1.03)
 #     ttbarm_vv.setParamEffect(vv_norm, 1.2)
 #     ttbarm_vv.setParamEffect(jec, 1.05)
-#     ttbarm_vv.setParamEffect(id_e, 1.02)
+#     ttbarm_vv.setParamEffect(id_m, 1.02)
 #     ttbarm_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "ttbarm", ttbarm_vv)
 #     ttbarm_vv.autoMCStats()
 #     #trigger Electron
-    trigeUp=template(background, 'VV', 'trig_eUp', 'ttbarm')[0] 
-    trigeDown=template(background, 'VV', 'trig_eDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(trig_e, trigeUp, trigeDown)
-#     #id Electron
-    id_eUp=template(background, "VV", 'id_eUp', 'ttbarm')[0] 
-    id_eDown=template(background, "VV", 'id_eDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(id_e, id_eUp, id_eDown)
+    trigmUp=template(background, 'VV', 'trig_mUp', 'ttbarm')[0] 
+    trigmDown=template(background, 'VV', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
+    #iso Muon
+    isolation_mUp=template(background, 'VV', 'isolation_mUp', 'ttbarm')[0] 
+    isolation_mDown=template(background, 'VV', 'isolation_mDown', 'ttbarm')[0]
+    ttbarm_vv.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+    #id Muon
+    id_mUp=template(background, "VV", 'id_mUp', 'ttbarm')[0] 
+    id_mDown=template(background, "VV", 'id_mDown', 'ttbarm')[0]
+    ttbarm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbarm')[0] 
     pileupDown=template(background, 'VV','puDown','ttbarm')[0] 
     ttbarm_vv.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
-    recoeUp=template(background, 'VV', 'reco_eUp', 'ttbarm')[0] 
-    recoDown=template(background, 'VV', 'reco_eDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(reco_e, recoeUp, recoDown)
+
 
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'ttbarm')[0] 
@@ -595,30 +601,31 @@ def model(year):
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, ttbarm_qcdTemplate
     )
     ttbarm_qcd.setParamEffect(lumi, 1.027)
-#     ttbarm_qcd.setParamEffect(trig_e, 1.01)
+#     ttbarm_qcd.setParamEffect(trig_m, 1.01)
 #     ttbarm_qcd.setParamEffect(veto_tau, 1.03)
 #     ttbarm_qcd.setParamEffect(qcde_norm, 2.0)
 #     ttbarm_qcd.setParamEffect(jec, 1.05)
-#     ttbarm_qcd.setParamEffect(id_e, 1.02)
+#     ttbarm_qcd.setParamEffect(id_m, 1.02)
 #     ttbarm_qcd.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "QCD", "ttbarm", ttbarm_qcd)
 #     ttbarm_qcd.autoMCStats()
-    #trigger Electron
-    trigeUp=template(background, 'QCD', 'trig_eUp', 'ttbarm')[0] 
-    trigeDown=template(background, 'QCD', 'trig_eDown', 'ttbarm')[0]
-    ttbarm_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
-#     #id Electron
-    id_eUp=template(background, "QCD", 'id_eUp', 'ttbarm')[0] 
-    id_eDown=template(background, "QCD", 'id_eDown', 'ttbarm')[0]
-    ttbarm_qcd.setParamEffect(id_e, id_eUp, id_eDown)
+    #trigger Muon
+    trigmUp=template(background, 'QCD', 'trig_mUp', 'ttbarm')[0] 
+    trigmDown=template(background, 'QCD', 'trig_mDown', 'ttbarm')[0]
+    ttbarm_qcd.setParamEffect(trig_m, trigmUp, trigmDown)
+    #iso Muon
+    isolation_mUp=template(background, 'QCD', 'isolation_mUp', 'ttbarm')[0] 
+    isolation_mDown=template(background, 'QCD', 'isolation_mDown', 'ttbarm')[0]
+    ttbarm_qcd.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+    #id Muon
+    id_mUp=template(background, "QCD", 'id_mUp', 'ttbarm')[0] 
+    id_mDown=template(background, "QCD", 'id_mDown', 'ttbarm')[0]
+    ttbarm_qcd.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'QCD','puUp','ttbarm')[0] 
     pileupDown=template(background, 'QCD','puDown','ttbarm')[0] 
     ttbarm_qcd.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
-    recoeUp=template(background, 'QCD', 'reco_eUp', 'ttbarm')[0] 
-    recoDown=template(background, 'QCD', 'reco_eDown', 'ttbarm')[0]
-    ttbarm_qcd.setParamEffect(reco_e, recoeUp, recoDown)
+
     #JEC_JER
     jerUp=template(background, 'QCD', 'JERUp', 'ttbarm')[0] 
     jerDown=template(background, 'QCD', 'JERDown', 'ttbarm')[0]
@@ -712,12 +719,11 @@ if __name__ == "__main__":
     zjets_norm = rl.NuisanceParameter("zjets_norm", "lnN")
     wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
     tt_norm = rl.NuisanceParameter("tt_norm", "lnN")
-    id_e = rl.NuisanceParameter("id_e" + year, "shape")
-    id_mu = rl.NuisanceParameter("id_mu" + year, "shape")
+    id_m = rl.NuisanceParameter("id_m" + year, "shape")
     id_pho = rl.NuisanceParameter("id_pho" + year, "shape")
     reco_e = rl.NuisanceParameter("reco_e" + year, "shape")
     iso_mu = rl.NuisanceParameter("iso_mu" + year, "shape")
-    trig_e = rl.NuisanceParameter("trig_e" + year, "shape")
+    trig_m = rl.NuisanceParameter("trig_m" + year, "shape")
     trig_met = rl.NuisanceParameter("trig_met" + year, "lnN")
     trig_pho = rl.NuisanceParameter("trig_pho" + year, "lnN")
     veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
