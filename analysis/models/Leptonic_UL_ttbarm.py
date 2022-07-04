@@ -192,14 +192,14 @@ def model(year):
 
         
         #JEC_JER
-        jerUp=template(signal, s, 'JERUp', 'ttbarm')[0] 
-        jerDown=template(signal, s, 'JERDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         jerUp=template(signal, s, 'JERUp', 'ttbarm')[0] 
+#         jerDown=template(signal, s, 'JERDown', 'ttbarm')[0]
+#         ttbarm_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
-        jesUp=template(signal, s, 'JESUp', 'ttbarm')[0] 
-        jesDown=template(signal, s, 'JESDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         jesUp=template(signal, s, 'JESUp', 'ttbarm')[0] 
+#         jesDown=template(signal, s, 'JESDown', 'ttbarm')[0]
+#         ttbarm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
 #         metUnclUp=template(signal, s, 'METunclUp', 'ttbarm')[0] 
@@ -218,9 +218,9 @@ def model(year):
         ttbarm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
-        FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
-        FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
+#         FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
+#         ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
         
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbarm')[0] 
