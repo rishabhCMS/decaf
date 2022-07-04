@@ -191,14 +191,14 @@ def model(year):
         ttbare_signal.setParamEffect(reco_e, recoeUp, recoDown)
         
         #JEC_JER
-        jerUp=template(signal, s, 'JERUp', 'ttbare')[0] 
-        jerDown=template(signal, s, 'JERDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         jerUp=template(signal, s, 'JERUp', 'ttbare')[0] 
+#         jerDown=template(signal, s, 'JERDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
-        jesUp=template(signal, s, 'JESUp', 'ttbare')[0] 
-        jesDown=template(signal, s, 'JESDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         jesUp=template(signal, s, 'JESUp', 'ttbare')[0] 
+#         jesDown=template(signal, s, 'JESDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
 #         metUnclUp=template(signal, s, 'METunclUp', 'ttbare')[0] 
@@ -267,14 +267,14 @@ def model(year):
     addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
 
     #JEC_JER
-    jerUp=template(background, 'W+jets', 'JERUp', 'ttbare')[0] 
-    jerDown=template(background, 'W+jets', 'JERDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'W+jets', 'JERUp', 'ttbare')[0] 
+#     jerDown=template(background, 'W+jets', 'JERDown', 'ttbare')[0]
+#     ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'W+jets', 'JESUp', 'ttbare')[0] 
-    jesDown=template(background, 'W+jets', 'JESDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'W+jets', 'JESUp', 'ttbare')[0] 
+#     jesDown=template(background, 'W+jets', 'JESDown', 'ttbare')[0]
+#     ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
 #     metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbare')[0] 
@@ -482,14 +482,14 @@ def model(year):
     ttbare_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
     
     #JEC_JER
-    jerUp=template(background, 'DY+jets', 'JERUp', 'ttbare')[0] 
-    jerDown=template(background, 'DY+jets', 'JERDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'DY+jets', 'JERUp', 'ttbare')[0] 
+#     jerDown=template(background, 'DY+jets', 'JERDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
-    jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
+#     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
 #     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
@@ -620,14 +620,14 @@ def model(year):
     recoDown=template(background, 'QCD', 'reco_eDown', 'ttbare')[0]
     ttbare_qcd.setParamEffect(reco_e, recoeUp, recoDown)
     #JEC_JER
-    jerUp=template(background, 'QCD', 'JERUp', 'ttbare')[0] 
-    jerDown=template(background, 'QCD', 'JERDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'QCD', 'JERUp', 'ttbare')[0] 
+#     jerDown=template(background, 'QCD', 'JERDown', 'ttbare')[0]
+#     ttbare_qcd.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'QCD', 'JESUp', 'ttbare')[0] 
-    jesDown=template(background, 'QCD', 'JESDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'QCD', 'JESUp', 'ttbare')[0] 
+#     jesDown=template(background, 'QCD', 'JESDown', 'ttbare')[0]
+#     ttbare_qcd.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
 #     metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbare')[0] 
