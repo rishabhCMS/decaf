@@ -217,9 +217,9 @@ def model(year):
         ttbare_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
-        FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
-        FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
+#         FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
         
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbare')[0] 
