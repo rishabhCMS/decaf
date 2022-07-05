@@ -119,9 +119,12 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
     if "nominal" not in systematic and "data" not in systematic:
     #print('Normalizing',systematic,'histogram of',process,'in region',region)
         output = histogram.integrate("systematic", systematic).values()[()]
-        output[zerobins] = 1.
+#         output[zerobins] = 1.
+        up[up<=0.] = np.ones(len(up))[up<=0.]
         output[~zerobins] /= nominal[~zerobins]
         output[np.isnan(output)] = 1.
+        up[up<=0.] = np.ones(len(up))[up<=0.]
+
     binning = (
         dictionary[region]
         .integrate("process", process)
@@ -267,14 +270,14 @@ def model(year):
     addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
 
     #JEC_JER
-#     jerUp=template(background, 'W+jets', 'JERUp', 'ttbare')[0] 
-#     jerDown=template(background, 'W+jets', 'JERDown', 'ttbare')[0]
-#     ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'W+jets', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'W+jets', 'JERDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-#     jesUp=template(background, 'W+jets', 'JESUp', 'ttbare')[0] 
-#     jesDown=template(background, 'W+jets', 'JESDown', 'ttbare')[0]
-#     ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+    jesUp=template(background, 'W+jets', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'W+jets', 'JESDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
 #     metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbare')[0] 
@@ -293,9 +296,9 @@ def model(year):
     ttbare_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
-#     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbare')[0] 
-#     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
-#     ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+    FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbare')[0] 
+    FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
+    ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
     
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbare')[0] 
@@ -482,19 +485,19 @@ def model(year):
     ttbare_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
     
     #JEC_JER
-#     jerUp=template(background, 'DY+jets', 'JERUp', 'ttbare')[0] 
-#     jerDown=template(background, 'DY+jets', 'JERDown', 'ttbare')[0]
-#     ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'DY+jets', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'DY+jets', 'JERDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-#     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
-#     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
-#     ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+    jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
-#     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
-#     metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbare')[0]
-#     ttbare_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbare')[0]
+    ttbare_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
     
     
     #L1 prefire
@@ -562,9 +565,9 @@ def model(year):
     ttbare_vv.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
-#     metUnclUp=template(background, 'VV', 'METunclUp', 'ttbare')[0] 
-#     metUnclDown=template(background, 'VV', 'METunclDown', 'ttbare')[0]
-#     ttbare_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'VV', 'METunclUp', 'ttbare')[0] 
+    metUnclDown=template(background, 'VV', 'METunclDown', 'ttbare')[0]
+    ttbare_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
     
     
     #L1 prefire
@@ -620,14 +623,14 @@ def model(year):
     recoDown=template(background, 'QCD', 'reco_eDown', 'ttbare')[0]
     ttbare_qcd.setParamEffect(reco_e, recoeUp, recoDown)
     #JEC_JER
-#     jerUp=template(background, 'QCD', 'JERUp', 'ttbare')[0] 
-#     jerDown=template(background, 'QCD', 'JERDown', 'ttbare')[0]
-#     ttbare_qcd.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'QCD', 'JERUp', 'ttbare')[0] 
+    jerDown=template(background, 'QCD', 'JERDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-#     jesUp=template(background, 'QCD', 'JESUp', 'ttbare')[0] 
-#     jesDown=template(background, 'QCD', 'JESDown', 'ttbare')[0]
-#     ttbare_qcd.setParamEffect(jec_jes, jesUp, jesDown)
+    jesUp=template(background, 'QCD', 'JESUp', 'ttbare')[0] 
+    jesDown=template(background, 'QCD', 'JESDown', 'ttbare')[0]
+    ttbare_qcd.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
 #     metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbare')[0] 
