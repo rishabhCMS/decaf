@@ -620,14 +620,14 @@ def model(year):
     recoDown=template(background, 'QCD', 'reco_eDown', 'wjete')[0]
     wjete_qcd.setParamEffect(reco_e, recoeUp, recoDown)
     #JEC_JER
-    jerUp=template(background, 'QCD', 'JERUp', 'wjete')[0] 
-    jerDown=template(background, 'QCD', 'JERDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'QCD', 'JERUp', 'wjete')[0] 
+#     jerDown=template(background, 'QCD', 'JERDown', 'wjete')[0]
+#     wjete_qcd.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'QCD', 'JESUp', 'wjete')[0] 
-    jesDown=template(background, 'QCD', 'JESDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'QCD', 'JESUp', 'wjete')[0] 
+#     jesDown=template(background, 'QCD', 'JESDown', 'wjete')[0]
+#     wjete_qcd.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
 #     metUnclUp=template(background, 'QCD', 'METunclUp', 'wjete')[0] 
@@ -655,7 +655,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'wjete')[0]
     wjete_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
     
-#     wjete.addSample(wjete_qcd)
+    wjete.addSample(wjete_qcd)
     return model
 
 if __name__ == "__main__":
