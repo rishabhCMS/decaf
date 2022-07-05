@@ -120,10 +120,10 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
     #print('Normalizing',systematic,'histogram of',process,'in region',region)
         output = histogram.integrate("systematic", systematic).values()[()]
 #         output[zerobins] = 1.
-        up[up<=0.] = np.ones(len(up))[up<=0.]
+        output[output<=0.] = np.ones(len(output))[output<=0.]
         output[~zerobins] /= nominal[~zerobins]
         output[np.isnan(output)] = 1.
-        up[up<=0.] = np.ones(len(up))[up<=0.]
+        output[output<=0.] = np.ones(len(output))[output<=0.]
 
     binning = (
         dictionary[region]
