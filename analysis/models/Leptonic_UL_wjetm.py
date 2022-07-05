@@ -279,9 +279,9 @@ def model(year):
     wjetm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
-#     metUnclUp=template(background, 'W+jets', 'METunclUp', 'wjetm')[0] 
-#     metUnclDown=template(background, 'W+jets', 'METunclDown', 'wjetm')[0]
-#     wjetm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'W+jets', 'METunclUp', 'wjetm')[0] 
+    metUnclDown=template(background, 'W+jets', 'METunclDown', 'wjetm')[0]
+    wjetm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
     
     
     #L1 prefire
@@ -497,9 +497,9 @@ def model(year):
     wjetm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
-#     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'wjetm')[0] 
-#     metUnclDown=template(background, 'DY+jets', 'METunclDown', 'wjetm')[0]
-#     wjetm_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'DY+jets', 'METunclUp', 'wjetm')[0] 
+    metUnclDown=template(background, 'DY+jets', 'METunclDown', 'wjetm')[0]
+    wjetm_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
     
     
     #L1 prefire
@@ -513,9 +513,9 @@ def model(year):
     wjetm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
-#     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjetm')[0] 
-#     FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjetm')[0]
-#     wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+    FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjetm')[0] 
+    FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjetm')[0]
+    wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
     
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'wjetm')[0] 
@@ -568,9 +568,9 @@ def model(year):
     wjetm_vv.setParamEffect(jec_jes, jesUp, jesDown)
     
     #met_uncl
-#     metUnclUp=template(background, 'VV', 'METunclUp', 'wjetm')[0] 
-#     metUnclDown=template(background, 'VV', 'METunclDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'VV', 'METunclUp', 'wjetm')[0] 
+    metUnclDown=template(background, 'VV', 'METunclDown', 'wjetm')[0]
+    wjetm_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
     
     
     #L1 prefire
