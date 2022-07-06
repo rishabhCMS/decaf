@@ -904,8 +904,21 @@ class AnalysisProcessor(processor.ProcessorABC):
         jec_names = []
         j = events.Jet
         met = events.MET
-        if isMC:
 
+        if isMC:
+            met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
+                              with_name="PolarTwoVector", 
+                              behavior=vector.behavior)
+            j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
+                      with_name="PolarTwoVector", 
+                      behavior=vector.behavior)
+            j['p4'] = ak.zip({
+            "pt": j.pt,
+            "eta": j.eta,
+            "phi": j.phi,
+            "mass": j.mass},
+            with_name="PtEtaPhiMLorentzVector",
+            )
             if (self._year == '2016'):
                 if ("preVFP" in dataset):
     #                 #print(self._jr[self._year]['apv'][0])
@@ -941,36 +954,35 @@ class AnalysisProcessor(processor.ProcessorABC):
             jec_inputs = {name: Jetevaluator[name] for name in jec_names}
             jec_stack = JECStack(jec_inputs)
 
+
             jec_name_map = jec_stack.blank_name_map
-            jec_name_map = {
-                'JetPt': 'pt',
-                'JetMass': 'mass',
-                'JetEta': 'eta',
-                'JetA': 'area',
-                'ptGenJet': 'pt_gen',
-                'ptRaw': 'pt_raw',
-                'massRaw': 'mass_raw',
-                'Rho': 'rho',
-                'METpt': 'pt',
-                'METphi': 'phi',
-                'JetPhi': 'phi',
-                'UnClusteredEnergyDeltaX': 'MetUnclustEnUpDeltaX',
-                'UnClusteredEnergyDeltaY': 'MetUnclustEnUpDeltaY',
-            }
+            jec_name_map['JetPt'] = 'pt'
+            jec_name_map['JetEta'] = 'eta'
+            jec_name_map['JetPhi'] = 'phi'
+            jec_name_map['JetMass'] = 'mass'
+            jec_name_map['Rho'] = 'rho'
+            jec_name_map['JetA'] = 'area'
+            jec_name_map['ptGenJet'] = 'pt_gen'
+            jec_name_map['ptRaw'] = 'pt_raw'
+            jec_name_map['massRaw'] = 'mass_raw'
+            jec_name_map['METpt'] = 'pt'
+            jec_name_map['METphi'] = 'phi'
+            jec_name_map['UnClusteredEnergyDeltaX'] = 'MetUnclustEnUpDeltaX'
+            jec_name_map['UnClusteredEnergyDeltaY'] = 'MetUnclustEnUpDeltaY'
 
             jet_factory = CorrectedJetsFactory(jec_name_map, jec_stack)
+            ## (1) Uncorrecting Jets
 
-            j["pt_raw"] = (1 - events.Jet.rawFactor) * events.Jet.pt
-            j["mass_raw"] = (1 - events.Jet.rawFactor) * events.Jet.mass
-            j["pt_gen"] = ak.values_astype(
-                ak.fill_none(events.Jet.matched_gen.pt, 0), np.float32
-            )
-            j["rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, events.Jet.pt)[0]
-
+            j["rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, j.pt)[0]
+            j["pt_raw"] = (1 - j.rawFactor) * j.pt
+            j["mass_raw"] = (1 - j.rawFactor) * j.mass
             j["pt"] = j.pt_raw
             j["mass"] = j.mass_raw
-    #         j["p4","pt"] = j.pt_raw
-    #         j["p4","mass"] = j.mass_raw
+            j["p4","pt"] = j.pt_raw
+            j["p4","mass"] = j.mass_raw
+            if (isMC):
+                j["pt_gen"] = ak.values_astype(ak.fill_none(j.matched_gen.pt, 0), np.float32)
+
             events_cache = events.caches[0]
             met_factory = CorrectedMETFactory(jec_name_map)
             corrected_jets = jet_factory.build(j, lazy_cache=events_cache)
@@ -980,27 +992,28 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             if shift_syst == "JESUp":
                 j = corrected_jets['JES_jes'].up
+                met = corrected_mets.JES_jes.up
     #                 #print(shift_syst)
 
             elif shift_syst == "JESDown":
                 j = corrected_jets['JES_jes'].down
-    #                 #print(shift_syst)
+                met = corrected_mets.JES_jes.down
 
             elif shift_syst == "JERUp":
                 j = corrected_jets['JER'].up
-    #                 #print(shift_syst)
+                met = corrected_mets.JER.up
 
             elif shift_syst == "JERDown":
                 j = corrected_jets['JER'].down
-    #                 #print(shift_syst)
+                met = corrected_mets.JER.down
 
             elif shift_syst == "METunclUp":
                 met = corrected_mets.MET_UnclusteredEnergy.up
-                j   = events.Jet
+                j   = corrected_jets
                 
             elif shift_syst == "METunclDown":
                 met = corrected_mets.MET_UnclusteredEnergy.down
-                j   = events.Jet
+                j   = corrected_jets
 
             elif shift_syst == "puUp":
                 j   = corrected_jets
@@ -1016,11 +1029,9 @@ class AnalysisProcessor(processor.ProcessorABC):
         ###
         # Initialize global quantities (MET ecc.)
         ###
-        
-        
             met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
-                              with_name="PolarTwoVector", 
-                              behavior=vector.behavior)
+                      with_name="PolarTwoVector", 
+                      behavior=vector.behavior)
             j["T"] = ak.zip({"pt": j.pt, "phi": j.phi}, 
                       with_name="PolarTwoVector", 
                       behavior=vector.behavior)
@@ -1031,6 +1042,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             "mass": j.mass},
             with_name="PtEtaPhiMLorentzVector",
             )
+        
+
         
         if not isMC:
             met["T"] = ak.zip({"pt": met.pt, "phi": met.phi}, 
