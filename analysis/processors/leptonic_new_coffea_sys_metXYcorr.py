@@ -1004,15 +1004,15 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             elif shift_syst == "puUp":
                 j   = corrected_jets
-                met = corrected_mets_nojer
+                met = corrected_mets
             
             elif shift_syst == "puDown":
                 j   = corrected_jets
-                met = corrected_mets_nojer
+                met = corrected_mets
                 
             else:
                 j   = corrected_jets
-                met = corrected_mets_nojer
+                met = corrected_mets
         ###
         # Initialize global quantities (MET ecc.)
         ###
