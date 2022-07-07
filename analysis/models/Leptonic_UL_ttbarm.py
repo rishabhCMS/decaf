@@ -196,14 +196,14 @@ def model(year):
 
 
         #JEC_JER
-        jerUp=template(signal, s, 'JERUp', 'ttbarm')[0] 
-        jerDown=template(signal, s, 'JERDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         jerUp=template(signal, s, 'JERUp', 'ttbarm')[0] 
+#         jerDown=template(signal, s, 'JERDown', 'ttbarm')[0]
+#         ttbarm_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
-#         jesUp=template(signal, s, 'JESUp', 'ttbarm')[0] 
-#         jesDown=template(signal, s, 'JESDown', 'ttbarm')[0]
-#         ttbarm_signal.setParamEffect(jec_jes, jesUp, jesDown)
+        jesUp=template(signal, s, 'JESUp', 'ttbarm')[0] 
+        jesDown=template(signal, s, 'JESDown', 'ttbarm')[0]
+        ttbarm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
         metUnclUp=template(signal, s, 'METunclUp', 'ttbarm')[0] 
