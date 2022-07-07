@@ -203,7 +203,7 @@ def model(year):
         #met_uncl
         metUnclUp=template(signal, s, 'METunclUp', 'wjete')[0] 
         metUnclDown=template(signal, s, 'METunclDown', 'wjete')[0]
-        wjete_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#         wjete_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
         #L1 prefire
@@ -277,7 +277,7 @@ def model(year):
     #     met_uncl
     metUnclUp=template(background, 'W+jets', 'METunclUp', 'wjete')[0] 
     metUnclDown=template(background, 'W+jets', 'METunclDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     wjete_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
         #L1 prefire
@@ -350,7 +350,7 @@ def model(year):
     #met_uncl
     metUnclUp=template(background, 'TT', 'METunclUp', 'wjete')[0] 
     metUnclDown=template(background, 'TT', 'METunclDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     wjete_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -422,7 +422,7 @@ def model(year):
     #met_uncl
     metUnclUp=template(background, 'ST', 'METunclUp', 'wjete')[0] 
     metUnclDown=template(background, 'ST', 'METunclDown', 'wjete')[0]
-    wjete_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     wjete_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -492,7 +492,7 @@ def model(year):
         #met_uncl
     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'wjete')[0] 
     metUnclDown=template(background, 'DY+jets', 'METunclDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     wjete_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -562,7 +562,7 @@ def model(year):
         #met_uncl
     metUnclUp=template(background, 'VV', 'METunclUp', 'wjete')[0] 
     metUnclDown=template(background, 'VV', 'METunclDown', 'wjete')[0]
-    wjete_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     wjete_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
