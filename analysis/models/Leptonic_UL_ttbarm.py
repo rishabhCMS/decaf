@@ -208,7 +208,7 @@ def model(year):
         #met_uncl
         metUnclUp=template(signal, s, 'METunclUp', 'ttbarm')[0] 
         metUnclDown=template(signal, s, 'METunclDown', 'ttbarm')[0]
-#         ttbarm_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
+        ttbarm_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
         #L1 prefire
@@ -273,19 +273,19 @@ def model(year):
 
 
     #JEC_JER
-#     jerUp=template(background, 'W+jets', 'JERUp', 'ttbarm')[0] 
-#     jerDown=template(background, 'W+jets', 'JERDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'W+jets', 'JERUp', 'ttbarm')[0] 
+    jerDown=template(background, 'W+jets', 'JERDown', 'ttbarm')[0]
+    ttbarm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-#     jesUp=template(background, 'W+jets', 'JESUp', 'ttbarm')[0] 
-#     jesDown=template(background, 'W+jets', 'JESDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+    jesUp=template(background, 'W+jets', 'JESUp', 'ttbarm')[0] 
+    jesDown=template(background, 'W+jets', 'JESDown', 'ttbarm')[0]
+    ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    # metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbarm')[0] 
-    # metUnclDown=template(background, 'W+jets', 'METunclDown', 'ttbarm')[0]
-    # ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbarm')[0] 
+    metUnclDown=template(background, 'W+jets', 'METunclDown', 'ttbarm')[0]
+    ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -359,7 +359,7 @@ def model(year):
     #met_uncl
     metUnclUp=template(background, 'TT', 'METunclUp', 'ttbarm')[0] 
     metUnclDown=template(background, 'TT', 'METunclDown', 'ttbarm')[0]
-#     ttbarm_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    ttbarm_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -432,7 +432,7 @@ def model(year):
     #met_uncl
     metUnclUp=template(background, 'ST', 'METunclUp', 'ttbarm')[0] 
     metUnclDown=template(background, 'ST', 'METunclDown', 'ttbarm')[0]
-#     ttbarm_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    ttbarm_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -512,9 +512,9 @@ def model(year):
     ttbarm_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
-    ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbarm')[0] 
-    ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbarm')[0] 
+#     ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbarm')[0]
+#     ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     # FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbarm')[0] 
@@ -562,18 +562,18 @@ def model(year):
 
 
     #JEC_JER
-    jerUp=template(background, 'VV', 'JERUp', 'ttbarm')[0] 
-    jerDown=template(background, 'VV', 'JERDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'VV', 'JERUp', 'ttbarm')[0] 
+#     jerDown=template(background, 'VV', 'JERDown', 'ttbarm')[0]
+#     ttbarm_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'VV', 'JESUp', 'ttbarm')[0] 
-    jesDown=template(background, 'VV', 'JESDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'VV', 'JESUp', 'ttbarm')[0] 
+#     jesDown=template(background, 'VV', 'JESDown', 'ttbarm')[0]
+#     ttbarm_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    metUnclUp=template(background, 'VV', 'METunclUp', 'ttbarm')[0] 
-    metUnclDown=template(background, 'VV', 'METunclDown', 'ttbarm')[0]
+#     metUnclUp=template(background, 'VV', 'METunclUp', 'ttbarm')[0] 
+#     metUnclDown=template(background, 'VV', 'METunclDown', 'ttbarm')[0]
 #     ttbarm_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
