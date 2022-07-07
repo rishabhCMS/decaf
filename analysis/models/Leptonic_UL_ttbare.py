@@ -191,9 +191,9 @@ def model(year):
         ttbare_signal.setParamEffect(reco_e, recoeUp, recoDown)
 
         #JEC_JER
-        jerUp=template(signal, s, 'JERUp', 'ttbare')[0] 
-        jerDown=template(signal, s, 'JERDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         jerUp=template(signal, s, 'JERUp', 'ttbare')[0] 
+#         jerDown=template(signal, s, 'JERDown', 'ttbare')[0]
+#         ttbare_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
         jesUp=template(signal, s, 'JESUp', 'ttbare')[0] 
