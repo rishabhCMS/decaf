@@ -275,17 +275,17 @@ def model(year):
     #JEC_JER
     jerUp=template(background, 'W+jets', 'JERUp', 'ttbarm')[0] 
     jerDown=template(background, 'W+jets', 'JERDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     ttbarm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'W+jets', 'JESUp', 'ttbarm')[0] 
     jesDown=template(background, 'W+jets', 'JESDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+#     ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
     metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbarm')[0] 
     metUnclDown=template(background, 'W+jets', 'METunclDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
