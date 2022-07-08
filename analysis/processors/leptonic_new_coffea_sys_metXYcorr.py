@@ -319,7 +319,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'BadPFMuonDzFilter',
-                 'eeBadScFilter',
+#                  'eeBadScFilter',
                  
                  ],
 
@@ -330,7 +330,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
-                 'eeBadScFilter',
+#                  'eeBadScFilter',
                  'BadPFMuonDzFilter',
 #                  'hfNoisyHitsFilter'
                  ],
@@ -342,7 +342,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
-                 'eeBadScFilter',
+#                  'eeBadScFilter',
                  'BadPFMuonDzFilter',
 #                  'hfNoisyHitsFilter'
                  ]
@@ -732,8 +732,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         self.isMC ='genWeight' in events.fields
         if self.isMC:
             output = self.accumulator.identity()
-#             shift_systs = ['JESUp',]
-            shift_systs = [None, "JESUp", "JESDown", "JERUp", "JERDown", "METunclUp", "METunclDown", 
+#             shift_systs = ["JESUp", "JESDown",]
+            shift_systs = [None,  "JERUp", "JERDown", "METunclUp", "METunclDown", 
                            "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]
             for _syst in shift_systs:
                 print("shift sys", _syst)
@@ -938,8 +938,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     jec_names.append(name)
                 for name in list_of_junc:
                     jec_names.append(name)    
-                for name in list_of_jersf:
-                    jec_names.append(name)                
+#                 for name in list_of_jersf:
+#                     jec_names.append(name)                
             else:
                 for name in self._jec[self._year]:
                     jec_names.append(name)                 
@@ -947,8 +947,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     jec_names.append(name)    
                 for name in self._jersf[self._year]:
                     jec_names.append(name)
-                for name in self._junc[self._year]:
-                    jec_names.append(name)
+#                 for name in self._junc[self._year]:
+#                     jec_names.append(name)
             #print("afer____")
             #print(jec_names)
             jec_inputs = {name: Jetevaluator[name] for name in jec_names}
@@ -1929,8 +1929,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                 weights.add('genw', events.genWeight)
                 weights.add('nlo_qcd', nlo_qcd)
                 weights.add('nlo_ewk', nlo_ewk)
-                weights.add('k_wjets_fewz', k_wjets_fewz)
-                weights.add('k_dyjets_fewz', k_dyjets_fewz)
+#                 weights.add('k_wjets_fewz', k_wjets_fewz)
+#                 weights.add('k_dyjets_fewz', k_dyjets_fewz)
 #                 weights.add('ttjet_weights', ttjet_weights)
                 if 'cen' in nnlo_nlo:
                     #print("if 'cen' in nnlo_nlo")
