@@ -732,8 +732,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         self.isMC ='genWeight' in events.fields
         if self.isMC:
             output = self.accumulator.identity()
-#             shift_systs = ["JESUp", "JESDown",]
-            shift_systs = [None,  "JERUp", "JERDown", "METunclUp", "METunclDown", 
+#             shift_systs = [ "JERUp", "JERDown"]
+            shift_systs = [None, "JESUp", "JESDown" , "METunclUp", "METunclDown", 
                            "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]
             for _syst in shift_systs:
                 print("shift sys", _syst)
@@ -934,8 +934,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                 for name in list_of_jec:
                     jec_names.append(name)
-                for name in list_of_jr:
-                    jec_names.append(name)
+#                 for name in list_of_jr:
+#                     jec_names.append(name)
                 for name in list_of_junc:
                     jec_names.append(name)    
 #                 for name in list_of_jersf:
@@ -943,12 +943,12 @@ class AnalysisProcessor(processor.ProcessorABC):
             else:
                 for name in self._jec[self._year]:
                     jec_names.append(name)                 
-                for name in self._jr[self._year]:
-                    jec_names.append(name)    
-                for name in self._jersf[self._year]:
-                    jec_names.append(name)
-#                 for name in self._junc[self._year]:
+#                 for name in self._jr[self._year]:
+#                     jec_names.append(name)    
+#                 for name in self._jersf[self._year]:
 #                     jec_names.append(name)
+                for name in self._junc[self._year]:
+                    jec_names.append(name)
             #print("afer____")
             #print(jec_names)
             jec_inputs = {name: Jetevaluator[name] for name in jec_names}
@@ -1548,8 +1548,8 @@ class AnalysisProcessor(processor.ProcessorABC):
             for region in ['ttbare', 'ttbarm', 'wjete', 'wjetm', 'sre', 'srm']:
                 for tag in [btag, btagUp, btagDown]:
                     tag[region] = np.asarray(tag[region])
-                    mask = abs(tag[region])>=4
-                    tag[region][mask==True] = 1
+                    mask = abs(tag[region])>=20
+                    tag[region][mask==True] = 20
 
         ###
         # Selections
@@ -1604,25 +1604,25 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
         if ('WJetsToLNu' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt > 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 24))].pt > 400)
             selection.add("exclude_wjets_greater_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_greater_200", np.full(event_size, True))
             
         if ('WJetsToLNu' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 24))].pt <= 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 24))].pt <= 400)
             selection.add("exclude_wjets_less_200", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_wjets_less_200", np.full(event_size, True))
 
         if ('DYJetsToLL' in dataset) & (not ('Pt' in dataset)):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt <= 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 23))].pt <= 400)
             selection.add("exclude_dyjets_less_400", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_dyjets_less_400", np.full(event_size, True))
 
         if ('DYJetsToLL' in dataset) & ('Pt' in dataset):
-            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy']) & ((abs(gen.pdgId) == 23))].pt > 400)
+            remove_overlap = (gen[gen.hasFlags(['fromHardProcess', 'isFirstCopy', 'isPrompt']) & ((abs(gen.pdgId) == 23))].pt > 400)
             selection.add("exclude_dyjets_greater_400", ak.to_numpy(ak.all(remove_overlap, axis=1)))
         else:
             selection.add("exclude_dyjets_greater_400", np.full(event_size, True))
@@ -1637,7 +1637,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         selection.add('noHEMj', ak.to_numpy(noHEMj))
         selection.add('noHEMmet', ak.to_numpy(noHEMmet))
-        selection.add('corr_met100', ak.to_numpy(corrected_met["T"]["pt"] > 100))
+        selection.add('corr_met100', ak.to_numpy(corrected_met["T"]["pt"] >= 100))
         selection.add('Delta_Phi_Corr_Met_LJ', ak.to_numpy(ak.sum(Delta_Phi_Corr_Met_LJ, axis=1)>0))
 
         selection.add('DeltaR_LJ_Ele_mask', ak.to_numpy((DeltaR_LJ_Ele_mask)>0))
@@ -1649,7 +1649,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
         for region in mT_corrected.keys():
             sel_name = 'mtcorr'+'_'+region+'>150'
-            select = (mT_corrected[region] >150)
+            select = (mT_corrected[region] >=150)
             selection.add(sel_name, ak.to_numpy(ak.sum(select,axis=1)>0))
             
         selection.add('leading_j>70',ak.to_numpy(ak.sum(leading_j["T"]["pt"], axis=1) >70))# from the monotop paper
@@ -1658,7 +1658,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         #print(selection.all())
         regions = {
             'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 
-                    'atleast_one_jet_with_pt_grt_50',
+#                     'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Corr_Met_LJ',
                     'mtcorr_sre>150','corr_met100',
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
@@ -1668,7 +1668,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                    ],
             
             'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 
-                    'atleast_one_jet_with_pt_grt_50',
+#                     'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Corr_Met_LJ', 
                     'mtcorr_srm>150',  'corr_met100', 
                     'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
@@ -1678,7 +1678,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                    ],
             
             'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 
-                       'atleast_one_jet_with_pt_grt_50',
+#                        'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbare>150', 'corr_met100', 
                        'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
@@ -1688,7 +1688,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       ],
             
             'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 
-                       'atleast_one_jet_with_pt_grt_50',
+#                        'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbarm>150' , 'corr_met100',
                        'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
@@ -1699,7 +1699,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             'wjete': [
                       'corr_met100',
-                'atleast_one_jet_with_pt_grt_50',
+#                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>150' ,
                       'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
@@ -1708,7 +1708,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
                      ],
             
-            'wjetm': ['atleast_one_jet_with_pt_grt_50',
+            'wjetm': [
+#                 'atleast_one_jet_with_pt_grt_50',
                 'corr_met100',
                       'Delta_Phi_Corr_Met_LJ',
                       'zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
@@ -1927,8 +1928,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                         weights.add("L1Prefiring",events.L1PreFiringWeight.Nom)
                         
                 weights.add('genw', events.genWeight)
-                weights.add('nlo_qcd', nlo_qcd)
-                weights.add('nlo_ewk', nlo_ewk)
+#                 weights.add('nlo_qcd', nlo_qcd)
+#                 weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('k_wjets_fewz', k_wjets_fewz)
 #                 weights.add('k_dyjets_fewz', k_dyjets_fewz)
 #                 weights.add('ttjet_weights', ttjet_weights)
