@@ -482,9 +482,9 @@ def model(year):
     wjete_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
-    jerUp=template(background, 'DY+jets', 'JERUp', 'wjete')[0] 
-    jerDown=template(background, 'DY+jets', 'JERDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'DY+jets', 'JERUp', 'wjete')[0] 
+#     jerDown=template(background, 'DY+jets', 'JERDown', 'wjete')[0]
+#     wjete_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'wjete')[0] 
@@ -552,9 +552,9 @@ def model(year):
     wjete_vv.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
-    jerUp=template(background, 'VV', 'JERUp', 'wjete')[0] 
-    jerDown=template(background, 'VV', 'JERDown', 'wjete')[0]
-    wjete_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'VV', 'JERUp', 'wjete')[0] 
+#     jerDown=template(background, 'VV', 'JERDown', 'wjete')[0]
+#     wjete_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'wjete')[0] 
