@@ -340,9 +340,9 @@ def model(year):
     # wjete_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
-    jerUp=template(background, 'TT', 'JERUp', 'wjete')[0] 
-    jerDown=template(background, 'TT', 'JERDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'TT', 'JERUp', 'wjete')[0] 
+#     jerDown=template(background, 'TT', 'JERDown', 'wjete')[0]
+#     wjete_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
     jesUp=template(background, 'TT', 'JESUp', 'wjete')[0] 
@@ -412,9 +412,9 @@ def model(year):
     wjete_st.setParamEffect(reco_e, recoeUp, recoDown)
 
         #JEC_JER
-    jerUp=template(background, 'ST', 'JERUp', 'wjete')[0] 
-    jerDown=template(background, 'ST', 'JERDown', 'wjete')[0]
-    wjete_st.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'ST', 'JERUp', 'wjete')[0] 
+#     jerDown=template(background, 'ST', 'JERDown', 'wjete')[0]
+#     wjete_st.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'ST', 'JESUp', 'wjete')[0] 
