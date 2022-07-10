@@ -655,7 +655,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'wjete')[0]
     wjete_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    wjete.addSample(wjete_qcd)
+#     wjete.addSample(wjete_qcd)
     return model
 
 if __name__ == "__main__":
