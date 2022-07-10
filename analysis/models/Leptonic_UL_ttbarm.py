@@ -278,14 +278,14 @@ def model(year):
 #     ttbarm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'W+jets', 'JESUp', 'ttbarm')[0] 
-    jesDown=template(background, 'W+jets', 'JESDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'W+jets', 'JESUp', 'ttbarm')[0] 
+#     jesDown=template(background, 'W+jets', 'JESDown', 'ttbarm')[0]
+#     ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbarm')[0] 
-    metUnclDown=template(background, 'W+jets', 'METunclDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbarm')[0] 
+#     metUnclDown=template(background, 'W+jets', 'METunclDown', 'ttbarm')[0]
+#     ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -496,14 +496,14 @@ def model(year):
 #     ttbarm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'DY+jets', 'JESUp', 'ttbarm')[0] 
-    jesDown=template(background, 'DY+jets', 'JESDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbarm')[0] 
+#     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbarm')[0]
+#     ttbarm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbarm')[0] 
-    metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbarm')[0] 
+#     metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbarm')[0]
+#     ttbarm_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -636,14 +636,14 @@ def model(year):
 #     ttbarm_qcd.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'QCD', 'JESUp', 'ttbarm')[0] 
-    jesDown=template(background, 'QCD', 'JESDown', 'ttbarm')[0]
-    ttbarm_qcd.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'QCD', 'JESUp', 'ttbarm')[0] 
+#     jesDown=template(background, 'QCD', 'JESDown', 'ttbarm')[0]
+#     ttbarm_qcd.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbarm')[0] 
-    metUnclDown=template(background, 'QCD', 'METunclDown', 'ttbarm')[0]
-    ttbarm_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbarm')[0] 
+#     metUnclDown=template(background, 'QCD', 'METunclDown', 'ttbarm')[0]
+#     ttbarm_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
