@@ -625,14 +625,14 @@ def model(year):
 #     ttbare_qcd.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'QCD', 'JESUp', 'ttbare')[0] 
-    jesDown=template(background, 'QCD', 'JESDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'QCD', 'JESUp', 'ttbare')[0] 
+#     jesDown=template(background, 'QCD', 'JESDown', 'ttbare')[0]
+#     ttbare_qcd.setParamEffect(jec_jes, jesUp, jesDown)
 
-    #met_uncl
-    metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbare')[0] 
-    metUnclDown=template(background, 'QCD', 'METunclDown', 'ttbare')[0]
-    ttbare_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     #met_uncl
+#     metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbare')[0] 
+#     metUnclDown=template(background, 'QCD', 'METunclDown', 'ttbare')[0]
+#     ttbare_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
