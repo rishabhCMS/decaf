@@ -655,7 +655,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'ttbare')[0]
     ttbare_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     ttbare.addSample(ttbare_qcd)
+    ttbare.addSample(ttbare_qcd)
 
     #template for signal
 
