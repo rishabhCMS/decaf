@@ -487,14 +487,14 @@ def model(year):
 #     ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
-    jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
+#     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
-    metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
-    metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbare')[0] 
+#     metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -508,9 +508,9 @@ def model(year):
     ttbare_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
-    FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbare')[0] 
-    FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbare')[0] 
+#     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
+#     ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbare')[0] 
@@ -552,9 +552,9 @@ def model(year):
     ttbare_vv.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
-    jerUp=template(background, 'VV', 'JERUp', 'ttbare')[0] 
-    jerDown=template(background, 'VV', 'JERDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'VV', 'JERUp', 'ttbare')[0] 
+#     jerDown=template(background, 'VV', 'JERDown', 'ttbare')[0]
+#     ttbare_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'ttbare')[0] 
