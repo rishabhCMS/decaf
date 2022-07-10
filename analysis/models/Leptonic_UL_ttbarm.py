@@ -301,7 +301,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
@@ -487,7 +487,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','ttbarm')[0] 
-    ttbarm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbarm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
@@ -514,17 +514,17 @@ def model(year):
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbarm')[0] 
     ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_dyjets)
 
@@ -558,7 +558,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbarm')[0] 
     pileupDown=template(background, 'VV','puDown','ttbarm')[0] 
-    ttbarm_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbarm_vv.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
@@ -628,7 +628,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'QCD','puUp','ttbarm')[0] 
     pileupDown=template(background, 'QCD','puDown','ttbarm')[0] 
-    ttbarm_qcd.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbarm_qcd.setParamEffect(pileup, pileupUp, pileupDown)
 
     #JEC_JER
 #     jerUp=template(background, 'QCD', 'JERUp', 'ttbarm')[0] 
