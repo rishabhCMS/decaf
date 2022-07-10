@@ -152,7 +152,12 @@ def model(year):
     ###
     # Add data distribution to the channel
     ###
-
+    if year == '2018':
+        lumi_unc = 1.025
+    if year == '2017':
+        lumi_unc = 1.023
+    if year == '2016':
+        lumi_unc = 1.012
 
 
     if year == "2018":
@@ -166,7 +171,7 @@ def model(year):
         if 'Mphi1995' not in str(s): continue
         wjetm_signalTemplate = template(signal,s,'nominal','wjetm')
         wjetm_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjetm_signalTemplate)
-        wjetm_signal.setParamEffect(lumi, 1.027)
+        wjetm_signal.setParamEffect(lumi, lumi_unc)
     #     sr_signal.setParamEffect(trig_met, 1.01)
     #     sr_signal.setParamEffect(veto_tau, 1.03)
     #     sr_signal.setParamEffect(jec, 1.05)
@@ -241,7 +246,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjetm_wjetsTemplate
     )
-    wjetm_wjetsMC.setParamEffect(lumi, 1.027)
+    wjetm_wjetsMC.setParamEffect(lumi, lumi_unc)
     #     wjetm_wjetsMC.setParamEffect(trig_m, 1.01)
     #     wjetm_wjetsMC.setParamEffect(veto_tau, 1.03)
     #     wjetm_wjetsMC.setParamEffect(wjets_norm, 1.4)
@@ -317,7 +322,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         wjetm_ttTemplate
     )
-    wjetm_ttMC.setParamEffect(lumi, 1.027)
+    wjetm_ttMC.setParamEffect(lumi, lumi_unc)
     #     wjetm_ttMC.setParamEffect(trig_m, 1.01)
     #     wjetm_ttMC.setParamEffect(veto_tau, 1.03)
     #     wjetm_ttMC.setParamEffect(jec, 1.05)
@@ -390,7 +395,7 @@ def model(year):
     wjetm_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjetm_stTemplate
     )
-    wjetm_st.setParamEffect(lumi, 1.027)
+    wjetm_st.setParamEffect(lumi, lumi_unc)
     #     wjetm_st.setParamEffect(trig_m, 1.01)
     #     wjetm_st.setParamEffect(veto_tau, 1.03)
     #     wjetm_st.setParamEffect(st_norm, 1.2) something related to signal
@@ -460,7 +465,7 @@ def model(year):
     wjetm_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjetm_dyjetsTemplate
     )
-    wjetm_dyjets.setParamEffect(lumi, 1.027)
+    wjetm_dyjets.setParamEffect(lumi, lumi_unc)
     #     wjetm_dyjets.setParamEffect(trig_m, 1.01)
     #     wjetm_dyjets.setParamEffect(veto_tau, 1.03)
     #     wjetm_dyjets.setParamEffect(zjetsMC_norm, 1.4)
@@ -532,7 +537,7 @@ def model(year):
     wjetm_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjetm_vvTemplate
     )
-    wjetm_vv.setParamEffect(lumi, 1.027)
+    wjetm_vv.setParamEffect(lumi, lumi_unc)
     #     wjetm_vv.setParamEffect(trig_m, 1.01)
     #     wjetm_vv.setParamEffect(veto_tau, 1.03)
     #     wjetm_vv.setParamEffect(vv_norm, 1.2)
@@ -602,7 +607,7 @@ def model(year):
     wjetm_qcd = rl.TemplateSample(
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, wjetm_qcdTemplate
     )
-    wjetm_qcd.setParamEffect(lumi, 1.027)
+    wjetm_qcd.setParamEffect(lumi, lumi_unc)
     #     wjetm_qcd.setParamEffect(trig_m, 1.01)
     #     wjetm_qcd.setParamEffect(veto_tau, 1.03)
     #     wjetm_qcd.setParamEffect(qcde_norm, 2.0)
