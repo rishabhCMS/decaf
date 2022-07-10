@@ -222,9 +222,9 @@ def model(year):
         ttbarm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
-    #         FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
-    #         FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
-    #         ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+        FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
+        FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
+        ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbarm')[0] 
@@ -273,19 +273,19 @@ def model(year):
 
 
     #JEC_JER
-    jerUp=template(background, 'W+jets', 'JERUp', 'ttbarm')[0] 
-    jerDown=template(background, 'W+jets', 'JERDown', 'ttbarm')[0]
+#     jerUp=template(background, 'W+jets', 'JERUp', 'ttbarm')[0] 
+#     jerDown=template(background, 'W+jets', 'JERDown', 'ttbarm')[0]
 #     ttbarm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'W+jets', 'JESUp', 'ttbarm')[0] 
     jesDown=template(background, 'W+jets', 'JESDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+    ttbarm_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
     metUnclUp=template(background, 'W+jets', 'METunclUp', 'ttbarm')[0] 
     metUnclDown=template(background, 'W+jets', 'METunclDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    ttbarm_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -347,9 +347,9 @@ def model(year):
     # ttbarm_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
-    jerUp=template(background, 'TT', 'JERUp', 'ttbarm')[0] 
-    jerDown=template(background, 'TT', 'JERDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'TT', 'JERUp', 'ttbarm')[0] 
+#     jerDown=template(background, 'TT', 'JERDown', 'ttbarm')[0]
+#     ttbarm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'TT', 'JESUp', 'ttbarm')[0] 
@@ -420,9 +420,9 @@ def model(year):
 
 
     #JEC_JER
-    jerUp=template(background, 'ST', 'JERUp', 'ttbarm')[0] 
-    jerDown=template(background, 'ST', 'JERDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'ST', 'JERUp', 'ttbarm')[0] 
+#     jerDown=template(background, 'ST', 'JERDown', 'ttbarm')[0]
+#     ttbarm_st.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'ST', 'JESUp', 'ttbarm')[0] 
@@ -496,14 +496,14 @@ def model(year):
 #     ttbarm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-#     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbarm')[0] 
-#     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbarm')[0]
-#     ttbarm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+    jesUp=template(background, 'DY+jets', 'JESUp', 'ttbarm')[0] 
+    jesDown=template(background, 'DY+jets', 'JESDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    # metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbarm')[0] 
-    # metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbarm')[0]
-    # ttbarm_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'DY+jets', 'METunclUp', 'ttbarm')[0] 
+    metUnclDown=template(background, 'DY+jets', 'METunclDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -512,14 +512,14 @@ def model(year):
     ttbarm_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
-#     ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbarm')[0] 
-#     ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbarm')[0]
-#     ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+    ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbarm')[0] 
+    ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
-    # FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbarm')[0] 
-    # FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbarm')[0]
-    # ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+    FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbarm')[0] 
+    FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbarm')[0]
+    ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbarm')[0] 
@@ -567,14 +567,14 @@ def model(year):
 #     ttbarm_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-#     jesUp=template(background, 'VV', 'JESUp', 'ttbarm')[0] 
-#     jesDown=template(background, 'VV', 'JESDown', 'ttbarm')[0]
-#     ttbarm_vv.setParamEffect(jec_jes, jesUp, jesDown)
+    jesUp=template(background, 'VV', 'JESUp', 'ttbarm')[0] 
+    jesDown=template(background, 'VV', 'JESDown', 'ttbarm')[0]
+    ttbarm_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-#     metUnclUp=template(background, 'VV', 'METunclUp', 'ttbarm')[0] 
-#     metUnclDown=template(background, 'VV', 'METunclDown', 'ttbarm')[0]
-#     ttbarm_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'VV', 'METunclUp', 'ttbarm')[0] 
+    metUnclDown=template(background, 'VV', 'METunclDown', 'ttbarm')[0]
+    ttbarm_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -636,14 +636,14 @@ def model(year):
 #     ttbarm_qcd.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-#     jesUp=template(background, 'QCD', 'JESUp', 'ttbarm')[0] 
-#     jesDown=template(background, 'QCD', 'JESDown', 'ttbarm')[0]
-#     ttbarm_qcd.setParamEffect(jec_jes, jesUp, jesDown)
+    jesUp=template(background, 'QCD', 'JESUp', 'ttbarm')[0] 
+    jesDown=template(background, 'QCD', 'JESDown', 'ttbarm')[0]
+    ttbarm_qcd.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    # metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbarm')[0] 
-    # metUnclDown=template(background, 'QCD', 'METunclDown', 'ttbarm')[0]
-    # ttbarm_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
+    metUnclUp=template(background, 'QCD', 'METunclUp', 'ttbarm')[0] 
+    metUnclDown=template(background, 'QCD', 'METunclDown', 'ttbarm')[0]
+    ttbarm_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -666,7 +666,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'ttbarm')[0]
     ttbarm_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     ttbarm.addSample(ttbarm_qcd)
+    ttbarm.addSample(ttbarm_qcd)
 
     return model
 
