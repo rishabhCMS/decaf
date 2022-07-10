@@ -227,9 +227,9 @@ def model(year):
         ttbarm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
-        FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
-        FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
+#         FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
+#         ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbarm')[0] 
