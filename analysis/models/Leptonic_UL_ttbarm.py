@@ -567,14 +567,14 @@ def model(year):
 #     ttbarm_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
-    jesUp=template(background, 'VV', 'JESUp', 'ttbarm')[0] 
-    jesDown=template(background, 'VV', 'JESDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(jec_jes, jesUp, jesDown)
+#     jesUp=template(background, 'VV', 'JESUp', 'ttbarm')[0] 
+#     jesDown=template(background, 'VV', 'JESDown', 'ttbarm')[0]
+#     ttbarm_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    metUnclUp=template(background, 'VV', 'METunclUp', 'ttbarm')[0] 
-    metUnclDown=template(background, 'VV', 'METunclDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'VV', 'METunclUp', 'ttbarm')[0] 
+#     metUnclDown=template(background, 'VV', 'METunclDown', 'ttbarm')[0]
+#     ttbarm_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
