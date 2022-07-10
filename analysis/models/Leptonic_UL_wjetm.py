@@ -345,9 +345,9 @@ def model(year):
     # wjetm_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
-    jerUp=template(background, 'TT', 'JERUp', 'wjetm')[0] 
-    jerDown=template(background, 'TT', 'JERDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'TT', 'JERUp', 'wjetm')[0] 
+#     jerDown=template(background, 'TT', 'JERDown', 'wjetm')[0]
+#     wjetm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'TT', 'JESUp', 'wjetm')[0] 
