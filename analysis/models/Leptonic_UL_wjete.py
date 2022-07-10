@@ -156,7 +156,7 @@ def model(year):
         lumi_unc = 1.025
     if year == '2017':
         lumi_unc = 1.023
-    if year == '2016':
+    if '2016' in year:
         lumi_unc = 1.012
         
     if year == "2018":
