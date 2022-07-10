@@ -666,7 +666,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'ttbarm')[0]
     ttbarm_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     ttbarm.addSample(ttbarm_qcd)
+    ttbarm.addSample(ttbarm_qcd)
 
     return model
 
