@@ -412,9 +412,9 @@ def model(year):
     ttbare_st.setParamEffect(reco_e, recoeUp, recoDown)
 
         #JEC_JER
-    jerUp=template(background, 'ST', 'JERUp', 'ttbare')[0] 
-    jerDown=template(background, 'ST', 'JERDown', 'ttbare')[0]
-    ttbare_st.setParamEffect(jec_jer, jerUp, jerDown)
+#     jerUp=template(background, 'ST', 'JERUp', 'ttbare')[0] 
+#     jerDown=template(background, 'ST', 'JERDown', 'ttbare')[0]
+#     ttbare_st.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'ST', 'JESUp', 'ttbare')[0] 
