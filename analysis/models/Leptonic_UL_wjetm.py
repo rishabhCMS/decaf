@@ -664,7 +664,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'wjetm')[0]
     wjetm_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     wjetm.addSample(wjetm_qcd)
+    wjetm.addSample(wjetm_qcd)
 
     return model
 
