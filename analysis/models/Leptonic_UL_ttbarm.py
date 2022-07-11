@@ -122,8 +122,10 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
     if "nominal" not in systematic and "data" not in systematic:
     #print('Normalizing',systematic,'histogram of',process,'in region',region)
         output = histogram.integrate("systematic", systematic).values()[()]
-        output[zerobins] = 1.
-        output[~zerobins] /= nominal[~zerobins]
+        zerobins1 = output <= 0.
+        output[zerobins1]  = 1.
+        output[zerobins]   = 1.
+        output[~zerobins]  /= nominal[~zerobins]
         output[np.isnan(output)] = 1.
     binning = (
         dictionary[region]
