@@ -625,7 +625,7 @@ def model(year):
     ttbare_qcd = rl.TemplateSample(
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, ttbare_qcdTemplate
     )
-#     ttbare_qcd.setParamEffect(lumi, lumi_unc)
+    ttbare_qcd.setParamEffect(lumi, lumi_unc)
     #     ttbare_qcd.setParamEffect(trig_e, 1.01)
     #     ttbare_qcd.setParamEffect(veto_tau, 1.03)
     #     ttbare_qcd.setParamEffect(qcde_norm, 2.0)
@@ -687,8 +687,6 @@ def model(year):
     ttbare_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbare.addSample(ttbare_qcd)
-
-    #template for signal
 
     return model
 
