@@ -25,7 +25,9 @@ mT_corrected_binning_dict = {
 #     "2017": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
 #     "2016": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
 }
-
+mT_corrected_binning = mT_corrected_binning_dict[year]
+mT_correctedbins = np.array(mT_corrected_binning)
+nmT_corrected = len(mT_correctedbins) - 1
 
 
 def remap_histograms(hists):
