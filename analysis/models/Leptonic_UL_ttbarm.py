@@ -612,7 +612,7 @@ def model(year):
     ttbarm_qcd = rl.TemplateSample(
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, ttbarm_qcdTemplate
     )
-    ttbarm_qcd.setParamEffect(lumi, lumi_unc)
+#     ttbarm_qcd.setParamEffect(lumi, lumi_unc)
     #     ttbarm_qcd.setParamEffect(trig_m, 1.01)
     #     ttbarm_qcd.setParamEffect(veto_tau, 1.03)
     #     ttbarm_qcd.setParamEffect(qcde_norm, 2.0)
