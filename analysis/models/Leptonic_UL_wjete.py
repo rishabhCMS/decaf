@@ -118,7 +118,14 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
     nominal, sumw2 = histogram.integrate("systematic", "nominal").values(sumw2=True)[()]
     zerobins = nominal <= 0.
     output = nominal
-    
+    if "data" not in systematic:
+        #output[zerobins] = 1.
+        #sumw2[zerobins] = 0.
+
+        output[zerobins] = 1.
+        sumw2[zerobins] = 0.
+
+            
     if "nominal" not in systematic and "data" not in systematic:
     #print('Normalizing',systematic,'histogram of',process,'in region',region)
         output = histogram.integrate("systematic", systematic).values()[()]
