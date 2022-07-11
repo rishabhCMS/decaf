@@ -625,7 +625,7 @@ def model(year):
     wjete_qcd = rl.TemplateSample(
         ch_name + "_qcdMC", rl.Sample.BACKGROUND, wjete_qcdTemplate
     )
-#     wjete_qcd.setParamEffect(lumi, lumi_unc)
+    wjete_qcd.setParamEffect(lumi, lumi_unc)
     #     wjete_qcd.setParamEffect(trig_e, 1.01)
     #     wjete_qcd.setParamEffect(veto_tau, 1.03)
     #     wjete_qcd.setParamEffect(qcde_norm, 2.0)
