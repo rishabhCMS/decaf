@@ -470,7 +470,7 @@ def model(year):
     ttbarm_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbarm_dyjetsTemplate
     )
-    ttbarm_dyjets.setParamEffect(lumi, lumi_unc)
+#     ttbarm_dyjets.setParamEffect(lumi, lumi_unc)
     #     ttbarm_dyjets.setParamEffect(trig_m, 1.01)
     #     ttbarm_dyjets.setParamEffect(veto_tau, 1.03)
     #     ttbarm_dyjets.setParamEffect(zjetsMC_norm, 1.4)
@@ -542,7 +542,7 @@ def model(year):
     ttbarm_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, ttbarm_vvTemplate
     )
-    ttbarm_vv.setParamEffect(lumi, lumi_unc)
+#     ttbarm_vv.setParamEffect(lumi, lumi_unc)
     #     ttbarm_vv.setParamEffect(trig_m, 1.01)
     #     ttbarm_vv.setParamEffect(veto_tau, 1.03)
     #     ttbarm_vv.setParamEffect(vv_norm, 1.2)
