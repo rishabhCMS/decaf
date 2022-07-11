@@ -121,9 +121,22 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
     if "data" not in systematic:
         #output[zerobins] = 1.
         #sumw2[zerobins] = 0.
-
-        output[zerobins] = 1.
-        sumw2[zerobins] = 0.
+        if "ST" in str(process) :
+            output[zerobins] = 1.
+            sumw2[zerobins] = 0.
+        elif "W+" in str(process):
+            output[zerobins] = 1.
+            sumw2[zerobins] = 0.
+        elif "W+" in str(process):
+            output[zerobins] = 1.
+            sumw2[zerobins] = 0.
+        elif "TT" in str(process):
+            output[zerobins] = 1.
+            sumw2[zerobins] = 0.
+            
+        else:
+            output[zerobins] = 1e-5
+            sumw2[zerobins] = 0.
 
             
     if "nominal" not in systematic and "data" not in systematic:
