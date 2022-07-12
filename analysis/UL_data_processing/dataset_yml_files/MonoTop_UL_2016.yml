@@ -11,65 +11,65 @@
         isTopNanoAOD: False
         split:        lumi
         
-    Mphi-1000_Mchi-1000_2016 :
+    Mphi-1000_Mchi-1000 :
         xs: 5.344e-05
-    Mphi-1000_Mchi-150_2016 :
+    Mphi-1000_Mchi-150 :
         xs: 0.3727
-    Mphi-1250_Mchi-150_2016 :
+    Mphi-1250_Mchi-150 :
         xs: 0.1444
-    Mphi-1495_Mchi-750_2016 :
+    Mphi-1495_Mchi-750 :
         xs: 0.01206
-    Mphi-1500_Mchi-1000_2016 :
+    Mphi-1500_Mchi-1000 :
         xs: 0.0001071
-    Mphi-1500_Mchi-150_2016 :
+    Mphi-1500_Mchi-150 :
         xs: 0.06213
-    Mphi-1700_Mchi-800_2016 :
+    Mphi-1700_Mchi-800 :
         xs: 0.0189
-    Mphi-1750_Mchi-150_2016 :
+    Mphi-1750_Mchi-150 :
         xs: 0.02879
-    Mphi-1750_Mchi-700_2016 :
+    Mphi-1750_Mchi-700 :
         xs: 0.02263
-    Mphi-195_Mchi-100_2016 :
+    Mphi-195_Mchi-100 :
         xs: 4.931
-    Mphi-1995_Mchi-1000_2016 :
+    Mphi-1995_Mchi-1000 :
         xs: 0.002655
-    Mphi-2000_Mchi-1500_2016 :
+    Mphi-2000_Mchi-1500 :
         xs: 4.319e-06
-    Mphi-2000_Mchi-150_2016 :
+    Mphi-2000_Mchi-150 :
         xs: 0.01414
-    Mphi-2000_Mchi-500_2016 :
+    Mphi-2000_Mchi-500 :
         xs: 0.01297
-    Mphi-200_Mchi-150_2016 :
+    Mphi-200_Mchi-150 :
         xs: 0.2533
-    Mphi-200_Mchi-50_2016 :
+    Mphi-200_Mchi-50 :
         xs: 57.59
-    Mphi-2495_Mchi-1250_2016 :
+    Mphi-2495_Mchi-1250 :
         xs: 0.0006786
-    Mphi-2500_Mchi-2000_2016 :
+    Mphi-2500_Mchi-2000 :
         xs: 2.682e-07
-    Mphi-2500_Mchi-750_2016 :
+    Mphi-2500_Mchi-750 :
         xs: 0.003237
-    Mphi-295_Mchi-150_2016 :
+    Mphi-295_Mchi-150 :
         xs: 2.373
-    Mphi-2995_Mchi-1500_2016 :
+    Mphi-2995_Mchi-1500 :
         xs: 0.0001901
-    Mphi-3000_Mchi-1000_2016 :
+    Mphi-3000_Mchi-1000 :
         xs: 0.0008935
-    Mphi-3000_Mchi-2000_2016 :
+    Mphi-3000_Mchi-2000 :
         xs: 4.319e-07
-    Mphi-300_Mchi-100_2016 :
+    Mphi-300_Mchi-100 :
         xs: 18.96
-    Mphi-300_Mchi-300_2016 :
+    Mphi-300_Mchi-300 :
         xs: 0.0189
-    Mphi-495_Mchi-250_2016 :
+    Mphi-495_Mchi-250 :
         xs: 0.704
-    Mphi-500_Mchi-150_2016 :
+    Mphi-500_Mchi-150 :
         xs: 4.315
-    Mphi-500_Mchi-500_2016 :
+    Mphi-500_Mchi-500 :
         xs: 0.002262
-    Mphi-750_Mchi-150_2016 :
+    Mphi-750_Mchi-150 :
         xs: 1.124
-    Mphi-995_Mchi-500_2016 :
+    Mphi-995_Mchi-500 :
         xs: 0.07102
 
     DYJetsToLL_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8:
