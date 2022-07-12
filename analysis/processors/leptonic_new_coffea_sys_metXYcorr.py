@@ -732,8 +732,8 @@ class AnalysisProcessor(processor.ProcessorABC):
         self.isMC ='genWeight' in events.fields
         if self.isMC:
             output = self.accumulator.identity()
-#             shift_systs = [ "JERUp", "JERDown"]
-            shift_systs = [None, "JESUp", "JESDown" , "METunclUp", "METunclDown", 
+#             shift_systs = [  , "METunclUp", "METunclDown"]
+            shift_systs = [None, "JERUp", "JERDown","JESUp", "JESDown", 
                            "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]
             for _syst in shift_systs:
                 print("shift sys", _syst)
@@ -934,26 +934,31 @@ class AnalysisProcessor(processor.ProcessorABC):
 
                 for name in list_of_jec:
                     jec_names.append(name)
-#                 for name in list_of_jr:
-#                     jec_names.append(name)
+                for name in list_of_jr:
+                    jec_names.append(name)
                 for name in list_of_junc:
                     jec_names.append(name)    
-#                 for name in list_of_jersf:
-#                     jec_names.append(name)                
+                for name in list_of_jersf:
+                    jec_names.append(name)                
             else:
                 for name in self._jec[self._year]:
                     jec_names.append(name)                 
-#                 for name in self._jr[self._year]:
-#                     jec_names.append(name)    
-#                 for name in self._jersf[self._year]:
-#                     jec_names.append(name)
+                for name in self._jr[self._year]:
+                    jec_names.append(name)    
+                for name in self._jersf[self._year]:
+                    jec_names.append(name)
                 for name in self._junc[self._year]:
                     jec_names.append(name)
             #print("afer____")
             #print(jec_names)
             jec_inputs = {name: Jetevaluator[name] for name in jec_names}
             jec_stack = JECStack(jec_inputs)
-
+            jec_inputs_nojer = {name: Jetevaluator[name] for name in jec_names if "JRV" not in name }
+            jec_stack_nojer = JECStack(jec_inputs_nojer)
+            
+#             import sys
+#             print(jec_inputs_nojer)
+#             sys.exit(0)
 
             jec_name_map = jec_stack.blank_name_map
             jec_name_map['JetPt'] = 'pt'
@@ -971,6 +976,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             jec_name_map['UnClusteredEnergyDeltaY'] = 'MetUnclustEnUpDeltaY'
 
             jet_factory = CorrectedJetsFactory(jec_name_map, jec_stack)
+            jet_factory_nojer = CorrectedJetsFactory(jec_name_map, jec_stack_nojer)
             ## (1) Uncorrecting Jets
 
             j["rho"] = ak.broadcast_arrays( events.fixedGridRhoFastjetAll, j.pt)[0]
@@ -987,17 +993,18 @@ class AnalysisProcessor(processor.ProcessorABC):
             met_factory = CorrectedMETFactory(jec_name_map)
             corrected_jets = jet_factory.build(j, lazy_cache=events_cache)
             corrected_mets = met_factory.build(events.MET, corrected_jets, {})
-
+            corrected_jets_nojer = jet_factory_nojer.build(j, lazy_cache=events_cache)
+            corrected_mets_nojer = met_factory.build(events.MET, corrected_jets_nojer, {})
 
 
             if shift_syst == "JESUp":
                 j = corrected_jets['JES_jes'].up
-                met = corrected_mets.JES_jes.up
+                met = corrected_mets_nojer.JES_jes.up
     #                 #print(shift_syst)
 
             elif shift_syst == "JESDown":
                 j = corrected_jets['JES_jes'].down
-                met = corrected_mets.JES_jes.down
+                met = corrected_mets_nojer.JES_jes.down
 
             elif shift_syst == "JERUp":
                 j = corrected_jets['JER'].up
@@ -1007,25 +1014,25 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j = corrected_jets['JER'].down
                 met = corrected_mets.JER.down
 
-            elif shift_syst == "METunclUp":
-                met = corrected_mets.MET_UnclusteredEnergy.up
-                j   = corrected_jets
+#             elif shift_syst == "METunclUp":
+#                 met = corrected_mets.MET_UnclusteredEnergy.up
+#                 j   = corrected_jets
                 
-            elif shift_syst == "METunclDown":
-                met = corrected_mets.MET_UnclusteredEnergy.down
-                j   = corrected_jets
+#             elif shift_syst == "METunclDown":
+#                 met = corrected_mets.MET_UnclusteredEnergy.down
+#                 j   = corrected_jets
 
             elif shift_syst == "puUp":
                 j   = corrected_jets
-                met = corrected_mets
+                met = corrected_mets_nojer
             
             elif shift_syst == "puDown":
                 j   = corrected_jets
-                met = corrected_mets
+                met = corrected_mets_nojer
                 
             else:
                 j   = corrected_jets
-                met = corrected_mets
+                met = corrected_mets_nojer
         ###
         # Initialize global quantities (MET ecc.)
         ###
@@ -2052,7 +2059,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         if systematic is None:
                             systematic = 'nominal'
                             
-                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown", "METunclUp", "METunclDown",
+                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown",
                                          "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]:
                             sname = systematic
                             systematic = None
@@ -2116,7 +2123,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     for systematic in systematics:
                         if systematic is None:
                             systematic = "nominal"
-                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown","METunclUp", "METunclDown",
+                        if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown",
                                          "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]:
                             sname = systematic
                             systematic = None
