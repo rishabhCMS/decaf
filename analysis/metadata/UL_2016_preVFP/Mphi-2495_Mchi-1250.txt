@@ -1,6 +1,6 @@
-root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016_1.root
-root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016_2.root
-root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016_3.root
-root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016_4.root
-root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016_5.root
-root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016_6.root
+root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016/Mphi-2495_Mchi-1250_2016_1.root
+root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016/Mphi-2495_Mchi-1250_2016_2.root
+root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016/Mphi-2495_Mchi-1250_2016_3.root
+root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016/Mphi-2495_Mchi-1250_2016_4.root
+root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016/Mphi-2495_Mchi-1250_2016_5.root
+root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2016APV/Mphi-2495_Mchi-1250_2016/Mphi-2495_Mchi-1250_2016_6.root
