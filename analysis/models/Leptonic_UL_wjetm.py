@@ -224,9 +224,9 @@ def model(year):
 
 
         #JEC_JER
-#         jerUp=template(signal, s, 'JERUp', 'wjetm')[0] 
-#         jerDown=template(signal, s, 'JERDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
+        jerUp=template(signal, s, 'JERUp', 'wjetm')[0] 
+        jerDown=template(signal, s, 'JERDown', 'wjetm')[0]
+        wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
         jesUp=template(signal, s, 'JESUp', 'wjetm')[0] 
@@ -301,9 +301,9 @@ def model(year):
 
 
     #JEC_JER
-#     jerUp=template(background, 'W+jets', 'JERUp', 'wjetm')[0] 
-#     jerDown=template(background, 'W+jets', 'JERDown', 'wjetm')[0]
-#     wjetm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'W+jets', 'JERUp', 'wjetm')[0] 
+    jerDown=template(background, 'W+jets', 'JERDown', 'wjetm')[0]
+    wjetm_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'W+jets', 'JESUp', 'wjetm')[0] 
@@ -375,9 +375,9 @@ def model(year):
     # wjetm_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
-#     jerUp=template(background, 'TT', 'JERUp', 'wjetm')[0] 
-#     jerDown=template(background, 'TT', 'JERDown', 'wjetm')[0]
-#     wjetm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'TT', 'JERUp', 'wjetm')[0] 
+    jerDown=template(background, 'TT', 'JERDown', 'wjetm')[0]
+    wjetm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'TT', 'JESUp', 'wjetm')[0] 
@@ -448,9 +448,9 @@ def model(year):
 
 
     #JEC_JER
-#     jerUp=template(background, 'ST', 'JERUp', 'wjetm')[0] 
-#     jerDown=template(background, 'ST', 'JERDown', 'wjetm')[0]
-#     wjetm_st.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'ST', 'JERUp', 'wjetm')[0] 
+    jerDown=template(background, 'ST', 'JERDown', 'wjetm')[0]
+    wjetm_st.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'ST', 'JESUp', 'wjetm')[0] 
@@ -519,9 +519,9 @@ def model(year):
 
 
     #JEC_JER
-#     jerUp=template(background, 'DY+jets', 'JERUp', 'wjetm')[0] 
-#     jerDown=template(background, 'DY+jets', 'JERDown', 'wjetm')[0]
-#     wjetm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'DY+jets', 'JERUp', 'wjetm')[0] 
+    jerDown=template(background, 'DY+jets', 'JERDown', 'wjetm')[0]
+    wjetm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'wjetm')[0] 
@@ -590,9 +590,9 @@ def model(year):
 
 
     #JEC_JER
-#     jerUp=template(background, 'VV', 'JERUp', 'wjetm')[0] 
-#     jerDown=template(background, 'VV', 'JERDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'VV', 'JERUp', 'wjetm')[0] 
+    jerDown=template(background, 'VV', 'JERDown', 'wjetm')[0]
+    wjetm_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'wjetm')[0] 
@@ -659,9 +659,9 @@ def model(year):
     wjetm_qcd.setParamEffect(pileup, pileupUp, pileupDown)
 
     #JEC_JER
-#     jerUp=template(background, 'QCD', 'JERUp', 'wjetm')[0] 
-#     jerDown=template(background, 'QCD', 'JERDown', 'wjetm')[0]
-#     wjetm_qcd.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'QCD', 'JERUp', 'wjetm')[0] 
+    jerDown=template(background, 'QCD', 'JERDown', 'wjetm')[0]
+    wjetm_qcd.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
 #     jesUp=template(background, 'QCD', 'JESUp', 'wjetm')[0] 
