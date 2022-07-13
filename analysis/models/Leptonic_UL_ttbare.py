@@ -332,7 +332,7 @@ def model(year):
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'ttbare')[0]
     ttbare_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
-    ttbare.addSample(ttbare_wjetsMC)
+#     ttbare.addSample(ttbare_wjetsMC)
 
         # ###
         # # top-antitop model
