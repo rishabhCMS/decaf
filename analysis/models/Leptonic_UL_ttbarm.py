@@ -337,7 +337,7 @@ def model(year):
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'ttbarm')[0]
     ttbarm_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
-    ttbarm.addSample(ttbarm_wjetsMC)
+#     ttbarm.addSample(ttbarm_wjetsMC)
 
     # ###
     # # top-antitop model
@@ -556,7 +556,7 @@ def model(year):
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbarm')[0]
 #     ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    ttbarm.addSample(ttbarm_dyjets)
+#     ttbarm.addSample(ttbarm_dyjets)
 
 
     # V Jets Background
@@ -627,7 +627,7 @@ def model(year):
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbarm')[0]
     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    ttbarm.addSample(ttbarm_vv)
+#     ttbarm.addSample(ttbarm_vv)
 
     # QCD background
     ttbarm_qcdTemplate = template(background, "QCD", "nominal", "ttbarm")
@@ -696,7 +696,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'ttbarm')[0]
     ttbarm_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    ttbarm.addSample(ttbarm_qcd)
+#     ttbarm.addSample(ttbarm_qcd)
 
     return model
 
