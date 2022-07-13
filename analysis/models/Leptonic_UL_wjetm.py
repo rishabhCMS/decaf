@@ -483,7 +483,7 @@ def model(year):
     pdfDown=template(background, 'ST', 'PDFDown', 'wjetm')[0]
     wjetm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
-    wjetm.addSample(wjetm_st)
+#     wjetm.addSample(wjetm_st)
 
     # DY Jet Background
     wjetm_dyjetsTemplate = template(background, "DY+jets", "nominal","wjetm")
@@ -554,7 +554,7 @@ def model(year):
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'wjetm')[0]
     wjetm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    wjetm.addSample(wjetm_dyjets)
+#     wjetm.addSample(wjetm_dyjets)
 
 
     # V Jets Background
@@ -625,7 +625,7 @@ def model(year):
     pdfDown=template(background, 'VV', 'PDFDown', 'wjetm')[0]
     wjetm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    wjetm.addSample(wjetm_vv)
+#     wjetm.addSample(wjetm_vv)
 
     # QCD background
     wjetm_qcdTemplate = template(background, "QCD", "nominal", "wjetm")
@@ -694,7 +694,7 @@ def model(year):
     pdfDown=template(background, 'QCD', 'PDFDown', 'wjetm')[0]
     wjetm_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    wjetm.addSample(wjetm_qcd)
+#     wjetm.addSample(wjetm_qcd)
 
     return model
 
