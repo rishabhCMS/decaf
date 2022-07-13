@@ -999,20 +999,20 @@ class AnalysisProcessor(processor.ProcessorABC):
 
             if shift_syst == "JESUp":
                 j = corrected_jets['JES_jes'].up
-                met = corrected_mets_nojer.JES_jes.up
+                met = corrected_mets_nojer
     #                 #print(shift_syst)
 
             elif shift_syst == "JESDown":
                 j = corrected_jets['JES_jes'].down
-                met = corrected_mets_nojer.JES_jes.down
+                met = corrected_mets_nojer
 
             elif shift_syst == "JERUp":
                 j = corrected_jets['JER'].up
-                met = corrected_mets.JER.up
+                met = corrected_mets_nojer
 
             elif shift_syst == "JERDown":
                 j = corrected_jets['JER'].down
-                met = corrected_mets.JER.down
+                met = corrected_mets_nojer
 
 #             elif shift_syst == "METunclUp":
 #                 met = corrected_mets.MET_UnclusteredEnergy.up
