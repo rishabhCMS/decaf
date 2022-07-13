@@ -234,9 +234,9 @@ def model(year):
         wjetm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
-        metUnclUp=template(signal, s, 'METunclUp', 'wjetm')[0] 
-        metUnclDown=template(signal, s, 'METunclDown', 'wjetm')[0]
-        wjetm_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#         metUnclUp=template(signal, s, 'METunclUp', 'wjetm')[0] 
+#         metUnclDown=template(signal, s, 'METunclDown', 'wjetm')[0]
+#         wjetm_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
         #L1 prefire
