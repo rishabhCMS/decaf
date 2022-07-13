@@ -76,6 +76,7 @@ for txt_file in flist:
         if 'EGamma' in txt_file or 'SingleMuon' in txt_file or 'MET' in txt_file or 'SingleElectron' in txt_file or 'SinglePhoton' in txt_file:
             key_name = txt_file.split('/')[2].split('.')[0].split('_')[0] + '____'+str(i+1)+'_'
             dataset_name = txt_file.split('/')[2].split('.')[0]
+        elif "QCD" in txt_file: continue
         else:
             key_name = txt_file.split('/')[2].split('.')[0] + '____'+str(i+1)+'_'
             if 'preVFP' in key_name:
