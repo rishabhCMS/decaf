@@ -236,9 +236,9 @@ def model(year):
         ttbarm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
         #met_uncl
-        metUnclUp=template(signal, s, 'METunclUp', 'ttbarm')[0] 
-        metUnclDown=template(signal, s, 'METunclDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#         metUnclUp=template(signal, s, 'METunclUp', 'ttbarm')[0] 
+#         metUnclDown=template(signal, s, 'METunclDown', 'ttbarm')[0]
+#         ttbarm_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
         #L1 prefire
@@ -387,9 +387,9 @@ def model(year):
     ttbarm_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    metUnclUp=template(background, 'TT', 'METunclUp', 'ttbarm')[0] 
-    metUnclDown=template(background, 'TT', 'METunclDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'TT', 'METunclUp', 'ttbarm')[0] 
+#     metUnclDown=template(background, 'TT', 'METunclDown', 'ttbarm')[0]
+#     ttbarm_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -460,9 +460,9 @@ def model(year):
     ttbarm_st.setParamEffect(jec_jes, jesUp, jesDown)
 
     #met_uncl
-    metUnclUp=template(background, 'ST', 'METunclUp', 'ttbarm')[0] 
-    metUnclDown=template(background, 'ST', 'METunclDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
+#     metUnclUp=template(background, 'ST', 'METunclUp', 'ttbarm')[0] 
+#     metUnclDown=template(background, 'ST', 'METunclDown', 'ttbarm')[0]
+#     ttbarm_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
