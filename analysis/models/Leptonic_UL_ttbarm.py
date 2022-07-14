@@ -321,7 +321,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
@@ -523,7 +523,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbarm')[0] 
