@@ -231,12 +231,6 @@ def model(year):
         jesDown=template(signal, s, 'JESDown', 'wjete')[0]
         wjete_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
-        #met_uncl
-#         metUnclUp=template(signal, s, 'METunclUp', 'wjete')[0] 
-#         metUnclDown=template(signal, s, 'METunclDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(metUncl, metUnclUp, metUnclDown)
-
-
         #L1 prefire
         L1prefireUp=template(signal, s, 'L1PrefireUp', 'wjete')[0] 
         L1prefireDown=template(signal, s, 'L1PrefireDown', 'wjete')[0]
@@ -307,11 +301,6 @@ def model(year):
     jesDown=template(background, 'W+jets', 'JESDown', 'wjete')[0]
     wjete_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
-    #     met_uncl
-#     metUnclUp=template(background, 'W+jets', 'METunclUp', 'wjete')[0] 
-#     metUnclDown=template(background, 'W+jets', 'METunclDown', 'wjete')[0]
-#     wjete_wjetsMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
-
 
         #L1 prefire
     L1prefireUp=template(background, 'W+jets', 'L1PrefireUp', 'wjete')[0] 
@@ -380,12 +369,6 @@ def model(year):
     jesDown=template(background, 'TT', 'JESDown', 'wjete')[0]
     wjete_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
 
-    #met_uncl
-#     metUnclUp=template(background, 'TT', 'METunclUp', 'wjete')[0] 
-#     metUnclDown=template(background, 'TT', 'METunclDown', 'wjete')[0]
-#     wjete_ttMC.setParamEffect(metUncl, metUnclUp, metUnclDown)
-
-
     #L1 prefire
     L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'wjete')[0]
@@ -443,19 +426,14 @@ def model(year):
     wjete_st.setParamEffect(reco_e, recoeUp, recoDown)
 
         #JEC_JER
-#     jerUp=template(background, 'ST', 'JERUp', 'wjete')[0] 
-#     jerDown=template(background, 'ST', 'JERDown', 'wjete')[0]
-#     wjete_st.setParamEffect(jec_jer, jerUp, jerDown)
+    jerUp=template(background, 'ST', 'JERUp', 'wjete')[0] 
+    jerDown=template(background, 'ST', 'JERDown', 'wjete')[0]
+    wjete_st.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'ST', 'JESUp', 'wjete')[0] 
     jesDown=template(background, 'ST', 'JESDown', 'wjete')[0]
     wjete_st.setParamEffect(jec_jes, jesUp, jesDown)
-
-    #met_uncl
-#     metUnclUp=template(background, 'ST', 'METunclUp', 'wjete')[0] 
-#     metUnclDown=template(background, 'ST', 'METunclDown', 'wjete')[0]
-#     wjete_st.setParamEffect(metUncl, metUnclUp, metUnclDown)
 
 
     #L1 prefire
@@ -478,7 +456,7 @@ def model(year):
     pdfDown=template(background, 'ST', 'PDFDown', 'wjete')[0]
     wjete_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
-#     wjete.addSample(wjete_st)
+    wjete.addSample(wjete_st)
 
         # DY Jet Background
     wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete")
@@ -522,12 +500,6 @@ def model(year):
     jesDown=template(background, 'DY+jets', 'JESDown', 'wjete')[0]
     wjete_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
-        #met_uncl
-#     metUnclUp=template(background, 'DY+jets', 'METunclUp', 'wjete')[0] 
-#     metUnclDown=template(background, 'DY+jets', 'METunclDown', 'wjete')[0]
-#     wjete_dyjets.setParamEffect(metUncl, metUnclUp, metUnclDown)
-
-
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'wjete')[0]
@@ -548,7 +520,7 @@ def model(year):
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'wjete')[0]
     wjete_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     wjete.addSample(wjete_dyjets)
+    wjete.addSample(wjete_dyjets)
 
 
         # V Jets Background
@@ -592,11 +564,6 @@ def model(year):
     jesDown=template(background, 'VV', 'JESDown', 'wjete')[0]
     wjete_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
-        #met_uncl
-#     metUnclUp=template(background, 'VV', 'METunclUp', 'wjete')[0] 
-#     metUnclDown=template(background, 'VV', 'METunclDown', 'wjete')[0]
-#     wjete_vv.setParamEffect(metUncl, metUnclUp, metUnclDown)
-
 
     #L1 prefire
     L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'wjete')[0] 
@@ -618,75 +585,8 @@ def model(year):
     pdfDown=template(background, 'VV', 'PDFDown', 'wjete')[0]
     wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     wjete.addSample(wjete_vv)
+    wjete.addSample(wjete_vv)
 
-        # QCD background
-    wjete_qcdTemplate = template(background, "QCD", "nominal", "wjete")
-    wjete_qcd = rl.TemplateSample(
-        ch_name + "_qcdMC", rl.Sample.BACKGROUND, wjete_qcdTemplate
-    )
-    wjete_qcd.setParamEffect(lumi, lumi_unc)
-    #     wjete_qcd.setParamEffect(trig_e, 1.01)
-    #     wjete_qcd.setParamEffect(veto_tau, 1.03)
-    #     wjete_qcd.setParamEffect(qcde_norm, 2.0)
-    #     wjete_qcd.setParamEffect(jec, 1.05)
-    #     wjete_qcd.setParamEffect(id_e, 1.02)
-    #     wjete_qcd.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "QCD", "wjete", wjete_qcd)
-    #     wjete_qcd.autoMCStats()
-    #trigger Electron
-    trigeUp=template(background, 'QCD', 'trig_eUp', 'wjete')[0] 
-    trigeDown=template(background, 'QCD', 'trig_eDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(trig_e, trigeUp, trigeDown)
-    #     #id Electron
-    id_eUp=template(background, "QCD", 'id_eUp', 'wjete')[0] 
-    id_eDown=template(background, "QCD", 'id_eDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(id_e, id_eUp, id_eDown)
-    #pileup
-    pileupUp=template(background, 'QCD','puUp','wjete')[0] 
-    pileupDown=template(background, 'QCD','puDown','wjete')[0] 
-    wjete_qcd.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
-    recoeUp=template(background, 'QCD', 'reco_eUp', 'wjete')[0] 
-    recoDown=template(background, 'QCD', 'reco_eDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(reco_e, recoeUp, recoDown)
-    #JEC_JER
-    jerUp=template(background, 'QCD', 'JERUp', 'wjete')[0] 
-    jerDown=template(background, 'QCD', 'JERDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(jec_jer, jerUp, jerDown)
-
-    #JEC_JEs
-    jesUp=template(background, 'QCD', 'JESUp', 'wjete')[0] 
-    jesDown=template(background, 'QCD', 'JESDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(jec_jes, jesUp, jesDown)
-
-    #met_uncl
-#     metUnclUp=template(background, 'QCD', 'METunclUp', 'wjete')[0] 
-#     metUnclDown=template(background, 'QCD', 'METunclDown', 'wjete')[0]
-#     wjete_qcd.setParamEffect(metUncl, metUnclUp, metUnclDown)
-
-
-    #L1 prefire
-    L1prefireUp=template(background, 'QCD', 'L1PrefireUp', 'wjete')[0] 
-    L1prefireDown=template(background, 'QCD', 'L1PrefireDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
-
-    #L1 ISR
-    ISRUp=template(background, 'QCD', 'ISRUp', 'wjete')[0] 
-    ISRDown=template(background, 'QCD', 'ISRDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(isr, ISRUp, ISRDown)
-
-    #L1 FSR
-    FSRUp=template(background, 'QCD', 'FSRUp', 'wjete')[0] 
-    FSRDown=template(background, 'QCD', 'FSRDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(fsr, FSRUp, FSRDown)
-
-    #pdf 
-    pdfUp=template(background, 'QCD', 'PDFUp', 'wjete')[0] 
-    pdfDown=template(background, 'QCD', 'PDFDown', 'wjete')[0]
-    wjete_qcd.setParamEffect(pdf, pdfUp, pdfDown) 
-
-#     wjete.addSample(wjete_qcd)
     return model
 
 if __name__ == "__main__":
