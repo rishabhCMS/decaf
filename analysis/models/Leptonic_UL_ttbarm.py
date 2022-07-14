@@ -530,7 +530,7 @@ def model(year):
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbarm')[0]
 #     ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    ttbarm.addSample(ttbarm_dyjets)
+#     ttbarm.addSample(ttbarm_dyjets)
 
 
     # V Jets Background
@@ -597,7 +597,7 @@ def model(year):
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbarm')[0]
 #     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    ttbarm.addSample(ttbarm_vv)
+#     ttbarm.addSample(ttbarm_vv)
 
 
 
