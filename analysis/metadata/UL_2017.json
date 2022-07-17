@@ -665,6 +665,66 @@
         ],
         "xs": 35.85
     },
+    "Mphi-1995_Mchi-1000____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_1/Mphi-1995_Mchi-1000_2017_1.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_2/Mphi-1995_Mchi-1000_2017_2.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_3/Mphi-1995_Mchi-1000_2017_3.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_4/Mphi-1995_Mchi-1000_2017_4.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_5/Mphi-1995_Mchi-1000_2017_5.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_6/Mphi-1995_Mchi-1000_2017_6.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_7/Mphi-1995_Mchi-1000_2017_7.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_8/Mphi-1995_Mchi-1000_2017_8.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_9/Mphi-1995_Mchi-1000_2017_9.root"
+        ],
+        "xs": 0.002655
+    },
+    "Mphi-1995_Mchi-1000____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1995_Mchi-1000_2017_10/Mphi-1995_Mchi-1000_2017_10.root"
+        ],
+        "xs": 0.002655
+    },
     "DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/DYJetsToLL_Pt-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/270000/2F4A4010-1650-1C47-ABBB-42496340D55A.root"
@@ -3557,6 +3617,126 @@
         ],
         "xs": 53300.0
     },
+    "Mphi-300_Mchi-300____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_1/Mphi-300_Mchi-300_2017_1.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_2/Mphi-300_Mchi-300_2017_2.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_3/Mphi-300_Mchi-300_2017_3.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_4/Mphi-300_Mchi-300_2017_4.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_5/Mphi-300_Mchi-300_2017_5.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_6/Mphi-300_Mchi-300_2017_6.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_7/Mphi-300_Mchi-300_2017_7.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_8/Mphi-300_Mchi-300_2017_8.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_9/Mphi-300_Mchi-300_2017_9.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-300_Mchi-300____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-300_2017_10/Mphi-300_Mchi-300_2017_10.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1495_Mchi-750____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_1/Mphi-1495_Mchi-750_2017_1.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_2/Mphi-1495_Mchi-750_2017_2.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_3/Mphi-1495_Mchi-750_2017_3.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_4/Mphi-1495_Mchi-750_2017_4.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_5/Mphi-1495_Mchi-750_2017_5.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_6/Mphi-1495_Mchi-750_2017_6.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_7/Mphi-1495_Mchi-750_2017_7.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_8/Mphi-1495_Mchi-750_2017_8.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_9/Mphi-1495_Mchi-750_2017_9.root"
+        ],
+        "xs": 0.01206
+    },
+    "Mphi-1495_Mchi-750____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1495_Mchi-750_2017_10/Mphi-1495_Mchi-750_2017_10.root"
+        ],
+        "xs": 0.01206
+    },
     "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/2510000/EFBBD9DF-1B6A-C54A-9CA5-704B819BB6A8.root"
@@ -4151,6 +4331,126 @@
         ],
         "xs": 91.4936
     },
+    "Mphi-200_Mchi-50____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_1/Mphi-200_Mchi-50_2017_1.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_2/Mphi-200_Mchi-50_2017_2.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_3/Mphi-200_Mchi-50_2017_3.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_4/Mphi-200_Mchi-50_2017_4.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_5/Mphi-200_Mchi-50_2017_5.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_6/Mphi-200_Mchi-50_2017_6.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_7/Mphi-200_Mchi-50_2017_7.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_8/Mphi-200_Mchi-50_2017_8.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_9/Mphi-200_Mchi-50_2017_9.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-200_Mchi-50____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-50_2017_10/Mphi-200_Mchi-50_2017_10.root"
+        ],
+        "xs": 57.59
+    },
+    "Mphi-1750_Mchi-700____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_1/Mphi-1750_Mchi-700_2017_1.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_2/Mphi-1750_Mchi-700_2017_2.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_3/Mphi-1750_Mchi-700_2017_3.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_4/Mphi-1750_Mchi-700_2017_4.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_5/Mphi-1750_Mchi-700_2017_5.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_6/Mphi-1750_Mchi-700_2017_6.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_7/Mphi-1750_Mchi-700_2017_7.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_8/Mphi-1750_Mchi-700_2017_8.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_9/Mphi-1750_Mchi-700_2017_9.root"
+        ],
+        "xs": 0.02263
+    },
+    "Mphi-1750_Mchi-700____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-700_2017_10/Mphi-1750_Mchi-700_2017_10.root"
+        ],
+        "xs": 0.02263
+    },
     "DYJetsToLL_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/DYJetsToLL_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/70000/F216E130-4A3E-6742-A3AF-B63CE06676A3.root"
@@ -4373,6 +4673,126 @@
         ],
         "xs": 358.3
     },
+    "Mphi-1750_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_1/Mphi-1750_Mchi-150_2017_1.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_2/Mphi-1750_Mchi-150_2017_2.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_3/Mphi-1750_Mchi-150_2017_3.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_4/Mphi-1750_Mchi-150_2017_4.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_5/Mphi-1750_Mchi-150_2017_5.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_6/Mphi-1750_Mchi-150_2017_6.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_7/Mphi-1750_Mchi-150_2017_7.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_8/Mphi-1750_Mchi-150_2017_8.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_9/Mphi-1750_Mchi-150_2017_9.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-1750_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1750_Mchi-150_2017_10/Mphi-1750_Mchi-150_2017_10.root"
+        ],
+        "xs": 0.02879
+    },
+    "Mphi-500_Mchi-500____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_1/Mphi-500_Mchi-500_2017_1.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_2/Mphi-500_Mchi-500_2017_2.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_3/Mphi-500_Mchi-500_2017_3.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_4/Mphi-500_Mchi-500_2017_4.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_5/Mphi-500_Mchi-500_2017_5.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_6/Mphi-500_Mchi-500_2017_6.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_7/Mphi-500_Mchi-500_2017_7.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_8/Mphi-500_Mchi-500_2017_8.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_9/Mphi-500_Mchi-500_2017_9.root"
+        ],
+        "xs": 0.002262
+    },
+    "Mphi-500_Mchi-500____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-500_2017_10/Mphi-500_Mchi-500_2017_10.root"
+        ],
+        "xs": 0.002262
+    },
     "ZZ_TuneCP5_13TeV-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/ZZ_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/70000/FD2A8987-A9D3-A049-8ECE-CE7E52D922BA.root"
@@ -4384,6 +4804,246 @@
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/ZZ_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/70000/4D4B7EA2-5161-154F-912E-BE015DFCE426.root"
         ],
         "xs": 15.8274
+    },
+    "Mphi-1700_Mchi-800____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_1/Mphi-1700_Mchi-800_2017_1.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_2/Mphi-1700_Mchi-800_2017_2.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_3/Mphi-1700_Mchi-800_2017_3.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_4/Mphi-1700_Mchi-800_2017_4.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_5/Mphi-1700_Mchi-800_2017_5.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_6/Mphi-1700_Mchi-800_2017_6.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_7/Mphi-1700_Mchi-800_2017_7.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_8/Mphi-1700_Mchi-800_2017_8.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_9/Mphi-1700_Mchi-800_2017_9.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-1700_Mchi-800____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1700_Mchi-800_2017_10/Mphi-1700_Mchi-800_2017_10.root"
+        ],
+        "xs": 0.0189
+    },
+    "Mphi-2000_Mchi-500____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_1/Mphi-2000_Mchi-500_2017_1.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_2/Mphi-2000_Mchi-500_2017_2.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_3/Mphi-2000_Mchi-500_2017_3.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_4/Mphi-2000_Mchi-500_2017_4.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_5/Mphi-2000_Mchi-500_2017_5.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_6/Mphi-2000_Mchi-500_2017_6.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_7/Mphi-2000_Mchi-500_2017_7.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_8/Mphi-2000_Mchi-500_2017_8.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_9/Mphi-2000_Mchi-500_2017_9.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-2000_Mchi-500____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-500_2017_10/Mphi-2000_Mchi-500_2017_10.root"
+        ],
+        "xs": 0.01297
+    },
+    "Mphi-995_Mchi-500____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_1/Mphi-995_Mchi-500_2017_1.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_2/Mphi-995_Mchi-500_2017_2.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_3/Mphi-995_Mchi-500_2017_3.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_4/Mphi-995_Mchi-500_2017_4.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_5/Mphi-995_Mchi-500_2017_5.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_6/Mphi-995_Mchi-500_2017_6.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_7/Mphi-995_Mchi-500_2017_7.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_8/Mphi-995_Mchi-500_2017_8.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_9/Mphi-995_Mchi-500_2017_9.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-995_Mchi-500____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-995_Mchi-500_2017_10/Mphi-995_Mchi-500_2017_10.root"
+        ],
+        "xs": 0.07102
+    },
+    "Mphi-195_Mchi-100____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_1/Mphi-195_Mchi-100_2017_1.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_2/Mphi-195_Mchi-100_2017_2.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_3/Mphi-195_Mchi-100_2017_3.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_4/Mphi-195_Mchi-100_2017_4.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_5/Mphi-195_Mchi-100_2017_5.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_6/Mphi-195_Mchi-100_2017_6.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_7/Mphi-195_Mchi-100_2017_7.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_8/Mphi-195_Mchi-100_2017_8.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_9/Mphi-195_Mchi-100_2017_9.root"
+        ],
+        "xs": 4.931
+    },
+    "Mphi-195_Mchi-100____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-195_Mchi-100_2017_10/Mphi-195_Mchi-100_2017_10.root"
+        ],
+        "xs": 4.931
     },
     "SingleMuon____1_": {
         "files": [
@@ -7019,6 +7679,126 @@
         ],
         "xs": 0.4969
     },
+    "Mphi-500_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_1/Mphi-500_Mchi-150_2017_1.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_2/Mphi-500_Mchi-150_2017_2.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_3/Mphi-500_Mchi-150_2017_3.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_4/Mphi-500_Mchi-150_2017_4.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_5/Mphi-500_Mchi-150_2017_5.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_6/Mphi-500_Mchi-150_2017_6.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_7/Mphi-500_Mchi-150_2017_7.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_8/Mphi-500_Mchi-150_2017_8.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_9/Mphi-500_Mchi-150_2017_9.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-500_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-500_Mchi-150_2017_10/Mphi-500_Mchi-150_2017_10.root"
+        ],
+        "xs": 4.315
+    },
+    "Mphi-295_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_1/Mphi-295_Mchi-150_2017_1.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_2/Mphi-295_Mchi-150_2017_2.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_3/Mphi-295_Mchi-150_2017_3.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_4/Mphi-295_Mchi-150_2017_4.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_5/Mphi-295_Mchi-150_2017_5.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_6/Mphi-295_Mchi-150_2017_6.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_7/Mphi-295_Mchi-150_2017_7.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_8/Mphi-295_Mchi-150_2017_8.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_9/Mphi-295_Mchi-150_2017_9.root"
+        ],
+        "xs": 2.373
+    },
+    "Mphi-295_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-295_Mchi-150_2017_10/Mphi-295_Mchi-150_2017_10.root"
+        ],
+        "xs": 2.373
+    },
     "WZ_TuneCP5_13TeV-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/WZ_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/280000/EF9CBF4E-A9FC-ED44-B5FF-EA26470BD4A0.root"
@@ -7138,6 +7918,126 @@
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/WZ_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/70000/A8308F60-1073-D742-B102-713C001C89AB.root"
         ],
         "xs": 65.5443
+    },
+    "Mphi-300_Mchi-100____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_1/Mphi-300_Mchi-100_2017_1.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_2/Mphi-300_Mchi-100_2017_2.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_3/Mphi-300_Mchi-100_2017_3.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_4/Mphi-300_Mchi-100_2017_4.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_5/Mphi-300_Mchi-100_2017_5.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_6/Mphi-300_Mchi-100_2017_6.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_7/Mphi-300_Mchi-100_2017_7.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_8/Mphi-300_Mchi-100_2017_8.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_9/Mphi-300_Mchi-100_2017_9.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-300_Mchi-100____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-300_Mchi-100_2017_10/Mphi-300_Mchi-100_2017_10.root"
+        ],
+        "xs": 18.96
+    },
+    "Mphi-1250_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_1/Mphi-1250_Mchi-150_2017_1.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_2/Mphi-1250_Mchi-150_2017_2.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_3/Mphi-1250_Mchi-150_2017_3.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_4/Mphi-1250_Mchi-150_2017_4.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_5/Mphi-1250_Mchi-150_2017_5.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_6/Mphi-1250_Mchi-150_2017_6.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_7/Mphi-1250_Mchi-150_2017_7.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_8/Mphi-1250_Mchi-150_2017_8.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_9/Mphi-1250_Mchi-150_2017_9.root"
+        ],
+        "xs": 0.1444
+    },
+    "Mphi-1250_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1250_Mchi-150_2017_10/Mphi-1250_Mchi-150_2017_10.root"
+        ],
+        "xs": 0.1444
     },
     "WJetsToLNu_Pt-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
@@ -8705,6 +9605,186 @@
         ],
         "xs": 8947.0
     },
+    "Mphi-750_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_1/Mphi-750_Mchi-150_2017_1.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_2/Mphi-750_Mchi-150_2017_2.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_3/Mphi-750_Mchi-150_2017_3.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_4/Mphi-750_Mchi-150_2017_4.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_5/Mphi-750_Mchi-150_2017_5.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_6/Mphi-750_Mchi-150_2017_6.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_7/Mphi-750_Mchi-150_2017_7.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_8/Mphi-750_Mchi-150_2017_8.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_9/Mphi-750_Mchi-150_2017_9.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-750_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-750_Mchi-150_2017_10/Mphi-750_Mchi-150_2017_10.root"
+        ],
+        "xs": 1.124
+    },
+    "Mphi-3000_Mchi-2000____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_1/Mphi-3000_Mchi-2000_2017_1.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_2/Mphi-3000_Mchi-2000_2017_2.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_3/Mphi-3000_Mchi-2000_2017_3.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_4/Mphi-3000_Mchi-2000_2017_4.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_5/Mphi-3000_Mchi-2000_2017_5.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_6/Mphi-3000_Mchi-2000_2017_6.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_7/Mphi-3000_Mchi-2000_2017_7.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_8/Mphi-3000_Mchi-2000_2017_8.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_9/Mphi-3000_Mchi-2000_2017_9.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-3000_Mchi-2000____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-2000_2017_10/Mphi-3000_Mchi-2000_2017_10.root"
+        ],
+        "xs": 4.319e-07
+    },
+    "Mphi-1000_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_1/Mphi-1000_Mchi-150_2017_1.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_2/Mphi-1000_Mchi-150_2017_2.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_3/Mphi-1000_Mchi-150_2017_3.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_4/Mphi-1000_Mchi-150_2017_4.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_5/Mphi-1000_Mchi-150_2017_5.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_6/Mphi-1000_Mchi-150_2017_6.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_7/Mphi-1000_Mchi-150_2017_7.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_8/Mphi-1000_Mchi-150_2017_8.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_9/Mphi-1000_Mchi-150_2017_9.root"
+        ],
+        "xs": 0.3727
+    },
+    "Mphi-1000_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-150_2017_10/Mphi-1000_Mchi-150_2017_10.root"
+        ],
+        "xs": 0.3727
+    },
     "SinglePhoton____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2017B/SinglePhoton/NANOAOD/UL2017_MiniAODv2_NanoAODv9-v1/120000/4DEB63D4-999D-7946-AF29-BB04A0CBC247.root"
@@ -9430,6 +10510,186 @@
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/WJetsToLNu_Pt-600ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/280000/E2885DCE-1060-E148-9BF7-1C83C301FC8D.root"
         ],
         "xs": 0.5426
+    },
+    "Mphi-495_Mchi-250____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_1/Mphi-495_Mchi-250_2017_1.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_2/Mphi-495_Mchi-250_2017_2.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_3/Mphi-495_Mchi-250_2017_3.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_4/Mphi-495_Mchi-250_2017_4.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_5/Mphi-495_Mchi-250_2017_5.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_6/Mphi-495_Mchi-250_2017_6.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_7/Mphi-495_Mchi-250_2017_7.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_8/Mphi-495_Mchi-250_2017_8.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_9/Mphi-495_Mchi-250_2017_9.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-495_Mchi-250____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-495_Mchi-250_2017_10/Mphi-495_Mchi-250_2017_10.root"
+        ],
+        "xs": 0.704
+    },
+    "Mphi-200_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_1/Mphi-200_Mchi-150_2017_1.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_2/Mphi-200_Mchi-150_2017_2.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_3/Mphi-200_Mchi-150_2017_3.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_4/Mphi-200_Mchi-150_2017_4.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_5/Mphi-200_Mchi-150_2017_5.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_6/Mphi-200_Mchi-150_2017_6.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_7/Mphi-200_Mchi-150_2017_7.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_8/Mphi-200_Mchi-150_2017_8.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_9/Mphi-200_Mchi-150_2017_9.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-200_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-200_Mchi-150_2017_10/Mphi-200_Mchi-150_2017_10.root"
+        ],
+        "xs": 0.2533
+    },
+    "Mphi-2995_Mchi-1500____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_1/Mphi-2995_Mchi-1500_2017_1.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_2/Mphi-2995_Mchi-1500_2017_2.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_3/Mphi-2995_Mchi-1500_2017_3.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_4/Mphi-2995_Mchi-1500_2017_4.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_5/Mphi-2995_Mchi-1500_2017_5.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_6/Mphi-2995_Mchi-1500_2017_6.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_7/Mphi-2995_Mchi-1500_2017_7.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_8/Mphi-2995_Mchi-1500_2017_8.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_9/Mphi-2995_Mchi-1500_2017_9.root"
+        ],
+        "xs": 0.0001901
+    },
+    "Mphi-2995_Mchi-1500____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2995_Mchi-1500_2017_10/Mphi-2995_Mchi-1500_2017_10.root"
+        ],
+        "xs": 0.0001901
     },
     "TTToHadronic_TuneCP5_13TeV-powheg-pythia8____1_": {
         "files": [
@@ -10625,6 +11885,66 @@
         ],
         "xs": 374.292
     },
+    "Mphi-2500_Mchi-2000____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_1/Mphi-2500_Mchi-2000_2017_1.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_2/Mphi-2500_Mchi-2000_2017_2.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_3/Mphi-2500_Mchi-2000_2017_3.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_4/Mphi-2500_Mchi-2000_2017_4.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_5/Mphi-2500_Mchi-2000_2017_5.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_6/Mphi-2500_Mchi-2000_2017_6.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_7/Mphi-2500_Mchi-2000_2017_7.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_8/Mphi-2500_Mchi-2000_2017_8.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_9/Mphi-2500_Mchi-2000_2017_9.root"
+        ],
+        "xs": 2.682e-07
+    },
+    "Mphi-2500_Mchi-2000____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-2000_2017_10/Mphi-2500_Mchi-2000_2017_10.root"
+        ],
+        "xs": 2.682e-07
+    },
     "WW_TuneCP5_13TeV-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/WW_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/280000/38D8D7E0-D379-E94A-9DCD-45BA483C7310.root"
@@ -10720,6 +12040,66 @@
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/WW_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/120000/1721E017-92D1-F04B-8320-81473F16BC79.root"
         ],
         "xs": 118.7
+    },
+    "Mphi-2000_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_1/Mphi-2000_Mchi-150_2017_1.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_2/Mphi-2000_Mchi-150_2017_2.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_3/Mphi-2000_Mchi-150_2017_3.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_4/Mphi-2000_Mchi-150_2017_4.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_5/Mphi-2000_Mchi-150_2017_5.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_6/Mphi-2000_Mchi-150_2017_6.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_7/Mphi-2000_Mchi-150_2017_7.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_8/Mphi-2000_Mchi-150_2017_8.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_9/Mphi-2000_Mchi-150_2017_9.root"
+        ],
+        "xs": 0.01414
+    },
+    "Mphi-2000_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-150_2017_10/Mphi-2000_Mchi-150_2017_10.root"
+        ],
+        "xs": 0.01414
     },
     "TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8____1_": {
         "files": [
@@ -12599,6 +13979,66 @@
         ],
         "xs": 3.3024
     },
+    "Mphi-2500_Mchi-750____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_1/Mphi-2500_Mchi-750_2017_1.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_2/Mphi-2500_Mchi-750_2017_2.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_3/Mphi-2500_Mchi-750_2017_3.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_4/Mphi-2500_Mchi-750_2017_4.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_5/Mphi-2500_Mchi-750_2017_5.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_6/Mphi-2500_Mchi-750_2017_6.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_7/Mphi-2500_Mchi-750_2017_7.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_8/Mphi-2500_Mchi-750_2017_8.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_9/Mphi-2500_Mchi-750_2017_9.root"
+        ],
+        "xs": 0.003237
+    },
+    "Mphi-2500_Mchi-750____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2500_Mchi-750_2017_10/Mphi-2500_Mchi-750_2017_10.root"
+        ],
+        "xs": 0.003237
+    },
     "WJetsToLNu_Pt-400To600_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/WJetsToLNu_Pt-400To600_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/110000/73FBB548-F62C-C14F-AD64-D71BCFE34162.root"
@@ -12676,6 +14116,126 @@
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/WJetsToLNu_Pt-400To600_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/110000/BB2D17C1-F17B-A448-85E0-E60A99869F71.root"
         ],
         "xs": 3.511
+    },
+    "Mphi-1000_Mchi-1000____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_1/Mphi-1000_Mchi-1000_2017_1.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_2/Mphi-1000_Mchi-1000_2017_2.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_3/Mphi-1000_Mchi-1000_2017_3.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_4/Mphi-1000_Mchi-1000_2017_4.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_5/Mphi-1000_Mchi-1000_2017_5.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_6/Mphi-1000_Mchi-1000_2017_6.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_7/Mphi-1000_Mchi-1000_2017_7.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_8/Mphi-1000_Mchi-1000_2017_8.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_9/Mphi-1000_Mchi-1000_2017_9.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1000_Mchi-1000____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1000_Mchi-1000_2017_10/Mphi-1000_Mchi-1000_2017_10.root"
+        ],
+        "xs": 5.344e-05
+    },
+    "Mphi-1500_Mchi-1000____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_1/Mphi-1500_Mchi-1000_2017_1.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_2/Mphi-1500_Mchi-1000_2017_2.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_3/Mphi-1500_Mchi-1000_2017_3.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_4/Mphi-1500_Mchi-1000_2017_4.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_5/Mphi-1500_Mchi-1000_2017_5.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_6/Mphi-1500_Mchi-1000_2017_6.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_7/Mphi-1500_Mchi-1000_2017_7.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_8/Mphi-1500_Mchi-1000_2017_8.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_9/Mphi-1500_Mchi-1000_2017_9.root"
+        ],
+        "xs": 0.0001071
+    },
+    "Mphi-1500_Mchi-1000____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-1000_2017_10/Mphi-1500_Mchi-1000_2017_10.root"
+        ],
+        "xs": 0.0001071
     },
     "DYJetsToLL_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
@@ -14459,6 +16019,126 @@
         ],
         "xs": -1
     },
+    "Mphi-3000_Mchi-1000____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_1/Mphi-3000_Mchi-1000_2017_1.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_2/Mphi-3000_Mchi-1000_2017_2.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_3/Mphi-3000_Mchi-1000_2017_3.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_4/Mphi-3000_Mchi-1000_2017_4.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_5/Mphi-3000_Mchi-1000_2017_5.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_6/Mphi-3000_Mchi-1000_2017_6.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_7/Mphi-3000_Mchi-1000_2017_7.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_8/Mphi-3000_Mchi-1000_2017_8.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_9/Mphi-3000_Mchi-1000_2017_9.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-3000_Mchi-1000____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-3000_Mchi-1000_2017_10/Mphi-3000_Mchi-1000_2017_10.root"
+        ],
+        "xs": 0.0008935
+    },
+    "Mphi-1500_Mchi-150____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_1/Mphi-1500_Mchi-150_2017_1.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_2/Mphi-1500_Mchi-150_2017_2.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_3/Mphi-1500_Mchi-150_2017_3.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_4/Mphi-1500_Mchi-150_2017_4.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_5/Mphi-1500_Mchi-150_2017_5.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_6/Mphi-1500_Mchi-150_2017_6.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_7/Mphi-1500_Mchi-150_2017_7.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_8/Mphi-1500_Mchi-150_2017_8.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_9/Mphi-1500_Mchi-150_2017_9.root"
+        ],
+        "xs": 0.06213
+    },
+    "Mphi-1500_Mchi-150____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-1500_Mchi-150_2017_10/Mphi-1500_Mchi-150_2017_10.root"
+        ],
+        "xs": 0.06213
+    },
     "DYJetsToLL_Pt-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8____1_": {
         "files": [
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/DYJetsToLL_Pt-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/270000/4E3E997A-DCEB-4F4D-8E8B-7DCA0FE50E29.root"
@@ -15592,5 +17272,125 @@
             "root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17NanoAODv9/DYJetsToLL_Pt-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/30000/BFF7193B-2360-3E48-9510-6C8D5DC8DC94.root"
         ],
         "xs": 94.39
+    },
+    "Mphi-2495_Mchi-1250____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_1/Mphi-2495_Mchi-1250_2017_1.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_2/Mphi-2495_Mchi-1250_2017_2.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_3/Mphi-2495_Mchi-1250_2017_3.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_4/Mphi-2495_Mchi-1250_2017_4.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_5/Mphi-2495_Mchi-1250_2017_5.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_6/Mphi-2495_Mchi-1250_2017_6.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_7/Mphi-2495_Mchi-1250_2017_7.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_8/Mphi-2495_Mchi-1250_2017_8.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_9/Mphi-2495_Mchi-1250_2017_9.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2495_Mchi-1250____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2495_Mchi-1250_2017_10/Mphi-2495_Mchi-1250_2017_10.root"
+        ],
+        "xs": 0.0006786
+    },
+    "Mphi-2000_Mchi-1500____1_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_1/Mphi-2000_Mchi-1500_2017_1.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____2_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_2/Mphi-2000_Mchi-1500_2017_2.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____3_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_3/Mphi-2000_Mchi-1500_2017_3.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____4_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_4/Mphi-2000_Mchi-1500_2017_4.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____5_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_5/Mphi-2000_Mchi-1500_2017_5.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____6_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_6/Mphi-2000_Mchi-1500_2017_6.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____7_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_7/Mphi-2000_Mchi-1500_2017_7.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____8_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_8/Mphi-2000_Mchi-1500_2017_8.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____9_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_9/Mphi-2000_Mchi-1500_2017_9.root"
+        ],
+        "xs": 4.319e-06
+    },
+    "Mphi-2000_Mchi-1500____10_": {
+        "files": [
+            "root://cmseos.fnal.gov//store/group/lpcmetx/Monotop/CustomNanoProdV9/2017v1/Mphi-2000_Mchi-1500_2017_10/Mphi-2000_Mchi-1500_2017_10.root"
+        ],
+        "xs": 4.319e-06
     }
 }
