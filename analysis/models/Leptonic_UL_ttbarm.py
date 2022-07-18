@@ -172,7 +172,7 @@ def model(year):
     # Create a channel/Control region
     ttbarm = rl.Channel(ch_name)
     # add the Channel/CR to the model
-    model.addChannel(ttbarm)
+    model.addChannel(ttbarm+str(year))
     
 
 
