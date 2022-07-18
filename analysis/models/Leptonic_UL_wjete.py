@@ -168,7 +168,7 @@ def model(year):
 
     model_id = 'w'
     model = rl.Model(model_id)
-    ch_name = "wjete" 
+    ch_name = "wjete" +str(year)
     # Create a channel/Control region
     wjete = rl.Channel(ch_name)
     # add the Channel/CR to the model
