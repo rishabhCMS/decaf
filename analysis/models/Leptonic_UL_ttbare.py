@@ -580,7 +580,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbare')[0] 
