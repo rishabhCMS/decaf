@@ -315,7 +315,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'wjete')[0] 
