@@ -241,7 +241,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjete')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'wjete')[0]
-        wjete_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         wjete_signal.setParamEffect(fsr, FSRUp, FSRDown)
         
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'wjete')[0] 
@@ -312,7 +312,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'wjete')[0] 
@@ -379,7 +379,7 @@ def model(year):
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjete_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'wjete')[0] 
