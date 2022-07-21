@@ -21,9 +21,9 @@ mT_corrected_binning_dict = {
 #     "2018":np.linspace(0, 600, 21),
 #     "2017":np.linspace(0, 600, 21),
 #     "2016":np.linspace(0, 600, 21)
-    "2018": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2017": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2016": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+    "2018": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
+    "2017": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
+    "2016": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
 }
 
 
@@ -617,9 +617,9 @@ if __name__ == "__main__":
     #     "2018":np.linspace(0, 600, 21),
     #     "2017":np.linspace(0, 600, 21),
     #     "2016":np.linspace(0, 600, 21)
-        "2018": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2017": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2016": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+        "2018": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
+        "2017": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
+        "2016": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
@@ -691,8 +691,8 @@ if __name__ == "__main__":
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr"+year, "shape")
-    fsr = rl.NuisanceParameter("fsr"+year, "shape")
+    isr = rl.NuisanceParameter("isr", "shape")
+    fsr = rl.NuisanceParameter("fsr", "shape")
     pdf = rl.NuisanceParameter("pdf"+year, "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
