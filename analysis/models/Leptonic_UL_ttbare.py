@@ -244,7 +244,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
-        ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbare')[0] 
@@ -451,7 +451,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'ST', 'FSRDown', 'ttbare')[0]
-    ttbare_st.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_st.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbare')[0] 
