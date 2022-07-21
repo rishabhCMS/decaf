@@ -124,9 +124,9 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
         if "ST" in str(process) :
             output[zerobins] = 1.
             sumw2[zerobins] = 0.
-#         elif "W+" in str(process):
-#             output[zerobins] = 1.
-#             sumw2[zerobins] = 0.
+        elif "W+" in str(process):
+            output[zerobins] = 1.
+            sumw2[zerobins] = 0.
         elif "TT" in str(process):
             output[zerobins] = 1.
             sumw2[zerobins] = 0.
