@@ -249,7 +249,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbarm')[0] 
@@ -390,7 +390,7 @@ def model(year):
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'ttbarm')[0] 
@@ -458,7 +458,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'ST', 'FSRDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_st.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbarm')[0] 
@@ -597,7 +597,7 @@ def model(year):
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbarm')[0]
 #     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     ttbarm.addSample(ttbarm_vv)
+    ttbarm.addSample(ttbarm_vv)
 
 
 
