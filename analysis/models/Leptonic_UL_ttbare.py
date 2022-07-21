@@ -368,9 +368,6 @@ def model(year):
     jesDown=template(background, 'TT', 'JESDown', 'ttbare')[0]
     ttbare_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
 
-
-
-
     #L1 prefire
     L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'ttbare')[0] 
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'ttbare')[0]
@@ -384,7 +381,7 @@ def model(year):
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'ttbare')[0]
-    ttbare_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'ttbare')[0] 
@@ -521,9 +518,9 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbare')[0]
-#     ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+    ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     ttbare.addSample(ttbare_dyjets)
+    ttbare.addSample(ttbare_dyjets)
 
 
         # V Jets Background
@@ -585,9 +582,9 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbare')[0]
-#     ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+    ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
-#     ttbare.addSample(ttbare_vv)
+    ttbare.addSample(ttbare_vv)
 
 
 
