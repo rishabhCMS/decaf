@@ -135,7 +135,7 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
             sumw2[zerobins] = 0.
             
         else:
-            output[zerobins] = 1.
+            output[zerobins] = 1e-5
             sumw2[zerobins] = 0.
 
             
@@ -247,7 +247,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjetm')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'wjetm')[0]
-        wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'wjetm')[0] 
@@ -320,7 +320,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'wjetm')[0]
-    wjetm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'wjetm')[0] 
@@ -390,7 +390,7 @@ def model(year):
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'wjetm')[0] 
