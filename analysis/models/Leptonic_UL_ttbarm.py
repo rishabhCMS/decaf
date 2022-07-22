@@ -21,9 +21,9 @@ mT_corrected_binning_dict = {
 #     "2018":np.linspace(0, 600, 21),
 #     "2017":np.linspace(0, 600, 21),
 #     "2016":np.linspace(0, 600, 21)
-    "2018": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2017": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2016": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+    "2018": np.array([100.0,125.0,150.0,200.0, 270.0, 310.0, 350.0, 500]),
+    "2017": np.array([100.0,125.0,150.0, 200.0,  270.0, 310.0, 350.0, 500]),
+    "2016": np.array([100.0,125.0,150.0,   200.0,   270.0, 310.0, 350.0, 500])
 }
 
 
@@ -249,7 +249,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'ttbarm')[0]
-#         ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+        ttbarm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbarm')[0] 
@@ -321,7 +321,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
@@ -390,7 +390,7 @@ def model(year):
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'ttbarm')[0]
-#     ttbarm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbarm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'ttbarm')[0] 
@@ -458,7 +458,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'ST', 'FSRDown', 'ttbarm')[0]
-#     ttbarm_st.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbarm_st.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbarm')[0] 
@@ -528,7 +528,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+    ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
 #     ttbarm.addSample(ttbarm_dyjets)
 
@@ -590,12 +590,12 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'ttbarm')[0]
-#     ttbarm_vv.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbarm_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+    ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_vv)
 
@@ -617,9 +617,9 @@ if __name__ == "__main__":
     #     "2018":np.linspace(0, 600, 21),
     #     "2017":np.linspace(0, 600, 21),
     #     "2016":np.linspace(0, 600, 21)
-        "2018": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2017": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2016": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+        "2018": np.array([100.0,125.0,150.0,200.0, 270.0, 310.0, 350.0, 500]),
+        "2017": np.array([100.0,125.0,150.0, 200.0,  270.0, 310.0, 350.0, 500]),
+        "2016": np.array([100.0,125.0,150.0,   200.0,   270.0, 310.0, 350.0, 500])
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
