@@ -21,9 +21,9 @@ mT_corrected_binning_dict = {
 #     "2018":np.linspace(0, 600, 21),
 #     "2017":np.linspace(0, 600, 21),
 #     "2016":np.linspace(0, 600, 21)
-    "2018": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2017": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2016": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+    "2018": np.array([100.0,125.0,150.0,200.0, 270.0, 310.0, 350.0, 500]),
+    "2017": np.array([100.0,125.0,150.0, 200.0,  270.0, 310.0, 350.0, 500]),
+    "2016": np.array([100.0,125.0,150.0,   200.0,   270.0, 310.0, 350.0, 500])
 }
 
 
@@ -247,7 +247,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjetm')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+        wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'wjetm')[0] 
@@ -320,7 +320,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'wjetm')[0]
-#     wjetm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+    wjetm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'wjetm')[0] 
@@ -390,7 +390,7 @@ def model(year):
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'wjetm')[0]
-#     wjetm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+    wjetm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'wjetm')[0] 
@@ -617,9 +617,9 @@ if __name__ == "__main__":
     #     "2018":np.linspace(0, 600, 21),
     #     "2017":np.linspace(0, 600, 21),
     #     "2016":np.linspace(0, 600, 21)
-        "2018": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2017": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2016": np.array([100.0,125.0,150.0,  180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+        "2018": np.array([100.0,125.0,150.0,200.0, 270.0, 310.0, 350.0, 500]),
+        "2017": np.array([100.0,125.0,150.0, 200.0,  270.0, 310.0, 350.0, 500]),
+        "2016": np.array([100.0,125.0,150.0,   200.0,   270.0, 310.0, 350.0, 500])
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
