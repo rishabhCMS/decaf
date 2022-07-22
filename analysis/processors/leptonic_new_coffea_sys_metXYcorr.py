@@ -1917,8 +1917,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                     weights.add(
                         "ISR",
                         weight=np.ones(len(events)),
-                        weightUp=psWeights[:, 2],
-                        weightDown=psWeights[:, 0],
+                        weightUp=psWeights[:, 0],
+                        weightDown=psWeights[:, 2],
                     )
                     weights.add(
                         "FSR",
