@@ -236,7 +236,7 @@ def model(year):
         #L1 ISR
         ISRUp=template(signal, s, 'ISRUp', 'wjete')[0] 
         ISRDown=template(signal, s, 'ISRDown', 'wjete')[0]
-        wjete_signal.setParamEffect(isr, ISRUp, ISRDown)
+#         wjete_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjete')[0] 
@@ -307,7 +307,7 @@ def model(year):
         #L1 ISR
     ISRUp=template(background, 'W+jets', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'W+jets', 'ISRDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'wjete')[0] 
@@ -374,7 +374,7 @@ def model(year):
         #ISR
     ISRUp=template(background, 'TT', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'TT', 'ISRDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_ttMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'wjete')[0] 
@@ -441,7 +441,7 @@ def model(year):
     #L1 ISR
     ISRUp=template(background, 'ST', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'ST', 'ISRDown', 'wjete')[0]
-    wjete_st.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_st.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'wjete')[0] 
@@ -505,7 +505,7 @@ def model(year):
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'DY+jets', 'ISRDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjete')[0] 
@@ -570,7 +570,7 @@ def model(year):
         #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'VV', 'ISRDown', 'wjete')[0]
-    wjete_vv.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_vv.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'wjete')[0] 
