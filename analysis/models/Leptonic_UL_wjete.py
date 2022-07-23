@@ -676,7 +676,7 @@ if __name__ == "__main__":
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf"+year, "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
