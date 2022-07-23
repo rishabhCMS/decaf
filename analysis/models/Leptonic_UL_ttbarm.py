@@ -195,7 +195,7 @@ def model(year):
     #template for signal
     for s in signal['ttbarm'].identifiers('process'):
         print(s)
-        if 'Mphi2000' not in str(s): continue
+#         if 'Mphi2000' not in str(s): continue
         ttbarm_signalTemplate = template(signal,s,'nominal','ttbarm')
         ttbarm_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, ttbarm_signalTemplate)
         ttbarm_signal.setParamEffect(lumi, lumi_unc)
