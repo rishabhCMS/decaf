@@ -54,9 +54,9 @@ def remap_histograms(hists):
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
-    sig_map["Mphi1995_Mchi1000"] = ("Mphi-1995_Mchi-1000")
-    sig_map["Mphi2000_Mchi1500"] = ("Mphi-2000_Mchi-1500")
-    sig_map["Mphi2000_Mchi500"] = ("Mphi-2000_Mchi-500")
+    sig_map["Mphi1995_Mchi1000"] = ("Mphi-1995*")
+    sig_map["Mphi2000_Mchi1500"] = ("Mphi-2000*")
+    sig_map["Mphi2000_Mchi500"] = ("Mphi-2000*")
 #     haven't processed signal yet
     for signal in hists['sig']['template'].identifiers('process'):
         if 'Mchi' not in str(signal): continue
