@@ -366,11 +366,11 @@ class AnalysisProcessor(processor.ProcessorABC):
             'ttbare':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleElectron','EGamma',
                      'Mphi'),
             'ttbarm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon',
-                     'Mphi),
+                     'Mphi'),
             'wjete':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD', 'SingleElectron','EGamma',
-                    'Mphi),
+                    'Mphi'),
             'wjetm':('WJets','DY','TT','ST','WW','WZ','ZZ','QCD','SingleMuon',
-                    'Mphi),
+                    'Mphi'),
         }
         
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
