@@ -133,10 +133,10 @@ def addVJetsSyst(dictionary, process, region, templ):
     addSyst(dictionary, process, region, templ, ew2Z, "ew2Z")
     addSyst(dictionary, process, region, templ, ew3W, "ew3W")
     addSyst(dictionary, process, region, templ, ew3Z, "ew3Z")
-    addSyst(dictionary, process, region, templ, mix, "mix")
-    addSyst(dictionary, process, region, templ, qcd1, "qcd1")
-    addSyst(dictionary, process, region, templ, qcd2, "qcd2")
-    addSyst(dictionary, process, region, templ, qcd3, "qcd3")
+#     addSyst(dictionary, process, region, templ, mix, "mix")
+#     addSyst(dictionary, process, region, templ, qcd1, "qcd1")
+#     addSyst(dictionary, process, region, templ, qcd2, "qcd2")
+#     addSyst(dictionary, process, region, templ, qcd3, "qcd3")
     addSyst(dictionary, process, region, templ, muR, "muR")
     addSyst(dictionary, process, region, templ, muF, "muF")
     
@@ -239,7 +239,7 @@ def model(year):
         #pileup
         pileupUp=template(signal, s,'puUp','wjetm')[0] 
         pileupDown=template(signal, s,'puDown','wjetm')[0] 
-        wjetm_signal.setParamEffect(pileup, pileupUp, pileupDown)
+#         wjetm_signal.setParamEffect(pileup, pileupUp, pileupDown)
         #iso Muon
         isolation_mUp=template(signal, s, 'isolation_mUp', 'wjetm')[0] 
         isolation_mDown=template(signal, s, 'isolation_mDown', 'wjetm')[0]
@@ -253,12 +253,12 @@ def model(year):
         #JEC_JER
         jerUp=template(signal, s, 'JERUp', 'wjetm')[0] 
         jerDown=template(signal, s, 'JERDown', 'wjetm')[0]
-        wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
         jesUp=template(signal, s, 'JESUp', 'wjetm')[0] 
         jesDown=template(signal, s, 'JESDown', 'wjetm')[0]
-        wjetm_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         wjetm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
 
         #L1 prefire
@@ -269,12 +269,12 @@ def model(year):
         #L1 ISR
         ISRUp=template(signal, s, 'ISRUp', 'wjetm')[0] 
         ISRDown=template(signal, s, 'ISRDown', 'wjetm')[0]
-        wjetm_signal.setParamEffect(isr, ISRUp, ISRDown)
+#         wjetm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjetm')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'wjetm')[0]
-        wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'wjetm')[0] 
