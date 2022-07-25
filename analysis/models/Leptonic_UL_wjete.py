@@ -134,10 +134,10 @@ def addVJetsSyst(dictionary, process, region, templ):
     addSyst(dictionary, process, region, templ, ew2Z, "ew2Z")
     addSyst(dictionary, process, region, templ, ew3W, "ew3W")
     addSyst(dictionary, process, region, templ, ew3Z, "ew3Z")
-    addSyst(dictionary, process, region, templ, mix, "mix")
-    addSyst(dictionary, process, region, templ, qcd1, "qcd1")
-    addSyst(dictionary, process, region, templ, qcd2, "qcd2")
-    addSyst(dictionary, process, region, templ, qcd3, "qcd3")
+#     addSyst(dictionary, process, region, templ, mix, "mix")
+#     addSyst(dictionary, process, region, templ, qcd1, "qcd1")
+#     addSyst(dictionary, process, region, templ, qcd2, "qcd2")
+#     addSyst(dictionary, process, region, templ, qcd3, "qcd3")
     addSyst(dictionary, process, region, templ, muR, "muR")
     addSyst(dictionary, process, region, templ, muF, "muF")
     
@@ -269,7 +269,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjete')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'wjete')[0]
-        wjete_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         wjete_signal.setParamEffect(fsr, FSRUp, FSRDown)
         
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'wjete')[0] 
