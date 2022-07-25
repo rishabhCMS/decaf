@@ -239,7 +239,7 @@ def model(year):
         #pileup
         pileupUp=template(signal, s,'puUp','wjete')[0] 
         pileupDown=template(signal, s,'puDown','wjete')[0] 
-        wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
+#         wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
         
         #reco Electron
         recoeUp=template(signal, s, 'reco_eUp', 'wjete')[0] 
@@ -249,12 +249,12 @@ def model(year):
         #JEC_JER
         jerUp=template(signal, s, 'JERUp', 'wjete')[0] 
         jerDown=template(signal, s, 'JERDown', 'wjete')[0]
-        wjete_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         wjete_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
         jesUp=template(signal, s, 'JESUp', 'wjete')[0] 
         jesDown=template(signal, s, 'JESDown', 'wjete')[0]
-        wjete_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         wjete_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
         #L1 prefire
         L1prefireUp=template(signal, s, 'L1PrefireUp', 'wjete')[0] 
@@ -264,7 +264,7 @@ def model(year):
         #L1 ISR
         ISRUp=template(signal, s, 'ISRUp', 'wjete')[0] 
         ISRDown=template(signal, s, 'ISRDown', 'wjete')[0]
-        wjete_signal.setParamEffect(isr, ISRUp, ISRDown)
+#         wjete_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjete')[0] 
@@ -274,7 +274,7 @@ def model(year):
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'wjete')[0] 
         pdfDown=template(signal, s, 'PDFDown', 'wjete')[0]
-        wjete_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+#         wjete_signal.setParamEffect(pdf, pdfUp, pdfDown) 
         
 #         wjete_signal.autoMCStats()
         wjete.addSample(wjete_signal)
