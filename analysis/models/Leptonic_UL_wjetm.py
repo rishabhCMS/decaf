@@ -54,36 +54,36 @@ def remap_histograms(hists):
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
-    sig_map['Mphi-1000_Mchi-1000'] = ('Mphi-1000_Mchi-1000')
-    sig_map['Mphi-1000_Mchi-150'] = ('Mphi-1000_Mchi-150')
-    sig_map['Mphi-1250_Mchi-150'] = ('Mphi-1250_Mchi-150')
-    sig_map['Mphi-1495_Mchi-750'] = ('Mphi-1495_Mchi-750')
-    sig_map['Mphi-1500_Mchi-1000'] = ('Mphi-1500_Mchi-1000')
-    sig_map['Mphi-1500_Mchi-150'] = ('Mphi-1500_Mchi-150')
-    sig_map['Mphi-1700_Mchi-800'] = ('Mphi-1700_Mchi-800')
-    sig_map['Mphi-1750_Mchi-150'] = ('Mphi-1750_Mchi-150')
-    sig_map['Mphi-1750_Mchi-700'] = ('Mphi-1750_Mchi-700')
-    sig_map['Mphi-195_Mchi-100'] = ('Mphi-195_Mchi-100')
-    sig_map['Mphi-1995_Mchi-1000'] = ('Mphi-1995_Mchi-1000')
-    sig_map['Mphi-2000_Mchi-1500'] = ('Mphi-2000_Mchi-1500')
-    sig_map['Mphi-2000_Mchi-150'] = ('Mphi-2000_Mchi-150')
-    sig_map['Mphi-2000_Mchi-500'] = ('Mphi-2000_Mchi-500')
-    sig_map['Mphi-200_Mchi-150'] = ('Mphi-200_Mchi-150')
-    sig_map['Mphi-200_Mchi-50'] = ('Mphi-200_Mchi-50')
-    sig_map['Mphi-2495_Mchi-1250'] = ('Mphi-2495_Mchi-1250')
-    sig_map['Mphi-2500_Mchi-2000'] = ('Mphi-2500_Mchi-2000')
-    sig_map['Mphi-2500_Mchi-750'] = ('Mphi-2500_Mchi-750')
-    sig_map['Mphi-295_Mchi-150'] = ('Mphi-295_Mchi-150')
-    sig_map['Mphi-2995_Mchi-1500'] = ('Mphi-2995_Mchi-1500')
-    sig_map['Mphi-3000_Mchi-1000'] = ('Mphi-3000_Mchi-1000')
-    sig_map['Mphi-3000_Mchi-2000'] = ('Mphi-3000_Mchi-2000')
-    sig_map['Mphi-300_Mchi-100'] = ('Mphi-300_Mchi-100')
-    sig_map['Mphi-300_Mchi-300'] = ('Mphi-300_Mchi-300')
-    sig_map['Mphi-495_Mchi-250'] = ('Mphi-495_Mchi-250')
-    sig_map['Mphi-500_Mchi-150'] = ('Mphi-500_Mchi-150')
-    sig_map['Mphi-500_Mchi-500'] = ('Mphi-500_Mchi-500')
-    sig_map['Mphi-750_Mchi-150'] = ('Mphi-750_Mchi-150')
-    sig_map['Mphi-995_Mchi-500'] = ('Mphi-995_Mchi-500')
+    sig_map['Mphi-1000_Mchi-1000'] = ('*Mphi-1000_Mchi-1000*')
+    sig_map['Mphi-1000_Mchi-150'] = ('*Mphi-1000_Mchi-150*')
+    sig_map['Mphi-1250_Mchi-150'] = ('*Mphi-1250_Mchi-150*')
+    sig_map['Mphi-1495_Mchi-750'] = ('*Mphi-1495_Mchi-750*')
+    sig_map['Mphi-1500_Mchi-1000'] = ('*Mphi-1500_Mchi-1000*')
+    sig_map['Mphi-1500_Mchi-150'] = ('*Mphi-1500_Mchi-150*')
+    sig_map['Mphi-1700_Mchi-800'] = ('*Mphi-1700_Mchi-800*')
+    sig_map['Mphi-1750_Mchi-150'] = ('*Mphi-1750_Mchi-150*')
+    sig_map['Mphi-1750_Mchi-700'] = ('*Mphi-1750_Mchi-700*')
+    sig_map['Mphi-195_Mchi-100'] = ('*Mphi-195_Mchi-100*')
+    sig_map['Mphi-1995_Mchi-1000'] = ('*Mphi-1995_Mchi-1000*')
+    sig_map['Mphi-2000_Mchi-1500'] = ('*Mphi-2000_Mchi-1500*')
+    sig_map['Mphi-2000_Mchi-150'] = ('*Mphi-2000_Mchi-150*')
+    sig_map['Mphi-2000_Mchi-500'] = ('*Mphi-2000_Mchi-500*')
+    sig_map['Mphi-200_Mchi-150'] = ('*Mphi-200_Mchi-150*')
+    sig_map['Mphi-200_Mchi-50'] = ('*Mphi-200_Mchi-50*')
+    sig_map['Mphi-2495_Mchi-1250'] = ('*Mphi-2495_Mchi-1250*')
+    sig_map['Mphi-2500_Mchi-2000'] = ('*Mphi-2500_Mchi-2000*')
+    sig_map['Mphi-2500_Mchi-750'] = ('*Mphi-2500_Mchi-750*')
+    sig_map['Mphi-295_Mchi-150'] = ('*Mphi-295_Mchi-150*')
+    sig_map['Mphi-2995_Mchi-1500'] = ('*Mphi-2995_Mchi-1500*')
+    sig_map['Mphi-3000_Mchi-1000'] = ('*Mphi-3000_Mchi-1000*')
+    sig_map['Mphi-3000_Mchi-2000'] = ('*Mphi-3000_Mchi-2000*')
+    sig_map['Mphi-300_Mchi-100'] = ('*Mphi-300_Mchi-100*')
+    sig_map['Mphi-300_Mchi-300'] = ('*Mphi-300_Mchi-300*')
+    sig_map['Mphi-495_Mchi-250'] = ('*Mphi-495_Mchi-250*')
+    sig_map['Mphi-500_Mchi-150'] = ('*Mphi-500_Mchi-150*')
+    sig_map['Mphi-500_Mchi-500'] = ('*Mphi-500_Mchi-500*')
+    sig_map['Mphi-750_Mchi-150'] = ('*Mphi-750_Mchi-150*')
+    sig_map['Mphi-995_Mchi-500'] = ('*Mphi-995_Mchi-500*')
 #     haven't processed signal yet
     for signal in hists['sig']['template'].identifiers('process'):
         if 'Mchi' not in str(signal): continue
@@ -151,9 +151,9 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
         if "ST" in str(process) :
             output[zerobins] = 1.
             sumw2[zerobins] = 0.
-#         elif "W+" in str(process):
-#             output[zerobins] = 1.
-#             sumw2[zerobins] = 0.
+        elif "W+" in str(process):
+            output[zerobins] = 1.
+            sumw2[zerobins] = 0.
 #         elif "W+" in str(process):
 #             output[zerobins] = 1.
 #             sumw2[zerobins] = 0.
@@ -220,7 +220,7 @@ def model(year):
     #template for signal
     for s in signal['wjetm'].identifiers('process'):
         print(s)
-        if 'Mphi1995' not in str(s): continue
+        if 'Mphi' not in str(s): continue
         wjetm_signalTemplate = template(signal,s,'nominal','wjetm')
         wjetm_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjetm_signalTemplate)
         wjetm_signal.setParamEffect(lumi, lumi_unc)
