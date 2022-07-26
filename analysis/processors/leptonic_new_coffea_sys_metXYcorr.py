@@ -1931,12 +1931,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if 'cen' in nnlo_nlo:
                     #print("if 'cen' in nnlo_nlo")
 #                     weights.add('nnlo_nlo', nnlo_nlo['cen'])
-                    weights.add('qcd1', np.ones(
-                        event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
-                    weights.add('qcd2', np.ones(
-                        event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
-                    weights.add('qcd3', np.ones(
-                        event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
+#                     weights.add('qcd1', np.ones(
+#                         event_size), nnlo_nlo['qcd1up']/nnlo_nlo['cen'], nnlo_nlo['qcd1do']/nnlo_nlo['cen'])
+#                     weights.add('qcd2', np.ones(
+#                         event_size), nnlo_nlo['qcd2up']/nnlo_nlo['cen'], nnlo_nlo['qcd2do']/nnlo_nlo['cen'])
+#                     weights.add('qcd3', np.ones(
+#                         event_size), nnlo_nlo['qcd3up']/nnlo_nlo['cen'], nnlo_nlo['qcd3do']/nnlo_nlo['cen'])
                     weights.add('ew1', np.ones(
                         event_size), nnlo_nlo['ew1up']/nnlo_nlo['cen'], nnlo_nlo['ew1do']/nnlo_nlo['cen'])
                     weights.add('ew2G', np.ones(
@@ -2007,12 +2007,12 @@ class AnalysisProcessor(processor.ProcessorABC):
                         systematics = ['nominal',
                                        'btagUp',
                                        'btagDown',
-                                       'qcd1Up',
-                                       'qcd1Down',
-                                       'qcd2Up',
-                                       'qcd2Down',
-                                       'qcd3Up',
-                                       'qcd3Down',
+#                                        'qcd1Up',
+#                                        'qcd1Down',
+#                                        'qcd2Up',
+#                                        'qcd2Down',
+#                                        'qcd3Up',
+#                                        'qcd3Down',
                                        'muFUp',
                                        'muFDown',
                                        'muRUp',
