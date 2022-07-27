@@ -713,8 +713,8 @@ if __name__ == "__main__":
         year = year+"postVFP"
     
     for s in signal['sre'].identifiers('process'):
-    print(s)
-    if 'Mphi-1000_Mchi-1000' not in str(s): continue
+        print(s)
+        if 'Mphi-1000_Mchi-1000' not in str(s): continue
     
         with open(
             "data/"+"test_sre"+s+year+".model",
