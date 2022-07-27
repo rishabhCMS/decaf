@@ -274,7 +274,7 @@ def model(year, signal_name):
     #pdf 
     pdfUp=template(signal, s, 'PDFUp', 'sre')[0] 
     pdfDown=template(signal, s, 'PDFDown', 'sre')[0]
-#     sre_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+    sre_signal.setParamEffect(pdf, pdfUp, pdfDown) 
 
 #         sre_signal.autoMCStats()
     sre.addSample(sre_signal)
@@ -478,7 +478,7 @@ def model(year, signal_name):
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'sre')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'sre')[0]
-    sre_st.setParamEffect(pdf, pdfUp, pdfDown)  
+#     sre_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     sre.addSample(sre_st)
 
