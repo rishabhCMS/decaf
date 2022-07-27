@@ -195,7 +195,7 @@ def model(year, signal_name):
 
     model_id = 'w'
     model = rl.Model(model_id)
-    ch_name = "sre"+str(year)+str(signal_name) 
+    ch_name = "sre"+str(year)+(str(signal_name).replace("_", "-")) 
     # Create a channel/Control region
     sre = rl.Channel(ch_name)
     # add the Channel/CR to the model
