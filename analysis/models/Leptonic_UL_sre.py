@@ -195,7 +195,7 @@ def model(year, signal_name):
 
     model_id = 'w'
     model = rl.Model(model_id)
-    ch_name = "sre"+str(year)+signal_name 
+    ch_name = "sre"+str(year)+str(signal_name) 
     # Create a channel/Control region
     sre = rl.Channel(ch_name)
     # add the Channel/CR to the model
@@ -717,6 +717,6 @@ if __name__ == "__main__":
         if 'Mphi-1000_Mchi-1000' not in str(s): continue
     
         with open(
-            "data/"+"test_sre"+s+year+".model",
+            "data/"+"test_sre"+str(s)+year+".model",
             "wb",) as fout:
             pickle.dump(model(year, s), fout, protocol=2)
