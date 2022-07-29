@@ -719,4 +719,4 @@ if __name__ == "__main__":
         with open(
             "data/"+"test_sre"+str(s)+year+".model",
             "wb",) as fout:
-            pickle.dump(model(year, s), fout, protocol=2)
+            pickle.dump(model(year, str(s)), fout, protocol=2)
