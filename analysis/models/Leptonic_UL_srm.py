@@ -724,10 +724,10 @@ if __name__ == "__main__":
     elif "postVFP" in hist_scaled_file:
         year = year+"postVFP"
     for s in signal['srm'].identifiers('process'):
-    print(s)
-    if 'Mphi-995_Mchi-500' not in str(s): continue
-    
-        with open(
-            "data/"+"test_srm"+s+year+".model",
-            "wb",) as fout:
-            pickle.dump(model(year, s), fout, protocol=2)
+        print(s)
+        if 'Mphi-995_Mchi-500' not in str(s): continue
+
+            with open(
+                "data/"+"test_srm"+s+year+".model",
+                "wb",) as fout:
+                pickle.dump(model(year, s), fout, protocol=2)
