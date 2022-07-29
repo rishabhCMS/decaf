@@ -714,7 +714,7 @@ if __name__ == "__main__":
     
     for s in signal['sre'].identifiers('process'):
         print(s)
-        if 'Mphi-1000_Mchi-1000' not in str(s): continue
+#         if 'Mphi-1000_Mchi-1000' not in str(s): continue
     
         with open(
             "data/"+"test_sre"+str(s)+year+".model",
