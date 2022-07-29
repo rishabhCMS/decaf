@@ -727,7 +727,7 @@ if __name__ == "__main__":
         print(s)
         if 'Mphi-995_Mchi-500' not in str(s): continue
 
-            with open(
-                "data/"+"test_srm"+s+year+".model",
-                "wb",) as fout:
-                pickle.dump(model(year, s), fout, protocol=2)
+        with open(
+            "data/"+"test_srm"+s+year+".model",
+            "wb",) as fout:
+            pickle.dump(model(year, s), fout, protocol=2)
