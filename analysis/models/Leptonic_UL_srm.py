@@ -185,7 +185,7 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
         return (output, binning, "mT_corrected", sumw2)
     return (output, binning, "mT_corrected")
 
-def model(year):
+def model(year, signal_name):
 
 #     model_id = year + category + "recoil" + str(recoil)
 #     print(model_id)
