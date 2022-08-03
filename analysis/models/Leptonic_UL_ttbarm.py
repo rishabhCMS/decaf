@@ -321,7 +321,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "W+jets", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "W+jets", 'id_mDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
+#     ttbarm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
 
 
     #JEC_JER
@@ -385,7 +385,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "TT", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "TT", 'id_mDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
+#     ttbarm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'TT','puUp','ttbarm')[0] 
     pileupDown=template(background, 'TT','puDown','ttbarm')[0] 
@@ -454,7 +454,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "ST", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "ST", 'id_mDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(id_m, id_mUp, id_mDown)
+#     ttbarm_st.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'ST','puUp','ttbarm')[0] 
     pileupDown=template(background, 'ST','puDown','ttbarm')[0] 
@@ -520,7 +520,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
+#     ttbarm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','ttbarm')[0] 
@@ -585,7 +585,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(id_m, id_mUp, id_mDown)
+#     ttbarm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbarm')[0] 
     pileupDown=template(background, 'VV','puDown','ttbarm')[0] 
