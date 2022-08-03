@@ -271,7 +271,7 @@ def model(year):
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
+        ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbare')[0] 
@@ -341,7 +341,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
-#     ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbare')[0] 
@@ -383,7 +383,7 @@ def model(year):
     recoeUp=template(background, 'TT', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'TT', 'reco_eDown', 'ttbare')[0]
     ttbare_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
-    # ttbare_ttMC.setParamEffect(ttMC_norm, 1.2)
+#     ttbare_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
     jerUp=template(background, 'TT', 'JERUp', 'ttbare')[0] 
@@ -540,7 +540,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
-#     ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbare')[0] 
@@ -575,7 +575,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbare')[0] 
     pileupDown=template(background, 'VV','puDown','ttbare')[0] 
-#     ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
+    ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
         #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'ttbare')[0]
@@ -604,7 +604,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'ttbare')[0]
-#     ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbare')[0] 
