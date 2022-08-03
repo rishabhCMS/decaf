@@ -589,7 +589,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbarm')[0] 
     pileupDown=template(background, 'VV','puDown','ttbarm')[0] 
-    ttbarm_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbarm_vv.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
