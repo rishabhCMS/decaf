@@ -575,7 +575,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbare')[0] 
     pileupDown=template(background, 'VV','puDown','ttbare')[0] 
-    ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
         #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'ttbare')[0]
