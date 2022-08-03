@@ -319,7 +319,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "W+jets", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "W+jets", 'id_mDown', 'wjetm')[0]
-    wjetm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
 
 
     #JEC_JER
@@ -384,7 +384,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "TT", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "TT", 'id_mDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'TT','puUp','wjetm')[0] 
     pileupDown=template(background, 'TT','puDown','wjetm')[0] 
@@ -454,7 +454,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "ST", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "ST", 'id_mDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_st.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'ST','puUp','wjetm')[0] 
     pileupDown=template(background, 'ST','puDown','wjetm')[0] 
@@ -520,7 +520,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','wjetm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','wjetm')[0] 
@@ -586,7 +586,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','wjetm')[0] 
     pileupDown=template(background, 'VV','puDown','wjetm')[0] 
