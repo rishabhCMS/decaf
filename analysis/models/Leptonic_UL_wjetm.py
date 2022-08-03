@@ -239,7 +239,7 @@ def model(year):
         #pileup
         pileupUp=template(signal, s,'puUp','wjetm')[0] 
         pileupDown=template(signal, s,'puDown','wjetm')[0] 
-#         wjetm_signal.setParamEffect(pileup, pileupUp, pileupDown)
+        wjetm_signal.setParamEffect(pileup, pileupUp, pileupDown)
         #iso Muon
         isolation_mUp=template(signal, s, 'isolation_mUp', 'wjetm')[0] 
         isolation_mDown=template(signal, s, 'isolation_mDown', 'wjetm')[0]
@@ -253,12 +253,12 @@ def model(year):
         #JEC_JER
         jerUp=template(signal, s, 'JERUp', 'wjetm')[0] 
         jerDown=template(signal, s, 'JERDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
+        wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
         jesUp=template(signal, s, 'JESUp', 'wjetm')[0] 
         jesDown=template(signal, s, 'JESDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(jec_jes, jesUp, jesDown)
+        wjetm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
 
         #L1 prefire
@@ -269,12 +269,12 @@ def model(year):
         #L1 ISR
         ISRUp=template(signal, s, 'ISRUp', 'wjetm')[0] 
         ISRDown=template(signal, s, 'ISRDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(isr, ISRUp, ISRDown)
+        wjetm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'wjetm')[0] 
         FSRDown=template(signal, s, 'FSRDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+        wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'wjetm')[0] 
@@ -319,7 +319,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "W+jets", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "W+jets", 'id_mDown', 'wjetm')[0]
-#     wjetm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
+    wjetm_wjetsMC.setParamEffect(id_m, id_mUp, id_mDown)
 
 
     #JEC_JER
@@ -384,7 +384,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "TT", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "TT", 'id_mDown', 'wjetm')[0]
-#     wjetm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
+    wjetm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'TT','puUp','wjetm')[0] 
     pileupDown=template(background, 'TT','puDown','wjetm')[0] 
@@ -485,7 +485,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'ST', 'FSRDown', 'wjetm')[0]
-#     wjetm_st.setParamEffect(fsr, FSRUp, FSRDown)
+    wjetm_st.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'wjetm')[0] 
@@ -520,7 +520,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'wjetm')[0]
-#     wjetm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
+    wjetm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','wjetm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','wjetm')[0] 
@@ -551,7 +551,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjetm')[0]
-#     wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+    wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'wjetm')[0] 
@@ -586,7 +586,7 @@ def model(year):
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
+    wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','wjetm')[0] 
     pileupDown=template(background, 'VV','puDown','wjetm')[0] 
@@ -618,7 +618,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(fsr, FSRUp, FSRDown)
+    wjetm_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'wjetm')[0] 
