@@ -725,7 +725,7 @@ if __name__ == "__main__":
         year = year+"postVFP"
     for s in signal['srm'].identifiers('process'):
         print(s)
-        if 'Mphi-995_Mchi-500' not in str(s): continue
+#         if 'Mphi-995_Mchi-500' not in str(s): continue
 
         with open(
             "data/"+"test_srm"+str(s)+year+".model",
