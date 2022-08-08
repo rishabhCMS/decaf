@@ -1122,8 +1122,8 @@ class AnalysisProcessor(processor.ProcessorABC):
                             with_name="PtEtaPhiMLorentzVector",
         )
         e_clean = e[ak.values_astype(e.isclean, np.bool)]
-        e_loose = e_clean[ak.values_astype(e_clean.isloose, np.bool)]
-        e_tight = e_clean[ak.values_astype(e_clean.istight, np.bool)]
+        e_loose = e_clean[ak.values_astype(e.isloose, np.bool)]
+        e_tight = e_clean[ak.values_astype(e.istight, np.bool)]
         e_ntot = ak.num(e, axis=1)
         e_nloose = ak.num(e_loose, axis=1)
 
