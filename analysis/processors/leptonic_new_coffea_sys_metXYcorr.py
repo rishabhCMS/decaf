@@ -1194,7 +1194,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 
 
-            j_clean = j_good[~jetPhoMask & ~jetEleMask & ~jetMuMask]
+            j_clean = j_good[ ~jetEleMask & ~jetMuMask]
 
             return(j_clean)
         
