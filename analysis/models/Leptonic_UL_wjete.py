@@ -505,7 +505,7 @@ def model(year):
     #id Electron
     id_eUp=template(background, "DY+jets", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "DY+jets", 'id_eDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
         #pileup
     pileupUp=template(background, 'DY+jets','puUp','wjete')[0] 
     pileupDown=template(background, 'DY+jets','puDown','wjete')[0] 
