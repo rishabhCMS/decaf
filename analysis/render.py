@@ -63,5 +63,5 @@ if __name__ == '__main__':
     for filename in os.listdir('data'):
         if '.model' not in filename: continue
         if options.model not in filename: continue    
-        os.system('mkdir -p datacards/'+filename.split('.')[0])
-        render(filename.split('.')[0])
+        os.system('mkdir -p datacards/'+filename.split('.')[0]+'.'+filename.split('.')[1])
+        render(filename.split('.')[0]+'.'+filename.split('.')[1])
