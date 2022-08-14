@@ -711,6 +711,6 @@ if __name__ == "__main__":
     elif "postVFP" in hist_scaled_file:
         year = year+"postVFP"
     with open(
-        "data/"+"test_wjete"+year+".model",
+        "data/"+"test_wjete"+'.'+year+".model",
         "wb",) as fout:
         pickle.dump(model(year), fout, protocol=2)
