@@ -266,12 +266,12 @@ def model(year, signal_name):
     #L1 ISR
     ISRUp=template(signal, s, 'ISRUp', 'srm')[0] 
     ISRDown=template(signal, s, 'ISRDown', 'srm')[0]
-    srm_signal.setParamEffect(isr, ISRUp, ISRDown)
+#     srm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(signal, s, 'FSRUp', 'srm')[0] 
     FSRDown=template(signal, s, 'FSRDown', 'srm')[0]
-#         srm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+    srm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(signal, s, 'PDFUp', 'srm')[0] 
