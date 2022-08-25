@@ -235,9 +235,10 @@ def model(year, signal_name):
     id_eDown=template(signal, s, 'id_eDown', 'sre')[0]
     sre_signal.setParamEffect(id_e, id_eUp, id_eDown)
 #pileup
-    pileupUp=template(signal, s,'puUp','sre')[0] 
-    pileupDown=template(signal, s,'puDown','sre')[0] 
-    sre_signal.setParamEffect(pileup, pileupUp, pileupDown)
+    if ("Mphi-300_Mchi-100" not in signal_name) and "2016preVFP" not in year:
+        pileupUp=template(signal, s,'puUp','sre')[0] 
+        pileupDown=template(signal, s,'puDown','sre')[0] 
+        sre_signal.setParamEffect(pileup, pileupUp, pileupDown)
 
     #reco Electron
     recoeUp=template(signal, s, 'reco_eUp', 'sre')[0] 
@@ -260,9 +261,10 @@ def model(year, signal_name):
     sre_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
+
     ISRUp=template(signal, s, 'ISRUp', 'sre')[0] 
     ISRDown=template(signal, s, 'ISRDown', 'sre')[0]
-#     sre_signal.setParamEffect(isr, ISRUp, ISRDown)
+    sre_signal.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(signal, s, 'FSRUp', 'sre')[0] 
