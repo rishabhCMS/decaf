@@ -264,9 +264,10 @@ def model(year, signal_name):
     srm_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
-    ISRUp=template(signal, s, 'ISRUp', 'srm')[0] 
-    ISRDown=template(signal, s, 'ISRDown', 'srm')[0]
-#     srm_signal.setParamEffect(isr, ISRUp, ISRDown)
+    if ("Mphi-1750_Mchi-700" not in signal_name) and "2016preVFP" not in year:
+        ISRUp=template(signal, s, 'ISRUp', 'srm')[0] 
+        ISRDown=template(signal, s, 'ISRDown', 'srm')[0]
+        srm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(signal, s, 'FSRUp', 'srm')[0] 
