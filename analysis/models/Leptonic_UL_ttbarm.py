@@ -159,7 +159,7 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
             sumw2[zerobins] = 0.
             
         else:
-            output[zerobins] = 1e-5
+            output[zerobins] = 1.
             sumw2[zerobins] = 0.
 
             
@@ -219,56 +219,56 @@ def model(year):
     #template for signal
     for s in signal['ttbarm'].identifiers('process'):
         print(s)
-        if 'Mphi' not in str(s): continue
+        if 'Mphi-200' not in str(s): continue
         ttbarm_signalTemplate = template(signal,s,'nominal','ttbarm')
         ttbarm_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, ttbarm_signalTemplate)
-        ttbarm_signal.setParamEffect(lumi, lumi_unc)
+#         ttbarm_signal.setParamEffect(lumi, lumi_unc)
     #     sr_signal.setParamEffect(trig_met, 1.01)
     #     sr_signal.setParamEffect(veto_tau, 1.03)
     #     sr_signal.setParamEffect(jec, 1.05)
         #btag
         btagUp=template(signal, s,'btagUp','ttbarm')[0]
         btagDown=template(signal, s,'btagDown','ttbarm')[0]
-        ttbarm_signal.setParamEffect(btag, btagUp, btagDown)
+#         ttbarm_signal.setParamEffect(btag, btagUp, btagDown)
     #         #trigger Electron
         trigmUp=template(signal, s, 'trig_mUp', 'ttbarm')[0] 
         trigmDown=template(signal, s, 'trig_mDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(trig_m, trigmUp, trigmDown)
+#         ttbarm_signal.setParamEffect(trig_m, trigmUp, trigmDown)
 
         #pileup
         pileupUp=template(signal, s,'puUp','ttbarm')[0] 
         pileupDown=template(signal, s,'puDown','ttbarm')[0] 
-        ttbarm_signal.setParamEffect(pileup, pileupUp, pileupDown)
+#         ttbarm_signal.setParamEffect(pileup, pileupUp, pileupDown)
         #iso Muon
         isolation_mUp=template(signal, s, 'isolation_mUp', 'ttbarm')[0] 
         isolation_mDown=template(signal, s, 'isolation_mDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#         ttbarm_signal.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
         #id Muon
         id_mUp=template(signal, s, 'id_mUp', 'ttbarm')[0] 
         id_mDown=template(signal, s, 'id_mDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(id_m, id_mUp, id_mDown)        
+#         ttbarm_signal.setParamEffect(id_m, id_mUp, id_mDown)        
 
 
         #JEC_JER
         jerUp=template(signal, s, 'JERUp', 'ttbarm')[0] 
         jerDown=template(signal, s, 'JERDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         ttbarm_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
         jesUp=template(signal, s, 'JESUp', 'ttbarm')[0] 
         jesDown=template(signal, s, 'JESDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         ttbarm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
 
         #L1 prefire
         L1prefireUp=template(signal, s, 'L1PrefireUp', 'ttbarm')[0] 
         L1prefireDown=template(signal, s, 'L1PrefireDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#         ttbarm_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
         ISRUp=template(signal, s, 'ISRUp', 'ttbarm')[0] 
         ISRDown=template(signal, s, 'ISRDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(isr, ISRUp, ISRDown)
+#         ttbarm_signal.setParamEffect(isr, ISRUp, ISRDown)
 
         #L1 FSR
         FSRUp=template(signal, s, 'FSRUp', 'ttbarm')[0] 
@@ -278,7 +278,7 @@ def model(year):
         #pdf 
         pdfUp=template(signal, s, 'PDFUp', 'ttbarm')[0] 
         pdfDown=template(signal, s, 'PDFDown', 'ttbarm')[0]
-        ttbarm_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+#         ttbarm_signal.setParamEffect(pdf, pdfUp, pdfDown) 
 
     #         ttbarm_signal.autoMCStats()
         ttbarm.addSample(ttbarm_signal)
@@ -696,26 +696,26 @@ if __name__ == "__main__":
     jec_jes = rl.NuisanceParameter("jec_jes" + year, "shape")
     #btag = rl.NuisanceParameter("btag" + year, "shapeN")  # AK4 btag
     btag = rl.NuisanceParameter("btag" + year, "shape")  # AK4 btag
-    ew1 = rl.NuisanceParameter("ew1", "lnN")
-    ew2G = rl.NuisanceParameter("ew2G", "lnN")
-    ew2W = rl.NuisanceParameter("ew2W", "lnN")
-    ew2Z = rl.NuisanceParameter("ew2Z", "lnN")
-    ew3G = rl.NuisanceParameter("ew3G", "lnN")
-    ew3W = rl.NuisanceParameter("ew3W", "lnN")
-    ew3Z = rl.NuisanceParameter("ew3Z", "lnN")
-    mix = rl.NuisanceParameter("mix", "lnN")
-    muF = rl.NuisanceParameter("muF", "lnN")
-    muR = rl.NuisanceParameter("muR", "lnN")
-    qcd1 = rl.NuisanceParameter("qcd1", "lnN")
-    qcd2 = rl.NuisanceParameter("qcd2", "lnN")
-    qcd3 = rl.NuisanceParameter("qcd3", "lnN")
+    ew1 = rl.NuisanceParameter("ew1", "shape")
+    ew2G = rl.NuisanceParameter("ew2G", "shape")
+    ew2W = rl.NuisanceParameter("ew2W", "shape")
+    ew2Z = rl.NuisanceParameter("ew2Z", "shape")
+    ew3G = rl.NuisanceParameter("ew3G", "shape")
+    ew3W = rl.NuisanceParameter("ew3W", "shape")
+    ew3Z = rl.NuisanceParameter("ew3Z", "shape")
+    mix = rl.NuisanceParameter("mix", "shape")
+    muF = rl.NuisanceParameter("muF", "shape")
+    muR = rl.NuisanceParameter("muR", "shape")
+    qcd1 = rl.NuisanceParameter("qcd1", "shape")
+    qcd2 = rl.NuisanceParameter("qcd2", "shape")
+    qcd3 = rl.NuisanceParameter("qcd3", "shape")
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr", "shape")
+    isr = rl.NuisanceParameter("isr", "lnN")
     fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf"+year, "shape")
     if "preVFP" in hist_scaled_file:
