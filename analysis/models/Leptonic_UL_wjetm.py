@@ -306,7 +306,7 @@ def model(year):
     #trigger Muon
     trigmUp=template(background, 'W+jets', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'W+jets', 'trig_mDown', 'wjetm')[0]
-#     wjetm_wjetsMC.setParamEffect(trig_m, trigmUp, trigmDown)
+    wjetm_wjetsMC.setParamEffect(trig_m, trigmUp, trigmDown)
 
     #pileup
     pileupUp=template(background, 'W+jets','puUp','wjetm')[0] 
@@ -376,7 +376,7 @@ def model(year):
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
-#     wjetm_ttMC.setParamEffect(trig_m, trigmUp, trigmDown)
+    wjetm_ttMC.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'TT', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'TT', 'isolation_mDown', 'wjetm')[0]
@@ -446,7 +446,7 @@ def model(year):
     #trigger Muon
     trigmUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
-#     wjetm_st.setParamEffect(trig_m, trigmUp, trigmDown)
+    wjetm_st.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'ST', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'ST', 'isolation_mDown', 'wjetm')[0]
@@ -512,7 +512,7 @@ def model(year):
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'wjetm')[0]
-#     wjetm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
+    wjetm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'DY+jets', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'DY+jets', 'isolation_mDown', 'wjetm')[0]
@@ -578,7 +578,7 @@ def model(year):
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'VV', 'trig_mDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
+    wjetm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'VV', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'VV', 'isolation_mDown', 'wjetm')[0]
