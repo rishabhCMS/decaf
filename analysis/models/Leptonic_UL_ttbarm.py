@@ -159,7 +159,7 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
             sumw2[zerobins] = 0.
             
         else:
-            output[zerobins] = 1.
+            output[zerobins] = 1e-5
             sumw2[zerobins] = 0.
 
             
