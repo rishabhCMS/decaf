@@ -21,9 +21,9 @@ mT_corrected_binning_dict = {
 #     "2018":np.linspace(0, 600, 21),
 #     "2017":np.linspace(0, 600, 21),
 #     "2016":np.linspace(0, 600, 21)
-    "2018": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2017": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-    "2016": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+    "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+    "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+    "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
 }
 
 
@@ -376,53 +376,53 @@ def model(year):
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(trig_m, trigmUp, trigmDown)
+#     wjetm_ttMC.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'TT', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'TT', 'isolation_mDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#     wjetm_ttMC.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "TT", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "TT", 'id_mDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_ttMC.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'TT','puUp','wjetm')[0] 
     pileupDown=template(background, 'TT','puDown','wjetm')[0] 
-    wjetm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjetm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
 
     # wjetm_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
     jerUp=template(background, 'TT', 'JERUp', 'wjetm')[0] 
     jerDown=template(background, 'TT', 'JERDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     wjetm_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'TT', 'JESUp', 'wjetm')[0] 
     jesDown=template(background, 'TT', 'JESDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjetm_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
 
 
 
     #L1 prefire
     L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     wjetm_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #ISR
     ISRUp=template(background, 'TT', 'ISRUp', 'wjetm')[0] 
     ISRDown=template(background, 'TT', 'ISRDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(isr, ISRUp, ISRDown)
+#     wjetm_ttMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'wjetm')[0] 
     pdfDown=template(background, 'TT', 'PDFDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     wjetm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
 
     wjetm.addSample(wjetm_ttMC)
 
@@ -446,11 +446,11 @@ def model(year):
     #trigger Muon
     trigmUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(trig_m, trigmUp, trigmDown)
+#     wjetm_st.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'ST', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'ST', 'isolation_mDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#     wjetm_st.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "ST", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "ST", 'id_mDown', 'wjetm')[0]
@@ -458,39 +458,39 @@ def model(year):
     #pileup
     pileupUp=template(background, 'ST','puUp','wjetm')[0] 
     pileupDown=template(background, 'ST','puDown','wjetm')[0] 
-    wjetm_st.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjetm_st.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
     jerUp=template(background, 'ST', 'JERUp', 'wjetm')[0] 
     jerDown=template(background, 'ST', 'JERDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(jec_jer, jerUp, jerDown)
+#     wjetm_st.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'ST', 'JESUp', 'wjetm')[0] 
     jesDown=template(background, 'ST', 'JESDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjetm_st.setParamEffect(jec_jes, jesUp, jesDown)
 
 
     #L1 prefire
     L1prefireUp=template(background, 'ST', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'ST', 'L1PrefireDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     wjetm_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'ST', 'ISRUp', 'wjetm')[0] 
     ISRDown=template(background, 'ST', 'ISRDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(isr, ISRUp, ISRDown)
+#     wjetm_st.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'ST', 'FSRDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_st.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'wjetm')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(pdf, pdfUp, pdfDown)  
+#     wjetm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     wjetm.addSample(wjetm_st)
 
@@ -512,51 +512,51 @@ def model(year):
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
+#     wjetm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'DY+jets', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'DY+jets', 'isolation_mDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#     wjetm_dyjets.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','wjetm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','wjetm')[0] 
-    wjetm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjetm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
     jerUp=template(background, 'DY+jets', 'JERUp', 'wjetm')[0] 
     jerDown=template(background, 'DY+jets', 'JERDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+#     wjetm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'wjetm')[0] 
     jesDown=template(background, 'DY+jets', 'JESDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjetm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
 
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     wjetm_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'wjetm')[0] 
     ISRDown=template(background, 'DY+jets', 'ISRDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     wjetm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'wjetm')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     wjetm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjetm.addSample(wjetm_dyjets)
 
@@ -578,52 +578,52 @@ def model(year):
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'VV', 'trig_mDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
+#     wjetm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'VV', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'VV', 'isolation_mDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#     wjetm_vv.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
+#     wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','wjetm')[0] 
     pileupDown=template(background, 'VV','puDown','wjetm')[0] 
-    wjetm_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjetm_vv.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'wjetm')[0] 
     jerDown=template(background, 'VV', 'JERDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     wjetm_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'wjetm')[0] 
     jesDown=template(background, 'VV', 'JESDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjetm_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
 
 
     #L1 prefire
     L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'VV', 'L1PrefireDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     wjetm_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'wjetm')[0] 
     ISRDown=template(background, 'VV', 'ISRDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(isr, ISRUp, ISRDown)
+#     wjetm_vv.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'wjetm')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'wjetm')[0]
-    wjetm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+#     wjetm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjetm.addSample(wjetm_vv)
 
@@ -644,9 +644,9 @@ if __name__ == "__main__":
     #     "2018":np.linspace(0, 600, 21),
     #     "2017":np.linspace(0, 600, 21),
     #     "2016":np.linspace(0, 600, 21)
-        "2018": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2017": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500]),
-        "2016": np.array([100.0,125.0,150.0, 165.0, 180.0, 200.0, 220.0, 240.0, 270.0, 310.0, 350.0, 500])
+        "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+        "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+        "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
