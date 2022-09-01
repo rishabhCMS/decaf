@@ -310,7 +310,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'W+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'W+jets','puDown','ttbarm')[0] 
-#     ttbarm_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+    ttbarm_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     #iso Muon
     isolation_mUp=template(background, 'W+jets', 'isolation_mUp', 'ttbarm')[0] 
     isolation_mDown=template(background, 'W+jets', 'isolation_mDown', 'ttbarm')[0]
@@ -350,7 +350,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
+    ttbarm_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
     ttbarm.addSample(ttbarm_wjetsMC)
 
     # ###
@@ -386,7 +386,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'TT','puUp','ttbarm')[0] 
     pileupDown=template(background, 'TT','puDown','ttbarm')[0] 
-#     ttbarm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+    ttbarm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
 
     # ttbarm_ttMC.setParamEffect(ttMC_norm, 1.2)
 
@@ -419,7 +419,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'TT', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+    ttbarm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
 
     ttbarm.addSample(ttbarm_ttMC)
 
@@ -455,7 +455,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'ST','puUp','ttbarm')[0] 
     pileupDown=template(background, 'ST','puDown','ttbarm')[0] 
-#     ttbarm_st.setParamEffect(pileup, pileupUp, pileupDown)
+    ttbarm_st.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
@@ -487,7 +487,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
+    ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     ttbarm.addSample(ttbarm_st)
 
@@ -521,7 +521,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','ttbarm')[0] 
-#     ttbarm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+    ttbarm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
@@ -552,7 +552,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+    ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_dyjets)
 
@@ -586,7 +586,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbarm')[0] 
     pileupDown=template(background, 'VV','puDown','ttbarm')[0] 
-#     ttbarm_vv.setParamEffect(pileup, pileupUp, pileupDown)
+    ttbarm_vv.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
@@ -619,7 +619,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+    ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_vv)
 
