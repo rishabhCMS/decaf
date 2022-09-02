@@ -2164,7 +2164,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                 elif re.search("^DYJetsToLL_Pt-", dataset):
                     k_fac_fewz = 6077.22/400.29979
                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
-                elif re.search("^DYJetsToLL_[012]J_-", dataset):
+                elif re.search("^DYJetsToLL_[012]J_", dataset):
                     k_fac_fewz = 6077.22/6434.7
                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
                 else: scale[d.name] = (self._lumi*self._xsec[dataset])
