@@ -722,7 +722,7 @@ class AnalysisProcessor(processor.ProcessorABC):
             output = self.accumulator.identity()
 #             shift_systs = [  , "METunclUp", "METunclDown"]
             shift_systs = [None, "JERUp", "JERDown","JESUp", "JESDown", 
-                           "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]
+                           "puUp", "puDown", "L1PrefireUp", "L1PrefireDown" , "METunclUp", "METunclDown"]
             for _syst in shift_systs:
                 print("shift sys", _syst)
                 output += self.process_shift(events, _syst)
@@ -1002,13 +1002,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 j = corrected_jets['JER'].down
                 met = corrected_mets_nojer
 
-#             elif shift_syst == "METunclUp":
-#                 met = corrected_mets.MET_UnclusteredEnergy.up
-#                 j   = corrected_jets
+            elif shift_syst == "METunclUp":
+                met = corrected_mets_nojer.MET_UnclusteredEnergy.up
+                j   = corrected_jets
                 
-#             elif shift_syst == "METunclDown":
-#                 met = corrected_mets.MET_UnclusteredEnergy.down
-#                 j   = corrected_jets
+            elif shift_syst == "METunclDown":
+                met = corrected_mets_nojer.MET_UnclusteredEnergy.down
+                j   = corrected_jets
 
             elif shift_syst == "puUp":
                 j   = corrected_jets
@@ -2048,7 +2048,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                             systematic = 'nominal'
                             
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown",
-                                         "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]:
+                                         "puUp", "puDown", "L1PrefireUp", "L1PrefireDown", "METunclUp", "METunclDown"]:
                             sname = systematic
                             systematic = None
                         else:
@@ -2112,7 +2112,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         if systematic is None:
                             systematic = "nominal"
                         if systematic in ["nominal", "JERUp", "JERDown", "JESUp", "JESDown",
-                                         "puUp", "puDown", "L1PrefireUp", "L1PrefireDown"]:
+                                         "puUp", "puDown", "L1PrefireUp", "L1PrefireDown", "METunclUp", "METunclDown"]:
                             sname = systematic
                             systematic = None
                         else: sname=systematic   
