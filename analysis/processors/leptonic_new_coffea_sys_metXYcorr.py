@@ -2157,13 +2157,13 @@ class AnalysisProcessor(processor.ProcessorABC):
                 if re.search("^WJetsToLNu_[012]J_", dataset):
                     k_fac_fewz = 61526.7/65582
                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
-                elif re.search("^WJetsToLNu_Pt-", dataset):
-                    k_fac_fewz = 61526.7/789.2836
-                    scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
+#                 elif re.search("^WJetsToLNu_Pt-", dataset):
+#                     k_fac_fewz = 61526.7/789.2836
+#                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
                     
-                elif re.search("^DYJetsToLL_Pt-", dataset):
-                    k_fac_fewz = 6077.22/400.29979
-                    scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
+#                 elif re.search("^DYJetsToLL_Pt-", dataset):
+#                     k_fac_fewz = 6077.22/400.29979
+#                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
                 elif re.search("^DYJetsToLL_[012]J_", dataset):
                     k_fac_fewz = 6077.22/6434.7
                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
