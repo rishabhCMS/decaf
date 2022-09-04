@@ -14503,7 +14503,7 @@
     },
     "EGamma____94_": {
         "files": [
-            "root://xrootd-cms.infn.it//store/data/Run2018A/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/270000/8A8859EA-6332-754A-8305-52B1864D6647.root"
+            "root://cmsxrootd.fnal.gov//store/data/Run2018A/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/270000/8A8859EA-6332-754A-8305-52B1864D6647.root"
         ],
         "xs": -1
     },
@@ -15001,7 +15001,7 @@
     },
     "EGamma____177_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018A/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/270000/7E84CC32-3F47-DE45-9649-59798F03AD4D.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2018A/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v1/270000/7E84CC32-3F47-DE45-9649-59798F03AD4D.root"
         ],
         "xs": -1
     },
@@ -16267,7 +16267,7 @@
     },
     "EGamma____388_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/1FC6B7E7-1051-5947-8044-B6EAE3CB0721.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/1FC6B7E7-1051-5947-8044-B6EAE3CB0721.root"
         ],
         "xs": -1
     },
@@ -16651,7 +16651,7 @@
     },
     "EGamma____452_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/B3137030-E3B2-9E4A-A365-87447A16A207.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/B3137030-E3B2-9E4A-A365-87447A16A207.root"
         ],
         "xs": -1
     },
@@ -16795,7 +16795,7 @@
     },
     "EGamma____476_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/BC30D693-12C0-E647-9F24-3FF71ACFBAB5.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/BC30D693-12C0-E647-9F24-3FF71ACFBAB5.root"
         ],
         "xs": -1
     },
@@ -16897,7 +16897,7 @@
     },
     "EGamma____493_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/FCE073E9-FC46-9A46-9AC1-1A1C453F9BC9.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/FCE073E9-FC46-9A46-9AC1-1A1C453F9BC9.root"
         ],
         "xs": -1
     },
@@ -17983,7 +17983,7 @@
     },
     "EGamma____674_": {
         "files": [
-            "root://xrootd-cms.infn.it//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/203C4F6A-481F-794F-A18E-0B2E89BC93DE.root"
+            "root://cmsxrootd.fnal.gov//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/203C4F6A-481F-794F-A18E-0B2E89BC93DE.root"
         ],
         "xs": -1
     },
@@ -18241,7 +18241,7 @@
     },
     "EGamma____717_": {
         "files": [
-            "root://cmsxrootd.fnal.gov//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/82B71014-6FC5-2A44-BC92-7F69E1DE0C55.root"
+            "root://cms-xrd-global.cern.ch//store/data/Run2018D/EGamma/NANOAOD/UL2018_MiniAODv2_NanoAODv9-v3/250000/82B71014-6FC5-2A44-BC92-7F69E1DE0C55.root"
         ],
         "xs": -1
     },
