@@ -287,7 +287,7 @@ def model(year):
         rl.Sample.BACKGROUND,
         ttbare_wjetsTemplate
     )
-    ttbare_wjetsMC.setParamEffect(lumi, lumi_unc)
+#     ttbare_wjetsMC.setParamEffect(lumi, lumi_unc)
     #     ttbare_wjetsMC.setParamEffect(trig_e, 1.01)
     #     ttbare_wjetsMC.setParamEffect(veto_tau, 1.03)
     #     ttbare_wjetsMC.setParamEffect(wjets_norm, 1.4)
@@ -295,55 +295,55 @@ def model(year):
     #     ttbare_wjetsMC.setParamEffect(id_e, 1.02)
     #     ttbare_wjetsMC.setParamEffect(reco_e, 1.02)
     #     ttbare_wjetsMC.autoMCStats()
-    addBtagSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
+#     addBtagSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'W+jets', 'trig_eDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     ttbare_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #     #id Electron
     id_eUp=template(background, "W+jets", 'id_eUp', 'ttbare')[0] 
     id_eDown=template(background, "W+jets", 'id_eDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
+#     ttbare_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'W+jets','puUp','ttbare')[0] 
     pileupDown=template(background, 'W+jets','puDown','ttbare')[0] 
-    ttbare_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
-    #reco Electron
+#     ttbare_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
+#     ttbare_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
 
-    addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
+#     addVJetsSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
 
     #     JEC_JER
     jerUp=template(background, 'W+jets', 'JERUp', 'ttbare')[0] 
     jerDown=template(background, 'W+jets', 'JERDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     ttbare_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #     JEC_JEs
     jesUp=template(background, 'W+jets', 'JESUp', 'ttbare')[0] 
     jesDown=template(background, 'W+jets', 'JESDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+#     ttbare_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
         #L1 prefire
     L1prefireUp=template(background, 'W+jets', 'L1PrefireUp', 'ttbare')[0] 
     L1prefireDown=template(background, 'W+jets', 'L1PrefireDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     ttbare_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'W+jets', 'ISRUp', 'ttbare')[0] 
     ISRDown=template(background, 'W+jets', 'ISRDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbare_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     ttbare_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
     ttbare.addSample(ttbare_wjetsMC)
 
         # ###
@@ -434,7 +434,7 @@ def model(year):
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'ttbare')[0]
-    ttbare_st.setParamEffect(trig_e, trigeUp, trigeDown)
+#     ttbare_st.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "ST", 'id_eUp', 'ttbare')[0] 
     id_eDown=template(background, "ST", 'id_eDown', 'ttbare')[0]
@@ -486,63 +486,63 @@ def model(year):
     ttbare_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbare_dyjetsTemplate
     )
-    ttbare_dyjets.setParamEffect(lumi, lumi_unc)
+#     ttbare_dyjets.setParamEffect(lumi, lumi_unc)
     #     ttbare_dyjets.setParamEffect(trig_e, 1.01)
     #     ttbare_dyjets.setParamEffect(veto_tau, 1.03)
     #     ttbare_dyjets.setParamEffect(zjetsMC_norm, 1.4)
     #     ttbare_dyjets.setParamEffect(jec, 1.05)
     #     ttbare_dyjets.setParamEffect(id_e, 1.02)
     #     ttbare_dyjets.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
-    addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
+#     addBtagSyst(background, "DY+jets", "ttbare", ttbare_dyjets)
+#     addVJetsSyst(background,"DY+jets", "ttbare", ttbare_dyjets)
     #     ttbare_dyjets.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
+#     ttbare_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "DY+jets", 'id_eUp', 'ttbare')[0] 
     id_eDown=template(background, "DY+jets", 'id_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
+#     ttbare_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
         #pileup
     pileupUp=template(background, 'DY+jets','puUp','ttbare')[0] 
     pileupDown=template(background, 'DY+jets','puDown','ttbare')[0] 
-    ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
+#     ttbare_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
     jerUp=template(background, 'DY+jets', 'JERUp', 'ttbare')[0] 
     jerDown=template(background, 'DY+jets', 'JERDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+#     ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
 
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'ttbare')[0] 
     L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     ttbare_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbare')[0] 
     ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbare_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbare.addSample(ttbare_dyjets)
 
@@ -552,61 +552,61 @@ def model(year):
     ttbare_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, ttbare_vvTemplate
     )
-    ttbare_vv.setParamEffect(lumi, lumi_unc)
+#     ttbare_vv.setParamEffect(lumi, lumi_unc)
     #     ttbare_vv.setParamEffect(trig_e, 1.01)
     #     ttbare_vv.setParamEffect(veto_tau, 1.03)
     #     ttbare_vv.setParamEffect(vv_norm, 1.2)
     #     ttbare_vv.setParamEffect(jec, 1.05)
     #     ttbare_vv.setParamEffect(id_e, 1.02)
     #     ttbare_vv.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "VV", "ttbare", ttbare_vv)
+#     addBtagSyst(background, "VV", "ttbare", ttbare_vv)
     #     ttbare_vv.autoMCStats()
     #     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(trig_e, trigeUp, trigeDown)
+#     ttbare_vv.setParamEffect(trig_e, trigeUp, trigeDown)
     #     #id Electron
     id_eUp=template(background, "VV", 'id_eUp', 'ttbare')[0] 
     id_eDown=template(background, "VV", 'id_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(id_e, id_eUp, id_eDown)
+#     ttbare_vv.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbare')[0] 
     pileupDown=template(background, 'VV','puDown','ttbare')[0] 
-    ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
         #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(reco_e, recoeUp, recoDown)
+#     ttbare_vv.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'ttbare')[0] 
     jerDown=template(background, 'VV', 'JERDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     ttbare_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'ttbare')[0] 
     jesDown=template(background, 'VV', 'JESDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(jec_jes, jesUp, jesDown)
+#     ttbare_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
     #L1 prefire
     L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'ttbare')[0] 
     L1prefireDown=template(background, 'VV', 'L1PrefireDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     ttbare_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'ttbare')[0] 
     ISRDown=template(background, 'VV', 'ISRDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbare_vv.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbare.addSample(ttbare_vv)
 
