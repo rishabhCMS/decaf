@@ -375,20 +375,21 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
             '2016': [
-                'Ele27_WPTight_Gsf',
+                'Ele27_WPTight_Gsf','HLT_Photon175',
 #                 'Ele105_CaloIdVT_GsfTrkIdT'
-                'Ele115_CaloIdVT_GsfTrkIdT'
-                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+#                 'Ele115_CaloIdVT_GsfTrkIdT'
+#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
-                'Ele115_CaloIdVT_GsfTrkIdT',
+#                 'Ele115_CaloIdVT_GsfTrkIdT',
                 'Photon200'
             ],
             '2018': [
                 'Ele32_WPTight_Gsf',
-                'Ele115_CaloIdVT_GsfTrkIdT',
-                'Photon200','Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+#                 'Ele115_CaloIdVT_GsfTrkIdT',
+                'Photon200',
+#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ]
         }
         
