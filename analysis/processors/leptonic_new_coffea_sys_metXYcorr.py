@@ -375,21 +375,20 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
             '2016': [
-                'Ele27_WPTight_Gsf','HLT_Photon175',
+                'Ele27_WPTight_Gsf',
 #                 'Ele105_CaloIdVT_GsfTrkIdT'
-#                 'Ele115_CaloIdVT_GsfTrkIdT'
-#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                'Ele115_CaloIdVT_GsfTrkIdT'
+                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
-#                 'Ele115_CaloIdVT_GsfTrkIdT',
+                'Ele115_CaloIdVT_GsfTrkIdT',
                 'Photon200'
             ],
             '2018': [
                 'Ele32_WPTight_Gsf',
-#                 'Ele115_CaloIdVT_GsfTrkIdT',
-                'Photon200',
-#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+                'Ele115_CaloIdVT_GsfTrkIdT',
+                'Photon200','Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ]
         }
         
@@ -397,23 +396,23 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2016': [
                 'IsoMu24',
                 'IsoTkMu24',
-#                 'Mu50',
-#                 'TkMu50'
+                'Mu50',
+                'TkMu50'
 
             ],
             '2017':
                 [
                 'IsoMu27',
-#                 'Mu50',
-#                 'OldMu100',
-#                 'TkMu100'
+                'Mu50',
+                'OldMu100',
+                'TkMu100'
             ],
             '2018':
                 [
                 'IsoMu24',
-#                 'Mu50',
-#                 'OldMu100',
-#                 'TkMu100'
+                'Mu50',
+                'OldMu100',
+                'TkMu100'
             ]
         }
         
@@ -777,6 +776,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_preVFP'][self._year]
             get_mu_trig_err = self._corrections['get_mu_trig_err_preVFP'][self._year]
+            
+            get_ele_trig_weight = self._corrections['get_ele_trig_weight_preVFP'][self._year]
+            get_ele_trig_err = self._corrections['get_ele_trig_err_preVFP'][self._year]
             get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_preVFP'][self._year]
             get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_preVFP'][self._year]
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_preVFP'][self._year]
@@ -811,6 +813,9 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
             get_mu_trig_err = self._corrections['get_mu_trig_err_postVFP'][self._year]
+            
+            get_ele_trig_weight = self._corrections['get_ele_trig_weight_postVFP'][self._year]
+            get_ele_trig_err = self._corrections['get_ele_trig_err_postVFP'][self._year]
             get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_postVFP'][self._year]
             get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_postVFP'][self._year]
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
@@ -845,6 +850,10 @@ class AnalysisProcessor(processor.ProcessorABC):
             
             get_mu_trig_weight = self._corrections['get_mu_trig_weight_postVFP'][self._year]
             get_mu_trig_err = self._corrections['get_mu_trig_err_postVFP'][self._year]
+            
+            get_ele_trig_weight = self._corrections['get_ele_trig_weight_postVFP'][self._year]
+            get_ele_trig_err = self._corrections['get_ele_trig_err_postVFP'][self._year]
+            
             get_ele_loose_id_err = self._corrections['get_ele_loose_id_err_postVFP'][self._year]
             get_ele_tight_id_err = self._corrections['get_ele_tight_id_err_postVFP'][self._year]
             get_mu_loose_id_err = self._corrections['get_mu_loose_id_err_postVFP'][self._year]
@@ -863,8 +872,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 #         get_pu_weight = self._corrections['get_pu_weight'][self._year]
         
 
-        get_ele_trig_weight = self._corrections['get_ele_trig_weight'][self._year]
-        get_ele_trig_err    = self._corrections['get_ele_trig_err'][self._year]
+
+
         get_pho_tight_id_sf = self._corrections['get_pho_tight_id_sf'][self._year]
         get_pho_csev_sf = self._corrections['get_pho_csev_sf'][self._year]
         get_ecal_bad_calib = self._corrections['get_ecal_bad_calib']
@@ -1925,7 +1934,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                         
                 weights.add('genw', events.genWeight)
 #                 weights.add('nlo_qcd', nlo_qcd)
-#                 weights.add('nlo_ewk', nlo_ewk)
+                weights.add('nlo_ewk', nlo_ewk)
 #                 weights.add('k_wjets_fewz', k_wjets_fewz)
 #                 weights.add('k_dyjets_fewz', k_dyjets_fewz)
 #                 weights.add('ttjet_weights', ttjet_weights)
