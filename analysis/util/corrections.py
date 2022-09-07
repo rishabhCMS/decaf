@@ -103,9 +103,9 @@ for year in ['2016','2017','2018']:
 #     ele_trig_hist = ele_trig_hists[year]
 #     get_ele_trig_err[year] = lookup_tools.dense_lookup.dense_lookup(ele_trig_hist.variances ** 0.5, ele_trig_hist.edges)
 ele_trig_hists_preVFP = {
-    '2016': uproot3.open("../../data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2016preVFP.root")['EGamma_SF2D'],
-    '2017': uproot3.open("../../data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2017.root")['EGamma_SF2D'],#monojet measurement for the combined trigger path
-    '2018': uproot3.open("../../data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2018.root")['EGamma_SF2D'] #approved by egamma group: https://indico.cern.ch/event/924522/
+    '2016': uproot3.open("data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2016preVFP.root")['EGamma_SF2D'],
+    '2017': uproot3.open("data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2017.root")['EGamma_SF2D'],#monojet measurement for the combined trigger path
+    '2018': uproot3.open("data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2018.root")['EGamma_SF2D'] #approved by egamma group: https://indico.cern.ch/event/924522/
 }
 get_ele_trig_weight_preVFP = {}
 for year in ['2016','2017','2018']:
@@ -119,9 +119,9 @@ for year in ['2016','2017','2018']:
     get_ele_trig_err_preVFP[year] = lookup_tools.dense_lookup.dense_lookup(ele_trig_hist.variances ** 0.5, ele_trig_hist.edges)
     
 ele_trig_hists_postVFP = {
-    '2016': uproot3.open("../../data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2016postVFP.root")['EGamma_SF2D'],
-    '2017': uproot3.open("../../data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2017.root")['EGamma_SF2D'],#monojet measurement for the combined trigger path
-    '2018': uproot3.open("../../data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2018.root")['EGamma_SF2D'] #approved by egamma group: https://indico.cern.ch/event/924522/
+    '2016': uproot3.open("data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2016postVFP.root")['EGamma_SF2D'],
+    '2017': uproot3.open("data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2017.root")['EGamma_SF2D'],#monojet measurement for the combined trigger path
+    '2018': uproot3.open("data/trigger_eff_UL/UL_SingleElectron/egammaEffi.txt_EGM2D-2018.root")['EGamma_SF2D'] #approved by egamma group: https://indico.cern.ch/event/924522/
 }
 get_ele_trig_weight_postVFP = {}
 for year in ['2016','2017','2018']:
