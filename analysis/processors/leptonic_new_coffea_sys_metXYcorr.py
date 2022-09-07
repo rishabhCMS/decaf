@@ -375,20 +375,21 @@ class AnalysisProcessor(processor.ProcessorABC):
         
         self._singleelectron_triggers = {  # 2017 and 2018 from monojet, applying dedicated trigger weights
             '2016': [
-                'Ele27_WPTight_Gsf',
+                'Ele27_WPTight_Gsf','Photon175',
 #                 'Ele105_CaloIdVT_GsfTrkIdT'
-                'Ele115_CaloIdVT_GsfTrkIdT'
-                'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+#                 'Ele115_CaloIdVT_GsfTrkIdT'
+#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ],
             '2017': [
                 'Ele35_WPTight_Gsf',
-                'Ele115_CaloIdVT_GsfTrkIdT',
+#                 'Ele115_CaloIdVT_GsfTrkIdT',
                 'Photon200'
             ],
             '2018': [
                 'Ele32_WPTight_Gsf',
-                'Ele115_CaloIdVT_GsfTrkIdT',
-                'Photon200','Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
+#                 'Ele115_CaloIdVT_GsfTrkIdT',
+                'Photon200',
+#                 'Ele50_CaloIdVT_GsfTrkIdT_PFJet165'
             ]
         }
         
@@ -396,23 +397,23 @@ class AnalysisProcessor(processor.ProcessorABC):
             '2016': [
                 'IsoMu24',
                 'IsoTkMu24',
-                'Mu50',
-                'TkMu50'
+#                 'Mu50',
+#                 'TkMu50'
 
             ],
             '2017':
                 [
                 'IsoMu27',
-                'Mu50',
-                'OldMu100',
-                'TkMu100'
+#                 'Mu50',
+#                 'OldMu100',
+#                 'TkMu100'
             ],
             '2018':
                 [
                 'IsoMu24',
-                'Mu50',
-                'OldMu100',
-                'TkMu100'
+#                 'Mu50',
+#                 'OldMu100',
+#                 'TkMu100'
             ]
         }
         
