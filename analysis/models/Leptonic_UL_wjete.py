@@ -171,7 +171,8 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
 #         output[zerobins1]  = 1.
         output[zerobins]   = 1.
         output[~zerobins]  /= nominal[~zerobins]
-        output[~zerobins] = np.maximum(output[~zerobins], 1e-5)
+#         output[~zerobins] = np.maximum(output[~zerobins], 1e-5)
+        output[~zerobins] = 1e-5
         output[np.isnan(output)] = 1.
     binning = (
         dictionary[region]
