@@ -220,10 +220,10 @@ def model(year):
     #template for signal
     for s in signal['wjete'].identifiers('process'):
         print(s)
-        if 'Mphi-200' not in str(s): continue
+        if 'Mphi-2000_Mchi-150' not in str(s): continue
         wjete_signalTemplate = template(signal,s,'nominal','wjete')
         wjete_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjete_signalTemplate)
-        wjete_signal.setParamEffect(lumi, lumi_unc)
+#         wjete_signal.setParamEffect(lumi, lumi_unc)
     #     sr_signal.setParamEffect(trig_met, 1.01)
     #     sr_signal.setParamEffect(veto_tau, 1.03)
     #     sr_signal.setParamEffect(jec, 1.05)
