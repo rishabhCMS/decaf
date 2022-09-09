@@ -444,7 +444,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'ST','puUp','wjete')[0] 
     pileupDown=template(background, 'ST','puDown','wjete')[0] 
-    wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'ST', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'ST', 'reco_eDown', 'wjete')[0]
@@ -573,7 +573,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','wjete')[0] 
     pileupDown=template(background, 'VV','puDown','wjete')[0] 
-    wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
         #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'wjete')[0]
