@@ -296,56 +296,56 @@ def model(year):
     #     wjete_wjetsMC.setParamEffect(id_e, 1.02)
     #     wjete_wjetsMC.setParamEffect(reco_e, 1.02)
     #     wjete_wjetsMC.autoMCStats()
-    addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
+#     addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'W+jets', 'trig_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_wjetsMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #     #id Electron
     id_eUp=template(background, "W+jets", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "W+jets", 'id_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_wjetsMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'W+jets','puUp','wjete')[0] 
     pileupDown=template(background, 'W+jets','puDown','wjete')[0] 
-    wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_wjetsMC.setParamEffect(reco_e, recoeUp, recoDown)
 
-    addVJetsSyst(background, "W+jets", "wjete", wjete_wjetsMC)
+#     addVJetsSyst(background, "W+jets", "wjete", wjete_wjetsMC)
 
     #     JEC_JER
     jerUp=template(background, 'W+jets', 'JERUp', 'wjete')[0] 
     jerDown=template(background, 'W+jets', 'JERDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     wjete_wjetsMC.setParamEffect(jec_jer, jerUp, jerDown)
 
     #     JEC_JEs
     jesUp=template(background, 'W+jets', 'JESUp', 'wjete')[0] 
     jesDown=template(background, 'W+jets', 'JESDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjete_wjetsMC.setParamEffect(jec_jes, jesUp, jesDown)
 
 
         #L1 prefire
     L1prefireUp=template(background, 'W+jets', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'W+jets', 'L1PrefireDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     wjete_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'W+jets', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'W+jets', 'ISRDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     wjete_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
     wjete.addSample(wjete_wjetsMC)
 
         # ###
@@ -364,55 +364,55 @@ def model(year):
     #     wjete_ttMC.setParamEffect(jec, 1.05)
     #     wjete_ttMC.setParamEffect(id_e, 1.02)
     #     wjete_ttMC.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "TT", "wjete", wjete_ttMC)
+#     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
     #     wjete_ttMC.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_ttMC.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "TT", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "TT", 'id_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_ttMC.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'TT','puUp','wjete')[0] 
     pileupDown=template(background, 'TT','puDown','wjete')[0] 
-    wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'TT', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'TT', 'reco_eDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_ttMC.setParamEffect(reco_e, recoeUp, recoDown)
     # wjete_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
     jerUp=template(background, 'TT', 'JERUp', 'wjete')[0] 
     jerDown=template(background, 'TT', 'JERDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
+#     wjete_ttMC.setParamEffect(jec_jer, jerUp, jerDown)
 
         #JEC_JEs
     jesUp=template(background, 'TT', 'JESUp', 'wjete')[0] 
     jesDown=template(background, 'TT', 'JESDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjete_ttMC.setParamEffect(jec_jes, jesUp, jesDown)
 
     #L1 prefire
     L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     wjete_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #ISR
     ISRUp=template(background, 'TT', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'TT', 'ISRDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_ttMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjete_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'TT', 'PDFDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     wjete_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
 
     wjete.addSample(wjete_ttMC)
 
