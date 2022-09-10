@@ -18,12 +18,13 @@ rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
 mT_corrected_binning_dict = {
-#     "2018":np.linspace(0, 600, 21),
-#     "2017":np.linspace(0, 600, 21),
-#     "2016":np.linspace(0, 600, 21)
-    "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-    "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-    "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
+    "2018":np.array([120., 150., 180., 210.,  270., 390.,
+        510.]),
+    "2017":np.array([120., 150., 180., 210.,  270., 390.,
+        510.]),
+    "2016":np.array([120., 150., 180., 210.,  270., 390.,
+        510.])
+
 }
 
 
@@ -626,12 +627,13 @@ if __name__ == "__main__":
     hist_scaled_file = options.file
     
     mT_corrected_binning_dict = {
-    #     "2018":np.linspace(0, 600, 21),
-    #     "2017":np.linspace(0, 600, 21),
-    #     "2016":np.linspace(0, 600, 21)
-        "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-        "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-        "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
+        "2018":np.array([120., 150., 180., 210.,  270., 390.,
+            510.]),
+        "2017":np.array([120., 150., 180., 210.,  270., 390.,
+            510.]),
+        "2016":np.array([120., 150., 180., 210.,  270., 390.,
+            510.])
+
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
