@@ -308,7 +308,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'W+jets','puUp','wjete')[0] 
     pileupDown=template(background, 'W+jets','puDown','wjete')[0] 
-#     wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+    wjete_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'wjete')[0]
@@ -340,12 +340,12 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'wjete')[0]
-#     wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+    wjete_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'wjete')[0]
-#     wjete_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
+    wjete_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
     wjete.addSample(wjete_wjetsMC)
 
         # ###
@@ -377,7 +377,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'TT','puUp','wjete')[0] 
     pileupDown=template(background, 'TT','puDown','wjete')[0] 
-#     wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+    wjete_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'TT', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'TT', 'reco_eDown', 'wjete')[0]
@@ -407,12 +407,12 @@ def model(year):
     #FSR
     FSRUp=template(background, 'TT', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'TT', 'FSRDown', 'wjete')[0]
-#     wjete_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
+    wjete_ttMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'TT', 'PDFDown', 'wjete')[0]
-#     wjete_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+    wjete_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
 
     wjete.addSample(wjete_ttMC)
 
@@ -444,7 +444,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'ST','puUp','wjete')[0] 
     pileupDown=template(background, 'ST','puDown','wjete')[0] 
-#     wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
+    wjete_st.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'ST', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'ST', 'reco_eDown', 'wjete')[0]
@@ -474,12 +474,12 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'ST', 'FSRDown', 'wjete')[0]
-#     wjete_st.setParamEffect(fsr, FSRUp, FSRDown)
+    wjete_st.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'wjete')[0]
-#     wjete_st.setParamEffect(pdf, pdfUp, pdfDown)  
+    wjete_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     wjete.addSample(wjete_st)
 
@@ -509,7 +509,7 @@ def model(year):
         #pileup
     pileupUp=template(background, 'DY+jets','puUp','wjete')[0] 
     pileupDown=template(background, 'DY+jets','puDown','wjete')[0] 
-#     wjete_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+    wjete_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'wjete')[0]
@@ -538,12 +538,12 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjete')[0]
-#     wjete_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+    wjete_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'wjete')[0]
-#     wjete_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+    wjete_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjete.addSample(wjete_dyjets)
 
@@ -573,7 +573,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','wjete')[0] 
     pileupDown=template(background, 'VV','puDown','wjete')[0] 
-#     wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
+    wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
         #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'wjete')[0]
@@ -603,12 +603,12 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'wjete')[0]
-#     wjete_vv.setParamEffect(fsr, FSRUp, FSRDown)
+    wjete_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'wjete')[0]
-#     wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+    wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjete.addSample(wjete_vv)
 
