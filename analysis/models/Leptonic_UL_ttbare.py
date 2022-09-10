@@ -522,7 +522,7 @@ def model(year):
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
-#     ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+    ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
 
     #L1 prefire
