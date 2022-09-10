@@ -691,9 +691,9 @@ if __name__ == "__main__":
     reco_e = rl.NuisanceParameter("reco_e" + year, "shape")
     iso_mu = rl.NuisanceParameter("iso_mu" + year, "shape")
     trig_m = rl.NuisanceParameter("trig_m" + year, "shape")
-    trig_met = rl.NuisanceParameter("trig_met" + year, "lnN")
-    trig_pho = rl.NuisanceParameter("trig_pho" + year, "lnN")
-    veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
+#     trig_met = rl.NuisanceParameter("trig_met" + year, "lnN")
+#     trig_pho = rl.NuisanceParameter("trig_pho" + year, "lnN")
+#     veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
     jec_jer = rl.NuisanceParameter("jec_jer" + year, "shape")
     jec_jes = rl.NuisanceParameter("jec_jes" + year, "shape")
     #btag = rl.NuisanceParameter("btag" + year, "shapeN")  # AK4 btag
@@ -717,8 +717,8 @@ if __name__ == "__main__":
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    isr = rl.NuisanceParameter("isr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf"+year, "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
