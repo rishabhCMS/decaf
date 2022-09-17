@@ -432,7 +432,7 @@ def model(year):
     #     wjete_st.setParamEffect(id_e, 1.02)
     #     wjete_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjete", wjete_st)
-    wjete_st.autoMCStats()
+#     wjete_st.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
