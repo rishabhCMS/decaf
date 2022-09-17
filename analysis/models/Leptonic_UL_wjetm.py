@@ -301,7 +301,7 @@ def model(year):
     #     wjetm_wjetsMC.setParamEffect(jec, 1.05)
     #     wjetm_wjetsMC.setParamEffect(id_m, 1.02)
     #     wjetm_wjetsMC.setParamEffect(reco_e, 1.02)
-    wjetm_wjetsMC.autoMCStats(lnN=True)
+    wjetm_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     addVJetsSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     #trigger Muon
@@ -373,7 +373,7 @@ def model(year):
     #     wjetm_ttMC.setParamEffect(id_m, 1.02)
     #     wjetm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjetm", wjetm_ttMC)
-    wjetm_ttMC.autoMCStats(lnN=True)
+    wjetm_ttMC.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
@@ -717,7 +717,7 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "lnN")
