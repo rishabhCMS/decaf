@@ -1388,13 +1388,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                 IOV = self._year
                 
             if shift_syst == "puUp":
-                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "up"))
+                pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "up")
+#                 pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "up"))
                 
             elif shift_syst == 'puDown':
-                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "down"))
+                pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "down")
+#                 pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "down"))
                 
             else:
-                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt)))
+                pu =  GetPUSF(IOV, (events.Pileup.nTrueInt))
+#                 pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt)))
 
             ###
             # Trigger efficiency weight
@@ -1668,7 +1671,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Corr_Met_LJ',
                     'mtcorr_sre>150','corr_met100',
-                    'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                    'noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
                     "leading_j>70",
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
@@ -1678,7 +1681,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Corr_Met_LJ', 
                     'mtcorr_srm>150',  'corr_met100', 
-                    'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                    'noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                     "exclude_wjets_less_200", "exclude_wjets_greater_200",
                     "leading_j>70", 
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
@@ -1688,7 +1691,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                        'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbare>150', 'corr_met100', 
-                       'noHEMj','noHEMmet' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
+                       'noHEMj' ,"exclude_dyjets_less_400", "exclude_dyjets_greater_400", 
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
                        "leading_j>70", 
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
@@ -1698,7 +1701,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                        'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbarm>150' , 'corr_met100',
-                       'noHEMj','noHEMmet',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                       'noHEMj',"exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                        "exclude_wjets_less_200", "exclude_wjets_greater_200",
                        "leading_j>70", 
                        "lumi_mask", 'DeltaR_LJ_Mu_mask',
@@ -1709,7 +1712,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 'atleast_one_jet_with_pt_grt_50',
                       'Delta_Phi_Corr_Met_LJ','zero_medium_btags','isoneE', 'met_filters', 'single_electron_triggers',
                        'mtcorr_wjete>150' ,
-                      'noHEMj', 'noHEMmet', "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
+                      'noHEMj',  "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
                 "leading_j>70",
                       "lumi_mask", 'DeltaR_LJ_Ele_mask',
@@ -1721,7 +1724,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                       'Delta_Phi_Corr_Met_LJ',
                       'zero_medium_btags','isoneM', 'met_filters', 'single_muon_triggers',
                        'mtcorr_wjetm>150' ,
-                      'noHEMj', 'noHEMmet', 
+                      'noHEMj',  
                 "exclude_dyjets_less_400", "exclude_dyjets_greater_400",
                       "exclude_wjets_less_200", "exclude_wjets_greater_200", 
                       "leading_j>70",
