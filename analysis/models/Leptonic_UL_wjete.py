@@ -365,7 +365,7 @@ def model(year):
     #     wjete_ttMC.setParamEffect(id_e, 1.02)
     #     wjete_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
-    #     wjete_ttMC.autoMCStats()
+    wjete_ttMC.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
@@ -424,15 +424,15 @@ def model(year):
     wjete_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
     )
-#     wjete_st.setParamEffect(lumi, lumi_unc)
+    wjete_st.setParamEffect(lumi, lumi_unc)
     #     wjete_st.setParamEffect(trig_e, 1.01)
     #     wjete_st.setParamEffect(veto_tau, 1.03)
     #     wjete_st.setParamEffect(st_norm, 1.2) something related to signal
     #     wjete_st.setParamEffect(jec, 1.05)
     #     wjete_st.setParamEffect(id_e, 1.02)
     #     wjete_st.setParamEffect(reco_e, 1.02)
-#     addBtagSyst(background, "ST", "wjete", wjete_st)
-    #     wjete_st.autoMCStats()
+    addBtagSyst(background, "ST", "wjete", wjete_st)
+    wjete_st.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
@@ -497,7 +497,7 @@ def model(year):
     #     wjete_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
-    #     wjete_dyjets.autoMCStats()
+    wjete_dyjets.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
