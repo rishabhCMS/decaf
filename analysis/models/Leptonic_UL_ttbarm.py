@@ -351,7 +351,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     ttbarm_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
     ttbarm.addSample(ttbarm_wjetsMC)
 
     # ###
@@ -420,7 +420,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'TT', 'PDFDown', 'ttbarm')[0]
-    ttbarm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     ttbarm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
 
     ttbarm.addSample(ttbarm_ttMC)
 
@@ -488,7 +488,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
+#     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     ttbarm.addSample(ttbarm_st)
 
@@ -553,7 +553,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_dyjets)
 
@@ -620,7 +620,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbarm')[0]
-    ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_vv)
 
@@ -719,7 +719,7 @@ if __name__ == "__main__":
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "lnN")
     fsr = rl.NuisanceParameter("fsr", "lnN")
-    pdf = rl.NuisanceParameter("pdf", "lnN")
+    pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
