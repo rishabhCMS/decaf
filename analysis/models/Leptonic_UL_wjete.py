@@ -150,9 +150,9 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
     if "data" not in systematic:
         #output[zerobins] = 1.
         #sumw2[zerobins] = 0.
-#         if "ST" in str(process) :
-#             output[zerobins] = 1.
-#             sumw2[zerobins] = 0.
+        if "ST" in str(process) :
+            output[zerobins] = 1.
+            sumw2[zerobins] = 0.
         if "W+" in str(process):
             output[zerobins] = 1.
             sumw2[zerobins] = 0.
