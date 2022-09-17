@@ -344,7 +344,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'W+jets', 'PDFDown', 'ttbare')[0]
-    ttbare_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     ttbare_wjetsMC.setParamEffect(pdf, pdfUp, pdfDown)    
     ttbare.addSample(ttbare_wjetsMC)
 
         # ###
@@ -411,7 +411,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'TT', 'PDFDown', 'ttbare')[0]
-    ttbare_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+#     ttbare_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
 
     ttbare.addSample(ttbare_ttMC)
 
@@ -478,7 +478,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'ttbare')[0]
-    ttbare_st.setParamEffect(pdf, pdfUp, pdfDown)  
+#     ttbare_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     ttbare.addSample(ttbare_st)
 
@@ -543,7 +543,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbare.addSample(ttbare_dyjets)
 
@@ -607,7 +607,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbare.addSample(ttbare_vv)
 
