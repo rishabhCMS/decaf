@@ -131,7 +131,7 @@ def addVJetsSyst(dictionary, process, region, templ):
         systUp = systUp.sum()
         templ.setParamEffect(syst, systUp)
     addSyst(dictionary, process, region, templ, ew1, "ew1")
-    addSyst(dictionary, process, region, templ, ew2W, "ew2W")
+#     addSyst(dictionary, process, region, templ, ew2W, "ew2W")
     addSyst(dictionary, process, region, templ, ew2Z, "ew2Z")
     addSyst(dictionary, process, region, templ, ew3W, "ew3W")
     addSyst(dictionary, process, region, templ, ew3Z, "ew3Z")
@@ -139,8 +139,8 @@ def addVJetsSyst(dictionary, process, region, templ):
 #     addSyst(dictionary, process, region, templ, qcd1, "qcd1")
 #     addSyst(dictionary, process, region, templ, qcd2, "qcd2")
 #     addSyst(dictionary, process, region, templ, qcd3, "qcd3")
-    addSyst(dictionary, process, region, templ, muR, "muR")
-    addSyst(dictionary, process, region, templ, muF, "muF")
+#     addSyst(dictionary, process, region, templ, muR, "muR")
+#     addSyst(dictionary, process, region, templ, muF, "muF")
     
 def template(dictionary, process, systematic, region, read_sumw2=False):
     histogram = dictionary[region].integrate("process", process).sum('npvs')
