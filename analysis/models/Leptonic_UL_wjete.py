@@ -295,7 +295,7 @@ def model(year):
     #     wjete_wjetsMC.setParamEffect(jec, 1.05)
     #     wjete_wjetsMC.setParamEffect(id_e, 1.02)
     #     wjete_wjetsMC.setParamEffect(reco_e, 1.02)
-#     wjete_wjetsMC.autoMCStats()
+    wjete_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'wjete')[0] 
@@ -365,7 +365,7 @@ def model(year):
     #     wjete_ttMC.setParamEffect(id_e, 1.02)
     #     wjete_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
-#     wjete_ttMC.autoMCStats()
+    wjete_ttMC.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
@@ -420,7 +420,7 @@ def model(year):
         # # Other MC-driven processes
         # ###
         # ST Background
-    wjete_stTemplate = template(background, "ST", "nominal", "wjete")
+    wjete_stTemplate = template(background, "ST", "nominal", "wjete", read_sumw2=True)
     wjete_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
     )
@@ -432,7 +432,7 @@ def model(year):
     #     wjete_st.setParamEffect(id_e, 1.02)
     #     wjete_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjete", wjete_st)
-#     wjete_st.autoMCStats()
+    wjete_st.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
@@ -484,7 +484,7 @@ def model(year):
     wjete.addSample(wjete_st)
 
         # DY Jet Background
-    wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete")
+    wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete", read_sumw2=True)
     wjete_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjete_dyjetsTemplate
     )
@@ -497,7 +497,7 @@ def model(year):
     #     wjete_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
-#     wjete_dyjets.autoMCStats()
+    wjete_dyjets.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
@@ -549,7 +549,7 @@ def model(year):
 
 
         # V Jets Background
-    wjete_vvTemplate = template(background, "VV", "nominal", "wjete")
+    wjete_vvTemplate = template(background, "VV", "nominal", "wjete", read_sumw2=True)
     wjete_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjete_vvTemplate
     )
@@ -561,7 +561,7 @@ def model(year):
     #     wjete_vv.setParamEffect(id_e, 1.02)
     #     wjete_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "wjete", wjete_vv)
-    #     wjete_vv.autoMCStats()
+    wjete_vv.autoMCStats()
     #     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'wjete')[0]
