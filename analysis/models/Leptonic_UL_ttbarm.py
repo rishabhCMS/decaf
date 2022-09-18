@@ -300,7 +300,7 @@ def model(year):
     #     ttbarm_wjetsMC.setParamEffect(jec, 1.05)
     #     ttbarm_wjetsMC.setParamEffect(id_m, 1.02)
     #     ttbarm_wjetsMC.setParamEffect(reco_e, 1.02)
-#     ttbarm_wjetsMC.autoMCStats()
+    ttbarm_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     #trigger Muon
@@ -371,7 +371,7 @@ def model(year):
     #     ttbarm_ttMC.setParamEffect(id_m, 1.02)
     #     ttbarm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "ttbarm", ttbarm_ttMC)
-#     ttbarm_ttMC.autoMCStats()
+    ttbarm_ttMC.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'ttbarm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'ttbarm')[0]
@@ -428,7 +428,7 @@ def model(year):
     # # Other MC-driven processes
     # ###
     # ST Background
-    ttbarm_stTemplate = template(background, "ST", "nominal", "ttbarm")
+    ttbarm_stTemplate = template(background, "ST", "nominal", "ttbarm", read_sumw2=True)
     ttbarm_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, ttbarm_stTemplate
     )
@@ -440,7 +440,7 @@ def model(year):
     #     ttbarm_st.setParamEffect(id_m, 1.02)
     #     ttbarm_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "ttbarm", ttbarm_st)
-    #     ttbarm_st.autoMCStats()
+    ttbarm_st.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'ST', 'trig_mUp', 'ttbarm')[0] 
     trigmDown=template(background, 'ST', 'trig_mDown', 'ttbarm')[0]
@@ -559,7 +559,7 @@ def model(year):
 
 
     # V Jets Background
-    ttbarm_vvTemplate = template(background, "VV", "nominal", "ttbarm")
+    ttbarm_vvTemplate = template(background, "VV", "nominal", "ttbarm", read_sumw2=True)
     ttbarm_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, ttbarm_vvTemplate
     )
@@ -571,7 +571,7 @@ def model(year):
     #     ttbarm_vv.setParamEffect(id_m, 1.02)
     #     ttbarm_vv.setParamEffect(reco_e, 1.02)
 #     addBtagSyst(background, "VV", "ttbarm", ttbarm_vv)
-    #     ttbarm_vv.autoMCStats()
+    ttbarm_vv.autoMCStats()
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'ttbarm')[0] 
     trigmDown=template(background, 'VV', 'trig_mDown', 'ttbarm')[0]
