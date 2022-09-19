@@ -498,7 +498,7 @@ def model(year):
 #     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     ttbarm.addSample(ttbarm_st)
-    '''
+    
     # DY Jet Background
     ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm", read_sumw2=True)
     ttbarm_dyjets = rl.TemplateSample(
@@ -511,56 +511,56 @@ def model(year):
     #     ttbarm_dyjets.setParamEffect(jec, 1.05)
     #     ttbarm_dyjets.setParamEffect(id_m, 1.02)
     #     ttbarm_dyjets.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "DY+jets", "ttbarm", ttbarm_dyjets)
+#     addBtagSyst(background, "DY+jets", "ttbarm", ttbarm_dyjets)
 #     addVJetsSyst(background,"DY+jets", "ttbarm", ttbarm_dyjets)
     ttbarm_dyjets.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'ttbarm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
+#     ttbarm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'DY+jets', 'isolation_mUp', 'ttbarm')[0] 
     isolation_mDown=template(background, 'DY+jets', 'isolation_mDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#     ttbarm_dyjets.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'ttbarm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
+#     ttbarm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','ttbarm')[0] 
-    ttbarm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbarm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
     jerUp=template(background, 'DY+jets', 'JERUp', 'ttbarm')[0] 
     jerDown=template(background, 'DY+jets', 'JERDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+#     ttbarm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbarm')[0] 
     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     ttbarm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'ttbarm')[0] 
     L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     ttbarm_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbarm')[0] 
     ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbarm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbarm')[0]
-    ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbarm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_dyjets)
 
@@ -570,7 +570,7 @@ def model(year):
     ttbarm_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, ttbarm_vvTemplate
     )
-#     ttbarm_vv.setParamEffect(lumi, lumi_unc)
+    ttbarm_vv.setParamEffect(lumi, lumi_unc)
     #     ttbarm_vv.setParamEffect(trig_m, 1.01)
     #     ttbarm_vv.setParamEffect(veto_tau, 1.03)
     #     ttbarm_vv.setParamEffect(vv_norm, 1.2)
@@ -630,7 +630,7 @@ def model(year):
 #     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_vv)
-    '''
+    
 
 
     return model
