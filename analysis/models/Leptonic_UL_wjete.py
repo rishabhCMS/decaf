@@ -40,18 +40,22 @@ def remap_histograms(hists):
     bkg_map = OrderedDict()
     data_map = OrderedDict()
     bkg_map["Hbb"] = ("Hbb*",)
-    bkg_map["DY+jets"] = ("DY+*",)
-    bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
-    bkg_map["ST"] = ("ST*",)
-    bkg_map["TT"] = ("TT*",)
+#     bkg_map["DY+jets"] = ("DY+*",)
+#     bkg_map["DY+HF"] = ("DY+HF",)
+#     bkg_map["DY+LF"] = ("DY+LF",)
+#     bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
+#     bkg_map["WW"] = ("WW")
+#     bkg_map["WZ"] = ("WZ")
+#     bkg_map["ZZ"] = ("ZZ")
+#     bkg_map["ST"] = ("ST*",)
+#     bkg_map["TT"] = ("TT*")
+    bkg_map["TT"] = (["ST", "TT"],)    
+#     bkg_map["(W+jets)+VV"] = (["W+", "WW", "WZ", "ZZ"])
     bkg_map["W+jets"] = ("W+*",)
 #     bkg_map["W+HF"] = ("W+HF",)
 #     bkg_map["W+LF"] = ("W+LF",)
-    bkg_map["Z_jets"] = ("Z+*",)
-#     bkg_map["Z+HF"] = ("Z+HF",)
-#     bkg_map["Z+LF"] = ("Z+LF",)
-#     bkg_map["G+jets"] = ("G+*",)
-    bkg_map["QCD"] = ("QCD*",)
+    bkg_map["Z+jets"] = ("Z+*",)
+    bkg_map["DY+jets"] = (["DY", "WW", "WZ", "ZZ"])
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
@@ -420,6 +424,7 @@ def model(year):
         # # Other MC-driven processes
         # ###
         # ST Background
+    '''
     wjete_stTemplate = template(background, "ST", "nominal", "wjete", read_sumw2=True)
     wjete_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
@@ -482,7 +487,7 @@ def model(year):
     wjete_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     wjete.addSample(wjete_st)
-
+    '''
         # DY Jet Background
     wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete", read_sumw2=True)
     wjete_dyjets = rl.TemplateSample(
@@ -547,7 +552,7 @@ def model(year):
 
     wjete.addSample(wjete_dyjets)
 
-
+    '''
         # V Jets Background
     wjete_vvTemplate = template(background, "VV", "nominal", "wjete", read_sumw2=True)
     wjete_vv = rl.TemplateSample(
@@ -611,7 +616,7 @@ def model(year):
     wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjete.addSample(wjete_vv)
-
+    '''
     return model
 
 if __name__ == "__main__":
