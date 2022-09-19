@@ -39,23 +39,19 @@ def remap_histograms(hists):
     sig_map = OrderedDict()
     bkg_map = OrderedDict()
     data_map = OrderedDict()
-#     bkg_map["Hbb"] = ("Hbb*",)
+    bkg_map["Hbb"] = ("Hbb*",)
     bkg_map["DY+jets"] = ("DY+*",)
-#     bkg_map["DY+HF"] = ("DY+HF",)
-#     bkg_map["DY+LF"] = ("DY+LF",)
     bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
-#     bkg_map["WW"] = ("WW")
-#     bkg_map["WZ"] = ("WZ")
-#     bkg_map["ZZ"] = ("ZZ")
     bkg_map["ST"] = ("ST*",)
-#     bkg_map["TT"] = ("TT*")
-    bkg_map["TT"] = (["TT"],)    
-#     bkg_map["(W+jets)+VV"] = (["W+", "WW", "WZ", "ZZ"])
+    bkg_map["TT"] = ("TT*",)
     bkg_map["W+jets"] = ("W+*",)
 #     bkg_map["W+HF"] = ("W+HF",)
 #     bkg_map["W+LF"] = ("W+LF",)
-#     bkg_map["Z+jets"] = ("Z+*",)
-#     bkg_map["DY+jets"] = (["DY", "WW", "WZ", "ZZ"])
+    bkg_map["Z_jets"] = ("Z+*",)
+#     bkg_map["Z+HF"] = ("Z+HF",)
+#     bkg_map["Z+LF"] = ("Z+LF",)
+#     bkg_map["G+jets"] = ("G+*",)
+    bkg_map["QCD"] = ("QCD*",)
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
@@ -209,13 +205,12 @@ def model(year):
     ###
     # Add data distribution to the channel
     ###
-    #uncorelated unceratinities: https://twiki.cern.ch/twiki/bin/viewauth/CMS/TWikiLUM
     if year == '2018':
-        lumi_unc = 1.015
+        lumi_unc = 1.025
     if year == '2017':
-        lumi_unc = 1.020
+        lumi_unc = 1.023
     if '2016' in year:
-        lumi_unc = 1.006
+        lumi_unc = 1.012
 
 
     if year == "2018":
@@ -436,8 +431,6 @@ def model(year):
     # # Other MC-driven processes
     # ###
     # ST Background
-    
-    '''
     wjetm_stTemplate = template(background, "ST", "nominal", "wjetm", read_sumw2=True)
     wjetm_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjetm_stTemplate
@@ -450,7 +443,7 @@ def model(year):
     #     wjetm_st.setParamEffect(id_m, 1.02)
     #     wjetm_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjetm", wjetm_st)
-#     wjetm_st.autoMCStats()
+    wjetm_st.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
@@ -501,7 +494,7 @@ def model(year):
     wjetm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     wjetm.addSample(wjetm_st)
-    '''
+
     # DY Jet Background
     wjetm_dyjetsTemplate = template(background, "DY+jets", "nominal","wjetm", read_sumw2=True)
     wjetm_dyjets = rl.TemplateSample(
@@ -515,8 +508,8 @@ def model(year):
     #     wjetm_dyjets.setParamEffect(id_m, 1.02)
     #     wjetm_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjetm", wjetm_dyjets)
-#     addVJetsSyst(background,"DY+jets", "wjetm", wjetm_dyjets)
-#     wjetm_dyjets.autoMCStats()
+    addVJetsSyst(background,"DY+jets", "wjetm", wjetm_dyjets)
+    wjetm_dyjets.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'wjetm')[0]
@@ -568,7 +561,7 @@ def model(year):
 
     wjetm.addSample(wjetm_dyjets)
 
-    
+
     # V Jets Background
     wjetm_vvTemplate = template(background, "VV", "nominal", "wjetm", read_sumw2=True)
     wjetm_vv = rl.TemplateSample(
@@ -634,7 +627,7 @@ def model(year):
     wjetm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjetm.addSample(wjetm_vv)
-    
+
 
     return model
 
@@ -727,8 +720,8 @@ if __name__ == "__main__":
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    isr = rl.NuisanceParameter("isr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
