@@ -39,23 +39,23 @@ def remap_histograms(hists):
     sig_map = OrderedDict()
     bkg_map = OrderedDict()
     data_map = OrderedDict()
-    bkg_map["Hbb"] = ("Hbb*",)
-#     bkg_map["DY+jets"] = ("DY+*",)
+#     bkg_map["Hbb"] = ("Hbb*",)
+    bkg_map["DY+jets"] = ("DY+*",)
 #     bkg_map["DY+HF"] = ("DY+HF",)
 #     bkg_map["DY+LF"] = ("DY+LF",)
-#     bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
+    bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
 #     bkg_map["WW"] = ("WW")
 #     bkg_map["WZ"] = ("WZ")
 #     bkg_map["ZZ"] = ("ZZ")
-#     bkg_map["ST"] = ("ST*",)
+    bkg_map["ST"] = ("ST*",)
 #     bkg_map["TT"] = ("TT*")
-    bkg_map["TT"] = (["ST", "TT"],)    
+    bkg_map["TT"] = (["TT"],)    
 #     bkg_map["(W+jets)+VV"] = (["W+", "WW", "WZ", "ZZ"])
     bkg_map["W+jets"] = ("W+*",)
 #     bkg_map["W+HF"] = ("W+HF",)
 #     bkg_map["W+LF"] = ("W+LF",)
-    bkg_map["Z+jets"] = ("Z+*",)
-    bkg_map["DY+jets"] = (["DY", "WW", "WZ", "ZZ"])
+#     bkg_map["Z+jets"] = ("Z+*",)
+#     bkg_map["DY+jets"] = (["DY", "WW", "WZ", "ZZ"])
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
@@ -304,7 +304,7 @@ def model(year):
     #     ttbarm_wjetsMC.setParamEffect(jec, 1.05)
     #     ttbarm_wjetsMC.setParamEffect(id_m, 1.02)
     #     ttbarm_wjetsMC.setParamEffect(reco_e, 1.02)
-    ttbarm_wjetsMC.autoMCStats()
+#     ttbarm_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     #trigger Muon
@@ -350,7 +350,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
@@ -424,11 +424,11 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'TT', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'TT', 'PDFDown', 'ttbarm')[0]
-#     ttbarm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
+    ttbarm_ttMC.setParamEffect(pdf, pdfUp, pdfDown)    
 
     ttbarm.addSample(ttbarm_ttMC)
 
-    '''
+    
     # ###
     # # Other MC-driven processes
     # ###
@@ -496,7 +496,7 @@ def model(year):
 #     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     ttbarm.addSample(ttbarm_st)
-    '''
+    
     # DY Jet Background
     ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm", read_sumw2=True)
     ttbarm_dyjets = rl.TemplateSample(
