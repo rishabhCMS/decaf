@@ -498,7 +498,7 @@ def model(year):
     ttbarm.addSample(ttbarm_st)
     '''
     # DY Jet Background
-    ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm")
+    ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm", read_sumw2=True)
     ttbarm_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbarm_dyjetsTemplate
     )
