@@ -39,23 +39,19 @@ def remap_histograms(hists):
     sig_map = OrderedDict()
     bkg_map = OrderedDict()
     data_map = OrderedDict()
-#     bkg_map["Hbb"] = ("Hbb*",)
+    bkg_map["Hbb"] = ("Hbb*",)
     bkg_map["DY+jets"] = ("DY+*",)
-#     bkg_map["DY+HF"] = ("DY+HF",)
-#     bkg_map["DY+LF"] = ("DY+LF",)
     bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
-#     bkg_map["WW"] = ("WW")
-#     bkg_map["WZ"] = ("WZ")
-#     bkg_map["ZZ"] = ("ZZ")
     bkg_map["ST"] = ("ST*",)
-#     bkg_map["TT"] = ("TT*")
-    bkg_map["TT"] = (["TT"],)    
-#     bkg_map["(W+jets)+VV"] = (["W+", "WW", "WZ", "ZZ"])
+    bkg_map["TT"] = ("TT*",)
     bkg_map["W+jets"] = ("W+*",)
 #     bkg_map["W+HF"] = ("W+HF",)
 #     bkg_map["W+LF"] = ("W+LF",)
-#     bkg_map["Z+jets"] = ("Z+*",)
-#     bkg_map["DY+jets"] = (["DY", "WW", "WZ", "ZZ"])
+    bkg_map["Z_jets"] = ("Z+*",)
+#     bkg_map["Z+HF"] = ("Z+HF",)
+#     bkg_map["Z+LF"] = ("Z+LF",)
+#     bkg_map["G+jets"] = ("G+*",)
+    bkg_map["QCD"] = ("QCD*",)
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
@@ -206,13 +202,12 @@ def model(year):
     ###
     # Add data distribution to the channel
     ###
-    #uncorelated unceratinities: https://twiki.cern.ch/twiki/bin/viewauth/CMS/TWikiLUM
     if year == '2018':
-        lumi_unc = 1.015
+        lumi_unc = 1.025
     if year == '2017':
-        lumi_unc = 1.020
+        lumi_unc = 1.023
     if '2016' in year:
-        lumi_unc = 1.006
+        lumi_unc = 1.012
         
     if year == "2018":
         wjete.setObservation(template(data, "EGamma", "data", "wjete"))
@@ -300,7 +295,7 @@ def model(year):
     #     wjete_wjetsMC.setParamEffect(jec, 1.05)
     #     wjete_wjetsMC.setParamEffect(id_e, 1.02)
     #     wjete_wjetsMC.setParamEffect(reco_e, 1.02)
-    wjete_wjetsMC.autoMCStats()
+#     wjete_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'wjete')[0] 
@@ -370,7 +365,7 @@ def model(year):
     #     wjete_ttMC.setParamEffect(id_e, 1.02)
     #     wjete_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
-    wjete_ttMC.autoMCStats()
+#     wjete_ttMC.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
@@ -425,8 +420,7 @@ def model(year):
         # # Other MC-driven processes
         # ###
         # ST Background
-    '''
-    wjete_stTemplate = template(background, "ST", "nominal", "wjete", read_sumw2=True)
+    wjete_stTemplate = template(background, "ST", "nominal", "wjete")
     wjete_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
     )
@@ -438,7 +432,7 @@ def model(year):
     #     wjete_st.setParamEffect(id_e, 1.02)
     #     wjete_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjete", wjete_st)
-    wjete_st.autoMCStats()
+#     wjete_st.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
@@ -488,9 +482,9 @@ def model(year):
     wjete_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     wjete.addSample(wjete_st)
-    '''
+
         # DY Jet Background
-    wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete", read_sumw2=True)
+    wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete")
     wjete_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjete_dyjetsTemplate
     )
@@ -502,8 +496,8 @@ def model(year):
     #     wjete_dyjets.setParamEffect(id_e, 1.02)
     #     wjete_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
-#     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
-    wjete_dyjets.autoMCStats()
+    addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
+#     wjete_dyjets.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
@@ -553,9 +547,9 @@ def model(year):
 
     wjete.addSample(wjete_dyjets)
 
-    
+
         # V Jets Background
-    wjete_vvTemplate = template(background, "VV", "nominal", "wjete", read_sumw2=True)
+    wjete_vvTemplate = template(background, "VV", "nominal", "wjete")
     wjete_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjete_vvTemplate
     )
@@ -567,7 +561,7 @@ def model(year):
     #     wjete_vv.setParamEffect(id_e, 1.02)
     #     wjete_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "wjete", wjete_vv)
-    wjete_vv.autoMCStats()
+    #     wjete_vv.autoMCStats()
     #     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'wjete')[0]
@@ -617,7 +611,7 @@ def model(year):
     wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjete.addSample(wjete_vv)
-    
+
     return model
 
 if __name__ == "__main__":
@@ -710,8 +704,8 @@ if __name__ == "__main__":
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    isr = rl.NuisanceParameter("isr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
