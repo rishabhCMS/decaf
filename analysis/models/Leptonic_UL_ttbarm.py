@@ -39,23 +39,19 @@ def remap_histograms(hists):
     sig_map = OrderedDict()
     bkg_map = OrderedDict()
     data_map = OrderedDict()
-#     bkg_map["Hbb"] = ("Hbb*",)
+    bkg_map["Hbb"] = ("Hbb*",)
     bkg_map["DY+jets"] = ("DY+*",)
-#     bkg_map["DY+HF"] = ("DY+HF",)
-#     bkg_map["DY+LF"] = ("DY+LF",)
     bkg_map["VV"] = (["WW", "WZ", "ZZ"],)
-#     bkg_map["WW"] = ("WW")
-#     bkg_map["WZ"] = ("WZ")
-#     bkg_map["ZZ"] = ("ZZ")
     bkg_map["ST"] = ("ST*",)
-#     bkg_map["TT"] = ("TT*")
-    bkg_map["TT"] = (["TT"],)    
-#     bkg_map["(W+jets)+VV"] = (["W+", "WW", "WZ", "ZZ"])
+    bkg_map["TT"] = ("TT*",)
     bkg_map["W+jets"] = ("W+*",)
 #     bkg_map["W+HF"] = ("W+HF",)
 #     bkg_map["W+LF"] = ("W+LF",)
-#     bkg_map["Z+jets"] = ("Z+*",)
-#     bkg_map["DY+jets"] = (["DY", "WW", "WZ", "ZZ"])
+    bkg_map["Z_jets"] = ("Z+*",)
+#     bkg_map["Z+HF"] = ("Z+HF",)
+#     bkg_map["Z+LF"] = ("Z+LF",)
+#     bkg_map["G+jets"] = ("G+*",)
+    bkg_map["QCD"] = ("QCD*",)
     data_map["SingleElectron"] = ("SingleElectron",)
     data_map["SingleMuon"] = ("SingleMuon",)
     data_map["EGamma"] = ("EGamma",)
@@ -208,8 +204,6 @@ def model(year):
     ###
     # Add data distribution to the channel
     ###
-    
-    #uncorelated unceratinities: https://twiki.cern.ch/twiki/bin/viewauth/CMS/TWikiLUM
     if year == '2018':
         lumi_unc = 1.025
     if year == '2017':
@@ -307,7 +301,7 @@ def model(year):
     #     ttbarm_wjetsMC.setParamEffect(id_m, 1.02)
     #     ttbarm_wjetsMC.setParamEffect(reco_e, 1.02)
     ttbarm_wjetsMC.autoMCStats()
-#     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
+    addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     #trigger Muon
     trigmUp=template(background, 'W+jets', 'trig_mUp', 'ttbarm')[0] 
@@ -352,7 +346,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbarm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'ttbarm')[0]
-#     ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+    ttbarm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'ttbarm')[0] 
@@ -430,7 +424,6 @@ def model(year):
 
     ttbarm.addSample(ttbarm_ttMC)
 
-    
     # ###
     # # Other MC-driven processes
     # ###
@@ -498,13 +491,13 @@ def model(year):
 #     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     ttbarm.addSample(ttbarm_st)
-    
+
     # DY Jet Background
-    ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm", read_sumw2=True)
+    ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm")
     ttbarm_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbarm_dyjetsTemplate
     )
-    ttbarm_dyjets.setParamEffect(lumi, lumi_unc)
+#     ttbarm_dyjets.setParamEffect(lumi, lumi_unc)
     #     ttbarm_dyjets.setParamEffect(trig_m, 1.01)
     #     ttbarm_dyjets.setParamEffect(veto_tau, 1.03)
     #     ttbarm_dyjets.setParamEffect(zjetsMC_norm, 1.4)
@@ -513,7 +506,7 @@ def model(year):
     #     ttbarm_dyjets.setParamEffect(reco_e, 1.02)
 #     addBtagSyst(background, "DY+jets", "ttbarm", ttbarm_dyjets)
 #     addVJetsSyst(background,"DY+jets", "ttbarm", ttbarm_dyjets)
-    ttbarm_dyjets.autoMCStats()
+    #     ttbarm_dyjets.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'ttbarm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'ttbarm')[0]
@@ -564,13 +557,13 @@ def model(year):
 
     ttbarm.addSample(ttbarm_dyjets)
 
-    
+
     # V Jets Background
     ttbarm_vvTemplate = template(background, "VV", "nominal", "ttbarm", read_sumw2=True)
     ttbarm_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, ttbarm_vvTemplate
     )
-    ttbarm_vv.setParamEffect(lumi, lumi_unc)
+#     ttbarm_vv.setParamEffect(lumi, lumi_unc)
     #     ttbarm_vv.setParamEffect(trig_m, 1.01)
     #     ttbarm_vv.setParamEffect(veto_tau, 1.03)
     #     ttbarm_vv.setParamEffect(vv_norm, 1.2)
@@ -630,7 +623,7 @@ def model(year):
 #     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_vv)
-    
+
 
 
     return model
@@ -722,8 +715,8 @@ if __name__ == "__main__":
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
     pileup = rl.NuisanceParameter("pileup"+year, "shape")
-    L1prefire = rl.NuisanceParameter("L1prefire"+year, "lnN")
-    metUncl = rl.NuisanceParameter("metUncl"+year, "lnN")
+    L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
+    metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "lnN")
     fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf", "shape")
