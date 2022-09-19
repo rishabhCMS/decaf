@@ -211,11 +211,11 @@ def model(year):
     
     #uncorelated unceratinities: https://twiki.cern.ch/twiki/bin/viewauth/CMS/TWikiLUM
     if year == '2018':
-        lumi_unc = 1.015
+        lumi_unc = 1.025
     if year == '2017':
-        lumi_unc = 1.020
+        lumi_unc = 1.023
     if '2016' in year:
-        lumi_unc = 1.006
+        lumi_unc = 1.012
 
 
     if year == "2018":
@@ -498,7 +498,7 @@ def model(year):
 #     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
 
     ttbarm.addSample(ttbarm_st)
-    
+    '''
     # DY Jet Background
     ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm", read_sumw2=True)
     ttbarm_dyjets = rl.TemplateSample(
@@ -564,7 +564,7 @@ def model(year):
 
     ttbarm.addSample(ttbarm_dyjets)
 
-    '''
+    
     # V Jets Background
     ttbarm_vvTemplate = template(background, "VV", "nominal", "ttbarm", read_sumw2=True)
     ttbarm_vv = rl.TemplateSample(
