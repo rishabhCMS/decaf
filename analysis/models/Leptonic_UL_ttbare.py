@@ -419,7 +419,7 @@ def model(year):
 
     ttbare.addSample(ttbare_ttMC)
 
-    '''
+    
         # ###
         # # Other MC-driven processes
         # ###
@@ -552,7 +552,7 @@ def model(year):
 
     ttbare.addSample(ttbare_dyjets)
 
-    '''
+    
         # V Jets Background
     ttbare_vvTemplate = template(background, "VV", "nominal", "ttbare", read_sumw2=True)
     ttbare_vv = rl.TemplateSample(
