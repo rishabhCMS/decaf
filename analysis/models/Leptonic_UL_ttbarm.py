@@ -208,12 +208,14 @@ def model(year):
     ###
     # Add data distribution to the channel
     ###
+    
+    #uncorelated unceratinities: https://twiki.cern.ch/twiki/bin/viewauth/CMS/TWikiLUM
     if year == '2018':
-        lumi_unc = 1.025
+        lumi_unc = 1.015
     if year == '2017':
-        lumi_unc = 1.023
+        lumi_unc = 1.020
     if '2016' in year:
-        lumi_unc = 1.012
+        lumi_unc = 1.006
 
 
     if year == "2018":
