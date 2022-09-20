@@ -493,6 +493,7 @@ def model(year):
     ttbarm.addSample(ttbarm_st)
 
     # DY Jet Background
+    '''
     ttbarm_dyjetsTemplate = template(background, "DY+jets", "nominal","ttbarm")
     ttbarm_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbarm_dyjetsTemplate
@@ -623,7 +624,7 @@ def model(year):
     ttbarm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbarm.addSample(ttbarm_vv)
-
+    '''
 
 
     return model
