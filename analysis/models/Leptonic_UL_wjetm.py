@@ -373,7 +373,7 @@ def model(year):
     #     wjetm_ttMC.setParamEffect(id_m, 1.02)
     #     wjetm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjetm", wjetm_ttMC)
-    wjetm_ttMC.autoMCStats()
+#     wjetm_ttMC.autoMCStats()
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
@@ -470,7 +470,7 @@ def model(year):
     #JEC_JEs
     jesUp=template(background, 'ST', 'JESUp', 'wjetm')[0] 
     jesDown=template(background, 'ST', 'JESDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjetm_st.setParamEffect(jec_jes, jesUp, jesDown)
 
 
     #L1 prefire
@@ -486,7 +486,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'ST', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'ST', 'FSRDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_st.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'wjetm')[0] 
@@ -552,7 +552,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjetm')[0]
-    wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'wjetm')[0] 
@@ -575,6 +575,7 @@ def model(year):
     #     wjetm_vv.setParamEffect(id_m, 1.02)
     #     wjetm_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "wjetm", wjetm_vv)
+    addVJetsSyst(background,"VV", "wjetm", wjetm_dyjets)
     wjetm_vv.autoMCStats()
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
