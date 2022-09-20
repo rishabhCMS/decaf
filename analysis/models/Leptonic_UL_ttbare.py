@@ -309,6 +309,9 @@ def model(year):
     pileupUp=template(background, 'W+jets','puUp','ttbare')[0] 
     pileupDown=template(background, 'W+jets','puDown','ttbare')[0] 
     ttbare_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+    print("#### W+Jets###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
 #     reco Electron
     recoeUp=template(background, 'W+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'W+jets', 'reco_eDown', 'ttbare')[0]
@@ -377,6 +380,9 @@ def model(year):
     pileupUp=template(background, 'TT','puUp','ttbare')[0] 
     pileupDown=template(background, 'TT','puDown','ttbare')[0] 
     ttbare_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+    print("#### TT ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
     #reco Electron
     recoeUp=template(background, 'TT', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'TT', 'reco_eDown', 'ttbare')[0]
@@ -444,6 +450,9 @@ def model(year):
     pileupUp=template(background, 'ST','puUp','ttbare')[0] 
     pileupDown=template(background, 'ST','puDown','ttbare')[0] 
 #     ttbare_st.setParamEffect(pileup, pileupUp, pileupDown)
+    print("#### ST ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
     #reco Electron
     recoeUp=template(background, 'ST', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'ST', 'reco_eDown', 'ttbare')[0]
