@@ -575,7 +575,6 @@ def model(year):
     #     wjetm_vv.setParamEffect(id_m, 1.02)
     #     wjetm_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "wjetm", wjetm_vv)
-    addVJetsSyst(background,"VV", "wjetm", wjetm_dyjets)
     wjetm_vv.autoMCStats()
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
