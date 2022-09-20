@@ -420,7 +420,7 @@ def model(year):
         # # Other MC-driven processes
         # ###
         # ST Background
-    wjete_stTemplate = template(background, "ST", "nominal", "wjete")
+    wjete_stTemplate = template(background, "ST", "nominal", "wjete", read_sumw2=True)
     wjete_st = rl.TemplateSample(
         ch_name + "_stMC", rl.Sample.BACKGROUND, wjete_stTemplate
     )
@@ -484,7 +484,7 @@ def model(year):
     wjete.addSample(wjete_st)
 
         # DY Jet Background
-    wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete")
+    wjete_dyjetsTemplate = template(background, "DY+jets", "nominal","wjete", read_sumw2=True)
     wjete_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, wjete_dyjetsTemplate
     )
