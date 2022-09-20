@@ -560,7 +560,7 @@ def model(year):
 
 
         # V Jets Background
-    '''
+    
     wjete_vvTemplate = template(background, "VV", "nominal", "wjete")
     wjete_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjete_vvTemplate
@@ -572,58 +572,58 @@ def model(year):
     #     wjete_vv.setParamEffect(jec, 1.05)
     #     wjete_vv.setParamEffect(id_e, 1.02)
     #     wjete_vv.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "VV", "wjete", wjete_vv)
+#     addBtagSyst(background, "VV", "wjete", wjete_vv)
     #     wjete_vv.autoMCStats()
     #     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(trig_e, trigeUp, trigeDown)
+#     wjete_vv.setParamEffect(trig_e, trigeUp, trigeDown)
     #     #id Electron
     id_eUp=template(background, "VV", 'id_eUp', 'wjete')[0] 
     id_eDown=template(background, "VV", 'id_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(id_e, id_eUp, id_eDown)
+#     wjete_vv.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','wjete')[0] 
     pileupDown=template(background, 'VV','puDown','wjete')[0] 
-    wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjete_vv.setParamEffect(pileup, pileupUp, pileupDown)
         #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'wjete')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'wjete')[0]
-    wjete_vv.setParamEffect(reco_e, recoeUp, recoDown)
+#     wjete_vv.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'wjete')[0] 
     jerDown=template(background, 'VV', 'JERDown', 'wjete')[0]
-    wjete_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     wjete_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'wjete')[0] 
     jesDown=template(background, 'VV', 'JESDown', 'wjete')[0]
-    wjete_vv.setParamEffect(jec_jes, jesUp, jesDown)
+#     wjete_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
 
     #L1 prefire
     L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'VV', 'L1PrefireDown', 'wjete')[0]
-    wjete_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     wjete_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'wjete')[0] 
     ISRDown=template(background, 'VV', 'ISRDown', 'wjete')[0]
-    wjete_vv.setParamEffect(isr, ISRUp, ISRDown)
+#     wjete_vv.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'wjete')[0]
-    wjete_vv.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjete_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'wjete')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'wjete')[0]
-    wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+#     wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjete.addSample(wjete_vv)
-    '''
+    
     return model
 
 if __name__ == "__main__":
