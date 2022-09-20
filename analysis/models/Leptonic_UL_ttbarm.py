@@ -493,7 +493,7 @@ def model(year):
     #pdf 
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'ttbarm')[0]
-    ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
+#     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
     print("#### ST ###")
     print('pdf_up ', pdfUp)
     print('pdf_do ', pdfDown)
