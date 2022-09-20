@@ -313,6 +313,9 @@ def model(year):
     pileupUp=template(background, 'W+jets','puUp','wjetm')[0] 
     pileupDown=template(background, 'W+jets','puDown','wjetm')[0] 
     wjetm_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+    print("#### Wjets ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
     #iso Muon
     isolation_mUp=template(background, 'W+jets', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'W+jets', 'isolation_mDown', 'wjetm')[0]
@@ -390,7 +393,9 @@ def model(year):
     pileupUp=template(background, 'TT','puUp','wjetm')[0] 
     pileupDown=template(background, 'TT','puDown','wjetm')[0] 
     wjetm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
-
+    print("#### TT ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
     # wjetm_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
@@ -460,7 +465,9 @@ def model(year):
     pileupUp=template(background, 'ST','puUp','wjetm')[0] 
     pileupDown=template(background, 'ST','puDown','wjetm')[0] 
     wjetm_st.setParamEffect(pileup, pileupUp, pileupDown)
-
+    print("#### ST ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
 
     #JEC_JER
     jerUp=template(background, 'ST', 'JERUp', 'wjetm')[0] 
@@ -526,7 +533,9 @@ def model(year):
     pileupUp=template(background, 'DY+jets','puUp','wjetm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','wjetm')[0] 
     wjetm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
-
+    print("#### DYjets ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
 
     #JEC_JER
     jerUp=template(background, 'DY+jets', 'JERUp', 'wjetm')[0] 
@@ -592,7 +601,9 @@ def model(year):
     pileupUp=template(background, 'VV','puUp','wjetm')[0] 
     pileupDown=template(background, 'VV','puDown','wjetm')[0] 
     wjetm_vv.setParamEffect(pileup, pileupUp, pileupDown)
-
+    print("#### VV ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
 
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'wjetm')[0] 
