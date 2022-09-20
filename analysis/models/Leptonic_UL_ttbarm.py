@@ -462,9 +462,7 @@ def model(year):
     pileupUp=template(background, 'ST','puUp','ttbarm')[0] 
     pileupDown=template(background, 'ST','puDown','ttbarm')[0] 
     ttbarm_st.setParamEffect(pileup, pileupUp, pileupDown)
-    print("#### ST ###")
-    print('pu_up ', pileupUp)
-    print('pu_do ', pileupDown)
+
 
     #JEC_JER
     jerUp=template(background, 'ST', 'JERUp', 'ttbarm')[0] 
@@ -496,7 +494,9 @@ def model(year):
     pdfUp=template(background, 'ST', 'PDFUp', 'ttbarm')[0] 
     pdfDown=template(background, 'ST', 'PDFDown', 'ttbarm')[0]
     ttbarm_st.setParamEffect(pdf, pdfUp, pdfDown)  
-
+    print("#### ST ###")
+    print('pdf_up ', pdfUp)
+    print('pdf_do ', pdfDown)
     ttbarm.addSample(ttbarm_st)
 
     # DY Jet Background
