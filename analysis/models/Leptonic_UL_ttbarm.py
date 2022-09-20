@@ -311,7 +311,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'W+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'W+jets','puDown','ttbarm')[0] 
-    ttbarm_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbarm_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
     print("#### W+Jets###")
     print('pu_up ', pileupUp)
     print('pu_do ', pileupDown)
