@@ -312,6 +312,9 @@ def model(year):
     pileupUp=template(background, 'W+jets','puUp','ttbarm')[0] 
     pileupDown=template(background, 'W+jets','puDown','ttbarm')[0] 
     ttbarm_wjetsMC.setParamEffect(pileup, pileupUp, pileupDown)
+    print("#### W+Jets###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
     #iso Muon
     isolation_mUp=template(background, 'W+jets', 'isolation_mUp', 'ttbarm')[0] 
     isolation_mDown=template(background, 'W+jets', 'isolation_mDown', 'ttbarm')[0]
@@ -388,7 +391,9 @@ def model(year):
     pileupUp=template(background, 'TT','puUp','ttbarm')[0] 
     pileupDown=template(background, 'TT','puDown','ttbarm')[0] 
     ttbarm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
-
+    print("#### TT ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
     # ttbarm_ttMC.setParamEffect(ttMC_norm, 1.2)
 
     #JEC_JER
@@ -457,7 +462,9 @@ def model(year):
     pileupUp=template(background, 'ST','puUp','ttbarm')[0] 
     pileupDown=template(background, 'ST','puDown','ttbarm')[0] 
     ttbarm_st.setParamEffect(pileup, pileupUp, pileupDown)
-
+    print("#### ST ###")
+    print('pu_up ', pileupUp)
+    print('pu_do ', pileupDown)
 
     #JEC_JER
     jerUp=template(background, 'ST', 'JERUp', 'ttbarm')[0] 
