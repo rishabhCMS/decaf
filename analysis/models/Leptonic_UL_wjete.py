@@ -432,7 +432,7 @@ def model(year):
     #     wjete_st.setParamEffect(id_e, 1.02)
     #     wjete_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjete", wjete_st)
-#     wjete_st.autoMCStats()
+    wjete_st.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'wjete')[0]
@@ -497,7 +497,7 @@ def model(year):
     #     wjete_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
-#     wjete_dyjets.autoMCStats()
+    wjete_dyjets.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
@@ -538,7 +538,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjete')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     wjete_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'wjete')[0] 
@@ -549,6 +549,7 @@ def model(year):
 
 
         # V Jets Background
+    '''
     wjete_vvTemplate = template(background, "VV", "nominal", "wjete")
     wjete_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, wjete_vvTemplate
@@ -611,7 +612,7 @@ def model(year):
     wjete_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjete.addSample(wjete_vv)
-
+    '''
     return model
 
 if __name__ == "__main__":
