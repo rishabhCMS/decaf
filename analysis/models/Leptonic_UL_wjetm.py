@@ -301,7 +301,7 @@ def model(year):
     #     wjetm_wjetsMC.setParamEffect(jec, 1.05)
     #     wjetm_wjetsMC.setParamEffect(id_m, 1.02)
     #     wjetm_wjetsMC.setParamEffect(reco_e, 1.02)
-#     wjetm_wjetsMC.autoMCStats()
+    wjetm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     addVJetsSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     #trigger Muon
@@ -376,7 +376,7 @@ def model(year):
     #     wjetm_ttMC.setParamEffect(id_m, 1.02)
     #     wjetm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjetm", wjetm_ttMC)
-#     wjetm_ttMC.autoMCStats()
+    wjetm_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
@@ -448,7 +448,7 @@ def model(year):
     #     wjetm_st.setParamEffect(id_m, 1.02)
     #     wjetm_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjetm", wjetm_st)
-#     wjetm_st.autoMCStats()
+    wjetm_st.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
@@ -516,7 +516,7 @@ def model(year):
     #     wjetm_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjetm", wjetm_dyjets)
     addVJetsSyst(background,"DY+jets", "wjetm", wjetm_dyjets)
-#     wjetm_dyjets.autoMCStats()
+    wjetm_dyjets.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'wjetm')[0]
@@ -600,7 +600,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'VV','puUp','wjetm')[0] 
     pileupDown=template(background, 'VV','puDown','wjetm')[0] 
-    wjetm_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjetm_vv.setParamEffect(pileup, pileupUp, pileupDown)
     print("#### VV ###")
     print('pu_up ', pileupUp)
     print('pu_do ', pileupDown)
