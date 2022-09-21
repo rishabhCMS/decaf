@@ -301,7 +301,7 @@ def model(year):
     #     wjetm_wjetsMC.setParamEffect(jec, 1.05)
     #     wjetm_wjetsMC.setParamEffect(id_m, 1.02)
     #     wjetm_wjetsMC.setParamEffect(reco_e, 1.02)
-    wjetm_wjetsMC.autoMCStats(epsilon=1e-5)
+#     wjetm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     addVJetsSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     #trigger Muon
@@ -448,7 +448,7 @@ def model(year):
     #     wjetm_st.setParamEffect(id_m, 1.02)
     #     wjetm_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "wjetm", wjetm_st)
-    wjetm_st.autoMCStats(epsilon=1e-5)
+#     wjetm_st.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'ST', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'ST', 'trig_mDown', 'wjetm')[0]
