@@ -1388,16 +1388,16 @@ class AnalysisProcessor(processor.ProcessorABC):
                 IOV = self._year
                 
             if shift_syst == "puUp":
-                pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "up")
-#                 pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "up"))
+#                 pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "up")
+                pu = np.minimum(8, GetPUSF(IOV, (events.Pileup.nTrueInt), "up"))
                 
             elif shift_syst == 'puDown':
-                pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "down")
-#                 pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "down"))
+#                 pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "down")
+                pu = np.minimum(8, GetPUSF(IOV, (events.Pileup.nTrueInt), "down"))
                 
             else:
-                pu =  GetPUSF(IOV, (events.Pileup.nTrueInt))
-#                 pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt)))
+#                 pu =  GetPUSF(IOV, (events.Pileup.nTrueInt))
+                pu = np.minimum(8, GetPUSF(IOV, (events.Pileup.nTrueInt)))
 
             ###
             # Trigger efficiency weight
@@ -2171,7 +2171,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                 scale[d.name] = (self._lumi*self._xsec[dataset])/nevents
                 if re.search("^WJetsToLNu_[012]J_", dataset):
                     k_fac_fewz = 61526.7/65582
-                    scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
+#                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
+                    scale[d.name] = (self._lumi*self._xsec[dataset])
 #                 elif re.search("^WJetsToLNu_Pt-", dataset):
 #                     k_fac_fewz = 61526.7/789.2836
 #                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
@@ -2181,7 +2182,8 @@ class AnalysisProcessor(processor.ProcessorABC):
 #                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
                 elif re.search("^DYJetsToLL_[012]J_", dataset):
                     k_fac_fewz = 6077.22/6434.7
-                    scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
+#                     scale[d.name] = (self._lumi*self._xsec[dataset]*k_fac_fewz)
+                    scale[d.name] = (self._lumi*self._xsec[dataset])
                 else: scale[d.name] = (self._lumi*self._xsec[dataset])
             else:
                 scale[d.name] = 1
