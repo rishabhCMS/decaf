@@ -505,7 +505,7 @@ def model(year):
     #     wjete_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "wjete", wjete_dyjets)
     addVJetsSyst(background,"DY+jets", "wjete", wjete_dyjets)
-    wjete_dyjets.autoMCStats(epsilon=1e-5)
+#     wjete_dyjets.autoMCStats(epsilon=1e-5)
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'wjete')[0]
