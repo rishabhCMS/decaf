@@ -392,7 +392,7 @@ def model(year):
     #pileup
     pileupUp=template(background, 'TT','puUp','wjetm')[0] 
     pileupDown=template(background, 'TT','puDown','wjetm')[0] 
-    wjetm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
+#     wjetm_ttMC.setParamEffect(pileup, pileupUp, pileupDown)
     print("#### TT ###")
     print('pu_up ', pileupUp)
     print('pu_do ', pileupDown)
