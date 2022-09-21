@@ -1389,15 +1389,15 @@ class AnalysisProcessor(processor.ProcessorABC):
                 
             if shift_syst == "puUp":
 #                 pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "up")
-                pu = np.minimum(8, GetPUSF(IOV, (events.Pileup.nTrueInt), "up"))
+                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "up"))
                 
             elif shift_syst == 'puDown':
 #                 pu =  GetPUSF(IOV, (events.Pileup.nTrueInt), "down")
-                pu = np.minimum(8, GetPUSF(IOV, (events.Pileup.nTrueInt), "down"))
+                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt), "down"))
                 
             else:
 #                 pu =  GetPUSF(IOV, (events.Pileup.nTrueInt))
-                pu = np.minimum(8, GetPUSF(IOV, (events.Pileup.nTrueInt)))
+                pu = np.minimum(10, GetPUSF(IOV, (events.Pileup.nTrueInt)))
 
             ###
             # Trigger efficiency weight
