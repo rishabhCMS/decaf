@@ -295,7 +295,7 @@ def model(year):
     #     ttbare_wjetsMC.setParamEffect(jec, 1.05)
     #     ttbare_wjetsMC.setParamEffect(id_e, 1.02)
     #     ttbare_wjetsMC.setParamEffect(reco_e, 1.02)
-    ttbare_wjetsMC.autoMCStats()
+#     ttbare_wjetsMC.autoMCStats()
     addBtagSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'ttbare')[0] 
@@ -437,7 +437,7 @@ def model(year):
     #     ttbare_st.setParamEffect(id_e, 1.02)
     #     ttbare_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "ttbare", ttbare_st)
-    ttbare_st.autoMCStats()
+#     ttbare_st.autoMCStats()
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'ttbare')[0]
