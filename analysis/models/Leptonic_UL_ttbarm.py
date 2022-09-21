@@ -300,7 +300,7 @@ def model(year):
     #     ttbarm_wjetsMC.setParamEffect(jec, 1.05)
     #     ttbarm_wjetsMC.setParamEffect(id_m, 1.02)
     #     ttbarm_wjetsMC.setParamEffect(reco_e, 1.02)
-#     ttbarm_wjetsMC.autoMCStats(epsilon=1e-5)
+    ttbarm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
 #     addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     #trigger Muon
