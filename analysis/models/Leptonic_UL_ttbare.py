@@ -716,7 +716,7 @@ if __name__ == "__main__":
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "lnN")
     fsr = rl.NuisanceParameter("fsr", "lnN")
-    pdf = rl.NuisanceParameter("pdf", "shapeN")
+    pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
