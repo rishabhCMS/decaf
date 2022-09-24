@@ -726,12 +726,12 @@ if __name__ == "__main__":
         L1prefire = rl.NuisanceParameter("L1prefire", "shape")
     else: 
         L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shapeN")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "lnN")
     fsr = rl.NuisanceParameter("fsr", "lnN")
-    pdf = rl.NuisanceParameter("pdf", "shape")
+    pdf = rl.NuisanceParameter("pdf", "shapeN")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
