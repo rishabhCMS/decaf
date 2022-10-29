@@ -699,11 +699,11 @@ if __name__ == "__main__":
     ###
     ###
     lumi = rl.NuisanceParameter("lumi" + year, "lnN")
-    dyjets_norm = rl.NuisanceParameter("dyjets_norm", "lnN")
+#     dyjets_norm = rl.NuisanceParameter("dyjets_norm", "lnN")
     wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
     ttjets_norm = rl.NuisanceParameter("ttjets_norm", "lnN")
-    st_norm = rl.NuisanceParameter("ttjets_norm", "lnN")
-    vvjets_norm = rl.NuisanceParameter("vvjets_norm", "lnN")
+#     st_norm = rl.NuisanceParameter("st_norm", "lnN")
+#     vvjets_norm = rl.NuisanceParameter("vvjets_norm", "lnN")
     id_m = rl.NuisanceParameter("id_m" + year, "shape")
     id_pho = rl.NuisanceParameter("id_pho" + year, "shape")
     reco_e = rl.NuisanceParameter("reco_e" + year, "shape")
