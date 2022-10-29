@@ -448,7 +448,7 @@ def model(year):
     #     wjetm_st.setParamEffect(jec, 1.05)
     #     wjetm_st.setParamEffect(id_m, 1.02)
     #     wjetm_st.setParamEffect(reco_e, 1.02)
-    wjetm_stMC.setParamEffect(st_norm, 1.2)
+    wjetm_st.setParamEffect(st_norm, 1.2)
     addBtagSyst(background, "ST", "wjetm", wjetm_st)
 #     wjetm_st.autoMCStats(epsilon=1e-5)
     #trigger Muon
