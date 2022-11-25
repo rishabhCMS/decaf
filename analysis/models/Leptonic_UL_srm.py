@@ -24,7 +24,7 @@ mT_corrected_binning_dict = {
 
 }
 
-}
+
 
 
 
@@ -641,7 +641,7 @@ if __name__ == "__main__":
     "2017":np.array([100., 125., 150., 165., 180., 200., 220., 240., 270., 310., 350., 500.]),
     "2016":np.array([100., 125., 150., 165., 180., 200., 220., 240., 270., 310., 350., 500.])
 
-}
+
 
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
