@@ -18,16 +18,13 @@ rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
 mT_corrected_binning_dict = {
-    "2018":np.array([120., 150., 180., 210.,  270., 390.,
-        510.]),
-    "2017":np.array([120., 150., 180., 210.,  270., 390.,
-        510.]),
-    "2016":np.array([120., 150., 180., 210.,  270., 390.,
-        510.])
-
+#     "2018":np.linspace(0, 600, 21),
+#     "2017":np.linspace(0, 600, 21),
+#     "2016":np.linspace(0, 600, 21)
+    "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+    "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+    "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
 }
-
-
 
 
 
@@ -640,13 +637,12 @@ if __name__ == "__main__":
     hist_scaled_file = options.file
     
     mT_corrected_binning_dict = {
-        "2018":np.array([120., 150., 180., 210.,  270., 390.,
-            510.]),
-        "2017":np.array([120., 150., 180., 210.,  270., 390.,
-            510.]),
-        "2016":np.array([120., 150., 180., 210.,  270., 390.,
-            510.])
-
+    #     "2018":np.linspace(0, 600, 21),
+    #     "2017":np.linspace(0, 600, 21),
+    #     "2016":np.linspace(0, 600, 21)
+        "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+        "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
+        "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
@@ -692,39 +688,35 @@ if __name__ == "__main__":
     reco_e = rl.NuisanceParameter("reco_e" + year, "shape")
     iso_mu = rl.NuisanceParameter("iso_mu" + year, "shape")
     trig_m = rl.NuisanceParameter("trig_m" + year, "shape")
-#     trig_met = rl.NuisanceParameter("trig_met" + year, "lnN")
-#     trig_pho = rl.NuisanceParameter("trig_pho" + year, "lnN")
-#     veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
+    trig_met = rl.NuisanceParameter("trig_met" + year, "lnN")
+    trig_pho = rl.NuisanceParameter("trig_pho" + year, "lnN")
+    veto_tau = rl.NuisanceParameter("veto_tau" + year, "lnN")
     jec_jer = rl.NuisanceParameter("jec_jer" + year, "shape")
     jec_jes = rl.NuisanceParameter("jec_jes" + year, "shape")
     #btag = rl.NuisanceParameter("btag" + year, "shapeN")  # AK4 btag
     btag = rl.NuisanceParameter("btag" + year, "shape")  # AK4 btag
-    ew1 = rl.NuisanceParameter("ew1", "shape")
-    ew2G = rl.NuisanceParameter("ew2G", "shape")
-    ew2W = rl.NuisanceParameter("ew2W", "shape")
-    ew2Z = rl.NuisanceParameter("ew2Z", "shape")
-    ew3G = rl.NuisanceParameter("ew3G", "shape")
-    ew3W = rl.NuisanceParameter("ew3W", "shape")
-    ew3Z = rl.NuisanceParameter("ew3Z", "shape")
-    mix = rl.NuisanceParameter("mix", "shape")
-    muF = rl.NuisanceParameter("muF", "shape")
-    muR = rl.NuisanceParameter("muR", "shape")
-    qcd1 = rl.NuisanceParameter("qcd1", "shape")
-    qcd2 = rl.NuisanceParameter("qcd2", "shape")
-    qcd3 = rl.NuisanceParameter("qcd3", "shape")
+    ew1 = rl.NuisanceParameter("ew1", "lnN")
+    ew2G = rl.NuisanceParameter("ew2G", "lnN")
+    ew2W = rl.NuisanceParameter("ew2W", "lnN")
+    ew2Z = rl.NuisanceParameter("ew2Z", "lnN")
+    ew3G = rl.NuisanceParameter("ew3G", "lnN")
+    ew3W = rl.NuisanceParameter("ew3W", "lnN")
+    ew3Z = rl.NuisanceParameter("ew3Z", "lnN")
+    mix = rl.NuisanceParameter("mix", "lnN")
+    muF = rl.NuisanceParameter("muF", "lnN")
+    muR = rl.NuisanceParameter("muR", "lnN")
+    qcd1 = rl.NuisanceParameter("qcd1", "lnN")
+    qcd2 = rl.NuisanceParameter("qcd2", "lnN")
+    qcd3 = rl.NuisanceParameter("qcd3", "lnN")
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    if "2018" not in year:
-        L1prefire = rl.NuisanceParameter("L1prefire", "shape")
-    else: 
-        L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
-    pdf = rl.NuisanceParameter("pdf", "shape")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
+    pdf = rl.NuisanceParameter("pdf"+year, "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
