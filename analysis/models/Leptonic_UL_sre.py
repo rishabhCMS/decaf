@@ -295,7 +295,7 @@ def model(year, signal_name):
     #     sre_wjetsMC.setParamEffect(jec, 1.05)
     #     sre_wjetsMC.setParamEffect(id_e, 1.02)
     #     sre_wjetsMC.setParamEffect(reco_e, 1.02)
-    #     sre_wjetsMC.autoMCStats()
+    sre_wjetsMC.autoMCStats(autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "sre", sre_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'sre')[0] 
@@ -364,7 +364,7 @@ def model(year, signal_name):
     #     sre_ttMC.setParamEffect(id_e, 1.02)
     #     sre_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "sre", sre_ttMC)
-    #     sre_ttMC.autoMCStats()
+    sre_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'sre')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'sre')[0]
@@ -431,7 +431,7 @@ def model(year, signal_name):
     #     sre_st.setParamEffect(id_e, 1.02)
     #     sre_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "sre", sre_st)
-    #     sre_st.autoMCStats()
+    sre_st.autoMCStats(epsilon=1e-5)
     #trigger Electron
     trigeUp=template(background, 'ST', 'trig_eUp', 'sre')[0] 
     trigeDown=template(background, 'ST', 'trig_eDown', 'sre')[0]
@@ -496,7 +496,7 @@ def model(year, signal_name):
     #     sre_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "sre", sre_dyjets)
     addVJetsSyst(background,"DY+jets", "sre", sre_dyjets)
-    #     sre_dyjets.autoMCStats()
+    sre_dyjets.autoMCStats(epsilon=1e-5)
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'sre')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'sre')[0]
@@ -561,7 +561,7 @@ def model(year, signal_name):
     #     sre_vv.setParamEffect(id_e, 1.02)
     #     sre_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "sre", sre_vv)
-    #     sre_vv.autoMCStats()
+    sre_vv.autoMCStats(epsilon=1e-5)
     #     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'sre')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'sre')[0]
