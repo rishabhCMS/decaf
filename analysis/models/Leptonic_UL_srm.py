@@ -78,12 +78,12 @@ def remap_histograms(hists):
     sig_map['Mphi-3000_Mchi-1000'] = ('*Mphi-3000_Mchi-1000*')
     sig_map['Mphi-3000_Mchi-2000'] = ('*Mphi-3000_Mchi-2000*')
     sig_map['Mphi-300_Mchi-100'] = ('*Mphi-300_Mchi-100*')
-    sig_map['Mphi-300_Mchi-300'] = ('*Mphi-300_Mchi-300*')
+#     sig_map['Mphi-300_Mchi-300'] = ('*Mphi-300_Mchi-300*')
     sig_map['Mphi-495_Mchi-250'] = ('*Mphi-495_Mchi-250*')
     sig_map['Mphi-500_Mchi-150'] = ('*Mphi-500_Mchi-150*')
     sig_map['Mphi-500_Mchi-500'] = ('*Mphi-500_Mchi-500*')
     sig_map['Mphi-750_Mchi-150'] = ('*Mphi-750_Mchi-150*')
-    sig_map['Mphi-995_Mchi-500'] = ('*Mphi-995_Mchi-500*')
+#     sig_map['Mphi-995_Mchi-500'] = ('*Mphi-995_Mchi-500*')
 #     haven't processed signal yet
     for signal in hists['sig']['template'].identifiers('process'):
         if 'Mchi' not in str(signal): continue
