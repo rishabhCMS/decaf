@@ -295,7 +295,7 @@ def model(year, signal_name):
     #     sre_wjetsMC.setParamEffect(jec, 1.05)
     #     sre_wjetsMC.setParamEffect(id_e, 1.02)
     #     sre_wjetsMC.setParamEffect(reco_e, 1.02)
-    sre_wjetsMC.autoMCStats(autoMCStats(epsilon=1e-5)
+    sre_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "sre", sre_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'sre')[0] 
