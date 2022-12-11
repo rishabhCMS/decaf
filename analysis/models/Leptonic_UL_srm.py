@@ -298,7 +298,7 @@ def model(year, signal_name):
     #     srm_wjetsMC.setParamEffect(jec, 1.05)
     #     srm_wjetsMC.setParamEffect(id_m, 1.02)
     #     srm_wjetsMC.setParamEffect(reco_e, 1.02)
-    #     srm_wjetsMC.autoMCStats()
+    srm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "srm", srm_wjetsMC)
     addVJetsSyst(background, "W+jets", "srm", srm_wjetsMC)
     #trigger Muon
@@ -369,7 +369,7 @@ def model(year, signal_name):
     #     srm_ttMC.setParamEffect(id_m, 1.02)
     #     srm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "srm", srm_ttMC)
-    #     srm_ttMC.autoMCStats()
+    srm_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'srm')[0]
@@ -438,7 +438,7 @@ def model(year, signal_name):
     #     srm_st.setParamEffect(id_m, 1.02)
     #     srm_st.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "ST", "srm", srm_st)
-    #     srm_st.autoMCStats()
+    srm_st.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'ST', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'ST', 'trig_mDown', 'srm')[0]
@@ -504,7 +504,7 @@ def model(year, signal_name):
     #     srm_dyjets.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "DY+jets", "srm", srm_dyjets)
     addVJetsSyst(background,"DY+jets", "srm", srm_dyjets)
-    #     srm_dyjets.autoMCStats()
+    srm_dyjets.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'srm')[0]
@@ -569,7 +569,7 @@ def model(year, signal_name):
     #     srm_vv.setParamEffect(id_m, 1.02)
     #     srm_vv.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "VV", "srm", srm_vv)
-    #     srm_vv.autoMCStats()
+    srm_vv.autoMCStats(epsilon=1e-5)
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'VV', 'trig_mDown', 'srm')[0]
