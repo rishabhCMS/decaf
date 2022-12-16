@@ -722,8 +722,8 @@ if __name__ == "__main__":
     elif "postVFP" in hist_scaled_file:
         year = year+"postVFP"
     for s in signal['srm'].identifiers('process'):
-        if 'Mphi-995_Mchi-500' not in str(s): continue
-        if 'Mphi-300_Mchi-300' not in str(s): continue
+#         if 'Mphi-995_Mchi-500' not in str(s): continue
+#         if 'Mphi-300_Mchi-300' not in str(s): continue
         print(s)
 
         with open(
