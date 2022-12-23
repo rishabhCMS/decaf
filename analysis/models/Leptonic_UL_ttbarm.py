@@ -296,7 +296,7 @@ def model(year):
     #     ttbarm_wjetsMC.setParamEffect(jec, 1.05)
     #     ttbarm_wjetsMC.setParamEffect(id_m, 1.02)
     #     ttbarm_wjetsMC.setParamEffect(reco_e, 1.02)
-    ttbarm_wjetsMC.autoMCStats(epsilon=1e-5)
+#     ttbarm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
 #     addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     #trigger Muon
@@ -683,9 +683,9 @@ if __name__ == "__main__":
     ###
     ###
     lumi = rl.NuisanceParameter("lumi" + year, "lnN")
-    zjets_norm = rl.NuisanceParameter("zjets_norm", "lnN")
-    wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
-    tt_norm = rl.NuisanceParameter("tt_norm", "lnN")
+#     zjets_norm = rl.NuisanceParameter("zjets_norm", "lnN")
+#     wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
+#     tt_norm = rl.NuisanceParameter("tt_norm", "lnN")
     id_m = rl.NuisanceParameter("id_m" + year, "shape")
     id_pho = rl.NuisanceParameter("id_pho" + year, "shape")
     reco_e = rl.NuisanceParameter("reco_e" + year, "shape")
@@ -718,7 +718,7 @@ if __name__ == "__main__":
         L1prefire = rl.NuisanceParameter("L1prefire", "shape")
     else: 
         L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
