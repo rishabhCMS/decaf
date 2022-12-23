@@ -291,7 +291,7 @@ def model(year):
     #     ttbare_wjetsMC.setParamEffect(jec, 1.05)
     #     ttbare_wjetsMC.setParamEffect(id_e, 1.02)
     #     ttbare_wjetsMC.setParamEffect(reco_e, 1.02)
-    ttbare_wjetsMC.autoMCStats(epsilon=1e-5)
+#     ttbare_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "ttbare", ttbare_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'ttbare')[0] 
@@ -703,7 +703,7 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
