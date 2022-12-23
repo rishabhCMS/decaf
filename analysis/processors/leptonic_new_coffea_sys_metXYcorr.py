@@ -319,7 +319,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'BadPFMuonDzFilter',
-#                  'eeBadScFilter',
+                 'eeBadScFilter',
                  
                  ],
 
@@ -330,7 +330,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
-#                  'eeBadScFilter',
+                 'eeBadScFilter',
                  'BadPFMuonDzFilter',
 #                  'hfNoisyHitsFilter'
                  ],
@@ -342,7 +342,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                  'EcalDeadCellTriggerPrimitiveFilter',
                  'BadPFMuonFilter',
                  'ecalBadCalibFilter',
-#                  'eeBadScFilter',
+                 'eeBadScFilter',
                  'BadPFMuonDzFilter',
 #                  'hfNoisyHitsFilter'
                  ]
