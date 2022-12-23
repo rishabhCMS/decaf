@@ -291,7 +291,7 @@ def model(year):
     #     wjete_wjetsMC.setParamEffect(jec, 1.05)
     #     wjete_wjetsMC.setParamEffect(id_e, 1.02)
     #     wjete_wjetsMC.setParamEffect(reco_e, 1.02)
-    wjete_wjetsMC.autoMCStats(epsilon=1e-5)
+#     wjete_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "wjete", wjete_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'wjete')[0] 
@@ -673,9 +673,9 @@ if __name__ == "__main__":
     ###
     ###
     lumi = rl.NuisanceParameter("lumi" + year, "lnN")
-    zjets_norm = rl.NuisanceParameter("zjets_norm", "lnN")
-    wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
-    tt_norm = rl.NuisanceParameter("tt_norm", "lnN")
+#     zjets_norm = rl.NuisanceParameter("zjets_norm", "lnN")
+#     wjets_norm = rl.NuisanceParameter("wjets_norm", "lnN")
+#     tt_norm = rl.NuisanceParameter("tt_norm", "lnN")
     id_e = rl.NuisanceParameter("id_e" + year, "shape")
     id_mu = rl.NuisanceParameter("id_mu" + year, "shape")
     id_pho = rl.NuisanceParameter("id_pho" + year, "shape")
@@ -705,7 +705,7 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
