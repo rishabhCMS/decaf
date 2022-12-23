@@ -371,7 +371,7 @@ def model(year):
     #     wjetm_ttMC.setParamEffect(jec, 1.05)
     #     wjetm_ttMC.setParamEffect(id_m, 1.02)
     #     wjetm_ttMC.setParamEffect(reco_e, 1.02)
-    wjetm_ttMC.setParamEffect(ttjets_norm, 1.2)
+#     wjetm_ttMC.setParamEffect(ttjets_norm, 1.2)
     addBtagSyst(background, "TT", "wjetm", wjetm_ttMC)
 #     wjetm_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Muon
