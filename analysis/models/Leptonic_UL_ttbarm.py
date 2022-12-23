@@ -340,7 +340,7 @@ def model(year):
     #L1 ISR
     ISRUp=template(background, 'W+jets', 'ISRUp', 'ttbarm')[0] 
     ISRDown=template(background, 'W+jets', 'ISRDown', 'ttbarm')[0]
-    ttbarm_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbarm_wjetsMC.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'ttbarm')[0] 
@@ -718,12 +718,12 @@ if __name__ == "__main__":
         L1prefire = rl.NuisanceParameter("L1prefire", "shape")
     else: 
         L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
-    pileup = rl.NuisanceParameter("pileup"+year, "shape")
+    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
-    pdf = rl.NuisanceParameter("pdf", "shape")
+    isr = rl.NuisanceParameter("isr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
+    pdf = rl.NuisanceParameter("pdf", "lnN")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
