@@ -716,7 +716,7 @@ if __name__ == "__main__":
         L1prefire = rl.NuisanceParameter("L1prefire", "shape")
     else: 
         L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
