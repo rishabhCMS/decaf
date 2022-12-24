@@ -296,7 +296,7 @@ def model(year):
     #     ttbarm_wjetsMC.setParamEffect(jec, 1.05)
     #     ttbarm_wjetsMC.setParamEffect(id_m, 1.02)
     #     ttbarm_wjetsMC.setParamEffect(reco_e, 1.02)
-#     ttbarm_wjetsMC.autoMCStats(epsilon=1e-5)
+    ttbarm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
 #     addVJetsSyst(background, "W+jets", "ttbarm", ttbarm_wjetsMC)
     #trigger Muon
@@ -370,7 +370,7 @@ def model(year):
     #     ttbarm_ttMC.setParamEffect(id_m, 1.02)
     #     ttbarm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "ttbarm", ttbarm_ttMC)
-#     ttbarm_ttMC.autoMCStats(epsilon=1e-5)
+    ttbarm_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'ttbarm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'ttbarm')[0]
@@ -721,9 +721,9 @@ if __name__ == "__main__":
     pileup = rl.NuisanceParameter("pileup"+year, "lnN")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr", "lnN")
-    fsr = rl.NuisanceParameter("fsr", "lnN")
-    pdf = rl.NuisanceParameter("pdf", "lnN")
+    isr = rl.NuisanceParameter("isr", "shape")
+    fsr = rl.NuisanceParameter("fsr", "shape")
+    pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
