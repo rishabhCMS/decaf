@@ -1667,7 +1667,7 @@ class AnalysisProcessor(processor.ProcessorABC):
 
 #         #print(selection.all())
         regions = {
-            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 
+            'sre': ['isoneE', 'exactly_1_medium_btag', 'met_filters', 'single_electron_triggers', 'noHEMmet',
 #                     'atleast_one_jet_with_pt_grt_50',
                      'Delta_Phi_Corr_Met_LJ',
                     'mtcorr_sre>150','corr_met100',
@@ -1677,7 +1677,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     'lumi_mask', 'DeltaR_LJ_Ele_mask'
                    ],
             
-            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 
+            'srm': ['isoneM', 'exactly_1_medium_btag', 'met_filters', 'single_muon_triggers', 'noHEMmet',
 #                     'atleast_one_jet_with_pt_grt_50',
                     'Delta_Phi_Corr_Met_LJ', 
                     'mtcorr_srm>150',  'corr_met100', 
@@ -1687,7 +1687,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                     "lumi_mask", 'DeltaR_LJ_Mu_mask'
                    ],
             
-            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 
+            'ttbare': ['isoneE', 'atleast_2_medium_btag', 'met_filters', 'single_electron_triggers', 'noHEMmet',
 #                        'atleast_one_jet_with_pt_grt_50',
                        'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbare>150', 'corr_met100', 
@@ -1697,7 +1697,7 @@ class AnalysisProcessor(processor.ProcessorABC):
                        'lumi_mask', 'DeltaR_LJ_Ele_mask',
                       ],
             
-            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 
+            'ttbarm': ['isoneM', 'atleast_2_medium_btag', 'met_filters', 'single_muon_triggers', 'noHEMmet',
 #                        'atleast_one_jet_with_pt_grt_50',
                         'Delta_Phi_Corr_Met_LJ',
                        'mtcorr_ttbarm>150' , 'corr_met100',
