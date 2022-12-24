@@ -17,13 +17,22 @@ import ROOT
 rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
+#binning for new scaled files
+# mT_corrected_binning_dict = {
+#     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+#     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+#     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+# }
+
+#binning for old scaled files
 mT_corrected_binning_dict = {
-#     "2018":np.linspace(0, 600, 21),
-#     "2017":np.linspace(0, 600, 21),
-#     "2016":np.linspace(0, 600, 21)
-    "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-    "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-    "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
+    "2018":np.array([150., 180., 200.,  270., 350.,
+        500.]),
+    "2017":np.array([150., 180., 200.,  270., 350.,
+        500.]),
+    "2016":np.array([150., 180., 200.,  270., 350.,
+        500.])
+
 }
 
 
@@ -636,13 +645,22 @@ if __name__ == "__main__":
     year = options.year
     hist_scaled_file = options.file
     
+    #binning for new scaled files
+    # mT_corrected_binning_dict = {
+    #     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+    #     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+    #     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+    # }
+
+    #binning for old scaled files
     mT_corrected_binning_dict = {
-    #     "2018":np.linspace(0, 600, 21),
-    #     "2017":np.linspace(0, 600, 21),
-    #     "2016":np.linspace(0, 600, 21)
-        "2018": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-        "2017": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500]),
-        "2016": np.array([100.0,125.0,150.0, 200.0, 270.0, 310.0, 350.0, 500])
+        "2018":np.array([150., 180., 200.,  270., 350.,
+            500.]),
+        "2017":np.array([150., 180., 200.,  270., 350.,
+            500.]),
+        "2016":np.array([150., 180., 200.,  270., 350.,
+            500.])
+
     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
@@ -702,12 +720,12 @@ if __name__ == "__main__":
     ew3G = rl.NuisanceParameter("ew3G", "lnN")
     ew3W = rl.NuisanceParameter("ew3W", "lnN")
     ew3Z = rl.NuisanceParameter("ew3Z", "lnN")
-    mix = rl.NuisanceParameter("mix", "lnN")
-    muF = rl.NuisanceParameter("muF", "lnN")
-    muR = rl.NuisanceParameter("muR", "lnN")
-    qcd1 = rl.NuisanceParameter("qcd1", "lnN")
-    qcd2 = rl.NuisanceParameter("qcd2", "lnN")
-    qcd3 = rl.NuisanceParameter("qcd3", "lnN")
+    mix = rl.NuisanceParameter("mix", "shape")
+    muF = rl.NuisanceParameter("muF", "shape")
+    muR = rl.NuisanceParameter("muR", "shape")
+    qcd1 = rl.NuisanceParameter("qcd1", "shape")
+    qcd2 = rl.NuisanceParameter("qcd2", "shape")
+    qcd3 = rl.NuisanceParameter("qcd3", "shape")
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
@@ -715,7 +733,7 @@ if __name__ == "__main__":
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "shape")
     pdf = rl.NuisanceParameter("pdf"+year, "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
