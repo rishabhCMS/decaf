@@ -18,22 +18,22 @@ rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
 #binning for new scaled files
-# mT_corrected_binning_dict = {
-#     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-#     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-#     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-# }
+mT_corrected_binning_dict = {
+    "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+    "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+    "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+}
 
 #binning for old scaled files
-mT_corrected_binning_dict = {
-    "2018":np.array([150., 180., 200.,  270., 350.,
-        500.]),
-    "2017":np.array([150., 180., 200.,  270., 350.,
-        500.]),
-    "2016":np.array([150., 180., 200.,  270., 350.,
-        500.])
+# mT_corrected_binning_dict = {
+#     "2018":np.array([150., 180., 200.,  270., 350.,
+#         500.]),
+#     "2017":np.array([150., 180., 200.,  270., 350.,
+#         500.]),
+#     "2016":np.array([150., 180., 200.,  270., 350.,
+#         500.])
 
-}
+# }
 
 
 def remap_histograms(hists):
@@ -307,7 +307,7 @@ def model(year):
     #     wjetm_wjetsMC.setParamEffect(jec, 1.05)
     #     wjetm_wjetsMC.setParamEffect(id_m, 1.02)
     #     wjetm_wjetsMC.setParamEffect(reco_e, 1.02)
-    wjetm_wjetsMC.autoMCStats(epsilon=1e-5)
+#     wjetm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     addVJetsSyst(background, "W+jets", "wjetm", wjetm_wjetsMC)
     #trigger Muon
@@ -383,7 +383,7 @@ def model(year):
     #     wjetm_ttMC.setParamEffect(reco_e, 1.02)
 #     wjetm_ttMC.setParamEffect(ttjets_norm, 1.2)
     addBtagSyst(background, "TT", "wjetm", wjetm_ttMC)
-    wjetm_ttMC.autoMCStats(epsilon=1e-5)
+#     wjetm_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'wjetm')[0]
