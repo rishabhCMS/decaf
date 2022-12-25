@@ -18,22 +18,22 @@ rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
 #binning for new scaled files
-# mT_corrected_binning_dict = {
-#     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-#     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-#     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-# }
+mT_corrected_binning_dict = {
+    "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+    "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+    "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+}
 
 #binning for old scaled files
-mT_corrected_binning_dict = {
-    "2018":np.array([150., 180., 200.,  270., 350.,
-        500.]),
-    "2017":np.array([150., 180., 200.,  270., 350.,
-        500.]),
-    "2016":np.array([150., 180., 200.,  270., 350.,
-        500.])
+# mT_corrected_binning_dict = {
+#     "2018":np.array([150., 180., 200.,  270., 350.,
+#         500.]),
+#     "2017":np.array([150., 180., 200.,  270., 350.,
+#         500.]),
+#     "2016":np.array([150., 180., 200.,  270., 350.,
+#         500.])
 
-}
+# }
 
 
 
@@ -307,7 +307,7 @@ def model(year, signal_name):
     #     srm_wjetsMC.setParamEffect(jec, 1.05)
     #     srm_wjetsMC.setParamEffect(id_m, 1.02)
     #     srm_wjetsMC.setParamEffect(reco_e, 1.02)
-    srm_wjetsMC.autoMCStats(epsilon=1e-5)
+#     srm_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "srm", srm_wjetsMC)
     addVJetsSyst(background, "W+jets", "srm", srm_wjetsMC)
     #trigger Muon
@@ -378,7 +378,7 @@ def model(year, signal_name):
     #     srm_ttMC.setParamEffect(id_m, 1.02)
     #     srm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "srm", srm_ttMC)
-    srm_ttMC.autoMCStats(epsilon=1e-5)
+#     srm_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'srm')[0]
@@ -646,22 +646,22 @@ if __name__ == "__main__":
     hist_scaled_file = options.file
     
     #binning for new scaled files
-    # mT_corrected_binning_dict = {
-    #     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-    #     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-    #     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-    # }
+    mT_corrected_binning_dict = {
+        "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+        "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+        "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+    }
 
     #binning for old scaled files
-    mT_corrected_binning_dict = {
-        "2018":np.array([150., 180., 200.,  270., 350.,
-            500.]),
-        "2017":np.array([150., 180., 200.,  270., 350.,
-            500.]),
-        "2016":np.array([150., 180., 200.,  270., 350.,
-            500.])
+#     mT_corrected_binning_dict = {
+#         "2018":np.array([150., 180., 200.,  270., 350.,
+#             500.]),
+#         "2017":np.array([150., 180., 200.,  270., 350.,
+#             500.]),
+#         "2016":np.array([150., 180., 200.,  270., 350.,
+#             500.])
 
-    }
+#     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
     nmT_corrected = len(mT_correctedbins) - 1
