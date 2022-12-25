@@ -737,10 +737,7 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    if "2018" not in year:
-        L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
-    else: 
-        L1prefire = rl.NuisanceParameter("L1prefire"+year, "lnN")
+
     pileup = rl.NuisanceParameter("pileup"+year, "lnN")
     L1prefire = rl.NuisanceParameter("L1prefire"+year, "lnN")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
