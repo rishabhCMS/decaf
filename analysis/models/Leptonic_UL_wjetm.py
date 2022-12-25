@@ -18,22 +18,22 @@ rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
 #binning for new scaled files
-mT_corrected_binning_dict = {
-    "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-    "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-    "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-}
+# mT_corrected_binning_dict = {
+#     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+#     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+#     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+# }
 
 #binning for old scaled files
-# mT_corrected_binning_dict = {
-#     "2018":np.array([150., 180., 200.,  270., 350.,
-#         500.]),
-#     "2017":np.array([150., 180., 200.,  270., 350.,
-#         500.]),
-#     "2016":np.array([150., 180., 200.,  270., 350.,
-#         500.])
+mT_corrected_binning_dict = {
+    "2018":np.array([150., 180., 200.,  270., 350.,
+        500.]),
+    "2017":np.array([150., 180., 200.,  270., 350.,
+        500.]),
+    "2016":np.array([150., 180., 200.,  270., 350.,
+        500.])
 
-# }
+}
 
 
 def remap_histograms(hists):
@@ -177,10 +177,9 @@ def template(dictionary, process, systematic, region, read_sumw2=False):
     if "nominal" not in systematic and "data" not in systematic:
     #print('Normalizing',systematic,'histogram of',process,'in region',region)
         output = histogram.integrate("systematic", systematic).values()[()]
-        zerobins1 = output <= 0.
-#         output[zerobins1]  = 1.
-        output[zerobins]   = 1.
-        output[~zerobins]  /= nominal[~zerobins]
+        output[zerobins] = 1.
+        output[~zerobins] /= nominal[~zerobins]
+        output[~zerobins] = np.maximum(output[~zerobins], 1e-5)
         output[np.isnan(output)] = 1.
     binning = (
         dictionary[region]
@@ -661,21 +660,21 @@ if __name__ == "__main__":
     year = options.year
     hist_scaled_file = options.file
 # for new scaled files
-    mT_corrected_binning_dict = {
-        "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-        "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-        "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-    }
-
 #     mT_corrected_binning_dict = {
-#         "2018":np.array([150., 180., 200.,  270., 350.,
-#             500.]),
-#         "2017":np.array([150., 180., 200.,  270., 350.,
-#             500.]),
-#         "2016":np.array([150., 180., 200.,  270., 350.,
-#             500.])
-
+#         "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+#         "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+#         "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
 #     }
+
+    mT_corrected_binning_dict = {
+        "2018":np.array([150., 180., 200.,  270., 350.,
+            500.]),
+        "2017":np.array([150., 180., 200.,  270., 350.,
+            500.]),
+        "2016":np.array([150., 180., 200.,  270., 350.,
+            500.])
+
+    }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
     nmT_corrected = len(mT_correctedbins) - 1
