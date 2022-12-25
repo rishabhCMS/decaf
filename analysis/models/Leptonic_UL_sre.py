@@ -18,22 +18,22 @@ rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
 #binning for new scaled files
-mT_corrected_binning_dict = {
-    "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-    "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-    "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-}
+# mT_corrected_binning_dict = {
+#     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+#     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+#     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+# }
 
 #binning for old scaled files
-# mT_corrected_binning_dict = {
-#     "2018":np.array([150., 180., 200.,  270., 350.,
-#         500.]),
-#     "2017":np.array([150., 180., 200.,  270., 350.,
-#         500.]),
-#     "2016":np.array([150., 180., 200.,  270., 350.,
-#         500.])
+mT_corrected_binning_dict = {
+    "2018":np.array([150., 180., 200.,  270., 350.,
+        500.]),
+    "2017":np.array([150., 180., 200.,  270., 350.,
+        500.]),
+    "2016":np.array([150., 180., 200.,  270., 350.,
+        500.])
 
-# }
+}
 
 
 
@@ -304,7 +304,7 @@ def model(year, signal_name):
     #     sre_wjetsMC.setParamEffect(jec, 1.05)
     #     sre_wjetsMC.setParamEffect(id_e, 1.02)
     #     sre_wjetsMC.setParamEffect(reco_e, 1.02)
-#     sre_wjetsMC.autoMCStats(epsilon=1e-5)
+    sre_wjetsMC.autoMCStats(epsilon=1e-5)
     addBtagSyst(background, "W+jets", "sre", sre_wjetsMC)
         #trigger Electron
     trigeUp=template(background, 'W+jets', 'trig_eUp', 'sre')[0] 
@@ -373,7 +373,7 @@ def model(year, signal_name):
     #     sre_ttMC.setParamEffect(id_e, 1.02)
     #     sre_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "sre", sre_ttMC)
-#     sre_ttMC.autoMCStats(epsilon=1e-5)
+    sre_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'sre')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'sre')[0]
@@ -635,22 +635,22 @@ if __name__ == "__main__":
     hist_scaled_file = options.file
     
     #binning for new scaled files
-    mT_corrected_binning_dict = {
-        "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-        "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-        "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-    }
+#     mT_corrected_binning_dict = {
+#         "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+#         "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+#         "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+#     }
 
     #binning for old scaled files
-#     mT_corrected_binning_dict = {
-#         "2018":np.array([150., 180., 200.,  270., 350.,
-#             500.]),
-#         "2017":np.array([150., 180., 200.,  270., 350.,
-#             500.]),
-#         "2016":np.array([150., 180., 200.,  270., 350.,
-#             500.])
+    mT_corrected_binning_dict = {
+        "2018":np.array([150., 180., 200.,  270., 350.,
+            500.]),
+        "2017":np.array([150., 180., 200.,  270., 350.,
+            500.]),
+        "2016":np.array([150., 180., 200.,  270., 350.,
+            500.])
 
-#     }
+    }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
     nmT_corrected = len(mT_correctedbins) - 1
@@ -703,28 +703,28 @@ if __name__ == "__main__":
     jec_jes = rl.NuisanceParameter("jec_jes" + year, "shape")
     #btag = rl.NuisanceParameter("btag" + year, "shapeN")  # AK4 btag
     btag = rl.NuisanceParameter("btag" + year, "shape")  # AK4 btag
-    ew1 = rl.NuisanceParameter("ew1", "shape")
-    ew2G = rl.NuisanceParameter("ew2G", "shape")
-    ew2W = rl.NuisanceParameter("ew2W", "shape")
-    ew2Z = rl.NuisanceParameter("ew2Z", "shape")
-    ew3G = rl.NuisanceParameter("ew3G", "shape")
-    ew3W = rl.NuisanceParameter("ew3W", "shape")
-    ew3Z = rl.NuisanceParameter("ew3Z", "shape")
-    mix = rl.NuisanceParameter("mix", "shape")
-    muF = rl.NuisanceParameter("muF", "shape")
-    muR = rl.NuisanceParameter("muR", "shape")
-    qcd1 = rl.NuisanceParameter("qcd1", "shape")
-    qcd2 = rl.NuisanceParameter("qcd2", "shape")
-    qcd3 = rl.NuisanceParameter("qcd3", "shape")
+    ew1 = rl.NuisanceParameter("ew1", "lnN")
+    ew2G = rl.NuisanceParameter("ew2G", "lnN")
+    ew2W = rl.NuisanceParameter("ew2W", "lnN")
+    ew2Z = rl.NuisanceParameter("ew2Z", "lnN")
+    ew3G = rl.NuisanceParameter("ew3G", "lnN")
+    ew3W = rl.NuisanceParameter("ew3W", "lnN")
+    ew3Z = rl.NuisanceParameter("ew3Z", "lnN")
+    mix = rl.NuisanceParameter("mix", "lnN")
+    muF = rl.NuisanceParameter("muF", "lnN")
+    muR = rl.NuisanceParameter("muR", "lnN")
+    qcd1 = rl.NuisanceParameter("qcd1", "lnN")
+    qcd2 = rl.NuisanceParameter("qcd2", "lnN")
+    qcd3 = rl.NuisanceParameter("qcd3", "lnN")
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "shape")
-    L1prefire = rl.NuisanceParameter("L1prefire"+year, "shape")
+    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    L1prefire = rl.NuisanceParameter("L1prefire"+year, "lnN")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
-    isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
-    pdf = rl.NuisanceParameter("pdf"+year, "shape")
+    isr = rl.NuisanceParameter("isr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
+    pdf = rl.NuisanceParameter("pdf"+year, "lnN")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
     elif "postVFP" in hist_scaled_file:
