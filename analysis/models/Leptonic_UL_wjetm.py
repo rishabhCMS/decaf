@@ -347,7 +347,8 @@ def model(year):
     #L1 prefire
     L1prefireUp=template(background, 'W+jets', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'W+jets', 'L1PrefireDown', 'wjetm')[0]
-    wjetm_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjetm_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'W+jets', 'ISRUp', 'wjetm')[0] 
@@ -420,7 +421,8 @@ def model(year):
     #L1 prefire
     L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'wjetm')[0]
-    wjetm_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjetm_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #ISR
     ISRUp=template(background, 'TT', 'ISRUp', 'wjetm')[0] 
@@ -491,7 +493,8 @@ def model(year):
     #L1 prefire
     L1prefireUp=template(background, 'ST', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'ST', 'L1PrefireDown', 'wjetm')[0]
-    wjetm_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjetm_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'ST', 'ISRUp', 'wjetm')[0] 
