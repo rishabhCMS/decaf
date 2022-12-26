@@ -341,7 +341,8 @@ def model(year):
         #L1 prefire
     L1prefireUp=template(background, 'W+jets', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'W+jets', 'L1PrefireDown', 'wjete')[0]
-    wjete_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjete_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'W+jets', 'ISRUp', 'wjete')[0] 
@@ -411,7 +412,8 @@ def model(year):
     #L1 prefire
     L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'wjete')[0]
-    wjete_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjete_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #ISR
     ISRUp=template(background, 'TT', 'ISRUp', 'wjete')[0] 
@@ -480,7 +482,8 @@ def model(year):
     #L1 prefire
     L1prefireUp=template(background, 'ST', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'ST', 'L1PrefireDown', 'wjete')[0]
-    wjete_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjete_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'ST', 'ISRUp', 'wjete')[0] 
@@ -729,9 +732,10 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
+    
+    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
     if '2018' not in year:
-        pileup = rl.NuisanceParameter("pileup"+year, "lnN")
-    L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
+        L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
     fsr = rl.NuisanceParameter("fsr", "shape")
