@@ -550,7 +550,8 @@ def model(year):
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'wjete')[0] 
     L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'wjete')[0]
-    wjete_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjete_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'wjete')[0] 
