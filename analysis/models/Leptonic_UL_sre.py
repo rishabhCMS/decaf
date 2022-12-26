@@ -266,7 +266,8 @@ def model(year, signal_name):
     #L1 prefire
     L1prefireUp=template(signal, s, 'L1PrefireUp', 'sre')[0] 
     L1prefireDown=template(signal, s, 'L1PrefireDown', 'sre')[0]
-    sre_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        sre_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISRMphi-195_Mchi-100
     if ("Mphi-195_Mchi-100" not in signal_name) and "2016preVFP" not in year:
@@ -337,7 +338,8 @@ def model(year, signal_name):
         #L1 prefire
     L1prefireUp=template(background, 'W+jets', 'L1PrefireUp', 'sre')[0] 
     L1prefireDown=template(background, 'W+jets', 'L1PrefireDown', 'sre')[0]
-    sre_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        sre_wjetsMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'W+jets', 'ISRUp', 'sre')[0] 
@@ -404,7 +406,8 @@ def model(year, signal_name):
     #L1 prefire
     L1prefireUp=template(background, 'TT', 'L1PrefireUp', 'sre')[0] 
     L1prefireDown=template(background, 'TT', 'L1PrefireDown', 'sre')[0]
-    sre_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        sre_ttMC.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #ISR
     ISRUp=template(background, 'TT', 'ISRUp', 'sre')[0] 
@@ -471,7 +474,8 @@ def model(year, signal_name):
     #L1 prefire
     L1prefireUp=template(background, 'ST', 'L1PrefireUp', 'sre')[0] 
     L1prefireDown=template(background, 'ST', 'L1PrefireDown', 'sre')[0]
-    sre_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        sre_st.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'ST', 'ISRUp', 'sre')[0] 
@@ -536,7 +540,8 @@ def model(year, signal_name):
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'sre')[0] 
     L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'sre')[0]
-    sre_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        sre_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'sre')[0] 
@@ -600,7 +605,8 @@ def model(year, signal_name):
     #L1 prefire
     L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'sre')[0] 
     L1prefireDown=template(background, 'VV', 'L1PrefireDown', 'sre')[0]
-    sre_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        sre_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'sre')[0] 
