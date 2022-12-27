@@ -226,70 +226,70 @@ def model(year):
 
     #template for signal
     for s in signal['wjetm'].identifiers('process'):
-        print(s)
-        if 'Mphi-200' not in str(s): continue
-        wjetm_signalTemplate = template(signal,s,'nominal','wjetm')
-        wjetm_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjetm_signalTemplate)
-#         wjetm_signal.setParamEffect(lumi, lumi_unc)
-    #     sr_signal.setParamEffect(trig_met, 1.01)
-    #     sr_signal.setParamEffect(veto_tau, 1.03)
-    #     sr_signal.setParamEffect(jec, 1.05)
-        #btag
-        btagUp=template(signal, s,'btagUp','wjetm')[0]
-        btagDown=template(signal, s,'btagDown','wjetm')[0]
-#         wjetm_signal.setParamEffect(btag, btagUp, btagDown)
-    #         #trigger Electron
-        trigmUp=template(signal, s, 'trig_mUp', 'wjetm')[0] 
-        trigmDown=template(signal, s, 'trig_mDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(trig_m, trigmUp, trigmDown)
+#         print(s)
+#         if 'Mphi-200' not in str(s): continue
+#         wjetm_signalTemplate = template(signal,s,'nominal','wjetm')
+#         wjetm_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjetm_signalTemplate)
+# #         wjetm_signal.setParamEffect(lumi, lumi_unc)
+#     #     sr_signal.setParamEffect(trig_met, 1.01)
+#     #     sr_signal.setParamEffect(veto_tau, 1.03)
+#     #     sr_signal.setParamEffect(jec, 1.05)
+#         #btag
+#         btagUp=template(signal, s,'btagUp','wjetm')[0]
+#         btagDown=template(signal, s,'btagDown','wjetm')[0]
+# #         wjetm_signal.setParamEffect(btag, btagUp, btagDown)
+#     #         #trigger Electron
+#         trigmUp=template(signal, s, 'trig_mUp', 'wjetm')[0] 
+#         trigmDown=template(signal, s, 'trig_mDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(trig_m, trigmUp, trigmDown)
 
-        #pileup
-        pileupUp=template(signal, s,'puUp','wjetm')[0] 
-        pileupDown=template(signal, s,'puDown','wjetm')[0] 
-#         wjetm_signal.setParamEffect(pileup, pileupUp, pileupDown)
-        #iso Muon
-        isolation_mUp=template(signal, s, 'isolation_mUp', 'wjetm')[0] 
-        isolation_mDown=template(signal, s, 'isolation_mDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
-        #id Muon
-        id_mUp=template(signal, s, 'id_mUp', 'wjetm')[0] 
-        id_mDown=template(signal, s, 'id_mDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(id_m, id_mUp, id_mDown)        
-
-
-        #JEC_JER
-        jerUp=template(signal, s, 'JERUp', 'wjetm')[0] 
-        jerDown=template(signal, s, 'JERDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
-
-        #JEC_JEs
-        jesUp=template(signal, s, 'JESUp', 'wjetm')[0] 
-        jesDown=template(signal, s, 'JESDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         #pileup
+#         pileupUp=template(signal, s,'puUp','wjetm')[0] 
+#         pileupDown=template(signal, s,'puDown','wjetm')[0] 
+# #         wjetm_signal.setParamEffect(pileup, pileupUp, pileupDown)
+#         #iso Muon
+#         isolation_mUp=template(signal, s, 'isolation_mUp', 'wjetm')[0] 
+#         isolation_mDown=template(signal, s, 'isolation_mDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#         #id Muon
+#         id_mUp=template(signal, s, 'id_mUp', 'wjetm')[0] 
+#         id_mDown=template(signal, s, 'id_mDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(id_m, id_mUp, id_mDown)        
 
 
-        #L1 prefire
-        L1prefireUp=template(signal, s, 'L1PrefireUp', 'wjetm')[0] 
-        L1prefireDown=template(signal, s, 'L1PrefireDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#         #JEC_JER
+#         jerUp=template(signal, s, 'JERUp', 'wjetm')[0] 
+#         jerDown=template(signal, s, 'JERDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
-        #L1 ISR
-        ISRUp=template(signal, s, 'ISRUp', 'wjetm')[0] 
-        ISRDown=template(signal, s, 'ISRDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(isr, ISRUp, ISRDown)
+#         #JEC_JEs
+#         jesUp=template(signal, s, 'JESUp', 'wjetm')[0] 
+#         jesDown=template(signal, s, 'JESDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
-        #L1 FSR
-        FSRUp=template(signal, s, 'FSRUp', 'wjetm')[0] 
-        FSRDown=template(signal, s, 'FSRDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
-        #pdf 
-        pdfUp=template(signal, s, 'PDFUp', 'wjetm')[0] 
-        pdfDown=template(signal, s, 'PDFDown', 'wjetm')[0]
-#         wjetm_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+#         #L1 prefire
+#         L1prefireUp=template(signal, s, 'L1PrefireUp', 'wjetm')[0] 
+#         L1prefireDown=template(signal, s, 'L1PrefireDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
-    #         wjetm_signal.autoMCStats()
-        wjetm.addSample(wjetm_signal)
+#         #L1 ISR
+#         ISRUp=template(signal, s, 'ISRUp', 'wjetm')[0] 
+#         ISRDown=template(signal, s, 'ISRDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(isr, ISRUp, ISRDown)
+
+#         #L1 FSR
+#         FSRUp=template(signal, s, 'FSRUp', 'wjetm')[0] 
+#         FSRDown=template(signal, s, 'FSRDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(fsr, FSRUp, FSRDown)
+
+#         #pdf 
+#         pdfUp=template(signal, s, 'PDFUp', 'wjetm')[0] 
+#         pdfDown=template(signal, s, 'PDFDown', 'wjetm')[0]
+# #         wjetm_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+
+#     #         wjetm_signal.autoMCStats()
+#         wjetm.addSample(wjetm_signal)
     ###
     # W(->lnu)+jets data-driven model
     ###
