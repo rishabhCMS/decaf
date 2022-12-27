@@ -223,69 +223,69 @@ def model(year):
         wjete.setObservation(template(data, "SingleElectron", "data","wjete"))
         
     #template for signal
-    for s in signal['wjete'].identifiers('process'):
-        print(s)
-        if 'Mphi-2000_' not in str(s): continue
-        wjete_signalTemplate = template(signal,s,'nominal','wjete')
-        wjete_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjete_signalTemplate)
-#         wjete_signal.setParamEffect(lumi, lumi_unc)
-    #     sr_signal.setParamEffect(trig_met, 1.01)
-    #     sr_signal.setParamEffect(veto_tau, 1.03)
-    #     sr_signal.setParamEffect(jec, 1.05)
-        #btag
-        btagUp=template(signal, s,'btagUp','wjete')[0]
-        btagDown=template(signal, s,'btagDown','wjete')[0]
-#         wjete_signal.setParamEffect(btag, btagUp, btagDown)
-#         #trigger Electron
-        trigeUp=template(signal, s, 'trig_eUp', 'wjete')[0] 
-        trigeDown=template(signal, s, 'trig_eDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(trig_e, trigeUp, trigeDown)
-#         #id Electron
-        id_eUp=template(signal, s, 'id_eUp', 'wjete')[0] 
-        id_eDown=template(signal, s, 'id_eDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(id_e, id_eUp, id_eDown)
-        #pileup
-        pileupUp=template(signal, s,'puUp','wjete')[0] 
-        pileupDown=template(signal, s,'puDown','wjete')[0] 
-#         wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
+#     for s in signal['wjete'].identifiers('process'):
+#         print(s)
+#         if 'Mphi-2000_' not in str(s): continue
+#         wjete_signalTemplate = template(signal,s,'nominal','wjete')
+#         wjete_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, wjete_signalTemplate)
+# #         wjete_signal.setParamEffect(lumi, lumi_unc)
+#     #     sr_signal.setParamEffect(trig_met, 1.01)
+#     #     sr_signal.setParamEffect(veto_tau, 1.03)
+#     #     sr_signal.setParamEffect(jec, 1.05)
+#         #btag
+#         btagUp=template(signal, s,'btagUp','wjete')[0]
+#         btagDown=template(signal, s,'btagDown','wjete')[0]
+# #         wjete_signal.setParamEffect(btag, btagUp, btagDown)
+# #         #trigger Electron
+#         trigeUp=template(signal, s, 'trig_eUp', 'wjete')[0] 
+#         trigeDown=template(signal, s, 'trig_eDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(trig_e, trigeUp, trigeDown)
+# #         #id Electron
+#         id_eUp=template(signal, s, 'id_eUp', 'wjete')[0] 
+#         id_eDown=template(signal, s, 'id_eDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(id_e, id_eUp, id_eDown)
+#         #pileup
+#         pileupUp=template(signal, s,'puUp','wjete')[0] 
+#         pileupDown=template(signal, s,'puDown','wjete')[0] 
+# #         wjete_signal.setParamEffect(pileup, pileupUp, pileupDown)
         
-        #reco Electron
-        recoeUp=template(signal, s, 'reco_eUp', 'wjete')[0] 
-        recoDown=template(signal, s, 'reco_eDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(reco_e, recoeUp, recoDown)
+#         #reco Electron
+#         recoeUp=template(signal, s, 'reco_eUp', 'wjete')[0] 
+#         recoDown=template(signal, s, 'reco_eDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(reco_e, recoeUp, recoDown)
         
-        #JEC_JER
-        jerUp=template(signal, s, 'JERUp', 'wjete')[0] 
-        jerDown=template(signal, s, 'JERDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         #JEC_JER
+#         jerUp=template(signal, s, 'JERUp', 'wjete')[0] 
+#         jerDown=template(signal, s, 'JERDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
-        #JEC_JEs
-        jesUp=template(signal, s, 'JESUp', 'wjete')[0] 
-        jesDown=template(signal, s, 'JESDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         #JEC_JEs
+#         jesUp=template(signal, s, 'JESUp', 'wjete')[0] 
+#         jesDown=template(signal, s, 'JESDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
-        #L1 prefire
-        L1prefireUp=template(signal, s, 'L1PrefireUp', 'wjete')[0] 
-        L1prefireDown=template(signal, s, 'L1PrefireDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#         #L1 prefire
+#         L1prefireUp=template(signal, s, 'L1PrefireUp', 'wjete')[0] 
+#         L1prefireDown=template(signal, s, 'L1PrefireDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
-        #L1 ISR
-        ISRUp=template(signal, s, 'ISRUp', 'wjete')[0] 
-        ISRDown=template(signal, s, 'ISRDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(isr, ISRUp, ISRDown)
+#         #L1 ISR
+#         ISRUp=template(signal, s, 'ISRUp', 'wjete')[0] 
+#         ISRDown=template(signal, s, 'ISRDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(isr, ISRUp, ISRDown)
 
-        #L1 FSR
-        FSRUp=template(signal, s, 'FSRUp', 'wjete')[0] 
-        FSRDown=template(signal, s, 'FSRDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         #L1 FSR
+#         FSRUp=template(signal, s, 'FSRUp', 'wjete')[0] 
+#         FSRDown=template(signal, s, 'FSRDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(fsr, FSRUp, FSRDown)
         
-        #pdf 
-        pdfUp=template(signal, s, 'PDFUp', 'wjete')[0] 
-        pdfDown=template(signal, s, 'PDFDown', 'wjete')[0]
-#         wjete_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+#         #pdf 
+#         pdfUp=template(signal, s, 'PDFUp', 'wjete')[0] 
+#         pdfDown=template(signal, s, 'PDFDown', 'wjete')[0]
+# #         wjete_signal.setParamEffect(pdf, pdfUp, pdfDown) 
         
-#         wjete_signal.autoMCStats()
-        wjete.addSample(wjete_signal)
+# #         wjete_signal.autoMCStats()
+#         wjete.addSample(wjete_signal)
     ###
     # W(->lnu)+jets data-driven model
     ###
