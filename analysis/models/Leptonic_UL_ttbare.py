@@ -222,69 +222,69 @@ def model(year):
         ttbare.setObservation(template(data, "SingleElectron", "data","ttbare"))
         
     #template for signal
-    for s in signal['ttbare'].identifiers('process'):
-        print(s)
-        if 'Mphi-200' not in str(s): continue
-        ttbare_signalTemplate = template(signal,s,'nominal','ttbare')
-        ttbare_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, ttbare_signalTemplate)
-#         ttbare_signal.setParamEffect(lumi, lumi_unc)
-    #     sr_signal.setParamEffect(trig_met, 1.01)
-    #     sr_signal.setParamEffect(veto_tau, 1.03)
-    #     sr_signal.setParamEffect(jec, 1.05)
-        #btag
-        btagUp=template(signal, s,'btagUp','ttbare')[0]
-        btagDown=template(signal, s,'btagDown','ttbare')[0]
-#         ttbare_signal.setParamEffect(btag, btagUp, btagDown)
-    #         #trigger Electron
-        trigeUp=template(signal, s, 'trig_eUp', 'ttbare')[0] 
-        trigeDown=template(signal, s, 'trig_eDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(trig_e, trigeUp, trigeDown)
-    #         #id Electron
-        id_eUp=template(signal, s, 'id_eUp', 'ttbare')[0] 
-        id_eDown=template(signal, s, 'id_eDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(id_e, id_eUp, id_eDown)
-    #pileup
-        pileupUp=template(signal, s,'puUp','ttbare')[0] 
-        pileupDown=template(signal, s,'puDown','ttbare')[0] 
-#         ttbare_signal.setParamEffect(pileup, pileupUp, pileupDown)
+#     for s in signal['ttbare'].identifiers('process'):
+#         print(s)
+#         if 'Mphi-200' not in str(s): continue
+#         ttbare_signalTemplate = template(signal,s,'nominal','ttbare')
+#         ttbare_signal=rl.TemplateSample(ch_name+'_'+str(s), rl.Sample.SIGNAL, ttbare_signalTemplate)
+# #         ttbare_signal.setParamEffect(lumi, lumi_unc)
+#     #     sr_signal.setParamEffect(trig_met, 1.01)
+#     #     sr_signal.setParamEffect(veto_tau, 1.03)
+#     #     sr_signal.setParamEffect(jec, 1.05)
+#         #btag
+#         btagUp=template(signal, s,'btagUp','ttbare')[0]
+#         btagDown=template(signal, s,'btagDown','ttbare')[0]
+# #         ttbare_signal.setParamEffect(btag, btagUp, btagDown)
+#     #         #trigger Electron
+#         trigeUp=template(signal, s, 'trig_eUp', 'ttbare')[0] 
+#         trigeDown=template(signal, s, 'trig_eDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(trig_e, trigeUp, trigeDown)
+#     #         #id Electron
+#         id_eUp=template(signal, s, 'id_eUp', 'ttbare')[0] 
+#         id_eDown=template(signal, s, 'id_eDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(id_e, id_eUp, id_eDown)
+#     #pileup
+#         pileupUp=template(signal, s,'puUp','ttbare')[0] 
+#         pileupDown=template(signal, s,'puDown','ttbare')[0] 
+# #         ttbare_signal.setParamEffect(pileup, pileupUp, pileupDown)
 
-        #reco Electron
-        recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
-        recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(reco_e, recoeUp, recoDown)
+#         #reco Electron
+#         recoeUp=template(signal, s, 'reco_eUp', 'ttbare')[0] 
+#         recoDown=template(signal, s, 'reco_eDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(reco_e, recoeUp, recoDown)
 
-        #JEC_JER
-        jerUp=template(signal, s, 'JERUp', 'ttbare')[0] 
-        jerDown=template(signal, s, 'JERDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(jec_jer, jerUp, jerDown)
+#         #JEC_JER
+#         jerUp=template(signal, s, 'JERUp', 'ttbare')[0] 
+#         jerDown=template(signal, s, 'JERDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(jec_jer, jerUp, jerDown)
 
-        #JEC_JEs
-        jesUp=template(signal, s, 'JESUp', 'ttbare')[0] 
-        jesDown=template(signal, s, 'JESDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(jec_jes, jesUp, jesDown)
+#         #JEC_JEs
+#         jesUp=template(signal, s, 'JESUp', 'ttbare')[0] 
+#         jesDown=template(signal, s, 'JESDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(jec_jes, jesUp, jesDown)
 
-        #L1 prefire
-        L1prefireUp=template(signal, s, 'L1PrefireUp', 'ttbare')[0] 
-        L1prefireDown=template(signal, s, 'L1PrefireDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#         #L1 prefire
+#         L1prefireUp=template(signal, s, 'L1PrefireUp', 'ttbare')[0] 
+#         L1prefireDown=template(signal, s, 'L1PrefireDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
-        #L1 ISR
-        ISRUp=template(signal, s, 'ISRUp', 'ttbare')[0] 
-        ISRDown=template(signal, s, 'ISRDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(isr, ISRUp, ISRDown)
+#         #L1 ISR
+#         ISRUp=template(signal, s, 'ISRUp', 'ttbare')[0] 
+#         ISRDown=template(signal, s, 'ISRDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(isr, ISRUp, ISRDown)
 
-        #L1 FSR
-        FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
-        FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
+#         #L1 FSR
+#         FSRUp=template(signal, s, 'FSRUp', 'ttbare')[0] 
+#         FSRDown=template(signal, s, 'FSRDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(fsr, FSRUp, FSRDown)
 
-        #pdf 
-        pdfUp=template(signal, s, 'PDFUp', 'ttbare')[0] 
-        pdfDown=template(signal, s, 'PDFDown', 'ttbare')[0]
-#         ttbare_signal.setParamEffect(pdf, pdfUp, pdfDown) 
+#         #pdf 
+#         pdfUp=template(signal, s, 'PDFUp', 'ttbare')[0] 
+#         pdfDown=template(signal, s, 'PDFDown', 'ttbare')[0]
+# #         ttbare_signal.setParamEffect(pdf, pdfUp, pdfDown) 
 
-    #         ttbare_signal.autoMCStats()
-        ttbare.addSample(ttbare_signal)
+#     #         ttbare_signal.autoMCStats()
+#         ttbare.addSample(ttbare_signal)
     ###
     # W(->lnu)+jets data-driven model
     ###
