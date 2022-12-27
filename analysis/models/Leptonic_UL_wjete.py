@@ -377,7 +377,7 @@ def model(year):
     #     wjete_ttMC.setParamEffect(id_e, 1.02)
     #     wjete_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "wjete", wjete_ttMC)
-#     wjete_ttMC.autoMCStats(epsilon=1e-5)
+    wjete_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'wjete')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'wjete')[0]
@@ -739,7 +739,7 @@ if __name__ == "__main__":
         L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
