@@ -380,7 +380,7 @@ def model(year, signal_name):
     #     srm_ttMC.setParamEffect(id_m, 1.02)
     #     srm_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "srm", srm_ttMC)
-#     srm_ttMC.autoMCStats(epsilon=1e-5)
+    srm_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'TT', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'TT', 'trig_mDown', 'srm')[0]
@@ -740,7 +740,7 @@ if __name__ == "__main__":
         L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
