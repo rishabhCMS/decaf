@@ -374,7 +374,7 @@ def model(year, signal_name):
     #     sre_ttMC.setParamEffect(id_e, 1.02)
     #     sre_ttMC.setParamEffect(reco_e, 1.02)
     addBtagSyst(background, "TT", "sre", sre_ttMC)
-#     sre_ttMC.autoMCStats(epsilon=1e-5)
+    sre_ttMC.autoMCStats(epsilon=1e-5)
     #trigger Electron
     trigeUp=template(background, 'TT', 'trig_eUp', 'sre')[0] 
     trigeDown=template(background, 'TT', 'trig_eDown', 'sre')[0]
@@ -729,7 +729,7 @@ if __name__ == "__main__":
         L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
