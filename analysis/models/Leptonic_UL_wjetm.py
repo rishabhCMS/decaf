@@ -573,7 +573,7 @@ def model(year):
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'wjetm')[0]
-#     wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+    wjetm_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'wjetm')[0] 
@@ -600,19 +600,19 @@ def model(year):
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'wjetm')[0] 
     trigmDown=template(background, 'VV', 'trig_mDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
+    wjetm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'VV', 'isolation_mUp', 'wjetm')[0] 
     isolation_mDown=template(background, 'VV', 'isolation_mDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+    wjetm_vv.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'wjetm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
+    wjetm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','wjetm')[0] 
     pileupDown=template(background, 'VV','puDown','wjetm')[0] 
-#     wjetm_vv.setParamEffect(pileup, pileupUp, pileupDown)
+    wjetm_vv.setParamEffect(pileup, pileupUp, pileupDown)
     print("#### VV ###")
     print('pu_up ', pileupUp)
     print('pu_do ', pileupDown)
@@ -620,34 +620,35 @@ def model(year):
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'wjetm')[0] 
     jerDown=template(background, 'VV', 'JERDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(jec_jer, jerUp, jerDown)
+    wjetm_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'wjetm')[0] 
     jesDown=template(background, 'VV', 'JESDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(jec_jes, jesUp, jesDown)
+    wjetm_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
 
 
     #L1 prefire
     L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'wjetm')[0] 
     L1prefireDown=template(background, 'VV', 'L1PrefireDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+    if '2018' not in year:
+        wjetm_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'wjetm')[0] 
     ISRDown=template(background, 'VV', 'ISRDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(isr, ISRUp, ISRDown)
+    wjetm_vv.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'wjetm')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(fsr, FSRUp, FSRDown)
+    wjetm_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'wjetm')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'wjetm')[0]
-#     wjetm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+    wjetm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     wjetm.addSample(wjetm_vv)
 
@@ -750,10 +751,10 @@ if __name__ == "__main__":
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
     pileup = rl.NuisanceParameter("pileup"+year, "lnN")
     if '2018' not in year:
-        L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
+        L1prefire = rl.NuisanceParameter("L1prefire", "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "shape")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
