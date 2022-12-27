@@ -225,7 +225,7 @@ def model(year):
         wjetm.setObservation(template(data, "SingleMuon", "data","wjetm"))
 
     #template for signal
-    for s in signal['wjetm'].identifiers('process'):
+#     for s in signal['wjetm'].identifiers('process'):
 #         print(s)
 #         if 'Mphi-200' not in str(s): continue
 #         wjetm_signalTemplate = template(signal,s,'nominal','wjetm')
