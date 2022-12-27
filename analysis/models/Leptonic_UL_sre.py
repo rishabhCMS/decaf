@@ -726,10 +726,10 @@ if __name__ == "__main__":
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
     pileup = rl.NuisanceParameter("pileup"+year, "lnN")
     if '2018' not in year:
-        L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
+        L1prefire = rl.NuisanceParameter("L1prefire", "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "lnN")
+    fsr = rl.NuisanceParameter("fsr", "shape")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
