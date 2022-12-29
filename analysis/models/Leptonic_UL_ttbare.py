@@ -18,22 +18,22 @@ rl.util.install_roofit_helpers()
 rl.ParametericSample.PreferRooParametricHist = False
 
 #binning for new scaled files
-# mT_corrected_binning_dict = {
-#     "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-#     "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-#     "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-# }
+mT_corrected_binning_dict = {
+    "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+    "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+    "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+}
 
 #binning for old scaled files
-mT_corrected_binning_dict = {
-    "2018":np.array([150., 180., 200.,  270., 350.,
-        500.]),
-    "2017":np.array([150., 180., 200.,  270., 350.,
-        500.]),
-    "2016":np.array([150., 180., 200.,  270., 350.,
-        500.])
+# mT_corrected_binning_dict = {
+#     "2018":np.array([150., 180., 200.,  270., 350.,
+#         500.]),
+#     "2017":np.array([150., 180., 200.,  270., 350.,
+#         500.]),
+#     "2016":np.array([150., 180., 200.,  270., 350.,
+#         500.])
 
-}
+# }
 
 
 
@@ -507,7 +507,7 @@ def model(year):
     ttbare_dyjets = rl.TemplateSample(
         ch_name + "_dyjetsMC", rl.Sample.BACKGROUND, ttbare_dyjetsTemplate
     )
-    ttbare_dyjets.setParamEffect(lumi, lumi_unc)
+#     ttbare_dyjets.setParamEffect(lumi, lumi_unc)
     #     ttbare_dyjets.setParamEffect(trig_e, 1.01)
     #     ttbare_dyjets.setParamEffect(veto_tau, 1.03)
     #     ttbare_dyjets.setParamEffect(zjetsMC_norm, 1.4)
@@ -519,51 +519,51 @@ def model(year):
     #trigger Electron
     trigeUp=template(background, 'DY+jets', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'DY+jets', 'trig_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
+#     ttbare_dyjets.setParamEffect(trig_e, trigeUp, trigeDown)
     #id Electron
     id_eUp=template(background, "DY+jets", 'id_eUp', 'ttbare')[0] 
     id_eDown=template(background, "DY+jets", 'id_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
+#     ttbare_dyjets.setParamEffect(id_e, id_eUp, id_eDown)
         #pileup
     pileupUp=template(background, 'DY+jets','puUp','ttbare')[0] 
     pileupDown=template(background, 'DY+jets','puDown','ttbare')[0] 
-    ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbare_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
     #reco Electron
     recoeUp=template(background, 'DY+jets', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'DY+jets', 'reco_eDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
+#     ttbare_dyjets.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
     jerUp=template(background, 'DY+jets', 'JERUp', 'ttbare')[0] 
     jerDown=template(background, 'DY+jets', 'JERDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+#     ttbare_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'ttbare')[0] 
     jesDown=template(background, 'DY+jets', 'JESDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     ttbare_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
 
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'ttbare')[0] 
     L1prefireDown=template(background, 'DY+jets', 'L1PrefireDown', 'ttbare')[0]
-    if '2018' not in year:
-        ttbare_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     if '2018' not in year:
+#         ttbare_dyjets.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'ttbare')[0] 
     ISRDown=template(background, 'DY+jets', 'ISRDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbare_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'DY+jets', 'FSRDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_dyjets.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'ttbare')[0]
-    ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbare_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbare.addSample(ttbare_dyjets)
 
@@ -573,7 +573,7 @@ def model(year):
     ttbare_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, ttbare_vvTemplate
     )
-    ttbare_vv.setParamEffect(lumi, lumi_unc)
+#     ttbare_vv.setParamEffect(lumi, lumi_unc)
     #     ttbare_vv.setParamEffect(trig_e, 1.01)
     #     ttbare_vv.setParamEffect(veto_tau, 1.03)
     #     ttbare_vv.setParamEffect(vv_norm, 1.2)
@@ -585,50 +585,50 @@ def model(year):
     #     #trigger Electron
     trigeUp=template(background, 'VV', 'trig_eUp', 'ttbare')[0] 
     trigeDown=template(background, 'VV', 'trig_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(trig_e, trigeUp, trigeDown)
+#     ttbare_vv.setParamEffect(trig_e, trigeUp, trigeDown)
     #     #id Electron
     id_eUp=template(background, "VV", 'id_eUp', 'ttbare')[0] 
     id_eDown=template(background, "VV", 'id_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(id_e, id_eUp, id_eDown)
+#     ttbare_vv.setParamEffect(id_e, id_eUp, id_eDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','ttbare')[0] 
     pileupDown=template(background, 'VV','puDown','ttbare')[0] 
-    ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     ttbare_vv.setParamEffect(pileup, pileupUp, pileupDown)
         #reco Electron
     recoeUp=template(background, 'VV', 'reco_eUp', 'ttbare')[0] 
     recoDown=template(background, 'VV', 'reco_eDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(reco_e, recoeUp, recoDown)
+#     ttbare_vv.setParamEffect(reco_e, recoeUp, recoDown)
 
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'ttbare')[0] 
     jerDown=template(background, 'VV', 'JERDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     ttbare_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'ttbare')[0] 
     jesDown=template(background, 'VV', 'JESDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(jec_jes, jesUp, jesDown)
+#     ttbare_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
     #L1 prefire
     L1prefireUp=template(background, 'VV', 'L1PrefireUp', 'ttbare')[0] 
     L1prefireDown=template(background, 'VV', 'L1PrefireDown', 'ttbare')[0]
-    if '2018' not in year:
-        ttbare_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
+#     if '2018' not in year:
+#         ttbare_vv.setParamEffect(L1prefire, L1prefireUp, L1prefireDown)
 
         #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'ttbare')[0] 
     ISRDown=template(background, 'VV', 'ISRDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(isr, ISRUp, ISRDown)
+#     ttbare_vv.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'ttbare')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
+#     ttbare_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'ttbare')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'ttbare')[0]
-    ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+#     ttbare_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     ttbare.addSample(ttbare_vv)
     
@@ -647,22 +647,22 @@ if __name__ == "__main__":
     hist_scaled_file = options.file
     
     #binning for new scaled files
-#     mT_corrected_binning_dict = {
-#         "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-#         "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-#         "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
-#     }
+    mT_corrected_binning_dict = {
+        "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+        "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+        "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+    }
 
     #binning for old scaled files
-    mT_corrected_binning_dict = {
-        "2018":np.array([150., 180., 200.,  270., 350.,
-            500.]),
-        "2017":np.array([150., 180., 200.,  270., 350.,
-            500.]),
-        "2016":np.array([150., 180., 200.,  270., 350.,
-            500.])
+#     mT_corrected_binning_dict = {
+#         "2018":np.array([150., 180., 200.,  270., 350.,
+#             500.]),
+#         "2017":np.array([150., 180., 200.,  270., 350.,
+#             500.]),
+#         "2016":np.array([150., 180., 200.,  270., 350.,
+#             500.])
 
-    }
+#     }
     mT_corrected_binning = mT_corrected_binning_dict[year]
     mT_correctedbins = np.array(mT_corrected_binning)
     nmT_corrected = len(mT_correctedbins) - 1
@@ -731,12 +731,12 @@ if __name__ == "__main__":
     whf_fraction = rl.NuisanceParameter("whf_fraction", "lnN")
     zhf_fraction = rl.NuisanceParameter("zhf_fraction", "lnN")
     #ghf_fraction = rl.NuisanceParameter("ghf_fraction", "shapeN")
-    pileup = rl.NuisanceParameter("pileup"+year, "lnN")
+    pileup = rl.NuisanceParameter("pileup"+year, "shape")
     if '2018' not in year:
-        L1prefire = rl.NuisanceParameter("L1prefire", "lnN")
+        L1prefire = rl.NuisanceParameter("L1prefire", "shape")
     metUncl = rl.NuisanceParameter("metUncl"+year, "shape")
     isr = rl.NuisanceParameter("isr", "shape")
-    fsr = rl.NuisanceParameter("fsr", "shape")
+    fsr = rl.NuisanceParameter("fsr", "lnN")
     pdf = rl.NuisanceParameter("pdf", "shape")
     if "preVFP" in hist_scaled_file:
         year = year+"preVFP"
