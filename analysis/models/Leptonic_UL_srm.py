@@ -515,36 +515,36 @@ def model(year, signal_name):
     #     srm_dyjets.setParamEffect(jec, 1.05)
     #     srm_dyjets.setParamEffect(id_m, 1.02)
     #     srm_dyjets.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "DY+jets", "srm", srm_dyjets)
-    addVJetsSyst(background,"DY+jets", "srm", srm_dyjets)
+#     addBtagSyst(background, "DY+jets", "srm", srm_dyjets)
+#     addVJetsSyst(background,"DY+jets", "srm", srm_dyjets)
 #     srm_dyjets.autoMCStats(epsilon=1e-5)
     #trigger Muon
     trigmUp=template(background, 'DY+jets', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'DY+jets', 'trig_mDown', 'srm')[0]
-    srm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
+#     srm_dyjets.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'DY+jets', 'isolation_mUp', 'srm')[0] 
     isolation_mDown=template(background, 'DY+jets', 'isolation_mDown', 'srm')[0]
-    srm_dyjets.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#     srm_dyjets.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "DY+jets", 'id_mUp', 'srm')[0] 
     id_mDown=template(background, "DY+jets", 'id_mDown', 'srm')[0]
-    srm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
+#     srm_dyjets.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'DY+jets','puUp','srm')[0] 
     pileupDown=template(background, 'DY+jets','puDown','srm')[0] 
-    srm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
+#     srm_dyjets.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
     jerUp=template(background, 'DY+jets', 'JERUp', 'srm')[0] 
     jerDown=template(background, 'DY+jets', 'JERDown', 'srm')[0]
-    srm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
+#     srm_dyjets.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'DY+jets', 'JESUp', 'srm')[0] 
     jesDown=template(background, 'DY+jets', 'JESDown', 'srm')[0]
-    srm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
+#     srm_dyjets.setParamEffect(jec_jes, jesUp, jesDown)
 
     #L1 prefire
     L1prefireUp=template(background, 'DY+jets', 'L1PrefireUp', 'srm')[0] 
@@ -555,7 +555,7 @@ def model(year, signal_name):
     #L1 ISR
     ISRUp=template(background, 'DY+jets', 'ISRUp', 'srm')[0] 
     ISRDown=template(background, 'DY+jets', 'ISRDown', 'srm')[0]
-    srm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
+#     srm_dyjets.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'DY+jets', 'FSRUp', 'srm')[0] 
@@ -565,7 +565,7 @@ def model(year, signal_name):
     #pdf 
     pdfUp=template(background, 'DY+jets', 'PDFUp', 'srm')[0] 
     pdfDown=template(background, 'DY+jets', 'PDFDown', 'srm')[0]
-    srm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
+#     srm_dyjets.setParamEffect(pdf, pdfUp, pdfDown) 
 
     srm.addSample(srm_dyjets)
 
@@ -575,7 +575,7 @@ def model(year, signal_name):
     srm_vv = rl.TemplateSample(
         ch_name + "_vvMC", rl.Sample.BACKGROUND, srm_vvTemplate
     )
-    srm_vv.setParamEffect(lumi, lumi_unc)
+#     srm_vv.setParamEffect(lumi, lumi_unc)
     #     srm_vv.setParamEffect(trig_m, 1.01)
     #     srm_vv.setParamEffect(veto_tau, 1.03)
     #     srm_vv.setParamEffect(vv_norm, 1.2)
@@ -587,25 +587,25 @@ def model(year, signal_name):
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'srm')[0] 
     trigmDown=template(background, 'VV', 'trig_mDown', 'srm')[0]
-    srm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
+#     srm_vv.setParamEffect(trig_m, trigmUp, trigmDown)
     #iso Muon
     isolation_mUp=template(background, 'VV', 'isolation_mUp', 'srm')[0] 
     isolation_mDown=template(background, 'VV', 'isolation_mDown', 'srm')[0]
-    srm_vv.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
+#     srm_vv.setParamEffect(iso_mu, isolation_mUp, isolation_mDown)
     #id Muon
     id_mUp=template(background, "VV", 'id_mUp', 'srm')[0] 
     id_mDown=template(background, "VV", 'id_mDown', 'srm')[0]
-    srm_vv.setParamEffect(id_m, id_mUp, id_mDown)
+#     srm_vv.setParamEffect(id_m, id_mUp, id_mDown)
     #pileup
     pileupUp=template(background, 'VV','puUp','srm')[0] 
     pileupDown=template(background, 'VV','puDown','srm')[0] 
-    srm_vv.setParamEffect(pileup, pileupUp, pileupDown)
+#     srm_vv.setParamEffect(pileup, pileupUp, pileupDown)
 
 
     #JEC_JER
     jerUp=template(background, 'VV', 'JERUp', 'srm')[0] 
     jerDown=template(background, 'VV', 'JERDown', 'srm')[0]
-    srm_vv.setParamEffect(jec_jer, jerUp, jerDown)
+#     srm_vv.setParamEffect(jec_jer, jerUp, jerDown)
 
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'srm')[0] 
@@ -623,17 +623,17 @@ def model(year, signal_name):
     #L1 ISR
     ISRUp=template(background, 'VV', 'ISRUp', 'srm')[0] 
     ISRDown=template(background, 'VV', 'ISRDown', 'srm')[0]
-    srm_vv.setParamEffect(isr, ISRUp, ISRDown)
+#     srm_vv.setParamEffect(isr, ISRUp, ISRDown)
 
     #L1 FSR
     FSRUp=template(background, 'VV', 'FSRUp', 'srm')[0] 
     FSRDown=template(background, 'VV', 'FSRDown', 'srm')[0]
-    srm_vv.setParamEffect(fsr, FSRUp, FSRDown)
+#     srm_vv.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'VV', 'PDFUp', 'srm')[0] 
     pdfDown=template(background, 'VV', 'PDFDown', 'srm')[0]
-    srm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
+#     srm_vv.setParamEffect(pdf, pdfUp, pdfDown) 
 
     srm.addSample(srm_vv)
 
