@@ -658,12 +658,19 @@ if __name__ == "__main__":
     year = options.year
     hist_scaled_file = options.file
     
-    #binning for new scaled files
-    mT_corrected_binning_dict = {
-        "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
-        "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
-        "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+    if "2016" in year:
+        mT_corrected_binning_dict = {
+        "2018": np.array([150.0,  180.0, 210.0, 240.,  270.0, 300., 330.,  510.]),
+        "2017": np.array([150.0,  180.0, 210.0, 240.,  270.0, 300., 330.,  510.]),
+        "2016": np.array([150.0,  180.0, 210.0, 240.,  270.0, 300., 330.,  510.])
     }
+# for new scaled files
+    else:
+        mT_corrected_binning_dict = {
+            "2018": np.array([150.0,  180.0, 210.0, 270.0,  390., 510]),
+            "2017": np.array([150.0,  180.0, 210.0,  270.0,  390., 510]),
+            "2016": np.array([150.0,  180.0, 210.0,  270.0,  390.,510])
+        }
 
     #binning for old scaled files
 #     mT_corrected_binning_dict = {
