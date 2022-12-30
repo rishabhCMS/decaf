@@ -309,7 +309,7 @@ def model(year, signal_name):
     #     srm_wjetsMC.setParamEffect(id_m, 1.02)
     #     srm_wjetsMC.setParamEffect(reco_e, 1.02)
     srm_wjetsMC.autoMCStats(epsilon=1e-5)
-    addBtagSyst(background, "W+jets", "srm", srm_wjetsMC)
+#     addBtagSyst(background, "W+jets", "srm", srm_wjetsMC)
     addVJetsSyst(background, "W+jets", "srm", srm_wjetsMC)
     #trigger Muon
     trigmUp=template(background, 'W+jets', 'trig_mUp', 'srm')[0] 
@@ -355,7 +355,7 @@ def model(year, signal_name):
     #L1 FSR
     FSRUp=template(background, 'W+jets', 'FSRUp', 'srm')[0] 
     FSRDown=template(background, 'W+jets', 'FSRDown', 'srm')[0]
-    srm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
+#     srm_wjetsMC.setParamEffect(fsr, FSRUp, FSRDown)
 
     #pdf 
     pdfUp=template(background, 'W+jets', 'PDFUp', 'srm')[0] 
@@ -582,7 +582,7 @@ def model(year, signal_name):
     #     srm_vv.setParamEffect(jec, 1.05)
     #     srm_vv.setParamEffect(id_m, 1.02)
     #     srm_vv.setParamEffect(reco_e, 1.02)
-    addBtagSyst(background, "VV", "srm", srm_vv)
+#     addBtagSyst(background, "VV", "srm", srm_vv)
 #     srm_vv.autoMCStats(epsilon=1e-5)
     #     #trigger Electron
     trigmUp=template(background, 'VV', 'trig_mUp', 'srm')[0] 
@@ -610,7 +610,7 @@ def model(year, signal_name):
     #JEC_JEs
     jesUp=template(background, 'VV', 'JESUp', 'srm')[0] 
     jesDown=template(background, 'VV', 'JESDown', 'srm')[0]
-    srm_vv.setParamEffect(jec_jes, jesUp, jesDown)
+#     srm_vv.setParamEffect(jec_jes, jesUp, jesDown)
 
 
 
